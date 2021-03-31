@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Graphik-Light.ttf">
+            <string>Graphik-Light</string>
+        </array>
+        <array key="Graphik-Medium.ttf">
+            <string>Graphik-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Tutorial2" customModule="Mad" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <viewController id="HnV-YJ-ZHb" customClass="Tutorial2" customModule="Mad" customModuleProvider="target">
+            <view key="view" contentMode="scaleToFill" id="8Ox-17-col">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Component 4 – 1" translatesAutoresizingMaskIntoConstraints="NO" id="8Ca-2H-a3g">
+                        <rect key="frame" x="73" y="151" width="268" height="245.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="268" id="pxh-jF-9U2"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SHOP &amp; ACQUIRE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qhz-B0-3g4">
+                        <rect key="frame" x="105" y="428.5" width="204" height="24"/>
+                        <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="24"/>
+                        <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="artist creations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="deF-9T-yZB">
+                        <rect key="frame" x="140.5" y="460.5" width="133.5" height="20"/>
+                        <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="20"/>
+                        <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="GlL-vw-uoM">
+                        <rect key="frame" x="107" y="544.5" width="200" height="6"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VpR-hx-Be4" customClass="CustomView" customModule="Mad" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="6"/>
+                                <color key="backgroundColor" red="0.92156862745098034" green="0.92941176470588238" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D7w-oL-5hi">
+                                <rect key="frame" x="50" y="0.0" width="50" height="6"/>
+                                <color key="backgroundColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="snF-Be-BDb">
+                                <rect key="frame" x="100" y="0.0" width="50" height="6"/>
+                                <color key="backgroundColor" red="0.92156862750000001" green="0.92941176469999998" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aak-LB-kNl">
+                                <rect key="frame" x="150" y="0.0" width="50" height="6"/>
+                                <color key="backgroundColor" red="0.92156862750000001" green="0.92941176469999998" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="6" id="KeI-lB-X9o"/>
+                            <constraint firstAttribute="width" constant="200" id="nJK-8q-jEk"/>
+                        </constraints>
+                    </stackView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fzU-g1-4J5" customClass="CustomButtons" customModule="Mad" customModuleProvider="target">
+                        <rect key="frame" x="143" y="650.5" width="128" height="54"/>
+                        <color key="backgroundColor" red="0.8980392157" green="0.12549019610000001" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="128" id="jMw-tS-ddL"/>
+                            <constraint firstAttribute="height" constant="54" id="tjn-Tj-4ue"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
+                        <inset key="imageEdgeInsets" minX="-16" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <state key="normal" title="Next" image="Group 58">
+                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="28"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="nextButtonWithSender:" destination="HnV-YJ-ZHb" eventType="touchUpInside" id="Inv-PV-cfH"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <viewLayoutGuide key="safeArea" id="7CI-tl-WXc"/>
+                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                <constraints>
+                    <constraint firstItem="8Ca-2H-a3g" firstAttribute="centerX" secondItem="8Ox-17-col" secondAttribute="centerX" id="7bk-QD-oqF"/>
+                    <constraint firstItem="8Ca-2H-a3g" firstAttribute="top" secondItem="7CI-tl-WXc" secondAttribute="top" constant="107" id="87G-4X-y86"/>
+                    <constraint firstItem="GlL-vw-uoM" firstAttribute="top" secondItem="deF-9T-yZB" secondAttribute="bottom" constant="64" id="CHK-WA-GGV"/>
+                    <constraint firstItem="deF-9T-yZB" firstAttribute="top" secondItem="qhz-B0-3g4" secondAttribute="bottom" constant="8" id="DBl-ER-aGr"/>
+                    <constraint firstItem="fzU-g1-4J5" firstAttribute="top" secondItem="GlL-vw-uoM" secondAttribute="bottom" constant="100" id="U40-nk-9la"/>
+                    <constraint firstItem="fzU-g1-4J5" firstAttribute="centerX" secondItem="8Ox-17-col" secondAttribute="centerX" id="ZOY-JO-UnX"/>
+                    <constraint firstItem="qhz-B0-3g4" firstAttribute="top" secondItem="8Ca-2H-a3g" secondAttribute="bottom" constant="32" id="gMl-CM-qor"/>
+                    <constraint firstItem="8Ca-2H-a3g" firstAttribute="height" secondItem="7CI-tl-WXc" secondAttribute="height" multiplier="0.3" id="hh7-2y-4UY"/>
+                    <constraint firstItem="GlL-vw-uoM" firstAttribute="centerX" secondItem="8Ox-17-col" secondAttribute="centerX" id="nPI-Ub-9pt"/>
+                    <constraint firstItem="qhz-B0-3g4" firstAttribute="centerX" secondItem="8Ox-17-col" secondAttribute="centerX" id="x9C-AL-hge"/>
+                    <constraint firstItem="deF-9T-yZB" firstAttribute="centerX" secondItem="8Ox-17-col" secondAttribute="centerX" id="yei-OU-4lc"/>
+                </constraints>
+            </view>
+            <point key="canvasLocation" x="-467" y="114"/>
+        </viewController>
+    </objects>
+    <designables>
+        <designable name="fzU-g1-4J5">
+            <size key="intrinsicContentSize" width="52" height="21"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="Component 4 – 1" width="253.5" height="296.5"/>
+        <image name="Group 58" width="12" height="16.5"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

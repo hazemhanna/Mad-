@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Graphik-Light.ttf">
+            <string>Graphik-Light</string>
+        </array>
+        <array key="Graphik-Medium.ttf">
+            <string>Graphik-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Tutorial1" customModule="Mad" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <viewController id="R75-B1-OKC" customClass="Tutorial1" customModule="Mad" customModuleProvider="target">
+            <view key="view" contentMode="scaleToFill" id="7sk-hn-Wxh">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Component 5 – 1" translatesAutoresizingMaskIntoConstraints="NO" id="RBH-kt-Hi6">
+                        <rect key="frame" x="73" y="151" width="268" height="245.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="268" id="HCg-KD-eja"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JOIN AS A MADER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SW0-fS-yfM">
+                        <rect key="frame" x="104" y="412.5" width="206.5" height="24"/>
+                        <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="24"/>
+                        <color key="textColor" red="0.11764705882352941" green="0.21568627450980393" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Discover artists &amp; their projects" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F1A-7z-i6c">
+                        <rect key="frame" x="67" y="444.5" width="280" height="20"/>
+                        <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="20"/>
+                        <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="WrX-xz-vRa">
+                        <rect key="frame" x="107" y="528.5" width="200" height="6"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P5o-ld-zhJ" customClass="CustomView" customModule="Mad" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="6"/>
+                                <color key="backgroundColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="otX-TI-af2">
+                                <rect key="frame" x="50" y="0.0" width="50" height="6"/>
+                                <color key="backgroundColor" red="0.92156862745098034" green="0.92941176470588238" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HTn-er-dBH">
+                                <rect key="frame" x="100" y="0.0" width="50" height="6"/>
+                                <color key="backgroundColor" red="0.92156862745098034" green="0.92941176470588238" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kob-Vj-cso">
+                                <rect key="frame" x="150" y="0.0" width="50" height="6"/>
+                                <color key="backgroundColor" red="0.92156862745098034" green="0.92941176470588238" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="200" id="O54-LC-lpv"/>
+                            <constraint firstAttribute="height" constant="6" id="l6O-Az-Glh"/>
+                        </constraints>
+                    </stackView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZaK-OU-Ygl" customClass="CustomButtons" customModule="Mad" customModuleProvider="target">
+                        <rect key="frame" x="143" y="634.5" width="128" height="54"/>
+                        <color key="backgroundColor" red="0.89803921568627454" green="0.12549019607843137" blue="0.3529411764705882" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="128" id="YX2-8L-oNn"/>
+                            <constraint firstAttribute="height" constant="54" id="bo0-P6-eV6"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
+                        <inset key="imageEdgeInsets" minX="-16" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <state key="normal" title="Next" image="Group 58">
+                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="28"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="nextButtonWithSender:" destination="R75-B1-OKC" eventType="touchUpInside" id="HxE-b5-Oxb"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <viewLayoutGuide key="safeArea" id="Vfy-7o-w2m"/>
+                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                <constraints>
+                    <constraint firstItem="SW0-fS-yfM" firstAttribute="centerX" secondItem="7sk-hn-Wxh" secondAttribute="centerX" id="05L-cZ-aXh"/>
+                    <constraint firstItem="WrX-xz-vRa" firstAttribute="centerX" secondItem="7sk-hn-Wxh" secondAttribute="centerX" id="5dG-vw-fxU"/>
+                    <constraint firstItem="RBH-kt-Hi6" firstAttribute="height" secondItem="Vfy-7o-w2m" secondAttribute="height" multiplier="0.3" id="8Ob-NT-5Nn"/>
+                    <constraint firstItem="SW0-fS-yfM" firstAttribute="top" secondItem="RBH-kt-Hi6" secondAttribute="bottom" constant="16" id="D8r-B1-XD9"/>
+                    <constraint firstItem="WrX-xz-vRa" firstAttribute="top" secondItem="F1A-7z-i6c" secondAttribute="bottom" constant="64" id="IHO-RO-OeV"/>
+                    <constraint firstItem="ZaK-OU-Ygl" firstAttribute="centerX" secondItem="7sk-hn-Wxh" secondAttribute="centerX" id="Ine-Yn-1ho"/>
+                    <constraint firstItem="F1A-7z-i6c" firstAttribute="centerX" secondItem="7sk-hn-Wxh" secondAttribute="centerX" id="M0p-FT-zP1"/>
+                    <constraint firstItem="ZaK-OU-Ygl" firstAttribute="top" secondItem="WrX-xz-vRa" secondAttribute="bottom" constant="100" id="TzQ-0v-KMX"/>
+                    <constraint firstItem="RBH-kt-Hi6" firstAttribute="centerX" secondItem="7sk-hn-Wxh" secondAttribute="centerX" id="bWZ-J6-VEU"/>
+                    <constraint firstItem="RBH-kt-Hi6" firstAttribute="top" secondItem="Vfy-7o-w2m" secondAttribute="top" constant="107" id="jkl-ca-3v3"/>
+                    <constraint firstItem="F1A-7z-i6c" firstAttribute="top" secondItem="SW0-fS-yfM" secondAttribute="bottom" constant="8" id="zPr-eR-lQU"/>
+                </constraints>
+            </view>
+            <connections>
+                <outlet property="firstView" destination="P5o-ld-zhJ" id="kbJ-U5-C4K"/>
+            </connections>
+            <point key="canvasLocation" x="-467" y="114"/>
+        </viewController>
+    </objects>
+    <designables>
+        <designable name="ZaK-OU-Ygl">
+            <size key="intrinsicContentSize" width="52" height="21"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="Component 5 – 1" width="275.5" height="347"/>
+        <image name="Group 58" width="12" height="16.5"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

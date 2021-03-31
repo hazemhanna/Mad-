@@ -1,0 +1,209 @@
+PODS:
+  - Alamofire (4.8.2)
+  - Cosmos (21.0.0)
+  - Differentiator (4.0.1)
+  - DLRadioButton (1.4.12)
+  - DropDown (2.3.13)
+  - FaveButton (3.2.1)
+  - Firebase/Analytics (7.3.0):
+    - Firebase/Core
+  - Firebase/Core (7.3.0):
+    - Firebase/CoreOnly
+    - FirebaseAnalytics (= 7.3.0)
+  - Firebase/CoreOnly (7.3.0):
+    - FirebaseCore (= 7.3.0)
+  - Firebase/Crashlytics (7.3.0):
+    - Firebase/CoreOnly
+    - FirebaseCrashlytics (~> 7.3.0)
+  - Firebase/Messaging (7.3.0):
+    - Firebase/CoreOnly
+    - FirebaseMessaging (~> 7.3.0)
+  - FirebaseAnalytics (7.3.0):
+    - FirebaseCore (~> 7.0)
+    - FirebaseInstallations (~> 7.0)
+    - GoogleAppMeasurement (= 7.3.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.0)
+    - GoogleUtilities/MethodSwizzler (~> 7.0)
+    - GoogleUtilities/Network (~> 7.0)
+    - "GoogleUtilities/NSData+zlib (~> 7.0)"
+    - nanopb (~> 2.30906.0)
+  - FirebaseCore (7.3.0):
+    - FirebaseCoreDiagnostics (~> 7.0)
+    - GoogleUtilities/Environment (~> 7.0)
+    - GoogleUtilities/Logger (~> 7.0)
+  - FirebaseCoreDiagnostics (7.3.0):
+    - GoogleDataTransport (~> 8.0)
+    - GoogleUtilities/Environment (~> 7.0)
+    - GoogleUtilities/Logger (~> 7.0)
+    - nanopb (~> 2.30906.0)
+  - FirebaseCrashlytics (7.3.0):
+    - FirebaseCore (~> 7.0)
+    - FirebaseInstallations (~> 7.0)
+    - GoogleDataTransport (~> 8.0)
+    - nanopb (~> 2.30906.0)
+    - PromisesObjC (~> 1.2)
+  - FirebaseInstallations (7.3.0):
+    - FirebaseCore (~> 7.0)
+    - GoogleUtilities/Environment (~> 7.0)
+    - GoogleUtilities/UserDefaults (~> 7.0)
+    - PromisesObjC (~> 1.2)
+  - FirebaseInstanceID (7.3.0):
+    - FirebaseCore (~> 7.0)
+    - FirebaseInstallations (~> 7.0)
+    - GoogleUtilities/Environment (~> 7.0)
+    - GoogleUtilities/UserDefaults (~> 7.0)
+  - FirebaseMessaging (7.3.0):
+    - FirebaseCore (~> 7.0)
+    - FirebaseInstanceID (~> 7.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.0)
+    - GoogleUtilities/Environment (~> 7.0)
+    - GoogleUtilities/Reachability (~> 7.0)
+    - GoogleUtilities/UserDefaults (~> 7.0)
+  - Gallery (2.4.0)
+  - GoogleAppMeasurement (7.3.0):
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.0)
+    - GoogleUtilities/MethodSwizzler (~> 7.0)
+    - GoogleUtilities/Network (~> 7.0)
+    - "GoogleUtilities/NSData+zlib (~> 7.0)"
+    - nanopb (~> 2.30906.0)
+  - GoogleDataTransport (8.1.0):
+    - nanopb (~> 2.30906.0)
+  - GoogleMaps (3.8.2):
+    - GoogleMaps/Maps (= 3.8.2)
+  - GoogleMaps/Base (3.8.2)
+  - GoogleMaps/Maps (3.8.2):
+    - GoogleMaps/Base
+  - GooglePlaces (3.8.2):
+    - GoogleMaps/Base (= 3.8.2)
+  - GoogleUtilities/AppDelegateSwizzler (7.1.1):
+    - GoogleUtilities/Environment
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Network
+  - GoogleUtilities/Environment (7.1.1):
+    - PromisesObjC (~> 1.2)
+  - GoogleUtilities/Logger (7.1.1):
+    - GoogleUtilities/Environment
+  - GoogleUtilities/MethodSwizzler (7.1.1):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/Network (7.1.1):
+    - GoogleUtilities/Logger
+    - "GoogleUtilities/NSData+zlib"
+    - GoogleUtilities/Reachability
+  - "GoogleUtilities/NSData+zlib (7.1.1)"
+  - GoogleUtilities/Reachability (7.1.1):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/UserDefaults (7.1.1):
+    - GoogleUtilities/Logger
+  - IQKeyboardManagerSwift (6.3.0)
+  - Kingfisher (5.4.0)
+  - MOLH (1.4.3)
+  - nanopb (2.30906.0):
+    - nanopb/decode (= 2.30906.0)
+    - nanopb/encode (= 2.30906.0)
+  - nanopb/decode (2.30906.0)
+  - nanopb/encode (2.30906.0)
+  - PromisesObjC (1.2.11)
+  - RxCocoa (5.1.1):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxDataSources (4.0.1):
+    - Differentiator (~> 4.0)
+    - RxCocoa (~> 5.0)
+    - RxSwift (~> 5.0)
+  - RxRelay (5.1.1):
+    - RxSwift (~> 5)
+  - RxSwift (5.1.1)
+  - SVProgressHUD (2.2.5)
+  - SwiftyJSON (5.0.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.8.2)
+  - Cosmos (~> 21.0.0)
+  - DLRadioButton (~> 1.4.12)
+  - DropDown (~> 2.3.13)
+  - FaveButton (~> 3.2.1)
+  - Firebase/Analytics
+  - Firebase/Crashlytics
+  - Firebase/Messaging
+  - Gallery
+  - GoogleMaps (~> 3.8.0)
+  - GooglePlaces (~> 3.8.0)
+  - IQKeyboardManagerSwift (~> 6.3.0)
+  - Kingfisher (~> 5.4.0)
+  - MOLH
+  - RxCocoa (~> 5)
+  - RxDataSources (~> 4.0)
+  - RxSwift (~> 5)
+  - SVProgressHUD (~> 2.2.5)
+  - SwiftyJSON (~> 5.0.0)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - Cosmos
+    - Differentiator
+    - DLRadioButton
+    - DropDown
+    - FaveButton
+    - Firebase
+    - FirebaseAnalytics
+    - FirebaseCore
+    - FirebaseCoreDiagnostics
+    - FirebaseCrashlytics
+    - FirebaseInstallations
+    - FirebaseInstanceID
+    - FirebaseMessaging
+    - Gallery
+    - GoogleAppMeasurement
+    - GoogleDataTransport
+    - GoogleMaps
+    - GooglePlaces
+    - GoogleUtilities
+    - IQKeyboardManagerSwift
+    - Kingfisher
+    - MOLH
+    - nanopb
+    - PromisesObjC
+    - RxCocoa
+    - RxDataSources
+    - RxRelay
+    - RxSwift
+    - SVProgressHUD
+    - SwiftyJSON
+
+SPEC CHECKSUMS:
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  Cosmos: 3dfb6e4ba48bd48b8c9aa2a77048ae11ed114f96
+  Differentiator: 886080237d9f87f322641dedbc5be257061b0602
+  DLRadioButton: d7c4e225ed0e8013cef7be61455230c7557ad7c1
+  DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
+  FaveButton: 93cfebf6030336fa7653fad2068c3152ed668b39
+  Firebase: 26223c695fe322633274198cb19dca8cb7e54416
+  FirebaseAnalytics: 2580c2d62535ae7b644143d48941fcc239ea897a
+  FirebaseCore: 4d3c72622ce0e2106aaa07bb4b2935ba2c370972
+  FirebaseCoreDiagnostics: d50e11039e5984d92c8a512be2395f13df747350
+  FirebaseCrashlytics: d31325312c92e2cb2f0386d589b9aa44e303d99b
+  FirebaseInstallations: 971df89b48ae5ee4cc2bf6935f3857a525d28550
+  FirebaseInstanceID: 5ccdee6a84e6b4bb5316de0a8cd88bc749ba490d
+  FirebaseMessaging: 68d1bcb14880189558a8ae57167abe0b7e417232
+  Gallery: b7fc1aeb68a39ad6d2c423574750196bf9b25e5c
+  GoogleAppMeasurement: 8d3c0aeede16ab7764144b5a4ca8e1d4323841b7
+  GoogleDataTransport: 116c84c4bdeb76be2a7a46de51244368f9794eab
+  GoogleMaps: ae0efe10e9c40bcd9decd0c9fd53d947af7801a3
+  GooglePlaces: 8baf0c60e318431ca3c1b022f2745a23b104caca
+  GoogleUtilities: 3dc4ff0d5e4840e2fa8eef0889620e8c33d4218c
+  IQKeyboardManagerSwift: a8228c257614af98743b4cd8584637025f36358f
+  Kingfisher: 9c8f2cc6710334e06f32ba2b45e77707d5e2f0c9
+  MOLH: e45827d200aeb1310641090fd8cd03ad2b42ae72
+  nanopb: 1bf24dd71191072e120b83dd02d08f3da0d65e53
+  PromisesObjC: 8c196f5a328c2cba3e74624585467a557dcb482f
+  RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
+  RxDataSources: efee07fa4de48477eca0a4611e6d11e2da9c1114
+  RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
+  RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
+
+PODFILE CHECKSUM: eda2b69f2e9c4bd042e32fa2139f7a2c6fa9cbdd
+
+COCOAPODS: 1.10.1
