@@ -48,10 +48,10 @@ class LoadingLoginVc : UIViewController {
         self.navigationController?.pushViewController(main!, animated: true)
     }
     
-    
     @IBAction func goButton(sender: UIButton) {
-        let main = EmailVc.instantiateFromNib()
-        self.navigationController?.pushViewController(main!, animated: true)
+        let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CardTabBarController")
+        if let appDelegate = UIApplication.shared.delegate {
+            appDelegate.window??.rootViewController = sb
+        }
     }
-    
 }

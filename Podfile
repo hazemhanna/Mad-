@@ -25,6 +25,8 @@ target 'Mad' do
   pod 'Firebase/Analytics'
   pod 'Firebase/Messaging'
   pod 'Firebase/Crashlytics'
+  pod 'PTCardTabBar'
+
 
 
 end

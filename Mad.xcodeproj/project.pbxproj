@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		041427FB26174927000394CA /* HomeVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041427FA26174927000394CA /* HomeVc.swift */; };
+		041427FF26174D76000394CA /* NotificationVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041427FE26174D76000394CA /* NotificationVc.swift */; };
+		0414280226174D8A000394CA /* SearchVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0414280126174D8A000394CA /* SearchVc.swift */; };
+		0414280526174D9D000394CA /* ProfileVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0414280426174D9D000394CA /* ProfileVc.swift */; };
+		0414282D26176074000394CA /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0414282B26176074000394CA /* HomeCell.swift */; };
+		0414282E26176074000394CA /* HomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0414282C26176074000394CA /* HomeCell.xib */; };
+		0414286526176BCD000394CA /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0414286426176BCD000394CA /* HomeViewModel.swift */; };
+		0414287726177E69000394CA /* LiveCellCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0414287526177E69000394CA /* LiveCellCVC.swift */; };
+		0414287826177E69000394CA /* LiveCellCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0414287626177E69000394CA /* LiveCellCVC.xib */; };
 		042C080E26136B6E00BE1806 /* CustomButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042C080D26136B6E00BE1806 /* CustomButtons.swift */; };
 		042C081126136B9700BE1806 /* CustomDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042C081026136B9700BE1806 /* CustomDropDown.swift */; };
 		042C081A261375CA00BE1806 /* Tutorial4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042C0818261375CA00BE1806 /* Tutorial4.swift */; };
@@ -16,6 +25,10 @@
 		042C0824261375F300BE1806 /* Tutorial2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042C0822261375F200BE1806 /* Tutorial2.swift */; };
 		042C0825261375F300BE1806 /* Tutorial2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042C0823261375F300BE1806 /* Tutorial2.xib */; };
 		042C082A2613943900BE1806 /* LoadingLoginVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042C08292613943900BE1806 /* LoadingLoginVc.swift */; };
+		0451FD642617A5B600AEE546 /* TitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0451FD622617A5B500AEE546 /* TitleCell.swift */; };
+		0451FD652617A5B600AEE546 /* TitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0451FD632617A5B500AEE546 /* TitleCell.xib */; };
+		0451FD8C2617A5D300AEE546 /* ProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0451FD8A2617A5D300AEE546 /* ProjectCell.swift */; };
+		0451FD8D2617A5D300AEE546 /* ProjectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0451FD8B2617A5D300AEE546 /* ProjectCell.xib */; };
 		04528E2C26149443009868EA /* ConfigUrls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04528E2B26149443009868EA /* ConfigUrls.swift */; };
 		04528E2F26149496009868EA /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04528E2E26149496009868EA /* Helper.swift */; };
 		04528E3226149579009868EA /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04528E3126149579009868EA /* AuthenticationViewModel.swift */; };
@@ -51,6 +64,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		041427FA26174927000394CA /* HomeVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVc.swift; sourceTree = "<group>"; };
+		041427FE26174D76000394CA /* NotificationVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationVc.swift; sourceTree = "<group>"; };
+		0414280126174D8A000394CA /* SearchVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVc.swift; sourceTree = "<group>"; };
+		0414280426174D9D000394CA /* ProfileVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVc.swift; sourceTree = "<group>"; };
+		0414282B26176074000394CA /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
+		0414282C26176074000394CA /* HomeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCell.xib; sourceTree = "<group>"; };
+		0414286426176BCD000394CA /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		0414287526177E69000394CA /* LiveCellCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveCellCVC.swift; sourceTree = "<group>"; };
+		0414287626177E69000394CA /* LiveCellCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LiveCellCVC.xib; sourceTree = "<group>"; };
 		042C080D26136B6E00BE1806 /* CustomButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtons.swift; sourceTree = "<group>"; };
 		042C081026136B9700BE1806 /* CustomDropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDropDown.swift; sourceTree = "<group>"; };
 		042C0815261371DE00BE1806 /* Helvetica-Bold-Font.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Helvetica-Bold-Font.ttf"; sourceTree = "<group>"; };
@@ -61,6 +83,10 @@
 		042C0822261375F200BE1806 /* Tutorial2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial2.swift; sourceTree = "<group>"; };
 		042C0823261375F300BE1806 /* Tutorial2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Tutorial2.xib; sourceTree = "<group>"; };
 		042C08292613943900BE1806 /* LoadingLoginVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingLoginVc.swift; sourceTree = "<group>"; };
+		0451FD622617A5B500AEE546 /* TitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCell.swift; sourceTree = "<group>"; };
+		0451FD632617A5B500AEE546 /* TitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleCell.xib; sourceTree = "<group>"; };
+		0451FD8A2617A5D300AEE546 /* ProjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCell.swift; sourceTree = "<group>"; };
+		0451FD8B2617A5D300AEE546 /* ProjectCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectCell.xib; sourceTree = "<group>"; };
 		04528E2B26149443009868EA /* ConfigUrls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigUrls.swift; sourceTree = "<group>"; };
 		04528E2E26149496009868EA /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		04528E3126149579009868EA /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
@@ -129,6 +155,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0414282926176025000394CA /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0451FD892617A5BE00AEE546 /* ProjectCell */,
+				0451FD612617A59C00AEE546 /* TitleCell */,
+				04142867261771F7000394CA /* LiveCell */,
+				0414282B26176074000394CA /* HomeCell.swift */,
+				0414282C26176074000394CA /* HomeCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		04142867261771F7000394CA /* LiveCell */ = {
+			isa = PBXGroup;
+			children = (
+				0414287526177E69000394CA /* LiveCellCVC.swift */,
+				0414287626177E69000394CA /* LiveCellCVC.xib */,
+			);
+			path = LiveCell;
+			sourceTree = "<group>";
+		};
 		042C081326136D8500BE1806 /* Tutorial3 */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +202,24 @@
 				042C08292613943900BE1806 /* LoadingLoginVc.swift */,
 			);
 			path = LoadingLogin;
+			sourceTree = "<group>";
+		};
+		0451FD612617A59C00AEE546 /* TitleCell */ = {
+			isa = PBXGroup;
+			children = (
+				0451FD622617A5B500AEE546 /* TitleCell.swift */,
+				0451FD632617A5B500AEE546 /* TitleCell.xib */,
+			);
+			path = TitleCell;
+			sourceTree = "<group>";
+		};
+		0451FD892617A5BE00AEE546 /* ProjectCell */ = {
+			isa = PBXGroup;
+			children = (
+				0451FD8A2617A5D300AEE546 /* ProjectCell.swift */,
+				0451FD8B2617A5D300AEE546 /* ProjectCell.xib */,
+			);
+			path = ProjectCell;
 			sourceTree = "<group>";
 		};
 		04528E3726149882009868EA /* SignUp */ = {
@@ -222,6 +287,39 @@
 			path = NameVc;
 			sourceTree = "<group>";
 		};
+		0482EEAB26164D3800CB4A24 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				0414282926176025000394CA /* Cell */,
+				041427FA26174927000394CA /* HomeVc.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		0482EEAC26164D3F00CB4A24 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				041427FE26174D76000394CA /* NotificationVc.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
+		0482EEAD26164D5200CB4A24 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				0414280126174D8A000394CA /* SearchVc.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		0482EEAE26164D6100CB4A24 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				0414280426174D9D000394CA /* ProfileVc.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		0488CCDC261213E000E05BEB = {
 			isa = PBXGroup;
 			children = (
@@ -276,6 +374,10 @@
 		0488CD332612141C00E05BEB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0482EEAE26164D6100CB4A24 /* Profile */,
+				0482EEAD26164D5200CB4A24 /* Search */,
+				0482EEAC26164D3F00CB4A24 /* Notification */,
+				0482EEAB26164D3800CB4A24 /* Home */,
 				042C08272613941600BE1806 /* Auth */,
 				04E186F72613616100824E37 /* Splash */,
 			);
@@ -287,6 +389,7 @@
 			children = (
 				04528E3126149579009868EA /* AuthenticationViewModel.swift */,
 				04F06AFC2614E2D800B08606 /* CategeoryViewModel.swift */,
+				0414286426176BCD000394CA /* HomeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -533,13 +636,17 @@
 			files = (
 				0488CCF5261213E400E05BEB /* LaunchScreen.storyboard in Resources */,
 				04528E4426149915009868EA /* PasswordVc.xib in Resources */,
+				0451FD652617A5B600AEE546 /* TitleCell.xib in Resources */,
 				042C0820261375E200BE1806 /* Tutorial3.xib in Resources */,
 				04528E4C2614B54B009868EA /* CreatPasswordVc.xib in Resources */,
 				042C0825261375F300BE1806 /* Tutorial2.xib in Resources */,
+				0451FD8D2617A5D300AEE546 /* ProjectCell.xib in Resources */,
 				04F06AF72614E0D600B08606 /* CategeoryCell.xib in Resources */,
+				0414282E26176074000394CA /* HomeCell.xib in Resources */,
 				04528E562614B586009868EA /* NameVc.xib in Resources */,
 				04F06AF12614DD5100B08606 /* CategeoryVc.xib in Resources */,
 				0488CCF2261213E400E05BEB /* Assets.xcassets in Resources */,
+				0414287826177E69000394CA /* LiveCellCVC.xib in Resources */,
 				04528E5C2614B5AE009868EA /* CountryVc.xib in Resources */,
 				0488CCF0261213E000E05BEB /* Main.storyboard in Resources */,
 				04528E3E26149903009868EA /* EmailVc.xib in Resources */,
@@ -615,15 +722,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0414280226174D8A000394CA /* SearchVc.swift in Sources */,
 				04528E3226149579009868EA /* AuthenticationViewModel.swift in Sources */,
 				04F06AFA2614E18D00B08606 /* CustomImageView.swift in Sources */,
 				04528E4B2614B54B009868EA /* CreatPasswordVc.swift in Sources */,
+				0414282D26176074000394CA /* HomeCell.swift in Sources */,
+				0414280526174D9D000394CA /* ProfileVc.swift in Sources */,
 				04E1871726136B1600824E37 /* CustomView.swift in Sources */,
 				04528E552614B586009868EA /* NameVc.swift in Sources */,
 				042C082A2613943900BE1806 /* LoadingLoginVc.swift in Sources */,
 				042C081F261375E200BE1806 /* Tutorial3.swift in Sources */,
 				042C081126136B9700BE1806 /* CustomDropDown.swift in Sources */,
+				0451FD8C2617A5D300AEE546 /* ProjectCell.swift in Sources */,
 				042C081A261375CA00BE1806 /* Tutorial4.swift in Sources */,
+				0451FD642617A5B600AEE546 /* TitleCell.swift in Sources */,
 				04528E3D26149903009868EA /* EmailVc.swift in Sources */,
 				04528E4326149915009868EA /* PasswordVc.swift in Sources */,
 				04528E472614A1FD009868EA /* CustomTextField.swift in Sources */,
@@ -632,13 +744,17 @@
 				0488CCE9261213E000E05BEB /* AppDelegate.swift in Sources */,
 				04E186F5261360F400824E37 /* StoryBoardExtension.swift in Sources */,
 				04528E2C26149443009868EA /* ConfigUrls.swift in Sources */,
+				041427FF26174D76000394CA /* NotificationVc.swift in Sources */,
 				04528E35261495D0009868EA /* LocalizationTitles.swift in Sources */,
+				041427FB26174927000394CA /* HomeVc.swift in Sources */,
 				042C080E26136B6E00BE1806 /* CustomButtons.swift in Sources */,
+				0414287726177E69000394CA /* LiveCellCVC.swift in Sources */,
 				04E186FF2613628F00824E37 /* Tutorial1.swift in Sources */,
 				042C0824261375F300BE1806 /* Tutorial2.swift in Sources */,
 				04F06AC52614C37200B08606 /* AgeVc.swift in Sources */,
 				04F06AF62614E0D600B08606 /* CategeoryCell.swift in Sources */,
 				04528E2F26149496009868EA /* Helper.swift in Sources */,
+				0414286526176BCD000394CA /* HomeViewModel.swift in Sources */,
 				04F06AFD2614E2D800B08606 /* CategeoryViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
