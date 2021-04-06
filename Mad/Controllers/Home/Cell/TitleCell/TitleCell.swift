@@ -8,7 +8,8 @@
 import UIKit
 
 class TitleCell: UICollectionViewCell {
-    @IBOutlet weak var titleBtn: UIButton!
+    @IBOutlet weak var titleBtn: UILabel!
+    @IBOutlet weak var backView: UIView!
 
     override func awakeFromNib() {
         super.awakeFromNib()

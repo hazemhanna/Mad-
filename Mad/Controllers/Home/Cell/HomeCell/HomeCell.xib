@@ -84,7 +84,7 @@
                                         <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mask Group 48" translatesAutoresizingMaskIntoConstraints="NO" id="Tm8-gk-kKN" customClass="CustomImageView" customModule="Mad" customModuleProvider="target">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mask Group 121" translatesAutoresizingMaskIntoConstraints="NO" id="Tm8-gk-kKN" customClass="CustomImageView" customModule="Mad" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="22" width="531" height="175"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="175" id="Fjx-Qm-P2s"/>
@@ -225,13 +225,13 @@
             <size key="intrinsicContentSize" width="320" height="320"/>
         </designable>
         <designable name="Tm8-gk-kKN">
-            <size key="intrinsicContentSize" width="316" height="175"/>
+            <size key="intrinsicContentSize" width="375" height="174"/>
         </designable>
     </designables>
     <resources>
         <image name="Group 140" width="20" height="18"/>
         <image name="Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4" width="320" height="320"/>
-        <image name="Mask Group 48" width="316" height="175"/>
+        <image name="Mask Group 121" width="375" height="174"/>
         <image name="Path 327" width="17" height="18.5"/>
         <image name="icon - c-check (1)" width="20" height="20"/>
         <systemColor name="systemBackgroundColor">

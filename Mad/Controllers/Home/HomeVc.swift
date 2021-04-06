@@ -10,21 +10,20 @@ import RxSwift
 import RxCocoa
 
 class HomeVC: UIViewController {
-   
-    @IBOutlet weak var mainTableView: UITableView!
+    
     @IBOutlet weak var titleCollectionView: UICollectionView!
-    @IBOutlet weak var projectCollectionView: UICollectionView!
+    @IBOutlet weak var projectContinerVie: UIView!
+    @IBOutlet weak var artistContinerVie: UIView!
+    @IBOutlet weak var productsContinerVie: UIView!
+    @IBOutlet weak var videosContinerVie: UIView!
+    @IBOutlet weak var blogsContinerVie: UIView!
+
+
     
     var homeVM = HomeViewModel()
-    var data = [String](){
-          didSet {
-              DispatchQueue.main.async {
-                  self.homeVM.fetchMainData(data: self.data)
-              }
-          }
-      }
-    
-    
+    var disposeBag = DisposeBag()
+    var selectedIndex = 0
+
     var titles = [String](){
           didSet {
               DispatchQueue.main.async {
@@ -33,15 +32,17 @@ class HomeVC: UIViewController {
           }
       }
     
-    var disposeBag = DisposeBag()
-    private let CellIdentifier = "HomeCell"
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupContentTableView()
         setuptitleCollectionView()
-        setupprojectCollectionView()
+        
+        projectContinerVie.isHidden = false
+        artistContinerVie.isHidden = true
+        productsContinerVie.isHidden = true
+        videosContinerVie.isHidden = true
+        blogsContinerVie.isHidden = true
+        
         
     }
     
@@ -57,26 +58,6 @@ class HomeVC: UIViewController {
     
 }
 
-extension HomeVC: UITableViewDelegate {
-    func setupContentTableView() {
-        self.data = ["8","7","6","5","4","3","2","1"]
-        self.mainTableView.register(UINib(nibName: self.CellIdentifier, bundle: nil), forCellReuseIdentifier: self.CellIdentifier)
-        self.mainTableView.rx.setDelegate(self).disposed(by: disposeBag)
-        self.mainTableView.rowHeight = UITableView.automaticDimension
-        self.mainTableView.estimatedRowHeight = UITableView.automaticDimension
-        self.homeVM.data.bind(to: self.mainTableView.rx.items(cellIdentifier: self.CellIdentifier, cellType: HomeCell.self)) { index, element, cell in
-            
-        }.disposed(by: disposeBag)
-        self.mainTableView.rx.itemSelected.bind { (indexPath) in
-            
-        }.disposed(by: disposeBag)
-        self.mainTableView.rx.contentOffset.bind { (contentOffset) in
-            
-        }.disposed(by: disposeBag)
-    }
-    
-}
-
 //MARK:- Data Binding
 extension HomeVC: UICollectionViewDelegate {
     func setuptitleCollectionView() {
@@ -86,60 +67,68 @@ extension HomeVC: UICollectionViewDelegate {
         self.titleCollectionView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
         self.homeVM.title.bind(to: self.titleCollectionView.rx.items(cellIdentifier: cellIdentifier, cellType: TitleCell.self)) { index, element, cell in
             
-            cell.titleBtn.setTitle(self.titles[index], for: .normal)
-            if index == 0{
-                cell.titleBtn.tintColor = #colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1)
-                cell.titleBtn.layer.borderColor = #colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1).cgColor
-                cell.titleBtn.layer.borderWidth = 2
-                cell.titleBtn.layer.cornerRadius = 20
-                cell.titleBtn.setTitleColor(#colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1), for: .normal)
-            }
+             cell.titleBtn.text = self.titles[index]
+            if self.selectedIndex == index{
+                cell.backView.layer.borderColor = #colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1).cgColor
+                cell.backView.layer.borderWidth = 2
+                cell.backView.layer.cornerRadius = 20
+                cell.titleBtn.textColor = #colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1)
+            }else{
+                cell.backView.layer.borderColor = #colorLiteral(red: 0.9725490196, green: 0.9725490196, blue: 0.9725490196, alpha: 1).cgColor
+                cell.backView.layer.borderWidth = 0
+                cell.backView.layer.cornerRadius = 0
+                cell.titleBtn.textColor = #colorLiteral(red: 0.1176470588, green: 0.2156862745, blue: 0.4, alpha: 1)
+               }
+            
             
         }.disposed(by: disposeBag)
         self.titleCollectionView.rx.itemSelected.bind { (indexPath) in
-            
-        }.disposed(by: disposeBag)
-    }
-    
-    
-    func setupprojectCollectionView() {
-        let cellIdentifier = "ProjectCell"
-        self.projectCollectionView.rx.setDelegate(self).disposed(by: disposeBag)
-        self.projectCollectionView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
-        self.homeVM.data.bind(to: self.projectCollectionView.rx.items(cellIdentifier: cellIdentifier, cellType: ProjectCell.self)) { index, element, cell in
-            if index == 0 {
-                cell.ProjectStackView.isHidden = true
-                cell.addProjectView.isHidden = false
-                cell.addProjectLabel.isHidden = false
-
-            }else{
-                cell.ProjectStackView.isHidden = false
-                cell.addProjectView.isHidden = true
-                cell.addProjectLabel.isHidden = true
+            self.selectedIndex = indexPath.row
+           self.titleCollectionView.reloadData()
+            if self.selectedIndex == 0 {
+                self.projectContinerVie.isHidden = false
+                self.artistContinerVie.isHidden = true
+                self.productsContinerVie.isHidden = true
+                self.videosContinerVie.isHidden = true
+                self.blogsContinerVie.isHidden = true
+            }else if self.selectedIndex == 1 {
+                self.projectContinerVie.isHidden = true
+                self.artistContinerVie.isHidden = false
+                self.productsContinerVie.isHidden = true
+                self.videosContinerVie.isHidden = true
+                self.blogsContinerVie.isHidden = true
+            }else if self.selectedIndex == 2{
+                self.projectContinerVie.isHidden = true
+                self.artistContinerVie.isHidden = true
+                self.productsContinerVie.isHidden = false
+                self.videosContinerVie.isHidden = true
+                self.blogsContinerVie.isHidden = true
+            }else if self.selectedIndex == 3{
+                self.projectContinerVie.isHidden = true
+                self.artistContinerVie.isHidden = true
+                self.productsContinerVie.isHidden = true
+                self.videosContinerVie.isHidden = false
+                self.blogsContinerVie.isHidden = true
+            }else if self.selectedIndex == 4{
+                self.projectContinerVie.isHidden = true
+                self.artistContinerVie.isHidden = true
+                self.productsContinerVie.isHidden = true
+                self.videosContinerVie.isHidden = true
+                self.blogsContinerVie.isHidden = false
             }
-            
-        }.disposed(by: disposeBag)
-        self.projectCollectionView.rx.itemSelected.bind { (indexPath) in
-            
         }.disposed(by: disposeBag)
     }
+    
+    
+
 }
 
 extension HomeVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if collectionView == titleCollectionView {
             let flowayout = collectionViewLayout as? UICollectionViewFlowLayout
             let space: CGFloat = (flowayout?.minimumInteritemSpacing ?? 0.0) + (flowayout?.sectionInset.left ?? 0.0) + (flowayout?.sectionInset.right ?? 0.0)
             
             let size:CGFloat = (collectionView.frame.size.width - space) / 4
             return CGSize(width: size, height: 40)
-        } else {
-            let flowayout = collectionViewLayout as? UICollectionViewFlowLayout
-            let space: CGFloat = (flowayout?.minimumInteritemSpacing ?? 0.0) + (flowayout?.sectionInset.left ?? 0.0) + (flowayout?.sectionInset.right ?? 0.0)
-            
-            let size:CGFloat = (collectionView.frame.size.width - space) / 5
-            return CGSize(width: size, height: collectionView.frame.size.height)
-            
-        }
     }
 }

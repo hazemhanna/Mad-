@@ -102,6 +102,7 @@ PODS:
     - nanopb/encode (= 2.30906.0)
   - nanopb/decode (2.30906.0)
   - nanopb/encode (2.30906.0)
+  - Parchment (3.0.1)
   - PromisesObjC (1.2.11)
   - PTCardTabBar (1.0.2)
   - RxCocoa (5.1.1):
@@ -132,6 +133,7 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift (~> 6.3.0)
   - Kingfisher (~> 5.4.0)
   - MOLH
+  - Parchment
   - PTCardTabBar
   - RxCocoa (~> 5)
   - RxDataSources (~> 4.0)
@@ -165,6 +167,7 @@ SPEC REPOS:
     - Kingfisher
     - MOLH
     - nanopb
+    - Parchment
     - PromisesObjC
     - PTCardTabBar
     - RxCocoa
@@ -199,6 +202,7 @@ SPEC CHECKSUMS:
   Kingfisher: 9c8f2cc6710334e06f32ba2b45e77707d5e2f0c9
   MOLH: e45827d200aeb1310641090fd8cd03ad2b42ae72
   nanopb: 1bf24dd71191072e120b83dd02d08f3da0d65e53
+  Parchment: 466a1cfb6151780db8acb4bbedc2d9c6bfa1e2ff
   PromisesObjC: 8c196f5a328c2cba3e74624585467a557dcb482f
   PTCardTabBar: 9f94e31b447629aead75cd21cdaa6ae1f2c8bac6
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
@@ -208,6 +212,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: e14ec9dce6599b007c9ec2fd3d5964e9ae9be0f0
+PODFILE CHECKSUM: 27aa3fb3d5110497f22f911fb11056c4ff1d025f
 
 COCOAPODS: 1.10.1

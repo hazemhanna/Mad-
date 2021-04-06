@@ -22,25 +22,35 @@
                 <rect key="frame" x="0.0" y="0.0" width="123" height="61"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="whz-8c-hOl">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="juK-YM-Bq3">
                         <rect key="frame" x="0.0" y="0.0" width="123" height="61"/>
-                        <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="16"/>
-                        <state key="normal" title="Artists">
-                            <color key="titleColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                        </state>
-                    </button>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eEn-kL-c9X">
+                                <rect key="frame" x="42" y="22.5" width="39.5" height="16"/>
+                                <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="16"/>
+                                <color key="textColor" red="0.1333333333" green="0.2156862745" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="eEn-kL-c9X" firstAttribute="centerY" secondItem="juK-YM-Bq3" secondAttribute="centerY" id="dM5-bs-l2o"/>
+                            <constraint firstItem="eEn-kL-c9X" firstAttribute="centerX" secondItem="juK-YM-Bq3" secondAttribute="centerX" id="f7G-0M-qTQ"/>
+                        </constraints>
+                    </view>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="whz-8c-hOl" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="EBn-gP-nku"/>
-                <constraint firstItem="whz-8c-hOl" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" id="GPK-NX-RAa"/>
-                <constraint firstItem="whz-8c-hOl" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" id="fLv-Q5-7V3"/>
-                <constraint firstItem="whz-8c-hOl" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="yan-gJ-MBz"/>
+                <constraint firstItem="juK-YM-Bq3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="IJg-Bo-u4l"/>
+                <constraint firstItem="juK-YM-Bq3" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="T8M-Km-pxj"/>
+                <constraint firstAttribute="bottom" secondItem="juK-YM-Bq3" secondAttribute="bottom" id="XTR-Gt-Kgh"/>
+                <constraint firstAttribute="trailing" secondItem="juK-YM-Bq3" secondAttribute="trailing" id="eKk-Ud-sPo"/>
             </constraints>
             <size key="customSize" width="123" height="61"/>
             <connections>
-                <outlet property="titleBtn" destination="whz-8c-hOl" id="2Ru-CA-fs5"/>
+                <outlet property="backView" destination="juK-YM-Bq3" id="wz1-F8-NH3"/>
+                <outlet property="titleBtn" destination="eEn-kL-c9X" id="Xtk-iJ-fQJ"/>
             </connections>
             <point key="canvasLocation" x="16.666666666666668" y="59.263392857142854"/>
         </collectionViewCell>

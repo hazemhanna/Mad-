@@ -25,19 +25,19 @@
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I am a MAD artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ob-2v-4CU">
-                        <rect key="frame" x="60" y="121" width="163" height="24.5"/>
+                        <rect key="frame" x="60" y="122.5" width="160.5" height="21"/>
                         <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="21"/>
                         <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I am interested in" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pcd-kC-6bG">
-                        <rect key="frame" x="130" y="179.5" width="154" height="23.5"/>
+                        <rect key="frame" x="124.5" y="177.5" width="165" height="20"/>
                         <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="20"/>
                         <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pick 3 or more to get started" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CXL-eW-Soa">
-                        <rect key="frame" x="105" y="211" width="204.5" height="19"/>
+                        <rect key="frame" x="104.5" y="205.5" width="205.5" height="16"/>
                         <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="16"/>
                         <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -49,6 +49,9 @@
                             <constraint firstAttribute="width" constant="36" id="TaS-Xt-4kM"/>
                         </constraints>
                         <state key="normal" image="Group 119"/>
+                        <connections>
+                            <action selector="backButtonWithSender:" destination="e9t-Lb-N2C" eventType="touchUpInside" id="KH5-5r-dEJ"/>
+                        </connections>
                     </button>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon - Checkbox - Off" translatesAutoresizingMaskIntoConstraints="NO" id="T64-Bx-dpR">
                         <rect key="frame" x="32" y="123" width="20" height="20"/>
@@ -65,7 +68,7 @@
                         </constraints>
                     </imageView>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="t6S-Uk-Ges">
-                        <rect key="frame" x="8" y="262" width="398" height="600"/>
+                        <rect key="frame" x="8" y="253.5" width="398" height="608.5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="H9P-xK-6ty">
                             <size key="itemSize" width="128" height="128"/>

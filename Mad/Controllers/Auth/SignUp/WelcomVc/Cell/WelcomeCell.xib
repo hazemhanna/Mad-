@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Graphik-Medium.ttf">
+            <string>Graphik-Medium</string>
+        </array>
+        <array key="Graphik-Regular.ttf">
+            <string>Graphik-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WelcomeCell" id="gTV-IL-0wX" customClass="WelcomeCell" customModule="Mad" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="230" height="207"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="230" height="207"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tRH-k0-Z1A" customClass="CustomView" customModule="Mad" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="230" height="207"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4" translatesAutoresizingMaskIntoConstraints="NO" id="W7t-hg-9aa" customClass="CustomImageView" customModule="Mad" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="230" height="207"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Esm-yx-G5X">
+                                <rect key="frame" x="16" y="101" width="182" height="90"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Compete to Win it all" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MxV-4L-uxu">
+                                        <rect key="frame" x="0.0" y="0.0" width="182" height="18"/>
+                                        <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="18"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Participate in competitions, get visibility &amp; win cool prizes" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AUg-Ym-NzE">
+                                        <rect key="frame" x="0.0" y="26" width="182" height="64"/>
+                                        <fontDescription key="fontDescription" name="Graphik-Regular" family="Graphik" pointSize="16"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D45-mu-mHz" customClass="CustomView" customModule="Mad" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="230" height="207"/>
+                                <color key="backgroundColor" red="0.13333333333333333" green="0.21568627450980393" blue="0.38823529411764707" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="W7t-hg-9aa" firstAttribute="top" secondItem="tRH-k0-Z1A" secondAttribute="top" id="0yc-wP-iU6"/>
+                            <constraint firstAttribute="bottom" secondItem="Esm-yx-G5X" secondAttribute="bottom" constant="16" id="96x-XB-utK"/>
+                            <constraint firstAttribute="trailing" secondItem="Esm-yx-G5X" secondAttribute="trailing" constant="32" id="BZS-9o-In1"/>
+                            <constraint firstItem="Esm-yx-G5X" firstAttribute="leading" secondItem="tRH-k0-Z1A" secondAttribute="leading" constant="16" id="BuL-hB-HOk"/>
+                            <constraint firstAttribute="trailing" secondItem="W7t-hg-9aa" secondAttribute="trailing" id="DWb-Ix-yNl"/>
+                            <constraint firstAttribute="bottom" secondItem="D45-mu-mHz" secondAttribute="bottom" id="NEe-VQ-dUh"/>
+                            <constraint firstItem="D45-mu-mHz" firstAttribute="leading" secondItem="tRH-k0-Z1A" secondAttribute="leading" id="Oo0-KL-Rcb"/>
+                            <constraint firstAttribute="bottom" secondItem="W7t-hg-9aa" secondAttribute="bottom" id="dEE-Fk-zZO"/>
+                            <constraint firstItem="W7t-hg-9aa" firstAttribute="leading" secondItem="tRH-k0-Z1A" secondAttribute="leading" id="f5x-RQ-lYh"/>
+                            <constraint firstAttribute="trailing" secondItem="D45-mu-mHz" secondAttribute="trailing" id="j98-c3-HCR"/>
+                            <constraint firstItem="D45-mu-mHz" firstAttribute="top" secondItem="tRH-k0-Z1A" secondAttribute="top" id="upS-gz-DCs"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="16"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="tRH-k0-Z1A" secondAttribute="trailing" id="85A-WQ-4Iq"/>
+                <constraint firstItem="tRH-k0-Z1A" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="aOE-g2-ZsE"/>
+                <constraint firstItem="tRH-k0-Z1A" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="fyg-qB-Fkq"/>
+                <constraint firstAttribute="bottom" secondItem="tRH-k0-Z1A" secondAttribute="bottom" id="klu-Kg-f8p"/>
+            </constraints>
+            <size key="customSize" width="230" height="207"/>
+            <point key="canvasLocation" x="186" y="133"/>
+        </collectionViewCell>
+    </objects>
+    <designables>
+        <designable name="W7t-hg-9aa">
+            <size key="intrinsicContentSize" width="320" height="320"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4" width="320" height="320"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
