@@ -35,7 +35,6 @@ class VideosVc: UIViewController {
         setupinterviewCollectionView()
         setupshowCacesCollectionView()
         setupAfterMovieCollectionView()
-        
         self.data = ["8","7","6","5","4","3","2","1"]
     }
      
