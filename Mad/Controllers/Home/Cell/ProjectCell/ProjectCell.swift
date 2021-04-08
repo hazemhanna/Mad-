@@ -10,6 +10,7 @@ import UIKit
 class ProjectCell: UICollectionViewCell {
     @IBOutlet weak var addProjectView: UIView!
     @IBOutlet weak var addProjectLabel: UILabel!
+    @IBOutlet weak var projectNameLabel: UILabel!
 
     @IBOutlet weak var ProjectStackView: UIStackView!
 

@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.8.2)
+  - CHTCollectionViewWaterfallLayout/Swift (0.9.8)
   - Cosmos (21.0.0)
   - Differentiator (4.0.1)
   - DLRadioButton (1.4.12)
@@ -120,6 +121,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.8.2)
+  - CHTCollectionViewWaterfallLayout/Swift
   - Cosmos (~> 21.0.0)
   - DLRadioButton (~> 1.4.12)
   - DropDown (~> 2.3.13)
@@ -144,6 +146,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - CHTCollectionViewWaterfallLayout
     - Cosmos
     - Differentiator
     - DLRadioButton
@@ -179,6 +182,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  CHTCollectionViewWaterfallLayout: 5f241d2480ab4939aa0d1ad4981de9eef1fbe60d
   Cosmos: 3dfb6e4ba48bd48b8c9aa2a77048ae11ed114f96
   Differentiator: 886080237d9f87f322641dedbc5be257061b0602
   DLRadioButton: d7c4e225ed0e8013cef7be61455230c7557ad7c1
@@ -212,6 +216,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 27aa3fb3d5110497f22f911fb11056c4ff1d025f
+PODFILE CHECKSUM: 22f9db942bb220ab5e481610e130b2ede202d700
 
 COCOAPODS: 1.10.1

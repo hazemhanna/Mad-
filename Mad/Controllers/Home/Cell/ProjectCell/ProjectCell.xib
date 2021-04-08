@@ -115,6 +115,7 @@
                 <outlet property="ProjectStackView" destination="GoN-Dy-rvY" id="OCP-rE-TSS"/>
                 <outlet property="addProjectLabel" destination="XAd-xZ-kuy" id="gBP-aG-siP"/>
                 <outlet property="addProjectView" destination="0YJ-Ul-UEC" id="h5y-xG-ot1"/>
+                <outlet property="projectNameLabel" destination="2Gh-W8-C3X" id="72D-NI-x0C"/>
             </connections>
             <point key="canvasLocation" x="-63.04347826086957" y="68.973214285714278"/>
         </collectionViewCell>

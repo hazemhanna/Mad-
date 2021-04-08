@@ -12,6 +12,7 @@ import RxCocoa
 class HomeVC: UIViewController {
     
     @IBOutlet weak var titleCollectionView: UICollectionView!
+    @IBOutlet weak var titleView: UIView!
     @IBOutlet weak var projectContinerVie: UIView!
     @IBOutlet weak var artistContinerVie: UIView!
     @IBOutlet weak var productsContinerVie: UIView!
@@ -68,18 +69,33 @@ extension HomeVC: UICollectionViewDelegate {
         self.homeVM.title.bind(to: self.titleCollectionView.rx.items(cellIdentifier: cellIdentifier, cellType: TitleCell.self)) { index, element, cell in
             
              cell.titleBtn.text = self.titles[index]
+            if self.selectedIndex == 3 {
+                
+                if self.selectedIndex == index{
+                    cell.backView.layer.borderColor = #colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1).cgColor
+                    cell.backView.layer.borderWidth = 2
+                    cell.backView.layer.cornerRadius = 20
+                    cell.titleBtn.textColor = #colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1)
+                }else {
+                   // cell.backView.layer.borderColor = #colorLiteral(red: 0.9725490196, green: 0.9725490196, blue: 0.9725490196, alpha: 1).cgColor
+                    //cell.backView.layer.borderWidth = 0
+                    //cell.backView.layer.cornerRadius = 0
+                    cell.titleBtn.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                   }
+                
+            }else{
             if self.selectedIndex == index{
                 cell.backView.layer.borderColor = #colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1).cgColor
                 cell.backView.layer.borderWidth = 2
                 cell.backView.layer.cornerRadius = 20
                 cell.titleBtn.textColor = #colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1)
-            }else{
+            }else {
                 cell.backView.layer.borderColor = #colorLiteral(red: 0.9725490196, green: 0.9725490196, blue: 0.9725490196, alpha: 1).cgColor
                 cell.backView.layer.borderWidth = 0
                 cell.backView.layer.cornerRadius = 0
                 cell.titleBtn.textColor = #colorLiteral(red: 0.1176470588, green: 0.2156862745, blue: 0.4, alpha: 1)
                }
-            
+            }
             
         }.disposed(by: disposeBag)
         self.titleCollectionView.rx.itemSelected.bind { (indexPath) in
@@ -91,30 +107,39 @@ extension HomeVC: UICollectionViewDelegate {
                 self.productsContinerVie.isHidden = true
                 self.videosContinerVie.isHidden = true
                 self.blogsContinerVie.isHidden = true
+                self.view.backgroundColor =  UIColor.white
+
             }else if self.selectedIndex == 1 {
                 self.projectContinerVie.isHidden = true
                 self.artistContinerVie.isHidden = false
                 self.productsContinerVie.isHidden = true
                 self.videosContinerVie.isHidden = true
                 self.blogsContinerVie.isHidden = true
+                self.view.backgroundColor =  UIColor.white
+
             }else if self.selectedIndex == 2{
                 self.projectContinerVie.isHidden = true
                 self.artistContinerVie.isHidden = true
                 self.productsContinerVie.isHidden = false
                 self.videosContinerVie.isHidden = true
                 self.blogsContinerVie.isHidden = true
+                self.view.backgroundColor =  UIColor.white
+
             }else if self.selectedIndex == 3{
                 self.projectContinerVie.isHidden = true
                 self.artistContinerVie.isHidden = true
                 self.productsContinerVie.isHidden = true
                 self.videosContinerVie.isHidden = false
                 self.blogsContinerVie.isHidden = true
+                self.view.backgroundColor =  UIColor.black
             }else if self.selectedIndex == 4{
                 self.projectContinerVie.isHidden = true
                 self.artistContinerVie.isHidden = true
                 self.productsContinerVie.isHidden = true
                 self.videosContinerVie.isHidden = true
                 self.blogsContinerVie.isHidden = false
+                self.view.backgroundColor =  UIColor.white
+
             }
         }.disposed(by: disposeBag)
     }

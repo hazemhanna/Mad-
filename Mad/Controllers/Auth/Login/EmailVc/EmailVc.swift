@@ -28,13 +28,14 @@ class EmailVc: UIViewController {
 
     @IBAction func nextButton(sender: UIButton) {
         if register {
-            let main = CreatPasswordVc.instantiateFromNib()
+            let main = VerificationVc.instantiateFromNib()
             self.navigationController?.pushViewController(main!, animated: true)
         }else{
             let main = PasswordVc.instantiateFromNib()
             self.navigationController?.pushViewController(main!, animated: true)
         }
     }
+    
     
     @IBAction func backButton(sender: UIButton) {
         self.navigationController?.popViewController(animated: true)

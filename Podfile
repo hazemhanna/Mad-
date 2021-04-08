@@ -27,6 +27,6 @@ target 'Mad' do
   pod 'Firebase/Crashlytics'
   pod 'PTCardTabBar'
   pod 'Parchment'
-
+  pod 'CHTCollectionViewWaterfallLayout/Swift'
 
 end
