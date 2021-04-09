@@ -10,9 +10,6 @@ import UIKit
 
 class Helper {
     
-    
-    
-    
     class func saveAPIToken(token: String) {
         let def = UserDefaults.standard
         def.set(token, forKey: "token")

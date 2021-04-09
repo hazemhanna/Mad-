@@ -141,6 +141,9 @@
                     <constraint firstItem="0Kc-bR-4vn" firstAttribute="centerX" secondItem="fUm-5y-Jdk" secondAttribute="centerX" id="lss-O9-dwL"/>
                 </constraints>
             </view>
+            <connections>
+                <outlet property="emailTF" destination="RDB-Gf-CdX" id="D2Y-bX-thc"/>
+            </connections>
             <point key="canvasLocation" x="-467" y="114"/>
         </viewController>
     </objects>

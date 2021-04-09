@@ -1,0 +1,56 @@
+//
+//  GetServices.swift
+//  Mad
+//
+//  Created by MAC on 09/04/2021.
+//
+
+import Foundation
+import Alamofire
+import RxSwift
+import SwiftyJSON
+
+class GetServices {
+    
+    static let shared = GetServices()
+    
+    //MARK:- GET All Categories
+    func getAllCategories() -> Observable<CategeoryModel> {
+        return Observable.create { (observer) -> Disposable in
+            let url = ConfigURLS.getCategeory
+            Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil)
+                .validate(statusCode: 200..<300)
+                .responseJSON { (response: DataResponse<Any>) in
+                    do {
+                        let CategoriesData = try JSONDecoder().decode(CategeoryModel.self, from: response.data!)
+                        observer.onNext(CategoriesData)
+                    } catch {
+                        print(error.localizedDescription)
+                        observer.onError(error)
+                    }
+            }
+            return Disposables.create()
+        }
+    }//END of GET All Categories
+    
+    
+ //MARK:- GET All Country
+    func getAllCountry() -> Observable<CountryModel> {
+        return Observable.create { (observer) -> Disposable in
+            let url = ConfigURLS.getCountry
+            Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil)
+                .validate(statusCode: 200..<300)
+                .responseJSON { (response: DataResponse<Any>) in
+                    do {
+                        let CountryData = try JSONDecoder().decode(CountryModel.self, from: response.data!)
+                        observer.onNext(CountryData)
+                    } catch {
+                        print(error.localizedDescription)
+                        observer.onError(error)
+                    }
+            }
+            return Disposables.create()
+        }
+    }//END of GET All Country
+    
+}

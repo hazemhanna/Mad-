@@ -130,6 +130,9 @@
                     <constraint firstItem="bJU-fH-jLZ" firstAttribute="top" secondItem="1SL-ku-CJa" secondAttribute="top" constant="112" id="xHI-Fm-5Rv"/>
                 </constraints>
             </view>
+            <connections>
+                <outlet property="codeTF" destination="YJM-Bo-le9" id="75y-CG-NUR"/>
+            </connections>
             <point key="canvasLocation" x="-467" y="114"/>
         </viewController>
     </objects>

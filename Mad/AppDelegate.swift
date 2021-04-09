@@ -14,8 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-       // let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController")
-        let sb = Tutorial1.instantiateFromNib()
+        let sb = SplashVC.instantiateFromNib()
          window?.rootViewController = sb
         
         return true

@@ -1,6 +1,5 @@
 PODS:
   - Alamofire (4.8.2)
-  - CHTCollectionViewWaterfallLayout/Swift (0.9.8)
   - Cosmos (21.0.0)
   - Differentiator (4.0.1)
   - DLRadioButton (1.4.12)
@@ -97,13 +96,13 @@ PODS:
     - GoogleUtilities/Logger
   - IQKeyboardManagerSwift (6.3.0)
   - Kingfisher (5.4.0)
+  - KSToastView (0.5.7)
   - MOLH (1.4.3)
   - nanopb (2.30906.0):
     - nanopb/decode (= 2.30906.0)
     - nanopb/encode (= 2.30906.0)
   - nanopb/decode (2.30906.0)
   - nanopb/encode (2.30906.0)
-  - Parchment (3.0.1)
   - PromisesObjC (1.2.11)
   - PTCardTabBar (1.0.2)
   - RxCocoa (5.1.1):
@@ -118,10 +117,10 @@ PODS:
   - RxSwift (5.1.1)
   - SVProgressHUD (2.2.5)
   - SwiftyJSON (5.0.0)
+  - Toast-Swift (5.0.1)
 
 DEPENDENCIES:
   - Alamofire (~> 4.8.2)
-  - CHTCollectionViewWaterfallLayout/Swift
   - Cosmos (~> 21.0.0)
   - DLRadioButton (~> 1.4.12)
   - DropDown (~> 2.3.13)
@@ -134,19 +133,19 @@ DEPENDENCIES:
   - GooglePlaces (~> 3.8.0)
   - IQKeyboardManagerSwift (~> 6.3.0)
   - Kingfisher (~> 5.4.0)
+  - KSToastView
   - MOLH
-  - Parchment
   - PTCardTabBar
   - RxCocoa (~> 5)
   - RxDataSources (~> 4.0)
   - RxSwift (~> 5)
   - SVProgressHUD (~> 2.2.5)
   - SwiftyJSON (~> 5.0.0)
+  - Toast-Swift
 
 SPEC REPOS:
   trunk:
     - Alamofire
-    - CHTCollectionViewWaterfallLayout
     - Cosmos
     - Differentiator
     - DLRadioButton
@@ -168,9 +167,9 @@ SPEC REPOS:
     - GoogleUtilities
     - IQKeyboardManagerSwift
     - Kingfisher
+    - KSToastView
     - MOLH
     - nanopb
-    - Parchment
     - PromisesObjC
     - PTCardTabBar
     - RxCocoa
@@ -179,10 +178,10 @@ SPEC REPOS:
     - RxSwift
     - SVProgressHUD
     - SwiftyJSON
+    - Toast-Swift
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
-  CHTCollectionViewWaterfallLayout: 5f241d2480ab4939aa0d1ad4981de9eef1fbe60d
   Cosmos: 3dfb6e4ba48bd48b8c9aa2a77048ae11ed114f96
   Differentiator: 886080237d9f87f322641dedbc5be257061b0602
   DLRadioButton: d7c4e225ed0e8013cef7be61455230c7557ad7c1
@@ -204,9 +203,9 @@ SPEC CHECKSUMS:
   GoogleUtilities: 3dc4ff0d5e4840e2fa8eef0889620e8c33d4218c
   IQKeyboardManagerSwift: a8228c257614af98743b4cd8584637025f36358f
   Kingfisher: 9c8f2cc6710334e06f32ba2b45e77707d5e2f0c9
+  KSToastView: aeb0ca50b44e9568b6f95b2d1ec53a3f016b50fc
   MOLH: e45827d200aeb1310641090fd8cd03ad2b42ae72
   nanopb: 1bf24dd71191072e120b83dd02d08f3da0d65e53
-  Parchment: 466a1cfb6151780db8acb4bbedc2d9c6bfa1e2ff
   PromisesObjC: 8c196f5a328c2cba3e74624585467a557dcb482f
   PTCardTabBar: 9f94e31b447629aead75cd21cdaa6ae1f2c8bac6
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
@@ -215,7 +214,8 @@ SPEC CHECKSUMS:
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
+  Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
 
-PODFILE CHECKSUM: 22f9db942bb220ab5e481610e130b2ede202d700
+PODFILE CHECKSUM: ab127e4350bac33dd3deac9ad679dbc3c6b3d2a4
 
 COCOAPODS: 1.10.1

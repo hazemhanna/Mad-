@@ -8,13 +8,9 @@
 import Foundation
 import UIKit
 
-class Model: NSObject {
-    
-    var images : [UIImage] = []
-    
-    // Assemble an array of images to use for sample content for the collectionView
-    func buildDataSource(){
-        images = (1...7).map { UIImage(named: "image\($0)")! }
-    }
+struct SplashModel {
+    var images : UIImage?
+    var title : String?
+    var title2 : String?
     
 }

@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class PasswordVc: UIViewController {
    
@@ -13,6 +15,10 @@ class PasswordVc: UIViewController {
     @IBOutlet weak var lineImage: UIImageView!
     @IBOutlet weak var resetLbl: UILabel!
     
+    private let AuthViewModel = AuthenticationViewModel()
+    var disposeBag = DisposeBag()
+    var email = String()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,12 +36,9 @@ class PasswordVc: UIViewController {
         self.navigationController?.navigationBar.isHidden = false
     }
     
-    
-    
     @IBAction func backButton(sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
-    
     
     
     var showOld  = false
@@ -50,13 +53,11 @@ class PasswordVc: UIViewController {
                 showOld = false
               }
       }
-
     
     //MARK:- Register Label Action Configurations
     @objc func ResetTapAction(_ sender: UITapGestureRecognizer) {
        print("true")
     }
-    
     
     func setupMultiColorRegisterLabel() {
         let main_string = "Forgot PASSWORD? Reset Now"
@@ -67,4 +68,21 @@ class PasswordVc: UIViewController {
         resetLbl.attributedText = attribute
     }
     
+    @IBAction func nextButton(sender: UIButton) {
+        login()
+    }
+}
+
+extension PasswordVc {
+     func login() {
+        AuthViewModel.attemptToLogin(bindedEmail: email ,bindedPassword : passwordTF.text ?? "" ).subscribe(onNext: { (registerData) in
+            if registerData.success {
+                self.AuthViewModel.dismissIndicator()
+              
+            }
+        }, onError: { (error) in
+            self.AuthViewModel.dismissIndicator()
+
+        }).disposed(by: disposeBag)
+    }
 }

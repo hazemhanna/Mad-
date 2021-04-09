@@ -26,7 +26,9 @@ target 'Mad' do
   pod 'Firebase/Messaging'
   pod 'Firebase/Crashlytics'
   pod 'PTCardTabBar'
-  pod 'Parchment'
-  pod 'CHTCollectionViewWaterfallLayout/Swift'
+  pod 'KSToastView'
+  pod 'Toast-Swift'
 
+  
+  
 end
