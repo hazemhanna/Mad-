@@ -17,15 +17,15 @@ class PasswordVc: UIViewController {
     
     private let AuthViewModel = AuthenticationViewModel()
     var disposeBag = DisposeBag()
-    var email = String()
-
-
+    var email = Helper.getUserEmail()
     override func viewDidLoad() {
         super.viewDidLoad()
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.ResetTapAction(_:)))
         resetLbl.isUserInteractionEnabled = true
         resetLbl.addGestureRecognizer(gestureRecognizer)
         setupMultiColorRegisterLabel()
+        
+        passwordTF.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,21 +68,42 @@ class PasswordVc: UIViewController {
         resetLbl.attributedText = attribute
     }
     
+    func validateInput() -> Bool {
+        let email =  self.passwordTF.text ?? ""
+        if email.isEmpty {
+          self.showMessage(text: "Please Enter Your Password")
+          return false
+        }else{
+            return true
+        }
+    }
     @IBAction func nextButton(sender: UIButton) {
+        guard self.validateInput() else { return }
+        self.AuthViewModel.showIndicator()
         login()
     }
 }
 
 extension PasswordVc {
      func login() {
-        AuthViewModel.attemptToLogin(bindedEmail: email ,bindedPassword : passwordTF.text ?? "" ).subscribe(onNext: { (registerData) in
-            if registerData.success {
+        AuthViewModel.attemptToLogin(bindedEmail: email ?? "" ,bindedPassword : passwordTF.text ?? "" ).subscribe(onNext: { (registerData) in
+            if registerData.success ?? false {
                 self.AuthViewModel.dismissIndicator()
-              
+                let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CardTabBarController")
+                if let appDelegate = UIApplication.shared.delegate {
+                    appDelegate.window??.rootViewController = sb
+                }
             }
         }, onError: { (error) in
             self.AuthViewModel.dismissIndicator()
 
         }).disposed(by: disposeBag)
     }
+}
+
+extension PasswordVc :UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+           self.view.endEditing(true)
+           return false
+       }
 }

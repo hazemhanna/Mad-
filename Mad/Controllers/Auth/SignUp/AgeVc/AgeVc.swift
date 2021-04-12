@@ -10,14 +10,16 @@ import UIKit
 class AgeVc: UIViewController {
 
     @IBOutlet weak var nameLbl : UILabel!
-    
-    var name :String?
+    @IBOutlet weak var ageTF : CustomTextField!
+
+    var name  = (Helper.getUserLastName() ?? "") + (Helper.getUserLastName() ?? "")
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //nameLbl.text = "HI \(name ?? "")!"
-
+        nameLbl.text = "HI \(name)"
+        ageTF.delegate = self
+    
     }
 
 
@@ -29,15 +31,35 @@ class AgeVc: UIViewController {
         self.navigationController?.navigationBar.isHidden = false
     }
     
+    func validateInput() -> Bool {
+        let age =  self.ageTF.text ?? ""
+        if age.isEmpty {
+          self.showMessage(text: "Please Enter Your age")
+          return false
+        }else{
+            return true
+        }
+    }
+    
     @IBAction func nextButton(sender: UIButton) {
+        guard self.validateInput() else { return }
+        Helper.saveAge(Age: self.ageTF.text ?? "")
         let main = CountryVc.instantiateFromNib()
         self.navigationController?.pushViewController(main!, animated: true)
     }
-
     
     @IBAction func backButton(sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
 
     }
     
+}
+
+
+extension AgeVc :UITextFieldDelegate{
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+           self.view.endEditing(true)
+           return false
+       }
 }

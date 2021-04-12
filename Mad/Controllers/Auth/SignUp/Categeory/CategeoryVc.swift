@@ -16,13 +16,13 @@ class CategeoryVc: UIViewController {
     @IBOutlet weak var nextBtn: UIButton!
 
     var disposeBag = DisposeBag()
-    private let CategeoryVM = CategeoryViewModel()
-    var SelectedCategories = [String]() 
+    private let AuthViewModel = AuthenticationViewModel()
+    var SelectedCategories = [Int]()
 
-    var Categories = [String]() {
+    var Categories = [Category]() {
         didSet {
             DispatchQueue.main.async {
-                self.CategeoryVM.fetchCategories(Categories: self.Categories)
+                self.AuthViewModel.fetchCategories(Categories: self.Categories)
 
             }
         }
@@ -33,6 +33,7 @@ class CategeoryVc: UIViewController {
         setupCategoryCollectionView()
         
         nextBtn.backgroundColor = #colorLiteral(red: 0.9098039216, green: 0.5764705882, blue: 0.6745098039, alpha: 1)
+        getCategory()
     
     }
     
@@ -46,22 +47,26 @@ class CategeoryVc: UIViewController {
     
     @IBAction func backButton(sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
-
     }
+    
+    @IBAction func nextButton(sender: UIButton) {
+        completeProfile()
+    }
+
 }
 
 extension CategeoryVc: UICollectionViewDelegate {
     func setupCategoryCollectionView() {
-        Categories = ["1","2","3","4","4","4","4","1","2","3","4","4","4","4","1","2","3","4","4","4","4"]
         let cellIdentifier = "CategeoryCell"
         self.CategoryCollectionView.rx.setDelegate(self).disposed(by: disposeBag)
         self.CategoryCollectionView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
-        self.CategeoryVM.Categories.bind(to: self.CategoryCollectionView.rx.items(cellIdentifier: cellIdentifier, cellType: CategeoryCell.self)) { index, element, cell in
-        
+        self.AuthViewModel.categories.bind(to: self.CategoryCollectionView.rx.items(cellIdentifier: cellIdentifier, cellType: CategeoryCell.self)) { index, element, cell in
+            
+            cell.confic(imageURL :  self.Categories[index].imageURL ?? "" , name : self.Categories[index].name ?? "")
             cell.selectAction = {
                 if cell.iconImage.isHidden {
                 cell.iconImage.isHidden = false
-                    self.SelectedCategories.append("1")
+                    self.SelectedCategories.append(self.Categories[index].id ?? 0 )
                 }else{
                     cell.iconImage.isHidden = true
                     self.SelectedCategories.remove(at: index)
@@ -96,5 +101,42 @@ extension CategeoryVc : UICollectionViewDelegateFlowLayout {
         let size:CGFloat = (collectionView.frame.size.width - space) / 3.1
         return CGSize(width: size, height: size + 10)
         
+    }
+}
+
+
+extension CategeoryVc {
+     func getCategory() {
+        AuthViewModel.getCategories().subscribe(onNext: { (dataModel) in
+            if dataModel.success ?? false {
+                self.AuthViewModel.dismissIndicator()
+                self.Categories = dataModel.data ?? []
+            }
+        }, onError: { (error) in
+            self.AuthViewModel.dismissIndicator()
+
+        }).disposed(by: disposeBag)
+    }
+}
+
+extension CategeoryVc {
+     func completeProfile() {
+        AuthViewModel.attemptToCompleteProfile(categories: self.SelectedCategories).subscribe(onNext: { (registerData) in
+            if registerData.success ?? false {
+                self.AuthViewModel.dismissIndicator()
+                let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CardTabBarController")
+                if let appDelegate = UIApplication.shared.delegate {
+                    appDelegate.window??.rootViewController = sb
+                }
+                self.showMessage(text: registerData.message ?? "")
+
+            }else{
+                self.AuthViewModel.dismissIndicator()
+                self.showMessage(text: registerData.message ?? "")
+            }
+        }, onError: { (error) in
+            self.AuthViewModel.dismissIndicator()
+
+        }).disposed(by: disposeBag)
     }
 }

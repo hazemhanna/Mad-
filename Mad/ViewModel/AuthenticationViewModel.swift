@@ -11,14 +11,12 @@ import SVProgressHUD
 
 
 struct AuthenticationViewModel {
-    var email = BehaviorSubject<String>(value: "")
-    var password = BehaviorSubject<String>(value: "")
-    var first_name = BehaviorSubject<String>(value: "")
-    var last_name = BehaviorSubject<String>(value: "")
-    var categories = PublishSubject<[Categeory]>()
+
+    var categories = PublishSubject<[Category]>()
     var countries = PublishSubject<[Country]>()
 
-    func fetchCategories(Categories: [Categeory]) {
+    
+    func fetchCategories(Categories: [Category]) {
           self.categories.onNext(Categories)
       }
     
@@ -36,7 +34,7 @@ struct AuthenticationViewModel {
     
  
     //MARK:- Attempt to register
-    func attemptToRegister(bindedEmail:String) -> Observable<RegisterModel> {
+    func attemptToRegister(bindedEmail:String) -> Observable<AuthModel> {
         let params: [String: Any] = [
             "email": bindedEmail
             ]
@@ -46,7 +44,7 @@ struct AuthenticationViewModel {
     
     
     //MARK:- Attempt to register
-    func attemptToVerify (bindedEmail:String,bindedCode:String) -> Observable<RegisterModel> {
+    func attemptToVerify (bindedEmail:String,bindedCode:String) -> Observable<VerifyModel> {
         let params: [String: Any] = [
             "email": bindedEmail,
             "verification_code": bindedCode
@@ -55,9 +53,38 @@ struct AuthenticationViewModel {
         return observer
     }
 
+    //MARK:- Attempt to Login
+    func attemptToCompleteProfile(categories:[Int]) -> Observable<AuthRegisterModel> {
+        let bindedEmail = Helper.getUserEmail() ?? ""
+        let bindedPassword =  Helper.getUserPass() ?? ""
+        let firstName =  Helper.getUserFirstName() ?? ""
+        let  LastName =  Helper.getUserLastName() ?? ""
+        let age =  Helper.getUserAge() ?? ""
+        let countryId = Helper.getUserCountry() ?? 0
+        let type =  Helper.getUserType() ?? 1
+        let code =  Helper.getUserCode() ?? ""
+        
+        let params: [String: Any] = [
+            "email": bindedEmail,
+            "password": bindedPassword,
+            "password_confirmation": bindedPassword,
+            "first_name": firstName,
+            "last_name": LastName,
+            "age": age,
+            "country_id": countryId,
+            "mad_artist": type,
+            "verification_code": code,
+            "categories": categories,
+           ]
+        
+        let observer = Authentication.shared.postCompleteProfile(params: params)
+        return observer
+    }
+    
+    
     
     //MARK:- Attempt to Login
-    func attemptToLogin(bindedEmail:String,bindedPassword:String) -> Observable<RegisterModel> {
+    func attemptToLogin(bindedEmail:String,bindedPassword:String) -> Observable<AuthRegisterModel> {
         let params: [String: Any] = [
             "email": bindedEmail,
             "password": bindedPassword
@@ -66,7 +93,7 @@ struct AuthenticationViewModel {
         return observer
     }
     
-    func getCategories() -> Observable<CategeoryModel> {
+    func getCategories() -> Observable<CategoryModel> {
          let observer = GetServices.shared.getAllCategories()
          return observer
      }

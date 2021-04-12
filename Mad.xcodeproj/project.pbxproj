@@ -43,7 +43,7 @@
 		04528E5C2614B5AE009868EA /* CountryVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04528E5A2614B5AE009868EA /* CountryVc.xib */; };
 		0460CF45261CEC27006685B6 /* ArtistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0460CF43261CEC27006685B6 /* ArtistCell.swift */; };
 		0460CF46261CEC27006685B6 /* ArtistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0460CF44261CEC27006685B6 /* ArtistCell.xib */; };
-		0460CF6E261D04DD006685B6 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0460CF6D261D04DD006685B6 /* Model.swift */; };
+		0460CF6E261D04DD006685B6 /* SplashModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0460CF6D261D04DD006685B6 /* SplashModel.swift */; };
 		0466871D261B3C32001D024D /* WelcomVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0466871B261B3C32001D024D /* WelcomVc.swift */; };
 		0466871E261B3C32001D024D /* WelcomVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0466871C261B3C32001D024D /* WelcomVc.xib */; };
 		04668724261B3F89001D024D /* WelcomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04668722261B3F89001D024D /* WelcomeCell.swift */; };
@@ -127,7 +127,7 @@
 		04528E5A2614B5AE009868EA /* CountryVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountryVc.xib; sourceTree = "<group>"; };
 		0460CF43261CEC27006685B6 /* ArtistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistCell.swift; sourceTree = "<group>"; };
 		0460CF44261CEC27006685B6 /* ArtistCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArtistCell.xib; sourceTree = "<group>"; };
-		0460CF6D261D04DD006685B6 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		0460CF6D261D04DD006685B6 /* SplashModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashModel.swift; sourceTree = "<group>"; };
 		0466871B261B3C32001D024D /* WelcomVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomVc.swift; sourceTree = "<group>"; };
 		0466871C261B3C32001D024D /* WelcomVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomVc.xib; sourceTree = "<group>"; };
 		04668722261B3F89001D024D /* WelcomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCell.swift; sourceTree = "<group>"; };
@@ -238,7 +238,6 @@
 				042C08282613941F00BE1806 /* LoadingLogin */,
 				04528E3826149885009868EA /* Login */,
 				04528E3726149882009868EA /* SignUp */,
-				04F06AED2614DD3700B08606 /* Categeory */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -281,12 +280,13 @@
 		04528E3726149882009868EA /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				04688785261E0DDB0056AC92 /* VerificationVc */,
 				0466871A261B3B27001D024D /* WelcomVc */,
+				04688785261E0DDB0056AC92 /* VerificationVc */,
 				04528E4E2614B556009868EA /* CreatPassword */,
 				04528E522614B565009868EA /* NameVc */,
 				04F06AC22614C35E00B08606 /* AgeVc */,
 				04528E512614B563009868EA /* CountryVc */,
+				04F06AED2614DD3700B08606 /* Categeory */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -499,10 +499,10 @@
 			isa = PBXGroup;
 			children = (
 				04DEA9DB2620A0B200F843A6 /* AuthModel.swift */,
-				0460CF6D261D04DD006685B6 /* Model.swift */,
 				04DEA9952620901000F843A6 /* CategeoryModel.swift */,
 				04DEA998262090C700F843A6 /* CountryModel.swift */,
 				04DEA9D826209FA100F843A6 /* Errors.swift */,
+				0460CF6D261D04DD006685B6 /* SplashModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -928,7 +928,7 @@
 				043B47CE261DB15600D67023 /* ProductVc.swift in Sources */,
 				04F06AC52614C37200B08606 /* AgeVc.swift in Sources */,
 				04F06AF62614E0D600B08606 /* CategeoryCell.swift in Sources */,
-				0460CF6E261D04DD006685B6 /* Model.swift in Sources */,
+				0460CF6E261D04DD006685B6 /* SplashModel.swift in Sources */,
 				04528E2F26149496009868EA /* Helper.swift in Sources */,
 				0414286526176BCD000394CA /* HomeViewModel.swift in Sources */,
 				04F06AFD2614E2D800B08606 /* CategeoryViewModel.swift in Sources */,

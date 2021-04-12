@@ -21,7 +21,7 @@ class EmailVc: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        emailTF.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,8 +43,9 @@ class EmailVc: UIViewController {
     }
     
     @IBAction func nextButton(sender: UIButton) {
+        guard self.validateInput() else { return }
+        Helper.saveEmial(email: self.emailTF.text ?? "")
         if register {
-            guard self.validateInput() else { return }
             self.AuthViewModel.showIndicator()
             CreateAccount()
         }else{
@@ -63,14 +64,25 @@ class EmailVc: UIViewController {
 extension EmailVc {
      func CreateAccount() {
         AuthViewModel.attemptToRegister(bindedEmail: emailTF.text ?? "").subscribe(onNext: { (registerData) in
-            if registerData.success {
+            if registerData.success ?? false {
                 self.AuthViewModel.dismissIndicator()
+                self.showMessage(text: registerData.message ?? "")
                 let main = VerificationVc.instantiateFromNib()
                 self.navigationController?.pushViewController(main!, animated: true)
+            }else{
+                self.AuthViewModel.dismissIndicator()
+                self.showMessage(text: registerData.message ?? "")
             }
         }, onError: { (error) in
             self.AuthViewModel.dismissIndicator()
 
         }).disposed(by: disposeBag)
     }
+}
+
+extension EmailVc:UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+           self.view.endEditing(true)
+           return false
+       }
 }

@@ -15,14 +15,14 @@ class GetServices {
     static let shared = GetServices()
     
     //MARK:- GET All Categories
-    func getAllCategories() -> Observable<CategeoryModel> {
+    func getAllCategories() -> Observable<CategoryModel> {
         return Observable.create { (observer) -> Disposable in
             let url = ConfigURLS.getCategeory
             Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil)
                 .validate(statusCode: 200..<300)
                 .responseJSON { (response: DataResponse<Any>) in
                     do {
-                        let CategoriesData = try JSONDecoder().decode(CategeoryModel.self, from: response.data!)
+                        let CategoriesData = try JSONDecoder().decode(CategoryModel.self, from: response.data!)
                         observer.onNext(CategoriesData)
                     } catch {
                         print(error.localizedDescription)

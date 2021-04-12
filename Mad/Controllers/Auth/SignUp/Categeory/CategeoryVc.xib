@@ -94,6 +94,9 @@
                                 <real key="value" value="28"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="nextButtonWithSender:" destination="e9t-Lb-N2C" eventType="touchUpInside" id="fKQ-YF-xWm"/>
+                        </connections>
                     </button>
                 </subviews>
                 <viewLayoutGuide key="safeArea" id="Awh-7O-nl8"/>

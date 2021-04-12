@@ -8,16 +8,16 @@
 import Foundation
 
 // MARK: - Categeory
-struct CategeoryModel: Codable {
+struct CategoryModel: Codable {
     let success: Bool?
-    let data: [Categeory]?
+    let data: [Category]?
     let message: String?
     let errors: Errors?
 
 }
 
 // MARK: - Datum
-struct Categeory: Codable {
+struct Category: Codable {
     let id: Int?
     let imageURL: String?
     let name: String?

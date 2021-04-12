@@ -72,7 +72,7 @@
                                 <rect key="frame" x="16" y="0.0" width="258" height="50"/>
                                 <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="inset">
                                         <real key="value" value="10"/>
@@ -143,6 +143,9 @@
                     <constraint firstItem="QlP-zx-68N" firstAttribute="centerX" secondItem="yE7-hp-zJG" secondAttribute="centerX" id="sgw-ia-d3P"/>
                 </constraints>
             </view>
+            <connections>
+                <outlet property="selectCateDropDown" destination="FM3-so-eyC" id="qbK-Al-lrk"/>
+            </connections>
             <point key="canvasLocation" x="-468.11594202898556" y="113.83928571428571"/>
         </viewController>
     </objects>

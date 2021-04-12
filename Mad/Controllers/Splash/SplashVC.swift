@@ -34,7 +34,7 @@ class SplashVC: UIViewController {
         setupSplashCollectionView()
         data.append(SplashModel(images: #imageLiteral(resourceName: "Component 5 – 1"), title: "JOIN AS A MADER", title2: "Discover artists & their projects"))
         data.append(SplashModel(images: #imageLiteral(resourceName: "Component 4 – 1"), title: "SHOP & ACQUIRE", title2: "artist creations"))
-        data.append(SplashModel(images: #imageLiteral(resourceName: "Layer 0"), title: "Or join as an artist", title2: "get visibility & sell your creations"))
+        data.append(SplashModel(images: #imageLiteral(resourceName: "Layer 0"), title: "Or JOIN AS AN ARTIST", title2: "get visibility & sell your creations"))
         data.append(SplashModel(images: #imageLiteral(resourceName: "Component 63 – 1"), title: "REGISTER & APPLY", title2: "to events and competitions"))
         
         firstView.clipsToBounds = true

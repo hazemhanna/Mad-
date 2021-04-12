@@ -206,7 +206,8 @@
                 </constraints>
             </view>
             <connections>
-                <outlet property="nameTF" destination="fwF-CP-kpn" id="SCS-Q7-0po"/>
+                <outlet property="firstNameTF" destination="fwF-CP-kpn" id="nxV-rv-XhF"/>
+                <outlet property="lastNameTF" destination="uQj-Gz-2vV" id="9Uf-A3-o4B"/>
             </connections>
             <point key="canvasLocation" x="-467" y="114"/>
         </viewController>

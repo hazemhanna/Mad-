@@ -35,7 +35,7 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" intereste" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="71L-AT-g9v">
-                                <rect key="frame" x="34.5" y="95" width="49.5" height="14"/>
+                                <rect key="frame" x="32" y="97" width="54" height="12"/>
                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -87,6 +87,8 @@
             </constraints>
             <size key="customSize" width="118" height="117"/>
             <connections>
+                <outlet property="catImage" destination="I0v-uj-KcM" id="qZj-Fu-ows"/>
+                <outlet property="catLbl" destination="71L-AT-g9v" id="8oX-LA-rH4"/>
                 <outlet property="iconImage" destination="Fhq-kg-ar6" id="5z1-j1-C5u"/>
             </connections>
             <point key="canvasLocation" x="-13.043478260869566" y="78.013392857142847"/>

@@ -8,6 +8,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Graphik-Light.ttf">
+            <string>Graphik-Light</string>
+        </array>
         <array key="Graphik-Medium.ttf">
             <string>Graphik-Medium</string>
         </array>
@@ -25,46 +28,35 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hok-kx-B15">
                         <rect key="frame" x="0.0" y="0.0" width="462" height="497"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="64" translatesAutoresizingMaskIntoConstraints="NO" id="QOe-er-4gZ">
-                                <rect key="frame" x="0.0" y="16" width="462" height="465"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Component 5 – 1" translatesAutoresizingMaskIntoConstraints="NO" id="jcq-cM-t1R">
+                                <rect key="frame" x="69.5" y="8" width="323" height="347"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="oWJ-6i-P8w">
+                                <rect key="frame" x="91" y="371" width="280" height="56"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="L0H-DR-ECG">
-                                        <rect key="frame" x="91.5" y="0.0" width="279" height="465"/>
-                                        <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Component 5 – 1" translatesAutoresizingMaskIntoConstraints="NO" id="jcq-cM-t1R">
-                                                <rect key="frame" x="0.0" y="0.0" width="279" height="379.5"/>
-                                            </imageView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="oWJ-6i-P8w">
-                                                <rect key="frame" x="0.0" y="395.5" width="279" height="69.5"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="JOIN AS A MADER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eck-KS-MHc">
-                                                        <rect key="frame" x="36.5" y="0.0" width="206.5" height="34.5"/>
-                                                        <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="24"/>
-                                                        <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Discover artists &amp; their projects" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PQD-y0-qIy">
-                                                        <rect key="frame" x="0.0" y="34.5" width="279" height="35"/>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                                        <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="oWJ-6i-P8w" firstAttribute="height" secondItem="L0H-DR-ECG" secondAttribute="height" multiplier="0.15" id="rB3-zO-rn3"/>
-                                        </constraints>
-                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="JOIN AS A MADER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eck-KS-MHc">
+                                        <rect key="frame" x="37" y="0.0" width="206.5" height="24"/>
+                                        <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="24"/>
+                                        <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Discover artists &amp; their projects" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PQD-y0-qIy">
+                                        <rect key="frame" x="0.0" y="32" width="280" height="24"/>
+                                        <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="20"/>
+                                        <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="QOe-er-4gZ" secondAttribute="trailing" id="1tH-8l-sHW"/>
-                            <constraint firstItem="QOe-er-4gZ" firstAttribute="top" secondItem="hok-kx-B15" secondAttribute="top" constant="16" id="266-2R-0ah"/>
-                            <constraint firstAttribute="bottom" secondItem="QOe-er-4gZ" secondAttribute="bottom" constant="16" id="Jjg-Kr-qHb"/>
-                            <constraint firstItem="QOe-er-4gZ" firstAttribute="leading" secondItem="hok-kx-B15" secondAttribute="leading" id="Rwg-Nd-HO2"/>
+                            <constraint firstItem="oWJ-6i-P8w" firstAttribute="top" secondItem="jcq-cM-t1R" secondAttribute="bottom" constant="16" id="9vH-cN-A7C"/>
+                            <constraint firstItem="jcq-cM-t1R" firstAttribute="top" secondItem="hok-kx-B15" secondAttribute="top" constant="8" id="LZR-RT-Rm1"/>
+                            <constraint firstItem="jcq-cM-t1R" firstAttribute="height" secondItem="hok-kx-B15" secondAttribute="height" multiplier="0.698189" id="Rp5-Pz-AOL"/>
+                            <constraint firstItem="jcq-cM-t1R" firstAttribute="width" secondItem="hok-kx-B15" secondAttribute="width" multiplier="0.7" id="WMa-ez-Uu8"/>
+                            <constraint firstItem="oWJ-6i-P8w" firstAttribute="centerX" secondItem="hok-kx-B15" secondAttribute="centerX" id="lll-Uu-Vt5"/>
+                            <constraint firstItem="jcq-cM-t1R" firstAttribute="centerX" secondItem="hok-kx-B15" secondAttribute="centerX" id="xf7-vk-kY2"/>
                         </constraints>
                     </view>
                 </subviews>
