@@ -14,21 +14,14 @@ target 'Mad' do
   pod 'SVProgressHUD', '~> 2.2.5'
   pod 'RxSwift', '~> 5'
   pod 'RxCocoa', '~> 5'
-  pod 'Gallery'
-  pod 'FaveButton', '~> 3.2.1'
-  pod 'Cosmos', '~> 21.0.0'
+
   pod 'RxDataSources', '~> 4.0'
-  pod 'GoogleMaps', '~> 3.8.0'
-  pod 'GooglePlaces', '~> 3.8.0'
+ 
   pod 'MOLH'
   pod 'DropDown', '~> 2.3.13'
-  pod 'Firebase/Analytics'
-  pod 'Firebase/Messaging'
-  pod 'Firebase/Crashlytics'
+
   pod 'PTCardTabBar'
   pod 'KSToastView'
   pod 'Toast-Swift'
-
-  
   
 end
