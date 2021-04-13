@@ -37,6 +37,15 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D45-mu-mHz" customClass="CustomView" customModule="Mad" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="230" height="207"/>
+                                <color key="backgroundColor" red="0.13333333333333333" green="0.21568627450980393" blue="0.38823529411764707" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Esm-yx-G5X">
                                 <rect key="frame" x="16" y="101" width="182" height="90"/>
                                 <subviews>
@@ -54,15 +63,6 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D45-mu-mHz" customClass="CustomView" customModule="Mad" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="230" height="207"/>
-                                <color key="backgroundColor" red="0.13333333333333333" green="0.21568627450980393" blue="0.38823529411764707" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="16"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>

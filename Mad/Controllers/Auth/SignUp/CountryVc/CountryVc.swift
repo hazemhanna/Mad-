@@ -10,27 +10,23 @@ import RxSwift
 import RxCocoa
 
 class CountryVc: UIViewController {
-   
+    
     @IBOutlet weak var selectCateDropDown: TextFieldDropDown!
-
-    
     private let AuthViewModel = AuthenticationViewModel()
-    
+    var disposeBag = DisposeBag()
+
     var cats = [String]()
     var countries = [Country]() {
         didSet {
             DispatchQueue.main.async {
                 self.AuthViewModel.fetchCountries(Countries: self.countries)
-
             }
         }
     }
     
-    var disposeBag = DisposeBag()
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        self.AuthViewModel.showIndicator()
         getCountry()
     }
 
@@ -50,7 +46,6 @@ class CountryVc: UIViewController {
         self.navigationController?.navigationBar.isHidden = false
     }
     
-    
     func validateInput() -> Bool {
         let age =  self.selectCateDropDown.text ?? ""
         if age.isEmpty {
@@ -67,12 +62,9 @@ class CountryVc: UIViewController {
         self.navigationController?.pushViewController(main!, animated: true)
     }
 
-    
     @IBAction func backButton(sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
-
     }
-    
 }
 
 

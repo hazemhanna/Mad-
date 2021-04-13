@@ -10,12 +10,11 @@ import RxSwift
 import RxCocoa
 
 class VerificationVc: UIViewController {
-
+    
     @IBOutlet weak var codeTF: UITextField!
-
+    
     private let AuthViewModel = AuthenticationViewModel()
     var disposeBag = DisposeBag()
-    
     var email = Helper.getUserEmail()
     
     override func viewDidLoad() {
@@ -34,7 +33,6 @@ class VerificationVc: UIViewController {
     
     @IBAction func backButton(sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
-
     }
     
     func validateInput() -> Bool {
@@ -46,12 +44,11 @@ class VerificationVc: UIViewController {
             return true
         }
     }
-
-    
     
     @IBAction func nextButton(sender: UIButton) {
         guard self.validateInput() else { return }
         Helper.saveCode(code : codeTF.text ?? "")
+        self.AuthViewModel.showIndicator()
         verfiyAccount()
     }
 }

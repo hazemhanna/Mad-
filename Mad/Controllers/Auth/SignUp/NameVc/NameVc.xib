@@ -51,12 +51,12 @@
                         </connections>
                     </button>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="eoT-gh-hMP">
-                        <rect key="frame" x="62" y="288" width="290" height="116"/>
+                        <rect key="frame" x="62" y="272" width="290" height="116"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t4m-Vm-KQH" customClass="CustomView" customModule="Mad" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="290" height="50"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="first Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fwF-CP-kpn" customClass="CustomTextField" customModule="Mad" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fwF-CP-kpn" customClass="CustomTextField" customModule="Mad" customModuleProvider="target">
                                         <rect key="frame" x="16" y="0.0" width="258" height="50"/>
                                         <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="18"/>
@@ -104,7 +104,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3fT-wP-aqU" customClass="CustomView" customModule="Mad" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="66" width="290" height="50"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uQj-Gz-2vV" customClass="CustomTextField" customModule="Mad" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uQj-Gz-2vV" customClass="CustomTextField" customModule="Mad" customModuleProvider="target">
                                         <rect key="frame" x="16" y="0.0" width="258" height="50"/>
                                         <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="18"/>
@@ -161,7 +161,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vg3-2i-Af6" customClass="CustomButtons" customModule="Mad" customModuleProvider="target">
-                        <rect key="frame" x="143" y="436" width="128" height="54"/>
+                        <rect key="frame" x="143" y="420" width="128" height="54"/>
                         <color key="backgroundColor" red="0.8980392157" green="0.12549019610000001" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="54" id="AAL-Vc-Ble"/>
@@ -189,7 +189,7 @@
                     <constraint firstItem="fNh-xt-inP" firstAttribute="centerY" secondItem="0ns-cu-CZw" secondAttribute="centerY" id="0yg-p7-RSJ"/>
                     <constraint firstItem="vg3-2i-Af6" firstAttribute="top" secondItem="eoT-gh-hMP" secondAttribute="bottom" constant="32" id="1Sd-r6-3vm"/>
                     <constraint firstItem="0ns-cu-CZw" firstAttribute="leading" secondItem="cKB-gw-icZ" secondAttribute="leading" constant="88" id="2Hc-tH-eJ5"/>
-                    <constraint firstItem="eoT-gh-hMP" firstAttribute="top" secondItem="0ns-cu-CZw" secondAttribute="bottom" constant="32" id="37y-3R-Up7"/>
+                    <constraint firstItem="eoT-gh-hMP" firstAttribute="top" secondItem="0ns-cu-CZw" secondAttribute="bottom" constant="16" id="37y-3R-Up7"/>
                     <constraint firstItem="vCe-Za-N0d" firstAttribute="top" secondItem="cKB-gw-icZ" secondAttribute="top" constant="30" id="5DG-K8-flG"/>
                     <constraint firstItem="fLR-Km-NiW" firstAttribute="leading" secondItem="cKB-gw-icZ" secondAttribute="leading" id="7bB-O0-Ak6"/>
                     <constraint firstItem="vCe-Za-N0d" firstAttribute="leading" secondItem="cKB-gw-icZ" secondAttribute="leading" constant="26" id="GNY-KU-ien"/>
@@ -214,10 +214,10 @@
     </objects>
     <designables>
         <designable name="fwF-CP-kpn">
-            <size key="intrinsicContentSize" width="103.5" height="39.5"/>
+            <size key="intrinsicContentSize" width="25" height="39.5"/>
         </designable>
         <designable name="uQj-Gz-2vV">
-            <size key="intrinsicContentSize" width="101.5" height="39.5"/>
+            <size key="intrinsicContentSize" width="25" height="39.5"/>
         </designable>
         <designable name="vg3-2i-Af6">
             <size key="intrinsicContentSize" width="52" height="21"/>

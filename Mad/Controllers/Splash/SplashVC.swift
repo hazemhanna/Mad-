@@ -44,7 +44,7 @@ class SplashVC: UIViewController {
         lastView.clipsToBounds = true
         lastView.layer.cornerRadius = 3
         lastView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
-        
+        splashCollectionView.isPagingEnabled = true
     }
     
     @IBAction func nextButton(sender: UIButton) {
@@ -52,14 +52,13 @@ class SplashVC: UIViewController {
             let lastIndex = (self.data.count) - 1
             let visibleIndices = self.splashCollectionView.indexPathsForVisibleItems
             let nextIndex = visibleIndices[0].row + 1
-            let nextIndexPath: IndexPath = IndexPath.init(item: nextIndex, section: 0)
             if nextIndex > lastIndex {
                 let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
                 if let appDelegate = UIApplication.shared.delegate {
                     appDelegate.window??.rootViewController = sb
                 }
             } else {
-                self.splashCollectionView.scrollToItem(at: nextIndexPath, at: .centeredHorizontally, animated: true)
+                self.splashCollectionView.scrollToNextItem()
           }
         }
     }

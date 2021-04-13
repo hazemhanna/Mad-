@@ -71,11 +71,11 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Su-5B-PqX" customClass="CustomView" customModule="Mad" customModuleProvider="target">
                         <rect key="frame" x="62" y="276" width="290" height="50"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="rze@hotmail.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RDB-Gf-CdX" customClass="CustomTextField" customModule="Mad" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RDB-Gf-CdX" customClass="CustomTextField" customModule="Mad" customModuleProvider="target">
                                 <rect key="frame" x="14.5" y="0.0" width="261" height="50"/>
                                 <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="inset">
                                         <real key="value" value="10"/>
@@ -149,7 +149,7 @@
     </objects>
     <designables>
         <designable name="RDB-Gf-CdX">
-            <size key="intrinsicContentSize" width="170.5" height="39.5"/>
+            <size key="intrinsicContentSize" width="25" height="39.5"/>
         </designable>
         <designable name="nJa-hM-UZl">
             <size key="intrinsicContentSize" width="52" height="21"/>
