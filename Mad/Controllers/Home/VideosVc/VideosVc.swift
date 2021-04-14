@@ -54,9 +54,9 @@ extension VideosVc: UICollectionViewDelegate {
         self.productCollectionView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
         self.homeVM.data.bind(to: self.productCollectionView.rx.items(cellIdentifier: cellIdentifier, cellType: ProjectCell.self)) { index, element, cell in
             
-                cell.ProjectStackView.isHidden = false
-                cell.addProjectView.isHidden = true
-                cell.addProjectLabel.isHidden = true
+                cell.projectNameLabel.text = "Music"
+                cell.catImage.isHidden = false
+                cell.addProjectBtn.isHidden = true
                cell.projectNameLabel.textColor = UIColor.white
             
         }.disposed(by: disposeBag)

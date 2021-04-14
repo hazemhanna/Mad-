@@ -8,15 +8,23 @@
 import UIKit
 
 class ProjectCell: UICollectionViewCell {
-    @IBOutlet weak var addProjectView: UIView!
-    @IBOutlet weak var addProjectLabel: UILabel!
+    
+    @IBOutlet weak var ProjectView: UIView!
     @IBOutlet weak var projectNameLabel: UILabel!
+    @IBOutlet weak var catImage: UIImageView!
+    @IBOutlet weak var shimmerView : ShimmerView!
+    @IBOutlet weak var addProjectBtn: UIButton!
 
-    @IBOutlet weak var ProjectStackView: UIStackView!
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.showShimmer = false
     }
-
+    
+    var showShimmer: Bool = false {
+        didSet {
+            self.shimmerView.isShimmering = showShimmer
+        }
+    }
+    
 }

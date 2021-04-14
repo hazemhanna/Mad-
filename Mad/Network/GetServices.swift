@@ -53,4 +53,24 @@ class GetServices {
         }
     }//END of GET All Country
     
+    //MARK:- GET All Project
+    func getAllProject(param : [String :Any]) -> Observable<ProjectMainModel> {
+           return Observable.create { (observer) -> Disposable in
+               let url = ConfigURLS.getProject
+            
+               Alamofire.request(url, method: .get, parameters: param, encoding: URLEncoding.default, headers: nil)
+                   .validate(statusCode: 200..<300)
+                   .responseJSON { (response: DataResponse<Any>) in
+                       do {
+                           let CountryData = try JSONDecoder().decode(ProjectMainModel.self, from: response.data!)
+                           observer.onNext(CountryData)
+                       } catch {
+                           print(error.localizedDescription)
+                           observer.onError(error)
+                       }
+               }
+               return Disposables.create()
+           }
+       }//END of GET All Project
+    
 }

@@ -27,21 +27,21 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HcJ-SP-dDa" customClass="CustomView" customModule="Mad" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="263" height="144"/>
+                        <rect key="frame" x="4" y="4" width="255" height="136"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gzT-4K-1o6">
-                                <rect key="frame" x="16" y="8" width="239" height="128"/>
+                                <rect key="frame" x="8" y="8" width="239" height="120"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4" translatesAutoresizingMaskIntoConstraints="NO" id="IuM-zf-1me" customClass="CustomImageView" customModule="Mad" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="13" width="71.5" height="102"/>
+                                        <rect key="frame" x="0.0" y="12" width="71.5" height="96"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="16"/>
+                                                <real key="value" value="8"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="QFj-8u-5Og">
-                                        <rect key="frame" x="79.5" y="35" width="159.5" height="58"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="QFj-8u-5Og">
+                                        <rect key="frame" x="79.5" y="35" width="159.5" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Live from your Art Workshop" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3u4-1O-HDF">
                                                 <rect key="frame" x="0.0" y="0.0" width="159.5" height="28"/>
@@ -50,7 +50,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD 40" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwm-ou-Eu4">
-                                                <rect key="frame" x="0.0" y="44" width="159.5" height="14"/>
+                                                <rect key="frame" x="0.0" y="36" width="159.5" height="14"/>
                                                 <fontDescription key="fontDescription" name="Graphik-Bold" family="Graphik" pointSize="14"/>
                                                 <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -69,7 +69,7 @@
                             <constraint firstItem="gzT-4K-1o6" firstAttribute="top" secondItem="HcJ-SP-dDa" secondAttribute="top" constant="8" id="8nS-AQ-2H1"/>
                             <constraint firstAttribute="bottom" secondItem="gzT-4K-1o6" secondAttribute="bottom" constant="8" id="Vap-ds-xbM"/>
                             <constraint firstAttribute="trailing" secondItem="gzT-4K-1o6" secondAttribute="trailing" constant="8" id="VhR-A0-aGP"/>
-                            <constraint firstItem="gzT-4K-1o6" firstAttribute="leading" secondItem="HcJ-SP-dDa" secondAttribute="leading" constant="16" id="uaB-Iw-y2x"/>
+                            <constraint firstItem="gzT-4K-1o6" firstAttribute="leading" secondItem="HcJ-SP-dDa" secondAttribute="leading" constant="8" id="uaB-Iw-y2x"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="NO"/>
@@ -94,10 +94,10 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="HcJ-SP-dDa" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Eij-z1-c1e"/>
-                <constraint firstItem="HcJ-SP-dDa" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="NXA-op-8yJ"/>
-                <constraint firstAttribute="bottom" secondItem="HcJ-SP-dDa" secondAttribute="bottom" id="P3C-2Z-Ufl"/>
-                <constraint firstAttribute="trailing" secondItem="HcJ-SP-dDa" secondAttribute="trailing" id="nye-5N-qsS"/>
+                <constraint firstItem="HcJ-SP-dDa" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="4" id="Eij-z1-c1e"/>
+                <constraint firstItem="HcJ-SP-dDa" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="4" id="NXA-op-8yJ"/>
+                <constraint firstAttribute="bottom" secondItem="HcJ-SP-dDa" secondAttribute="bottom" constant="4" id="P3C-2Z-Ufl"/>
+                <constraint firstAttribute="trailing" secondItem="HcJ-SP-dDa" secondAttribute="trailing" constant="4" id="nye-5N-qsS"/>
             </constraints>
             <size key="customSize" width="263" height="144"/>
             <point key="canvasLocation" x="-10.869565217391305" y="43.526785714285715"/>

@@ -52,18 +52,14 @@ extension ProductVc: UICollectionViewDelegate {
         self.addproductCollectionView.rx.setDelegate(self).disposed(by: disposeBag)
         self.addproductCollectionView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
         self.homeVM.data.bind(to: self.addproductCollectionView.rx.items(cellIdentifier: cellIdentifier, cellType: ProjectCell.self)) { index, element, cell in
-            
             if index == 0 {
-                cell.ProjectStackView.isHidden = true
-                cell.addProjectView.isHidden = false
-                cell.addProjectLabel.isHidden = false
-
-            }else{
-                cell.ProjectStackView.isHidden = false
-                cell.addProjectView.isHidden = true
-                cell.addProjectLabel.isHidden = true
-            }
-
+                    cell.catImage.isHidden = true
+                    cell.addProjectBtn.isHidden = false
+                    cell.projectNameLabel.text = "creat project"
+                }else{
+                    cell.catImage.isHidden = false
+                    cell.addProjectBtn.isHidden = true
+                }
             
         }.disposed(by: disposeBag)
         self.addproductCollectionView.rx.itemSelected.bind { (indexPath) in

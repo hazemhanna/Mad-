@@ -10,22 +10,65 @@ import UIKit
 class HomeCell: UITableViewCell {
     
     @IBOutlet weak var liveCollectionView: UICollectionView!
+    @IBOutlet weak var liveCollectionViewHieht: NSLayoutConstraint!
+    @IBOutlet weak var liveView: UIView!
+    @IBOutlet weak var NameLbl: UILabel!
+    @IBOutlet weak var dateLbl: UILabel!
+    @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet weak var LikeLbl: UILabel!
+    @IBOutlet weak var shareLbl: UILabel!
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var projectImage: UIImageView!
+    @IBOutlet weak var trustImage: UIImageView!
+    @IBOutlet weak var shimmerView : ShimmerView!
+
     let cellIdentifier = "LiveCellCVC"
     var liveData = [String]()
 
     override func awakeFromNib() {
         super.awakeFromNib()
-       // liveData = ["1","2","3"]
-        //self.liveCollectionView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
+        liveData = ["1","2","3"]
+        self.liveCollectionView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
         
-       // liveCollectionView.delegate = self
-        //liveCollectionView.dataSource = self
+        liveCollectionView.delegate = self
+        liveCollectionView.dataSource = self
+        self.showShimmer = false
+        liveCollectionViewHieht.constant = 1
+        liveView.isHidden = true
+    }
+    
+    
+    func confic (name : String,date : String, title : String , like :Int , share : Int, profileUrl : String , projectUrl :String , trustUrl : String){
+        
+        NameLbl.text = name
+         dateLbl.text = date
+         titleLbl.text = title
+         LikeLbl.text = "\(like)"
+        shareLbl.text = "\(share)" 
+        
+        if let profileImageUrl = URL(string: profileUrl){
+        self.profileImage.kf.setImage(with: profileImageUrl, placeholder: #imageLiteral(resourceName: "Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4"))
+        }
+        if  let projectUrl = URL(string: projectUrl){
+        self.projectImage.kf.setImage(with: projectUrl, placeholder: #imageLiteral(resourceName: "Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4"))
+        }
+        if let trustUrl = URL(string: trustUrl){
+        self.trustImage.kf.setImage(with: trustUrl, placeholder: #imageLiteral(resourceName: "Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4"))
+        }
+        
+        
+        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
 
+    var showShimmer: Bool = false {
+        didSet {
+            self.shimmerView.isShimmering = showShimmer
+        }
+    }
 }
 
 extension HomeCell:  UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{

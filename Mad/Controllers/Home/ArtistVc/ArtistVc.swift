@@ -51,10 +51,8 @@ extension ArtistVc: UICollectionViewDelegate {
         self.topActiveCollectionView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
         self.homeVM.data.bind(to: self.topActiveCollectionView.rx.items(cellIdentifier: cellIdentifier, cellType: ProjectCell.self)) { index, element, cell in
             
-                cell.ProjectStackView.isHidden = false
-                cell.addProjectView.isHidden = true
-                cell.addProjectLabel.isHidden = true
-            
+                    cell.addProjectBtn.isHidden = true
+                    cell.projectNameLabel.text = "Music"
             
         }.disposed(by: disposeBag)
         self.topActiveCollectionView.rx.itemSelected.bind { (indexPath) in

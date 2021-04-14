@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -25,30 +26,19 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nm4-IZ-1Fi">
                         <rect key="frame" x="0.0" y="0.0" width="89" height="94"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="GoN-Dy-rvY">
-                                <rect key="frame" x="0.0" y="0.0" width="89" height="94"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0YJ-Ul-UEC" customClass="CustomView" customModule="Mad" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="89" height="86"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4" translatesAutoresizingMaskIntoConstraints="NO" id="mED-qy-xca" customClass="CustomImageView" customModule="Mad" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="89" height="76"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="89" height="86"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Music" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Gh-W8-C3X">
-                                        <rect key="frame" x="31" y="84" width="27" height="10"/>
-                                        <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="10"/>
-                                        <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0YJ-Ul-UEC" customClass="CustomView" customModule="Mad" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="89" height="76"/>
-                                <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sc8-Bs-4cx">
-                                        <rect key="frame" x="37" y="30.5" width="15" height="15"/>
+                                        <rect key="frame" x="37" y="35.5" width="15" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="Gy0-f5-ZdQ"/>
                                             <constraint firstAttribute="width" constant="15" id="fZH-Ve-5uQ"/>
@@ -58,8 +48,12 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="mED-qy-xca" secondAttribute="trailing" id="A6Y-6h-Rcp"/>
                                     <constraint firstItem="sc8-Bs-4cx" firstAttribute="centerY" secondItem="0YJ-Ul-UEC" secondAttribute="centerY" id="Fgm-yA-mxe"/>
+                                    <constraint firstItem="mED-qy-xca" firstAttribute="leading" secondItem="0YJ-Ul-UEC" secondAttribute="leading" id="PvC-42-4S4"/>
                                     <constraint firstItem="sc8-Bs-4cx" firstAttribute="centerX" secondItem="0YJ-Ul-UEC" secondAttribute="centerX" id="Qgt-HU-Me0"/>
+                                    <constraint firstAttribute="bottom" secondItem="mED-qy-xca" secondAttribute="bottom" id="UQc-rv-CIa"/>
+                                    <constraint firstItem="mED-qy-xca" firstAttribute="top" secondItem="0YJ-Ul-UEC" secondAttribute="top" id="Xmt-0V-Ii3"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -80,24 +74,28 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create project" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XAd-xZ-kuy">
-                                <rect key="frame" x="12" y="84" width="65" height="10"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XAd-xZ-kuy">
+                                <rect key="frame" x="44.5" y="94" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="10"/>
                                 <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xEx-eH-6Zw" customClass="ShimmerView" customModule="Mad" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="89" height="94"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="0YJ-Ul-UEC" firstAttribute="leading" secondItem="nm4-IZ-1Fi" secondAttribute="leading" id="1Jf-TG-PiT"/>
                             <constraint firstItem="0YJ-Ul-UEC" firstAttribute="top" secondItem="nm4-IZ-1Fi" secondAttribute="top" id="6K5-jB-08d"/>
+                            <constraint firstAttribute="bottom" secondItem="xEx-eH-6Zw" secondAttribute="bottom" id="C7q-0E-5Kz"/>
                             <constraint firstAttribute="bottom" secondItem="XAd-xZ-kuy" secondAttribute="bottom" id="CEm-Yj-BTO"/>
                             <constraint firstAttribute="trailing" secondItem="0YJ-Ul-UEC" secondAttribute="trailing" id="Cov-Ff-EJ3"/>
-                            <constraint firstItem="GoN-Dy-rvY" firstAttribute="leading" secondItem="nm4-IZ-1Fi" secondAttribute="leading" id="DXM-9d-BTZ"/>
-                            <constraint firstItem="GoN-Dy-rvY" firstAttribute="top" secondItem="nm4-IZ-1Fi" secondAttribute="top" id="d7k-5D-kWG"/>
+                            <constraint firstItem="xEx-eH-6Zw" firstAttribute="leading" secondItem="nm4-IZ-1Fi" secondAttribute="leading" id="LPd-C8-lCu"/>
+                            <constraint firstAttribute="trailing" secondItem="xEx-eH-6Zw" secondAttribute="trailing" id="aR8-HK-kfL"/>
                             <constraint firstItem="XAd-xZ-kuy" firstAttribute="top" secondItem="0YJ-Ul-UEC" secondAttribute="bottom" constant="8" id="fLq-c0-Wbs"/>
-                            <constraint firstAttribute="bottom" secondItem="GoN-Dy-rvY" secondAttribute="bottom" id="heY-cr-APA"/>
-                            <constraint firstAttribute="trailing" secondItem="GoN-Dy-rvY" secondAttribute="trailing" id="mrH-X7-NbR"/>
+                            <constraint firstItem="xEx-eH-6Zw" firstAttribute="top" secondItem="nm4-IZ-1Fi" secondAttribute="top" id="n2I-OV-Aeh"/>
                             <constraint firstItem="XAd-xZ-kuy" firstAttribute="centerX" secondItem="nm4-IZ-1Fi" secondAttribute="centerX" id="u7M-hB-rKj"/>
                         </constraints>
                     </view>
@@ -112,10 +110,11 @@
             </constraints>
             <size key="customSize" width="89" height="94"/>
             <connections>
-                <outlet property="ProjectStackView" destination="GoN-Dy-rvY" id="OCP-rE-TSS"/>
-                <outlet property="addProjectLabel" destination="XAd-xZ-kuy" id="gBP-aG-siP"/>
-                <outlet property="addProjectView" destination="0YJ-Ul-UEC" id="h5y-xG-ot1"/>
-                <outlet property="projectNameLabel" destination="2Gh-W8-C3X" id="72D-NI-x0C"/>
+                <outlet property="ProjectView" destination="0YJ-Ul-UEC" id="jDJ-F9-jZE"/>
+                <outlet property="addProjectBtn" destination="sc8-Bs-4cx" id="qzh-cB-Bio"/>
+                <outlet property="catImage" destination="mED-qy-xca" id="2OA-9C-UpA"/>
+                <outlet property="projectNameLabel" destination="XAd-xZ-kuy" id="uit-Tt-Jmf"/>
+                <outlet property="shimmerView" destination="xEx-eH-6Zw" id="ZD7-Tv-bnn"/>
             </connections>
             <point key="canvasLocation" x="-63.04347826086957" y="68.973214285714278"/>
         </collectionViewCell>
@@ -128,5 +127,8 @@
     <resources>
         <image name="Component 32 – 1" width="14.5" height="14.5"/>
         <image name="Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4" width="320" height="320"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

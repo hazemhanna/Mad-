@@ -14,14 +14,14 @@ target 'Mad' do
   pod 'SVProgressHUD', '~> 2.2.5'
   pod 'RxSwift', '~> 5'
   pod 'RxCocoa', '~> 5'
-
   pod 'RxDataSources', '~> 4.0'
- 
   pod 'MOLH'
   pod 'DropDown', '~> 2.3.13'
-
   pod 'PTCardTabBar'
   pod 'KSToastView'
   pod 'Toast-Swift'
+  pod 'Shimmer'
+  pod 'SwifterSwift'
+
   
 end
