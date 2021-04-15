@@ -8,11 +8,16 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import PTCardTabBar
 
 class ProjectsVC: UIViewController {
    
     @IBOutlet weak var mainTableView: UITableView!
     @IBOutlet weak var projectCollectionView: UICollectionView!
+    
+    open lazy var customTabBar: PTCardTabBar = {
+        return PTCardTabBar()
+    }()
     
     var homeVM = HomeViewModel()
     var Categories = [Category]() {
@@ -51,6 +56,9 @@ class ProjectsVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
+        if let ptcTBC = tabBarController as? PTCardTabBarController {
+            ptcTBC.customTabBar.isHidden = false
+        }
     }
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
@@ -81,12 +89,27 @@ extension ProjectsVC: UITableViewDelegate,UITableViewDataSource{
                         , share : projects[indexPath.row].shareCount ?? 0
                         , profileUrl : projects[indexPath.row].artist?.imageURL ?? ""
                         , projectUrl :projects[indexPath.row].imageURL ?? ""
-                        , trustUrl : "")
+                        , trustUrl : "", isFavourite: projects[indexPath.row].isFavorite ?? false)
+               
+              cell.favourite = {
+                self.homeVM.showIndicator()
+                if  self.projects[indexPath.row].isFavorite ?? false {
+                    self.editFavourite(productID:  self.projects[indexPath.row].id ?? 0, Type: false)
+                }else{
+                  self.editFavourite(productID:  self.projects[indexPath.row].id ?? 0, Type: true)
+                }
+             }
         }
             
         cell.showShimmer = showProjectShimmer
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let main = ProjectDetailsVC.instantiateFromNib()
+        self.navigationController?.pushViewController(main!, animated: true)
+    }
+    
 }
 
 
@@ -104,7 +127,6 @@ extension ProjectsVC: UICollectionViewDelegate ,UICollectionViewDataSource{
                 cell.addProjectBtn.isHidden = false
                 cell.projectNameLabel.text = "creat project"
             }else{
-                
                 cell.catImage.isHidden = false
                 cell.addProjectBtn.isHidden = true
                 cell.projectNameLabel.text = self.Categories[indexPath.row-1].name ?? ""
@@ -121,9 +143,7 @@ extension ProjectsVC: UICollectionViewDelegate ,UICollectionViewDataSource{
         if showShimmer {
             return
         }
-   
     }
-
 }
 
 extension ProjectsVC: UICollectionViewDelegateFlowLayout {
@@ -161,5 +181,17 @@ extension ProjectsVC {
        }).disposed(by: disposeBag)
    }
 
+    func editFavourite(productID : Int,Type : Bool) {
+        homeVM.addToFavourite(productID: productID, Type: Type).subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+            self.homeVM.dismissIndicator()
+            self.getProject()
+            self.showMessage(text: dataModel.message ?? "")
+           }
+       }, onError: { (error) in
+        self.homeVM.dismissIndicator()
+       }).disposed(by: disposeBag)
+   }
+    
     
 }

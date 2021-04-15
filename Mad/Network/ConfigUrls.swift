@@ -20,4 +20,6 @@ struct ConfigURLS {
     static var getCountry = BASE_URL  + "countries"
     static var getCategeory = BASE_URL  + "categories"
     static var getProject = BASE_URL  + "project/all"
+    static var addToFavourite = BASE_URL  + "project/edit_favorite"
+
 }

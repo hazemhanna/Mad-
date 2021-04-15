@@ -52,4 +52,16 @@ struct HomeViewModel {
          let observer = GetServices.shared.getAllCategories()
          return observer
      }
+    
+    
+    func addToFavourite(productID : Int,Type : Bool) -> Observable<FavouriteModel> {
+        let params: [String: Any] = [
+            "project_id": productID,
+            "is_favorite": Type
+            ]
+        let observer = AddServices.shared.addToFavourite(param : params)
+         return observer
+     }
+    
+    
 }

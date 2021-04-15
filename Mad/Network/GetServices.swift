@@ -57,8 +57,12 @@ class GetServices {
     func getAllProject(param : [String :Any]) -> Observable<ProjectMainModel> {
            return Observable.create { (observer) -> Disposable in
                let url = ConfigURLS.getProject
+            let token = Helper.getAPIToken() ?? ""
+            let headers = [
+                "Authorization": "Bearer \(token)"
+            ]
             
-               Alamofire.request(url, method: .get, parameters: param, encoding: URLEncoding.default, headers: nil)
+               Alamofire.request(url, method: .get, parameters: param, encoding: URLEncoding.default, headers: headers)
                    .validate(statusCode: 200..<300)
                    .responseJSON { (response: DataResponse<Any>) in
                        do {

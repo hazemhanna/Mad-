@@ -132,9 +132,13 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="T7h-vG-lCD">
                                         <rect key="frame" x="0.0" y="0.0" width="47" height="16"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group 140" translatesAutoresizingMaskIntoConstraints="NO" id="4Kb-IS-8Zq">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ohK-nB-JrN">
                                                 <rect key="frame" x="0.0" y="0.0" width="20" height="16"/>
-                                            </imageView>
+                                                <state key="normal" image="Group 140"/>
+                                                <connections>
+                                                    <action selector="favouriteAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="4LP-jQ-2kP"/>
+                                                </connections>
+                                            </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="345" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GxI-EK-n0Z">
                                                 <rect key="frame" x="28" y="2.5" width="19" height="11"/>
                                                 <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="11"/>
@@ -146,9 +150,13 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="En0-rW-9ad">
                                         <rect key="frame" x="63" y="0.0" width="31.5" height="16"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Path 327" translatesAutoresizingMaskIntoConstraints="NO" id="077-jA-Pgc">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gSo-hL-SuR">
                                                 <rect key="frame" x="0.0" y="0.0" width="17" height="16"/>
-                                            </imageView>
+                                                <state key="normal" image="Path 327"/>
+                                                <connections>
+                                                    <action selector="shareAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="3IU-De-qhF"/>
+                                                </connections>
+                                            </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JXp-gA-ADd">
                                                 <rect key="frame" x="25" y="2.5" width="6.5" height="11"/>
                                                 <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="11"/>
@@ -231,11 +239,13 @@
                 <outlet property="LikeLbl" destination="GxI-EK-n0Z" id="wAJ-ce-CLj"/>
                 <outlet property="NameLbl" destination="thc-sT-il2" id="AEc-8J-y7H"/>
                 <outlet property="dateLbl" destination="IjN-qt-ANa" id="yh8-cE-l8n"/>
+                <outlet property="favouriteBtn" destination="ohK-nB-JrN" id="PCw-KL-76b"/>
                 <outlet property="liveCollectionView" destination="eMj-2Q-uv8" id="Bg7-Z5-d4Q"/>
                 <outlet property="liveCollectionViewHieht" destination="ryc-OO-jfU" id="CxW-pF-R6s"/>
                 <outlet property="liveView" destination="lBw-72-Gqd" id="J8r-wz-nvu"/>
                 <outlet property="profileImage" destination="Qyl-Ze-22C" id="M69-Qu-ysB"/>
                 <outlet property="projectImage" destination="Tm8-gk-kKN" id="0WU-Yy-ZtF"/>
+                <outlet property="shareBtn" destination="gSo-hL-SuR" id="oek-LJ-X4F"/>
                 <outlet property="shareLbl" destination="JXp-gA-ADd" id="aR3-dX-CU5"/>
                 <outlet property="shimmerView" destination="jjl-3y-osl" id="V5a-eL-waM"/>
                 <outlet property="titleLbl" destination="a3p-z3-2ha" id="gUZ-ZN-WeZ"/>

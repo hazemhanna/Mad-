@@ -8,6 +8,7 @@
 import UIKit
 
 class ArtistCell: UICollectionViewCell {
+    @IBOutlet weak var image: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -65,6 +65,9 @@
 		04911C64261C953D00705A58 /* ArtistVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04911C63261C953D00705A58 /* ArtistVc.swift */; };
 		04911C69261C9A2900705A58 /* SuggestedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04911C67261C9A2900705A58 /* SuggestedCell.swift */; };
 		04911C6A261C9A2900705A58 /* SuggestedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04911C68261C9A2900705A58 /* SuggestedCell.xib */; };
+		04AD60B3262866E500ADF0DF /* ProjectDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD60B1262866E500ADF0DF /* ProjectDetailsVC.swift */; };
+		04AD60B4262866E500ADF0DF /* ProjectDetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04AD60B2262866E500ADF0DF /* ProjectDetailsVC.xib */; };
+		04AD610C2628C52B00ADF0DF /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD610B2628C52B00ADF0DF /* ImageModel.swift */; };
 		04DEA9962620901000F843A6 /* CategeoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DEA9952620901000F843A6 /* CategeoryModel.swift */; };
 		04DEA999262090C700F843A6 /* CountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DEA998262090C700F843A6 /* CountryModel.swift */; };
 		04DEA9D0262093E500F843A6 /* GetServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DEA9CF262093E500F843A6 /* GetServices.swift */; };
@@ -153,6 +156,9 @@
 		04911C67261C9A2900705A58 /* SuggestedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedCell.swift; sourceTree = "<group>"; };
 		04911C68261C9A2900705A58 /* SuggestedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuggestedCell.xib; sourceTree = "<group>"; };
 		04981128261F6BD5008C09D8 /* JJStaggeredGridCollectionView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = JJStaggeredGridCollectionView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		04AD60B1262866E500ADF0DF /* ProjectDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsVC.swift; sourceTree = "<group>"; };
+		04AD60B2262866E500ADF0DF /* ProjectDetailsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectDetailsVC.xib; sourceTree = "<group>"; };
+		04AD610B2628C52B00ADF0DF /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		04DEA9952620901000F843A6 /* CategeoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategeoryModel.swift; sourceTree = "<group>"; };
 		04DEA998262090C700F843A6 /* CountryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryModel.swift; sourceTree = "<group>"; };
 		04DEA9CF262093E500F843A6 /* GetServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetServices.swift; sourceTree = "<group>"; };
@@ -506,6 +512,7 @@
 				04DEA9D826209FA100F843A6 /* Errors.swift */,
 				0460CF6D261D04DD006685B6 /* SplashModel.swift */,
 				0451B7622627041F000B3983 /* ProjectsModel.swift */,
+				04AD610B2628C52B00ADF0DF /* ImageModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -651,6 +658,7 @@
 			isa = PBXGroup;
 			children = (
 				04911C5B261C83ED00705A58 /* ProjectsVC.swift */,
+				04AD60AE262866B200ADF0DF /* ProjectDetailsVC */,
 			);
 			path = ProjectsVC;
 			sourceTree = "<group>";
@@ -662,6 +670,15 @@
 				04911C68261C9A2900705A58 /* SuggestedCell.xib */,
 			);
 			path = SuggestedCell;
+			sourceTree = "<group>";
+		};
+		04AD60AE262866B200ADF0DF /* ProjectDetailsVC */ = {
+			isa = PBXGroup;
+			children = (
+				04AD60B1262866E500ADF0DF /* ProjectDetailsVC.swift */,
+				04AD60B2262866E500ADF0DF /* ProjectDetailsVC.xib */,
+			);
+			path = ProjectDetailsVC;
 			sourceTree = "<group>";
 		};
 		04DEAA3E2620B49000F843A6 /* SplashCell */ = {
@@ -809,6 +826,7 @@
 				0488CCF0261213E000E05BEB /* Main.storyboard in Resources */,
 				046887BF261E77970056AC92 /* ShowesCell.xib in Resources */,
 				04DEAA3C2620B25400F843A6 /* SplashVC.xib in Resources */,
+				04AD60B4262866E500ADF0DF /* ProjectDetailsVC.xib in Resources */,
 				04528E3E26149903009868EA /* EmailVc.xib in Resources */,
 				04F06AC62614C37200B08606 /* AgeVc.xib in Resources */,
 				04688789261E0E170056AC92 /* VerificationVc.xib in Resources */,
@@ -883,6 +901,7 @@
 				042C081126136B9700BE1806 /* CustomDropDown.swift in Sources */,
 				04DEA9D0262093E500F843A6 /* GetServices.swift in Sources */,
 				0451FD8C2617A5D300AEE546 /* ProjectCell.swift in Sources */,
+				04AD610C2628C52B00ADF0DF /* ImageModel.swift in Sources */,
 				0451FD642617A5B600AEE546 /* TitleCell.swift in Sources */,
 				0466872B261B5B1C001D024D /* UICollectionView+Extention.swift in Sources */,
 				04528E3D26149903009868EA /* EmailVc.swift in Sources */,
@@ -916,6 +935,7 @@
 				04F06AC52614C37200B08606 /* AgeVc.swift in Sources */,
 				04F06AF62614E0D600B08606 /* CategeoryCell.swift in Sources */,
 				0460CF6E261D04DD006685B6 /* SplashModel.swift in Sources */,
+				04AD60B3262866E500ADF0DF /* ProjectDetailsVC.swift in Sources */,
 				04528E2F26149496009868EA /* Helper.swift in Sources */,
 				0414286526176BCD000394CA /* HomeViewModel.swift in Sources */,
 				04DEAA412620B4A900F843A6 /* SplashCell.swift in Sources */,

@@ -13,4 +13,32 @@ import SwiftyJSON
 struct AddServices {
     static let shared = AddServices()
 
+    
+    
+    
+    //MARK:- GET All Project
+    func addToFavourite(param : [String :Any]) -> Observable<FavouriteModel> {
+           return Observable.create { (observer) -> Disposable in
+               let url = ConfigURLS.addToFavourite
+            
+            let token = Helper.getAPIToken() ?? ""
+            let headers = [
+                "Authorization": "Bearer \(token)"
+            ]
+               Alamofire.request(url, method: .post, parameters: param, encoding: URLEncoding.default, headers: headers)
+                   .validate(statusCode: 200..<300)
+                   .responseJSON { (response: DataResponse<Any>) in
+                       do {
+                           let data = try JSONDecoder().decode(FavouriteModel.self, from: response.data!)
+                           observer.onNext(data)
+                       } catch {
+                           print(error.localizedDescription)
+                           observer.onError(error)
+                       }
+               }
+               return Disposables.create()
+           }
+       }//END of GET All Project
+    
+    
 }

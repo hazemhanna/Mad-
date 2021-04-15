@@ -20,11 +20,20 @@ class HomeCell: UITableViewCell {
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var projectImage: UIImageView!
     @IBOutlet weak var trustImage: UIImageView!
+    
+    @IBOutlet weak var favouriteBtn: UIButton!
+
+    @IBOutlet weak var shareBtn: UIButton!
+
     @IBOutlet weak var shimmerView : ShimmerView!
 
+    var favourite: (() -> Void)? = nil
+    var share: (() -> Void)? = nil
+
+    
     let cellIdentifier = "LiveCellCVC"
     var liveData = [String]()
-
+    var isFavourite  = false
     override func awakeFromNib() {
         super.awakeFromNib()
         liveData = ["1","2","3"]
@@ -38,7 +47,7 @@ class HomeCell: UITableViewCell {
     }
     
     
-    func confic (name : String,date : String, title : String , like :Int , share : Int, profileUrl : String , projectUrl :String , trustUrl : String){
+    func confic (name : String,date : String, title : String , like :Int , share : Int, profileUrl : String , projectUrl :String , trustUrl : String,isFavourite : Bool){
         
         NameLbl.text = name
          dateLbl.text = date
@@ -55,7 +64,13 @@ class HomeCell: UITableViewCell {
         if let trustUrl = URL(string: trustUrl){
         self.trustImage.kf.setImage(with: trustUrl, placeholder: #imageLiteral(resourceName: "Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4"))
         }
-        
+        self.isFavourite = isFavourite
+        if isFavourite {
+        self.favouriteBtn.setImage(#imageLiteral(resourceName: "Group 155"), for: .normal)
+        }else{
+        self.favouriteBtn.setImage(#imageLiteral(resourceName: "Group 140"), for: .normal)
+
+        }
         
         
     }
@@ -69,6 +84,22 @@ class HomeCell: UITableViewCell {
             self.shimmerView.isShimmering = showShimmer
         }
     }
+    
+    @IBAction func favouriteAction(_ sender: UIButton) {
+        self.favourite?()
+        if self.isFavourite {
+        self.favouriteBtn.setImage(#imageLiteral(resourceName: "Group 155"), for: .normal)
+        }else{
+        self.favouriteBtn.setImage(#imageLiteral(resourceName: "Group 140"), for: .normal)
+        }
+
+    }
+    
+    
+    @IBAction func shareAction(_ sender: UIButton) {
+        self.share?()
+    }
+    
 }
 
 extension HomeCell:  UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{

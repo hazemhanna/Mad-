@@ -10,11 +10,11 @@ import RxSwift
 import RxCocoa
 
 class ArtistVc: UIViewController {
-   
+    
     @IBOutlet weak var  topActiveCollectionView: UICollectionView!
     @IBOutlet weak var suggestedCollectionView: UICollectionView!
     @IBOutlet weak var artistsCollectionView: UICollectionView!
-
+    
     var homeVM = HomeViewModel()
     var data = [String](){
           didSet {

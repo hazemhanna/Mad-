@@ -771,13 +771,13 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top Active" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zga-LO-GNs">
-                                                                <rect key="frame" x="32" y="0.0" width="75" height="19"/>
+                                                                <rect key="frame" x="32" y="0.0" width="80.5" height="16"/>
                                                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="16"/>
                                                                 <color key="textColor" red="0.1333333333" green="0.2156862745" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fz6-2t-ldP" customClass="CustomCollectionView" customModule="Mad" customModuleProvider="target">
-                                                                <rect key="frame" x="32" y="35" width="382" height="99"/>
+                                                                <rect key="frame" x="32" y="32" width="382" height="102"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="1Q1-hQ-QFu">
                                                                     <size key="itemSize" width="50" height="50"/>
@@ -808,13 +808,13 @@
                                                         <rect key="frame" x="0.0" y="166" width="414" height="200"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Suggested for you" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahJ-WL-k0w">
-                                                                <rect key="frame" x="32" y="0.0" width="132" height="19"/>
+                                                                <rect key="frame" x="32" y="0.0" width="140" height="16"/>
                                                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="16"/>
                                                                 <color key="textColor" red="0.1333333333" green="0.2156862745" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="UPR-A6-fPd" customClass="CustomCollectionView" customModule="Mad" customModuleProvider="target">
-                                                                <rect key="frame" x="32" y="39" width="382" height="161"/>
+                                                                <rect key="frame" x="32" y="36" width="382" height="164"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5S3-u4-3MN">
                                                                     <size key="itemSize" width="50" height="50"/>
@@ -845,13 +845,13 @@
                                                         <rect key="frame" x="0.0" y="382" width="414" height="718"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artists" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tIR-wi-0FB">
-                                                                <rect key="frame" x="32" y="8" width="45.5" height="19"/>
+                                                                <rect key="frame" x="32" y="8" width="50" height="16"/>
                                                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="16"/>
                                                                 <color key="textColor" red="0.1333333333" green="0.2156862745" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KUg-eZ-diW" customClass="CustomCollectionView" customModule="Mad" customModuleProvider="target">
-                                                                <rect key="frame" x="32" y="59" width="382" height="659"/>
+                                                                <rect key="frame" x="32" y="56" width="382" height="662"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="OkB-1c-ewB">
                                                                     <size key="itemSize" width="50" height="50"/>
@@ -969,13 +969,13 @@
                                                         <rect key="frame" x="0.0" y="106" width="414" height="290"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top  Products" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yS0-Kq-RCF">
-                                                                <rect key="frame" x="32" y="0.0" width="100" height="19"/>
+                                                                <rect key="frame" x="32" y="0.0" width="104.5" height="16"/>
                                                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="16"/>
                                                                 <color key="textColor" red="0.1333333333" green="0.2156862745" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Qe7-Bg-qaH" customClass="CustomCollectionView" customModule="Mad" customModuleProvider="target">
-                                                                <rect key="frame" x="32" y="35" width="382" height="239"/>
+                                                                <rect key="frame" x="32" y="32" width="382" height="242"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tWL-5F-2sA">
                                                                     <size key="itemSize" width="50" height="50"/>
@@ -1006,13 +1006,13 @@
                                                         <rect key="frame" x="0.0" y="412" width="414" height="280"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="For you" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RT6-Mm-ae9">
-                                                                <rect key="frame" x="32" y="0.0" width="54.5" height="19"/>
+                                                                <rect key="frame" x="32" y="0.0" width="56.5" height="16"/>
                                                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="16"/>
                                                                 <color key="textColor" red="0.1333333333" green="0.2156862745" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YIy-hb-Mxw" customClass="CustomCollectionView" customModule="Mad" customModuleProvider="target">
-                                                                <rect key="frame" x="32" y="39" width="382" height="241"/>
+                                                                <rect key="frame" x="32" y="36" width="382" height="244"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="aLh-Wm-x1k">
                                                                     <size key="itemSize" width="50" height="50"/>
@@ -1043,13 +1043,13 @@
                                                         <rect key="frame" x="0.0" y="708" width="414" height="392"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Products" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ijC-SI-qh9">
-                                                                <rect key="frame" x="32" y="8" width="65" height="19"/>
+                                                                <rect key="frame" x="32" y="8" width="69" height="16"/>
                                                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="16"/>
                                                                 <color key="textColor" red="0.1333333333" green="0.2156862745" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Svp-vQ-bRf" customClass="CustomCollectionView" customModule="Mad" customModuleProvider="target">
-                                                                <rect key="frame" x="32" y="59" width="382" height="333"/>
+                                                                <rect key="frame" x="32" y="56" width="382" height="336"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vKc-sc-xG4">
                                                                     <size key="itemSize" width="50" height="50"/>
@@ -1168,13 +1168,13 @@
                                                         <rect key="frame" x="0.0" y="106" width="398" height="200"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shows" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y3g-HY-X3z">
-                                                                <rect key="frame" x="32" y="0.0" width="49" height="19"/>
+                                                                <rect key="frame" x="32" y="0.0" width="50.5" height="16"/>
                                                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="16"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wtt-qO-Zi0" customClass="CustomCollectionView" customModule="Mad" customModuleProvider="target">
-                                                                <rect key="frame" x="32" y="35" width="366" height="149"/>
+                                                                <rect key="frame" x="32" y="32" width="366" height="152"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="b5k-fN-QtZ">
                                                                     <size key="itemSize" width="50" height="50"/>
@@ -1205,13 +1205,13 @@
                                                         <rect key="frame" x="0.0" y="322" width="398" height="220"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Interviews" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zp7-14-Je5">
-                                                                <rect key="frame" x="32" y="0.0" width="72.5" height="19"/>
+                                                                <rect key="frame" x="32" y="0.0" width="80" height="16"/>
                                                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="16"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Inf-CQ-ZLj" customClass="CustomCollectionView" customModule="Mad" customModuleProvider="target">
-                                                                <rect key="frame" x="32" y="39" width="366" height="181"/>
+                                                                <rect key="frame" x="32" y="36" width="366" height="184"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Tgo-Nj-8MM">
                                                                     <size key="itemSize" width="50" height="50"/>
@@ -1242,13 +1242,13 @@
                                                         <rect key="frame" x="0.0" y="558" width="398" height="220"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Case" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YWL-e5-lLO">
-                                                                <rect key="frame" x="32" y="8" width="82" height="19"/>
+                                                                <rect key="frame" x="32" y="8" width="84.5" height="16"/>
                                                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="16"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9TF-83-XWq" customClass="CustomCollectionView" customModule="Mad" customModuleProvider="target">
-                                                                <rect key="frame" x="32" y="59" width="366" height="161"/>
+                                                                <rect key="frame" x="32" y="56" width="366" height="164"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Cm8-xe-hYc">
                                                                     <size key="itemSize" width="50" height="50"/>
@@ -1279,13 +1279,13 @@
                                                         <rect key="frame" x="0.0" y="794" width="398" height="220"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="After movie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r12-ct-PoU">
-                                                                <rect key="frame" x="32" y="8" width="81.5" height="19"/>
+                                                                <rect key="frame" x="32" y="8" width="89.5" height="16"/>
                                                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="16"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jhp-0n-sZN" customClass="CustomCollectionView" customModule="Mad" customModuleProvider="target">
-                                                                <rect key="frame" x="32" y="59" width="366" height="161"/>
+                                                                <rect key="frame" x="32" y="56" width="366" height="164"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="RIn-5r-u28">
                                                                     <size key="itemSize" width="50" height="50"/>

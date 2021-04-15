@@ -114,6 +114,9 @@
                 <constraint firstAttribute="bottom" secondItem="3qC-jt-4zD" secondAttribute="bottom" id="p86-TS-WIC"/>
             </constraints>
             <size key="customSize" width="224" height="221"/>
+            <connections>
+                <outlet property="image" destination="zOm-Rw-VBQ" id="21D-gA-CMZ"/>
+            </connections>
             <point key="canvasLocation" x="102.89855072463769" y="94.754464285714278"/>
         </collectionViewCell>
     </objects>

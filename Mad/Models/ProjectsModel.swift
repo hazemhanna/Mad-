@@ -59,3 +59,32 @@ struct Artist: Codable {
         case imageURL = "image_url"
     }
 }
+
+struct FavouriteModel: Codable {
+    let success: Bool?
+    let data: Favourite?
+    let message: String?
+    let errors: Errors?
+}
+
+struct Favourite: Codable {
+    let id: Int?
+    let postTitle, postName, postType, postStatus: String?
+    let imageURL: String?
+    let favoriteCount: Int?
+    let isFavorite: Bool?
+    let content: String?
+    let categories: [Category]?
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case postTitle = "post_title"
+        case postName = "post_name"
+        case postType = "post_type"
+        case postStatus = "post_status"
+        case imageURL = "image_url"
+        case favoriteCount = "favorite_count"
+        case isFavorite = "is_favorite"
+        case content, categories
+    }
+}
