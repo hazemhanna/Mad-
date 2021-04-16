@@ -6,16 +6,32 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 import PTCardTabBar
 
 class ProjectDetailsVC: UIViewController {
 
     @IBOutlet weak var productCollectionView: UICollectionView!
-    @IBOutlet weak var aboutTV: UITextView!
     @IBOutlet weak var aboutView: UIView!
 
-    let cellIdentifier = "LiveCellCVC"
+    @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet weak var LikeLbl: UILabel!
+    @IBOutlet weak var shareLbl: UILabel!
+    @IBOutlet weak var projectImage: UIImageView!
+    @IBOutlet weak var favouriteBtn: UIButton!
+    @IBOutlet weak var shareBtn: UIButton!
+    @IBOutlet weak var aboutTV: UITextView!
+    @IBOutlet weak var typeLbl: UILabel!
 
+    var homeVM = HomeViewModel()
+    var disposeBag = DisposeBag()
+    var showShimmer: Bool = true
+    var projectId = 0
+    
+    var isFavourite: Bool = false
+
+    let cellIdentifier = "LiveCellCVC"
     open lazy var customTabBar: PTCardTabBar = {
         return PTCardTabBar()
     }()
@@ -30,7 +46,8 @@ class ProjectDetailsVC: UIViewController {
         self.aboutTV.isEditable = false
         self.aboutTV.isSelectable = false
         //self.aboutView.constant = self.aboutTV.contentSize.height
-       
+        self.homeVM.showIndicator()
+        getProjectDetails(productID : 6751)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,17 +65,37 @@ class ProjectDetailsVC: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func favouriteAction(_ sender: UIButton) {
+        if Helper.getAPIToken() != "" {
+        self.homeVM.showIndicator()
+        if  self.isFavourite {
+            self.editFavourite(productID:  self.projectId, Type: false)
+            self.favouriteBtn.setImage(#imageLiteral(resourceName: "Group 140"), for: .normal)
+        }else{
+            self.editFavourite(productID:  self.projectId, Type: true)
+            self.favouriteBtn.setImage(#imageLiteral(resourceName: "Group 155"), for: .normal)
+          }
+        }
+    }
+    
+    @IBAction func shareAction(_ sender: UIButton) {
+        if Helper.getAPIToken() != "" {
+            self.shareProject(productID : self.projectId)
+
+        }
+    }
 }
+
 
 extension ProjectDetailsVC :  UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return self.showShimmer ? 2 : 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! LiveCellCVC
-       
+        cell.showShimmer = showShimmer
         return cell
     }
     
@@ -72,6 +109,60 @@ extension ProjectDetailsVC :  UICollectionViewDelegate, UICollectionViewDataSour
         let size:CGFloat = (collectionView.frame.size.width - space) / 1.4
             return CGSize(width: size, height: (collectionView.frame.size.height))
         }
+}
 
+extension ProjectDetailsVC {
+func getProjectDetails(productID : Int) {
+    homeVM.getProjectDetails(productID: productID).subscribe(onNext: { (data) in
+       if data.success ?? false {
+        self.homeVM.dismissIndicator()
+        
+        self.LikeLbl.text = "\(data.data?.favoriteCount ?? 0)"
+        self.shareLbl.text = "\(data.data?.shareCount ?? 0)"
+        self.aboutTV.text = data.data?.content ?? ""
+        self.titleLbl.text = data.data?.title ?? ""
+        self.typeLbl.text = data.data?.type ?? ""
+        self.isFavourite = data.data?.isFavorite ?? false
+        if  let projectUrl = URL(string: data.data?.imageURL ?? ""){
+        self.projectImage.kf.setImage(with: projectUrl, placeholder: #imageLiteral(resourceName: "Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4"))
+        }
+        if data.data?.isFavorite ?? false {
+            self.favouriteBtn.setImage(#imageLiteral(resourceName: "Group 155"), for: .normal)
+        }else{
+            self.favouriteBtn.setImage(#imageLiteral(resourceName: "Group 140"), for: .normal)
+          }
+       }
+   }, onError: { (error) in
+    self.homeVM.dismissIndicator()
+   }).disposed(by: disposeBag)
+  }
+    
+    
+    func editFavourite(productID : Int,Type : Bool) {
+        homeVM.addToFavourite(productID: productID, Type: Type).subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+            self.getProjectDetails(productID : productID)
+            self.homeVM.dismissIndicator()
+            self.showMessage(text: dataModel.message ?? "")
+           }
+       }, onError: { (error) in
+        self.homeVM.dismissIndicator()
+       }).disposed(by: disposeBag)
+   }
+    
+    
+    
+    func shareProject(productID : Int) {
+        homeVM.shareProject(productID: productID).subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+            self.homeVM.dismissIndicator()
+            self.getProjectDetails(productID : productID)
+            self.showMessage(text: dataModel.message ?? "")
+           }
+       }, onError: { (error) in
+        self.homeVM.dismissIndicator()
+       }).disposed(by: disposeBag)
+   }
     
 }
+

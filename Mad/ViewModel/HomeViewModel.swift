@@ -64,4 +64,25 @@ struct HomeViewModel {
      }
     
     
+    func shareProject(productID : Int) -> Observable<ShareModel> {
+        let params: [String: Any] = [
+            "project_id": productID,
+            ]
+        let observer = AddServices.shared.shareProject(param : params)
+         return observer
+     }
+    
+    
+    func getProjectDetails(productID : Int) -> Observable<ProjectDetailsModel> {
+        let params: [String: Any] = [
+            "id": productID,
+            ]
+        let observer = GetServices.shared.getProjectDetails(param : params)
+         return observer
+     }
+    
+    
+    
+    
+    
 }

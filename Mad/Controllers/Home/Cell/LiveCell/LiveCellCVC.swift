@@ -9,9 +9,18 @@ import UIKit
 
 class LiveCellCVC: UICollectionViewCell {
 
+    @IBOutlet weak var shimmerView : ShimmerView!
+
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
+    var showShimmer: Bool = false {
+        didSet {
+            self.shimmerView.isShimmering = showShimmer
+        }
+    }
+    
 }

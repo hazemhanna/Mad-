@@ -66,8 +66,8 @@ class GetServices {
                    .validate(statusCode: 200..<300)
                    .responseJSON { (response: DataResponse<Any>) in
                        do {
-                           let CountryData = try JSONDecoder().decode(ProjectMainModel.self, from: response.data!)
-                           observer.onNext(CountryData)
+                           let data = try JSONDecoder().decode(ProjectMainModel.self, from: response.data!)
+                           observer.onNext(data)
                        } catch {
                            print(error.localizedDescription)
                            observer.onError(error)
@@ -76,5 +76,33 @@ class GetServices {
                return Disposables.create()
            }
        }//END of GET All Project
+    
+
+
+    //MARK:- GET  Project Details
+    func getProjectDetails(param : [String :Any]) -> Observable<ProjectDetailsModel> {
+           return Observable.create { (observer) -> Disposable in
+               let url = ConfigURLS.getProjectDetails
+            let token = Helper.getAPIToken() ?? ""
+            let headers = [
+                "Authorization": "Bearer \(token)"
+            ]
+            
+               Alamofire.request(url, method: .get, parameters: param, encoding: URLEncoding.default, headers: headers)
+                   .validate(statusCode: 200..<300)
+                   .responseJSON { (response: DataResponse<Any>) in
+                       do {
+                           let data = try JSONDecoder().decode(ProjectDetailsModel.self, from: response.data!)
+                           observer.onNext(data)
+                       } catch {
+                           print(error.localizedDescription)
+                           observer.onError(error)
+                       }
+               }
+               return Disposables.create()
+           }
+       }
+    
+
     
 }

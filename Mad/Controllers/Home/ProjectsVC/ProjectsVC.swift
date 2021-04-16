@@ -15,11 +15,9 @@ class ProjectsVC: UIViewController {
     @IBOutlet weak var mainTableView: UITableView!
     @IBOutlet weak var projectCollectionView: UICollectionView!
     
-    open lazy var customTabBar: PTCardTabBar = {
-        return PTCardTabBar()
-    }()
-    
     var homeVM = HomeViewModel()
+    var disposeBag = DisposeBag()
+    
     var Categories = [Category]() {
         didSet {
             DispatchQueue.main.async {
@@ -36,10 +34,13 @@ class ProjectsVC: UIViewController {
         }
     }
     
+    open lazy var customTabBar: PTCardTabBar = {
+        return PTCardTabBar()
+    }()
+    
+    
      var showShimmer: Bool = true
     var showProjectShimmer: Bool = true
-
-    var disposeBag = DisposeBag()
     private let CellIdentifier = "HomeCell"
     let cellIdentifier = "ProjectCell"
 
@@ -91,7 +92,12 @@ extension ProjectsVC: UITableViewDelegate,UITableViewDataSource{
                         , projectUrl :projects[indexPath.row].imageURL ?? ""
                         , trustUrl : "", isFavourite: projects[indexPath.row].isFavorite ?? false)
                
+            
+            // edit favourite
               cell.favourite = {
+                if Helper.getAPIToken() == "" {
+                    return
+                }
                 self.homeVM.showIndicator()
                 if  self.projects[indexPath.row].isFavorite ?? false {
                     self.editFavourite(productID:  self.projects[indexPath.row].id ?? 0, Type: false)
@@ -99,14 +105,32 @@ extension ProjectsVC: UITableViewDelegate,UITableViewDataSource{
                   self.editFavourite(productID:  self.projects[indexPath.row].id ?? 0, Type: true)
                 }
              }
+             // share project
+            cell.share = {
+                if Helper.getAPIToken() == "" {
+                    return
+                }
+                self.homeVM.showIndicator()
+                self.shareProject(productID:  self.projects[indexPath.row].id ?? 0)
+
+                // text to share
+                let text = self.projects[indexPath.row].title ?? ""
+                let image = self.projects[indexPath.row].artist?.imageURL ?? ""
+                let textToShare = [ text ,image]
+                let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+                activityViewController.popoverPresentationController?.sourceView = self.view
+              activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.postToFacebook ]
+                self.present(activityViewController, animated: true, completion: nil)
+                
+            }
         }
-            
         cell.showShimmer = showProjectShimmer
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let main = ProjectDetailsVC.instantiateFromNib()
+        main!.projectId =  self.projects[indexPath.row].id!
         self.navigationController?.pushViewController(main!, animated: true)
     }
     
@@ -183,6 +207,20 @@ extension ProjectsVC {
 
     func editFavourite(productID : Int,Type : Bool) {
         homeVM.addToFavourite(productID: productID, Type: Type).subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+            self.homeVM.dismissIndicator()
+            self.getProject()
+            self.showMessage(text: dataModel.message ?? "")
+           }
+       }, onError: { (error) in
+        self.homeVM.dismissIndicator()
+       }).disposed(by: disposeBag)
+   }
+    
+    
+    
+    func shareProject(productID : Int) {
+        homeVM.shareProject(productID: productID).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
             self.homeVM.dismissIndicator()
             self.getProject()

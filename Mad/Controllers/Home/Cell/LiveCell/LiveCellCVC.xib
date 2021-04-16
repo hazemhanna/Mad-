@@ -63,12 +63,20 @@
                                     <constraint firstItem="IuM-zf-1me" firstAttribute="height" secondItem="gzT-4K-1o6" secondAttribute="height" multiplier="0.8" id="kOw-5k-VHF"/>
                                 </constraints>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AU7-49-biv" customClass="ShimmerView" customModule="Mad" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="255" height="136"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="gzT-4K-1o6" firstAttribute="top" secondItem="HcJ-SP-dDa" secondAttribute="top" constant="8" id="8nS-AQ-2H1"/>
+                            <constraint firstItem="AU7-49-biv" firstAttribute="top" secondItem="HcJ-SP-dDa" secondAttribute="top" id="AkX-3e-jzH"/>
                             <constraint firstAttribute="bottom" secondItem="gzT-4K-1o6" secondAttribute="bottom" constant="8" id="Vap-ds-xbM"/>
                             <constraint firstAttribute="trailing" secondItem="gzT-4K-1o6" secondAttribute="trailing" constant="8" id="VhR-A0-aGP"/>
+                            <constraint firstItem="AU7-49-biv" firstAttribute="leading" secondItem="HcJ-SP-dDa" secondAttribute="leading" id="c7J-PW-LUb"/>
+                            <constraint firstAttribute="trailing" secondItem="AU7-49-biv" secondAttribute="trailing" id="gyx-tM-31w"/>
+                            <constraint firstAttribute="bottom" secondItem="AU7-49-biv" secondAttribute="bottom" id="sOq-T2-JrB"/>
                             <constraint firstItem="gzT-4K-1o6" firstAttribute="leading" secondItem="HcJ-SP-dDa" secondAttribute="leading" constant="8" id="uaB-Iw-y2x"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -100,6 +108,9 @@
                 <constraint firstAttribute="trailing" secondItem="HcJ-SP-dDa" secondAttribute="trailing" constant="4" id="nye-5N-qsS"/>
             </constraints>
             <size key="customSize" width="263" height="144"/>
+            <connections>
+                <outlet property="shimmerView" destination="AU7-49-biv" id="gZ9-08-EtU"/>
+            </connections>
             <point key="canvasLocation" x="-10.869565217391305" y="43.526785714285715"/>
         </collectionViewCell>
     </objects>
