@@ -81,10 +81,10 @@ extension ArtistVc: UICollectionViewDelegate {
      
         }.disposed(by: disposeBag)
         self.artistsCollectionView.rx.itemSelected.bind { (indexPath) in
-            
+            let sb = UIStoryboard(name: "Artist", bundle: nil).instantiateViewController(withIdentifier: "ArtistProfileVc")
+            self.navigationController?.pushViewController(sb, animated: true)
         }.disposed(by: disposeBag)
     }
-    
 }
 
 extension ArtistVc: UICollectionViewDelegateFlowLayout {

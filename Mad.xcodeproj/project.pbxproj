@@ -22,6 +22,12 @@
 		043B47CE261DB15600D67023 /* ProductVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043B47CD261DB15600D67023 /* ProductVc.swift */; };
 		043B47D5261DB5B500D67023 /* ForYouCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043B47D3261DB5B500D67023 /* ForYouCell.swift */; };
 		043B47D6261DB5B500D67023 /* ForYouCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 043B47D4261DB5B500D67023 /* ForYouCell.xib */; };
+		0449A6F3262EF9E100604052 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0449A6F2262EF9E100604052 /* Authentication.storyboard */; };
+		0449A72C262EFE1800604052 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0449A72B262EFE1800604052 /* Home.storyboard */; };
+		0449A72F262F396400604052 /* Artist.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0449A72E262F396400604052 /* Artist.storyboard */; };
+		0449A733262F39C800604052 /* ArtistProfileVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0449A732262F39C800604052 /* ArtistProfileVc.swift */; };
+		0449A736262F477700604052 /* ArtistProjectsVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0449A735262F477700604052 /* ArtistProjectsVc.swift */; };
+		0449A73A262F939300604052 /* String+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0449A739262F939300604052 /* String+Extention.swift */; };
 		0451B7632627041F000B3983 /* ProjectsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0451B7622627041F000B3983 /* ProjectsModel.swift */; };
 		0451B7A9262716E8000B3983 /* ShimmerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0451B7A8262716E8000B3983 /* ShimmerView.swift */; };
 		0451FD642617A5B600AEE546 /* TitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0451FD622617A5B500AEE546 /* TitleCell.swift */; };
@@ -110,6 +116,12 @@
 		043B47CD261DB15600D67023 /* ProductVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductVc.swift; sourceTree = "<group>"; };
 		043B47D3261DB5B500D67023 /* ForYouCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForYouCell.swift; sourceTree = "<group>"; };
 		043B47D4261DB5B500D67023 /* ForYouCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForYouCell.xib; sourceTree = "<group>"; };
+		0449A6F2262EF9E100604052 /* Authentication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
+		0449A72B262EFE1800604052 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		0449A72E262F396400604052 /* Artist.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Artist.storyboard; sourceTree = "<group>"; };
+		0449A732262F39C800604052 /* ArtistProfileVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistProfileVc.swift; sourceTree = "<group>"; };
+		0449A735262F477700604052 /* ArtistProjectsVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistProjectsVc.swift; sourceTree = "<group>"; };
+		0449A739262F939300604052 /* String+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extention.swift"; sourceTree = "<group>"; };
 		0451B7622627041F000B3983 /* ProjectsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsModel.swift; sourceTree = "<group>"; };
 		0451B7A8262716E8000B3983 /* ShimmerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerView.swift; sourceTree = "<group>"; };
 		0451FD622617A5B500AEE546 /* TitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCell.swift; sourceTree = "<group>"; };
@@ -267,6 +279,15 @@
 			path = ForYouCell;
 			sourceTree = "<group>";
 		};
+		0449A6EB262ED8B700604052 /* ArtistProfile */ = {
+			isa = PBXGroup;
+			children = (
+				0449A732262F39C800604052 /* ArtistProfileVc.swift */,
+				0449A735262F477700604052 /* ArtistProjectsVc.swift */,
+			);
+			path = ArtistProfile;
+			sourceTree = "<group>";
+		};
 		0451FD612617A59C00AEE546 /* TitleCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -394,6 +415,7 @@
 			isa = PBXGroup;
 			children = (
 				04911C63261C953D00705A58 /* ArtistVc.swift */,
+				0449A6EB262ED8B700604052 /* ArtistProfile */,
 			);
 			path = ArtistVc;
 			sourceTree = "<group>";
@@ -497,7 +519,6 @@
 				0488CD332612141C00E05BEB /* Controllers */,
 				0488CD322612141700E05BEB /* Resources */,
 				0488CD312612141400E05BEB /* Models */,
-				0488CD382612146600E05BEB /* Views */,
 				0488CCF1261213E400E05BEB /* Assets.xcassets */,
 			);
 			path = Mad;
@@ -563,6 +584,7 @@
 				0466872A261B5B1C001D024D /* UICollectionView+Extention.swift */,
 				04DEAA352620AD0200F843A6 /* UIViewController+Extention.swift */,
 				0451B7A8262716E8000B3983 /* ShimmerView.swift */,
+				0449A739262F939300604052 /* String+Extention.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -579,34 +601,14 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
-		0488CD382612146600E05BEB /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				0488CD3A2612147800E05BEB /* CollectionView Cells */,
-				0488CD392612147500E05BEB /* TableView Cells */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		0488CD392612147500E05BEB /* TableView Cells */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "TableView Cells";
-			sourceTree = "<group>";
-		};
-		0488CD3A2612147800E05BEB /* CollectionView Cells */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "CollectionView Cells";
-			sourceTree = "<group>";
-		};
 		0488CD3B2612149800E05BEB /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
 				0488CCEE261213E000E05BEB /* Main.storyboard */,
+				0449A72E262F396400604052 /* Artist.storyboard */,
+				0449A72B262EFE1800604052 /* Home.storyboard */,
 				0488CCF3261213E400E05BEB /* LaunchScreen.storyboard */,
+				0449A6F2262EF9E100604052 /* Authentication.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -811,9 +813,12 @@
 				043B47D6261DB5B500D67023 /* ForYouCell.xib in Resources */,
 				0451FD652617A5B600AEE546 /* TitleCell.xib in Resources */,
 				04528E4C2614B54B009868EA /* CreatPasswordVc.xib in Resources */,
+				0449A6F3262EF9E100604052 /* Authentication.storyboard in Resources */,
+				0449A72C262EFE1800604052 /* Home.storyboard in Resources */,
 				0466871E261B3C32001D024D /* WelcomVc.xib in Resources */,
 				04668725261B3F89001D024D /* WelcomeCell.xib in Resources */,
 				0451FD8D2617A5D300AEE546 /* ProjectCell.xib in Resources */,
+				0449A72F262F396400604052 /* Artist.storyboard in Resources */,
 				04911C6A261C9A2900705A58 /* SuggestedCell.xib in Resources */,
 				04F06AF72614E0D600B08606 /* CategeoryCell.xib in Resources */,
 				0414282E26176074000394CA /* HomeCell.xib in Resources */,
@@ -896,6 +901,7 @@
 				0414280526174D9D000394CA /* ProfileVc.swift in Sources */,
 				04E1871726136B1600824E37 /* CustomView.swift in Sources */,
 				04528E552614B586009868EA /* NameVc.swift in Sources */,
+				0449A73A262F939300604052 /* String+Extention.swift in Sources */,
 				04DEAA462620BC9500F843A6 /* SplashViewModel.swift in Sources */,
 				042C082A2613943900BE1806 /* LoadingLoginVc.swift in Sources */,
 				042C081126136B9700BE1806 /* CustomDropDown.swift in Sources */,
@@ -913,6 +919,7 @@
 				04DEA999262090C700F843A6 /* CountryModel.swift in Sources */,
 				0466871D261B3C32001D024D /* WelcomVc.swift in Sources */,
 				04528E472614A1FD009868EA /* CustomTextField.swift in Sources */,
+				0449A736262F477700604052 /* ArtistProjectsVc.swift in Sources */,
 				04528E5B2614B5AE009868EA /* CountryVc.swift in Sources */,
 				04DEA9D32620941C00F843A6 /* AddServices.swift in Sources */,
 				04F06AF02614DD5100B08606 /* CategeoryVc.swift in Sources */,
@@ -940,6 +947,7 @@
 				0414286526176BCD000394CA /* HomeViewModel.swift in Sources */,
 				04DEAA412620B4A900F843A6 /* SplashCell.swift in Sources */,
 				04DEA9DC2620A0B200F843A6 /* AuthModel.swift in Sources */,
+				0449A733262F39C800604052 /* ArtistProfileVc.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

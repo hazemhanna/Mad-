@@ -45,9 +45,7 @@ class ProjectDetailsVC: UIViewController {
         
         self.aboutTV.isEditable = false
         self.aboutTV.isSelectable = false
-        //self.aboutView.constant = self.aboutTV.contentSize.height
         self.homeVM.showIndicator()
-        getProjectDetails(productID : 6751)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,6 +57,11 @@ class ProjectDetailsVC: UIViewController {
 
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        getProjectDetails(productID : self.projectId)
+
     }
     
     @IBAction func backButton(sender: UIButton) {
@@ -119,7 +122,7 @@ func getProjectDetails(productID : Int) {
         
         self.LikeLbl.text = "\(data.data?.favoriteCount ?? 0)"
         self.shareLbl.text = "\(data.data?.shareCount ?? 0)"
-        self.aboutTV.text = data.data?.content ?? ""
+        self.aboutTV.text = data.data?.content?.html2String ?? ""
         self.titleLbl.text = data.data?.title ?? ""
         self.typeLbl.text = data.data?.type ?? ""
         self.isFavourite = data.data?.isFavorite ?? false

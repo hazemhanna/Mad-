@@ -50,13 +50,21 @@ struct Project: Codable {
 
 // MARK: - Artist
 struct Artist: Codable {
-    let id: Int
-    let name: String
-    let imageURL: String
+    let id: Int?
+    let name, headline: String?
+    let profilPicture: String?
+    //let bannerImg: String?
+    let allFollowers, allFollowing: Int?
+    let isFavorite, music, art, design: Bool?
 
     enum CodingKeys: String, CodingKey {
-        case id, name
-        case imageURL = "image_url"
+        case id, name, headline
+        case profilPicture = "profil_picture"
+        //case bannerImg = "banner_img"
+        case allFollowers = "all_followers"
+        case allFollowing = "all_following"
+        case isFavorite = "is_favorite"
+        case music, art, design
     }
 }
 

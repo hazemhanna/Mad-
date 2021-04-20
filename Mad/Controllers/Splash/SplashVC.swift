@@ -53,7 +53,7 @@ class SplashVC: UIViewController {
             let visibleIndices = self.splashCollectionView.indexPathsForVisibleItems
             let nextIndex = visibleIndices[0].row + 1
             if nextIndex > lastIndex {
-                let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
+                let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
                 if let appDelegate = UIApplication.shared.delegate {
                     appDelegate.window??.rootViewController = sb
                 }
