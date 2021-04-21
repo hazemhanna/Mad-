@@ -26,7 +26,6 @@ struct ArtistModel: Codable {
     }
 }
 
-
 struct SuggestedModel: Codable {
     let success: Bool?
     let data: [Artist]?
@@ -34,11 +33,11 @@ struct SuggestedModel: Codable {
     let errors: Errors?
 }
 
-
-// MARK: - Artist
+// MARK: - Datum
 struct Artist: Codable {
     let id: Int?
-    let name, headline: String?
+    let name: String?
+    let headline: String?
     let profilPicture: String?
     let bannerImg: String?
     let allFollowers, allFollowing: Int?

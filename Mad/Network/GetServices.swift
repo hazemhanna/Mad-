@@ -152,8 +152,6 @@ class GetServices {
                return Disposables.create()
            }
        }
-
-    
     
     func getTopArtist(param : [String :Any],catId : Int) -> Observable<ArtistModelJson> {
            return Observable.create { (observer) -> Disposable in
@@ -177,6 +175,4 @@ class GetServices {
                return Disposables.create()
            }
        }
-    
-    
 }

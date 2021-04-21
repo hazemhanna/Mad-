@@ -118,7 +118,7 @@ extension ArtistsVc : UICollectionViewDelegate ,UICollectionViewDataSource{
         if showShimmer3 {
             return
            }
-            let vc = UIStoryboard(name: "Artist", bundle: nil).instantiateViewController(withIdentifier: "ArtistProfileVc")  as! ProjectsVC
+            let vc = UIStoryboard(name: "Artist", bundle: nil).instantiateViewController(withIdentifier: "ArtistProfileVc")  as! ArtistProfileVc
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
