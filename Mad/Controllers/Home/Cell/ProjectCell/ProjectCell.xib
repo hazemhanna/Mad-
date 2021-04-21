@@ -27,10 +27,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="89" height="94"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0YJ-Ul-UEC" customClass="CustomView" customModule="Mad" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="89" height="86"/>
+                                <rect key="frame" x="2" y="2" width="85" height="84"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4" translatesAutoresizingMaskIntoConstraints="NO" id="mED-qy-xca" customClass="CustomImageView" customModule="Mad" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="89" height="86"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="85" height="84"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="10"/>
@@ -38,7 +38,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sc8-Bs-4cx">
-                                        <rect key="frame" x="37" y="35.5" width="15" height="15"/>
+                                        <rect key="frame" x="35" y="34.5" width="15" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="Gy0-f5-ZdQ"/>
                                             <constraint firstAttribute="width" constant="15" id="fZH-Ve-5uQ"/>
@@ -70,7 +70,7 @@
                                         <real key="value" value="2"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                        <size key="value" width="2" height="4"/>
+                                        <size key="value" width="-2" height="-2"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -80,23 +80,23 @@
                                 <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xEx-eH-6Zw" customClass="ShimmerView" customModule="Mad" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hx1-e5-ugX" customClass="ShimmerView" customModule="Mad" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="89" height="94"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="0YJ-Ul-UEC" firstAttribute="leading" secondItem="nm4-IZ-1Fi" secondAttribute="leading" id="1Jf-TG-PiT"/>
-                            <constraint firstItem="0YJ-Ul-UEC" firstAttribute="top" secondItem="nm4-IZ-1Fi" secondAttribute="top" id="6K5-jB-08d"/>
-                            <constraint firstAttribute="bottom" secondItem="xEx-eH-6Zw" secondAttribute="bottom" id="C7q-0E-5Kz"/>
+                            <constraint firstItem="0YJ-Ul-UEC" firstAttribute="leading" secondItem="nm4-IZ-1Fi" secondAttribute="leading" constant="2" id="1Jf-TG-PiT"/>
+                            <constraint firstItem="0YJ-Ul-UEC" firstAttribute="top" secondItem="nm4-IZ-1Fi" secondAttribute="top" constant="2" id="6K5-jB-08d"/>
                             <constraint firstAttribute="bottom" secondItem="XAd-xZ-kuy" secondAttribute="bottom" id="CEm-Yj-BTO"/>
-                            <constraint firstAttribute="trailing" secondItem="0YJ-Ul-UEC" secondAttribute="trailing" id="Cov-Ff-EJ3"/>
-                            <constraint firstItem="xEx-eH-6Zw" firstAttribute="leading" secondItem="nm4-IZ-1Fi" secondAttribute="leading" id="LPd-C8-lCu"/>
-                            <constraint firstAttribute="trailing" secondItem="xEx-eH-6Zw" secondAttribute="trailing" id="aR8-HK-kfL"/>
+                            <constraint firstAttribute="trailing" secondItem="0YJ-Ul-UEC" secondAttribute="trailing" constant="2" id="Cov-Ff-EJ3"/>
+                            <constraint firstAttribute="trailing" secondItem="hx1-e5-ugX" secondAttribute="trailing" id="KUH-qk-9Ig"/>
+                            <constraint firstItem="hx1-e5-ugX" firstAttribute="leading" secondItem="nm4-IZ-1Fi" secondAttribute="leading" id="LaU-Wt-Kgd"/>
                             <constraint firstItem="XAd-xZ-kuy" firstAttribute="top" secondItem="0YJ-Ul-UEC" secondAttribute="bottom" constant="8" id="fLq-c0-Wbs"/>
-                            <constraint firstItem="xEx-eH-6Zw" firstAttribute="top" secondItem="nm4-IZ-1Fi" secondAttribute="top" id="n2I-OV-Aeh"/>
+                            <constraint firstItem="hx1-e5-ugX" firstAttribute="top" secondItem="nm4-IZ-1Fi" secondAttribute="top" id="poL-ns-g7L"/>
                             <constraint firstItem="XAd-xZ-kuy" firstAttribute="centerX" secondItem="nm4-IZ-1Fi" secondAttribute="centerX" id="u7M-hB-rKj"/>
+                            <constraint firstAttribute="bottom" secondItem="hx1-e5-ugX" secondAttribute="bottom" id="vMp-bm-o0q"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -114,7 +114,7 @@
                 <outlet property="addProjectBtn" destination="sc8-Bs-4cx" id="qzh-cB-Bio"/>
                 <outlet property="catImage" destination="mED-qy-xca" id="2OA-9C-UpA"/>
                 <outlet property="projectNameLabel" destination="XAd-xZ-kuy" id="uit-Tt-Jmf"/>
-                <outlet property="shimmerView" destination="xEx-eH-6Zw" id="ZD7-Tv-bnn"/>
+                <outlet property="shimmerView" destination="hx1-e5-ugX" id="0RW-wQ-tjw"/>
             </connections>
             <point key="canvasLocation" x="-63.04347826086957" y="68.973214285714278"/>
         </collectionViewCell>

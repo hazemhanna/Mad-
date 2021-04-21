@@ -77,9 +77,9 @@ extension HomeVC: UICollectionViewDelegate {
                     cell.backView.layer.cornerRadius = 20
                     cell.titleBtn.textColor = #colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1)
                 }else {
-                   // cell.backView.layer.borderColor = #colorLiteral(red: 0.9725490196, green: 0.9725490196, blue: 0.9725490196, alpha: 1).cgColor
-                    //cell.backView.layer.borderWidth = 0
-                    //cell.backView.layer.cornerRadius = 0
+                    cell.backView.layer.borderColor = #colorLiteral(red: 0.9725490196, green: 0.9725490196, blue: 0.9725490196, alpha: 1).cgColor
+                    cell.backView.layer.borderWidth = 0
+                    cell.backView.layer.cornerRadius = 0
                     cell.titleBtn.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
                    }
                 

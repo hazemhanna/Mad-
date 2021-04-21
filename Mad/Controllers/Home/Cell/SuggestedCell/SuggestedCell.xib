@@ -44,13 +44,13 @@
                                         <rect key="frame" x="0.0" y="116.5" width="212" height="28.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#Music" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FR3-R3-bKx">
-                                                <rect key="frame" x="0.0" y="0.0" width="42.5" height="28.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="46" height="28.5"/>
                                                 <fontDescription key="fontDescription" name="Graphik-Bold" family="Graphik" pointSize="13"/>
                                                 <color key="textColor" red="0.1333333333" green="0.2156862745" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j9U-vF-UqZ" customClass="CustomButtons" customModule="Mad" customModuleProvider="target">
-                                                <rect key="frame" x="122.5" y="0.0" width="89.5" height="28.5"/>
+                                                <rect key="frame" x="126" y="0.0" width="86" height="28.5"/>
                                                 <color key="backgroundColor" red="0.89803921568627454" green="0.12549019607843137" blue="0.3529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="13"/>
                                                 <state key="normal" title="Favorite">
@@ -70,7 +70,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="tjP-Pp-O4g">
-                                <rect key="frame" x="42.5" y="16" width="116.5" height="30"/>
+                                <rect key="frame" x="42.5" y="16" width="120" height="30"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4" translatesAutoresizingMaskIntoConstraints="NO" id="wIM-4d-8Hv" customClass="CustomImageView" customModule="Mad" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -91,22 +91,30 @@
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eva pavaroaky" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uhf-9w-sUH">
-                                        <rect key="frame" x="38" y="0.0" width="78.5" height="30"/>
+                                        <rect key="frame" x="38" y="0.0" width="82" height="30"/>
                                         <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="czE-Ks-cYA" customClass="ShimmerView" customModule="Mad" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="265" height="161"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="G6a-SE-hbG" firstAttribute="height" secondItem="88e-Gc-gVc" secondAttribute="height" multiplier="0.9" id="CYa-H1-TbN"/>
+                            <constraint firstItem="czE-Ks-cYA" firstAttribute="leading" secondItem="88e-Gc-gVc" secondAttribute="leading" id="W7F-uU-xbj"/>
+                            <constraint firstAttribute="bottom" secondItem="czE-Ks-cYA" secondAttribute="bottom" id="ZtI-86-IA2"/>
                             <constraint firstItem="tjP-Pp-O4g" firstAttribute="leading" secondItem="G6a-SE-hbG" secondAttribute="leading" constant="16" id="fYn-Al-Mba"/>
                             <constraint firstItem="G6a-SE-hbG" firstAttribute="width" secondItem="88e-Gc-gVc" secondAttribute="width" multiplier="0.8" id="hdg-KS-gaE"/>
                             <constraint firstItem="tjP-Pp-O4g" firstAttribute="top" secondItem="G6a-SE-hbG" secondAttribute="top" constant="8" id="jNH-Pc-1SI"/>
                             <constraint firstItem="G6a-SE-hbG" firstAttribute="centerY" secondItem="88e-Gc-gVc" secondAttribute="centerY" id="t4f-2h-6WL"/>
+                            <constraint firstItem="czE-Ks-cYA" firstAttribute="top" secondItem="88e-Gc-gVc" secondAttribute="top" id="trr-oN-oxy"/>
                             <constraint firstItem="G6a-SE-hbG" firstAttribute="centerX" secondItem="88e-Gc-gVc" secondAttribute="centerX" id="wAe-Fl-Ibm"/>
+                            <constraint firstAttribute="trailing" secondItem="czE-Ks-cYA" secondAttribute="trailing" id="xfW-YT-ehO"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="NO"/>
@@ -137,12 +145,20 @@
                 <constraint firstItem="88e-Gc-gVc" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="4" id="w1n-zM-S5p"/>
             </constraints>
             <size key="customSize" width="273" height="169"/>
+            <connections>
+                <outlet property="artistNameLabel" destination="Uhf-9w-sUH" id="acg-HK-0TT"/>
+                <outlet property="bannerImage" destination="oh8-Dr-yg0" id="We2-4r-cby"/>
+                <outlet property="favouriteBtn" destination="j9U-vF-UqZ" id="0VA-yw-fy8"/>
+                <outlet property="profileImage" destination="wIM-4d-8Hv" id="Jls-a5-s20"/>
+                <outlet property="shimmerView" destination="czE-Ks-cYA" id="koE-HN-xCo"/>
+                <outlet property="typeLabel" destination="FR3-R3-bKx" id="ffq-Jm-Glj"/>
+            </connections>
             <point key="canvasLocation" x="165.94202898550725" y="92.745535714285708"/>
         </collectionViewCell>
     </objects>
     <designables>
         <designable name="j9U-vF-UqZ">
-            <size key="intrinsicContentSize" width="47" height="28"/>
+            <size key="intrinsicContentSize" width="50" height="25"/>
         </designable>
         <designable name="oh8-Dr-yg0">
             <size key="intrinsicContentSize" width="375" height="174"/>

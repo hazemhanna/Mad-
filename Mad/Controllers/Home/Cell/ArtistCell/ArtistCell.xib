@@ -50,16 +50,16 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Z30-S0-j0n">
-                                <rect key="frame" x="16" y="178" width="97.5" height="11"/>
+                                <rect key="frame" x="16" y="176" width="96" height="13"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="uqK-DI-UbM">
-                                        <rect key="frame" x="0.0" y="0.0" width="41" height="11"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="41" height="13"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group 181" translatesAutoresizingMaskIntoConstraints="NO" id="0bo-7C-YM6">
-                                                <rect key="frame" x="0.0" y="0.0" width="12.5" height="11"/>
+                                                <rect key="frame" x="0.0" y="1" width="12.5" height="11"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3.3k" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nWd-Lj-GDT">
-                                                <rect key="frame" x="20.5" y="0.5" width="20.5" height="10"/>
+                                                <rect key="frame" x="20.5" y="1.5" width="20.5" height="10"/>
                                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="10"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -67,13 +67,13 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="TpA-Bt-mUI">
-                                        <rect key="frame" x="57" y="0.0" width="40.5" height="11"/>
+                                        <rect key="frame" x="57" y="0.0" width="39" height="13"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group 181" translatesAutoresizingMaskIntoConstraints="NO" id="c5f-BG-7P8">
-                                                <rect key="frame" x="0.0" y="0.0" width="12.5" height="11"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Component 46 – 1" translatesAutoresizingMaskIntoConstraints="NO" id="c5f-BG-7P8">
+                                                <rect key="frame" x="0.0" y="0.0" width="11" height="13"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5.2k" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bHG-gg-Wm9">
-                                                <rect key="frame" x="20.5" y="0.5" width="20" height="10"/>
+                                                <rect key="frame" x="19" y="1.5" width="20" height="10"/>
                                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="10"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -82,17 +82,25 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wYQ-Gn-MDx" customClass="ShimmerView" customModule="Mad" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="224" height="221"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="y2D-hz-4Uq" firstAttribute="leading" secondItem="3qC-jt-4zD" secondAttribute="leading" id="22y-vM-XmZ"/>
                             <constraint firstAttribute="bottom" secondItem="y2D-hz-4Uq" secondAttribute="bottom" id="AZO-sb-PTT"/>
                             <constraint firstAttribute="trailing" secondItem="zOm-Rw-VBQ" secondAttribute="trailing" id="CzB-ZL-QuE"/>
+                            <constraint firstAttribute="bottom" secondItem="wYQ-Gn-MDx" secondAttribute="bottom" id="FMl-u0-h6V"/>
                             <constraint firstItem="jvU-ox-e2q" firstAttribute="leading" secondItem="3qC-jt-4zD" secondAttribute="leading" constant="16" id="GCH-n5-8AR"/>
+                            <constraint firstAttribute="trailing" secondItem="wYQ-Gn-MDx" secondAttribute="trailing" id="HzY-Yd-6rI"/>
+                            <constraint firstItem="wYQ-Gn-MDx" firstAttribute="top" secondItem="3qC-jt-4zD" secondAttribute="top" id="Jma-Lf-Muh"/>
                             <constraint firstAttribute="bottom" secondItem="zOm-Rw-VBQ" secondAttribute="bottom" id="LR2-ej-bGN"/>
                             <constraint firstItem="jvU-ox-e2q" firstAttribute="top" secondItem="3qC-jt-4zD" secondAttribute="top" constant="8" id="TGm-2O-VBz"/>
                             <constraint firstAttribute="bottom" secondItem="Z30-S0-j0n" secondAttribute="bottom" constant="32" id="VHy-8S-Hj2"/>
                             <constraint firstItem="zOm-Rw-VBQ" firstAttribute="top" secondItem="3qC-jt-4zD" secondAttribute="top" id="aOs-u8-iSS"/>
+                            <constraint firstItem="wYQ-Gn-MDx" firstAttribute="leading" secondItem="3qC-jt-4zD" secondAttribute="leading" id="epI-ct-8Su"/>
                             <constraint firstItem="Z30-S0-j0n" firstAttribute="leading" secondItem="3qC-jt-4zD" secondAttribute="leading" constant="16" id="gZp-QR-rZb"/>
                             <constraint firstItem="zOm-Rw-VBQ" firstAttribute="leading" secondItem="3qC-jt-4zD" secondAttribute="leading" id="nPP-qP-LC7"/>
                             <constraint firstAttribute="trailing" secondItem="y2D-hz-4Uq" secondAttribute="trailing" id="uEp-cv-e6t"/>
@@ -115,7 +123,11 @@
             </constraints>
             <size key="customSize" width="224" height="221"/>
             <connections>
-                <outlet property="image" destination="zOm-Rw-VBQ" id="21D-gA-CMZ"/>
+                <outlet property="artistNameLabel" destination="jvU-ox-e2q" id="bab-Hk-WiF"/>
+                <outlet property="bannerImage" destination="zOm-Rw-VBQ" id="OAk-HI-FXz"/>
+                <outlet property="favouriteCount" destination="bHG-gg-Wm9" id="HXO-sm-Boo"/>
+                <outlet property="followerCount" destination="nWd-Lj-GDT" id="xvD-5Y-fLO"/>
+                <outlet property="shimmerView" destination="wYQ-Gn-MDx" id="rkO-sl-vhv"/>
             </connections>
             <point key="canvasLocation" x="102.89855072463769" y="94.754464285714278"/>
         </collectionViewCell>
@@ -127,6 +139,7 @@
     </designables>
     <resources>
         <image name="320" width="341" height="341"/>
+        <image name="Component 46 – 1" width="11" height="13"/>
         <image name="Group 181" width="12.5" height="11"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -8,11 +8,22 @@
 import UIKit
 
 class ArtistCell: UICollectionViewCell {
-    @IBOutlet weak var image: UIImageView!
-
+    
+    @IBOutlet weak var artistNameLabel: UILabel!
+    @IBOutlet weak var bannerImage: UIImageView!
+    @IBOutlet weak var favouriteCount: UILabel!
+    @IBOutlet weak var followerCount: UILabel!
+    @IBOutlet weak var shimmerView : ShimmerView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.showShimmer = false
+    }
+    
+    var showShimmer: Bool = false {
+        didSet {
+            self.shimmerView.isShimmering = showShimmer
+        }
     }
 
 }

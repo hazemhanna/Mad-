@@ -19,12 +19,14 @@ struct ConfigURLS {
     static var login = BASE_URL  + "auth/login"
     static var getCountry = BASE_URL  + "countries"
     static var getCategeory = BASE_URL  + "categories"
+    // project
     static var getProject = BASE_URL  + "project/all"
     static var addToFavourite = BASE_URL  + "project/edit_favorite"
     static var shareProject = BASE_URL  + "project/share"
     static var getProjectDetails = BASE_URL  + "project/get"
-
+    // artist
+    static var getAllArtist = BASE_URL  + "artist/all"
+    static var editArtistFavourite = BASE_URL  + "artist/edit_favorite"
+    static var getSuggested = BASE_URL  + "artist/suggested"
     
-    
-
 }

@@ -59,8 +59,8 @@ extension ProductVc: UICollectionViewDelegate {
                 }else{
                     cell.catImage.isHidden = false
                     cell.addProjectBtn.isHidden = true
+
                 }
-            
         }.disposed(by: disposeBag)
         self.addproductCollectionView.rx.itemSelected.bind { (indexPath) in
             

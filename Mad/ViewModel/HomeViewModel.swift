@@ -14,7 +14,6 @@ import SVProgressHUD
 
 struct HomeViewModel {
     
-    
     var data = PublishSubject<[String]>()
     var liveData = PublishSubject<[String]>()
     var title = PublishSubject<[String]>()
@@ -80,9 +79,5 @@ struct HomeViewModel {
         let observer = GetServices.shared.getProjectDetails(param : params)
          return observer
      }
-    
-    
-    
-    
     
 }

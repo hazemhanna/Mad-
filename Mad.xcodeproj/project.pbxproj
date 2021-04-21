@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0413E3AA263051C300F5977D /* ArtistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0413E3A9263051C300F5977D /* ArtistModel.swift */; };
+		0413E3AD2630536E00F5977D /* ArtistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0413E3AC2630536E00F5977D /* ArtistViewModel.swift */; };
 		041427FB26174927000394CA /* HomeVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041427FA26174927000394CA /* HomeVc.swift */; };
 		041427FF26174D76000394CA /* NotificationVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041427FE26174D76000394CA /* NotificationVc.swift */; };
 		0414280226174D8A000394CA /* SearchVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0414280126174D8A000394CA /* SearchVc.swift */; };
@@ -100,6 +102,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0413E3A9263051C300F5977D /* ArtistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistModel.swift; sourceTree = "<group>"; };
+		0413E3AC2630536E00F5977D /* ArtistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistViewModel.swift; sourceTree = "<group>"; };
 		041427FA26174927000394CA /* HomeVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVc.swift; sourceTree = "<group>"; };
 		041427FE26174D76000394CA /* NotificationVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationVc.swift; sourceTree = "<group>"; };
 		0414280126174D8A000394CA /* SearchVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVc.swift; sourceTree = "<group>"; };
@@ -534,6 +538,7 @@
 				0460CF6D261D04DD006685B6 /* SplashModel.swift */,
 				0451B7622627041F000B3983 /* ProjectsModel.swift */,
 				04AD610B2628C52B00ADF0DF /* ImageModel.swift */,
+				0413E3A9263051C300F5977D /* ArtistModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -568,6 +573,7 @@
 				04528E3126149579009868EA /* AuthenticationViewModel.swift */,
 				0414286426176BCD000394CA /* HomeViewModel.swift */,
 				04668727261B447B001D024D /* AdsViewModel.swift */,
+				0413E3AC2630536E00F5977D /* ArtistViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -905,10 +911,12 @@
 				04DEAA462620BC9500F843A6 /* SplashViewModel.swift in Sources */,
 				042C082A2613943900BE1806 /* LoadingLoginVc.swift in Sources */,
 				042C081126136B9700BE1806 /* CustomDropDown.swift in Sources */,
+				0413E3AD2630536E00F5977D /* ArtistViewModel.swift in Sources */,
 				04DEA9D0262093E500F843A6 /* GetServices.swift in Sources */,
 				0451FD8C2617A5D300AEE546 /* ProjectCell.swift in Sources */,
 				04AD610C2628C52B00ADF0DF /* ImageModel.swift in Sources */,
 				0451FD642617A5B600AEE546 /* TitleCell.swift in Sources */,
+				0413E3AA263051C300F5977D /* ArtistModel.swift in Sources */,
 				0466872B261B5B1C001D024D /* UICollectionView+Extention.swift in Sources */,
 				04528E3D26149903009868EA /* EmailVc.swift in Sources */,
 				046887B8261E72670056AC92 /* VideosVc.swift in Sources */,
