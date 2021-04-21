@@ -40,17 +40,17 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="w9k-Y1-0HK">
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="w9k-Y1-0HK">
                                         <rect key="frame" x="0.0" y="116.5" width="212" height="28.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#Music" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FR3-R3-bKx">
-                                                <rect key="frame" x="0.0" y="0.0" width="42.5" height="28.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="140.5" height="28.5"/>
                                                 <fontDescription key="fontDescription" name="Graphik-Bold" family="Graphik" pointSize="13"/>
                                                 <color key="textColor" red="0.1333333333" green="0.2156862745" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j9U-vF-UqZ" customClass="CustomButtons" customModule="Mad" customModuleProvider="target">
-                                                <rect key="frame" x="122.5" y="0.0" width="89.5" height="28.5"/>
+                                                <rect key="frame" x="148.5" y="0.0" width="63.5" height="28.5"/>
                                                 <color key="backgroundColor" red="0.89803921568627454" green="0.12549019607843137" blue="0.3529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="13"/>
                                                 <state key="normal" title="Favorite">
@@ -58,11 +58,14 @@
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="14"/>
+                                                        <real key="value" value="13"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="j9U-vF-UqZ" firstAttribute="width" secondItem="w9k-Y1-0HK" secondAttribute="width" multiplier="0.3" id="3er-UM-4Sm"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
@@ -70,7 +73,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="tjP-Pp-O4g">
-                                <rect key="frame" x="42.5" y="16" width="116.5" height="30"/>
+                                <rect key="frame" x="42.5" y="16" width="120" height="30"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4" translatesAutoresizingMaskIntoConstraints="NO" id="wIM-4d-8Hv" customClass="CustomImageView" customModule="Mad" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -91,7 +94,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eva pavaroaky" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uhf-9w-sUH">
-                                        <rect key="frame" x="38" y="0.0" width="78.5" height="30"/>
+                                        <rect key="frame" x="38" y="0.0" width="82" height="30"/>
                                         <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -158,7 +161,7 @@
     </objects>
     <designables>
         <designable name="j9U-vF-UqZ">
-            <size key="intrinsicContentSize" width="47" height="28"/>
+            <size key="intrinsicContentSize" width="50" height="25"/>
         </designable>
         <designable name="oh8-Dr-yg0">
             <size key="intrinsicContentSize" width="375" height="174"/>

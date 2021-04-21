@@ -262,7 +262,24 @@
 			path = ArtistVC;
 			sourceTree = "<group>";
 		};
-		0414282926176025000394CA /* Cell */ = {
+		0413E4502630A35E00F5977D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0413E4522630A37B00F5977D /* CollectionViewCell */,
+				0413E4512630A37800F5977D /* TableViewCell */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0413E4512630A37800F5977D /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				04668759261B6728001D024D /* HomeCell */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		0413E4522630A37B00F5977D /* CollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
 				046887BB261E77620056AC92 /* ShowsCell */,
@@ -272,9 +289,8 @@
 				0451FD892617A5BE00AEE546 /* ProjectCell */,
 				0451FD612617A59C00AEE546 /* TitleCell */,
 				04142867261771F7000394CA /* LiveCell */,
-				04668759261B6728001D024D /* HomeCell */,
 			);
-			path = Cell;
+			path = CollectionViewCell;
 			sourceTree = "<group>";
 		};
 		04142867261771F7000394CA /* LiveCell */ = {
@@ -493,7 +509,6 @@
 		0482EEAB26164D3800CB4A24 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				0414282926176025000394CA /* Cell */,
 				0413E41226307F5E00F5977D /* HomeVc.swift */,
 			);
 			path = Home;
@@ -551,6 +566,7 @@
 				0488CD332612141C00E05BEB /* Controllers */,
 				0488CD322612141700E05BEB /* Resources */,
 				0488CD312612141400E05BEB /* Models */,
+				0413E4502630A35E00F5977D /* Views */,
 				0488CCF1261213E400E05BEB /* Assets.xcassets */,
 			);
 			path = Mad;
