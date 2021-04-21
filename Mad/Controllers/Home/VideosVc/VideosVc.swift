@@ -18,7 +18,8 @@ class VideosVc: UIViewController {
     @IBOutlet weak var afterMovieCollectionView: UICollectionView!
     
     var homeVM = HomeViewModel()
-    
+    var parentVC : HomeVC?
+
     var data = [String](){
           didSet {
               DispatchQueue.main.async {

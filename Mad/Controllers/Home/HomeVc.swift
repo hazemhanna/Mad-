@@ -12,14 +12,7 @@ import RxCocoa
 class HomeVC: UIViewController {
     
     @IBOutlet weak var titleCollectionView: UICollectionView!
-    @IBOutlet weak var titleView: UIView!
-    @IBOutlet weak var projectContinerVie: UIView!
-    @IBOutlet weak var artistContinerVie: UIView!
-    @IBOutlet weak var productsContinerVie: UIView!
-    @IBOutlet weak var videosContinerVie: UIView!
-    @IBOutlet weak var blogsContinerVie: UIView!
-
-
+    @IBOutlet weak var container: UIView!
     
     var homeVM = HomeViewModel()
     var disposeBag = DisposeBag()
@@ -32,19 +25,42 @@ class HomeVC: UIViewController {
               }
           }
       }
-    
+
+    lazy var instantVC1: ProjectsVC = {
+        var vc = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "ProjectsVC")  as! ProjectsVC
+        self.add(asChildViewController: vc)
+        vc.parentVC = self
+        return vc
+    }()
+    lazy var instantVC2: ArtistVc = {
+        var vc = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "ArtistVc")  as! ArtistVc
+        self.add(asChildViewController: vc)
+        vc.parentVC = self
+        return vc
+    }()
+    lazy var instantVC3: ProductVc = {
+        var vc = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "ProductVc")   as! ProductVc
+        self.add(asChildViewController: vc)
+        vc.parentVC = self
+        return vc
+    }()
+    lazy var instantVC4: VideosVc = {
+        var vc = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "VideosVc")  as! VideosVc
+        self.add(asChildViewController: vc)
+        vc.parentVC = self
+        return vc
+    }()
+    lazy var instantVC5: BlogsVc = {
+        var vc = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "BlogsVc") as! BlogsVc
+        self.add(asChildViewController: vc)
+        vc.parentVC = self
+        return vc
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setuptitleCollectionView()
-        
-        projectContinerVie.isHidden = false
-        artistContinerVie.isHidden = true
-        productsContinerVie.isHidden = true
-        videosContinerVie.isHidden = true
-        blogsContinerVie.isHidden = true
-        
-        
+        selectView()
     }
     
     
@@ -56,6 +72,26 @@ class HomeVC: UIViewController {
         self.navigationController?.navigationBar.isHidden = false
     }
     
+    
+    
+    func selectView(){
+        self.remove(asChildViewController: self.instantVC1)
+        self.remove(asChildViewController: self.instantVC2)
+        self.remove(asChildViewController: self.instantVC3)
+        self.remove(asChildViewController: self.instantVC4)
+        self.remove(asChildViewController: self.instantVC5)
+
+        switch  self.selectedIndex {
+        case 0: self.add(asChildViewController: self.instantVC1)
+        case 1: self.add(asChildViewController: self.instantVC2)
+        case 2: self.add(asChildViewController: self.instantVC3)
+        case 3: self.add(asChildViewController: self.instantVC4)
+        case 4: self.add(asChildViewController: self.instantVC5)
+    
+        default:  break
+        }
+        
+    }
     
 }
 
@@ -70,7 +106,7 @@ extension HomeVC: UICollectionViewDelegate {
             
              cell.titleBtn.text = self.titles[index]
             if self.selectedIndex == 3 {
-                
+                self.view.backgroundColor = UIColor.black
                 if self.selectedIndex == index{
                     cell.backView.layer.borderColor = #colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1).cgColor
                     cell.backView.layer.borderWidth = 2
@@ -84,6 +120,7 @@ extension HomeVC: UICollectionViewDelegate {
                    }
                 
             }else{
+                self.view.backgroundColor = UIColor.white
             if self.selectedIndex == index{
                 cell.backView.layer.borderColor = #colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1).cgColor
                 cell.backView.layer.borderWidth = 2
@@ -100,47 +137,9 @@ extension HomeVC: UICollectionViewDelegate {
         }.disposed(by: disposeBag)
         self.titleCollectionView.rx.itemSelected.bind { (indexPath) in
             self.selectedIndex = indexPath.row
-           self.titleCollectionView.reloadData()
-            if self.selectedIndex == 0 {
-                self.projectContinerVie.isHidden = false
-                self.artistContinerVie.isHidden = true
-                self.productsContinerVie.isHidden = true
-                self.videosContinerVie.isHidden = true
-                self.blogsContinerVie.isHidden = true
-                self.view.backgroundColor =  UIColor.white
-
-            }else if self.selectedIndex == 1 {
-                self.projectContinerVie.isHidden = true
-                self.artistContinerVie.isHidden = false
-                self.productsContinerVie.isHidden = true
-                self.videosContinerVie.isHidden = true
-                self.blogsContinerVie.isHidden = true
-                self.view.backgroundColor =  UIColor.white
-
-            }else if self.selectedIndex == 2{
-                self.projectContinerVie.isHidden = true
-                self.artistContinerVie.isHidden = true
-                self.productsContinerVie.isHidden = false
-                self.videosContinerVie.isHidden = true
-                self.blogsContinerVie.isHidden = true
-                self.view.backgroundColor =  UIColor.white
-
-            }else if self.selectedIndex == 3{
-                self.projectContinerVie.isHidden = true
-                self.artistContinerVie.isHidden = true
-                self.productsContinerVie.isHidden = true
-                self.videosContinerVie.isHidden = false
-                self.blogsContinerVie.isHidden = true
-                self.view.backgroundColor =  UIColor.black
-            }else if self.selectedIndex == 4{
-                self.projectContinerVie.isHidden = true
-                self.artistContinerVie.isHidden = true
-                self.productsContinerVie.isHidden = true
-                self.videosContinerVie.isHidden = true
-                self.blogsContinerVie.isHidden = false
-                self.view.backgroundColor =  UIColor.white
-
-            }
+            self.selectView()
+            self.titleCollectionView.reloadData()
+            
         }.disposed(by: disposeBag)
     }
     
@@ -157,3 +156,27 @@ extension HomeVC: UICollectionViewDelegateFlowLayout {
             return CGSize(width: size, height: 40)
     }
 }
+
+extension HomeVC {
+            private func add(asChildViewController viewController: UIViewController) {
+                // Add Child View Controller
+                addChild(viewController)
+                
+                // Add Child View as Subview
+                container.addSubview(viewController.view)
+                // Configure Child View
+                viewController.view.frame = container.bounds
+                viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+                // Notify Child View Controller
+                viewController.didMove(toParent: self)
+            }
+
+            private func remove(asChildViewController viewController: UIViewController) {
+                // Notify Child View Controller
+                viewController.willMove(toParent: nil)
+                // Remove Child View From Superview
+                viewController.view.removeFromSuperview()
+                // Notify Child View Controller
+                viewController.removeFromParent()
+            }
+    }

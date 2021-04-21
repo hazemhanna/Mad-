@@ -18,7 +18,8 @@ class ProductVc: UIViewController {
     
     var disposeBag = DisposeBag()
     var homeVM = HomeViewModel()
-    
+    var parentVC : HomeVC?
+
     var data = [String](){
           didSet {
               DispatchQueue.main.async {

@@ -17,7 +17,8 @@ class ProjectsVC: UIViewController {
     
     var homeVM = HomeViewModel()
     var disposeBag = DisposeBag()
-    
+    var parentVC : HomeVC?
+
     var Categories = [Category]() {
         didSet {
             DispatchQueue.main.async {

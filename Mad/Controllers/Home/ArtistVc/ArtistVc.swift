@@ -17,7 +17,8 @@ class ArtistVc: UIViewController {
     let cellIdentifier1 = "ProjectCell"
     let cellIdentifier2 = "SuggestedCell"
     let cellIdentifier3 = "ArtistCell"
-    
+    var parentVC : HomeVC?
+
     var artistVM = ArtistViewModel()
     var disposeBag = DisposeBag()
     var artists = [Artist]()
