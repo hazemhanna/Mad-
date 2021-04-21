@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class ProductVc: UIViewController {
+class ProductsVC : UIViewController {
    
     @IBOutlet weak var addproductCollectionView: UICollectionView!
     @IBOutlet weak var  topPrpductCollectionView: UICollectionView!
@@ -47,7 +47,7 @@ class ProductVc: UIViewController {
 }
 
 
-extension ProductVc: UICollectionViewDelegate {
+extension ProductsVC: UICollectionViewDelegate {
     func setupAddProductCollectionView() {
         let cellIdentifier = "ProjectCell"
         self.addproductCollectionView.rx.setDelegate(self).disposed(by: disposeBag)
@@ -107,7 +107,7 @@ extension ProductVc: UICollectionViewDelegate {
     
 }
 
-extension ProductVc: UICollectionViewDelegateFlowLayout {
+extension ProductsVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == addproductCollectionView {
             let flowayout = collectionViewLayout as? UICollectionViewFlowLayout
@@ -146,3 +146,4 @@ extension ProductVc: UICollectionViewDelegateFlowLayout {
         }
     }
 }
+

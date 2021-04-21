@@ -17,7 +17,6 @@ class HomeVC: UIViewController {
     var homeVM = HomeViewModel()
     var disposeBag = DisposeBag()
     var selectedIndex = 0
-
     var titles = [String](){
           didSet {
               DispatchQueue.main.async {
@@ -25,36 +24,36 @@ class HomeVC: UIViewController {
               }
           }
       }
-
+    
     lazy var instantVC1: ProjectsVC = {
-        var vc = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "ProjectsVC")  as! ProjectsVC
-        self.add(asChildViewController: vc)
-        vc.parentVC = self
-        return vc
+        var vc = ProjectsVC.instantiateFromNib()
+        self.add(asChildViewController: vc!)
+        vc!.parentVC = self
+        return vc!
     }()
-    lazy var instantVC2: ArtistVc = {
-        var vc = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "ArtistVc")  as! ArtistVc
-        self.add(asChildViewController: vc)
-        vc.parentVC = self
-        return vc
+    lazy var instantVC2: ArtistsVc = {
+        var vc =  ArtistsVc.instantiateFromNib()
+        self.add(asChildViewController: vc!)
+        vc!.parentVC = self
+        return vc!
     }()
-    lazy var instantVC3: ProductVc = {
-        var vc = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "ProductVc")   as! ProductVc
-        self.add(asChildViewController: vc)
-        vc.parentVC = self
-        return vc
+    lazy var instantVC3: ProductsVC = {
+        var vc =  ProductsVC.instantiateFromNib()
+        self.add(asChildViewController: vc!)
+        vc!.parentVC = self
+        return vc!
     }()
-    lazy var instantVC4: VideosVc = {
-        var vc = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "VideosVc")  as! VideosVc
-        self.add(asChildViewController: vc)
-        vc.parentVC = self
-        return vc
+    lazy var instantVC4: VideosVC = {
+        var vc = VideosVC.instantiateFromNib()
+        self.add(asChildViewController: vc!)
+        vc!.parentVC = self
+        return vc!
     }()
     lazy var instantVC5: BlogsVc = {
-        var vc = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "BlogsVc") as! BlogsVc
-        self.add(asChildViewController: vc)
-        vc.parentVC = self
-        return vc
+        var vc = BlogsVc.instantiateFromNib()
+        self.add(asChildViewController: vc!)
+        vc!.parentVC = self
+        return vc!
     }()
     
     override func viewDidLoad() {
@@ -71,8 +70,6 @@ class HomeVC: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
     }
-    
-    
     
     func selectView(){
         self.remove(asChildViewController: self.instantVC1)
@@ -157,7 +154,7 @@ extension HomeVC: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension HomeVC {
+     extension HomeVC {
             private func add(asChildViewController viewController: UIViewController) {
                 // Add Child View Controller
                 addChild(viewController)
@@ -180,3 +177,5 @@ extension HomeVC {
                 viewController.removeFromParent()
             }
     }
+
+

@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class VideosVc: UIViewController {
+class VideosVC: UIViewController {
    
     @IBOutlet weak var productCollectionView: UICollectionView!
     @IBOutlet weak var  showsCollectionView: UICollectionView!
@@ -48,7 +48,7 @@ class VideosVc: UIViewController {
 }
 
 //MARK:- Data Binding
-extension VideosVc: UICollectionViewDelegate {
+extension VideosVC: UICollectionViewDelegate {
     func setupProductctiveCollectionView() {
         let cellIdentifier = "ProjectCell"
         self.productCollectionView.rx.setDelegate(self).disposed(by: disposeBag)
@@ -116,7 +116,7 @@ extension VideosVc: UICollectionViewDelegate {
     
 }
 
-extension VideosVc: UICollectionViewDelegateFlowLayout {
+extension VideosVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == productCollectionView {
             let flowayout = collectionViewLayout as? UICollectionViewFlowLayout
@@ -133,3 +133,4 @@ extension VideosVc: UICollectionViewDelegateFlowLayout {
         }
     }
 }
+

@@ -1,15 +1,15 @@
 //
-//  ArtistVc.swift
+//  ArtistsVc.swift
 //  Mad
 //
-//  Created by MAC on 06/04/2021.
+//  Created by MAC on 21/04/2021.
 //
 
 import UIKit
 import RxSwift
 import RxCocoa
 
-class ArtistVc: UIViewController {
+class ArtistsVc: UIViewController {
     
     @IBOutlet weak var  topActiveCollectionView: UICollectionView!
     @IBOutlet weak var suggestedCollectionView: UICollectionView!
@@ -58,7 +58,7 @@ class ArtistVc: UIViewController {
     
 }
 
-extension ArtistVc: UICollectionViewDelegate ,UICollectionViewDataSource{
+extension ArtistsVc : UICollectionViewDelegate ,UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == topActiveCollectionView {
         return  self.showShimmer1 ? 5 : topActive.count
@@ -114,14 +114,18 @@ extension ArtistVc: UICollectionViewDelegate ,UICollectionViewDataSource{
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if showShimmer1 {
+        if collectionView == artistsCollectionView {
+        if showShimmer3 {
             return
+           }
+            let vc = UIStoryboard(name: "Artist", bundle: nil).instantiateViewController(withIdentifier: "ArtistProfileVc")  as! ProjectsVC
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
 }
 
 
-extension ArtistVc: UICollectionViewDelegateFlowLayout {
+extension ArtistsVc: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == topActiveCollectionView {
             let flowayout = collectionViewLayout as? UICollectionViewFlowLayout
@@ -160,8 +164,7 @@ extension ArtistVc: UICollectionViewDelegateFlowLayout {
 }
 
 
-
-extension ArtistVc {
+extension ArtistsVc {
     func getSuggested() {
         artistVM.getSuggested().subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
@@ -200,10 +203,4 @@ extension ArtistVc {
 
        }).disposed(by: disposeBag)
    }
-
-    
-    
-    
-    
-    
 }

@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 import PTCardTabBar
 
-class ProjectsVC: UIViewController {
+class ProjectsVC : UIViewController {
    
     @IBOutlet weak var mainTableView: UITableView!
     @IBOutlet weak var projectCollectionView: UICollectionView!
@@ -138,7 +138,7 @@ extension ProjectsVC: UITableViewDelegate,UITableViewDataSource{
 }
 
 
-extension ProjectsVC: UICollectionViewDelegate ,UICollectionViewDataSource{
+extension ProjectsVC : UICollectionViewDelegate ,UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return  self.showShimmer ? 5 : Categories.count + 1
     }
@@ -171,7 +171,7 @@ extension ProjectsVC: UICollectionViewDelegate ,UICollectionViewDataSource{
     }
 }
 
-extension ProjectsVC: UICollectionViewDelegateFlowLayout {
+extension ProjectsVC : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
             let flowayout = collectionViewLayout as? UICollectionViewFlowLayout
@@ -234,3 +234,4 @@ extension ProjectsVC {
     
     
 }
+
