@@ -20,11 +20,8 @@ class HomeCell: UITableViewCell {
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var projectImage: UIImageView!
     @IBOutlet weak var trustImage: UIImageView!
-    
     @IBOutlet weak var favouriteBtn: UIButton!
-
     @IBOutlet weak var shareBtn: UIButton!
-
     @IBOutlet weak var shimmerView : ShimmerView!
 
     var favourite: (() -> Void)? = nil
@@ -38,7 +35,6 @@ class HomeCell: UITableViewCell {
         super.awakeFromNib()
         liveData = ["1","2","3"]
         self.liveCollectionView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
-        
         liveCollectionView.delegate = self
         liveCollectionView.dataSource = self
         self.showShimmer = false
@@ -71,8 +67,6 @@ class HomeCell: UITableViewCell {
         self.favouriteBtn.setImage(#imageLiteral(resourceName: "Group 140"), for: .normal)
 
         }
-        
-        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

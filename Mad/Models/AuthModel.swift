@@ -14,7 +14,6 @@ struct AuthModel: Codable {
     let errors: Errors?
 }
 
-
 struct VerifyModel: Codable {
     let success , data: Bool?
     let  message: String?

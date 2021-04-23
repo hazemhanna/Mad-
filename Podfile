@@ -22,7 +22,5 @@ target 'Mad' do
   pod 'Toast-Swift'
   pod 'Shimmer'
   pod 'SwifterSwift'
-  pod 'CHTCollectionViewWaterfallLayout/Swift'
-
-  
+  pod 'Tabman'
 end

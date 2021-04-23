@@ -29,6 +29,10 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HcJ-SP-dDa" customClass="CustomView" customModule="Mad" customModuleProvider="target">
                         <rect key="frame" x="4" y="4" width="255" height="136"/>
                         <subviews>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SfV-BH-0bb">
+                                <rect key="frame" x="224" y="16" width="15" height="22"/>
+                                <state key="normal" image="Group 262"/>
+                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gzT-4K-1o6">
                                 <rect key="frame" x="8" y="8" width="239" height="120"/>
                                 <subviews>
@@ -74,8 +78,10 @@
                             <constraint firstItem="AU7-49-biv" firstAttribute="top" secondItem="HcJ-SP-dDa" secondAttribute="top" id="AkX-3e-jzH"/>
                             <constraint firstAttribute="bottom" secondItem="gzT-4K-1o6" secondAttribute="bottom" constant="8" id="Vap-ds-xbM"/>
                             <constraint firstAttribute="trailing" secondItem="gzT-4K-1o6" secondAttribute="trailing" constant="8" id="VhR-A0-aGP"/>
+                            <constraint firstAttribute="trailing" secondItem="SfV-BH-0bb" secondAttribute="trailing" constant="16" id="ZxI-f2-EOm"/>
                             <constraint firstItem="AU7-49-biv" firstAttribute="leading" secondItem="HcJ-SP-dDa" secondAttribute="leading" id="c7J-PW-LUb"/>
                             <constraint firstAttribute="trailing" secondItem="AU7-49-biv" secondAttribute="trailing" id="gyx-tM-31w"/>
+                            <constraint firstItem="SfV-BH-0bb" firstAttribute="top" secondItem="HcJ-SP-dDa" secondAttribute="top" constant="16" id="psG-fM-QoC"/>
                             <constraint firstAttribute="bottom" secondItem="AU7-49-biv" secondAttribute="bottom" id="sOq-T2-JrB"/>
                             <constraint firstItem="gzT-4K-1o6" firstAttribute="leading" secondItem="HcJ-SP-dDa" secondAttribute="leading" constant="8" id="uaB-Iw-y2x"/>
                         </constraints>
@@ -109,6 +115,7 @@
             </constraints>
             <size key="customSize" width="263" height="144"/>
             <connections>
+                <outlet property="editBtn" destination="SfV-BH-0bb" id="h8q-33-vjS"/>
                 <outlet property="shimmerView" destination="AU7-49-biv" id="gZ9-08-EtU"/>
             </connections>
             <point key="canvasLocation" x="-10.869565217391305" y="43.526785714285715"/>
@@ -120,6 +127,7 @@
         </designable>
     </designables>
     <resources>
+        <image name="Group 262" width="15" height="3"/>
         <image name="Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4" width="320" height="320"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -130,9 +130,13 @@ extension ProjectsVC: UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if showProjectShimmer {
+            return
+        }
         let main = ProjectDetailsVC.instantiateFromNib()
         main!.projectId =  self.projects[indexPath.row].id!
         self.navigationController?.pushViewController(main!, animated: true)
+     
     }
     
 }

@@ -144,20 +144,20 @@ extension ArtistsVc: UICollectionViewDelegateFlowLayout {
             
             let flowayout = collectionViewLayout as? UICollectionViewFlowLayout
             let space: CGFloat = (flowayout?.minimumInteritemSpacing ?? 0.0) + (flowayout?.sectionInset.left ?? 0.0) + (flowayout?.sectionInset.right ?? 0.0)
-            
+
             var width : CGFloat
             let height : CGFloat
-            
-            if indexPath.item == 0 || indexPath.item == 1  {
-                width =  (collectionView.frame.size.width - space) / 2
-                height = 121
-              }else if indexPath.item == 2  {
-              width =  (collectionView.frame.size.width - space)
-              height = 160
-              }else{
+//
+//            if indexPath.item == 0 || indexPath.item == 1  {
+//                width =  (collectionView.frame.size.width - space) / 2
+//                height = 121
+//              }else if indexPath.item == 2  {
+//              width =  (collectionView.frame.size.width - space)
+//              height = 160
+//              }else{
                 width = (collectionView.frame.size.width - space) / 3.5
                 height = 140
-              }
+             // }
             return CGSize(width: width, height: height)
         }
     }

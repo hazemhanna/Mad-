@@ -82,6 +82,16 @@
 		04AD60B3262866E500ADF0DF /* ProjectDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD60B1262866E500ADF0DF /* ProjectDetailsVC.swift */; };
 		04AD60B4262866E500ADF0DF /* ProjectDetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04AD60B2262866E500ADF0DF /* ProjectDetailsVC.xib */; };
 		04AD610C2628C52B00ADF0DF /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD610B2628C52B00ADF0DF /* ImageModel.swift */; };
+		04D23EC9263306B500290488 /* ContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D23EC8263306B500290488 /* ContainerVC.swift */; };
+		04D23EE226330D7700290488 /* AboutVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D23EE126330D7700290488 /* AboutVc.swift */; };
+		04D23EE526330D9B00290488 /* CompetitionsVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D23EE426330D9B00290488 /* CompetitionsVc.swift */; };
+		04D23EE826330DBA00290488 /* ArtistProductsVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D23EE726330DBA00290488 /* ArtistProductsVc.swift */; };
+		04D23EEA2633121300290488 /* Graphik-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04E18711261364AA00824E37 /* Graphik-Black.ttf */; };
+		04D23EEC2633127800290488 /* Graphik-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04E18705261364A900824E37 /* Graphik-Bold.ttf */; };
+		04D23EED2633127800290488 /* Graphik-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04E18704261364A900824E37 /* Graphik-Light.ttf */; };
+		04D23EEE2633127800290488 /* Graphik-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04E1870E261364AA00824E37 /* Graphik-Medium.ttf */; };
+		04D23EEF2633127800290488 /* Graphik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04E1870B261364AA00824E37 /* Graphik-Regular.ttf */; };
+		04D23EF02633127800290488 /* Graphik-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04E18706261364A900824E37 /* Graphik-Semibold.ttf */; };
 		04DEA9962620901000F843A6 /* CategeoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DEA9952620901000F843A6 /* CategeoryModel.swift */; };
 		04DEA999262090C700F843A6 /* CountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DEA998262090C700F843A6 /* CountryModel.swift */; };
 		04DEA9D0262093E500F843A6 /* GetServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DEA9CF262093E500F843A6 /* GetServices.swift */; };
@@ -187,6 +197,10 @@
 		04AD60B1262866E500ADF0DF /* ProjectDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsVC.swift; sourceTree = "<group>"; };
 		04AD60B2262866E500ADF0DF /* ProjectDetailsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectDetailsVC.xib; sourceTree = "<group>"; };
 		04AD610B2628C52B00ADF0DF /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
+		04D23EC8263306B500290488 /* ContainerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerVC.swift; sourceTree = "<group>"; };
+		04D23EE126330D7700290488 /* AboutVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutVc.swift; sourceTree = "<group>"; };
+		04D23EE426330D9B00290488 /* CompetitionsVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionsVc.swift; sourceTree = "<group>"; };
+		04D23EE726330DBA00290488 /* ArtistProductsVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistProductsVc.swift; sourceTree = "<group>"; };
 		04DEA9952620901000F843A6 /* CategeoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategeoryModel.swift; sourceTree = "<group>"; };
 		04DEA998262090C700F843A6 /* CountryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryModel.swift; sourceTree = "<group>"; };
 		04DEA9CF262093E500F843A6 /* GetServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetServices.swift; sourceTree = "<group>"; };
@@ -333,7 +347,11 @@
 			isa = PBXGroup;
 			children = (
 				0449A732262F39C800604052 /* ArtistProfileVc.swift */,
+				04D23EC8263306B500290488 /* ContainerVC.swift */,
 				0449A735262F477700604052 /* ArtistProjectsVc.swift */,
+				04D23EE726330DBA00290488 /* ArtistProductsVc.swift */,
+				04D23EE126330D7700290488 /* AboutVc.swift */,
+				04D23EE426330D9B00290488 /* CompetitionsVc.swift */,
 			);
 			path = ArtistProfile;
 			sourceTree = "<group>";
@@ -863,6 +881,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04D23EEC2633127800290488 /* Graphik-Bold.ttf in Resources */,
+				04D23EED2633127800290488 /* Graphik-Light.ttf in Resources */,
+				04D23EEE2633127800290488 /* Graphik-Medium.ttf in Resources */,
+				04D23EEF2633127800290488 /* Graphik-Regular.ttf in Resources */,
+				04D23EF02633127800290488 /* Graphik-Semibold.ttf in Resources */,
+				04D23EEA2633121300290488 /* Graphik-Black.ttf in Resources */,
 				0413E40226307D3700F5977D /* VideosVC.xib in Resources */,
 				0460CF46261CEC27006685B6 /* ArtistCell.xib in Resources */,
 				0488CCF5261213E400E05BEB /* LaunchScreen.storyboard in Resources */,
@@ -985,9 +1009,11 @@
 				04528E472614A1FD009868EA /* CustomTextField.swift in Sources */,
 				0449A736262F477700604052 /* ArtistProjectsVc.swift in Sources */,
 				04528E5B2614B5AE009868EA /* CountryVc.swift in Sources */,
+				04D23EE526330D9B00290488 /* CompetitionsVc.swift in Sources */,
 				04DEA9D32620941C00F843A6 /* AddServices.swift in Sources */,
 				04F06AF02614DD5100B08606 /* CategeoryVc.swift in Sources */,
 				0488CCE9261213E000E05BEB /* AppDelegate.swift in Sources */,
+				04D23EE826330DBA00290488 /* ArtistProductsVc.swift in Sources */,
 				04688788261E0E170056AC92 /* VerificationVc.swift in Sources */,
 				04E186F5261360F400824E37 /* StoryBoardExtension.swift in Sources */,
 				0413E41326307F5E00F5977D /* HomeVc.swift in Sources */,
@@ -1001,9 +1027,11 @@
 				042C080E26136B6E00BE1806 /* CustomButtons.swift in Sources */,
 				046887BE261E77970056AC92 /* ShowesCell.swift in Sources */,
 				0451B7A9262716E8000B3983 /* ShimmerView.swift in Sources */,
+				04D23EC9263306B500290488 /* ContainerVC.swift in Sources */,
 				0414287726177E69000394CA /* LiveCellCVC.swift in Sources */,
 				04911C69261C9A2900705A58 /* SuggestedCell.swift in Sources */,
 				04F06AC52614C37200B08606 /* AgeVc.swift in Sources */,
+				04D23EE226330D7700290488 /* AboutVc.swift in Sources */,
 				04F06AF62614E0D600B08606 /* CategeoryCell.swift in Sources */,
 				0460CF6E261D04DD006685B6 /* SplashModel.swift in Sources */,
 				04AD60B3262866E500ADF0DF /* ProjectDetailsVC.swift in Sources */,
