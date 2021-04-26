@@ -33,6 +33,8 @@
 		042C082A2613943900BE1806 /* LoadingLoginVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042C08292613943900BE1806 /* LoadingLoginVc.swift */; };
 		043B47D5261DB5B500D67023 /* ForYouCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043B47D3261DB5B500D67023 /* ForYouCell.swift */; };
 		043B47D6261DB5B500D67023 /* ForYouCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 043B47D4261DB5B500D67023 /* ForYouCell.xib */; };
+		0440ECA82636C7C60046681C /* CompetitionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440ECA62636C7C60046681C /* CompetitionCell.swift */; };
+		0440ECA92636C7C60046681C /* CompetitionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0440ECA72636C7C60046681C /* CompetitionCell.xib */; };
 		0449A6F3262EF9E100604052 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0449A6F2262EF9E100604052 /* Authentication.storyboard */; };
 		0449A72C262EFE1800604052 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0449A72B262EFE1800604052 /* Home.storyboard */; };
 		0449A72F262F396400604052 /* Artist.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0449A72E262F396400604052 /* Artist.storyboard */; };
@@ -145,6 +147,8 @@
 		042C08292613943900BE1806 /* LoadingLoginVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingLoginVc.swift; sourceTree = "<group>"; };
 		043B47D3261DB5B500D67023 /* ForYouCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForYouCell.swift; sourceTree = "<group>"; };
 		043B47D4261DB5B500D67023 /* ForYouCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForYouCell.xib; sourceTree = "<group>"; };
+		0440ECA62636C7C60046681C /* CompetitionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionCell.swift; sourceTree = "<group>"; };
+		0440ECA72636C7C60046681C /* CompetitionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompetitionCell.xib; sourceTree = "<group>"; };
 		0449A6F2262EF9E100604052 /* Authentication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
 		0449A72B262EFE1800604052 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		0449A72E262F396400604052 /* Artist.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Artist.storyboard; sourceTree = "<group>"; };
@@ -288,6 +292,7 @@
 		0413E4512630A37800F5977D /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				0440ECA42636C7880046681C /* Competitions */,
 				04668759261B6728001D024D /* HomeCell */,
 			);
 			path = TableViewCell;
@@ -341,6 +346,15 @@
 				043B47D4261DB5B500D67023 /* ForYouCell.xib */,
 			);
 			path = ForYouCell;
+			sourceTree = "<group>";
+		};
+		0440ECA42636C7880046681C /* Competitions */ = {
+			isa = PBXGroup;
+			children = (
+				0440ECA62636C7C60046681C /* CompetitionCell.swift */,
+				0440ECA72636C7C60046681C /* CompetitionCell.xib */,
+			);
+			path = Competitions;
 			sourceTree = "<group>";
 		};
 		0449A6EB262ED8B700604052 /* ArtistProfile */ = {
@@ -479,13 +493,13 @@
 			path = HomeCell;
 			sourceTree = "<group>";
 		};
-		04668760261B6784001D024D /* ArtistVc */ = {
+		04668760261B6784001D024D /* Artist */ = {
 			isa = PBXGroup;
 			children = (
 				0413E4152630877900F5977D /* ArtistVC */,
 				0449A6EB262ED8B700604052 /* ArtistProfile */,
 			);
-			path = ArtistVc;
+			path = Artist;
 			sourceTree = "<group>";
 		};
 		04668764261B6A29001D024D /* ProductVc */ = {
@@ -624,7 +638,7 @@
 				0413E3E12630731E00F5977D /* BlogsVc */,
 				04911C5A261C83D100705A58 /* ProjectsVC */,
 				046887B6261E72430056AC92 /* VideosVc */,
-				04668760261B6784001D024D /* ArtistVc */,
+				04668760261B6784001D024D /* Artist */,
 				04668764261B6A29001D024D /* ProductVc */,
 				0482EEAB26164D3800CB4A24 /* Home */,
 				042C08272613941600BE1806 /* Auth */,
@@ -896,6 +910,7 @@
 				04528E4C2614B54B009868EA /* CreatPasswordVc.xib in Resources */,
 				0449A6F3262EF9E100604052 /* Authentication.storyboard in Resources */,
 				0449A72C262EFE1800604052 /* Home.storyboard in Resources */,
+				0440ECA92636C7C60046681C /* CompetitionCell.xib in Resources */,
 				0466871E261B3C32001D024D /* WelcomVc.xib in Resources */,
 				04668725261B3F89001D024D /* WelcomeCell.xib in Resources */,
 				0451FD8D2617A5D300AEE546 /* ProjectCell.xib in Resources */,
@@ -987,6 +1002,7 @@
 				04528E552614B586009868EA /* NameVc.swift in Sources */,
 				0449A73A262F939300604052 /* String+Extention.swift in Sources */,
 				0413E40726307D7300F5977D /* ProjectsVC.swift in Sources */,
+				0440ECA82636C7C60046681C /* CompetitionCell.swift in Sources */,
 				04DEAA462620BC9500F843A6 /* SplashViewModel.swift in Sources */,
 				042C082A2613943900BE1806 /* LoadingLoginVc.swift in Sources */,
 				042C081126136B9700BE1806 /* CustomDropDown.swift in Sources */,
