@@ -102,11 +102,19 @@ Workshop</string>
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yBM-mj-tig" customClass="ShimmerView" customModule="Mad" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="243" height="268"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="yBM-mj-tig" secondAttribute="trailing" id="27E-5a-Qkx"/>
                             <constraint firstItem="oAE-bS-c9B" firstAttribute="top" secondItem="57Q-cB-CwR" secondAttribute="top" constant="16" id="5dd-Vk-Dlc"/>
+                            <constraint firstItem="yBM-mj-tig" firstAttribute="top" secondItem="57Q-cB-CwR" secondAttribute="top" id="Dtp-ss-Cp9"/>
                             <constraint firstItem="oAE-bS-c9B" firstAttribute="leading" secondItem="57Q-cB-CwR" secondAttribute="leading" constant="8" id="Llr-cU-qUC"/>
+                            <constraint firstItem="yBM-mj-tig" firstAttribute="leading" secondItem="57Q-cB-CwR" secondAttribute="leading" id="N6G-CJ-U6n"/>
+                            <constraint firstAttribute="bottom" secondItem="yBM-mj-tig" secondAttribute="bottom" id="WXd-rr-vvQ"/>
                             <constraint firstAttribute="trailing" secondItem="oAE-bS-c9B" secondAttribute="trailing" constant="8" id="dtY-pY-Wvc"/>
                             <constraint firstAttribute="bottom" secondItem="oAE-bS-c9B" secondAttribute="bottom" constant="8" id="ybp-At-kJA"/>
                         </constraints>
@@ -139,6 +147,14 @@ Workshop</string>
                 <constraint firstAttribute="trailing" secondItem="57Q-cB-CwR" secondAttribute="trailing" constant="2" id="kVM-6k-v5l"/>
             </constraints>
             <size key="customSize" width="247" height="272"/>
+            <connections>
+                <outlet property="artistNameLabel" destination="jEN-uw-R8w" id="a60-kP-srV"/>
+                <outlet property="bannerImage" destination="v1d-Ws-AFd" id="kUC-yB-Kyr"/>
+                <outlet property="priceLbl" destination="aBc-r8-zdB" id="4Aq-ou-SeB"/>
+                <outlet property="profileImage" destination="fbH-J7-2VE" id="fbT-0B-pBI"/>
+                <outlet property="shimmerView" destination="yBM-mj-tig" id="tsZ-as-8dE"/>
+                <outlet property="titleLabel" destination="1aU-I8-VCj" id="Vgs-mc-WNn"/>
+            </connections>
             <point key="canvasLocation" x="85" y="157"/>
         </collectionViewCell>
     </objects>

@@ -9,9 +9,22 @@ import UIKit
 
 class ForYouCell: UICollectionViewCell {
 
+    @IBOutlet weak var artistNameLabel: UILabel!
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var bannerImage: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var shimmerView : ShimmerView!
+    @IBOutlet weak var priceLbl: UILabel!
+
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.showShimmer = false
     }
 
+    var showShimmer: Bool = false {
+        didSet {
+            self.shimmerView.isShimmering = showShimmer
+        }
+    }
 }

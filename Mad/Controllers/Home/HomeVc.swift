@@ -13,7 +13,8 @@ class HomeVC: UIViewController {
     
     @IBOutlet weak var titleCollectionView: UICollectionView!
     @IBOutlet weak var container: UIView!
-    
+    @IBOutlet weak var titleView : UIView!
+
     var homeVM = HomeViewModel()
     var disposeBag = DisposeBag()
     var selectedIndex = 0
@@ -117,7 +118,7 @@ extension HomeVC: UICollectionViewDelegate {
                    }
                 
             }else{
-                self.view.backgroundColor = UIColor.white
+                self.view.backgroundColor = UIColor(red: 248/255, green: 248/255, blue: 248/255, alpha: 1)
             if self.selectedIndex == index{
                 cell.backView.layer.borderColor = #colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1).cgColor
                 cell.backView.layer.borderWidth = 2

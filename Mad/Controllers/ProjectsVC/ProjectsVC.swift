@@ -177,12 +177,11 @@ extension ProjectsVC : UICollectionViewDelegate ,UICollectionViewDataSource{
 
 extension ProjectsVC : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let flowayout = collectionViewLayout as? UICollectionViewFlowLayout
+        let space: CGFloat = (flowayout?.minimumInteritemSpacing ?? 0.0) + (flowayout?.sectionInset.left ?? 0.0) + (flowayout?.sectionInset.right ?? 0.0)
         
-            let flowayout = collectionViewLayout as? UICollectionViewFlowLayout
-            let space: CGFloat = (flowayout?.minimumInteritemSpacing ?? 0.0) + (flowayout?.sectionInset.left ?? 0.0) + (flowayout?.sectionInset.right ?? 0.0)
-            
-            let size:CGFloat = (collectionView.frame.size.width - space) / 5
-            return CGSize(width: size, height: collectionView.frame.size.height)
+        let size:CGFloat = (collectionView.frame.size.width - space) / 5
+        return CGSize(width: size, height: collectionView.frame.size.height)
     }
 }
 

@@ -28,5 +28,10 @@ struct ConfigURLS {
     static var getAllArtist = BASE_URL  + "artist/all"
     static var editArtistFavourite = BASE_URL  + "artist/edit_favorite"
     static var getSuggested = BASE_URL  + "artist/suggested"
+    // product
+    static var getAllProduct = BASE_URL  + "product/all"
+    static var getSuggestedProduct = BASE_URL  + "product/suggested"
+
+
     
 }

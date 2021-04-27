@@ -175,4 +175,59 @@ class GetServices {
                return Disposables.create()
            }
        }
+    
+    
+    //MARK:- GET  All Product
+    func getAllProduct(param : [String :Any]) -> Observable<ProductModelJson> {
+           return Observable.create { (observer) -> Disposable in
+               let url = ConfigURLS.getAllProduct
+            let token = Helper.getAPIToken() ?? ""
+            let headers = [
+                "Authorization": "Bearer \(token)"
+            ]
+            
+               Alamofire.request(url, method: .get, parameters: param, encoding: URLEncoding.default, headers: headers)
+                   .validate(statusCode: 200..<300)
+                   .responseJSON { (response: DataResponse<Any>) in
+                       do {
+                           let data = try JSONDecoder().decode(ProductModelJson.self, from: response.data!)
+                           observer.onNext(data)
+                       } catch {
+                           print(error.localizedDescription)
+                           observer.onError(error)
+                       }
+               }
+               return Disposables.create()
+           }
+       }
+    
+    
+    
+    //MARK:- GET  All Artist
+    func getSuggestedProduct() -> Observable<SugessteProduct> {
+           return Observable.create { (observer) -> Disposable in
+               let url = ConfigURLS.getSuggestedProduct
+            let token = Helper.getAPIToken() ?? ""
+            let headers = [
+                "Authorization": "Bearer \(token)"
+            ]
+            
+               Alamofire.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers)
+                   .validate(statusCode: 200..<300)
+                   .responseJSON { (response: DataResponse<Any>) in
+                       do {
+                           let data = try JSONDecoder().decode(SugessteProduct.self, from: response.data!)
+                           observer.onNext(data)
+                       } catch {
+                           print(error.localizedDescription)
+                           observer.onError(error)
+                       }
+               }
+               return Disposables.create()
+           }
+       }
+    
+    
+    
+    
 }

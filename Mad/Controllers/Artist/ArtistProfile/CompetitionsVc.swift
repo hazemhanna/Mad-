@@ -11,7 +11,6 @@ class CompetitionsVc: UIViewController {
    
     @IBOutlet weak var tableView: UITableView!
     let cellIdentifier = "CompetitionCell"
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,8 +20,6 @@ class CompetitionsVc: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
     }
-
-    
 }
 
 extension CompetitionsVc : UITableViewDelegate,UITableViewDataSource{
@@ -39,7 +36,6 @@ extension CompetitionsVc : UITableViewDelegate,UITableViewDataSource{
         return 4
     }
     
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier) as! CompetitionCell
         return cell
@@ -48,7 +44,5 @@ extension CompetitionsVc : UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 130
     }
-    
-
     
 }

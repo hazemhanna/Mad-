@@ -24,13 +24,13 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="0kA-y6-Jas">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1100"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="suX-Um-SEa" customClass="CustomView" customModule="Mad" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ckf-Or-qT5" customClass="CustomView" customModule="Mad" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
                                                 <subviews>
-                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="y4J-5N-3ut" customClass="CustomCollectionView" customModule="Mad" customModuleProvider="target">
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ltD-iK-Bgf" customClass="CustomCollectionView" customModule="Mad" customModuleProvider="target">
                                                         <rect key="frame" x="32" y="0.0" width="382" height="90"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="KIZ-mL-SS5">
+                                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tn7-sG-8bo">
                                                             <size key="itemSize" width="50" height="50"/>
                                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -41,11 +41,11 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstItem="y4J-5N-3ut" firstAttribute="leading" secondItem="suX-Um-SEa" secondAttribute="leading" constant="32" id="gJB-kK-RJ5"/>
-                                                    <constraint firstAttribute="bottom" secondItem="y4J-5N-3ut" secondAttribute="bottom" id="gYh-RX-yAu"/>
-                                                    <constraint firstItem="y4J-5N-3ut" firstAttribute="top" secondItem="suX-Um-SEa" secondAttribute="top" id="mlY-F7-7kF"/>
-                                                    <constraint firstAttribute="trailing" secondItem="y4J-5N-3ut" secondAttribute="trailing" id="qRQ-8J-3FC"/>
-                                                    <constraint firstAttribute="height" constant="90" id="uzt-Vm-7GJ"/>
+                                                    <constraint firstAttribute="bottom" secondItem="ltD-iK-Bgf" secondAttribute="bottom" id="0bZ-aK-hxW"/>
+                                                    <constraint firstItem="ltD-iK-Bgf" firstAttribute="leading" secondItem="Ckf-Or-qT5" secondAttribute="leading" constant="32" id="ElA-Jf-d3i"/>
+                                                    <constraint firstAttribute="trailing" secondItem="ltD-iK-Bgf" secondAttribute="trailing" id="UbM-Ov-N1e"/>
+                                                    <constraint firstAttribute="height" constant="90" id="XsJ-Mu-7xs"/>
+                                                    <constraint firstItem="ltD-iK-Bgf" firstAttribute="top" secondItem="Ckf-Or-qT5" secondAttribute="top" id="zAp-yK-hf2"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -155,7 +155,7 @@
             <navigationItem key="navigationItem" id="tcs-Zr-UHi"/>
             <connections>
                 <outlet property="mainTableView" destination="Hwq-P2-hjB" id="W9p-Tz-flS"/>
-                <outlet property="projectCollectionView" destination="y4J-5N-3ut" id="nj4-TG-5K5"/>
+                <outlet property="projectCollectionView" destination="ltD-iK-Bgf" id="2Ut-6n-ALB"/>
             </connections>
             <point key="canvasLocation" x="-5610" y="2462"/>
         </viewController>

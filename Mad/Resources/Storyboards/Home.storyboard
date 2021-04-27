@@ -42,10 +42,11 @@
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XCV-gy-MeI">
                                 <rect key="frame" x="0.0" y="124" width="414" height="738"/>
+                                <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
                             </containerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UJ0-qh-qeE"/>
-                        <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="jd6-lL-ZyD" firstAttribute="top" secondItem="UJ0-qh-qeE" secondAttribute="top" id="25e-gl-Ice"/>
                             <constraint firstItem="XCV-gy-MeI" firstAttribute="top" secondItem="jd6-lL-ZyD" secondAttribute="bottom" constant="8" id="NNn-ED-D8r"/>
@@ -60,6 +61,7 @@
                     <connections>
                         <outlet property="container" destination="XCV-gy-MeI" id="TJC-bz-zyu"/>
                         <outlet property="titleCollectionView" destination="03g-vh-61F" id="DrP-3D-CLc"/>
+                        <outlet property="titleView" destination="jd6-lL-ZyD" id="8eT-Zd-gSt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ENe-f3-QVR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

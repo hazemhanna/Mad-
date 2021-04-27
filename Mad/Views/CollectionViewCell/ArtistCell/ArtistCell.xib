@@ -43,8 +43,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dani Cru" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jvU-ox-e2q">
-                                <rect key="frame" x="16" y="8" width="50" height="12"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dani Cru" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jvU-ox-e2q">
+                                <rect key="frame" x="16" y="8" width="200" height="12"/>
                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -102,6 +102,7 @@
                             <constraint firstItem="zOm-Rw-VBQ" firstAttribute="top" secondItem="3qC-jt-4zD" secondAttribute="top" id="aOs-u8-iSS"/>
                             <constraint firstItem="wYQ-Gn-MDx" firstAttribute="leading" secondItem="3qC-jt-4zD" secondAttribute="leading" id="epI-ct-8Su"/>
                             <constraint firstItem="Z30-S0-j0n" firstAttribute="leading" secondItem="3qC-jt-4zD" secondAttribute="leading" constant="16" id="gZp-QR-rZb"/>
+                            <constraint firstAttribute="trailing" secondItem="jvU-ox-e2q" secondAttribute="trailing" constant="8" id="mqT-n3-3t8"/>
                             <constraint firstItem="zOm-Rw-VBQ" firstAttribute="leading" secondItem="3qC-jt-4zD" secondAttribute="leading" id="nPP-qP-LC7"/>
                             <constraint firstAttribute="trailing" secondItem="y2D-hz-4Uq" secondAttribute="trailing" id="uEp-cv-e6t"/>
                             <constraint firstItem="y2D-hz-4Uq" firstAttribute="top" secondItem="3qC-jt-4zD" secondAttribute="top" id="zvM-3e-rKG"/>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AddProductPhotoCell" id="gTV-IL-0wX" customClass="AddProductPhotoCell" customModule="Mad" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="102" height="102"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="102" height="102"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cfH-It-S0m" customClass="CustomView" customModule="Mad" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="102" height="102"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sOF-Su-QOA">
+                                <rect key="frame" x="31" y="31" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="9tJ-pT-um3"/>
+                                    <constraint firstAttribute="width" constant="40" id="VJA-NW-chy"/>
+                                </constraints>
+                                <state key="normal" image="Component 40 – 1"/>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mask Group 89" translatesAutoresizingMaskIntoConstraints="NO" id="FFh-4H-dup">
+                                <rect key="frame" x="0.0" y="0.0" width="102" height="102"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.81960784313725488" green="0.88627450980392153" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="FFh-4H-dup" firstAttribute="leading" secondItem="cfH-It-S0m" secondAttribute="leading" id="BHR-7n-qM5"/>
+                            <constraint firstItem="FFh-4H-dup" firstAttribute="top" secondItem="cfH-It-S0m" secondAttribute="top" id="GFf-SQ-cfG"/>
+                            <constraint firstAttribute="bottom" secondItem="FFh-4H-dup" secondAttribute="bottom" id="Mya-h6-W3N"/>
+                            <constraint firstItem="sOF-Su-QOA" firstAttribute="centerY" secondItem="cfH-It-S0m" secondAttribute="centerY" id="P2L-bx-rFL"/>
+                            <constraint firstAttribute="trailing" secondItem="FFh-4H-dup" secondAttribute="trailing" id="QDs-AZ-CAM"/>
+                            <constraint firstItem="sOF-Su-QOA" firstAttribute="centerX" secondItem="cfH-It-S0m" secondAttribute="centerX" id="TIg-cb-V2Z"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="12"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="cfH-It-S0m" secondAttribute="bottom" id="Adr-D6-HiB"/>
+                <constraint firstItem="cfH-It-S0m" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Pzy-1y-mio"/>
+                <constraint firstItem="cfH-It-S0m" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="WeE-Jg-56t"/>
+                <constraint firstAttribute="trailing" secondItem="cfH-It-S0m" secondAttribute="trailing" id="lVh-b1-Yul"/>
+            </constraints>
+            <size key="customSize" width="102" height="102"/>
+            <connections>
+                <outlet property="ProducttView" destination="cfH-It-S0m" id="VH2-Dq-9K7"/>
+                <outlet property="addPhotoBtn" destination="sOF-Su-QOA" id="efn-gW-Eo0"/>
+                <outlet property="productImage" destination="FFh-4H-dup" id="CWz-dW-4kG"/>
+            </connections>
+            <point key="canvasLocation" x="44.927536231884062" y="79.017857142857139"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="Component 40 – 1" width="41.5" height="36"/>
+        <image name="Mask Group 89" width="100" height="98"/>
+    </resources>
+</document>
