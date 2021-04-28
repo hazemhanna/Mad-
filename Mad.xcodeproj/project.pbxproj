@@ -94,6 +94,8 @@
 		04B6741326383DC600AFF9C3 /* AddProductPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B6741126383DC600AFF9C3 /* AddProductPhotoCell.xib */; };
 		04B6741726384D2100AFF9C3 /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6741626384D2100AFF9C3 /* ProductViewModel.swift */; };
 		04B6741A2638626400AFF9C3 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B674192638626400AFF9C3 /* ProductModel.swift */; };
+		04C782A8263977B400C90851 /* InventoryPricingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C782A6263977B400C90851 /* InventoryPricingVC.swift */; };
+		04C782A9263977B400C90851 /* InventoryPricingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04C782A7263977B400C90851 /* InventoryPricingVC.xib */; };
 		04D23EC9263306B500290488 /* ContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D23EC8263306B500290488 /* ContainerVC.swift */; };
 		04D23EE226330D7700290488 /* AboutVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D23EE126330D7700290488 /* AboutVc.swift */; };
 		04D23EE526330D9B00290488 /* CompetitionsVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D23EE426330D9B00290488 /* CompetitionsVc.swift */; };
@@ -221,6 +223,8 @@
 		04B6741126383DC600AFF9C3 /* AddProductPhotoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddProductPhotoCell.xib; sourceTree = "<group>"; };
 		04B6741626384D2100AFF9C3 /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
 		04B674192638626400AFF9C3 /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
+		04C782A6263977B400C90851 /* InventoryPricingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryPricingVC.swift; sourceTree = "<group>"; };
+		04C782A7263977B400C90851 /* InventoryPricingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InventoryPricingVC.xib; sourceTree = "<group>"; };
 		04D23EC8263306B500290488 /* ContainerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerVC.swift; sourceTree = "<group>"; };
 		04D23EE126330D7700290488 /* AboutVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutVc.swift; sourceTree = "<group>"; };
 		04D23EE426330D9B00290488 /* CompetitionsVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionsVc.swift; sourceTree = "<group>"; };
@@ -817,6 +821,7 @@
 		04B674072638319500AFF9C3 /* AddProduct */ = {
 			isa = PBXGroup;
 			children = (
+				04C782A42639773F00C90851 /* InventoryPricingVC */,
 				040339DE2638F1DC00CEDBD3 /* ListingDetailsVC */,
 				04B67408263831B000AFF9C3 /* ProductPhotoVc */,
 			);
@@ -839,6 +844,15 @@
 				04B6741126383DC600AFF9C3 /* AddProductPhotoCell.xib */,
 			);
 			path = AddProductPhotoCell;
+			sourceTree = "<group>";
+		};
+		04C782A42639773F00C90851 /* InventoryPricingVC */ = {
+			isa = PBXGroup;
+			children = (
+				04C782A6263977B400C90851 /* InventoryPricingVC.swift */,
+				04C782A7263977B400C90851 /* InventoryPricingVC.xib */,
+			);
+			path = InventoryPricingVC;
 			sourceTree = "<group>";
 		};
 		04DEAA3E2620B49000F843A6 /* SplashCell */ = {
@@ -979,6 +993,7 @@
 				0451FD652617A5B600AEE546 /* TitleCell.xib in Resources */,
 				04528E4C2614B54B009868EA /* CreatPasswordVc.xib in Resources */,
 				0449A6F3262EF9E100604052 /* Authentication.storyboard in Resources */,
+				04C782A9263977B400C90851 /* InventoryPricingVC.xib in Resources */,
 				0449A72C262EFE1800604052 /* Home.storyboard in Resources */,
 				0440ECA92636C7C60046681C /* CompetitionCell.xib in Resources */,
 				0466871E261B3C32001D024D /* WelcomVc.xib in Resources */,
@@ -1130,6 +1145,7 @@
 				0460CF6E261D04DD006685B6 /* SplashModel.swift in Sources */,
 				04AD60B3262866E500ADF0DF /* ProjectDetailsVC.swift in Sources */,
 				04B6740B263831EB00AFF9C3 /* AddProductImageVc.swift in Sources */,
+				04C782A8263977B400C90851 /* InventoryPricingVC.swift in Sources */,
 				04528E2F26149496009868EA /* Helper.swift in Sources */,
 				0414286526176BCD000394CA /* HomeViewModel.swift in Sources */,
 				04DEAA412620B4A900F843A6 /* SplashCell.swift in Sources */,

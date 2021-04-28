@@ -1,5 +1,5 @@
 //
-//  ListingDetailsVC.swift
+//  InventoryPricingVC.swift
 //  Mad
 //
 //  Created by MAC on 28/04/2021.
@@ -8,18 +8,17 @@
 import UIKit
 import DLRadioButton
 
+class InventoryPricingVC: UIViewController {
 
-class ListingDetailsVC: UIViewController {
-
-    @IBOutlet weak var PhysicalRadioButton: DLRadioButton!
-    @IBOutlet weak var DigitalRadioButton: DLRadioButton!
+    @IBOutlet weak var limitedRadioButton: DLRadioButton!
+    @IBOutlet weak var unlimitedRadioButton: DLRadioButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        PhysicalRadioButton.isSelected = true
+
     }
-    
-    
+
+
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
     }
@@ -45,4 +44,7 @@ class ListingDetailsVC: UIViewController {
         self.navigationController?.pushViewController(vc!, animated: true)
     }
     
+    
+
+
 }

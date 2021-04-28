@@ -94,6 +94,10 @@ extension ProductsVC: UICollectionViewDelegate,UICollectionViewDataSource {
                 cell.catImage.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "Icon - Checkbox - Off"))
                 }
             }
+            cell.add = {
+                let vc = AddProductImageVc.instantiateFromNib()
+                self.navigationController?.pushViewController(vc!, animated: true)
+            }
         }
         cell.showShimmer = showShimmer1
         return cell

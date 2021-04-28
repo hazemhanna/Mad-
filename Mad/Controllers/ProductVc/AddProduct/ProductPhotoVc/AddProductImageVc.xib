@@ -123,7 +123,7 @@
                     </stackView>
                 </subviews>
                 <viewLayoutGuide key="safeArea" id="Wn2-tG-cAn"/>
-                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstItem="Toq-c4-jKf" firstAttribute="leading" secondItem="Wn2-tG-cAn" secondAttribute="leading" constant="8" id="1Cv-uX-AXi"/>
                     <constraint firstItem="aea-5Q-YLU" firstAttribute="leading" secondItem="Wn2-tG-cAn" secondAttribute="leading" constant="26" id="1mr-2d-bvQ"/>
