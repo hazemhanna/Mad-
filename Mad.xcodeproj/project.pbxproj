@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		040339A12638C95900CEDBD3 /* AddPhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040339A02638C95900CEDBD3 /* AddPhotoModel.swift */; };
 		040339D92638D0CD00CEDBD3 /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040339D82638D0CD00CEDBD3 /* AlertService.swift */; };
+		040339E12638F21000CEDBD3 /* ListingDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040339DF2638F21000CEDBD3 /* ListingDetailsVC.swift */; };
+		040339E22638F21000CEDBD3 /* ListingDetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 040339E02638F21000CEDBD3 /* ListingDetailsVC.xib */; };
 		0413E3AA263051C300F5977D /* ArtistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0413E3A9263051C300F5977D /* ArtistModel.swift */; };
 		0413E3AD2630536E00F5977D /* ArtistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0413E3AC2630536E00F5977D /* ArtistViewModel.swift */; };
 		0413E3F526307C6200F5977D /* BlogsVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0413E3F326307C6200F5977D /* BlogsVc.swift */; };
@@ -130,6 +132,8 @@
 /* Begin PBXFileReference section */
 		040339A02638C95900CEDBD3 /* AddPhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoModel.swift; sourceTree = "<group>"; };
 		040339D82638D0CD00CEDBD3 /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
+		040339DF2638F21000CEDBD3 /* ListingDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingDetailsVC.swift; sourceTree = "<group>"; };
+		040339E02638F21000CEDBD3 /* ListingDetailsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListingDetailsVC.xib; sourceTree = "<group>"; };
 		0413E3A9263051C300F5977D /* ArtistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistModel.swift; sourceTree = "<group>"; };
 		0413E3AC2630536E00F5977D /* ArtistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistViewModel.swift; sourceTree = "<group>"; };
 		0413E3F326307C6200F5977D /* BlogsVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogsVc.swift; sourceTree = "<group>"; };
@@ -284,6 +288,15 @@
 				040339D82638D0CD00CEDBD3 /* AlertService.swift */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		040339DE2638F1DC00CEDBD3 /* ListingDetailsVC */ = {
+			isa = PBXGroup;
+			children = (
+				040339DF2638F21000CEDBD3 /* ListingDetailsVC.swift */,
+				040339E02638F21000CEDBD3 /* ListingDetailsVC.xib */,
+			);
+			path = ListingDetailsVC;
 			sourceTree = "<group>";
 		};
 		0413E3E12630731E00F5977D /* BlogsVc */ = {
@@ -804,6 +817,7 @@
 		04B674072638319500AFF9C3 /* AddProduct */ = {
 			isa = PBXGroup;
 			children = (
+				040339DE2638F1DC00CEDBD3 /* ListingDetailsVC */,
 				04B67408263831B000AFF9C3 /* ProductPhotoVc */,
 			);
 			path = AddProduct;
@@ -976,6 +990,7 @@
 				0414282E26176074000394CA /* HomeCell.xib in Resources */,
 				04528E562614B586009868EA /* NameVc.xib in Resources */,
 				04F06AF12614DD5100B08606 /* CategeoryVc.xib in Resources */,
+				040339E22638F21000CEDBD3 /* ListingDetailsVC.xib in Resources */,
 				0488CCF2261213E400E05BEB /* Assets.xcassets in Resources */,
 				0414287826177E69000394CA /* LiveCellCVC.xib in Resources */,
 				04DEAA422620B4A900F843A6 /* SplashCell.xib in Resources */,
@@ -1047,6 +1062,7 @@
 			files = (
 				04668724261B3F89001D024D /* WelcomeCell.swift in Sources */,
 				04DEAA362620AD0200F843A6 /* UIViewController+Extention.swift in Sources */,
+				040339E12638F21000CEDBD3 /* ListingDetailsVC.swift in Sources */,
 				0460CF45261CEC27006685B6 /* ArtistCell.swift in Sources */,
 				0414280226174D8A000394CA /* SearchVc.swift in Sources */,
 				04528E3226149579009868EA /* AuthenticationViewModel.swift in Sources */,

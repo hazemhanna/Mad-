@@ -63,7 +63,8 @@ class AddProductImageVc: UIViewController {
     }
     
     @IBAction func nextButton(sender: UIButton) {
-
+        let vc = ListingDetailsVC.instantiateFromNib()
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
 
 }
