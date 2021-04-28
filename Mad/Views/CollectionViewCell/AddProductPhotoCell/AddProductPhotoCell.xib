@@ -27,6 +27,9 @@
                                     <constraint firstAttribute="width" constant="40" id="VJA-NW-chy"/>
                                 </constraints>
                                 <state key="normal" image="Component 40 – 1"/>
+                                <connections>
+                                    <action selector="addPhotoAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Ccl-ik-u1h"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mask Group 89" translatesAutoresizingMaskIntoConstraints="NO" id="FFh-4H-dup">
                                 <rect key="frame" x="0.0" y="0.0" width="102" height="102"/>

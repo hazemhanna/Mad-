@@ -160,7 +160,7 @@ extension ProjectsVC : UICollectionViewDelegate ,UICollectionViewDataSource{
                 cell.addProjectBtn.isHidden = true
                 cell.projectNameLabel.text = self.Categories[indexPath.row-1].name ?? ""
                 if let url = URL(string:   self.Categories[indexPath.row-1].imageURL ?? ""){
-                cell.catImage.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4"))
+                cell.catImage.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "Icon - Checkbox - Off"))
                 }
             }
         }

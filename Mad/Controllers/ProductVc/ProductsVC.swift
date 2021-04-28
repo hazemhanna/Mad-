@@ -145,6 +145,16 @@ extension ProductsVC: UICollectionViewDelegate,UICollectionViewDataSource {
         }
     }
     
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == addproductCollectionView {
+            if indexPath.row == 0 {
+                let vc = AddProductImageVc.instantiateFromNib()
+                self.navigationController?.pushViewController(vc!, animated: true)
+            }
+        }
+    }
+    
 }
 
 extension ProductsVC: UICollectionViewDelegateFlowLayout {

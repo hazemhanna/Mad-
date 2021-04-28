@@ -44,6 +44,9 @@
                                             <constraint firstAttribute="width" constant="15" id="fZH-Ve-5uQ"/>
                                         </constraints>
                                         <state key="normal" image="Component 32 – 1"/>
+                                        <connections>
+                                            <action selector="addAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Gyn-hS-B4t"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

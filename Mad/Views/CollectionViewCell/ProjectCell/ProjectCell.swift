@@ -15,7 +15,8 @@ class ProjectCell: UICollectionViewCell {
     @IBOutlet weak var shimmerView : ShimmerView!
     @IBOutlet weak var addProjectBtn: UIButton!
 
-    
+    var add : (() -> Void)? = nil
+
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -28,6 +29,10 @@ class ProjectCell: UICollectionViewCell {
         didSet {
             self.shimmerView.isShimmering = showShimmer
         }
+    }
+    
+    @IBAction func addAction(_ sender: UIButton) {
+        self.add?()
     }
     
 }
