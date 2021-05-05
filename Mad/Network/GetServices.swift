@@ -201,9 +201,31 @@ class GetServices {
            }
        }
     
+    //MARK:- GET  Top Product
+    func getTopProduct(param : [String :Any]) -> Observable<ProductModelJson> {
+           return Observable.create { (observer) -> Disposable in
+               let url = ConfigURLS.getAllProduct
+            let token = Helper.getAPIToken() ?? ""
+            let headers = [
+                "Authorization": "Bearer \(token)"
+            ]
+            
+               Alamofire.request(url, method: .get, parameters: param, encoding: URLEncoding.default, headers: headers)
+                   .validate(statusCode: 200..<300)
+                   .responseJSON { (response: DataResponse<Any>) in
+                       do {
+                           let data = try JSONDecoder().decode(ProductModelJson.self, from: response.data!)
+                           observer.onNext(data)
+                       } catch {
+                           print(error.localizedDescription)
+                           observer.onError(error)
+                       }
+               }
+               return Disposables.create()
+           }
+       }
     
-    
-    //MARK:- GET  All Artist
+    //MARK:- GET
     func getSuggestedProduct() -> Observable<SugessteProduct> {
            return Observable.create { (observer) -> Disposable in
                let url = ConfigURLS.getSuggestedProduct
@@ -228,6 +250,27 @@ class GetServices {
        }
     
     
-    
-    
+    //MARK:- GET
+    func getProductDetails(param : [String :Any]) -> Observable<ProductDetailsModelJson> {
+           return Observable.create { (observer) -> Disposable in
+               let url = ConfigURLS.getProductDetails
+            let token = Helper.getAPIToken() ?? ""
+            let headers = [
+                "Authorization": "Bearer \(token)"
+            ]
+            
+               Alamofire.request(url, method: .get, parameters: param, encoding: URLEncoding.default, headers: headers)
+                   .validate(statusCode: 200..<300)
+                   .responseJSON { (response: DataResponse<Any>) in
+                       do {
+                           let data = try JSONDecoder().decode(ProductDetailsModelJson.self, from: response.data!)
+                           observer.onNext(data)
+                       } catch {
+                           print(error.localizedDescription)
+                           observer.onError(error)
+                       }
+               }
+               return Disposables.create()
+           }
+       }
 }

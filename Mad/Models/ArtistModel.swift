@@ -16,13 +16,13 @@ struct ArtistModelJson: Codable {
 
 // MARK: - DataClass
 struct ArtistModel: Codable {
-    let countArtist, countPages: Int?
-    let artists: [Artist]?
+    let countitems, countPages: Int
+    let data: [Artist]?
 
     enum CodingKeys: String, CodingKey {
-        case countArtist = "count_artists"
+        case countitems = "count_items"
         case countPages = "count_pages"
-        case artists
+        case data
     }
 }
 

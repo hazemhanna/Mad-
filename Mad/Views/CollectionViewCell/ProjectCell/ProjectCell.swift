@@ -21,7 +21,9 @@ class ProjectCell: UICollectionViewCell {
         super.awakeFromNib()
         
         self.projectNameLabel.adjustsFontSizeToFitWidth = true
-        self.projectNameLabel.minimumScaleFactor = 0.1
+        self.projectNameLabel.minimumScaleFactor = 0.5
+        self.projectNameLabel.numberOfLines = 1
+
         self.showShimmer = false
     }
     

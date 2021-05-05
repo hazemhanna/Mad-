@@ -31,7 +31,8 @@ struct ConfigURLS {
     // product
     static var getAllProduct = BASE_URL  + "product/all"
     static var getSuggestedProduct = BASE_URL  + "product/suggested"
-
-
-    
+    static var getTopProduct = BASE_URL  + "product/suggested"
+    static var getProductDetails = BASE_URL  + "product/get"
+    static var addProductToFavourite = BASE_URL  + "product/edit_favorite"
+    static var shareProduct = BASE_URL  + "product/share"
 }

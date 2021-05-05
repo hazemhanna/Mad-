@@ -202,7 +202,7 @@ extension ProjectsVC {
         homeVM.getAllProject(page: 1).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
             self.showProjectShimmer = false
-            self.projects = dataModel.data?.projects ?? []
+            self.projects = dataModel.data?.data ?? []
            }
        }, onError: { (error) in
 
@@ -221,8 +221,6 @@ extension ProjectsVC {
        }).disposed(by: disposeBag)
    }
     
-    
-    
     func shareProject(productID : Int) {
         homeVM.shareProject(productID: productID).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
@@ -234,7 +232,5 @@ extension ProjectsVC {
         self.homeVM.dismissIndicator()
        }).disposed(by: disposeBag)
    }
-    
-    
 }
 

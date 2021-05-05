@@ -173,7 +173,7 @@ extension ArtistsVc {
         artistVM.getAllArtist(pageNum : pageNum).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
             self.showShimmer3 = false
-            self.artists = dataModel.data?.artists ?? []
+            self.artists = dataModel.data?.data ?? []
             self.artistsCollectionView.reloadData()
            }
        }, onError: { (error) in
@@ -186,7 +186,7 @@ extension ArtistsVc {
         artistVM.getTopArtist(pageNum : pageNum , catId : catId).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
             self.showShimmer1 = false
-            self.topActive = dataModel.data?.artists ?? []
+            self.topActive = dataModel.data?.data ?? []
             self.topActiveCollectionView.reloadData()
            }
        }, onError: { (error) in

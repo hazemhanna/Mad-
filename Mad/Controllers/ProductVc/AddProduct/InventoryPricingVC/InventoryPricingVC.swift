@@ -15,7 +15,7 @@ class InventoryPricingVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        limitedRadioButton.isSelected = true
     }
 
 

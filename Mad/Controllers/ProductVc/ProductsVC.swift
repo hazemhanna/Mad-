@@ -25,12 +25,14 @@ class ProductsVC : UIViewController {
 
     var product = [Product]()
     var suggested = [Product]()
+    var TopProduct = [Product]()
     var categeory = [Category]()
     
     var showShimmer1: Bool = true
     var showShimmer2: Bool = true
     var showShimmer3: Bool = true
-    
+    var showShimmer4: Bool = true
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNib()
@@ -41,6 +43,7 @@ class ProductsVC : UIViewController {
         getCategory()
         getSuggested()
         getAllproduct(pageNum : 1)
+        getTopproduct(CategoryId : 36,pageNum : 1)
         self.navigationController?.navigationBar.isHidden = true
     }
     
@@ -70,7 +73,7 @@ extension ProductsVC: UICollectionViewDelegate,UICollectionViewDataSource {
         if collectionView == addproductCollectionView {
         return  self.showShimmer1 ? 5 : categeory.count + 1
         }else if collectionView == topPrpductCollectionView{
-            return  self.showShimmer2 ? 5 : suggested.count
+            return  self.showShimmer4 ? 5 : TopProduct.count
         }else if collectionView == forYouCollectionView{
             return  self.showShimmer2 ? 5 : suggested.count
         }else{
@@ -105,18 +108,18 @@ extension ProductsVC: UICollectionViewDelegate,UICollectionViewDataSource {
       }else if collectionView == topPrpductCollectionView {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier2, for: indexPath) as! ForYouCell
         
-        if !self.showShimmer2 {
-            cell.artistNameLabel.text = self.suggested[indexPath.row].artist?.name ?? ""
-            cell.priceLbl.text = "USD \(self.suggested[indexPath.row].price ?? 0.0)"
-            cell.titleLabel.text = self.suggested[indexPath.row].title ?? ""
-            if let url = URL(string:   self.suggested[indexPath.row].artist?.profilPicture ?? ""){
+        if !self.showShimmer4 {
+            cell.artistNameLabel.text = self.TopProduct[indexPath.row].artist?.name ?? ""
+            cell.priceLbl.text = "USD \(self.TopProduct[indexPath.row].price ?? 0.0)"
+            cell.titleLabel.text = self.TopProduct[indexPath.row].title ?? ""
+            if let url = URL(string:   self.TopProduct[indexPath.row].artist?.profilPicture ?? ""){
                 cell.profileImage.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4"))
             }
-            if let bannerUrl = URL(string:   self.suggested[indexPath.row].imageURL ?? ""){
+            if let bannerUrl = URL(string:   self.TopProduct[indexPath.row].imageURL ?? ""){
             cell.bannerImage.kf.setImage(with: bannerUrl, placeholder: #imageLiteral(resourceName: "WhatsApp Image 2021-04-21 at 1.25.47 PM"))
            }
          }
-         cell.showShimmer = showShimmer2
+         cell.showShimmer = showShimmer4
         return cell
         
         }else if collectionView == forYouCollectionView {
@@ -156,7 +159,21 @@ extension ProductsVC: UICollectionViewDelegate,UICollectionViewDataSource {
                 let vc = AddProductImageVc.instantiateFromNib()
                 self.navigationController?.pushViewController(vc!, animated: true)
             }
+        }else if  collectionView == topPrpductCollectionView{
+            let vc = ProductDetailsVC.instantiateFromNib()
+            vc!.productId = self.TopProduct[indexPath.row].id ?? 0
+            self.navigationController?.pushViewController(vc!, animated: true)
+        }else if  collectionView == forYouCollectionView{
+            let vc = ProductDetailsVC.instantiateFromNib()
+            vc!.productId = self.suggested[indexPath.row].id ?? 0
+            self.navigationController?.pushViewController(vc!, animated: true)
+        }else if  collectionView == productCollectionView{
+            let vc = ProductDetailsVC.instantiateFromNib()
+            vc!.productId = self.product[indexPath.row].id ?? 0
+            self.navigationController?.pushViewController(vc!, animated: true)
         }
+
+
     }
     
 }
@@ -224,12 +241,24 @@ extension ProductsVC {
         productVM.getAllProduct(pageNum : pageNum).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
             self.showShimmer3 = false
-            self.product = dataModel.data?.products ?? []
+            self.product = dataModel.data?.data ?? []
             self.productCollectionView.reloadData()
            }
        }, onError: { (error) in
 
        }).disposed(by: disposeBag)
    }
+    
+    func getTopproduct(CategoryId : Int,pageNum : Int) {
+        productVM.getTopProduct(id : CategoryId,pageNum : pageNum).subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+            self.showShimmer4 = false
+            self.TopProduct = dataModel.data?.data ?? []
+            self.topPrpductCollectionView.reloadData()
+           }
+       }, onError: { (error) in
 
+       }).disposed(by: disposeBag)
+   }
+    
 }

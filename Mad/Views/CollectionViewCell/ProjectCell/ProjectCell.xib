@@ -77,8 +77,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XAd-xZ-kuy">
-                                <rect key="frame" x="44.5" y="94" width="0.0" height="0.0"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XAd-xZ-kuy">
+                                <rect key="frame" x="0.0" y="94" width="89" height="0.0"/>
                                 <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="10"/>
                                 <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -97,6 +97,7 @@
                             <constraint firstAttribute="trailing" secondItem="hx1-e5-ugX" secondAttribute="trailing" id="KUH-qk-9Ig"/>
                             <constraint firstItem="hx1-e5-ugX" firstAttribute="leading" secondItem="nm4-IZ-1Fi" secondAttribute="leading" id="LaU-Wt-Kgd"/>
                             <constraint firstItem="XAd-xZ-kuy" firstAttribute="top" secondItem="0YJ-Ul-UEC" secondAttribute="bottom" constant="8" id="fLq-c0-Wbs"/>
+                            <constraint firstItem="XAd-xZ-kuy" firstAttribute="width" secondItem="nm4-IZ-1Fi" secondAttribute="width" id="lKc-B8-OMM"/>
                             <constraint firstItem="hx1-e5-ugX" firstAttribute="top" secondItem="nm4-IZ-1Fi" secondAttribute="top" id="poL-ns-g7L"/>
                             <constraint firstItem="XAd-xZ-kuy" firstAttribute="centerX" secondItem="nm4-IZ-1Fi" secondAttribute="centerX" id="u7M-hB-rKj"/>
                             <constraint firstAttribute="bottom" secondItem="hx1-e5-ugX" secondAttribute="bottom" id="vMp-bm-o0q"/>

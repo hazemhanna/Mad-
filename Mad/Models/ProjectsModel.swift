@@ -18,13 +18,13 @@ struct ProjectMainModel: Codable {
 
 // MARK: - DataClass
 struct ProjectModel: Codable {
-    let countProjects, countPages: Int?
-    let projects: [Project]?
+    let countitems, countPages: Int?
+    let data: [Project]?
 
     enum CodingKeys: String, CodingKey {
-        case countProjects = "count_projects"
+        case countitems = "count_items"
         case countPages = "count_pages"
-        case projects
+        case data
     }
 }
 

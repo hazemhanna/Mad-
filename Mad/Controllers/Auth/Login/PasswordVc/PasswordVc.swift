@@ -87,13 +87,16 @@ class PasswordVc: UIViewController {
 extension PasswordVc {
      func login() {
         AuthViewModel.attemptToLogin(bindedEmail: email ?? "" ,bindedPassword : passwordTF.text ?? "" ).subscribe(onNext: { (registerData) in
+            self.AuthViewModel.dismissIndicator()
             if registerData.success ?? false {
-                self.AuthViewModel.dismissIndicator()
                 let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CardTabBarController")
                 if let appDelegate = UIApplication.shared.delegate {
                     appDelegate.window??.rootViewController = sb
                 }
+            }else{
+                self.showMessage(text: registerData.message ?? "")
             }
+
         }, onError: { (error) in
             self.AuthViewModel.dismissIndicator()
 

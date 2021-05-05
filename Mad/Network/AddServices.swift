@@ -65,4 +65,53 @@ struct AddServices {
        }
     
     
+    //MARK:- POSt  favourit
+    func addProductToFavourite(param : [String :Any]) -> Observable<ProductFavouriteModel> {
+           return Observable.create { (observer) -> Disposable in
+               let url = ConfigURLS.addProductToFavourite
+            
+            let token = Helper.getAPIToken() ?? ""
+            let headers = [
+                "Authorization": "Bearer \(token)"
+            ]
+               Alamofire.request(url, method: .post, parameters: param, encoding: URLEncoding.default, headers: headers)
+                   .validate(statusCode: 200..<300)
+                   .responseJSON { (response: DataResponse<Any>) in
+                       do {
+                           let data = try JSONDecoder().decode(ProductFavouriteModel.self, from: response.data!)
+                           observer.onNext(data)
+                       } catch {
+                           print(error.localizedDescription)
+                           observer.onError(error)
+                       }
+               }
+               return Disposables.create()
+           }
+       }
+    
+    
+    func shareProduct(param : [String :Any]) -> Observable<ShareModel> {
+           return Observable.create { (observer) -> Disposable in
+               let url = ConfigURLS.shareProduct
+            
+            let token = Helper.getAPIToken() ?? ""
+            let headers = [
+                "Authorization": "Bearer \(token)"
+            ]
+               Alamofire.request(url, method: .post, parameters: param, encoding: URLEncoding.default, headers: headers)
+                   .validate(statusCode: 200..<300)
+                   .responseJSON { (response: DataResponse<Any>) in
+                       do {
+                           let data = try JSONDecoder().decode(ShareModel.self, from: response.data!)
+                           observer.onNext(data)
+                       } catch {
+                           print(error.localizedDescription)
+                           observer.onError(error)
+                       }
+               }
+               return Disposables.create()
+           }
+       }
+    
+    
 }

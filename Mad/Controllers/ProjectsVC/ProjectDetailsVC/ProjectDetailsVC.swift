@@ -78,6 +78,8 @@ class ProjectDetailsVC: UIViewController {
             self.editFavourite(productID:  self.projectId, Type: true)
             self.favouriteBtn.setImage(#imageLiteral(resourceName: "Group 155"), for: .normal)
           }
+        }else{
+            self.showMessage(text: "please login first")
         }
     }
     
@@ -85,6 +87,8 @@ class ProjectDetailsVC: UIViewController {
         if Helper.getAPIToken() != "" {
             self.shareProject(productID : self.projectId)
 
+        }else{
+            self.showMessage(text: "please login first")
         }
     }
 }

@@ -16,13 +16,13 @@ struct ProductModelJson: Codable {
 
 // MARK: - DataClass
 struct ProductModel: Codable {
-    let countProducts, countPages: Int
-    let products: [Product]?
+    let countitems, countPages: Int
+    let data: [Product]?
 
     enum CodingKeys: String, CodingKey {
-        case countProducts = "count_products"
+        case countitems = "count_items"
         case countPages = "count_pages"
-        case products
+        case data
     }
 }
 
@@ -58,3 +58,74 @@ struct SugessteProduct: Codable {
     let errors: Errors?
 }
 
+
+
+struct ProductDetailsModelJson: Codable {
+    let success: Bool?
+    let data: ProductDetailsModel?
+    let message: String?
+    let errors: Errors?
+}
+
+// MARK: - DataClass
+struct ProductDetailsModel: Codable {
+    let id: Int
+    let artist: Artist?
+    let title: String?
+    let imageURL: String?
+    let favoriteCount, shareCount: Int?
+    let createdAt: String?
+    let isFavorite: Bool?
+    let price, priceEur, delivery : Int?
+    let type, shortDescription, dataDescription, materials,deliveryIndex: String?
+    let length, width, height, weight: Int?
+    let photos: [String]?
+    let categories: [Category]
+
+    enum CodingKeys: String, CodingKey {
+        case id, artist, title
+        case imageURL = "image_url"
+        case favoriteCount = "favorite_count"
+        case shareCount = "share_count"
+        case createdAt = "created_at"
+        case isFavorite = "is_favorite"
+        case price
+        case priceEur = "price_eur"
+        case delivery
+        case deliveryIndex = "delivery_index"
+        case type
+        case shortDescription = "short_description"
+        case dataDescription = "description"
+        case materials, length, width, height, weight, photos, categories
+    }
+}
+
+struct ProductFavouriteModel: Codable {
+    let success: Bool?
+    let data: ProductFavourite?
+    let message: String?
+    let errors: Errors?
+}
+
+// MARK: - DataClass
+struct ProductFavourite: Codable {
+    let id: Int?
+    let artist: Artist?
+    let name: String?
+    let imageURL: String?
+    let favoriteCount, shareCount: Int?
+    let createdAt: String?
+    let isFavorite: Bool?
+    let price, priceEur: Int?
+
+    enum CodingKeys: String, CodingKey {
+        case id, artist, name
+        case imageURL = "image_url"
+        case favoriteCount = "favorite_count"
+        case shareCount = "share_count"
+        case createdAt = "created_at"
+        case isFavorite = "is_favorite"
+        case price
+        case priceEur = "price_eur"
+    }
+}
