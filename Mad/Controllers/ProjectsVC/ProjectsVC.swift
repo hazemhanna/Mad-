@@ -96,7 +96,7 @@ extension ProjectsVC: UITableViewDelegate,UITableViewDataSource{
             
             // edit favourite
               cell.favourite = {
-                if Helper.getAPIToken() == "" {
+                if Helper.getAPIToken() == nil {
                     return
                 }
                 self.homeVM.showIndicator()
@@ -106,9 +106,10 @@ extension ProjectsVC: UITableViewDelegate,UITableViewDataSource{
                   self.editFavourite(productID:  self.projects[indexPath.row].id ?? 0, Type: true)
                 }
              }
+            cell.favouriteStack.isHidden = false
              // share project
             cell.share = {
-                if Helper.getAPIToken() == "" {
+                if Helper.getAPIToken() == nil {
                     return
                 }
                 self.homeVM.showIndicator()

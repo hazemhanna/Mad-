@@ -24,10 +24,10 @@
                         <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TK4-1D-Fxb">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="1100"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="1600"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="7RU-qM-yCz">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1100"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1600"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7KY-5h-1qh" customClass="CustomView" customModule="Mad" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
@@ -75,7 +75,7 @@
                                                         <color key="textColor" red="0.1333333333" green="0.2156862745" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZQa-x8-oI4" customClass="CustomCollectionView" customModule="Mad" customModuleProvider="target">
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZQa-x8-oI4" customClass="CustomCollectionView" customModule="Mad" customModuleProvider="target">
                                                         <rect key="frame" x="32" y="36" width="382" height="164"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Fg6-JW-lv5">
@@ -104,7 +104,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T5v-45-s4L" customClass="CustomView" customModule="Mad" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="382" width="414" height="718"/>
+                                                <rect key="frame" x="0.0" y="382" width="414" height="1218"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artists" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L8J-Sg-UjO">
                                                         <rect key="frame" x="32" y="8" width="50" height="16"/>
@@ -112,8 +112,8 @@
                                                         <color key="textColor" red="0.1333333333" green="0.2156862745" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="HLr-ud-juc" customClass="CustomCollectionView" customModule="Mad" customModuleProvider="target">
-                                                        <rect key="frame" x="8" y="56" width="398" height="662"/>
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="HLr-ud-juc" customClass="CustomCollectionView" customModule="Mad" customModuleProvider="target">
+                                                        <rect key="frame" x="8" y="56" width="398" height="1162"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="IkB-Nh-zmy">
                                                             <size key="itemSize" width="50" height="50"/>
@@ -146,7 +146,7 @@
                                 <constraints>
                                     <constraint firstItem="7RU-qM-yCz" firstAttribute="centerX" secondItem="TK4-1D-Fxb" secondAttribute="centerX" id="9b5-WC-lUm"/>
                                     <constraint firstItem="7RU-qM-yCz" firstAttribute="width" secondItem="TK4-1D-Fxb" secondAttribute="width" id="aHZ-t6-600"/>
-                                    <constraint firstAttribute="height" constant="1100" id="cTQ-Ed-xD5"/>
+                                    <constraint firstAttribute="height" constant="1600" id="cTQ-Ed-xD5"/>
                                     <constraint firstItem="7RU-qM-yCz" firstAttribute="top" secondItem="TK4-1D-Fxb" secondAttribute="top" id="fQH-rX-Qh1"/>
                                     <constraint firstItem="7RU-qM-yCz" firstAttribute="height" secondItem="TK4-1D-Fxb" secondAttribute="height" id="ytq-UN-HxK"/>
                                 </constraints>

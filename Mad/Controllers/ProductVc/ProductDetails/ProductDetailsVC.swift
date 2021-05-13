@@ -19,13 +19,13 @@ class ProductDetailsVC: UIViewController {
     @IBOutlet weak var photoIndex: UILabel!
 
     @IBOutlet weak var productName: UILabel!
-    @IBOutlet weak var producttitle: UILabel!
+    @IBOutlet weak var producttitle: UITextView!
     @IBOutlet weak var productPrice: UILabel!
     @IBOutlet weak var favouritBtn: UIButton!
     @IBOutlet weak var artistName: UILabel!
     @IBOutlet weak var artistPhoto: UIImageView!
-
-
+    @IBOutlet weak var contentSizeHieght : NSLayoutConstraint!
+    
     var productId = Int()
     var showShimmer: Bool = true
     var showShimmer2: Bool = true
@@ -54,7 +54,8 @@ class ProductDetailsVC: UIViewController {
         showShimmer = false
         addsCollectionView.delegate = self
         addsCollectionView.dataSource = self
-        
+        addsCollectionView.isPagingEnabled = true
+
         relatedProductCollectionView.delegate = self
         relatedProductCollectionView.dataSource = self
         
@@ -63,7 +64,7 @@ class ProductDetailsVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
         if let ptcTBC = tabBarController as? PTCardTabBarController {
-            ptcTBC.customTabBar.isHidden = false
+            ptcTBC.customTabBar.isHidden = true
         }
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -72,6 +73,9 @@ class ProductDetailsVC: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
+        if let ptcTBC = tabBarController as? PTCardTabBarController {
+            ptcTBC.customTabBar.isHidden = false
+        }
     }
     
     @IBAction func backButton(sender: UIButton) {
@@ -79,7 +83,7 @@ class ProductDetailsVC: UIViewController {
     }
     
     @IBAction func favouriteAction(_ sender: UIButton) {
-        if Helper.getAPIToken() != "" {
+        if Helper.getAPIToken() != nil {
         self.productVM.showIndicator()
         if  self.isFavourite {
             self.editFavourite(productId:  self.productId, Type: false)
@@ -94,7 +98,7 @@ class ProductDetailsVC: UIViewController {
     }
     
     @IBAction func shareAction(_ sender: UIButton) {
-        if Helper.getAPIToken() != "" {
+        if Helper.getAPIToken() != nil {
             self.shareProject(productId : self.productId)
         }else{
             self.showMessage(text: "please login first")
@@ -124,11 +128,6 @@ extension ProductDetailsVC : UICollectionViewDelegate ,UICollectionViewDataSourc
         return cell
         }else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier, for: indexPath) as! LiveCellCVC
-//            if !self.showShimmer {
-//                if let bannerUrl = URL(string:   self.photos[indexPath.row] ){
-//                cell.photo.kf.setImage(with: bannerUrl, placeholder: #imageLiteral(resourceName: "WhatsApp Image 2021-04-21 at 1.25.47 PM"))
-//              }
-//            }
             
             cell.showShimmer = showShimmer2
             return cell
@@ -167,15 +166,21 @@ extension ProductDetailsVC {
             self.showShimmer = false
             if let data = dataModel.data {
             self.photos = data.photos ?? []
+         
             self.addsCollectionView.reloadData()
-                self.artistName.text = data.artist?.name ?? ""
-                self.productPrice.text = "USD " + String(data.price ?? 0)
-                self.producttitle.text = data.dataDescription ?? ""
-                self.productName.text = data.title ?? ""
-                self.isFavourite = data.isFavorite ?? false
-                self.photoIndex.text =  "1"
-                self.photoCount.text = String(data.photos?.count ?? 0)
-
+            self.artistName.text = data.artist?.name ?? ""
+            self.productPrice.text = "USD " + String(data.price ?? 0)
+            self.producttitle.text = data.dataDescription ?? ""
+            self.productName.text = data.title ?? ""
+            self.isFavourite = data.isFavorite ?? false
+            let height = self.producttitle.intrinsicContentSize.height
+            self.contentSizeHieght.constant = 600 + height                
+            self.photoCount.text = String(data.photos?.count ?? 0)
+                if data.photos?.count ?? 0 > 0 {
+                    self.photoIndex.text =  "1"
+                }else{
+                    self.photoIndex.text =  "0"
+                }
                 if data.isFavorite ?? false {
                     self.favouritBtn.setImage(#imageLiteral(resourceName: "Group 155"), for: .normal)
                 }else{
@@ -214,4 +219,16 @@ extension ProductDetailsVC {
         self.productVM.dismissIndicator()
        }).disposed(by: disposeBag)
    }
+}
+
+extension ProductDetailsVC: UIScrollViewDelegate {
+  func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    if let _ = scrollView as? UICollectionView {
+        DispatchQueue.main.async {
+            let visibleIndices = self.addsCollectionView.indexPathsForVisibleItems
+            let nextIndex = visibleIndices[0].row + 1
+            self.photoIndex.text =  "\(nextIndex)"
+        }
+    }
+  }
 }

@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -129,14 +130,22 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yCF-VQ-Ua6" customClass="ShimmerView" customModule="Mad" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="301" height="203"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="bGm-0b-fZK" secondAttribute="trailing" constant="8" id="2vO-KN-eWH"/>
                             <constraint firstAttribute="bottom" secondItem="bGm-0b-fZK" secondAttribute="bottom" constant="8" id="8H7-9b-Yml"/>
+                            <constraint firstItem="yCF-VQ-Ua6" firstAttribute="top" secondItem="rT6-ky-oll" secondAttribute="top" id="GFQ-L0-UBr"/>
+                            <constraint firstItem="yCF-VQ-Ua6" firstAttribute="leading" secondItem="rT6-ky-oll" secondAttribute="leading" id="GWO-X7-Mwh"/>
                             <constraint firstItem="bGm-0b-fZK" firstAttribute="top" secondItem="rT6-ky-oll" secondAttribute="top" constant="8" id="PfD-Ra-cC8"/>
                             <constraint firstItem="jch-kz-9km" firstAttribute="bottom" secondItem="Hsl-nG-dqi" secondAttribute="bottom" constant="-16" id="XGz-dT-Ui2"/>
                             <constraint firstItem="bGm-0b-fZK" firstAttribute="leading" secondItem="rT6-ky-oll" secondAttribute="leading" constant="8" id="lp8-IF-a4V"/>
+                            <constraint firstAttribute="trailing" secondItem="yCF-VQ-Ua6" secondAttribute="trailing" id="p4l-wY-CVW"/>
+                            <constraint firstAttribute="bottom" secondItem="yCF-VQ-Ua6" secondAttribute="bottom" id="pPC-0C-Nxm"/>
                             <constraint firstItem="jch-kz-9km" firstAttribute="leading" secondItem="Hsl-nG-dqi" secondAttribute="leading" constant="8" id="pgQ-l7-luf"/>
                         </constraints>
                     </view>
@@ -150,6 +159,9 @@
                 <constraint firstAttribute="bottom" secondItem="rT6-ky-oll" secondAttribute="bottom" id="vXy-Kl-6FS"/>
             </constraints>
             <size key="customSize" width="301" height="203"/>
+            <connections>
+                <outlet property="shimmerView" destination="yCF-VQ-Ua6" id="zgT-PZ-gek"/>
+            </connections>
             <point key="canvasLocation" x="183" y="99"/>
         </collectionViewCell>
     </objects>
@@ -164,5 +176,8 @@
         <image name="Path 326" width="17.5" height="15.5"/>
         <image name="Path 445" width="7.5" height="13"/>
         <image name="Polygon 1" width="11" height="12"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

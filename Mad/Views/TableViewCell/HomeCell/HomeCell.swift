@@ -22,6 +22,7 @@ class HomeCell: UITableViewCell {
     @IBOutlet weak var trustImage: UIImageView!
     @IBOutlet weak var favouriteBtn: UIButton!
     @IBOutlet weak var shareBtn: UIButton!
+    @IBOutlet weak var favouriteStack : UIStackView!
     @IBOutlet weak var shimmerView : ShimmerView!
 
     var favourite: (() -> Void)? = nil
@@ -55,7 +56,7 @@ class HomeCell: UITableViewCell {
         self.profileImage.kf.setImage(with: profileImageUrl, placeholder: #imageLiteral(resourceName: "Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4"))
         }
         if  let projectUrl = URL(string: projectUrl){
-        self.projectImage.kf.setImage(with: projectUrl, placeholder: #imageLiteral(resourceName: "Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4"))
+        self.projectImage.kf.setImage(with: projectUrl, placeholder: #imageLiteral(resourceName: "WhatsApp Image 2021-04-21 at 1.25.47 PM"))
         }
         if let trustUrl = URL(string: trustUrl){
         self.trustImage.kf.setImage(with: trustUrl, placeholder: #imageLiteral(resourceName: "Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4"))

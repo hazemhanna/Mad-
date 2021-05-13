@@ -19,11 +19,7 @@ class ProjectCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        self.projectNameLabel.adjustsFontSizeToFitWidth = true
-        self.projectNameLabel.minimumScaleFactor = 0.5
         self.projectNameLabel.numberOfLines = 1
-
         self.showShimmer = false
     }
     

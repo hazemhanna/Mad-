@@ -14,21 +14,20 @@ class ProjectDetailsVC: UIViewController {
 
     @IBOutlet weak var productCollectionView: UICollectionView!
     @IBOutlet weak var aboutView: UIView!
-
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var LikeLbl: UILabel!
     @IBOutlet weak var shareLbl: UILabel!
     @IBOutlet weak var projectImage: UIImageView!
     @IBOutlet weak var favouriteBtn: UIButton!
     @IBOutlet weak var shareBtn: UIButton!
-    @IBOutlet weak var aboutTV: UITextView!
+    @IBOutlet weak var aboutTV: UILabel!
     @IBOutlet weak var typeLbl: UILabel!
+    @IBOutlet weak var contentSizeHieght : NSLayoutConstraint!
 
     var homeVM = HomeViewModel()
     var disposeBag = DisposeBag()
     var showShimmer: Bool = true
     var projectId = 0
-    
     var isFavourite: Bool = false
 
     let cellIdentifier = "LiveCellCVC"
@@ -43,16 +42,13 @@ class ProjectDetailsVC: UIViewController {
         productCollectionView.delegate = self
         productCollectionView.dataSource = self
         
-        self.aboutTV.isEditable = false
-        self.aboutTV.isSelectable = false
-        self.homeVM.showIndicator()
+        //self.aboutTV.isEditable = false
+        //self.aboutTV.isSelectable = false
+        self.homeVM.showIndicator()    
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true       
-        if let ptcTBC = tabBarController as? PTCardTabBarController {
-            ptcTBC.customTabBar.isHidden = true
-        }
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -61,7 +57,9 @@ class ProjectDetailsVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         getProjectDetails(productID : self.projectId)
-
+        if let ptcTBC = tabBarController as? PTCardTabBarController {
+            ptcTBC.customTabBar.isHidden = true
+        }
     }
     
     @IBAction func backButton(sender: UIButton) {
@@ -69,7 +67,7 @@ class ProjectDetailsVC: UIViewController {
     }
     
     @IBAction func favouriteAction(_ sender: UIButton) {
-        if Helper.getAPIToken() != "" {
+        if Helper.getAPIToken() != nil {
         self.homeVM.showIndicator()
         if  self.isFavourite {
             self.editFavourite(productID:  self.projectId, Type: false)
@@ -84,7 +82,7 @@ class ProjectDetailsVC: UIViewController {
     }
     
     @IBAction func shareAction(_ sender: UIButton) {
-        if Helper.getAPIToken() != "" {
+        if Helper.getAPIToken() != nil {
             self.shareProject(productID : self.projectId)
 
         }else{
@@ -130,6 +128,9 @@ func getProjectDetails(productID : Int) {
         self.titleLbl.text = data.data?.title ?? ""
         self.typeLbl.text = data.data?.type ?? ""
         self.isFavourite = data.data?.isFavorite ?? false
+        let height = self.aboutTV.intrinsicContentSize.height
+        self.contentSizeHieght.constant = 450 + height
+        
         if  let projectUrl = URL(string: data.data?.imageURL ?? ""){
         self.projectImage.kf.setImage(with: projectUrl, placeholder: #imageLiteral(resourceName: "Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4"))
         }

@@ -8,10 +8,18 @@
 import UIKit
 
 class ShowesCell: UICollectionViewCell {
+    
+    @IBOutlet weak var shimmerView : ShimmerView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.showShimmer = false
     }
 
+    var showShimmer: Bool = false {
+        didSet {
+            self.shimmerView.isShimmering = showShimmer
+        }
+    }
+    
 }

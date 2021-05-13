@@ -19,10 +19,10 @@
                         <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XWe-zN-TlX">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="1100"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="1600"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="0kA-y6-Jas">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1100"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1600"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ckf-Or-qT5" customClass="CustomView" customModule="Mad" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
@@ -112,8 +112,8 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Hwq-P2-hjB" customClass="CustomTableView" customModule="Mad" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="202" width="414" height="898"/>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Hwq-P2-hjB" customClass="CustomTableView" customModule="Mad" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="202" width="414" height="1398"/>
                                                 <color key="backgroundColor" red="0.92941176469999998" green="0.95294117649999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -129,7 +129,7 @@
                                     <constraint firstItem="0kA-y6-Jas" firstAttribute="height" secondItem="XWe-zN-TlX" secondAttribute="height" id="F4D-OD-XJX"/>
                                     <constraint firstItem="0kA-y6-Jas" firstAttribute="width" secondItem="XWe-zN-TlX" secondAttribute="width" id="HM0-Js-mha"/>
                                     <constraint firstItem="0kA-y6-Jas" firstAttribute="top" secondItem="XWe-zN-TlX" secondAttribute="top" id="Vd1-Ej-JNB"/>
-                                    <constraint firstAttribute="height" constant="1100" id="Ve3-48-GlD"/>
+                                    <constraint firstAttribute="height" constant="1600" id="Ve3-48-GlD"/>
                                     <constraint firstItem="0kA-y6-Jas" firstAttribute="centerX" secondItem="XWe-zN-TlX" secondAttribute="centerX" id="std-Y1-4R5"/>
                                 </constraints>
                             </view>

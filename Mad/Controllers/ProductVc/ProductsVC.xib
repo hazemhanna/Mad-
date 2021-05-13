@@ -24,10 +24,10 @@
                         <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4MX-Ww-bRt">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="1100"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="1600"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="OUu-H8-T3i">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1100"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1600"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dM9-eA-elc" customClass="CustomView" customModule="Mad" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
@@ -67,7 +67,7 @@
                                                         <color key="textColor" red="0.1333333333" green="0.2156862745" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ofb-u9-dtJ" customClass="CustomCollectionView" customModule="Mad" customModuleProvider="target">
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ofb-u9-dtJ" customClass="CustomCollectionView" customModule="Mad" customModuleProvider="target">
                                                         <rect key="frame" x="32" y="32" width="382" height="242"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ef7-yG-HaU">
@@ -104,7 +104,7 @@
                                                         <color key="textColor" red="0.1333333333" green="0.2156862745" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Jmp-p4-ECf" customClass="CustomCollectionView" customModule="Mad" customModuleProvider="target">
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Jmp-p4-ECf" customClass="CustomCollectionView" customModule="Mad" customModuleProvider="target">
                                                         <rect key="frame" x="32" y="36" width="382" height="244"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NQF-lG-UdF">
@@ -133,7 +133,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fBc-Oc-e6n" customClass="CustomView" customModule="Mad" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="708" width="414" height="392"/>
+                                                <rect key="frame" x="0.0" y="708" width="414" height="892"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Products" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="grr-zy-jNA">
                                                         <rect key="frame" x="32" y="8" width="69" height="16"/>
@@ -141,8 +141,8 @@
                                                         <color key="textColor" red="0.1333333333" green="0.2156862745" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Cj9-us-fb6" customClass="CustomCollectionView" customModule="Mad" customModuleProvider="target">
-                                                        <rect key="frame" x="32" y="56" width="382" height="336"/>
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Cj9-us-fb6" customClass="CustomCollectionView" customModule="Mad" customModuleProvider="target">
+                                                        <rect key="frame" x="32" y="56" width="382" height="836"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="UIj-TY-SRb">
                                                             <size key="itemSize" width="50" height="50"/>
@@ -177,7 +177,7 @@
                                     <constraint firstItem="OUu-H8-T3i" firstAttribute="width" secondItem="4MX-Ww-bRt" secondAttribute="width" id="ASZ-CP-r6u"/>
                                     <constraint firstItem="OUu-H8-T3i" firstAttribute="top" secondItem="4MX-Ww-bRt" secondAttribute="top" id="hRj-tU-QL2"/>
                                     <constraint firstItem="OUu-H8-T3i" firstAttribute="centerX" secondItem="4MX-Ww-bRt" secondAttribute="centerX" id="t7n-t0-gxX"/>
-                                    <constraint firstAttribute="height" constant="1100" id="z59-Le-XDt"/>
+                                    <constraint firstAttribute="height" constant="1600" id="z59-Le-XDt"/>
                                 </constraints>
                             </view>
                         </subviews>
