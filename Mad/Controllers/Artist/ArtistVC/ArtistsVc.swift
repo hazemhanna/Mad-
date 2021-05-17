@@ -77,6 +77,7 @@ extension ArtistsVc : UICollectionViewDelegate ,UICollectionViewDataSource{
                 cell.catImage.isHidden = false
                 cell.addProjectBtn.isHidden = true
                 cell.projectNameLabel.text = self.topActive[indexPath.row].headline ?? ""
+                cell.ProjectView.layer.cornerRadius = 14
                 if let url = URL(string:   self.topActive[indexPath.row].profilPicture ?? ""){
                 cell.catImage.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4"))
             }
@@ -86,15 +87,25 @@ extension ArtistsVc : UICollectionViewDelegate ,UICollectionViewDataSource{
         }else if collectionView == suggestedCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier2, for: indexPath) as! SuggestedCell
             if !self.showShimmer2 {
-               cell.artistNameLabel.text = self.suggested[indexPath.row].name ?? ""
-                cell.typeLabel.text = self.suggested[indexPath.row].headline ?? ""
-              if let url = URL(string:   self.suggested[indexPath.row].profilPicture ?? ""){
-                    cell.profileImage.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4"))
+                cell.confic(name : self.suggested[indexPath.row].name ?? "" , bannerImg : self.suggested[indexPath.row].bannerImg ?? "",profilPicture: self.suggested[indexPath.row].profilPicture ?? "",isFavourite: self.suggested[indexPath.row].isFavorite ?? false,art: self.suggested[indexPath.row].art ?? false,music: self.suggested[indexPath.row].music ?? false ,design: self.suggested[indexPath.row].design ?? false)
+                
+                cell.editFavourite = {
+                    if Helper.getAPIToken() != nil {
+                    self.artistVM.showIndicator()
+                 if self.suggested[indexPath.row].isFavorite ?? false{
+                    self.editFavourite(artistId:  self.suggested[indexPath.row].id ?? 0, Type: false)
+                    cell.favouriteBtn.backgroundColor = #colorLiteral(red: 0.9282042384, green: 0.2310142517, blue: 0.4267850518, alpha: 1)
+                    self.suggestedCollectionView.reloadData()
+                    }else{
+                        self.editFavourite(artistId:  self.suggested[indexPath.row].id ?? 0, Type: true)
+                        cell.favouriteBtn.backgroundColor = #colorLiteral(red: 0.5764705882, green: 0.6235294118, blue: 0.7137254902, alpha: 1)
+                        self.suggestedCollectionView.reloadData()
+                   }
+                   }else {
+                    self.showMessage(text: "please login first")
+                 }
                 }
-                if let bannerUrl = URL(string:   self.suggested[indexPath.row].bannerImg ?? ""){
-                cell.bannerImage.kf.setImage(with: bannerUrl, placeholder: #imageLiteral(resourceName: "WhatsApp Image 2021-04-21 at 1.25.47 PM"))
-               }
-             }
+            }
              cell.showShimmer = showShimmer2
             return cell
         }else{
@@ -114,11 +125,9 @@ extension ArtistsVc : UICollectionViewDelegate ,UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == artistsCollectionView {
-        if showShimmer3 {
-            return
-           }
-            let vc = UIStoryboard(name: "Artist", bundle: nil).instantiateViewController(withIdentifier: "ArtistProfileVc")  as! ArtistProfileVc
-            self.navigationController?.pushViewController(vc, animated: true)
+        if showShimmer3 {return}
+        let vc = UIStoryboard(name: "Artist", bundle: nil).instantiateViewController(withIdentifier: "ArtistProfileVc")  as! ArtistProfileVc
+        self.navigationController?.pushViewController(vc, animated: true)
         }
     }
 }
@@ -192,4 +201,20 @@ extension ArtistsVc {
 
        }).disposed(by: disposeBag)
    }
+    
+    
+    func editFavourite(artistId : Int,Type : Bool) {
+        artistVM.addToFavourite(artistId: artistId, Type: Type).subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+            self.artistVM.dismissIndicator()
+            self.showMessage(text: dataModel.message ?? "")
+            self.getSuggested()
+            self.suggestedCollectionView.reloadData()
+           }
+       }, onError: { (error) in
+        self.artistVM.dismissIndicator()
+       }).disposed(by: disposeBag)
+   }
+
+    
 }

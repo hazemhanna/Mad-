@@ -39,6 +39,15 @@ struct ArtistViewModel {
      }
     
     
+    func addToFavourite(artistId : Int,Type : Bool) -> Observable<ArtistFavouriteModel> {
+        let params: [String: Any] = [
+            "artist_id": artistId,
+            "is_favorite": Type
+            ]
+        let observer = AddServices.shared.addArtistToFavourite(param : params)
+         return observer
+     }
+    
     
     
     func getSuggested() -> Observable<SuggestedModel> {

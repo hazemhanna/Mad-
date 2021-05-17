@@ -53,3 +53,10 @@ struct Artist: Codable {
         case music, art, design
     }
 }
+
+struct ArtistFavouriteModel: Codable {
+    let success: Bool?
+    let data: Artist?
+    let message: String?
+    let errors: Errors?
+}

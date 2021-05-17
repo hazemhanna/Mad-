@@ -28,13 +28,13 @@
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOUR NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bpC-h1-Pe6">
-                        <rect key="frame" x="147.5" y="156" width="119" height="23.5"/>
+                        <rect key="frame" x="147.5" y="156" width="119" height="20"/>
                         <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="20"/>
                         <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="first Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ns-cu-CZw">
-                        <rect key="frame" x="88" y="243.5" width="238" height="19"/>
+                        <rect key="frame" x="88" y="240" width="238" height="16"/>
                         <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="16"/>
                         <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -51,7 +51,7 @@
                         </connections>
                     </button>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="eoT-gh-hMP">
-                        <rect key="frame" x="62" y="278.5" width="290" height="151"/>
+                        <rect key="frame" x="62" y="272" width="290" height="148"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t4m-Vm-KQH" customClass="CustomView" customModule="Mad" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="290" height="50"/>
@@ -102,13 +102,13 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="       last Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GqV-Zz-xJw">
-                                <rect key="frame" x="0.0" y="66" width="290" height="19"/>
+                                <rect key="frame" x="0.0" y="66" width="290" height="16"/>
                                 <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="16"/>
                                 <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3fT-wP-aqU" customClass="CustomView" customModule="Mad" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="101" width="290" height="50"/>
+                                <rect key="frame" x="0.0" y="98" width="290" height="50"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uQj-Gz-2vV" customClass="CustomTextField" customModule="Mad" customModuleProvider="target">
                                         <rect key="frame" x="16" y="0.0" width="258" height="50"/>
@@ -161,13 +161,13 @@
                         <rect key="frame" x="0.0" y="535" width="414" height="327"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="2/4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fNh-xt-inP">
-                        <rect key="frame" x="326.5" y="243.5" width="23.5" height="19"/>
+                        <rect key="frame" x="323" y="240" width="27" height="16"/>
                         <fontDescription key="fontDescription" name="Graphik-Bold" family="Graphik" pointSize="16"/>
                         <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vg3-2i-Af6" customClass="CustomButtons" customModule="Mad" customModuleProvider="target">
-                        <rect key="frame" x="143" y="461.5" width="128" height="54"/>
+                        <rect key="frame" x="143" y="452" width="128" height="54"/>
                         <color key="backgroundColor" red="0.8980392157" green="0.12549019610000001" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="54" id="AAL-Vc-Ble"/>
@@ -220,10 +220,10 @@
     </objects>
     <designables>
         <designable name="fwF-CP-kpn">
-            <size key="intrinsicContentSize" width="26" height="42.5"/>
+            <size key="intrinsicContentSize" width="25" height="39.5"/>
         </designable>
         <designable name="uQj-Gz-2vV">
-            <size key="intrinsicContentSize" width="26" height="42.5"/>
+            <size key="intrinsicContentSize" width="25" height="39.5"/>
         </designable>
         <designable name="vg3-2i-Af6">
             <size key="intrinsicContentSize" width="52" height="21"/>
