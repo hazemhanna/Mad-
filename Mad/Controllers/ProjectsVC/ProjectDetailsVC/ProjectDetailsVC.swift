@@ -29,6 +29,7 @@ class ProjectDetailsVC: UIViewController {
     var showShimmer: Bool = true
     var projectId = 0
     var isFavourite: Bool = false
+    var token = Helper.getAPIToken() ?? ""
 
     let cellIdentifier = "LiveCellCVC"
     open lazy var customTabBar: PTCardTabBar = {

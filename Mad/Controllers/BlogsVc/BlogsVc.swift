@@ -18,6 +18,7 @@ class BlogsVc  : UIViewController {
     var homeVM = HomeViewModel()
     var disposeBag = DisposeBag()
     var parentVC : HomeVC?
+    var token = Helper.getAPIToken() ?? ""
 
     var Categories = [Category]() {
         didSet {
@@ -94,7 +95,7 @@ extension BlogsVc : UITableViewDelegate,UITableViewDataSource{
             
             // edit favourite
               cell.favourite = {
-                if Helper.getAPIToken() == nil {
+                if self.token == ""{
                     return
                 }
                 self.homeVM.showIndicator()
@@ -108,7 +109,7 @@ extension BlogsVc : UITableViewDelegate,UITableViewDataSource{
             cell.favouriteStack.isHidden = true
              // share project
             cell.share = {
-                if Helper.getAPIToken() == nil {
+                if self.token == ""{
                     return
                 }
                 self.homeVM.showIndicator()

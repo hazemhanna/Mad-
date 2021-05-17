@@ -27,7 +27,8 @@ class ProductsVC : UIViewController {
     var suggested = [Product]()
     var TopProduct = [Product]()
     var categeory = [Category]()
-    
+    var token = Helper.getAPIToken() ?? ""
+
     var showShimmer1: Bool = true
     var showShimmer2: Bool = true
     var showShimmer3: Bool = true
@@ -66,7 +67,6 @@ class ProductsVC : UIViewController {
     productCollectionView.dataSource = self
     
    }
-    
 }
 extension ProductsVC: UICollectionViewDelegate,UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -98,8 +98,13 @@ extension ProductsVC: UICollectionViewDelegate,UICollectionViewDataSource {
                 }
             }
             cell.add = {
+                if self.token != "" {
                 let vc = AddProductImageVc.instantiateFromNib()
                 self.navigationController?.pushViewController(vc!, animated: true)
+                }
+                else{
+                    self.showMessage(text: "please login first")
+                }
             }
         }
         cell.showShimmer = showShimmer1
@@ -156,8 +161,12 @@ extension ProductsVC: UICollectionViewDelegate,UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == addproductCollectionView {
             if indexPath.row == 0 {
+                if self.token != "" {
                 let vc = AddProductImageVc.instantiateFromNib()
                 self.navigationController?.pushViewController(vc!, animated: true)
+                }else{
+                 self.showMessage(text: "please login first")
+                }
             }
         }else if  collectionView == topPrpductCollectionView{
             let vc = ProductDetailsVC.instantiateFromNib()

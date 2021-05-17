@@ -113,7 +113,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="HLr-ud-juc" customClass="CustomCollectionView" customModule="Mad" customModuleProvider="target">
-                                                        <rect key="frame" x="8" y="56" width="398" height="1162"/>
+                                                        <rect key="frame" x="32" y="56" width="350" height="1162"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="IkB-Nh-zmy">
                                                             <size key="itemSize" width="50" height="50"/>
@@ -126,8 +126,8 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstItem="HLr-ud-juc" firstAttribute="leading" secondItem="T5v-45-s4L" secondAttribute="leading" constant="8" id="7EZ-oL-GaD"/>
-                                                    <constraint firstAttribute="trailing" secondItem="HLr-ud-juc" secondAttribute="trailing" constant="8" id="LKv-ij-UIT"/>
+                                                    <constraint firstItem="HLr-ud-juc" firstAttribute="leading" secondItem="T5v-45-s4L" secondAttribute="leading" constant="32" id="7EZ-oL-GaD"/>
+                                                    <constraint firstAttribute="trailing" secondItem="HLr-ud-juc" secondAttribute="trailing" constant="32" id="LKv-ij-UIT"/>
                                                     <constraint firstAttribute="bottom" secondItem="HLr-ud-juc" secondAttribute="bottom" id="SoD-tL-9k8"/>
                                                     <constraint firstItem="L8J-Sg-UjO" firstAttribute="leading" secondItem="T5v-45-s4L" secondAttribute="leading" constant="32" id="VD9-2R-AC2"/>
                                                     <constraint firstItem="L8J-Sg-UjO" firstAttribute="top" secondItem="T5v-45-s4L" secondAttribute="top" constant="8" id="W20-5l-sMZ"/>

@@ -69,7 +69,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="TpA-Bt-mUI">
                                         <rect key="frame" x="57" y="0.0" width="39" height="13"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Component 46 – 1" translatesAutoresizingMaskIntoConstraints="NO" id="c5f-BG-7P8">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="followers" translatesAutoresizingMaskIntoConstraints="NO" id="c5f-BG-7P8">
                                                 <rect key="frame" x="0.0" y="0.0" width="11" height="13"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5.2k" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bHG-gg-Wm9">
@@ -140,8 +140,8 @@
     </designables>
     <resources>
         <image name="320" width="341" height="341"/>
-        <image name="Component 46 – 1" width="11" height="13"/>
         <image name="Group 181" width="12.5" height="11"/>
+        <image name="followers" width="11" height="13"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -67,7 +67,6 @@ extension ArtistsVc : UICollectionViewDelegate ,UICollectionViewDataSource{
         }else{
             return  self.showShimmer3 ? 5 : artists.count
         }
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
