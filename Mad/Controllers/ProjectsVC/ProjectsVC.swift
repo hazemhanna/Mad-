@@ -155,7 +155,7 @@ extension ProjectsVC : UICollectionViewDelegate ,UICollectionViewDataSource{
         if indexPath.row == 0 {
                 cell.catImage.isHidden = true
                 cell.addProjectBtn.isHidden = false
-                cell.projectNameLabel.text = "creat project"
+                cell.projectNameLabel.text = "Creat project"
             }else{
                 cell.catImage.isHidden = false
                 cell.addProjectBtn.isHidden = true

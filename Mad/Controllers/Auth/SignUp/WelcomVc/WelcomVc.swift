@@ -29,6 +29,7 @@ class WelcomVc: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionView.isPagingEnabled = true
         setupCollectionView()
     }
     
@@ -92,7 +93,7 @@ extension WelcomVc : UICollectionViewDelegateFlowLayout {
         let flowayout = collectionViewLayout as? UICollectionViewFlowLayout
         let space: CGFloat = (flowayout?.minimumInteritemSpacing ?? 0.0) + (flowayout?.sectionInset.left ?? 0.0) + (flowayout?.sectionInset.right ?? 0.0)
         
-        let size:CGFloat = (collectionView.frame.size.width - space) / 1.2
+        let size:CGFloat = (collectionView.frame.size.width - space)
         return CGSize(width: size, height: collectionView.frame.size.height)
         
     }

@@ -11,21 +11,16 @@ struct VideoModelJson: Codable {
     let success: Bool
     let data: [VideoModel]
 }
-
 struct VideoModel: Codable {
-    let categoryID: Int
-    let categoryName: String
-    let items: [Item]
+    let Aftermovies: [Videos]?
+    let Interviews: Videos?
+    let Shows: [Videos]?
+    let Showcases: [Videos]?
 
-    enum CodingKeys: String, CodingKey {
-        case categoryID = "category_id"
-        case categoryName = "category_name"
-        case items
-    }
 }
 
 // MARK: - Item
-struct Item: Codable {
+struct Videos: Codable {
     let id: Int
     let title, imageURL, videoURL: String
     let favoriteCount, shareCount: Int

@@ -54,14 +54,14 @@ struct AuthenticationViewModel {
     }
 
     //MARK:- Attempt to Login
-    func attemptToCompleteProfile(categories:[Int]) -> Observable<AuthRegisterModel> {
+    func attemptToCompleteProfile(categories:[Int],type : Bool) -> Observable<AuthRegisterModel> {
         let bindedEmail = Helper.getUserEmail() ?? ""
         let bindedPassword =  Helper.getUserPass() ?? ""
         let firstName =  Helper.getUserFirstName() ?? ""
         let  LastName =  Helper.getUserLastName() ?? ""
         let age =  Helper.getUserAge() ?? ""
         let countryId = Helper.getUserCountry() ?? 0
-        let type =  Helper.getUserType() ?? 1
+        let type =  type
         let code =  Helper.getUserCode() ?? ""
         
         let params: [String: Any] = [

@@ -24,14 +24,10 @@ struct VideosViewModel {
          return observer
      }
     
-    func getAllVideos(pageNum :Int) -> Observable<ProductModelJson> {
-        let params: [String: Any] = [
-            "page_number": pageNum
-        ]
-        let observer = GetServices.shared.getAllProduct(param : params)
+    func getAllVideos() -> Observable<VideoModelJson> {
+        let observer = GetServices.shared.getAllVideo()
          return observer
      }
-    
     
     func getVideoDetails(id :Int) -> Observable<ProductDetailsModelJson> {
         let params: [String: Any] = [

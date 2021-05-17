@@ -25,19 +25,36 @@
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I am a MAD artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ob-2v-4CU">
-                        <rect key="frame" x="60" y="122.5" width="160.5" height="21"/>
+                        <rect key="frame" x="73" y="125" width="160.5" height="21"/>
                         <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="21"/>
                         <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jK4-Uj-xtz" customClass="CustomButtons" customModule="Mad" customModuleProvider="target">
+                        <rect key="frame" x="32" y="123" width="25" height="25"/>
+                        <color key="backgroundColor" red="0.8980392157" green="0.12549019610000001" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="3NA-b8-rjN"/>
+                            <constraint firstAttribute="width" constant="25" id="43J-CQ-Ogc"/>
+                        </constraints>
+                        <state key="normal" image="icon - check (1)"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="madArtistActionWithSender:" destination="e9t-Lb-N2C" eventType="touchUpInside" id="DJr-wt-pcg"/>
+                        </connections>
+                    </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I am interested in" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pcd-kC-6bG">
-                        <rect key="frame" x="124.5" y="177.5" width="165" height="20"/>
+                        <rect key="frame" x="124.5" y="180" width="165" height="20"/>
                         <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="20"/>
                         <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pick 3 or more to get started" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CXL-eW-Soa">
-                        <rect key="frame" x="104.5" y="205.5" width="205.5" height="16"/>
+                        <rect key="frame" x="104.5" y="208" width="205.5" height="16"/>
                         <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="16"/>
                         <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -53,22 +70,8 @@
                             <action selector="backButtonWithSender:" destination="e9t-Lb-N2C" eventType="touchUpInside" id="KH5-5r-dEJ"/>
                         </connections>
                     </button>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon - Checkbox - Off" translatesAutoresizingMaskIntoConstraints="NO" id="T64-Bx-dpR">
-                        <rect key="frame" x="32" y="123" width="20" height="20"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="20" id="BFC-OS-5B4"/>
-                            <constraint firstAttribute="height" constant="20" id="tXe-in-5ln"/>
-                        </constraints>
-                    </imageView>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon - check (1)" translatesAutoresizingMaskIntoConstraints="NO" id="yaa-Cw-1v1">
-                        <rect key="frame" x="32" y="123" width="20" height="20"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="20" id="EPb-tp-Lnw"/>
-                            <constraint firstAttribute="height" constant="20" id="tcj-lN-3dm"/>
-                        </constraints>
-                    </imageView>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="t6S-Uk-Ges">
-                        <rect key="frame" x="8" y="253.5" width="398" height="608.5"/>
+                        <rect key="frame" x="8" y="256" width="398" height="606"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="H9P-xK-6ty">
                             <size key="itemSize" width="128" height="128"/>
@@ -102,23 +105,19 @@
                 <viewLayoutGuide key="safeArea" id="Awh-7O-nl8"/>
                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 <constraints>
-                    <constraint firstItem="T64-Bx-dpR" firstAttribute="height" secondItem="yaa-Cw-1v1" secondAttribute="height" id="1Ec-X6-Lez"/>
-                    <constraint firstItem="T64-Bx-dpR" firstAttribute="centerY" secondItem="yaa-Cw-1v1" secondAttribute="centerY" id="1ck-5h-PwK"/>
-                    <constraint firstItem="yaa-Cw-1v1" firstAttribute="leading" secondItem="IfL-os-4Hm" secondAttribute="leading" constant="32" id="2uF-qX-UP9"/>
-                    <constraint firstItem="T64-Bx-dpR" firstAttribute="width" secondItem="yaa-Cw-1v1" secondAttribute="width" id="6fh-Xj-F00"/>
+                    <constraint firstItem="6ob-2v-4CU" firstAttribute="leading" secondItem="jK4-Uj-xtz" secondAttribute="trailing" constant="16" id="2qe-S4-1RG"/>
+                    <constraint firstItem="jK4-Uj-xtz" firstAttribute="leading" secondItem="Awh-7O-nl8" secondAttribute="leading" constant="32" id="LcO-z4-y2w"/>
                     <constraint firstItem="Awh-7O-nl8" firstAttribute="bottom" secondItem="t6S-Uk-Ges" secondAttribute="bottom" id="Lqo-ws-vrT"/>
-                    <constraint firstItem="yaa-Cw-1v1" firstAttribute="top" secondItem="8SF-PS-KIK" secondAttribute="bottom" constant="32" id="RpW-ya-W17"/>
                     <constraint firstItem="t6S-Uk-Ges" firstAttribute="leading" secondItem="Awh-7O-nl8" secondAttribute="leading" constant="8" id="UbD-id-J0F"/>
+                    <constraint firstItem="jK4-Uj-xtz" firstAttribute="top" secondItem="8SF-PS-KIK" secondAttribute="bottom" constant="32" id="VXR-we-zjh"/>
                     <constraint firstItem="CXL-eW-Soa" firstAttribute="centerX" secondItem="IfL-os-4Hm" secondAttribute="centerX" id="a5H-0C-MPo"/>
                     <constraint firstItem="8SF-PS-KIK" firstAttribute="leading" secondItem="Awh-7O-nl8" secondAttribute="leading" constant="26" id="bvu-Y0-DdZ"/>
+                    <constraint firstItem="6ob-2v-4CU" firstAttribute="centerY" secondItem="jK4-Uj-xtz" secondAttribute="centerY" id="cLO-6I-Mk3"/>
                     <constraint firstItem="Awh-7O-nl8" firstAttribute="trailing" secondItem="t6S-Uk-Ges" secondAttribute="trailing" constant="8" id="fNB-Hw-Occ"/>
                     <constraint firstItem="8SF-PS-KIK" firstAttribute="top" secondItem="Awh-7O-nl8" secondAttribute="top" constant="30" id="fjI-va-oe3"/>
-                    <constraint firstItem="6ob-2v-4CU" firstAttribute="leading" secondItem="T64-Bx-dpR" secondAttribute="trailing" constant="8" id="g5v-S3-nCN"/>
                     <constraint firstItem="Awh-7O-nl8" firstAttribute="bottom" secondItem="fVe-2S-oOj" secondAttribute="bottom" constant="64" id="gWH-0E-t1b"/>
                     <constraint firstItem="CXL-eW-Soa" firstAttribute="top" secondItem="Pcd-kC-6bG" secondAttribute="bottom" constant="8" id="hYy-GZ-92M"/>
-                    <constraint firstItem="T64-Bx-dpR" firstAttribute="centerX" secondItem="yaa-Cw-1v1" secondAttribute="centerX" id="j2Y-EE-kRW"/>
                     <constraint firstItem="fVe-2S-oOj" firstAttribute="centerX" secondItem="IfL-os-4Hm" secondAttribute="centerX" id="o8z-Vu-vPP"/>
-                    <constraint firstItem="6ob-2v-4CU" firstAttribute="centerY" secondItem="T64-Bx-dpR" secondAttribute="centerY" id="p6H-qp-Ha7"/>
                     <constraint firstItem="Pcd-kC-6bG" firstAttribute="top" secondItem="6ob-2v-4CU" secondAttribute="bottom" constant="34" id="s3o-j8-jZl"/>
                     <constraint firstItem="Pcd-kC-6bG" firstAttribute="centerX" secondItem="IfL-os-4Hm" secondAttribute="centerX" id="wqx-KI-Otr"/>
                     <constraint firstItem="t6S-Uk-Ges" firstAttribute="top" secondItem="CXL-eW-Soa" secondAttribute="bottom" constant="32" id="xan-Ul-w8V"/>
@@ -126,6 +125,7 @@
             </view>
             <connections>
                 <outlet property="CategoryCollectionView" destination="t6S-Uk-Ges" id="cd6-Ba-j7Y"/>
+                <outlet property="artistBtn" destination="jK4-Uj-xtz" id="cyb-Kk-URY"/>
                 <outlet property="nextBtn" destination="fVe-2S-oOj" id="2xT-Px-8BI"/>
             </connections>
             <point key="canvasLocation" x="-468.11594202898556" y="113.83928571428571"/>
@@ -135,11 +135,13 @@
         <designable name="fVe-2S-oOj">
             <size key="intrinsicContentSize" width="52" height="21"/>
         </designable>
+        <designable name="jK4-Uj-xtz">
+            <size key="intrinsicContentSize" width="16" height="22"/>
+        </designable>
     </designables>
     <resources>
         <image name="Group 119" width="36" height="17"/>
         <image name="Group 58" width="12" height="16.5"/>
-        <image name="Icon - Checkbox - Off" width="23.5" height="23.5"/>
         <image name="icon - check (1)" width="16" height="16"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -17,12 +17,6 @@ class CategeoryCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-
-    }
-    func confic(imageURL : String , name : String){
-        guard let url = URL(string:  imageURL) else  { return }
-        self.catImage.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4"))
-        catLbl.text = name ?? ""
     }
     
     @IBAction func selectedAction(_ sender: UIButton) {

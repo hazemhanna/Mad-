@@ -35,4 +35,10 @@ struct ConfigURLS {
     static var getProductDetails = BASE_URL  + "product/get"
     static var addProductToFavourite = BASE_URL  + "product/edit_favorite"
     static var shareProduct = BASE_URL  + "product/share"
+    // video
+    static var getAllvideos = BASE_URL  + "video/all"
+    static var getVideoDetails = BASE_URL  + "video/get"
+    static var addVideoToFavourite = BASE_URL  + "video/edit_favorite"
+    static var shareVideo = BASE_URL  + "video/share"
+    
 }
