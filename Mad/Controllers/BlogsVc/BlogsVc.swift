@@ -194,7 +194,7 @@ extension BlogsVc  {
    }
     
     func getProject() {
-        homeVM.getAllProject(page: 1).subscribe(onNext: { (dataModel) in
+        homeVM.getProject(page: 1, catId: 0).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
             self.showProjectShimmer = false
             self.projects = dataModel.data?.data ?? []

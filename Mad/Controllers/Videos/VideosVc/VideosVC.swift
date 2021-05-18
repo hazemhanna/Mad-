@@ -17,25 +17,19 @@ class VideosVC: UIViewController {
     @IBOutlet weak var showCasesCollectionView: UICollectionView!
     @IBOutlet weak var afterMovieCollectionView: UICollectionView!
     
-    var homeVM = HomeViewModel()
+    var VideosVM = VideosViewModel()
     var parentVC : HomeVC?
     let cellIdentifier = "ProjectCell"
     let cellIdentifier2 = "ShowesCell"
     
     var showShimmer1: Bool = true
     var showShimmer2: Bool = true
-    var showShimmer3: Bool = true
-    var showShimmer4: Bool = true
-    var showShimmer5: Bool = true
-    
-    var data = [String](){
-          didSet {
-              DispatchQueue.main.async {
-                  self.homeVM.fetchMainData(data: self.data)
-              }
-          }
-      }
-    
+   
+    var categeory = [Category]()
+    var shows = [Videos]()
+    var interviews = [Videos]()
+    var showsCases = [Videos]()
+    var afterMoviews = [Videos]()
     var disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -62,6 +56,8 @@ class VideosVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        getAllVideos()
+        getCategory()
         self.navigationController?.navigationBar.isHidden = true
     }
     override func viewWillDisappear(_ animated: Bool) {
@@ -75,33 +71,96 @@ extension VideosVC: UICollectionViewDelegate , UICollectionViewDataSource {
    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == productCollectionView {
-            return  self.showShimmer1 ? 5 : 5
+            return  self.showShimmer1 ? 5 : categeory.count
             }else if collectionView == showsCollectionView{
-                return  self.showShimmer2 ? 5 : 4
+                return  self.showShimmer2 ? 5 : self.shows.count
             }else if collectionView == interviewsCollectionView{
-                return  self.showShimmer3 ? 5 : 3
+                return  self.showShimmer2 ? 5 : interviews.count
             }else if collectionView == showCasesCollectionView{
-                return  self.showShimmer4 ? 5 : 3
+                return  self.showShimmer2 ? 5 : showsCases.count
             }else{
-                return  self.showShimmer5 ? 5 : 3
+                return  self.showShimmer2 ? 5 : afterMoviews.count
             }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == productCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! ProjectCell
-                cell.projectNameLabel.text = "Music"
-                cell.catImage.isHidden = false
-                cell.addProjectBtn.isHidden = true
-                cell.projectNameLabel.textColor = UIColor.white
+            if !self.showShimmer1 {
+                    cell.catImage.isHidden = false
+                    cell.addProjectBtn.isHidden = true
+                    cell.projectNameLabel.textColor = UIColor.white
+                    cell.projectNameLabel.text = self.categeory[indexPath.row].name ?? ""
+                    if let url = URL(string:   self.categeory[indexPath.row].imageURL ?? ""){
+                    cell.catImage.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "Icon - Checkbox - Off"))
+                    }
                 cell.showShimmer = showShimmer1
-        return cell
-        }else {
+            }
+            return cell
+        }else  if collectionView == showsCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier2, for: indexPath) as! ShowesCell
+            if !self.showShimmer2 {
+                cell.confic (title :shows[indexPath.row].title ?? "",
+                             time :"1h 23mn" ,
+                             like :shows[indexPath.row].favoriteCount ?? 0  ,
+                             share : shows[indexPath.row].shareCount ?? 0,
+                             imageUrl :shows[indexPath.row].imageURL ?? "",
+                             isFavourite :shows[indexPath.row].isFavorite ?? false)
+
+                
             cell.showShimmer = showShimmer2
+            }
+            return cell
+        }else  if collectionView == showCasesCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier2, for: indexPath) as! ShowesCell
+            if !self.showShimmer2 {
+                cell.confic (title :showsCases[indexPath.row].title ?? "",
+                             time :"1h 23mn" ,
+                             like :showsCases[indexPath.row].favoriteCount ?? 0  ,
+                             share : showsCases[indexPath.row].shareCount ?? 0,
+                             imageUrl :showsCases[indexPath.row].imageURL ?? "",
+                             isFavourite :showsCases[indexPath.row].isFavorite ?? false)
+                
+            cell.showShimmer = showShimmer2
+            }
+            return cell
+        }else  if collectionView == interviewsCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier2, for: indexPath) as! ShowesCell
+            if !self.showShimmer2 {
+                cell.confic (title :interviews[indexPath.row].title ?? "",
+                             time :"1h 23mn" ,
+                             like :interviews[indexPath.row].favoriteCount ?? 0  ,
+                             share : interviews[indexPath.row].shareCount ?? 0,
+                             imageUrl :interviews[indexPath.row].imageURL ?? "",
+                             isFavourite :interviews[indexPath.row].isFavorite ?? false)
+
+            cell.showShimmer = showShimmer2
+            }
+            return cell
+        }else  {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier2, for: indexPath) as! ShowesCell
+            if !self.showShimmer2 {
+                cell.confic (title :afterMoviews[indexPath.row].title ?? "",
+                             time :"1h 23mn" ,
+                             like :afterMoviews[indexPath.row].favoriteCount ?? 0  ,
+                             share : afterMoviews[indexPath.row].shareCount ?? 0,
+                             imageUrl :afterMoviews[indexPath.row].imageURL ?? "",
+                             isFavourite :afterMoviews[indexPath.row].isFavorite ?? false)
+
+            cell.showShimmer = showShimmer2
+            }
             return cell
         }
     }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == afterMovieCollectionView{
+            let sb = UIStoryboard(name: "Video", bundle: nil).instantiateViewController(withIdentifier: "VideoDetailsVc") as! VideoDetailsVc
+            self.navigationController?.pushViewController(sb, animated: true)
+        }
+    }
+    
 }
 
 extension VideosVC: UICollectionViewDelegateFlowLayout {
@@ -122,3 +181,59 @@ extension VideosVC: UICollectionViewDelegateFlowLayout {
     }
 }
 
+extension VideosVC {
+    
+    func getCategory() {
+        VideosVM.getCategories().subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+            self.showShimmer1 = false
+               self.categeory = dataModel.data ?? []
+            self.productCollectionView.reloadData()
+           }
+       }, onError: { (error) in
+
+       }).disposed(by: disposeBag)
+   }
+
+    
+    func getAllVideos() {
+        VideosVM.getAllVideos().subscribe(onNext: { (dataModel) in
+            if dataModel.success ?? false {
+            self.showShimmer2 = false
+            self.shows = dataModel.data?.Shows ?? []
+            self.showsCases = dataModel.data?.Showcases ?? []
+            self.afterMoviews = dataModel.data?.Aftermovies ?? []
+            self.interviews = dataModel.data?.Interviews ?? []
+                self.afterMovieCollectionView.reloadData()
+                self.showCasesCollectionView.reloadData()
+                self.showsCollectionView.reloadData()
+                self.interviewsCollectionView.reloadData()
+           }
+       }, onError: { (error) in
+
+       }).disposed(by: disposeBag)
+   }
+    
+    func editFavourite(videoId : Int,Type : Bool) {
+        VideosVM.addToFavourite(videoId: videoId, Type: Type).subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+            self.VideosVM.dismissIndicator()
+            self.showMessage(text: dataModel.message ?? "")
+           }
+       }, onError: { (error) in
+        self.VideosVM.dismissIndicator()
+       }).disposed(by: disposeBag)
+   }
+    
+    func shareProject(videoId : Int) {
+        VideosVM.shareVideo(videoId: videoId).subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+            self.VideosVM.dismissIndicator()
+            self.showMessage(text: dataModel.message ?? "")
+           }
+       }, onError: { (error) in
+        self.VideosVM.dismissIndicator()
+       }).disposed(by: disposeBag)
+   }
+    
+}

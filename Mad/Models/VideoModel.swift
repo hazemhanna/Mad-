@@ -8,12 +8,14 @@
 import Foundation
 
 struct VideoModelJson: Codable {
-    let success: Bool
-    let data: [VideoModel]
+    let success: Bool?
+    let data: VideoModel?
+    let errors: Errors?
+
 }
 struct VideoModel: Codable {
     let Aftermovies: [Videos]?
-    let Interviews: Videos?
+    let Interviews: [Videos]?
     let Shows: [Videos]?
     let Showcases: [Videos]?
 
@@ -21,11 +23,11 @@ struct VideoModel: Codable {
 
 // MARK: - Item
 struct Videos: Codable {
-    let id: Int
-    let title, imageURL, videoURL: String
-    let favoriteCount, shareCount: Int
-    let isFavorite: Bool
-    let createdAt: String
+    let id: Int?
+    let title, imageURL, videoURL: String?
+    let favoriteCount, shareCount: Int?
+    let isFavorite: Bool?
+    let createdAt: String?
 
     enum CodingKeys: String, CodingKey {
         case id, title

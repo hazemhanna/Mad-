@@ -18,7 +18,8 @@ class ProjectsVC : UIViewController {
     var homeVM = HomeViewModel()
     var disposeBag = DisposeBag()
     var parentVC : HomeVC?
-
+    var selectedIndex = -1
+    var catId : Int?
     var Categories = [Category]() {
         didSet {
             DispatchQueue.main.async {
@@ -40,11 +41,10 @@ class ProjectsVC : UIViewController {
     }()
     
     
-     var showShimmer: Bool = true
+    var showShimmer: Bool = true
     var showProjectShimmer: Bool = true
     private let CellIdentifier = "HomeCell"
     let cellIdentifier = "ProjectCell"
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +53,7 @@ class ProjectsVC : UIViewController {
         projectCollectionView.delegate = self
         projectCollectionView.dataSource = self
         getCategory()
-        getProject()
+        getProject(catId: self.catId)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,6 +62,7 @@ class ProjectsVC : UIViewController {
             ptcTBC.customTabBar.isHidden = false
         }
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
     }
@@ -142,7 +143,6 @@ extension ProjectsVC: UITableViewDelegate,UITableViewDataSource{
     
 }
 
-
 extension ProjectsVC : UICollectionViewDelegate ,UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return  self.showShimmer ? 5 : Categories.count + 1
@@ -164,14 +164,28 @@ extension ProjectsVC : UICollectionViewDelegate ,UICollectionViewDataSource{
                 cell.catImage.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "Icon - Checkbox - Off"))
                 }
             }
+            
+            if self.selectedIndex == indexPath.row{
+                cell.ProjectView.layer.borderColor = #colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1).cgColor
+                cell.ProjectView.layer.borderWidth = 2
+            }else {
+                cell.ProjectView.layer.borderColor = #colorLiteral(red: 0.9725490196, green: 0.9725490196, blue: 0.9725490196, alpha: 1).cgColor
+                cell.ProjectView.layer.borderWidth = 0
+               }
         }
         cell.showShimmer = showShimmer
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if showShimmer {
-            return
+        if showShimmer {return}
+        if indexPath.row != 0 {
+        self.selectedIndex = indexPath.row
+        self.projectCollectionView.reloadData()
+            self.showProjectShimmer = true
+            self.mainTableView.reloadData()
+            self.catId  = self.Categories[indexPath.row-1].id ?? 0
+            getProject(catId:self.Categories[indexPath.row-1].id ?? 0)
         }
     }
 }
@@ -187,6 +201,7 @@ extension ProjectsVC : UICollectionViewDelegateFlowLayout {
 }
 
 extension ProjectsVC {
+    
     func getCategory() {
         homeVM.getCategories().subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
@@ -199,7 +214,18 @@ extension ProjectsVC {
        }).disposed(by: disposeBag)
    }
     
-    func getProject() {
+    func getProject(catId : Int?) {
+        homeVM.getProject(page: 1,catId: catId).subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+            self.showProjectShimmer = false
+            self.projects = dataModel.data?.data ?? []
+           }
+       }, onError: { (error) in
+
+       }).disposed(by: disposeBag)
+   }
+
+    func getAllProject() {
         homeVM.getAllProject(page: 1).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
             self.showProjectShimmer = false
@@ -214,7 +240,7 @@ extension ProjectsVC {
         homeVM.addToFavourite(productID: productID, Type: Type).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
             self.homeVM.dismissIndicator()
-            self.getProject()
+            self.getProject(catId: self.catId)
             self.showMessage(text: dataModel.message ?? "")
            }
        }, onError: { (error) in
@@ -226,7 +252,7 @@ extension ProjectsVC {
         homeVM.shareProject(productID: productID).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
             self.homeVM.dismissIndicator()
-            self.getProject()
+            self.getProject(catId: self.catId)
             self.showMessage(text: dataModel.message ?? "")
            }
        }, onError: { (error) in

@@ -53,7 +53,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="900"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="jgy-rq-khC">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="932"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="750"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fFj-QJ-Add">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="750"/>
@@ -204,8 +204,8 @@
                                                     <constraint firstAttribute="bottom" secondItem="Gax-IE-e4B" secondAttribute="bottom" id="z93-UU-wE4"/>
                                                 </constraints>
                                             </view>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Bky-1L-10i">
-                                                <rect key="frame" x="0.0" y="782" width="414" height="150"/>
+                                            <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Bky-1L-10i">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="150" id="YpM-VX-c6x"/>

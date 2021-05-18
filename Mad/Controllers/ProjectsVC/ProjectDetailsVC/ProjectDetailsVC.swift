@@ -105,9 +105,6 @@ extension ProjectDetailsVC :  UICollectionViewDelegate, UICollectionViewDataSour
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    }
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
             let flowayout = collectionViewLayout as? UICollectionViewFlowLayout
             let space: CGFloat = (flowayout?.minimumInteritemSpacing ?? 0.0) + (flowayout?.sectionInset.left ?? 0.0) + (flowayout?.sectionInset.right ?? 0.0)
@@ -127,11 +124,14 @@ func getProjectDetails(productID : Int) {
         self.shareLbl.text = "\(data.data?.shareCount ?? 0)"
         self.aboutTV.text = data.data?.content?.html2String ?? ""
         self.titleLbl.text = data.data?.title ?? ""
-        self.typeLbl.text = data.data?.type ?? ""
+        var projectCat = [String]()
+        for cat in data.data?.categories ?? []{
+            projectCat.append(cat.name ?? "")
+        }
+        self.typeLbl.text =   projectCat.joined(separator: ",")
         self.isFavourite = data.data?.isFavorite ?? false
         let height = self.aboutTV.intrinsicContentSize.height
         self.contentSizeHieght.constant = 450 + height
-        
         if  let projectUrl = URL(string: data.data?.imageURL ?? ""){
         self.projectImage.kf.setImage(with: projectUrl, placeholder: #imageLiteral(resourceName: "Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4"))
         }

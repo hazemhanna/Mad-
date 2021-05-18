@@ -33,27 +33,31 @@
                                 <rect key="frame" x="8" y="8" width="285" height="187"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mask Group 121" translatesAutoresizingMaskIntoConstraints="NO" id="Hsl-nG-dqi" customClass="CustomImageView" customModule="Mad" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="285" height="163"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="285" height="157"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="16"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="150" translatesAutoresizingMaskIntoConstraints="NO" id="bJP-Bl-Vay">
-                                        <rect key="frame" x="0.0" y="171" width="247.5" height="16"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="170" translatesAutoresizingMaskIntoConstraints="NO" id="bJP-Bl-Vay">
+                                        <rect key="frame" x="0.0" y="165" width="267.5" height="22"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Q6x-vI-R4B">
-                                                <rect key="frame" x="0.0" y="0.0" width="90" height="16"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="90" height="22"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="F8N-EI-zJK">
-                                                        <rect key="frame" x="0.0" y="0.0" width="44.5" height="16"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="44.5" height="22"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Path 326" translatesAutoresizingMaskIntoConstraints="NO" id="bXp-Ij-dZt">
-                                                                <rect key="frame" x="0.0" y="0.5" width="17.5" height="15.5"/>
-                                                            </imageView>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7aq-Mw-cdc">
+                                                                <rect key="frame" x="0.0" y="0.0" width="17.5" height="22"/>
+                                                                <state key="normal" image="Path 326"/>
+                                                                <connections>
+                                                                    <action selector="favouriteAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="CSD-x2-1HL"/>
+                                                                </connections>
+                                                            </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="345" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gq8-nt-0Xd">
-                                                                <rect key="frame" x="25.5" y="2.5" width="19" height="11"/>
+                                                                <rect key="frame" x="25.5" y="5.5" width="19" height="11"/>
                                                                 <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="11"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -61,13 +65,17 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="X95-k4-5OV">
-                                                        <rect key="frame" x="60.5" y="0.0" width="29.5" height="16"/>
+                                                        <rect key="frame" x="60.5" y="0.0" width="29.5" height="22"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Component 34 – 6" translatesAutoresizingMaskIntoConstraints="NO" id="yco-gO-aAQ">
-                                                                <rect key="frame" x="0.0" y="0.0" width="15" height="16"/>
-                                                            </imageView>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jxR-lS-QZk">
+                                                                <rect key="frame" x="0.0" y="0.0" width="15" height="22"/>
+                                                                <state key="normal" image="Component 34 – 6"/>
+                                                                <connections>
+                                                                    <action selector="shareAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="K5t-q2-hZd"/>
+                                                                </connections>
+                                                            </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eGd-R1-KLO">
-                                                                <rect key="frame" x="23" y="2.5" width="6.5" height="11"/>
+                                                                <rect key="frame" x="23" y="5.5" width="6.5" height="11"/>
                                                                 <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="11"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -77,7 +85,7 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4p8-nP-lDT">
-                                                <rect key="frame" x="240" y="0.0" width="7.5" height="16"/>
+                                                <rect key="frame" x="260" y="0.0" width="7.5" height="22"/>
                                                 <state key="normal" image="Path 445"/>
                                             </button>
                                         </subviews>
@@ -85,7 +93,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="jch-kz-9km">
-                                <rect key="frame" x="16" y="91" width="132" height="64"/>
+                                <rect key="frame" x="16" y="85" width="132" height="64"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UsQ-Th-SEf" customClass="CustomView" customModule="Mad" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -160,7 +168,13 @@
             </constraints>
             <size key="customSize" width="301" height="203"/>
             <connections>
+                <outlet property="bannerImage" destination="Hsl-nG-dqi" id="73h-5k-khG"/>
+                <outlet property="favouriteBtn" destination="7aq-Mw-cdc" id="vft-ei-3RX"/>
+                <outlet property="likeLbl" destination="gq8-nt-0Xd" id="Ee3-zI-ZyD"/>
+                <outlet property="shareLbl" destination="eGd-R1-KLO" id="Dsb-IC-DeR"/>
                 <outlet property="shimmerView" destination="yCF-VQ-Ua6" id="zgT-PZ-gek"/>
+                <outlet property="timeLbl" destination="ONZ-PM-a4c" id="DEH-Hw-8Kk"/>
+                <outlet property="titleLbl" destination="I0S-mS-pMS" id="bnf-11-Wpi"/>
             </connections>
             <point key="canvasLocation" x="183" y="99"/>
         </collectionViewCell>

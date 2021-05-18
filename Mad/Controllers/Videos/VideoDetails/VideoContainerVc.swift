@@ -5,26 +5,20 @@
 //  Created by MAC on 11/05/2021.
 //
 
-
-
 import UIKit
 import Tabman
 import Pageboy
 
-
-
 class VideoContainerVc: TabmanViewController {
 
-    let vc1 = UIStoryboard(name: "Artist", bundle: nil).instantiateViewController(withIdentifier: "ArtistProjectsVc") as! ArtistProjectsVc
+    let vc1 = UIStoryboard(name: "Video", bundle: nil).instantiateViewController(withIdentifier: "VideoArtistsVc") as! VideoArtistsVc
     
-    let vc2 = UIStoryboard(name: "Artist", bundle: nil).instantiateViewController(withIdentifier: "ArtistProductsVc") as! ArtistProductsVc
+    let vc2 = UIStoryboard(name: "Video", bundle: nil).instantiateViewController(withIdentifier: "VideoProjectsVC") as! VideoProjectsVC
 
-    let vc3 = UIStoryboard(name: "Artist", bundle: nil).instantiateViewController(withIdentifier: "AboutVc") as! AboutVc
+    let vc3 = UIStoryboard(name: "Video", bundle: nil).instantiateViewController(withIdentifier: "VideoPurchaseVc") as! VideoPurchaseVc
 
-    let vc4 = UIStoryboard(name: "Artist", bundle: nil).instantiateViewController(withIdentifier: "CompetitionsVc") as! CompetitionsVc
-
-
-
+    let vc4 = UIStoryboard(name: "Video", bundle: nil).instantiateViewController(withIdentifier: "VideoPartners") as! VideoPartners
+    
     private lazy var viewControllers: [UIViewController] = [
         vc1,
         vc2,
@@ -42,22 +36,18 @@ class VideoContainerVc: TabmanViewController {
         bar.indicator.weight = .light
         bar.indicator.cornerStyle = .eliptical
         bar.fadesContentEdges = true
-        bar.backgroundColor =  #colorLiteral(red: 0.9725490196, green: 0.9725490196, blue: 0.9725490196, alpha: 1)
-        bar.spacing = 16.0
+        bar.backgroundColor =  .black
+        bar.layer.borderWidth = 0
+        bar.spacing = 32.0
         bar.buttons.customize {
-            $0.tintColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
+            $0.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             $0.font = UIFont(name: "Graphik-Medium", size: 16)!
             $0.selectedTintColor = #colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1)
         }
         
         bar.indicator.tintColor = .clear
         addBar(bar.systemBar(), dataSource: self, at: .top)
-                let fontFamilyNames = UIFont.familyNames
-                for familyName in fontFamilyNames {
-                    print("Font Family Name = [\(familyName)]")
-                    let names = UIFont.fontNames(forFamilyName: familyName)
-                    print("Font Names = [\(names)]")
-        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

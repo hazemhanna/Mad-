@@ -14,7 +14,6 @@ class GetServices {
     
     static let shared = GetServices()
     
-    //MARK:- GET All Categories
     func getAllCategories() -> Observable<CategoryModel> {
         return Observable.create { (observer) -> Disposable in
             let url = ConfigURLS.getCategeory
@@ -31,10 +30,8 @@ class GetServices {
             }
             return Disposables.create()
         }
-    }//END of GET All Categories
+    }
     
-    
- //MARK:- GET All Country
     func getAllCountry() -> Observable<CountryModel> {
         return Observable.create { (observer) -> Disposable in
             let url = ConfigURLS.getCountry
@@ -51,9 +48,8 @@ class GetServices {
             }
             return Disposables.create()
         }
-    }//END of GET All Country
+    }
     
-    //MARK:- GET All Project
     func getAllProject(param : [String :Any]) -> Observable<ProjectMainModel> {
            return Observable.create { (observer) -> Disposable in
                let url = ConfigURLS.getProject
@@ -75,11 +71,8 @@ class GetServices {
                }
                return Disposables.create()
            }
-       }//END of GET All Project
+       }
     
-
-
-    //MARK:- GET  Project Details
     func getProjectDetails(param : [String :Any]) -> Observable<ProjectDetailsModel> {
            return Observable.create { (observer) -> Disposable in
                let url = ConfigURLS.getProjectDetails
@@ -103,7 +96,6 @@ class GetServices {
            }
        }
     
-    //MARK:- GET  All Artist
     func getAllArtist(param : [String :Any]) -> Observable<ArtistModelJson> {
            return Observable.create { (observer) -> Disposable in
                let url = ConfigURLS.getAllArtist
@@ -127,9 +119,6 @@ class GetServices {
            }
        }
     
-
-    
-    //MARK:- GET  All Artist
     func getSuggested() -> Observable<SuggestedModel> {
            return Observable.create { (observer) -> Disposable in
                let url = ConfigURLS.getSuggested
@@ -176,8 +165,6 @@ class GetServices {
            }
        }
     
-    
-    //MARK:- GET  All Product
     func getAllProduct(param : [String :Any]) -> Observable<ProductModelJson> {
            return Observable.create { (observer) -> Disposable in
                let url = ConfigURLS.getAllProduct
@@ -201,7 +188,6 @@ class GetServices {
            }
        }
     
-    //MARK:- GET  Top Product
     func getTopProduct(param : [String :Any]) -> Observable<ProductModelJson> {
            return Observable.create { (observer) -> Disposable in
                let url = ConfigURLS.getAllProduct
@@ -225,7 +211,6 @@ class GetServices {
            }
        }
     
-    //MARK:- GET
     func getSuggestedProduct() -> Observable<SugessteProduct> {
            return Observable.create { (observer) -> Disposable in
                let url = ConfigURLS.getSuggestedProduct
@@ -249,8 +234,6 @@ class GetServices {
            }
        }
     
-    
-    //MARK:- GET
     func getProductDetails(param : [String :Any]) -> Observable<ProductDetailsModelJson> {
            return Observable.create { (observer) -> Disposable in
                let url = ConfigURLS.getProductDetails
@@ -274,7 +257,6 @@ class GetServices {
            }
        }
     
-    //MARK:- GET  All video
     func getAllVideo() -> Observable<VideoModelJson> {
            return Observable.create { (observer) -> Disposable in
                let url = ConfigURLS.getAllvideos

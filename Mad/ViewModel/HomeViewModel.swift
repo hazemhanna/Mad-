@@ -41,11 +41,21 @@ struct HomeViewModel {
     
     func getAllProject(page : Int) -> Observable<ProjectMainModel> {
         let params: [String: Any] = [
-            "page_number": page
+            "page_number": page,
             ]
         let observer = GetServices.shared.getAllProject(param : params)
          return observer
      }
+    
+    func getProject(page : Int,catId : Int?) -> Observable<ProjectMainModel> {
+        let params: [String: Any] = [
+            "page_number": page,
+            "category_id":catId
+            ]
+        let observer = GetServices.shared.getAllProject(param : params)
+         return observer
+     }
+    
     
     func getCategories() -> Observable<CategoryModel> {
          let observer = GetServices.shared.getAllCategories()
