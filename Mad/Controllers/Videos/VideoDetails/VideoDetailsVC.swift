@@ -10,24 +10,30 @@ import UIKit
 import RxSwift
 import RxCocoa
 import PTCardTabBar
+import AVKit
+import AVFoundation
 
 class VideoDetailsVc : UIViewController {
     
     @IBOutlet weak var titleCollectionView: UICollectionView!
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var titleView : UIView!
-
     @IBOutlet weak var titleLbl : UILabel!
     @IBOutlet weak var bannerImage : UIImageView!
     @IBOutlet weak var likeLbl : UILabel!
     @IBOutlet weak var shareLbl : UILabel!
     @IBOutlet weak var likeBtn : UIButton!
     @IBOutlet weak var timeLbl : UILabel!
+    @IBOutlet weak var pauseButton : UIButton!
 
+    
+    
     var videoId = Int()
     var videoVM = VideosViewModel()
     var disposeBag = DisposeBag()
+    var isFavorite = false
     var selectedIndex = 0
+    var videoUrl:String?
     var titles = [String](){
           didSet {
               DispatchQueue.main.async {
@@ -110,6 +116,45 @@ class VideoDetailsVc : UIViewController {
         
     }
     
+    
+    @IBAction func favouriteBtn(sender: UIButton) {
+     if Helper.getAPIToken() == nil {
+         return
+        }
+        self.videoVM.showIndicator()
+        if isFavorite{
+            self.editFavourite(videoId:  videoId, Type: false)
+            self.likeBtn.setImage(#imageLiteral(resourceName: "Path 326"), for: .normal)
+        }else{
+               self.editFavourite(videoId:  videoId, Type: true)
+                self.likeBtn.setImage(#imageLiteral(resourceName: "Group 155"), for: .normal)
+            }
+    }
+    
+    @IBAction func shareBtn(sender: UIButton) {
+        if Helper.getAPIToken() == nil {
+            return
+           }
+        self.videoVM.showIndicator()
+        self.shareVideo(videoId: self.videoId)
+    }
+    
+    @IBAction func playvideoAction(_ sender: UIButton) {
+            //self.pauseButton.isHidden = false
+            if let url = videoUrl {
+            guard let videoURL = URL(string:  url) else { return }
+            let video = AVPlayer(url: videoURL)
+                let videoPlayer = AVPlayerViewController()
+                videoPlayer.player = video
+                videoPlayer.modalPresentationStyle = .overFullScreen
+                videoPlayer.modalTransitionStyle = .crossDissolve
+                self.present(videoPlayer, animated: true, completion: {
+                    video.play()
+                })
+        }
+    }
+    
+    
 }
 
 
@@ -151,24 +196,16 @@ extension VideoDetailsVc : UICollectionViewDelegateFlowLayout {
 
   extension VideoDetailsVc {
             private func add(asChildViewController viewController: UIViewController) {
-                // Add Child View Controller
                 addChild(viewController)
-                
-                // Add Child View as Subview
                 container.addSubview(viewController.view)
-                // Configure Child View
                 viewController.view.frame = container.bounds
                 viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-                // Notify Child View Controller
                 viewController.didMove(toParent: self)
             }
 
             private func remove(asChildViewController viewController: UIViewController) {
-                // Notify Child View Controller
                 viewController.willMove(toParent: nil)
-                // Remove Child View From Superview
                 viewController.view.removeFromSuperview()
-                // Notify Child View Controller
                 viewController.removeFromParent()
             }
     }
@@ -181,9 +218,11 @@ extension VideoDetailsVc {
             if let bannerUrl = URL(string: dataModel.data?.imageURL ?? "" ){
                    self.bannerImage.kf.setImage(with: bannerUrl, placeholder: #imageLiteral(resourceName: "WhatsApp Image 2021-04-21 at 1.25.47 PM"))
                }
+                self.videoUrl = dataModel.data?.videoURL ?? ""
                 self.likeLbl.text = "\(dataModel.data?.favoriteCount ?? 0)"
                 self.shareLbl.text = "\(dataModel.data?.shareCount ?? 0)"
                 self.titleLbl.text =  dataModel.data?.title ?? ""
+                self.isFavorite = dataModel.data?.isFavorite ?? false
                 if dataModel.data?.isFavorite ?? false {
                 self.likeBtn.setImage(#imageLiteral(resourceName: "Group 155"), for: .normal)
                 }else{
@@ -195,6 +234,31 @@ extension VideoDetailsVc {
             }
        }, onError: { (error) in
 
+       }).disposed(by: disposeBag)
+   }
+    
+    func editFavourite(videoId : Int,Type : Bool) {
+        videoVM.addToFavourite(videoId: videoId, Type: Type).subscribe(onNext: { [self] (dataModel) in
+           if dataModel.success ?? false {
+            self.videoVM.dismissIndicator()
+            self.showMessage(text: dataModel.message ?? "")
+            self.getVideoDetails(id : self.videoId)
+           }
+       }, onError: { (error) in
+        self.videoVM.dismissIndicator()
+       }).disposed(by: disposeBag)
+   }
+    
+    func shareVideo(videoId : Int) {
+        videoVM.shareVideo(videoId: videoId).subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+            self.videoVM.dismissIndicator()
+            self.showMessage(text: dataModel.message ?? "")
+            self.getVideoDetails(id : self.videoId)
+           }
+            
+       }, onError: { (error) in
+        self.videoVM.dismissIndicator()
        }).disposed(by: disposeBag)
    }
 }

@@ -46,12 +46,12 @@ struct VideosViewModel {
          return observer
      }
     
-    func addToFavourite(videoId : Int,Type : Bool) -> Observable<ProductFavouriteModel> {
+    func addToFavourite(videoId : Int,Type : Bool) -> Observable<VideoFavouriteMdel> {
         let params: [String: Any] = [
             "video_id": videoId,
             "is_favorite": Type
             ]
-        let observer = AddServices.shared.addProductToFavourite(param : params)
+        let observer = AddServices.shared.addVideoToFavourite(param : params)
          return observer
      }
     
@@ -59,7 +59,7 @@ struct VideosViewModel {
         let params: [String: Any] = [
             "video_id": videoId,
             ]
-        let observer = AddServices.shared.shareProduct(param : params)
+        let observer = AddServices.shared.shareVideo(param : params)
          return observer
      }
     

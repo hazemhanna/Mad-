@@ -8,6 +8,8 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import AVKit
+import AVFoundation
 
 class VideosVC: UIViewController {
    
@@ -94,6 +96,7 @@ extension VideosVC: UICollectionViewDelegate , UICollectionViewDataSource {
                     if let url = URL(string:   self.categeory[indexPath.row].imageURL ?? ""){
                     cell.catImage.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "Icon - Checkbox - Off"))
                     }
+            
             }
             cell.showShimmer = showShimmer1
             return cell
@@ -113,7 +116,41 @@ extension VideosVC: UICollectionViewDelegate , UICollectionViewDataSource {
                     sb.videoId = self.shows[indexPath.row].id ?? 0
                     self.navigationController?.pushViewController(sb, animated: true)
                 }
+                
+                cell.favourite = {
+                    if Helper.getAPIToken() == nil {
+                        return
+                    }
+                    
+                    self.VideosVM.showIndicator()
+                    if  self.shows[indexPath.row].isFavorite ?? false {
+                        self.editFavourite(videoId:  self.shows[indexPath.row].id ?? 0, Type: false)
+                    }else{
+                      self.editFavourite(videoId:  self.shows[indexPath.row].id ?? 0, Type: true)
+                    }
+                }
+                
+                cell.share = {
+                    if Helper.getAPIToken() == nil {
+                        return
+                    }
+                    self.shareVideo(videoId:  self.shows[indexPath.row].id ?? 0)
+                }
+                
+                cell.openVideo = {
+                    if let url = self.shows[indexPath.row].videoURL{
+                    guard let videoURL = URL(string:  url) else { return }
+                    let video = AVPlayer(url: videoURL)
+                        let videoPlayer = AVPlayerViewController()
+                        videoPlayer.player = video
+                        videoPlayer.modalPresentationStyle = .overFullScreen
+                        videoPlayer.modalTransitionStyle = .crossDissolve
+                        self.present(videoPlayer, animated: true, completion: {
+                            video.play()
+                        })
+                }
             }
+         }
             cell.showShimmer = showShimmer2
             return cell
         }else  if collectionView == showCasesCollectionView {
@@ -129,10 +166,43 @@ extension VideosVC: UICollectionViewDelegate , UICollectionViewDataSource {
                 cell.openDetails = {
                     let sb = UIStoryboard(name: "Video", bundle: nil).instantiateViewController(withIdentifier: "VideoDetailsVc") as! VideoDetailsVc
                     sb.videoId = self.showsCases[indexPath.row].id ?? 0
-
                     self.navigationController?.pushViewController(sb, animated: true)
                 }
+                
+                cell.favourite = {
+                    if Helper.getAPIToken() == nil {
+                        return
+                    }
+                    
+                    self.VideosVM.showIndicator()
+                    if  self.showsCases[indexPath.row].isFavorite ?? false {
+                        self.editFavourite(videoId:  self.showsCases[indexPath.row].id ?? 0, Type: false)
+                    }else{
+                      self.editFavourite(videoId:  self.showsCases[indexPath.row].id ?? 0, Type: true)
+                    }
+                }
+                
+                cell.share = {
+                    if Helper.getAPIToken() == nil {
+                        return
+                    }
+                    self.shareVideo(videoId:  self.showsCases[indexPath.row].id ?? 0)
+                }
+                
+                cell.openVideo = {
+                    if let url = self.showsCases[indexPath.row].videoURL{
+                    guard let videoURL = URL(string:  url) else { return }
+                    let video = AVPlayer(url: videoURL)
+                        let videoPlayer = AVPlayerViewController()
+                        videoPlayer.player = video
+                        videoPlayer.modalPresentationStyle = .overFullScreen
+                        videoPlayer.modalTransitionStyle = .crossDissolve
+                        self.present(videoPlayer, animated: true, completion: {
+                            video.play()
+                        })
+                }
             }
+        }
             cell.showShimmer = showShimmer2
             return cell
         }else  if collectionView == interviewsCollectionView {
@@ -150,7 +220,42 @@ extension VideosVC: UICollectionViewDelegate , UICollectionViewDataSource {
                     sb.videoId = self.interviews[indexPath.row].id ?? 0
                     self.navigationController?.pushViewController(sb, animated: true)
                 }
+                
+                cell.favourite = {
+                    if Helper.getAPIToken() == nil {
+                        return
+                    }
+                    
+                    self.VideosVM.showIndicator()
+                    if  self.interviews[indexPath.row].isFavorite ?? false {
+                        self.editFavourite(videoId:  self.interviews[indexPath.row].id ?? 0, Type: false)
+                    }else{
+                      self.editFavourite(videoId:  self.interviews[indexPath.row].id ?? 0, Type: true)
+                    }
+                }
+                
+                cell.share = {
+                    if Helper.getAPIToken() == nil {
+                        return
+                    }
+                    self.shareVideo(videoId:  self.interviews[indexPath.row].id ?? 0)
+                }
+                
+                cell.openVideo = {
+                    if let url = self.interviews[indexPath.row].videoURL{
+                    guard let videoURL = URL(string:  url) else { return }
+                    let video = AVPlayer(url: videoURL)
+                        let videoPlayer = AVPlayerViewController()
+                        videoPlayer.player = video
+                        videoPlayer.modalPresentationStyle = .overFullScreen
+                        videoPlayer.modalTransitionStyle = .crossDissolve
+                        self.present(videoPlayer, animated: true, completion: {
+                            video.play()
+                        })
+                }
             }
+          
+        }
             cell.showShimmer = showShimmer2
             return cell
         }else  {
@@ -168,7 +273,41 @@ extension VideosVC: UICollectionViewDelegate , UICollectionViewDataSource {
                     sb.videoId = self.afterMoviews[indexPath.row].id ?? 0
                     self.navigationController?.pushViewController(sb, animated: true)
                 }
-            }
+                
+                  cell.favourite = {
+                    if Helper.getAPIToken() == nil {
+                        return
+                    }
+                    
+                    self.VideosVM.showIndicator()
+                    if  self.afterMoviews[indexPath.row].isFavorite ?? false {
+                        self.editFavourite(videoId:  self.afterMoviews[indexPath.row].id ?? 0, Type: false)
+                    }else{
+                      self.editFavourite(videoId:  self.afterMoviews[indexPath.row].id ?? 0, Type: true)
+                    }
+                }
+                
+                cell.share = {
+                    if Helper.getAPIToken() == nil {
+                        return
+                    }
+                    self.shareVideo(videoId:  self.afterMoviews[indexPath.row].id ?? 0)
+                }
+                
+                cell.openVideo = {
+                    if let url = self.afterMoviews[indexPath.row].videoURL{
+                    guard let videoURL = URL(string:  url) else { return }
+                    let video = AVPlayer(url: videoURL)
+                        let videoPlayer = AVPlayerViewController()
+                        videoPlayer.player = video
+                        videoPlayer.modalPresentationStyle = .overFullScreen
+                        videoPlayer.modalTransitionStyle = .crossDissolve
+                        self.present(videoPlayer, animated: true, completion: {
+                            video.play()
+                        })
+                }
+             }
+           }
             cell.showShimmer = showShimmer2
             return cell
         }
@@ -235,25 +374,27 @@ extension VideosVC {
    }
     
     func editFavourite(videoId : Int,Type : Bool) {
-        VideosVM.addToFavourite(videoId: videoId, Type: Type).subscribe(onNext: { (dataModel) in
+        VideosVM.addToFavourite(videoId: videoId, Type: Type).subscribe(onNext: { [self] (dataModel) in
            if dataModel.success ?? false {
+            getAllVideos()
             self.VideosVM.dismissIndicator()
             self.showMessage(text: dataModel.message ?? "")
+            self.getAllVideos()
            }
        }, onError: { (error) in
         self.VideosVM.dismissIndicator()
        }).disposed(by: disposeBag)
    }
     
-    func shareProject(videoId : Int) {
+    func shareVideo(videoId : Int) {
         VideosVM.shareVideo(videoId: videoId).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
             self.VideosVM.dismissIndicator()
             self.showMessage(text: dataModel.message ?? "")
+            self.getAllVideos()
            }
        }, onError: { (error) in
         self.VideosVM.dismissIndicator()
        }).disposed(by: disposeBag)
    }
-    
 }

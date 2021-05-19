@@ -24,6 +24,7 @@ class ShowesCell: UICollectionViewCell {
     }
 
     var openDetails: (() -> Void)? = nil
+    var openVideo: (() -> Void)? = nil
 
     var favourite: (() -> Void)? = nil
     var share: (() -> Void)? = nil
@@ -70,7 +71,7 @@ class ShowesCell: UICollectionViewCell {
         self.openDetails?()
     }
     
-    
-    
+    @IBAction func openvideoAction(_ sender: UIButton) {
+        self.openVideo?()
+    }
 }
-

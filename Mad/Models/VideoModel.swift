@@ -69,3 +69,13 @@ struct VideoDetailsModel: Codable {
           case artists, projects, products
       }
 }
+
+
+
+struct VideoFavouriteMdel: Codable {
+    let success: Bool?
+    let data: Videos?
+    let message: String?
+    let errors: Errors?
+
+}

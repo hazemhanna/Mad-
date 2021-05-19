@@ -104,6 +104,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N74-ut-vP5">
                                                 <rect key="frame" x="-8" y="0.0" width="46" height="30"/>
                                                 <state key="normal" image="Polygon 1"/>
+                                                <connections>
+                                                    <action selector="openvideoAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="LRV-Vw-HNn"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
