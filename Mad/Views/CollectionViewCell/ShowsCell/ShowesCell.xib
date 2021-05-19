@@ -87,6 +87,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4p8-nP-lDT">
                                                 <rect key="frame" x="260" y="0.0" width="7.5" height="22"/>
                                                 <state key="normal" image="Path 445"/>
+                                                <connections>
+                                                    <action selector="openDetailsAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="b6K-7P-Fyx"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -169,6 +172,7 @@
             <size key="customSize" width="301" height="203"/>
             <connections>
                 <outlet property="bannerImage" destination="Hsl-nG-dqi" id="73h-5k-khG"/>
+                <outlet property="detailsBtn" destination="4p8-nP-lDT" id="O8a-OD-D3c"/>
                 <outlet property="favouriteBtn" destination="7aq-Mw-cdc" id="vft-ei-3RX"/>
                 <outlet property="likeLbl" destination="gq8-nt-0Xd" id="Ee3-zI-ZyD"/>
                 <outlet property="shareLbl" destination="eGd-R1-KLO" id="Dsb-IC-DeR"/>

@@ -11,6 +11,15 @@ import SVProgressHUD
 
 struct VideosViewModel {
     
+    
+    var title = PublishSubject<[String]>()
+
+    func fetchtitle(data: [String]) {
+        self.title.onNext(data)
+       }
+    
+    
+    
     func showIndicator() {
         SVProgressHUD.show()
     }
@@ -29,11 +38,11 @@ struct VideosViewModel {
          return observer
      }
     
-    func getVideoDetails(id :Int) -> Observable<ProductDetailsModelJson> {
+    func getVideoDetails(id :Int) -> Observable<VideoDetailsModelJson> {
         let params: [String: Any] = [
             "id": id
         ]
-        let observer = GetServices.shared.getProductDetails(param : params)
+        let observer = GetServices.shared.getVideotDetails(param : params)
          return observer
      }
     

@@ -19,7 +19,7 @@ class ProjectsVC : UIViewController {
     var disposeBag = DisposeBag()
     var parentVC : HomeVC?
     var selectedIndex = -1
-    var catId : Int?
+    var catId = Int()
     var Categories = [Category]() {
         didSet {
             DispatchQueue.main.async {
@@ -214,7 +214,7 @@ extension ProjectsVC {
        }).disposed(by: disposeBag)
    }
     
-    func getProject(catId : Int?) {
+    func getProject(catId : Int) {
         homeVM.getProject(page: 1,catId: catId).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
             self.showProjectShimmer = false
@@ -224,18 +224,7 @@ extension ProjectsVC {
 
        }).disposed(by: disposeBag)
    }
-
-    func getAllProject() {
-        homeVM.getAllProject(page: 1).subscribe(onNext: { (dataModel) in
-           if dataModel.success ?? false {
-            self.showProjectShimmer = false
-            self.projects = dataModel.data?.data ?? []
-           }
-       }, onError: { (error) in
-
-       }).disposed(by: disposeBag)
-   }
-
+    
     func editFavourite(productID : Int,Type : Bool) {
         homeVM.addToFavourite(productID: productID, Type: Type).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {

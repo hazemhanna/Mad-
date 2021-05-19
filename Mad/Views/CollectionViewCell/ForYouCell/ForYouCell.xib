@@ -150,6 +150,7 @@ Workshop</string>
             <connections>
                 <outlet property="artistNameLabel" destination="jEN-uw-R8w" id="a60-kP-srV"/>
                 <outlet property="bannerImage" destination="v1d-Ws-AFd" id="kUC-yB-Kyr"/>
+                <outlet property="mainView" destination="57Q-cB-CwR" id="Lgb-59-1pJ"/>
                 <outlet property="priceLbl" destination="aBc-r8-zdB" id="4Aq-ou-SeB"/>
                 <outlet property="profileImage" destination="fbH-J7-2VE" id="fbT-0B-pBI"/>
                 <outlet property="shimmerView" destination="yBM-mj-tig" id="tsZ-as-8dE"/>

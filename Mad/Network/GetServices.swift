@@ -280,7 +280,7 @@ class GetServices {
            }
        }
 
-    func getVideotDetails(param : [String :Any]) -> Observable<ProductDetailsModelJson> {
+    func getVideotDetails(param : [String :Any]) -> Observable<VideoDetailsModelJson> {
            return Observable.create { (observer) -> Disposable in
                let url = ConfigURLS.getVideoDetails
             let token = Helper.getAPIToken() ?? ""
@@ -292,7 +292,7 @@ class GetServices {
                    .validate(statusCode: 200..<300)
                    .responseJSON { (response: DataResponse<Any>) in
                        do {
-                           let data = try JSONDecoder().decode(ProductDetailsModelJson.self, from: response.data!)
+                           let data = try JSONDecoder().decode(VideoDetailsModelJson.self, from: response.data!)
                            observer.onNext(data)
                        } catch {
                            print(error.localizedDescription)

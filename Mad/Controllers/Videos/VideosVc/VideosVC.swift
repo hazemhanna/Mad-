@@ -94,8 +94,8 @@ extension VideosVC: UICollectionViewDelegate , UICollectionViewDataSource {
                     if let url = URL(string:   self.categeory[indexPath.row].imageURL ?? ""){
                     cell.catImage.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "Icon - Checkbox - Off"))
                     }
-                cell.showShimmer = showShimmer1
             }
+            cell.showShimmer = showShimmer1
             return cell
         }else  if collectionView == showsCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier2, for: indexPath) as! ShowesCell
@@ -108,8 +108,13 @@ extension VideosVC: UICollectionViewDelegate , UICollectionViewDataSource {
                              isFavourite :shows[indexPath.row].isFavorite ?? false)
 
                 
-            cell.showShimmer = showShimmer2
+                cell.openDetails = {
+                    let sb = UIStoryboard(name: "Video", bundle: nil).instantiateViewController(withIdentifier: "VideoDetailsVc") as! VideoDetailsVc
+                    sb.videoId = self.shows[indexPath.row].id ?? 0
+                    self.navigationController?.pushViewController(sb, animated: true)
+                }
             }
+            cell.showShimmer = showShimmer2
             return cell
         }else  if collectionView == showCasesCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier2, for: indexPath) as! ShowesCell
@@ -121,8 +126,14 @@ extension VideosVC: UICollectionViewDelegate , UICollectionViewDataSource {
                              imageUrl :showsCases[indexPath.row].imageURL ?? "",
                              isFavourite :showsCases[indexPath.row].isFavorite ?? false)
                 
-            cell.showShimmer = showShimmer2
+                cell.openDetails = {
+                    let sb = UIStoryboard(name: "Video", bundle: nil).instantiateViewController(withIdentifier: "VideoDetailsVc") as! VideoDetailsVc
+                    sb.videoId = self.showsCases[indexPath.row].id ?? 0
+
+                    self.navigationController?.pushViewController(sb, animated: true)
+                }
             }
+            cell.showShimmer = showShimmer2
             return cell
         }else  if collectionView == interviewsCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier2, for: indexPath) as! ShowesCell
@@ -134,8 +145,13 @@ extension VideosVC: UICollectionViewDelegate , UICollectionViewDataSource {
                              imageUrl :interviews[indexPath.row].imageURL ?? "",
                              isFavourite :interviews[indexPath.row].isFavorite ?? false)
 
-            cell.showShimmer = showShimmer2
+                cell.openDetails = {
+                    let sb = UIStoryboard(name: "Video", bundle: nil).instantiateViewController(withIdentifier: "VideoDetailsVc") as! VideoDetailsVc
+                    sb.videoId = self.interviews[indexPath.row].id ?? 0
+                    self.navigationController?.pushViewController(sb, animated: true)
+                }
             }
+            cell.showShimmer = showShimmer2
             return cell
         }else  {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier2, for: indexPath) as! ShowesCell
@@ -147,8 +163,13 @@ extension VideosVC: UICollectionViewDelegate , UICollectionViewDataSource {
                              imageUrl :afterMoviews[indexPath.row].imageURL ?? "",
                              isFavourite :afterMoviews[indexPath.row].isFavorite ?? false)
 
-            cell.showShimmer = showShimmer2
+                cell.openDetails = {
+                    let sb = UIStoryboard(name: "Video", bundle: nil).instantiateViewController(withIdentifier: "VideoDetailsVc") as! VideoDetailsVc
+                    sb.videoId = self.afterMoviews[indexPath.row].id ?? 0
+                    self.navigationController?.pushViewController(sb, animated: true)
+                }
             }
+            cell.showShimmer = showShimmer2
             return cell
         }
     }
@@ -156,8 +177,7 @@ extension VideosVC: UICollectionViewDelegate , UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == afterMovieCollectionView{
-            let sb = UIStoryboard(name: "Video", bundle: nil).instantiateViewController(withIdentifier: "VideoDetailsVc") as! VideoDetailsVc
-            self.navigationController?.pushViewController(sb, animated: true)
+           
         }
     }
     

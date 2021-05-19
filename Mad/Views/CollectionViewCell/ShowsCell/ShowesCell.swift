@@ -16,13 +16,15 @@ class ShowesCell: UICollectionViewCell {
     @IBOutlet weak var bannerImage : UIImageView!
     @IBOutlet weak var shimmerView : ShimmerView!
     @IBOutlet weak var favouriteBtn: UIButton!
+    @IBOutlet weak var detailsBtn: UIButton!
 
     override func awakeFromNib() {
         super.awakeFromNib()
         self.showShimmer = false
     }
 
-    
+    var openDetails: (() -> Void)? = nil
+
     var favourite: (() -> Void)? = nil
     var share: (() -> Void)? = nil
     var isFavourite  = false
@@ -45,7 +47,7 @@ class ShowesCell: UICollectionViewCell {
         if isFavourite {
         self.favouriteBtn.setImage(#imageLiteral(resourceName: "Group 155"), for: .normal)
         }else{
-        self.favouriteBtn.setImage(#imageLiteral(resourceName: "Group 140"), for: .normal)
+        self.favouriteBtn.setImage(#imageLiteral(resourceName: "Path 326"), for: .normal)
         }
     }
     
@@ -54,7 +56,7 @@ class ShowesCell: UICollectionViewCell {
         if self.isFavourite {
         self.favouriteBtn.setImage(#imageLiteral(resourceName: "Group 155"), for: .normal)
         }else{
-        self.favouriteBtn.setImage(#imageLiteral(resourceName: "Group 140"), for: .normal)
+        self.favouriteBtn.setImage(#imageLiteral(resourceName: "Path 326"), for: .normal)
         }
 
     }
@@ -63,6 +65,12 @@ class ShowesCell: UICollectionViewCell {
         self.share?()
     }
 
+    
+    @IBAction func openDetailsAction(_ sender: UIButton) {
+        self.openDetails?()
+    }
+    
+    
     
 }
 

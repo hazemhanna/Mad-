@@ -9,6 +9,7 @@ import UIKit
 
 class ForYouCell: UICollectionViewCell {
 
+    @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var artistNameLabel: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var bannerImage: UIImageView!

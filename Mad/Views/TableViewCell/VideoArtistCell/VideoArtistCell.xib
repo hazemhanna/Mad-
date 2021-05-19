@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Graphik-Light.ttf">
+            <string>Graphik-Light</string>
+        </array>
+        <array key="Graphik-Medium.ttf">
+            <string>Graphik-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="VideoArtistCell" rowHeight="78" id="KGk-i7-Jjw" customClass="VideoArtistCell" customModule="Mad" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="319" height="78"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="319" height="78"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ojd-P7-vue">
+                        <rect key="frame" x="0.0" y="0.0" width="319" height="78"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MDu-VN-cfg" customClass="CustomView" customModule="Mad" customModuleProvider="target">
+                                <rect key="frame" x="32" y="9" width="60" height="60"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4" translatesAutoresizingMaskIntoConstraints="NO" id="AgK-Re-a4J" customClass="CustomImageView" customModule="Mad" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="AQF-Ay-5mA"/>
+                                    <constraint firstItem="AgK-Re-a4J" firstAttribute="leading" secondItem="MDu-VN-cfg" secondAttribute="leading" id="E27-9h-n1f"/>
+                                    <constraint firstAttribute="width" constant="60" id="lyz-6t-wtu"/>
+                                    <constraint firstAttribute="trailing" secondItem="AgK-Re-a4J" secondAttribute="trailing" id="mJQ-Xp-Sp1"/>
+                                    <constraint firstAttribute="bottom" secondItem="AgK-Re-a4J" secondAttribute="bottom" id="mX6-l3-60U"/>
+                                    <constraint firstItem="AgK-Re-a4J" firstAttribute="top" secondItem="MDu-VN-cfg" secondAttribute="top" id="qjT-hF-zSq"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Oxc-oS-szs">
+                                <rect key="frame" x="108" y="18.5" width="107" height="41"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eva pavaroaky" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OE4-aK-xoP">
+                                        <rect key="frame" x="0.0" y="0.0" width="107" height="17.5"/>
+                                        <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="15"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Musician" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vq1-Js-ITl">
+                                        <rect key="frame" x="0.0" y="25.5" width="107" height="15.5"/>
+                                        <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="13"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dbj-OB-N2I" customClass="CustomButtons" customModule="Mad" customModuleProvider="target">
+                                <rect key="frame" x="223" y="24" width="80" height="30"/>
+                                <color key="backgroundColor" red="0.8980392157" green="0.12549019610000001" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="bQO-QC-sHO"/>
+                                    <constraint firstAttribute="width" constant="80" id="zLV-MY-WpW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="13"/>
+                                <state key="normal" title="Favorite">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="editFavouriteAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="4QQ-lB-fNK"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="MDu-VN-cfg" firstAttribute="leading" secondItem="ojd-P7-vue" secondAttribute="leading" constant="32" id="7M6-Fs-gI1"/>
+                            <constraint firstAttribute="trailing" secondItem="Dbj-OB-N2I" secondAttribute="trailing" constant="16" id="8kM-Mm-aBX"/>
+                            <constraint firstItem="Oxc-oS-szs" firstAttribute="leading" secondItem="MDu-VN-cfg" secondAttribute="trailing" constant="16" id="Cn4-cm-Wce"/>
+                            <constraint firstItem="Dbj-OB-N2I" firstAttribute="centerY" secondItem="ojd-P7-vue" secondAttribute="centerY" id="IkS-Iz-7wS"/>
+                            <constraint firstItem="Oxc-oS-szs" firstAttribute="centerY" secondItem="ojd-P7-vue" secondAttribute="centerY" id="JZP-Gi-hC6"/>
+                            <constraint firstItem="Dbj-OB-N2I" firstAttribute="leading" secondItem="Oxc-oS-szs" secondAttribute="trailing" constant="8" id="VaV-ep-lPs"/>
+                            <constraint firstItem="MDu-VN-cfg" firstAttribute="centerY" secondItem="ojd-P7-vue" secondAttribute="centerY" id="ee4-P2-MW5"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ix0-AG-b3H" customClass="ShimmerView" customModule="Mad" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="319" height="78"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="Ix0-AG-b3H" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="H0m-01-ccX"/>
+                    <constraint firstItem="ojd-P7-vue" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="SJd-X9-pgi"/>
+                    <constraint firstAttribute="trailing" secondItem="Ix0-AG-b3H" secondAttribute="trailing" id="UqS-hh-cF3"/>
+                    <constraint firstItem="ojd-P7-vue" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="a6r-eL-x8I"/>
+                    <constraint firstItem="Ix0-AG-b3H" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="awW-wE-3ij"/>
+                    <constraint firstAttribute="bottom" secondItem="ojd-P7-vue" secondAttribute="bottom" id="noL-0z-RhW"/>
+                    <constraint firstAttribute="trailing" secondItem="ojd-P7-vue" secondAttribute="trailing" id="ptJ-gP-OlR"/>
+                    <constraint firstAttribute="bottom" secondItem="Ix0-AG-b3H" secondAttribute="bottom" id="sUe-l3-Bfs"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="artistImage" destination="AgK-Re-a4J" id="7nP-Of-9Ls"/>
+                <outlet property="favouriteBtn" destination="Dbj-OB-N2I" id="vWN-xs-HG6"/>
+                <outlet property="shimmerView" destination="Ix0-AG-b3H" id="IgP-qN-BO8"/>
+                <outlet property="titleLbl" destination="OE4-aK-xoP" id="lFE-5e-rnO"/>
+                <outlet property="typeLbl" destination="Vq1-Js-ITl" id="utZ-Ak-kYK"/>
+            </connections>
+            <point key="canvasLocation" x="-23.913043478260871" y="66.964285714285708"/>
+        </tableViewCell>
+    </objects>
+    <designables>
+        <designable name="AgK-Re-a4J">
+            <size key="intrinsicContentSize" width="320" height="320"/>
+        </designable>
+        <designable name="Dbj-OB-N2I">
+            <size key="intrinsicContentSize" width="47" height="28"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4" width="320" height="320"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

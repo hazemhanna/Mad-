@@ -33,8 +33,21 @@
 		0414287726177E69000394CA /* LiveCellCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0414287526177E69000394CA /* LiveCellCVC.swift */; };
 		0414287826177E69000394CA /* LiveCellCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0414287626177E69000394CA /* LiveCellCVC.xib */; };
 		04170D12264AAFAC00745696 /* Video.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04170D11264AAFAC00745696 /* Video.storyboard */; };
-		04170D25264ACB5F00745696 /* VideoContainerVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04170D24264ACB5F00745696 /* VideoContainerVc.swift */; };
 		04170D2B264ACB9E00745696 /* VideoDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04170D2A264ACB9E00745696 /* VideoDetailsVC.swift */; };
+		04242A9D26553A12003C8B44 /* VideoArtistsVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04242A9B26553A12003C8B44 /* VideoArtistsVc.swift */; };
+		04242A9E26553A12003C8B44 /* VideoArtistsVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04242A9C26553A12003C8B44 /* VideoArtistsVc.xib */; };
+		04242AA326553A37003C8B44 /* VideoProjectsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04242AA126553A37003C8B44 /* VideoProjectsVC.swift */; };
+		04242AA426553A37003C8B44 /* VideoProjectsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04242AA226553A37003C8B44 /* VideoProjectsVC.xib */; };
+		04242AA826553A4E003C8B44 /* VideoPurchaseVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04242AA626553A4E003C8B44 /* VideoPurchaseVc.swift */; };
+		04242AA926553A4E003C8B44 /* VideoPurchaseVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04242AA726553A4E003C8B44 /* VideoPurchaseVc.xib */; };
+		04242AAE26553A65003C8B44 /* VideoPartners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04242AAC26553A65003C8B44 /* VideoPartners.swift */; };
+		04242AAF26553A65003C8B44 /* VideoPartners.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04242AAD26553A65003C8B44 /* VideoPartners.xib */; };
+		04242AB426554089003C8B44 /* VideoArtistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04242AB226554089003C8B44 /* VideoArtistCell.swift */; };
+		04242AB526554089003C8B44 /* VideoArtistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04242AB326554089003C8B44 /* VideoArtistCell.xib */; };
+		04242ABB26554B2C003C8B44 /* VideoProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04242AB926554B2C003C8B44 /* VideoProjectCell.swift */; };
+		04242ABC26554B2C003C8B44 /* VideoProjectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04242ABA26554B2C003C8B44 /* VideoProjectCell.xib */; };
+		04242AC226555E7A003C8B44 /* VideoPartenerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04242AC026555E7A003C8B44 /* VideoPartenerCell.swift */; };
+		04242AC326555E7A003C8B44 /* VideoPartenerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04242AC126555E7A003C8B44 /* VideoPartenerCell.xib */; };
 		0427A211263FFA7B0029A10C /* ProductDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0427A20F263FFA7B0029A10C /* ProductDetailsVC.swift */; };
 		0427A212263FFA7B0029A10C /* ProductDetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0427A210263FFA7B0029A10C /* ProductDetailsVC.xib */; };
 		0427A21726405B2D0029A10C /* AddsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0427A21526405B2D0029A10C /* AddsCell.swift */; };
@@ -115,10 +128,6 @@
 		04D23EEE2633127800290488 /* Graphik-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04E1870E261364AA00824E37 /* Graphik-Medium.ttf */; };
 		04D23EEF2633127800290488 /* Graphik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04E1870B261364AA00824E37 /* Graphik-Regular.ttf */; };
 		04D23EF02633127800290488 /* Graphik-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04E18706261364A900824E37 /* Graphik-Semibold.ttf */; };
-		04DD78462654724F004A415E /* VideoArtists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD78452654724F004A415E /* VideoArtists.swift */; };
-		04DD784A2654726B004A415E /* VideoProjectsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD78492654726B004A415E /* VideoProjectsVC.swift */; };
-		04DD784D2654727C004A415E /* VideoPurchaseVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD784C2654727C004A415E /* VideoPurchaseVc.swift */; };
-		04DD78502654728A004A415E /* VideoPartners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD784F2654728A004A415E /* VideoPartners.swift */; };
 		04DEA9962620901000F843A6 /* CategeoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DEA9952620901000F843A6 /* CategeoryModel.swift */; };
 		04DEA999262090C700F843A6 /* CountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DEA998262090C700F843A6 /* CountryModel.swift */; };
 		04DEA9D0262093E500F843A6 /* GetServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DEA9CF262093E500F843A6 /* GetServices.swift */; };
@@ -171,8 +180,21 @@
 		0414287526177E69000394CA /* LiveCellCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveCellCVC.swift; sourceTree = "<group>"; };
 		0414287626177E69000394CA /* LiveCellCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LiveCellCVC.xib; sourceTree = "<group>"; };
 		04170D11264AAFAC00745696 /* Video.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Video.storyboard; sourceTree = "<group>"; };
-		04170D24264ACB5F00745696 /* VideoContainerVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoContainerVc.swift; sourceTree = "<group>"; };
 		04170D2A264ACB9E00745696 /* VideoDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDetailsVC.swift; sourceTree = "<group>"; };
+		04242A9B26553A12003C8B44 /* VideoArtistsVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoArtistsVc.swift; sourceTree = "<group>"; };
+		04242A9C26553A12003C8B44 /* VideoArtistsVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoArtistsVc.xib; sourceTree = "<group>"; };
+		04242AA126553A37003C8B44 /* VideoProjectsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoProjectsVC.swift; sourceTree = "<group>"; };
+		04242AA226553A37003C8B44 /* VideoProjectsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoProjectsVC.xib; sourceTree = "<group>"; };
+		04242AA626553A4E003C8B44 /* VideoPurchaseVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPurchaseVc.swift; sourceTree = "<group>"; };
+		04242AA726553A4E003C8B44 /* VideoPurchaseVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoPurchaseVc.xib; sourceTree = "<group>"; };
+		04242AAC26553A65003C8B44 /* VideoPartners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPartners.swift; sourceTree = "<group>"; };
+		04242AAD26553A65003C8B44 /* VideoPartners.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoPartners.xib; sourceTree = "<group>"; };
+		04242AB226554089003C8B44 /* VideoArtistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoArtistCell.swift; sourceTree = "<group>"; };
+		04242AB326554089003C8B44 /* VideoArtistCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoArtistCell.xib; sourceTree = "<group>"; };
+		04242AB926554B2C003C8B44 /* VideoProjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoProjectCell.swift; sourceTree = "<group>"; };
+		04242ABA26554B2C003C8B44 /* VideoProjectCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoProjectCell.xib; sourceTree = "<group>"; };
+		04242AC026555E7A003C8B44 /* VideoPartenerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPartenerCell.swift; sourceTree = "<group>"; };
+		04242AC126555E7A003C8B44 /* VideoPartenerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoPartenerCell.xib; sourceTree = "<group>"; };
 		0427A20F263FFA7B0029A10C /* ProductDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsVC.swift; sourceTree = "<group>"; };
 		0427A210263FFA7B0029A10C /* ProductDetailsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductDetailsVC.xib; sourceTree = "<group>"; };
 		0427A21526405B2D0029A10C /* AddsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddsCell.swift; sourceTree = "<group>"; };
@@ -251,10 +273,6 @@
 		04D23EE126330D7700290488 /* AboutVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutVc.swift; sourceTree = "<group>"; };
 		04D23EE426330D9B00290488 /* CompetitionsVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionsVc.swift; sourceTree = "<group>"; };
 		04D23EE726330DBA00290488 /* ArtistProductsVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistProductsVc.swift; sourceTree = "<group>"; };
-		04DD78452654724F004A415E /* VideoArtists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoArtists.swift; sourceTree = "<group>"; };
-		04DD78492654726B004A415E /* VideoProjectsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoProjectsVC.swift; sourceTree = "<group>"; };
-		04DD784C2654727C004A415E /* VideoPurchaseVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPurchaseVc.swift; sourceTree = "<group>"; };
-		04DD784F2654728A004A415E /* VideoPartners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPartners.swift; sourceTree = "<group>"; };
 		04DEA9952620901000F843A6 /* CategeoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategeoryModel.swift; sourceTree = "<group>"; };
 		04DEA998262090C700F843A6 /* CountryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryModel.swift; sourceTree = "<group>"; };
 		04DEA9CF262093E500F843A6 /* GetServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetServices.swift; sourceTree = "<group>"; };
@@ -359,6 +377,8 @@
 		0413E4512630A37800F5977D /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				04242AB826554B12003C8B44 /* VideoProjectCell */,
+				04242AB126554066003C8B44 /* VideoArtistCell */,
 				0440ECA42636C7880046681C /* Competitions */,
 				04668759261B6728001D024D /* HomeCell */,
 			);
@@ -368,6 +388,7 @@
 		0413E4522630A37B00F5977D /* CollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				04242ABF26555E46003C8B44 /* videoPartenerCell */,
 				0427A21426405B0B0029A10C /* AddsCell */,
 				04B6740F26383DA600AFF9C3 /* AddProductPhotoCell */,
 				046887BB261E77620056AC92 /* ShowsCell */,
@@ -393,7 +414,6 @@
 		04170D0A264AAEB000745696 /* VideoDetails */ = {
 			isa = PBXGroup;
 			children = (
-				04170D24264ACB5F00745696 /* VideoContainerVc.swift */,
 				04170D2A264ACB9E00745696 /* VideoDetailsVC.swift */,
 				04DD7844265471E2004A415E /* VideoArtists */,
 				04DD7843265471E0004A415E /* VideoProjects */,
@@ -410,6 +430,33 @@
 				0413E40026307D3700F5977D /* VideosVC.xib */,
 			);
 			path = VideosVc;
+			sourceTree = "<group>";
+		};
+		04242AB126554066003C8B44 /* VideoArtistCell */ = {
+			isa = PBXGroup;
+			children = (
+				04242AB226554089003C8B44 /* VideoArtistCell.swift */,
+				04242AB326554089003C8B44 /* VideoArtistCell.xib */,
+			);
+			path = VideoArtistCell;
+			sourceTree = "<group>";
+		};
+		04242AB826554B12003C8B44 /* VideoProjectCell */ = {
+			isa = PBXGroup;
+			children = (
+				04242AB926554B2C003C8B44 /* VideoProjectCell.swift */,
+				04242ABA26554B2C003C8B44 /* VideoProjectCell.xib */,
+			);
+			path = VideoProjectCell;
+			sourceTree = "<group>";
+		};
+		04242ABF26555E46003C8B44 /* videoPartenerCell */ = {
+			isa = PBXGroup;
+			children = (
+				04242AC026555E7A003C8B44 /* VideoPartenerCell.swift */,
+				04242AC126555E7A003C8B44 /* VideoPartenerCell.xib */,
+			);
+			path = videoPartenerCell;
 			sourceTree = "<group>";
 		};
 		0427A20E263FFA5A0029A10C /* ProductDetails */ = {
@@ -929,7 +976,8 @@
 		04DD7841265471DC004A415E /* VideoPartners */ = {
 			isa = PBXGroup;
 			children = (
-				04DD784F2654728A004A415E /* VideoPartners.swift */,
+				04242AAC26553A65003C8B44 /* VideoPartners.swift */,
+				04242AAD26553A65003C8B44 /* VideoPartners.xib */,
 			);
 			path = VideoPartners;
 			sourceTree = "<group>";
@@ -937,7 +985,8 @@
 		04DD7842265471DE004A415E /* VideoPurchase */ = {
 			isa = PBXGroup;
 			children = (
-				04DD784C2654727C004A415E /* VideoPurchaseVc.swift */,
+				04242AA626553A4E003C8B44 /* VideoPurchaseVc.swift */,
+				04242AA726553A4E003C8B44 /* VideoPurchaseVc.xib */,
 			);
 			path = VideoPurchase;
 			sourceTree = "<group>";
@@ -945,7 +994,8 @@
 		04DD7843265471E0004A415E /* VideoProjects */ = {
 			isa = PBXGroup;
 			children = (
-				04DD78492654726B004A415E /* VideoProjectsVC.swift */,
+				04242AA126553A37003C8B44 /* VideoProjectsVC.swift */,
+				04242AA226553A37003C8B44 /* VideoProjectsVC.xib */,
 			);
 			path = VideoProjects;
 			sourceTree = "<group>";
@@ -953,7 +1003,8 @@
 		04DD7844265471E2004A415E /* VideoArtists */ = {
 			isa = PBXGroup;
 			children = (
-				04DD78452654724F004A415E /* VideoArtists.swift */,
+				04242A9B26553A12003C8B44 /* VideoArtistsVc.swift */,
+				04242A9C26553A12003C8B44 /* VideoArtistsVc.xib */,
 			);
 			path = VideoArtists;
 			sourceTree = "<group>";
@@ -1089,9 +1140,11 @@
 				04D23EF02633127800290488 /* Graphik-Semibold.ttf in Resources */,
 				04D23EEA2633121300290488 /* Graphik-Black.ttf in Resources */,
 				0413E40226307D3700F5977D /* VideosVC.xib in Resources */,
+				04242AA926553A4E003C8B44 /* VideoPurchaseVc.xib in Resources */,
 				0460CF46261CEC27006685B6 /* ArtistCell.xib in Resources */,
 				0488CCF5261213E400E05BEB /* LaunchScreen.storyboard in Resources */,
 				04528E4426149915009868EA /* PasswordVc.xib in Resources */,
+				04242ABC26554B2C003C8B44 /* VideoProjectCell.xib in Resources */,
 				043B47D6261DB5B500D67023 /* ForYouCell.xib in Resources */,
 				0451FD652617A5B600AEE546 /* TitleCell.xib in Resources */,
 				04528E4C2614B54B009868EA /* CreatPasswordVc.xib in Resources */,
@@ -1107,15 +1160,20 @@
 				04911C6A261C9A2900705A58 /* SuggestedCell.xib in Resources */,
 				04F06AF72614E0D600B08606 /* CategeoryCell.xib in Resources */,
 				0414282E26176074000394CA /* HomeCell.xib in Resources */,
+				04242AB526554089003C8B44 /* VideoArtistCell.xib in Resources */,
 				04528E562614B586009868EA /* NameVc.xib in Resources */,
 				04F06AF12614DD5100B08606 /* CategeoryVc.xib in Resources */,
 				040339E22638F21000CEDBD3 /* ListingDetailsVC.xib in Resources */,
 				0488CCF2261213E400E05BEB /* Assets.xcassets in Resources */,
+				04242A9E26553A12003C8B44 /* VideoArtistsVc.xib in Resources */,
+				04242AAF26553A65003C8B44 /* VideoPartners.xib in Resources */,
 				0414287826177E69000394CA /* LiveCellCVC.xib in Resources */,
 				0427A21826405B2D0029A10C /* AddsCell.xib in Resources */,
 				04DEAA422620B4A900F843A6 /* SplashCell.xib in Resources */,
 				0427A212263FFA7B0029A10C /* ProductDetailsVC.xib in Resources */,
+				04242AA426553A37003C8B44 /* VideoProjectsVC.xib in Resources */,
 				04528E5C2614B5AE009868EA /* CountryVc.xib in Resources */,
+				04242AC326555E7A003C8B44 /* VideoPartenerCell.xib in Resources */,
 				0488CCF0261213E000E05BEB /* Main.storyboard in Resources */,
 				046887BF261E77970056AC92 /* ShowesCell.xib in Resources */,
 				04DEAA3C2620B25400F843A6 /* SplashVC.xib in Resources */,
@@ -1191,7 +1249,7 @@
 				0413E4182630879700F5977D /* ArtistsVc.swift in Sources */,
 				04F06AFA2614E18D00B08606 /* CustomImageView.swift in Sources */,
 				04528E4B2614B54B009868EA /* CreatPasswordVc.swift in Sources */,
-				04DD78462654724F004A415E /* VideoArtists.swift in Sources */,
+				04242A9D26553A12003C8B44 /* VideoArtistsVc.swift in Sources */,
 				0414282D26176074000394CA /* HomeCell.swift in Sources */,
 				04170D2B264ACB9E00745696 /* VideoDetailsVC.swift in Sources */,
 				0451B7632627041F000B3983 /* ProjectsModel.swift in Sources */,
@@ -1202,21 +1260,21 @@
 				045AD32B264CA49A00E42D4C /* VideosViewModel.swift in Sources */,
 				0413E40726307D7300F5977D /* ProjectsVC.swift in Sources */,
 				0440ECA82636C7C60046681C /* CompetitionCell.swift in Sources */,
+				04242AC226555E7A003C8B44 /* VideoPartenerCell.swift in Sources */,
 				04DEAA462620BC9500F843A6 /* SplashViewModel.swift in Sources */,
 				042C082A2613943900BE1806 /* LoadingLoginVc.swift in Sources */,
-				04DD784D2654727C004A415E /* VideoPurchaseVc.swift in Sources */,
 				042C081126136B9700BE1806 /* CustomDropDown.swift in Sources */,
 				0413E3AD2630536E00F5977D /* ArtistViewModel.swift in Sources */,
 				040339A12638C95900CEDBD3 /* AddPhotoModel.swift in Sources */,
 				04DEA9D0262093E500F843A6 /* GetServices.swift in Sources */,
 				0451FD8C2617A5D300AEE546 /* ProjectCell.swift in Sources */,
 				04AD610C2628C52B00ADF0DF /* ImageModel.swift in Sources */,
-				04DD784A2654726B004A415E /* VideoProjectsVC.swift in Sources */,
 				0451FD642617A5B600AEE546 /* TitleCell.swift in Sources */,
 				040339D92638D0CD00CEDBD3 /* AlertService.swift in Sources */,
 				0413E3F526307C6200F5977D /* BlogsVc.swift in Sources */,
 				0413E40D26307DC600F5977D /* ProductsVC.swift in Sources */,
 				0413E3AA263051C300F5977D /* ArtistModel.swift in Sources */,
+				04242AA326553A37003C8B44 /* VideoProjectsVC.swift in Sources */,
 				0466872B261B5B1C001D024D /* UICollectionView+Extention.swift in Sources */,
 				04B6741726384D2100AFF9C3 /* ProductViewModel.swift in Sources */,
 				04528E3D26149903009868EA /* EmailVc.swift in Sources */,
@@ -1235,13 +1293,14 @@
 				0488CCE9261213E000E05BEB /* AppDelegate.swift in Sources */,
 				04D23EE826330DBA00290488 /* ArtistProductsVc.swift in Sources */,
 				04688788261E0E170056AC92 /* VerificationVc.swift in Sources */,
+				04242ABB26554B2C003C8B44 /* VideoProjectCell.swift in Sources */,
 				04E186F5261360F400824E37 /* StoryBoardExtension.swift in Sources */,
-				04170D25264ACB5F00745696 /* VideoContainerVc.swift in Sources */,
 				0413E41326307F5E00F5977D /* HomeVc.swift in Sources */,
 				04DEA9D926209FA100F843A6 /* Errors.swift in Sources */,
 				04528E2C26149443009868EA /* ConfigUrls.swift in Sources */,
 				043B47D5261DB5B500D67023 /* ForYouCell.swift in Sources */,
 				0413E40126307D3700F5977D /* VideosVC.swift in Sources */,
+				04242AA826553A4E003C8B44 /* VideoPurchaseVc.swift in Sources */,
 				04DEA9D62620947100F843A6 /* Authentication.swift in Sources */,
 				041427FF26174D76000394CA /* NotificationVc.swift in Sources */,
 				04528E35261495D0009868EA /* LocalizationTitles.swift in Sources */,
@@ -1259,7 +1318,8 @@
 				04F06AF62614E0D600B08606 /* CategeoryCell.swift in Sources */,
 				0460CF6E261D04DD006685B6 /* SplashModel.swift in Sources */,
 				04AD60B3262866E500ADF0DF /* ProjectDetailsVC.swift in Sources */,
-				04DD78502654728A004A415E /* VideoPartners.swift in Sources */,
+				04242AB426554089003C8B44 /* VideoArtistCell.swift in Sources */,
+				04242AAE26553A65003C8B44 /* VideoPartners.swift in Sources */,
 				04B6740B263831EB00AFF9C3 /* AddProductImageVc.swift in Sources */,
 				04C782A8263977B400C90851 /* InventoryPricingVC.swift in Sources */,
 				04528E2F26149496009868EA /* Helper.swift in Sources */,

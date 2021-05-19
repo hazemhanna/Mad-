@@ -38,30 +38,28 @@ struct HomeViewModel {
     func dismissIndicator() {
         SVProgressHUD.dismiss()
     }
+
     
-    func getAllProject(page : Int) -> Observable<ProjectMainModel> {
-        let params: [String: Any] = [
-            "page_number": page,
-            ]
+    func getProject(page : Int,catId : Int) -> Observable<ProjectMainModel> {
+        var params: [String: Any] = [:]
+        if catId != 0{
+            params = [
+                "page_number": page,
+                "category_id":catId
+                ]
+        }else{
+            params = [
+                "page_number": page,
+                ]
+        }
         let observer = GetServices.shared.getAllProject(param : params)
          return observer
      }
-    
-    func getProject(page : Int,catId : Int?) -> Observable<ProjectMainModel> {
-        let params: [String: Any] = [
-            "page_number": page,
-            "category_id":catId
-            ]
-        let observer = GetServices.shared.getAllProject(param : params)
-         return observer
-     }
-    
     
     func getCategories() -> Observable<CategoryModel> {
          let observer = GetServices.shared.getAllCategories()
          return observer
      }
-    
     
     func addToFavourite(productID : Int,Type : Bool) -> Observable<FavouriteModel> {
         let params: [String: Any] = [

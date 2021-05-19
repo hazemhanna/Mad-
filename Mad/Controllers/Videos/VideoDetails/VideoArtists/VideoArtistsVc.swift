@@ -1,20 +1,20 @@
 //
-//  VideoProjectsVC.swift
+//  VideoArtistsVc.swift
 //  Mad
 //
 //  Created by MAC on 19/05/2021.
 //
 
-
-
 import UIKit
-class VideoProjectsVC: UIViewController {
+
+class VideoArtistsVc: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    private let CellIdentifier = "VideoProjectCell"
+    private let CellIdentifier = "VideoArtistCell"
+    
     var showShimmer: Bool = true
     var parentVC : VideoDetailsVc?
-    var project = [Project](){
+    var artist = [Artist](){
         didSet{
             tableView.reloadData()
             showShimmer = false
@@ -24,10 +24,9 @@ class VideoProjectsVC: UIViewController {
         super.viewDidLoad()
         setupContentTableView()
     }
-
 }
 
-extension VideoProjectsVC : UITableViewDelegate,UITableViewDataSource{
+extension VideoArtistsVc : UITableViewDelegate,UITableViewDataSource{
     
     func setupContentTableView() {
         tableView.delegate = self
@@ -37,17 +36,18 @@ extension VideoProjectsVC : UITableViewDelegate,UITableViewDataSource{
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return  self.showShimmer ? 1 : project.count
+        return  self.showShimmer ? 1 : self.artist.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: self.CellIdentifier) as! VideoProjectCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: self.CellIdentifier) as! VideoArtistCell
         if !self.showShimmer{
-            cell.confic(title : project[indexPath.row].title ?? ""
-                        , like :project[indexPath.row].favoriteCount ?? 0
-                        , share : project[indexPath.row].shareCount ?? 0
-                        , projectUrl :project[indexPath.row].imageURL ?? ""
-                        , isFavourite: project[indexPath.row].isFavorite ?? false)
+            cell.confic(title : self.artist[indexPath.row].headline ?? "" ,
+                        profilPicture: self.artist[indexPath.row].profilPicture ?? "",
+                        isFavourite: self.artist[indexPath.row].isFavorite ?? false,
+                        art: self.artist[indexPath.row].isFavorite ?? false,
+                        music: self.artist[indexPath.row].isFavorite ?? false,
+                        design: self.artist[indexPath.row].isFavorite ?? false)
             
         }
         cell.showShimmer = showShimmer
@@ -55,7 +55,7 @@ extension VideoProjectsVC : UITableViewDelegate,UITableViewDataSource{
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        return 80
     }
     
     
