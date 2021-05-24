@@ -17,11 +17,11 @@ class CategeoryVc: UIViewController {
     @IBOutlet weak var artistBtn: UIButton!
 
     let cellIdentifier = "CategeoryCell"
-
     var disposeBag = DisposeBag()
+    
     private let AuthViewModel = AuthenticationViewModel()
+    
     var SelectedCategories = [Int]()
-
     var Categories = [Category]()
     var type = true
     override func viewDidLoad() {
@@ -29,10 +29,10 @@ class CategeoryVc: UIViewController {
         self.CategoryCollectionView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
         self.CategoryCollectionView.delegate = self
         self.CategoryCollectionView.dataSource = self
+        self.AuthViewModel.showIndicator()
         getCategory()
         nextBtn.backgroundColor = #colorLiteral(red: 0.9098039216, green: 0.5764705882, blue: 0.6745098039, alpha: 1)
         self.nextBtn.isEnabled = false
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,7 +60,6 @@ class CategeoryVc: UIViewController {
             self.artistBtn.setImage(#imageLiteral(resourceName: "icon - check (1)"), for: .normal)
             type = true
         }
-        
     }
     
 }
@@ -84,9 +83,9 @@ extension CategeoryVc: UICollectionViewDelegate , UICollectionViewDataSource {
                 self.SelectedCategories.append(self.Categories[indexPath.row].id ?? 0 )
             }else{
                 cell.iconImage.isHidden = true
-                self.SelectedCategories.remove(at: indexPath.row)
+                self.SelectedCategories.removeAll{$0 == self.Categories[indexPath.row].id ?? 0}
             }
-            
+    
             if self.SelectedCategories.count >= 3 {
                 self.nextBtn.backgroundColor = #colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1)
                 self.nextBtn.isEnabled = true

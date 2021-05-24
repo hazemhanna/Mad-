@@ -13,6 +13,7 @@ class ArtistProjectsVc : UIViewController {
     
     @IBOutlet weak var mainTableView: UITableView!
     
+    var projects = [Project]()
     private let CellIdentifier = "HomeCell"
     override func viewDidLoad() {
         super.viewDidLoad()

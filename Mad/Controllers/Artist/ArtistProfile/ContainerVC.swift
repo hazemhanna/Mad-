@@ -50,12 +50,6 @@ class ContainerVC: TabmanViewController {
         
         bar.indicator.tintColor = .clear
         addBar(bar.systemBar(), dataSource: self, at: .top)
-                let fontFamilyNames = UIFont.familyNames
-                for familyName in fontFamilyNames {
-                    print("Font Family Name = [\(familyName)]")
-                    let names = UIFont.fontNames(forFamilyName: familyName)
-                    print("Font Names = [\(names)]")
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -87,6 +81,5 @@ func barItem(for bar: TMBar, at index: Int) -> TMBarItemable {
         }else {
            return TMBarItem(title:  "Competitions")
         }
-    
-}
+    }
 }

@@ -47,7 +47,7 @@ struct User: Codable {
     let age: Int?
     let madArtist, activate: Bool?
     let userEmail, userRegistered: String?
-    let country: Country?
+    let country: String?
     let categories: [Category]?
 
     enum CodingKeys: String, CodingKey {

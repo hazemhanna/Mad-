@@ -9,7 +9,6 @@ import Foundation
 import RxSwift
 import SVProgressHUD
 
-
 struct ArtistViewModel {
     
     func showIndicator() {
@@ -19,10 +18,8 @@ struct ArtistViewModel {
     func dismissIndicator() {
         SVProgressHUD.dismiss()
     }
-
     
     func getAllArtist(pageNum :Int) -> Observable<ArtistModelJson> {
-       
         let params: [String: Any] = [
             "page_number": pageNum
         ]
@@ -38,7 +35,6 @@ struct ArtistViewModel {
          return observer
      }
     
-    
     func addToFavourite(artistId : Int,Type : Bool) -> Observable<ArtistFavouriteModel> {
         let params: [String: Any] = [
             "artist_id": artistId,
@@ -48,10 +44,16 @@ struct ArtistViewModel {
          return observer
      }
     
-    
-    
     func getSuggested() -> Observable<SuggestedModel> {
          let observer = GetServices.shared.getSuggested()
+         return observer
+     }
+    
+    func getArtistProfile(artistId : Int) -> Observable<ArtistProfileModelJSON> {
+        let params: [String: Any] = [
+            "id": artistId,
+            ]
+        let observer = GetServices.shared.getArtistProfile(param : params)
          return observer
      }
     

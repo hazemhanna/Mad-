@@ -268,7 +268,14 @@
                     </view>
                     <navigationItem key="navigationItem" id="rfI-Sp-Sqx"/>
                     <connections>
+                        <outlet property="ProfileImage" destination="qfv-Ah-2a2" id="bCW-BJ-IoE"/>
+                        <outlet property="artistName" destination="ZgV-bL-D5Q" id="LnO-J5-X4F"/>
+                        <outlet property="bannerImage" destination="nGl-Fn-Pf7" id="NL7-BD-OB8"/>
                         <outlet property="containerView" destination="uWV-Tr-h7P" id="3CJ-Pw-bwB"/>
+                        <outlet property="favouriteCount" destination="OSe-V8-9V5" id="29y-SW-dQg"/>
+                        <outlet property="followBtn" destination="A4a-nq-vOB" id="K9u-Tk-oF9"/>
+                        <outlet property="followersCount" destination="FYw-fH-JyD" id="DKl-0W-h6p"/>
+                        <outlet property="followingCount" destination="o8X-No-bLE" id="o9S-Jr-IsC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M1I-sJ-eoz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -390,6 +397,12 @@
                                         <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="34C-4L-t9F">
+                                        <rect key="frame" x="351.5" y="117" width="30.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.21960784310000001" green="0.51372549020000002" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CQb-qN-Zmh">
                                         <rect key="frame" x="32" y="169.5" width="350" height="0.5"/>
                                         <color key="backgroundColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -431,13 +444,17 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="l4U-eL-AR0">
                                                 <rect key="frame" x="0.0" y="52.5" width="104.5" height="15"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Path 430" translatesAutoresizingMaskIntoConstraints="NO" id="mlF-So-THJ">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O3d-9M-Doc">
                                                         <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="15" id="m1H-AM-Ls3"/>
-                                                            <constraint firstAttribute="height" constant="15" id="xNt-zm-BIX"/>
+                                                            <constraint firstAttribute="width" constant="15" id="hDx-zh-IEG"/>
+                                                            <constraint firstAttribute="height" constant="15" id="jpw-tD-aZU"/>
                                                         </constraints>
-                                                    </imageView>
+                                                        <state key="normal" image="Path 430"/>
+                                                        <connections>
+                                                            <action selector="didClickFacebookLink" destination="BUd-dL-zSQ" eventType="touchUpInside" id="HmK-K7-ybY"/>
+                                                        </connections>
+                                                    </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rolazn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rX3-pb-jrb">
                                                         <rect key="frame" x="23" y="0.0" width="81.5" height="15"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
@@ -449,13 +466,17 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Mye-Lc-D39">
                                                 <rect key="frame" x="0.0" y="99.5" width="104.5" height="15"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Path 429" translatesAutoresizingMaskIntoConstraints="NO" id="qz2-HA-OT7">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A57-Ex-mTJ">
                                                         <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="15" id="3Iw-VJ-wMm"/>
-                                                            <constraint firstAttribute="height" constant="15" id="KnU-zE-OAH"/>
+                                                            <constraint firstAttribute="width" constant="15" id="jzW-qe-q4Y"/>
+                                                            <constraint firstAttribute="height" constant="15" id="zld-OO-Fzv"/>
                                                         </constraints>
-                                                    </imageView>
+                                                        <state key="normal" image="Path 429"/>
+                                                        <connections>
+                                                            <action selector="didClickTwitterLink" destination="BUd-dL-zSQ" eventType="touchUpInside" id="8Bb-XB-Ccx"/>
+                                                        </connections>
+                                                    </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rolazn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ws-Uj-THQ">
                                                         <rect key="frame" x="23" y="0.0" width="81.5" height="15"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
@@ -467,13 +488,17 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="NTJ-Gv-8wc">
                                                 <rect key="frame" x="0.0" y="146.5" width="104.5" height="15"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group 350" translatesAutoresizingMaskIntoConstraints="NO" id="6zd-3U-5Ed">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oM8-I2-hEE">
                                                         <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="15" id="7Vu-f5-4fc"/>
-                                                            <constraint firstAttribute="width" constant="15" id="E0E-Fq-82i"/>
+                                                            <constraint firstAttribute="height" constant="15" id="DF0-PR-3SE"/>
+                                                            <constraint firstAttribute="width" constant="15" id="IJ3-zv-LKu"/>
                                                         </constraints>
-                                                    </imageView>
+                                                        <state key="normal" image="Group 350"/>
+                                                        <connections>
+                                                            <action selector="didClickInstgramlinl" destination="BUd-dL-zSQ" eventType="touchUpInside" id="JVH-WD-v9S"/>
+                                                        </connections>
+                                                    </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rolazn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I74-M8-XQG">
                                                         <rect key="frame" x="23" y="0.0" width="81.5" height="15"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
@@ -499,7 +524,9 @@
                                     <constraint firstItem="xmg-4j-Ocd" firstAttribute="leading" secondItem="smf-2o-p9Y" secondAttribute="leading" constant="32" id="JEp-WW-yrc"/>
                                     <constraint firstItem="CQb-qN-Zmh" firstAttribute="leading" secondItem="smf-2o-p9Y" secondAttribute="leading" constant="32" id="LmU-mX-R2e"/>
                                     <constraint firstItem="mfE-KZ-0yy" firstAttribute="leading" secondItem="smf-2o-p9Y" secondAttribute="leading" constant="32" id="PTj-gK-itW"/>
+                                    <constraint firstAttribute="trailing" secondItem="34C-4L-t9F" secondAttribute="trailing" constant="32" id="QLQ-qu-tJT"/>
                                     <constraint firstItem="zd6-yP-fr5" firstAttribute="top" secondItem="uRJ-ul-Nf3" secondAttribute="bottom" constant="32" id="RAp-Xp-U1U"/>
+                                    <constraint firstItem="34C-4L-t9F" firstAttribute="centerY" secondItem="mfE-KZ-0yy" secondAttribute="centerY" id="RF4-tB-emP"/>
                                     <constraint firstAttribute="trailing" secondItem="Pd2-61-TUO" secondAttribute="trailing" constant="32" id="aed-0I-d8T"/>
                                     <constraint firstItem="xmg-4j-Ocd" firstAttribute="top" secondItem="CQb-qN-Zmh" secondAttribute="bottom" constant="32" id="dep-CN-KU3"/>
                                     <constraint firstItem="ESi-7v-6Re" firstAttribute="top" secondItem="Pd2-61-TUO" secondAttribute="bottom" constant="32" id="jZl-aB-6u7"/>
@@ -518,6 +545,14 @@
                             <constraint firstItem="smf-2o-p9Y" firstAttribute="leading" secondItem="h9t-ea-uoM" secondAttribute="leading" id="ppz-JZ-OWs"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="bioLbTextView" destination="Pd2-61-TUO" id="Shq-EA-LkT"/>
+                        <outlet property="facebookName" destination="rX3-pb-jrb" id="qTn-7G-d6h"/>
+                        <outlet property="instgramName" destination="I74-M8-XQG" id="rwH-xf-zWQ"/>
+                        <outlet property="levelLbl" destination="OoF-Zp-TJc" id="yHg-uX-QJe"/>
+                        <outlet property="pointLbl" destination="34C-4L-t9F" id="fYL-X7-0J7"/>
+                        <outlet property="twitterName" destination="9Ws-Uj-THQ" id="Gam-Ou-RF8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fiq-wN-AC7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

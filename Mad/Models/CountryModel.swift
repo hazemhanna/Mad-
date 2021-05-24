@@ -11,7 +11,7 @@ import Foundation
 // MARK: - CountryModel
 struct CountryModel: Codable {
     let success: Bool?
-    let data: [Country]?
+    let data: [String]?
     let message: String?
     let errors: Bool?
 }

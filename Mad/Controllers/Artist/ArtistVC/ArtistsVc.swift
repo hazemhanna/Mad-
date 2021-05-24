@@ -18,7 +18,6 @@ class ArtistsVc: UIViewController {
     let cellIdentifier2 = "SuggestedCell"
     let cellIdentifier3 = "ArtistCell"
     var parentVC : HomeVC?
-
     var artistVM = ArtistViewModel()
     var disposeBag = DisposeBag()
     var artists = [Artist]()
@@ -127,6 +126,7 @@ extension ArtistsVc : UICollectionViewDelegate ,UICollectionViewDataSource{
         if collectionView == artistsCollectionView {
         if showShimmer3 {return}
         let vc = UIStoryboard(name: "Artist", bundle: nil).instantiateViewController(withIdentifier: "ArtistProfileVc")  as! ArtistProfileVc
+            vc.artistId = self.artists[indexPath.row].id ?? 0
         self.navigationController?.pushViewController(vc, animated: true)
         }
     }

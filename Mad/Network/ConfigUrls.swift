@@ -17,7 +17,7 @@ struct ConfigURLS {
     static var checkOtp = BASE_URL  + "auth/check_otp"
     static var completeRegister = BASE_URL  + "auth/complete_profile"
     static var login = BASE_URL  + "auth/login"
-    static var getCountry = BASE_URL  + "countries"
+    static var getCountry = BASE_URL  + "active_countries"
     static var getCategeory = BASE_URL  + "categories"
     // project
     static var getProject = BASE_URL  + "project/all"
@@ -27,6 +27,7 @@ struct ConfigURLS {
     // artist
     static var addArtistToFavourite = BASE_URL  + "artist/edit_favorite"
     static var getAllArtist = BASE_URL  + "artist/all"
+    static var getArtistProfile = BASE_URL  + "artist/get"
     static var editArtistFavourite = BASE_URL  + "artist/edit_favorite"
     static var getSuggested = BASE_URL  + "artist/suggested"
     // product

@@ -9,6 +9,30 @@ import Foundation
 import UIKit
 
 class Helper {
+    
+    struct UIApplicationURL{
+        static func openUrl(url:String,isEmail:Bool = false) {
+            if isEmail {
+                let email = url
+                if let url = URL(string: "mailto:\(email)") {
+                    if #available(iOS 10.0, *) {
+                        UIApplication.shared.open(url)
+                    } else {
+                        UIApplication.shared.openURL(url)
+                    }
+                }
+            }else {
+                if let url = URL(string: url) {
+                    if #available(iOS 10.0, *) {
+                        UIApplication.shared.open(url, options: [:])
+                    } else {
+                        UIApplication.shared.openURL(url)
+                    }
+                }
+            }
+        }
+    }
+        
     class func saveAlogin(token: String,email: String) {
         let def = UserDefaults.standard
         def.set(token, forKey: "token")
@@ -87,14 +111,14 @@ class Helper {
         return def.object(forKey: "Age") as? String
     }
     
-    class func saveCountry(id: Int) {
+    class func saveCountry(id: String) {
         let def = UserDefaults.standard
         def.set(id, forKey: "Id")
         def.synchronize()
     }
-    class func getUserCountry() -> Int? {
+    class func getUserCountry() -> String? {
         let def = UserDefaults.standard
-        return def.object(forKey: "Id") as? Int
+        return def.object(forKey: "Id") as? String
     }
     
     class func saveCode(code: String) {

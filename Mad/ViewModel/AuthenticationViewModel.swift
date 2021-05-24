@@ -13,14 +13,14 @@ import SVProgressHUD
 struct AuthenticationViewModel {
 
     var categories = PublishSubject<[Category]>()
-    var countries = PublishSubject<[Country]>()
+    var countries = PublishSubject<[String]>()
 
     
     func fetchCategories(Categories: [Category]) {
           self.categories.onNext(Categories)
       }
     
-    func fetchCountries(Countries: [Country]) {
+    func fetchCountries(Countries: [String]) {
           self.countries.onNext(Countries)
       }
    
@@ -60,7 +60,7 @@ struct AuthenticationViewModel {
         let firstName =  Helper.getUserFirstName() ?? ""
         let  LastName =  Helper.getUserLastName() ?? ""
         let age =  Helper.getUserAge() ?? ""
-        let countryId = Helper.getUserCountry() ?? 0
+        let country = Helper.getUserCountry() ?? ""
         let type =  type
         let code =  Helper.getUserCode() ?? ""
         
@@ -71,7 +71,7 @@ struct AuthenticationViewModel {
             "first_name": firstName,
             "last_name": LastName,
             "age": age,
-            "country_id": countryId,
+            "country": country,
             "mad_artist": type,
             "verification_code": code,
             "categories": categories,

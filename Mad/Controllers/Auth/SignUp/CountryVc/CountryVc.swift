@@ -16,7 +16,7 @@ class CountryVc: UIViewController {
     var disposeBag = DisposeBag()
 
     var cats = [String]()
-    var countries = [Country]() {
+    var countries = [String]() {
         didSet {
             DispatchQueue.main.async {
                 self.AuthViewModel.fetchCountries(Countries: self.countries)
@@ -34,7 +34,7 @@ class CountryVc: UIViewController {
         selectCateDropDown.optionArray = self.cats
         selectCateDropDown.didSelect { (selectedText, index, id) in
             self.selectCateDropDown.text = selectedText
-            Helper.saveCountry(id: self.countries[index].id ?? 0)
+            Helper.saveCountry(id: self.countries[index])
         }
     }
     
@@ -74,11 +74,7 @@ extension CountryVc {
             if dataModel.success ?? false {
                 self.AuthViewModel.dismissIndicator()
                 self.countries = dataModel.data ?? []
-                for cats in self.countries{
-                 var name = String()
-                 name = cats.name ?? ""
-                 self.cats.append(name)
-                }
+                self.cats = dataModel.data ?? []
                 self.setupCatDropDown()
             }
         }, onError: { (error) in

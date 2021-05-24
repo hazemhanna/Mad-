@@ -109,14 +109,6 @@ extension VideosVC: UICollectionViewDelegate , UICollectionViewDataSource {
                              share : shows[indexPath.row].shareCount ?? 0,
                              imageUrl :shows[indexPath.row].imageURL ?? "",
                              isFavourite :shows[indexPath.row].isFavorite ?? false)
-
-                
-                cell.openDetails = {
-                    let sb = UIStoryboard(name: "Video", bundle: nil).instantiateViewController(withIdentifier: "VideoDetailsVc") as! VideoDetailsVc
-                    sb.videoId = self.shows[indexPath.row].id ?? 0
-                    self.navigationController?.pushViewController(sb, animated: true)
-                }
-                
                 cell.favourite = {
                     if Helper.getAPIToken() == nil {
                         return
@@ -162,13 +154,7 @@ extension VideosVC: UICollectionViewDelegate , UICollectionViewDataSource {
                              share : showsCases[indexPath.row].shareCount ?? 0,
                              imageUrl :showsCases[indexPath.row].imageURL ?? "",
                              isFavourite :showsCases[indexPath.row].isFavorite ?? false)
-                
-                cell.openDetails = {
-                    let sb = UIStoryboard(name: "Video", bundle: nil).instantiateViewController(withIdentifier: "VideoDetailsVc") as! VideoDetailsVc
-                    sb.videoId = self.showsCases[indexPath.row].id ?? 0
-                    self.navigationController?.pushViewController(sb, animated: true)
-                }
-                
+ 
                 cell.favourite = {
                     if Helper.getAPIToken() == nil {
                         return
@@ -215,11 +201,6 @@ extension VideosVC: UICollectionViewDelegate , UICollectionViewDataSource {
                              imageUrl :interviews[indexPath.row].imageURL ?? "",
                              isFavourite :interviews[indexPath.row].isFavorite ?? false)
 
-                cell.openDetails = {
-                    let sb = UIStoryboard(name: "Video", bundle: nil).instantiateViewController(withIdentifier: "VideoDetailsVc") as! VideoDetailsVc
-                    sb.videoId = self.interviews[indexPath.row].id ?? 0
-                    self.navigationController?.pushViewController(sb, animated: true)
-                }
                 
                 cell.favourite = {
                     if Helper.getAPIToken() == nil {
@@ -267,13 +248,6 @@ extension VideosVC: UICollectionViewDelegate , UICollectionViewDataSource {
                              share : afterMoviews[indexPath.row].shareCount ?? 0,
                              imageUrl :afterMoviews[indexPath.row].imageURL ?? "",
                              isFavourite :afterMoviews[indexPath.row].isFavorite ?? false)
-
-                cell.openDetails = {
-                    let sb = UIStoryboard(name: "Video", bundle: nil).instantiateViewController(withIdentifier: "VideoDetailsVc") as! VideoDetailsVc
-                    sb.videoId = self.afterMoviews[indexPath.row].id ?? 0
-                    self.navigationController?.pushViewController(sb, animated: true)
-                }
-                
                   cell.favourite = {
                     if Helper.getAPIToken() == nil {
                         return
@@ -315,9 +289,26 @@ extension VideosVC: UICollectionViewDelegate , UICollectionViewDataSource {
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView == afterMovieCollectionView{
-           
+        if self.showShimmer2 {
+            return
         }
+        if collectionView == showsCollectionView{
+            let sb = UIStoryboard(name: "Video", bundle: nil).instantiateViewController(withIdentifier: "VideoDetailsVc") as! VideoDetailsVc
+            sb.videoId = self.shows[indexPath.row].id ?? 0
+            self.navigationController?.pushViewController(sb, animated: true)
+        }else if collectionView == showCasesCollectionView{
+            let sb = UIStoryboard(name: "Video", bundle: nil).instantiateViewController(withIdentifier: "VideoDetailsVc") as! VideoDetailsVc
+            sb.videoId = self.showsCases[indexPath.row].id ?? 0
+            self.navigationController?.pushViewController(sb, animated: true)
+        }else if collectionView == interviewsCollectionView{
+            let sb = UIStoryboard(name: "Video", bundle: nil).instantiateViewController(withIdentifier: "VideoDetailsVc") as! VideoDetailsVc
+            sb.videoId = self.interviews[indexPath.row].id ?? 0
+            self.navigationController?.pushViewController(sb, animated: true)
+        }else if collectionView == afterMovieCollectionView{
+            let sb = UIStoryboard(name: "Video", bundle: nil).instantiateViewController(withIdentifier: "VideoDetailsVc") as! VideoDetailsVc
+            sb.videoId = self.afterMoviews[indexPath.row].id ?? 0
+            self.navigationController?.pushViewController(sb, animated: true)
+      }
     }
     
 }
