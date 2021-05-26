@@ -121,6 +121,17 @@ class Helper {
         return def.object(forKey: "Id") as? String
     }
     
+    class func saveArtistId(id: Int) {
+        let def = UserDefaults.standard
+        def.set(id, forKey: "artistId")
+        def.synchronize()
+    }
+    
+    class func getArtistId() -> Int? {
+        let def = UserDefaults.standard
+        return def.object(forKey: "artistId") as? Int
+    }
+    
     class func saveCode(code: String) {
         let def = UserDefaults.standard
         def.set(code, forKey: "code")

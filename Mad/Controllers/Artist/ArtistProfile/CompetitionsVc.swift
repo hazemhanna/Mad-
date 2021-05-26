@@ -6,15 +6,24 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class CompetitionsVc: UIViewController {
    
     @IBOutlet weak var tableView: UITableView!
     let cellIdentifier = "CompetitionCell"
     
+    
+    var artistVM = ArtistViewModel()
+    var disposeBag = DisposeBag()
+    var artistId = Int()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupContentTableView()
+        getArtistProfile(artistId : 8825)
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,4 +54,17 @@ extension CompetitionsVc : UITableViewDelegate,UITableViewDataSource{
         return 130
     }
     
+}
+
+extension CompetitionsVc{
+    func getArtistProfile(artistId : Int) {
+        artistVM.getArtistProfile(artistId: artistId).subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+            //self.social = dataModel.data?.socialLinks ?? []
+           }
+       }, onError: { (error) in
+        self.artistVM.dismissIndicator()
+
+       }).disposed(by: disposeBag)
+   }
 }

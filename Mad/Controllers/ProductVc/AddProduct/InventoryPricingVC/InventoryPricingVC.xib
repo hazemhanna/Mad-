@@ -25,10 +25,10 @@
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U2O-yX-dEP">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                        <rect key="frame" x="0.0" y="8" width="414" height="100"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Inventory and pricing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ww5-lc-4Oa">
-                                <rect key="frame" x="131.5" y="40.5" width="151" height="19"/>
+                                <rect key="frame" x="125" y="42" width="164" height="16"/>
                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="16"/>
                                 <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -55,7 +55,7 @@
                         </constraints>
                     </view>
                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yoo-nJ-cP4">
-                        <rect key="frame" x="0.0" y="100" width="414" height="762"/>
+                        <rect key="frame" x="0.0" y="108" width="414" height="788"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c4E-kx-l5X">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="800"/>
@@ -496,12 +496,12 @@
                 <constraints>
                     <constraint firstItem="U2O-yX-dEP" firstAttribute="leading" secondItem="GGt-WR-gvE" secondAttribute="leading" id="0As-Qk-W1q"/>
                     <constraint firstItem="GGt-WR-gvE" firstAttribute="trailing" secondItem="yoo-nJ-cP4" secondAttribute="trailing" id="0Ql-Fs-5Vm"/>
-                    <constraint firstItem="U2O-yX-dEP" firstAttribute="top" secondItem="GGt-WR-gvE" secondAttribute="top" constant="-44" id="4Wa-EL-bEP"/>
+                    <constraint firstItem="yoo-nJ-cP4" firstAttribute="top" secondItem="U2O-yX-dEP" secondAttribute="bottom" id="1o2-CX-XpE"/>
+                    <constraint firstItem="U2O-yX-dEP" firstAttribute="top" secondItem="duI-cv-xuZ" secondAttribute="top" constant="8" id="4Wa-EL-bEP"/>
                     <constraint firstItem="c4E-kx-l5X" firstAttribute="centerX" secondItem="GGt-WR-gvE" secondAttribute="centerX" id="B34-Zz-zwG"/>
                     <constraint firstItem="GGt-WR-gvE" firstAttribute="trailing" secondItem="U2O-yX-dEP" secondAttribute="trailing" id="PqZ-r7-8U2"/>
                     <constraint firstItem="yoo-nJ-cP4" firstAttribute="leading" secondItem="GGt-WR-gvE" secondAttribute="leading" id="fxe-AC-PBM"/>
-                    <constraint firstItem="yoo-nJ-cP4" firstAttribute="top" secondItem="duI-cv-xuZ" secondAttribute="top" constant="100" id="iDN-mx-Xil"/>
-                    <constraint firstItem="GGt-WR-gvE" firstAttribute="bottom" secondItem="yoo-nJ-cP4" secondAttribute="bottom" id="oj0-Gx-2B1"/>
+                    <constraint firstAttribute="bottom" secondItem="yoo-nJ-cP4" secondAttribute="bottom" id="oj0-Gx-2B1"/>
                 </constraints>
             </view>
             <navigationItem key="navigationItem" id="ujz-f7-Iak"/>
@@ -514,19 +514,19 @@
     </objects>
     <designables>
         <designable name="Ev1-u9-Ohk">
-            <size key="intrinsicContentSize" width="47" height="40.5"/>
+            <size key="intrinsicContentSize" width="26" height="17.5"/>
         </designable>
         <designable name="Y3C-Hy-nqP">
-            <size key="intrinsicContentSize" width="47" height="40.5"/>
+            <size key="intrinsicContentSize" width="26" height="17.5"/>
         </designable>
         <designable name="oKu-3C-54Z">
             <size key="intrinsicContentSize" width="35" height="33"/>
         </designable>
         <designable name="pT6-s5-0B9">
-            <size key="intrinsicContentSize" width="38" height="40.5"/>
+            <size key="intrinsicContentSize" width="20.5" height="17.5"/>
         </designable>
         <designable name="yG5-3n-1Go">
-            <size key="intrinsicContentSize" width="38" height="40.5"/>
+            <size key="intrinsicContentSize" width="18" height="17.5"/>
         </designable>
     </designables>
     <resources>

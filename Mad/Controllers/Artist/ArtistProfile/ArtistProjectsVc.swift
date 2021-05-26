@@ -7,25 +7,32 @@
 
 
 import UIKit
-
+import RxSwift
+import RxCocoa
 
 class ArtistProjectsVc : UIViewController {
     
     @IBOutlet weak var mainTableView: UITableView!
     
-    var projects = [Project]()
+ 
     private let CellIdentifier = "HomeCell"
+    var artistVM = ArtistViewModel()
+    var disposeBag = DisposeBag()
+    var artistId = Helper.getArtistId() ?? 0
+    var showShimmer: Bool = true
+    var projects = [Project]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupContentTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        getArtistProfile(artistId : artistId)
         self.navigationController?.navigationBar.isHidden = true
     }
 
- 
-
+    
 }
 
 extension ArtistProjectsVc: UITableViewDelegate,UITableViewDataSource{
@@ -39,13 +46,22 @@ extension ArtistProjectsVc: UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return self.showShimmer ? 3 : self.projects.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.CellIdentifier) as! HomeCell
-        //cell.editBtn.isHidden = false
-
+        if !self.showShimmer {
+        cell.confic(name : projects[indexPath.row].artist?.name ?? "MAD"
+                    ,date : projects[indexPath.row].createdAt ?? ""
+                    , title : projects[indexPath.row].title ?? ""
+                    , like :projects[indexPath.row].favoriteCount ?? 0
+                    , share : projects[indexPath.row].shareCount ?? 0
+                    , profileUrl : projects[indexPath.row].artist?.profilPicture ?? ""
+                    , projectUrl :projects[indexPath.row].imageURL ?? ""
+                    , trustUrl : "", isFavourite: projects[indexPath.row].isFavorite ?? false)
+        }
+        cell.showShimmer = showShimmer
         return cell
     }
     
@@ -54,3 +70,18 @@ extension ArtistProjectsVc: UITableViewDelegate,UITableViewDataSource{
     
 }
 
+
+extension ArtistProjectsVc  {
+    func getArtistProfile(artistId : Int) {
+        artistVM.getArtistProfile(artistId: artistId).subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+            self.showShimmer = false
+            self.projects = dataModel.data?.projects ?? []
+            self.mainTableView.reloadData()
+           }
+       }, onError: { (error) in
+        self.artistVM.dismissIndicator()
+
+       }).disposed(by: disposeBag)
+   }
+}
