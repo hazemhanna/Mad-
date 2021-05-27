@@ -17,7 +17,6 @@ class ProductDetailsVC: UIViewController {
 
     @IBOutlet weak var photoCount: UILabel!
     @IBOutlet weak var photoIndex: UILabel!
-
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var producttitle: UITextView!
     @IBOutlet weak var productPrice: UILabel!
@@ -55,7 +54,6 @@ class ProductDetailsVC: UIViewController {
         addsCollectionView.delegate = self
         addsCollectionView.dataSource = self
         addsCollectionView.isPagingEnabled = true
-
         relatedProductCollectionView.delegate = self
         relatedProductCollectionView.dataSource = self
         

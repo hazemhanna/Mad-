@@ -77,27 +77,9 @@
                                                             </label>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hT5-VZ-0Tk" customClass="CustomView" customModule="Mad" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="38" width="350" height="42"/>
-                                                                <subviews>
-                                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nCA-FK-Nkr">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="350" height="42"/>
-                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                                        <color key="textColor" systemColor="labelColor"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                                        <userDefinedRuntimeAttributes>
-                                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                                <real key="value" value="25"/>
-                                                                            </userDefinedRuntimeAttribute>
-                                                                        </userDefinedRuntimeAttributes>
-                                                                    </textView>
-                                                                </subviews>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="42" id="Hn4-DH-rrK"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="nCA-FK-Nkr" secondAttribute="trailing" id="MeI-Ca-Nwe"/>
-                                                                    <constraint firstItem="nCA-FK-Nkr" firstAttribute="top" secondItem="hT5-VZ-0Tk" secondAttribute="top" id="RA9-UL-GFV"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="nCA-FK-Nkr" secondAttribute="bottom" id="WxM-88-b9h"/>
-                                                                    <constraint firstItem="nCA-FK-Nkr" firstAttribute="leading" secondItem="hT5-VZ-0Tk" secondAttribute="leading" id="ohm-y6-4l5"/>
                                                                 </constraints>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="NO"/>
@@ -826,6 +808,7 @@
             <connections>
                 <outlet property="DigitalRadioButton" destination="lAw-6Z-zlv" id="W7Z-kB-RNm"/>
                 <outlet property="PhysicalRadioButton" destination="Hwj-QW-7wn" id="ufi-IL-UOs"/>
+                <outlet property="tagsView" destination="hT5-VZ-0Tk" id="bQn-yw-gZa"/>
             </connections>
             <point key="canvasLocation" x="-1791.304347826087" y="1717.6339285714284"/>
         </viewController>
@@ -852,9 +835,6 @@
         <image name="Ellipse 23" width="23" height="23"/>
         <image name="Group 119" width="36" height="17"/>
         <image name="Group 58" width="12" height="16.5"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

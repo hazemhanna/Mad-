@@ -326,4 +326,24 @@ class GetServices {
                return Disposables.create()
            }
        }
+    
+
+    func catProduct() -> Observable<CategoryModel> {
+        return Observable.create { (observer) -> Disposable in
+            let url = ConfigURLS.catProduct
+            Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil)
+                .validate(statusCode: 200..<300)
+                .responseJSON { (response: DataResponse<Any>) in
+                    do {
+                        let CategoriesData = try JSONDecoder().decode(CategoryModel.self, from: response.data!)
+                        observer.onNext(CategoriesData)
+                    } catch {
+                        print(error.localizedDescription)
+                        observer.onError(error)
+                    }
+            }
+            return Disposables.create()
+        }
+    }
+    
 }

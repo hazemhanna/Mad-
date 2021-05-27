@@ -115,4 +115,9 @@ struct ProductViewModel {
     
     
     
+    func getProductCategories() -> Observable<CategoryModel> {
+         let observer = GetServices.shared.catProduct()
+         return observer
+     }
+    
 }

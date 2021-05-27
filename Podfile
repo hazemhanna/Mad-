@@ -23,4 +23,6 @@ target 'Mad' do
   pod 'Shimmer'
   pod 'SwifterSwift'
   pod 'Tabman'
+  pod "WSTagsField"
+
 end
