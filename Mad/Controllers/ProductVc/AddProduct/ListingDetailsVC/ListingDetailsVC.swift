@@ -202,7 +202,7 @@ extension ListingDetailsVC {
 
             self.filteredStrings = self.currencyArray.filter({return $0.contains(text ?? "")})
             self.view.addSubview(self.typePickerView)
-            self.typePickerView.frame = CGRect(x: 250, y: 100, width: 150, height: 160)
+            self.typePickerView.frame = CGRect(x: 200, y: 100, width: 150, height: 160)
             self.typePickerView.delegate = self
             self.typePickerView.dataSource = self
             self.typePickerView.isHidden = true

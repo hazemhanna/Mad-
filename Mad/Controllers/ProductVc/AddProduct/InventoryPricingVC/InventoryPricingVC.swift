@@ -133,6 +133,8 @@ extension InventoryPricingVC {
             if dataModel.success ?? false {
                 self.productVM.dismissIndicator()
                 self.showMessage(text: dataModel.message ?? "")
+                let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
+                self.navigationController!.popToViewController(viewControllers[viewControllers.count - 4], animated: true)
             }else{
                 self.showMessage(text: dataModel.message ?? "")
             }

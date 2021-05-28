@@ -89,7 +89,7 @@ struct ProductViewModel {
                       quantity_limitation:String,
                       delivery:Int,
                       delivery_index:String,
-                      photos:[UIImage]) -> Observable<ProductModelJson> {
+                      photos:[UIImage]) -> Observable<AddProductModelJson> {
         let params: [String: Any] = [
             "categories": categories,
             "title": title,

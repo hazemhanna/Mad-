@@ -187,7 +187,7 @@ struct AddServices {
            }
        }
         
-    func createProduct(image: [UIImage],params: [String : Any]) -> Observable<ProductModelJson> {
+    func createProduct(image: [UIImage],params: [String : Any]) -> Observable<AddProductModelJson> {
           return Observable.create { (observer) -> Disposable in
             let url = ConfigURLS.createProduct
             let token = Helper.getAPIToken() ?? ""
@@ -234,7 +234,7 @@ struct AddServices {
                         print("Image Uploading Progress: \(progress.fractionCompleted)")
                     }.responseJSON { (response: DataResponse<Any>) in
                do {
-                      let data = try JSONDecoder().decode(ProductModelJson.self, from: response.data!)
+                      let data = try JSONDecoder().decode(AddProductModelJson.self, from: response.data!)
                         print(data)
                           observer.onNext(data)
                        } catch {
