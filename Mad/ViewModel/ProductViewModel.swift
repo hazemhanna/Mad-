@@ -107,10 +107,9 @@ struct ProductViewModel {
             "quantity_limitation":quantity_limitation,
             "delivery":delivery,
             "delivery_index":delivery_index,
-            "photos":photos
         ]
-        let observer = AddServices.shared.createProduct(param : params)
-         return observer
+        let observer = AddServices.shared.createProduct(image: photos,params : params)
+            return observer
      }
     
     

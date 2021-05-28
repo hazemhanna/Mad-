@@ -967,9 +967,9 @@
 		04B674072638319500AFF9C3 /* AddProduct */ = {
 			isa = PBXGroup;
 			children = (
-				04C782A42639773F00C90851 /* InventoryPricingVC */,
-				040339DE2638F1DC00CEDBD3 /* ListingDetailsVC */,
 				04B67408263831B000AFF9C3 /* ProductPhotoVc */,
+				040339DE2638F1DC00CEDBD3 /* ListingDetailsVC */,
+				04C782A42639773F00C90851 /* InventoryPricingVC */,
 			);
 			path = AddProduct;
 			sourceTree = "<group>";
