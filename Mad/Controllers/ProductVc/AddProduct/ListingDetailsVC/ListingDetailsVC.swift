@@ -26,11 +26,11 @@ class ListingDetailsVC: UIViewController {
     @IBOutlet weak var weight: UITextField!
     @IBOutlet weak var height: UITextField!
 
-    var type = "Physical"
+    var type = "physical"
     var disposeBag = DisposeBag()
     var productVM = ProductViewModel()
     var categeory = [Category]()
-    var selectedCat = [Category]()
+    var selectedCat = [Int]()
     var currencyArray = [String]()
     var uploadedPhoto = [UIImage]()
     var filteredStrings = [String]()
@@ -153,7 +153,7 @@ class ListingDetailsVC: UIViewController {
         for index in uniqTags{
             for cat in self.categeory{
                 if index == cat.name{
-                self.selectedCat.append(cat)
+                    self.selectedCat.append(cat.id ?? 0)
                 }
             }
         }

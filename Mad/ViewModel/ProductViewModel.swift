@@ -73,7 +73,7 @@ struct ProductViewModel {
          return observer
      }
     
-    func CreatProduct(categories :[Category],
+    func CreatProduct(categories :[Int],
                       title :String,
                       short_description:String,
                       description:String,

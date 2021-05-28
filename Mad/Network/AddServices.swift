@@ -211,14 +211,9 @@ struct AddServices {
                     if let temp = value as? Int {
                         form.append("\(temp)".data(using: .utf8)!, withName: key)
                     }
-                    
-                    
                     if let temp = value as? NSArray {
                                   temp.forEach({ element in
                                       let keyObj = key + "[]"
-                                      if let string = element as? String {
-                                        form.append(string.data(using: .utf8)!, withName: keyObj)
-                                      } else
                                           if let num = element as? Int {
                                               let value = "\(num)"
                                             form.append(value.data(using: .utf8)!, withName: keyObj)

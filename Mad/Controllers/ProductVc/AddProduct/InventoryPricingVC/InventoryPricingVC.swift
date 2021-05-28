@@ -31,7 +31,7 @@ class InventoryPricingVC: UIViewController {
     var  weight = String()
     var type = String()
     var quantitylimitation = "limited"
-    var selectedCat = [Category]()
+    var selectedCat = [Int]()
     var uploadedPhoto = [UIImage]()
     
     var disposeBag = DisposeBag()
@@ -112,7 +112,7 @@ class InventoryPricingVC: UIViewController {
 }
 
 extension InventoryPricingVC {
-     func AddProduct(categories :[Category],
+     func AddProduct(categories :[Int],
                      title :String,
                      short_description:String,
                      description:String,
