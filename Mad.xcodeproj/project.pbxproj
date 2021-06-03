@@ -63,6 +63,10 @@
 		043B47D6261DB5B500D67023 /* ForYouCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 043B47D4261DB5B500D67023 /* ForYouCell.xib */; };
 		0440ECA82636C7C60046681C /* CompetitionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440ECA62636C7C60046681C /* CompetitionCell.swift */; };
 		0440ECA92636C7C60046681C /* CompetitionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0440ECA72636C7C60046681C /* CompetitionCell.xib */; };
+		0448E7892666AA6B009C4A6E /* AddProjectPhotosVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0448E7872666AA6A009C4A6E /* AddProjectPhotosVC.swift */; };
+		0448E78A2666AA6B009C4A6E /* AddProjectPhotosVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0448E7882666AA6B009C4A6E /* AddProjectPhotosVC.xib */; };
+		0448E7922666D664009C4A6E /* AddProjectdetailsVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0448E7902666D664009C4A6E /* AddProjectdetailsVc.swift */; };
+		0448E7932666D664009C4A6E /* AddProjectdetailsVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0448E7912666D664009C4A6E /* AddProjectdetailsVc.xib */; };
 		0449A6F3262EF9E100604052 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0449A6F2262EF9E100604052 /* Authentication.storyboard */; };
 		0449A72C262EFE1800604052 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0449A72B262EFE1800604052 /* Home.storyboard */; };
 		0449A72F262F396400604052 /* Artist.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0449A72E262F396400604052 /* Artist.storyboard */; };
@@ -90,6 +94,12 @@
 		04528E562614B586009868EA /* NameVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04528E542614B586009868EA /* NameVc.xib */; };
 		04528E5B2614B5AE009868EA /* CountryVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04528E592614B5AE009868EA /* CountryVc.swift */; };
 		04528E5C2614B5AE009868EA /* CountryVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04528E5A2614B5AE009868EA /* CountryVc.xib */; };
+		0458B3142667CC0B00382E77 /* PreviewProjectVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458B3122667CC0B00382E77 /* PreviewProjectVc.swift */; };
+		0458B3152667CC0B00382E77 /* PreviewProjectVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0458B3132667CC0B00382E77 /* PreviewProjectVc.xib */; };
+		045A66E12667134300ED03CB /* AboutProjectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045A66DF2667134300ED03CB /* AboutProjectVC.swift */; };
+		045A66E22667134300ED03CB /* AboutProjectVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045A66E02667134300ED03CB /* AboutProjectVC.xib */; };
+		045A66E72667136A00ED03CB /* CreatePackageVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045A66E52667136A00ED03CB /* CreatePackageVc.swift */; };
+		045A66E82667136A00ED03CB /* CreatePackageVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045A66E62667136A00ED03CB /* CreatePackageVc.xib */; };
 		045AD32B264CA49A00E42D4C /* VideosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045AD32A264CA49A00E42D4C /* VideosViewModel.swift */; };
 		045AD32E264CA72800E42D4C /* VideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045AD32D264CA72800E42D4C /* VideoModel.swift */; };
 		0460CF45261CEC27006685B6 /* ArtistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0460CF43261CEC27006685B6 /* ArtistCell.swift */; };
@@ -215,6 +225,10 @@
 		043B47D4261DB5B500D67023 /* ForYouCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForYouCell.xib; sourceTree = "<group>"; };
 		0440ECA62636C7C60046681C /* CompetitionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionCell.swift; sourceTree = "<group>"; };
 		0440ECA72636C7C60046681C /* CompetitionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompetitionCell.xib; sourceTree = "<group>"; };
+		0448E7872666AA6A009C4A6E /* AddProjectPhotosVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectPhotosVC.swift; sourceTree = "<group>"; };
+		0448E7882666AA6B009C4A6E /* AddProjectPhotosVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddProjectPhotosVC.xib; sourceTree = "<group>"; };
+		0448E7902666D664009C4A6E /* AddProjectdetailsVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectdetailsVc.swift; sourceTree = "<group>"; };
+		0448E7912666D664009C4A6E /* AddProjectdetailsVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddProjectdetailsVc.xib; sourceTree = "<group>"; };
 		0449A6F2262EF9E100604052 /* Authentication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
 		0449A72B262EFE1800604052 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		0449A72E262F396400604052 /* Artist.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Artist.storyboard; sourceTree = "<group>"; };
@@ -242,6 +256,12 @@
 		04528E542614B586009868EA /* NameVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NameVc.xib; sourceTree = "<group>"; };
 		04528E592614B5AE009868EA /* CountryVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryVc.swift; sourceTree = "<group>"; };
 		04528E5A2614B5AE009868EA /* CountryVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountryVc.xib; sourceTree = "<group>"; };
+		0458B3122667CC0B00382E77 /* PreviewProjectVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProjectVc.swift; sourceTree = "<group>"; };
+		0458B3132667CC0B00382E77 /* PreviewProjectVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreviewProjectVc.xib; sourceTree = "<group>"; };
+		045A66DF2667134300ED03CB /* AboutProjectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutProjectVC.swift; sourceTree = "<group>"; };
+		045A66E02667134300ED03CB /* AboutProjectVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutProjectVC.xib; sourceTree = "<group>"; };
+		045A66E52667136A00ED03CB /* CreatePackageVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePackageVc.swift; sourceTree = "<group>"; };
+		045A66E62667136A00ED03CB /* CreatePackageVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreatePackageVc.xib; sourceTree = "<group>"; };
 		045AD32A264CA49A00E42D4C /* VideosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosViewModel.swift; sourceTree = "<group>"; };
 		045AD32D264CA72800E42D4C /* VideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoModel.swift; sourceTree = "<group>"; };
 		0460CF43261CEC27006685B6 /* ArtistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistCell.swift; sourceTree = "<group>"; };
@@ -541,6 +561,63 @@
 			path = Competitions;
 			sourceTree = "<group>";
 		};
+		0448E75E26669E6B009C4A6E /* ProjectVc */ = {
+			isa = PBXGroup;
+			children = (
+				0413E40526307D7300F5977D /* ProjectsVC.swift */,
+				0413E40626307D7300F5977D /* ProjectsVC.xib */,
+			);
+			path = ProjectVc;
+			sourceTree = "<group>";
+		};
+		0448E76126669E89009C4A6E /* ProductVc */ = {
+			isa = PBXGroup;
+			children = (
+				0413E40B26307DC600F5977D /* ProductsVC.swift */,
+				0413E40C26307DC600F5977D /* ProductsVC.xib */,
+			);
+			path = ProductVc;
+			sourceTree = "<group>";
+		};
+		0448E76526669EA9009C4A6E /* AddProject */ = {
+			isa = PBXGroup;
+			children = (
+				0448E76926669F02009C4A6E /* ProjectPhotosVC */,
+				0448E76826669EFF009C4A6E /* AddProjectdetailsVc */,
+				0448E76726669EFD009C4A6E /* AboutProjectVC */,
+				045A66E42667134D00ED03CB /* CreatePackageVc */,
+				0458B3112667CBEB00382E77 /* PreviewProjectVc */,
+			);
+			path = AddProject;
+			sourceTree = "<group>";
+		};
+		0448E76726669EFD009C4A6E /* AboutProjectVC */ = {
+			isa = PBXGroup;
+			children = (
+				045A66DF2667134300ED03CB /* AboutProjectVC.swift */,
+				045A66E02667134300ED03CB /* AboutProjectVC.xib */,
+			);
+			path = AboutProjectVC;
+			sourceTree = "<group>";
+		};
+		0448E76826669EFF009C4A6E /* AddProjectdetailsVc */ = {
+			isa = PBXGroup;
+			children = (
+				0448E7902666D664009C4A6E /* AddProjectdetailsVc.swift */,
+				0448E7912666D664009C4A6E /* AddProjectdetailsVc.xib */,
+			);
+			path = AddProjectdetailsVc;
+			sourceTree = "<group>";
+		};
+		0448E76926669F02009C4A6E /* ProjectPhotosVC */ = {
+			isa = PBXGroup;
+			children = (
+				0448E7872666AA6A009C4A6E /* AddProjectPhotosVC.swift */,
+				0448E7882666AA6B009C4A6E /* AddProjectPhotosVC.xib */,
+			);
+			path = ProjectPhotosVC;
+			sourceTree = "<group>";
+		};
 		0449A6EB262ED8B700604052 /* ArtistProfile */ = {
 			isa = PBXGroup;
 			children = (
@@ -640,6 +717,24 @@
 			path = NameVc;
 			sourceTree = "<group>";
 		};
+		0458B3112667CBEB00382E77 /* PreviewProjectVc */ = {
+			isa = PBXGroup;
+			children = (
+				0458B3122667CC0B00382E77 /* PreviewProjectVc.swift */,
+				0458B3132667CC0B00382E77 /* PreviewProjectVc.xib */,
+			);
+			path = PreviewProjectVc;
+			sourceTree = "<group>";
+		};
+		045A66E42667134D00ED03CB /* CreatePackageVc */ = {
+			isa = PBXGroup;
+			children = (
+				045A66E52667136A00ED03CB /* CreatePackageVc.swift */,
+				045A66E62667136A00ED03CB /* CreatePackageVc.xib */,
+			);
+			path = CreatePackageVc;
+			sourceTree = "<group>";
+		};
 		0460CF41261CEBDF006685B6 /* ArtistCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -686,15 +781,14 @@
 			path = Artist;
 			sourceTree = "<group>";
 		};
-		04668764261B6A29001D024D /* ProductVc */ = {
+		04668764261B6A29001D024D /* Product */ = {
 			isa = PBXGroup;
 			children = (
+				0448E76126669E89009C4A6E /* ProductVc */,
 				0427A20E263FFA5A0029A10C /* ProductDetails */,
 				04B674072638319500AFF9C3 /* AddProduct */,
-				0413E40B26307DC600F5977D /* ProductsVC.swift */,
-				0413E40C26307DC600F5977D /* ProductsVC.xib */,
 			);
-			path = ProductVc;
+			path = Product;
 			sourceTree = "<group>";
 		};
 		04688785261E0DDB0056AC92 /* VerificationVc */ = {
@@ -825,10 +919,10 @@
 				0482EEAD26164D5200CB4A24 /* Search */,
 				0482EEAC26164D3F00CB4A24 /* Notification */,
 				0413E3E12630731E00F5977D /* BlogsVc */,
-				04911C5A261C83D100705A58 /* ProjectsVC */,
+				04911C5A261C83D100705A58 /* Projects */,
 				046887B6261E72430056AC92 /* Videos */,
 				04668760261B6784001D024D /* Artist */,
-				04668764261B6A29001D024D /* ProductVc */,
+				04668764261B6A29001D024D /* Product */,
 				0482EEAB26164D3800CB4A24 /* Home */,
 				042C08272613941600BE1806 /* Auth */,
 				04E186F72613616100824E37 /* Splash */,
@@ -936,14 +1030,14 @@
 			name = AppFiles;
 			sourceTree = "<group>";
 		};
-		04911C5A261C83D100705A58 /* ProjectsVC */ = {
+		04911C5A261C83D100705A58 /* Projects */ = {
 			isa = PBXGroup;
 			children = (
-				04AD60AE262866B200ADF0DF /* ProjectDetailsVC */,
-				0413E40526307D7300F5977D /* ProjectsVC.swift */,
-				0413E40626307D7300F5977D /* ProjectsVC.xib */,
+				0448E75E26669E6B009C4A6E /* ProjectVc */,
+				04AD60AE262866B200ADF0DF /* ProjectDetails */,
+				0448E76526669EA9009C4A6E /* AddProject */,
 			);
-			path = ProjectsVC;
+			path = Projects;
 			sourceTree = "<group>";
 		};
 		04911C66261C99F000705A58 /* SuggestedCell */ = {
@@ -955,13 +1049,13 @@
 			path = SuggestedCell;
 			sourceTree = "<group>";
 		};
-		04AD60AE262866B200ADF0DF /* ProjectDetailsVC */ = {
+		04AD60AE262866B200ADF0DF /* ProjectDetails */ = {
 			isa = PBXGroup;
 			children = (
 				04AD60B1262866E500ADF0DF /* ProjectDetailsVC.swift */,
 				04AD60B2262866E500ADF0DF /* ProjectDetailsVC.xib */,
 			);
-			path = ProjectDetailsVC;
+			path = ProjectDetails;
 			sourceTree = "<group>";
 		};
 		04B674072638319500AFF9C3 /* AddProduct */ = {
@@ -1174,6 +1268,7 @@
 				04319B14265BB8E0000535B2 /* BlogDetailsVc.xib in Resources */,
 				04528E4426149915009868EA /* PasswordVc.xib in Resources */,
 				04242ABC26554B2C003C8B44 /* VideoProjectCell.xib in Resources */,
+				045A66E22667134300ED03CB /* AboutProjectVC.xib in Resources */,
 				043B47D6261DB5B500D67023 /* ForYouCell.xib in Resources */,
 				0451FD652617A5B600AEE546 /* TitleCell.xib in Resources */,
 				04528E4C2614B54B009868EA /* CreatPasswordVc.xib in Resources */,
@@ -1187,6 +1282,7 @@
 				0451FD8D2617A5D300AEE546 /* ProjectCell.xib in Resources */,
 				0449A72F262F396400604052 /* Artist.storyboard in Resources */,
 				04911C6A261C9A2900705A58 /* SuggestedCell.xib in Resources */,
+				0458B3152667CC0B00382E77 /* PreviewProjectVc.xib in Resources */,
 				04F06AF72614E0D600B08606 /* CategeoryCell.xib in Resources */,
 				0414282E26176074000394CA /* HomeCell.xib in Resources */,
 				04242AB526554089003C8B44 /* VideoArtistCell.xib in Resources */,
@@ -1194,6 +1290,8 @@
 				04F06AF12614DD5100B08606 /* CategeoryVc.xib in Resources */,
 				040339E22638F21000CEDBD3 /* ListingDetailsVC.xib in Resources */,
 				0488CCF2261213E400E05BEB /* Assets.xcassets in Resources */,
+				0448E7932666D664009C4A6E /* AddProjectdetailsVc.xib in Resources */,
+				0448E78A2666AA6B009C4A6E /* AddProjectPhotosVC.xib in Resources */,
 				04242A9E26553A12003C8B44 /* VideoArtistsVc.xib in Resources */,
 				04319B1A265C5E5F000535B2 /* SocialCell.xib in Resources */,
 				04242AAF26553A65003C8B44 /* VideoPartners.xib in Resources */,
@@ -1215,6 +1313,7 @@
 				04B6740C263831EB00AFF9C3 /* AddProductImageVc.xib in Resources */,
 				04528E3E26149903009868EA /* EmailVc.xib in Resources */,
 				04F06AC62614C37200B08606 /* AgeVc.xib in Resources */,
+				045A66E82667136A00ED03CB /* CreatePackageVc.xib in Resources */,
 				04B6741326383DC600AFF9C3 /* AddProductPhotoCell.xib in Resources */,
 				04688789261E0E170056AC92 /* VerificationVc.xib in Resources */,
 			);
@@ -1277,6 +1376,7 @@
 				0414280226174D8A000394CA /* SearchVc.swift in Sources */,
 				04528E3226149579009868EA /* AuthenticationViewModel.swift in Sources */,
 				0413E4182630879700F5977D /* ArtistsVc.swift in Sources */,
+				0448E7892666AA6B009C4A6E /* AddProjectPhotosVC.swift in Sources */,
 				04F06AFA2614E18D00B08606 /* CustomImageView.swift in Sources */,
 				04319B13265BB8E0000535B2 /* BlogDetailsVc.swift in Sources */,
 				04528E4B2614B54B009868EA /* CreatPasswordVc.swift in Sources */,
@@ -1292,6 +1392,7 @@
 				0413E40726307D7300F5977D /* ProjectsVC.swift in Sources */,
 				0440ECA82636C7C60046681C /* CompetitionCell.swift in Sources */,
 				04242AC226555E7A003C8B44 /* VideoPartenerCell.swift in Sources */,
+				0448E7922666D664009C4A6E /* AddProjectdetailsVc.swift in Sources */,
 				04DEAA462620BC9500F843A6 /* SplashViewModel.swift in Sources */,
 				042C082A2613943900BE1806 /* LoadingLoginVc.swift in Sources */,
 				042C081126136B9700BE1806 /* CustomDropDown.swift in Sources */,
@@ -1302,6 +1403,7 @@
 				04AD610C2628C52B00ADF0DF /* ImageModel.swift in Sources */,
 				0451FD642617A5B600AEE546 /* TitleCell.swift in Sources */,
 				040339D92638D0CD00CEDBD3 /* AlertService.swift in Sources */,
+				0458B3142667CC0B00382E77 /* PreviewProjectVc.swift in Sources */,
 				0413E3F526307C6200F5977D /* BlogsVc.swift in Sources */,
 				0413E40D26307DC600F5977D /* ProductsVC.swift in Sources */,
 				0413E3AA263051C300F5977D /* ArtistModel.swift in Sources */,
@@ -1318,6 +1420,7 @@
 				04528E472614A1FD009868EA /* CustomTextField.swift in Sources */,
 				0449A736262F477700604052 /* ArtistProjectsVc.swift in Sources */,
 				04528E5B2614B5AE009868EA /* CountryVc.swift in Sources */,
+				045A66E72667136A00ED03CB /* CreatePackageVc.swift in Sources */,
 				04D23EE526330D9B00290488 /* CompetitionsVc.swift in Sources */,
 				04319B19265C5E5F000535B2 /* SocialCell.swift in Sources */,
 				04DEA9D32620941C00F843A6 /* AddServices.swift in Sources */,
@@ -1331,6 +1434,7 @@
 				04DEA9D926209FA100F843A6 /* Errors.swift in Sources */,
 				04528E2C26149443009868EA /* ConfigUrls.swift in Sources */,
 				043B47D5261DB5B500D67023 /* ForYouCell.swift in Sources */,
+				045A66E12667134300ED03CB /* AboutProjectVC.swift in Sources */,
 				0413E40126307D3700F5977D /* VideosVC.swift in Sources */,
 				04242AA826553A4E003C8B44 /* VideoPurchaseVc.swift in Sources */,
 				04DEA9D62620947100F843A6 /* Authentication.swift in Sources */,

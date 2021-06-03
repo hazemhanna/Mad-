@@ -9,15 +9,22 @@ import UIKit
 import RxSwift
 import RxCocoa
 import PTCardTabBar
+import Gallery
+
+
 
 class ProjectsVC : UIViewController {
    
     @IBOutlet weak var mainTableView: UITableView!
     @IBOutlet weak var projectCollectionView: UICollectionView!
-    
+    var selectedPhoto = [Image]()
+    var gallery: GalleryController!
+
     var homeVM = HomeViewModel()
     var disposeBag = DisposeBag()
     var parentVC : HomeVC?
+    var token = Helper.getAPIToken() ?? ""
+
     var selectedIndex = -1
     var catId = Int()
     var Categories = [Category]() {
@@ -61,11 +68,17 @@ class ProjectsVC : UIViewController {
         if let ptcTBC = tabBarController as? PTCardTabBarController {
             ptcTBC.customTabBar.isHidden = false
         }
+        
+        if selectedPhoto.count > 0 {
+            let vc = AddProjectdetailsVc.instantiateFromNib()
+            self.navigationController?.pushViewController(vc!, animated: true)
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
     }
+    
 }
 
 extension ProjectsVC: UITableViewDelegate,UITableViewDataSource{
@@ -97,7 +110,7 @@ extension ProjectsVC: UITableViewDelegate,UITableViewDataSource{
             
             // edit favourite
               cell.favourite = {
-                if Helper.getAPIToken() == nil {
+                if self.token == "" {
                     return
                 }
                 self.homeVM.showIndicator()
@@ -110,7 +123,7 @@ extension ProjectsVC: UITableViewDelegate,UITableViewDataSource{
             cell.favouriteStack.isHidden = false
              // share project
             cell.share = {
-                if Helper.getAPIToken() == nil {
+                if self.token == "" {
                     return
                 }
                 self.homeVM.showIndicator()
@@ -165,6 +178,16 @@ extension ProjectsVC : UICollectionViewDelegate ,UICollectionViewDataSource{
                 }
             }
             
+            cell.add = {
+                if self.token != "" {
+                    let gallery = GalleryController()
+                    gallery.delegate = self
+                    self.present(gallery, animated: true, completion: nil)
+                }
+                else{
+                    self.showMessage(text: "please login first")
+                }
+            }
             if self.selectedIndex == indexPath.row{
                 cell.ProjectView.layer.borderColor = #colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1).cgColor
                 cell.ProjectView.layer.borderWidth = 2
@@ -248,5 +271,32 @@ extension ProjectsVC {
         self.homeVM.dismissIndicator()
        }).disposed(by: disposeBag)
    }
+}
+
+
+extension ProjectsVC : GalleryControllerDelegate {
+    
+    func galleryController(_ controller: GalleryController, didSelectVideo video: Video) {
+        controller.dismiss(animated: true, completion: nil)
+        gallery = nil
+    }
+    
+    
+    func galleryController(_ controller: GalleryController, didSelectImages images: [Image]){
+        self.selectedPhoto = images
+        controller.dismiss(animated: true, completion: nil)
+        gallery = nil
+    }
+
+    func galleryController(_ controller: GalleryController, requestLightbox images: [Image]){
+        
+    }
+    
+    func galleryControllerDidCancel(_ controller: GalleryController){
+        controller.dismiss(animated: true, completion: nil)
+        gallery = nil
+    }
+    
+
 }
 

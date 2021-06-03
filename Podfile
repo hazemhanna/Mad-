@@ -24,5 +24,6 @@ target 'Mad' do
   pod 'SwifterSwift'
   pod 'Tabman'
   pod "WSTagsField"
-
+  pod 'Gallery'
+   
 end

@@ -29,8 +29,12 @@
 		<string>Graphik-SemiboldItalic.ttf</string>
 		<string>Graphik-Super.ttf</string>
 	</array>
-    <key>UIUserInterfaceStyle</key>
-    <string>Light</string>
+    <key>NSCameraUsageDescription</key>
+    <string>This app requires access to camera</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>This app requires access to photo library</string>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>

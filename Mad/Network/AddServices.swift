@@ -220,11 +220,10 @@ struct AddServices {
                                       }
                                   })
                               }
-                
+                    
                 }
                 
-                
-                  }, usingThreshold: SessionManager.multipartFormDataEncodingMemoryThreshold, to: url, method: .post, headers: headers) { (result: SessionManager.MultipartFormDataEncodingResult) in
+              }, usingThreshold: SessionManager.multipartFormDataEncodingMemoryThreshold, to: url, method: .post, headers: headers) { (result: SessionManager.MultipartFormDataEncodingResult) in
                       switch result {
                   case .failure(let error):
                       print(error.localizedDescription)
