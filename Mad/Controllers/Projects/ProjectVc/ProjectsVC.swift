@@ -17,9 +17,7 @@ class ProjectsVC : UIViewController {
    
     @IBOutlet weak var mainTableView: UITableView!
     @IBOutlet weak var projectCollectionView: UICollectionView!
-    var selectedPhoto = [Image]()
-    var gallery: GalleryController!
-
+    
     var homeVM = HomeViewModel()
     var disposeBag = DisposeBag()
     var parentVC : HomeVC?
@@ -27,6 +25,7 @@ class ProjectsVC : UIViewController {
 
     var selectedIndex = -1
     var catId = Int()
+    
     var Categories = [Category]() {
         didSet {
             DispatchQueue.main.async {
@@ -68,17 +67,10 @@ class ProjectsVC : UIViewController {
         if let ptcTBC = tabBarController as? PTCardTabBarController {
             ptcTBC.customTabBar.isHidden = false
         }
-        
-        if selectedPhoto.count > 0 {
-            let vc = AddProjectdetailsVc.instantiateFromNib()
-            self.navigationController?.pushViewController(vc!, animated: true)
-        }
     }
-    
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
     }
-    
 }
 
 extension ProjectsVC: UITableViewDelegate,UITableViewDataSource{
@@ -151,9 +143,7 @@ extension ProjectsVC: UITableViewDelegate,UITableViewDataSource{
         let main = ProjectDetailsVC.instantiateFromNib()
         main!.projectId =  self.projects[indexPath.row].id!
         self.navigationController?.pushViewController(main!, animated: true)
-     
     }
-    
 }
 
 extension ProjectsVC : UICollectionViewDelegate ,UICollectionViewDataSource{
@@ -180,9 +170,8 @@ extension ProjectsVC : UICollectionViewDelegate ,UICollectionViewDataSource{
             
             cell.add = {
                 if self.token != "" {
-                    let gallery = GalleryController()
-                    gallery.delegate = self
-                    self.present(gallery, animated: true, completion: nil)
+                    let vc = AddProjectdetailsVc.instantiateFromNib()
+                    self.navigationController?.pushViewController(vc!, animated: true)
                 }
                 else{
                     self.showMessage(text: "please login first")
@@ -274,29 +263,4 @@ extension ProjectsVC {
 }
 
 
-extension ProjectsVC : GalleryControllerDelegate {
-    
-    func galleryController(_ controller: GalleryController, didSelectVideo video: Video) {
-        controller.dismiss(animated: true, completion: nil)
-        gallery = nil
-    }
-    
-    
-    func galleryController(_ controller: GalleryController, didSelectImages images: [Image]){
-        self.selectedPhoto = images
-        controller.dismiss(animated: true, completion: nil)
-        gallery = nil
-    }
-
-    func galleryController(_ controller: GalleryController, requestLightbox images: [Image]){
-        
-    }
-    
-    func galleryControllerDidCancel(_ controller: GalleryController){
-        controller.dismiss(animated: true, completion: nil)
-        gallery = nil
-    }
-    
-
-}
 

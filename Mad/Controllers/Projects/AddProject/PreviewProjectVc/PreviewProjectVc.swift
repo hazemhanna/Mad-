@@ -35,7 +35,6 @@ class PreviewProjectVc : UIViewController {
         self.liveCollectionView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
         liveCollectionView.delegate = self
         liveCollectionView.dataSource = self
-        liveView.isHidden = true
     }
     
     
@@ -95,7 +94,9 @@ class PreviewProjectVc : UIViewController {
     }
 }
 
-extension PreviewProjectVc :  UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+
+extension PreviewProjectVc  :  UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 4
     }
@@ -107,15 +108,14 @@ extension PreviewProjectVc :  UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            let flowayout = collectionViewLayout as? UICollectionViewFlowLayout
+        let flowayout = collectionViewLayout as? UICollectionViewFlowLayout
             let space: CGFloat = (flowayout?.minimumInteritemSpacing ?? 0.0) + (flowayout?.sectionInset.left ?? 0.0) + (flowayout?.sectionInset.right ?? 0.0)
     
         let size:CGFloat = (collectionView.frame.size.width - space) / 1.4
             return CGSize(width: size, height: (collectionView.frame.size.height))
         }
-
-    
 }

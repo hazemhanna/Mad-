@@ -175,25 +175,24 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A2v-vP-Hqa" customClass="CustomView" customModule="Mad" customModuleProvider="target">
                                                 <rect key="frame" x="32" y="283" width="382" height="150"/>
                                                 <subviews>
-                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Riu-MO-vUr" customClass="CustomCollectionView" customModule="Mad" customModuleProvider="target">
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="4WF-UU-8uz">
                                                         <rect key="frame" x="0.0" y="0.0" width="382" height="150"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hIT-cG-NFd">
-                                                            <size key="itemSize" width="50" height="50"/>
+                                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="1at-2y-hUM">
+                                                            <size key="itemSize" width="128" height="128"/>
                                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         </collectionViewFlowLayout>
-                                                        <cells/>
                                                     </collectionView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="150" id="6qG-Zz-6K0"/>
-                                                    <constraint firstItem="Riu-MO-vUr" firstAttribute="leading" secondItem="A2v-vP-Hqa" secondAttribute="leading" id="Myp-gq-LyA"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Riu-MO-vUr" secondAttribute="trailing" id="PN5-c3-Oj6"/>
-                                                    <constraint firstItem="Riu-MO-vUr" firstAttribute="top" secondItem="A2v-vP-Hqa" secondAttribute="top" id="cni-1c-uRr"/>
-                                                    <constraint firstAttribute="bottom" secondItem="Riu-MO-vUr" secondAttribute="bottom" id="mqo-oO-XJt"/>
+                                                    <constraint firstAttribute="trailing" secondItem="4WF-UU-8uz" secondAttribute="trailing" id="JiS-1A-idS"/>
+                                                    <constraint firstItem="4WF-UU-8uz" firstAttribute="leading" secondItem="A2v-vP-Hqa" secondAttribute="leading" id="VVn-YY-lcg"/>
+                                                    <constraint firstItem="4WF-UU-8uz" firstAttribute="top" secondItem="A2v-vP-Hqa" secondAttribute="top" id="XnF-Lo-dhf"/>
+                                                    <constraint firstAttribute="bottom" secondItem="4WF-UU-8uz" secondAttribute="bottom" id="wyY-R7-zaJ"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -202,17 +201,17 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="UNn-JK-2uS">
-                                                <rect key="frame" x="32" y="449" width="94.5" height="22"/>
+                                                <rect key="frame" x="32" y="449" width="84" height="22"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="lww-05-Av3">
-                                                        <rect key="frame" x="0.0" y="0.0" width="47" height="22"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="35.5" height="22"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4p-PT-Uys">
                                                                 <rect key="frame" x="0.0" y="0.0" width="20" height="22"/>
                                                                 <state key="normal" image="Group 140"/>
                                                             </button>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="345" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7rI-kJ-wh4">
-                                                                <rect key="frame" x="28" y="5.5" width="19" height="11"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7rI-kJ-wh4">
+                                                                <rect key="frame" x="28" y="5.5" width="7.5" height="11"/>
                                                                 <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="11"/>
                                                                 <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -220,14 +219,14 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="LKh-VS-5nB">
-                                                        <rect key="frame" x="63" y="0.0" width="31.5" height="22"/>
+                                                        <rect key="frame" x="51.5" y="0.0" width="32.5" height="22"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TeZ-Lx-nGh">
                                                                 <rect key="frame" x="0.0" y="0.0" width="17" height="22"/>
                                                                 <state key="normal" image="Path 327"/>
                                                             </button>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p4c-ac-caf">
-                                                                <rect key="frame" x="25" y="5.5" width="6.5" height="11"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p4c-ac-caf">
+                                                                <rect key="frame" x="25" y="5.5" width="7.5" height="11"/>
                                                                 <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="11"/>
                                                                 <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -304,7 +303,7 @@
             </view>
             <navigationItem key="navigationItem" id="drD-S4-EPn"/>
             <connections>
-                <outlet property="liveCollectionView" destination="Riu-MO-vUr" id="jeI-vg-QT3"/>
+                <outlet property="liveCollectionView" destination="4WF-UU-8uz" id="DIg-rE-ihk"/>
                 <outlet property="liveView" destination="A2v-vP-Hqa" id="KtA-Vf-8BG"/>
             </connections>
             <point key="canvasLocation" x="-1791.304347826087" y="1717.6339285714284"/>

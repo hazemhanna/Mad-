@@ -52,6 +52,7 @@
 		0427A212263FFA7B0029A10C /* ProductDetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0427A210263FFA7B0029A10C /* ProductDetailsVC.xib */; };
 		0427A21726405B2D0029A10C /* AddsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0427A21526405B2D0029A10C /* AddsCell.swift */; };
 		0427A21826405B2D0029A10C /* AddsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0427A21626405B2D0029A10C /* AddsCell.xib */; };
+		04297547266A92F6007284E4 /* ProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04297546266A92F6007284E4 /* ProjectViewModel.swift */; };
 		042C080E26136B6E00BE1806 /* CustomButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042C080D26136B6E00BE1806 /* CustomButtons.swift */; };
 		042C081126136B9700BE1806 /* CustomDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042C081026136B9700BE1806 /* CustomDropDown.swift */; };
 		042C082A2613943900BE1806 /* LoadingLoginVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042C08292613943900BE1806 /* LoadingLoginVc.swift */; };
@@ -63,8 +64,6 @@
 		043B47D6261DB5B500D67023 /* ForYouCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 043B47D4261DB5B500D67023 /* ForYouCell.xib */; };
 		0440ECA82636C7C60046681C /* CompetitionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440ECA62636C7C60046681C /* CompetitionCell.swift */; };
 		0440ECA92636C7C60046681C /* CompetitionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0440ECA72636C7C60046681C /* CompetitionCell.xib */; };
-		0448E7892666AA6B009C4A6E /* AddProjectPhotosVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0448E7872666AA6A009C4A6E /* AddProjectPhotosVC.swift */; };
-		0448E78A2666AA6B009C4A6E /* AddProjectPhotosVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0448E7882666AA6B009C4A6E /* AddProjectPhotosVC.xib */; };
 		0448E7922666D664009C4A6E /* AddProjectdetailsVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0448E7902666D664009C4A6E /* AddProjectdetailsVc.swift */; };
 		0448E7932666D664009C4A6E /* AddProjectdetailsVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0448E7912666D664009C4A6E /* AddProjectdetailsVc.xib */; };
 		0449A6F3262EF9E100604052 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0449A6F2262EF9E100604052 /* Authentication.storyboard */; };
@@ -115,6 +114,8 @@
 		04688789261E0E170056AC92 /* VerificationVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04688787261E0E170056AC92 /* VerificationVc.xib */; };
 		046887BE261E77970056AC92 /* ShowesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046887BC261E77970056AC92 /* ShowesCell.swift */; };
 		046887BF261E77970056AC92 /* ShowesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 046887BD261E77970056AC92 /* ShowesCell.xib */; };
+		046E2E4826693A3300BFCDCC /* CalenderVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046E2E4626693A3300BFCDCC /* CalenderVc.swift */; };
+		046E2E4926693A3300BFCDCC /* CalenderVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 046E2E4726693A3300BFCDCC /* CalenderVc.xib */; };
 		0488CCE9261213E000E05BEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0488CCE8261213E000E05BEB /* AppDelegate.swift */; };
 		0488CCF0261213E000E05BEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0488CCEE261213E000E05BEB /* Main.storyboard */; };
 		0488CCF2261213E400E05BEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0488CCF1261213E400E05BEB /* Assets.xcassets */; };
@@ -213,6 +214,7 @@
 		0427A210263FFA7B0029A10C /* ProductDetailsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductDetailsVC.xib; sourceTree = "<group>"; };
 		0427A21526405B2D0029A10C /* AddsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddsCell.swift; sourceTree = "<group>"; };
 		0427A21626405B2D0029A10C /* AddsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddsCell.xib; sourceTree = "<group>"; };
+		04297546266A92F6007284E4 /* ProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewModel.swift; sourceTree = "<group>"; };
 		042C080D26136B6E00BE1806 /* CustomButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtons.swift; sourceTree = "<group>"; };
 		042C081026136B9700BE1806 /* CustomDropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDropDown.swift; sourceTree = "<group>"; };
 		042C0815261371DE00BE1806 /* Helvetica-Bold-Font.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Helvetica-Bold-Font.ttf"; sourceTree = "<group>"; };
@@ -225,8 +227,6 @@
 		043B47D4261DB5B500D67023 /* ForYouCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForYouCell.xib; sourceTree = "<group>"; };
 		0440ECA62636C7C60046681C /* CompetitionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionCell.swift; sourceTree = "<group>"; };
 		0440ECA72636C7C60046681C /* CompetitionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompetitionCell.xib; sourceTree = "<group>"; };
-		0448E7872666AA6A009C4A6E /* AddProjectPhotosVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectPhotosVC.swift; sourceTree = "<group>"; };
-		0448E7882666AA6B009C4A6E /* AddProjectPhotosVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddProjectPhotosVC.xib; sourceTree = "<group>"; };
 		0448E7902666D664009C4A6E /* AddProjectdetailsVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectdetailsVc.swift; sourceTree = "<group>"; };
 		0448E7912666D664009C4A6E /* AddProjectdetailsVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddProjectdetailsVc.xib; sourceTree = "<group>"; };
 		0449A6F2262EF9E100604052 /* Authentication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
@@ -277,6 +277,8 @@
 		04688787261E0E170056AC92 /* VerificationVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VerificationVc.xib; sourceTree = "<group>"; };
 		046887BC261E77970056AC92 /* ShowesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowesCell.swift; sourceTree = "<group>"; };
 		046887BD261E77970056AC92 /* ShowesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowesCell.xib; sourceTree = "<group>"; };
+		046E2E4626693A3300BFCDCC /* CalenderVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderVc.swift; sourceTree = "<group>"; };
+		046E2E4726693A3300BFCDCC /* CalenderVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalenderVc.xib; sourceTree = "<group>"; };
 		0488CCE5261213E000E05BEB /* Mad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0488CCE8261213E000E05BEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0488CCEF261213E000E05BEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -582,7 +584,7 @@
 		0448E76526669EA9009C4A6E /* AddProject */ = {
 			isa = PBXGroup;
 			children = (
-				0448E76926669F02009C4A6E /* ProjectPhotosVC */,
+				046E2E4526693A1600BFCDCC /* CalenderVc */,
 				0448E76826669EFF009C4A6E /* AddProjectdetailsVc */,
 				0448E76726669EFD009C4A6E /* AboutProjectVC */,
 				045A66E42667134D00ED03CB /* CreatePackageVc */,
@@ -607,15 +609,6 @@
 				0448E7912666D664009C4A6E /* AddProjectdetailsVc.xib */,
 			);
 			path = AddProjectdetailsVc;
-			sourceTree = "<group>";
-		};
-		0448E76926669F02009C4A6E /* ProjectPhotosVC */ = {
-			isa = PBXGroup;
-			children = (
-				0448E7872666AA6A009C4A6E /* AddProjectPhotosVC.swift */,
-				0448E7882666AA6B009C4A6E /* AddProjectPhotosVC.xib */,
-			);
-			path = ProjectPhotosVC;
 			sourceTree = "<group>";
 		};
 		0449A6EB262ED8B700604052 /* ArtistProfile */ = {
@@ -818,6 +811,15 @@
 			path = ShowsCell;
 			sourceTree = "<group>";
 		};
+		046E2E4526693A1600BFCDCC /* CalenderVc */ = {
+			isa = PBXGroup;
+			children = (
+				046E2E4626693A3300BFCDCC /* CalenderVc.swift */,
+				046E2E4726693A3300BFCDCC /* CalenderVc.xib */,
+			);
+			path = CalenderVc;
+			sourceTree = "<group>";
+		};
 		0482EEAB26164D3800CB4A24 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -940,6 +942,7 @@
 				0413E3AC2630536E00F5977D /* ArtistViewModel.swift */,
 				04B6741626384D2100AFF9C3 /* ProductViewModel.swift */,
 				045AD32A264CA49A00E42D4C /* VideosViewModel.swift */,
+				04297546266A92F6007284E4 /* ProjectViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1262,6 +1265,7 @@
 				04D23EF02633127800290488 /* Graphik-Semibold.ttf in Resources */,
 				04D23EEA2633121300290488 /* Graphik-Black.ttf in Resources */,
 				0413E40226307D3700F5977D /* VideosVC.xib in Resources */,
+				046E2E4926693A3300BFCDCC /* CalenderVc.xib in Resources */,
 				04242AA926553A4E003C8B44 /* VideoPurchaseVc.xib in Resources */,
 				0460CF46261CEC27006685B6 /* ArtistCell.xib in Resources */,
 				0488CCF5261213E400E05BEB /* LaunchScreen.storyboard in Resources */,
@@ -1291,7 +1295,6 @@
 				040339E22638F21000CEDBD3 /* ListingDetailsVC.xib in Resources */,
 				0488CCF2261213E400E05BEB /* Assets.xcassets in Resources */,
 				0448E7932666D664009C4A6E /* AddProjectdetailsVc.xib in Resources */,
-				0448E78A2666AA6B009C4A6E /* AddProjectPhotosVC.xib in Resources */,
 				04242A9E26553A12003C8B44 /* VideoArtistsVc.xib in Resources */,
 				04319B1A265C5E5F000535B2 /* SocialCell.xib in Resources */,
 				04242AAF26553A65003C8B44 /* VideoPartners.xib in Resources */,
@@ -1376,7 +1379,6 @@
 				0414280226174D8A000394CA /* SearchVc.swift in Sources */,
 				04528E3226149579009868EA /* AuthenticationViewModel.swift in Sources */,
 				0413E4182630879700F5977D /* ArtistsVc.swift in Sources */,
-				0448E7892666AA6B009C4A6E /* AddProjectPhotosVC.swift in Sources */,
 				04F06AFA2614E18D00B08606 /* CustomImageView.swift in Sources */,
 				04319B13265BB8E0000535B2 /* BlogDetailsVc.swift in Sources */,
 				04528E4B2614B54B009868EA /* CreatPasswordVc.swift in Sources */,
@@ -1388,6 +1390,7 @@
 				04E1871726136B1600824E37 /* CustomView.swift in Sources */,
 				04528E552614B586009868EA /* NameVc.swift in Sources */,
 				0449A73A262F939300604052 /* String+Extention.swift in Sources */,
+				04297547266A92F6007284E4 /* ProjectViewModel.swift in Sources */,
 				045AD32B264CA49A00E42D4C /* VideosViewModel.swift in Sources */,
 				0413E40726307D7300F5977D /* ProjectsVC.swift in Sources */,
 				0440ECA82636C7C60046681C /* CompetitionCell.swift in Sources */,
@@ -1435,6 +1438,7 @@
 				04528E2C26149443009868EA /* ConfigUrls.swift in Sources */,
 				043B47D5261DB5B500D67023 /* ForYouCell.swift in Sources */,
 				045A66E12667134300ED03CB /* AboutProjectVC.swift in Sources */,
+				046E2E4826693A3300BFCDCC /* CalenderVc.swift in Sources */,
 				0413E40126307D3700F5977D /* VideosVC.swift in Sources */,
 				04242AA826553A4E003C8B44 /* VideoPurchaseVc.swift in Sources */,
 				04DEA9D62620947100F843A6 /* Authentication.swift in Sources */,

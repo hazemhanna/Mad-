@@ -25,5 +25,8 @@ target 'Mad' do
   pod 'Tabman'
   pod "WSTagsField"
   pod 'Gallery'
-   
+  pod 'FSCalendar'
+  pod "RichEditorView"
+
+
 end
