@@ -79,7 +79,7 @@ class AddProjectdetailsVc : UIViewController {
         tagsField.textDelegate = self
         textFieldEvents()
         
-        
+      
         
         artistField.frame = artistView.bounds
         artistView.addSubview(artistField)
@@ -117,6 +117,10 @@ class AddProjectdetailsVc : UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        startDateTf.text = Helper.getDate1() ?? ""
+        endDateTf.text = Helper.getDate2() ?? ""
+        
         self.navigationController?.navigationBar.isHidden = true
         if let ptcTBC = tabBarController as? PTCardTabBarController{
             ptcTBC.customTabBar.isHidden = true
@@ -152,12 +156,14 @@ class AddProjectdetailsVc : UIViewController {
     
     @IBAction func calender1Button(sender: UIButton) {
         let vc = CalenderVc.instantiateFromNib()
+        vc!.tag = 1
         self.navigationController?.pushViewController(vc!, animated: true)
     }
     
     
     @IBAction func calender2Button(sender: UIButton) {
         let vc = CalenderVc.instantiateFromNib()
+        vc!.tag = 2
         self.navigationController?.pushViewController(vc!, animated: true)
     }
     
@@ -184,8 +190,18 @@ class AddProjectdetailsVc : UIViewController {
                 }
             }
         }
+        
         guard self.validateInput() else {return}
         let vc = AboutProjectVC.instantiateFromNib()
+        vc!.selectedCat = selectedCat
+        vc!.selectedArtist = selectedArtist
+        vc!.locationTF = locationTF.text ?? ""
+        vc!.short_description = locationTF.text ?? ""
+        vc!.titleTF = titleTF.text ?? ""
+        vc!.summeryTf = summeryTf.text ?? ""
+        vc!.startDateTf = startDateTf.text ?? ""
+        vc!.endDateTf = endDateTf.text ?? ""
+        vc!.uploadedPhoto = uploadedPhoto
         self.navigationController?.pushViewController(vc!, animated: true)
     }
 

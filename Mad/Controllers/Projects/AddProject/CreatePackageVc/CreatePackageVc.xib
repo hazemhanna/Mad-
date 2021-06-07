@@ -31,7 +31,7 @@
                         <rect key="frame" x="0.0" y="8" width="414" height="100"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Package" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nIm-EC-wtE">
-                                <rect key="frame" x="147" y="42" width="120" height="16"/>
+                                <rect key="frame" x="150" y="40.5" width="114.5" height="19"/>
                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="16"/>
                                 <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1043,51 +1043,63 @@
                 <outlet property="Package3Btn" destination="AKP-dW-HNx" id="ByV-7u-EJs"/>
                 <outlet property="Package3Stack" destination="a9w-mc-ef9" id="6gL-XH-sSm"/>
                 <outlet property="Plus3Btn" destination="WC9-kA-GTa" id="Wez-QN-uou"/>
+                <outlet property="description1TF" destination="Bea-4C-zG9" id="ewI-jE-off"/>
+                <outlet property="description2TF" destination="DvG-bX-wRL" id="Mhi-yA-ZpC"/>
+                <outlet property="description3TF" destination="arc-zG-Vdd" id="mXf-4R-xmk"/>
                 <outlet property="plus1Btn" destination="WWu-dx-218" id="Ewg-hZ-fO4"/>
                 <outlet property="plus2Btn" destination="fy7-7Q-NaS" id="I6A-AQ-H4H"/>
+                <outlet property="price1" destination="F1P-iq-B7V" id="rTB-fy-YCR"/>
+                <outlet property="price2" destination="zXK-0e-lx6" id="HYS-HB-TAt"/>
+                <outlet property="price3" destination="fXl-CA-qDX" id="cZ5-sU-F6X"/>
+                <outlet property="price_eur1" destination="Vv0-BP-5or" id="4bI-2V-CJz"/>
+                <outlet property="price_eur2" destination="pHg-0K-yY0" id="gDL-cR-rOm"/>
+                <outlet property="price_eur3" destination="wTj-js-6gI" id="ePq-s7-bBm"/>
+                <outlet property="title1TF" destination="3sr-f7-dWS" id="ivV-xY-eLF"/>
+                <outlet property="title2TF" destination="n5q-6L-HrV" id="BcX-Eh-BtI"/>
+                <outlet property="title3TF" destination="9G7-5E-yPh" id="V2V-NT-2EY"/>
             </connections>
             <point key="canvasLocation" x="-1791.304347826087" y="1717.6339285714284"/>
         </viewController>
     </objects>
     <designables>
         <designable name="3sr-f7-dWS">
-            <size key="intrinsicContentSize" width="24" height="37.5"/>
+            <size key="intrinsicContentSize" width="25" height="40.5"/>
         </designable>
         <designable name="9G7-5E-yPh">
-            <size key="intrinsicContentSize" width="24" height="37.5"/>
+            <size key="intrinsicContentSize" width="25" height="40.5"/>
         </designable>
         <designable name="Bea-4C-zG9">
-            <size key="intrinsicContentSize" width="24" height="37.5"/>
+            <size key="intrinsicContentSize" width="25" height="40.5"/>
         </designable>
         <designable name="DvG-bX-wRL">
-            <size key="intrinsicContentSize" width="24" height="37.5"/>
+            <size key="intrinsicContentSize" width="25" height="40.5"/>
         </designable>
         <designable name="F1P-iq-B7V">
-            <size key="intrinsicContentSize" width="40.5" height="37.5"/>
+            <size key="intrinsicContentSize" width="38" height="40.5"/>
         </designable>
         <designable name="Vv0-BP-5or">
-            <size key="intrinsicContentSize" width="38" height="37.5"/>
+            <size key="intrinsicContentSize" width="38" height="40.5"/>
         </designable>
         <designable name="arc-zG-Vdd">
-            <size key="intrinsicContentSize" width="24" height="37.5"/>
+            <size key="intrinsicContentSize" width="25" height="40.5"/>
         </designable>
         <designable name="fXl-CA-qDX">
-            <size key="intrinsicContentSize" width="40.5" height="37.5"/>
+            <size key="intrinsicContentSize" width="38" height="40.5"/>
         </designable>
         <designable name="n5q-6L-HrV">
-            <size key="intrinsicContentSize" width="24" height="37.5"/>
+            <size key="intrinsicContentSize" width="25" height="40.5"/>
         </designable>
         <designable name="pHg-0K-yY0">
-            <size key="intrinsicContentSize" width="38" height="37.5"/>
+            <size key="intrinsicContentSize" width="38" height="40.5"/>
         </designable>
         <designable name="wTj-js-6gI">
-            <size key="intrinsicContentSize" width="38" height="37.5"/>
+            <size key="intrinsicContentSize" width="38" height="40.5"/>
         </designable>
         <designable name="z2l-ZY-tGZ">
             <size key="intrinsicContentSize" width="52" height="21"/>
         </designable>
         <designable name="zXK-0e-lx6">
-            <size key="intrinsicContentSize" width="40.5" height="37.5"/>
+            <size key="intrinsicContentSize" width="38" height="40.5"/>
         </designable>
     </designables>
     <resources>

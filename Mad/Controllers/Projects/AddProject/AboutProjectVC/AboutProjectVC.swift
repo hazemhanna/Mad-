@@ -11,7 +11,17 @@ import RichEditorView
 class AboutProjectVC: UIViewController {
 
     @IBOutlet var editorView: RichEditorView!
-    
+    var selectedCat = [Int]()
+    var selectedArtist = [Int]()
+    var locationTF = String()
+    var short_description = String()
+    var titleTF = String()
+    var summeryTf = String()
+    var startDateTf = String()
+    var endDateTf = String()
+    var contentHtml = String()
+    var uploadedPhoto :UIImage?
+
     lazy var toolbar: RichEditorToolbar = {
         let toolbar = RichEditorToolbar(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 44))
         toolbar.options = RichEditorDefaultOption.all
@@ -59,15 +69,25 @@ class AboutProjectVC: UIViewController {
     
     @IBAction func nextButton(sender: UIButton) {
         let vc = CreatePackageVc.instantiateFromNib()
+        vc!.selectedCat = selectedCat
+        vc!.selectedArtist = selectedArtist
+        vc!.locationTF = locationTF
+        vc!.short_description = locationTF
+        vc!.titleTF = titleTF
+        vc!.summeryTf = summeryTf
+        vc!.startDateTf = startDateTf
+        vc!.endDateTf = endDateTf
+        vc!.contentHtml = contentHtml
+        vc!.uploadedPhoto = uploadedPhoto
+
         self.navigationController?.pushViewController(vc!, animated: true)
     }
 }
 
 extension AboutProjectVC: RichEditorDelegate {
     func richEditor(_ editor: RichEditorView, contentDidChange content: String) {
-        print(content)
+        contentHtml = content
     }
-    
 }
 
 extension AboutProjectVC: RichEditorToolbarDelegate {

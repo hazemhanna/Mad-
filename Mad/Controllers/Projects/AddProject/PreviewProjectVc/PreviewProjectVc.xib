@@ -80,6 +80,9 @@
                                                         <real key="value" value="28"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="saveButtonWithSender:" destination="hZU-ux-vmi" eventType="touchUpInside" id="dW0-CO-IzI"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uEm-nY-peR" customClass="CustomButtons" customModule="Mad" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="86" width="350" height="54"/>
@@ -303,8 +306,18 @@
             </view>
             <navigationItem key="navigationItem" id="drD-S4-EPn"/>
             <connections>
+                <outlet property="LikeLbl" destination="7rI-kJ-wh4" id="jn2-PQ-uzL"/>
+                <outlet property="NameLbl" destination="tps-6g-0Fe" id="lBq-Db-P2s"/>
+                <outlet property="dateLbl" destination="Zcx-hR-v6m" id="HFt-RS-ywk"/>
+                <outlet property="favouriteBtn" destination="W4p-PT-Uys" id="gO4-gO-q2U"/>
+                <outlet property="favouriteStack" destination="lww-05-Av3" id="S1K-dJ-lO9"/>
                 <outlet property="liveCollectionView" destination="4WF-UU-8uz" id="DIg-rE-ihk"/>
                 <outlet property="liveView" destination="A2v-vP-Hqa" id="KtA-Vf-8BG"/>
+                <outlet property="profileImage" destination="7hR-M0-pAb" id="8bZ-ac-Mpu"/>
+                <outlet property="projectImage" destination="Hm2-Zw-aZV" id="S1j-KU-InH"/>
+                <outlet property="shareBtn" destination="TeZ-Lx-nGh" id="yPW-vB-lME"/>
+                <outlet property="shareLbl" destination="p4c-ac-caf" id="yG6-DQ-Kxb"/>
+                <outlet property="titleLbl" destination="0GD-wm-7zT" id="ndu-Hc-X4E"/>
             </connections>
             <point key="canvasLocation" x="-1791.304347826087" y="1717.6339285714284"/>
         </viewController>

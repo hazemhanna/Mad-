@@ -21,41 +21,37 @@ struct ProjectViewModel {
         SVProgressHUD.dismiss()
     }
     
-//    func CreatProject(
-//                      title :String,
-//                      content :String,
-//                      short_description:String,
-//                      summary:String,
-//                      image:UIImage,
-//                      categories :[Int],
-//                      products :[Int],
-//                      artists :[Int],
-//                      startDate :String,
-//                      endDate :String,
-//                      location :String,
-//                     submit :String,
-//                     packages: [String:Any]) -> Observable<AddProductModelJson> {
-//        let params: [String: Any] = [
-//            "title":title,
-//            "categories": categories,
-//            "content": content,
-//            "short_description":short_description,
-//            "summary":summary,
-//            "image_url":image,
-//            "start_date":startDate,
-//            "end_date":endDate,
-//            "products":products,
-//            "location":location,
-//            "type":type,
-//            "packages":packages,
-//            "associated_artists":artists,
-//            "submit":submit
-//        ]
-//        let observer = AddServices.shared.createProduct(image: image,params : params)
-//            return observer
-//     }
-    
-    
+    func CreatProject(
+                      title :String,
+                      content :String,
+                      short_description:String,
+                      summary:String,
+                      image:UIImage,
+                      categories :[Int],
+                      products :[Int],
+                      artists :[Int],
+                      startDate :String,
+                      endDate :String,
+                      location :String,
+                     submit :String,
+                     packages: [[String:String]]) -> Observable<ProjectMainModel> {
+        let params: [String: Any] = [
+            "title":title,
+            "categories": categories,
+            "content": content,
+            "short_description":short_description,
+            "summary":summary,
+            "start_date":startDate,
+            "end_date":endDate,
+            "products":products,
+            "location":location,
+            "packages":packages,
+            "associated_artists":artists,
+            "submit":submit
+        ]
+        let observer = AddServices.shared.createProject(image: image,params : params)
+            return observer
+     }
     
     func getCategories() -> Observable<CategoryModel> {
          let observer = GetServices.shared.getAllCategories()

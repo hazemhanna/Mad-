@@ -19,6 +19,38 @@ class CreatePackageVc: UIViewController {
     @IBOutlet weak var plus2Btn : UIButton!
     @IBOutlet weak var Plus3Btn : UIButton!
     
+
+    @IBOutlet weak var title1TF: CustomTextField!
+    @IBOutlet weak var title2TF: CustomTextField!
+    @IBOutlet weak var title3TF: CustomTextField!
+    
+    @IBOutlet weak var description1TF : CustomTextField!
+    @IBOutlet weak var description2TF : CustomTextField!
+    @IBOutlet weak var description3TF : CustomTextField!
+
+    @IBOutlet weak var price1: UITextField!
+    @IBOutlet weak var price2: UITextField!
+    @IBOutlet weak var price3: UITextField!
+    
+    @IBOutlet weak var price_eur1: UITextField!
+    @IBOutlet weak var price_eur2: UITextField!
+    @IBOutlet weak var price_eur3: UITextField!
+    
+    
+    var selectedCat = [Int]()
+    var selectedArtist = [Int]()
+    var locationTF = String()
+    var short_description = String()
+    var titleTF = String()
+    var summeryTf = String()
+    var startDateTf = String()
+    var endDateTf = String()
+    var contentHtml = String()
+    var uploadedPhoto :UIImage?
+    var package1 = [String:String]()
+    var package2 = [String:String]()
+    var package3 = [String:String]()
+    var packages = [[String:String]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,24 +74,52 @@ class CreatePackageVc: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
     }
     
-
-    
     @IBAction func backButton(sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func nextButton(sender: UIButton) {
+        
+        package1["title"] = title1TF.text ?? ""
+        package2["title"] = title2TF.text ?? ""
+        package3["title"] = title3TF.text ?? ""
+        
+        package1["description"] = description1TF.text ?? ""
+        package2["description"] = description2TF.text ?? ""
+        package3["description"] = description3TF.text ?? ""
+        
+        package1["price"] = price1.text ?? ""
+        package2["price"] = price2.text ?? ""
+        package3["price"] = price3.text ?? ""
+        
+        package1["price_eur"] = price_eur1.text ?? ""
+        package2["price_eur"] = price_eur2.text ?? ""
+        package3["price_eur"] = price_eur3.text ?? ""
+        
+        packages.append(package1)
+        packages.append(package2)
+        packages.append(package3)
+
         let vc = PreviewProjectVc.instantiateFromNib()
+        vc!.selectedCat = selectedCat
+        vc!.selectedArtist = selectedArtist
+        vc!.locationTF = locationTF
+        vc!.short_description = locationTF
+        vc!.titleTF = titleTF
+        vc!.summeryTf = summeryTf
+        vc!.startDateTf = startDateTf
+        vc!.endDateTf = endDateTf
+        vc!.contentHtml = contentHtml
+        vc!.uploadedPhoto = uploadedPhoto
+        vc!.packages = packages
         self.navigationController?.pushViewController(vc!, animated: true)
     }
-
     
     @IBAction func PackageButton(sender: UIButton) {
         if sender.tag == 1 {

@@ -154,5 +154,23 @@ class Helper {
     }
     
     
+    class func saveDate1(code: String) {
+        let def = UserDefaults.standard
+        def.set(code, forKey: "date1")
+        def.synchronize()
+    }
+    class func getDate1() -> String? {
+        let def = UserDefaults.standard
+        return def.object(forKey: "date1") as? String
+    }
     
+    class func saveDate2(code: String) {
+        let def = UserDefaults.standard
+        def.set(code, forKey: "date2")
+        def.synchronize()
+    }
+    class func getDate2() -> String? {
+        let def = UserDefaults.standard
+        return def.object(forKey: "date2") as? String
+    }
 }
