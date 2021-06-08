@@ -51,12 +51,20 @@ class CreatePackageVc: UIViewController {
     var package2 = [String:String]()
     var package3 = [String:String]()
     var packages = [[String:String]]()
+    var selectedProducts = [Int]()
+    var products = [Product]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         Package1Stack.isHidden = false
         Package2Stack.isHidden = true
         Package3Stack.isHidden = true
+        let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.checkAction))
+       self.view.addGestureRecognizer(gesture)
+    }
+    
+    @objc func checkAction(sender : UITapGestureRecognizer) {
+        view.endEditing(true)
     }
     
     
@@ -84,8 +92,18 @@ class CreatePackageVc: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    func validateInput() -> Bool {
+        if package1.count < 0 && package2.count < 0 && package3.count < 0  {
+            self.showMessage(text: "Please enter one package at least")
+            return false
+        }else{
+            return true
+        }
+    }
+    
     @IBAction func nextButton(sender: UIButton) {
-        
+        guard self.validateInput() else {return}
+
         package1["title"] = title1TF.text ?? ""
         package2["title"] = title2TF.text ?? ""
         package3["title"] = title3TF.text ?? ""
@@ -118,6 +136,8 @@ class CreatePackageVc: UIViewController {
         vc!.contentHtml = contentHtml
         vc!.uploadedPhoto = uploadedPhoto
         vc!.packages = packages
+        vc!.selectedProducts = selectedProducts
+        vc!.products = products
         self.navigationController?.pushViewController(vc!, animated: true)
     }
     

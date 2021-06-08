@@ -77,7 +77,7 @@ extension CategeoryVc: UICollectionViewDelegate , UICollectionViewDataSource {
         if let url = URL(string:  self.Categories[indexPath.row].imageURL ?? ""){
         cell.catImage.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4"))
         }
-        cell.selectAction = {
+         cell.selectAction = {
             if cell.iconImage.isHidden {
             cell.iconImage.isHidden = false
                 self.SelectedCategories.append(self.Categories[indexPath.row].id ?? 0 )

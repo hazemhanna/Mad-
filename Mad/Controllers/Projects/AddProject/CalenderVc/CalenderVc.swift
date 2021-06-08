@@ -22,11 +22,10 @@ class CalenderVc : UIViewController ,FSCalendarDataSource, FSCalendarDelegate{
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         if monthPosition == .previous || monthPosition == .next {
             calendar.setCurrentPage(date, animated: true)
-            
         }
         
         let dateFormatter: DateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "Y-M-d"
+        dateFormatter.dateFormat = "Y-MM-dd"
         let selectedDate: String = dateFormatter.string(from: date)
         print(selectedDate)
         if self.tag == 1{

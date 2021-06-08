@@ -34,7 +34,7 @@ struct ProjectViewModel {
                       endDate :String,
                       location :String,
                      submit :String,
-                     packages: [[String:String]]) -> Observable<ProjectMainModel> {
+                     packages: [[String:String]]) -> Observable<AddProductModelJson> {
         let params: [String: Any] = [
             "title":title,
             "categories": categories,
@@ -66,5 +66,12 @@ struct ProjectViewModel {
          return observer
      }
     
-
+    
+    func getArtistProduct() -> Observable<ArtistProductModel> {
+         let observer = GetServices.shared.getArtistProduct()
+         return observer
+     }
+    
+    
+    
 }

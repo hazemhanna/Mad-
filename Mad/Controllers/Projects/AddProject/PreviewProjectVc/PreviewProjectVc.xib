@@ -101,6 +101,9 @@
                                                         <real key="value" value="28"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="draftButtonWithSender:" destination="hZU-ux-vmi" eventType="touchUpInside" id="RzQ-CU-HUq"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>

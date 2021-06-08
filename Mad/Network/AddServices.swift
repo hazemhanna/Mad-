@@ -249,7 +249,7 @@ struct AddServices {
 
     
     
-    func createProject(image: UIImage,params: [String : Any]) -> Observable<ProjectMainModel> {
+    func createProject(image: UIImage,params: [String : Any]) -> Observable<AddProductModelJson> {
           return Observable.create { (observer) -> Disposable in
             let url = ConfigURLS.createProject
             let token = Helper.getAPIToken() ?? ""
@@ -276,16 +276,17 @@ struct AddServices {
                                           if let num = element as? Int {
                                               let value = "\(num)"
                                             form.append(value.data(using: .utf8)!, withName: keyObj)
-                                      }else
-                                          if let temp = element as? NSDictionary {
-                                            for (key, value) in temp {
-                                            form.append("\(value)".data(using: .utf8)!, withName: key as! String)
-                                            }
                                       }
+                                     
                                   })
                         }
+                    
+                    if let temp = value as? NSDictionary {
+                      for (key, value) in temp {
+                      form.append("\(value)".data(using: .utf8)!, withName: key as! String)
+                      }
+                  }
                 }
-                
               }, usingThreshold: SessionManager.multipartFormDataEncodingMemoryThreshold, to: url, method: .post, headers: headers) { (result: SessionManager.MultipartFormDataEncodingResult) in
                       switch result {
                   case .failure(let error):
@@ -296,7 +297,7 @@ struct AddServices {
                         print("Image Uploading Progress: \(progress.fractionCompleted)")
                     }.responseJSON { (response: DataResponse<Any>) in
                do {
-                      let data = try JSONDecoder().decode(ProjectMainModel.self, from: response.data!)
+                      let data = try JSONDecoder().decode(AddProductModelJson.self, from: response.data!)
                         print(data)
                         observer.onNext(data)
                        } catch {

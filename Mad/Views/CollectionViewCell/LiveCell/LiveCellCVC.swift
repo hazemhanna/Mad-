@@ -8,8 +8,8 @@
 import UIKit
 
 class LiveCellCVC: UICollectionViewCell {
-
     
+    @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var bannerImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var priceLbl: UILabel!

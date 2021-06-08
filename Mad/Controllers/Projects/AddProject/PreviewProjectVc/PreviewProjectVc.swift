@@ -38,11 +38,18 @@ class PreviewProjectVc : UIViewController {
     var contentHtml = String()
     var uploadedPhoto :UIImage?
     var packages = [[String:String]]()
-    var selectedproduct = [Int]()
+    var selectedProducts = [Int]()
+    var products = [Product]()
+    var artistProducts = [Product]()
+
     var disposeBag = DisposeBag()
     var prjectVM = ProjectViewModel()
-    
     let cellIdentifier = "LiveCellCVC"
+    
+    let fName = Helper.getFName() ?? ""
+    let lName = Helper.getLName() ?? ""
+
+    
     var isFavourite  = false
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,8 +71,16 @@ class PreviewProjectVc : UIViewController {
         super.viewDidAppear(animated)
         dateLbl.text = startDateTf
         titleLbl.text = titleTF
-        NameLbl.text = startDateTf
+        NameLbl.text = fName + lName
         projectImage.image = uploadedPhoto
+        for index in selectedProducts{
+            for product in products{
+                if index == product.id {
+                    artistProducts.append(product)
+                }
+            }
+            liveCollectionView.reloadData()
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -76,20 +91,33 @@ class PreviewProjectVc : UIViewController {
     }
     
     @IBAction func saveButton(sender: UIButton) {
-        AddProject(categories: selectedCat, title: titleTF, short_description: short_description, summery: summeryTf, content: contentHtml, startDate: startDateTf, endDate: endDateTf, location: locationTF, submit: "submit", packages: packages, products: selectedproduct, artists: selectedArtist, photos: uploadedPhoto ?? #imageLiteral(resourceName: "Mask Group 12111"))
+        AddProject(categories: selectedCat, title: titleTF, short_description: short_description, summery: summeryTf, content: contentHtml, startDate: startDateTf, endDate: endDateTf, location: locationTF, submit: "submit", packages: packages, products: selectedProducts, artists: selectedArtist, photos: uploadedPhoto ?? #imageLiteral(resourceName: "Mask Group 12111"))
         
     }
+    
+    @IBAction func draftButton(sender: UIButton) {
+        AddProject(categories: selectedCat, title: titleTF, short_description: short_description, summery: summeryTf, content: contentHtml, startDate: startDateTf, endDate: endDateTf, location: locationTF, submit: "draft", packages: packages, products: selectedProducts, artists: selectedArtist, photos: uploadedPhoto ?? #imageLiteral(resourceName: "Mask Group 12111"))
+        
+    }
+    
 }
 
 
 extension PreviewProjectVc  :  UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return artistProducts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! LiveCellCVC
+        
+        cell.titleLabel.text = self.artistProducts[indexPath.row].title ?? ""
+        cell.priceLbl.text = "\(self.artistProducts[indexPath.row].price ?? 0)"
+        if let url = URL(string:   self.artistProducts[indexPath.row].imageURL ?? ""){
+        cell.bannerImage.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "Mask Group 56"))
+        }
+        
         cell.showShimmer = false
         return cell
     }
@@ -127,7 +155,7 @@ extension PreviewProjectVc{
                 self.prjectVM.dismissIndicator()
                 self.showMessage(text: dataModel.message ?? "")
                 let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
-                self.navigationController!.popToViewController(viewControllers[viewControllers.count - 4], animated: true)
+                self.navigationController!.popToViewController(viewControllers[viewControllers.count - 5], animated: true)
             }else{
                 self.showMessage(text: dataModel.message ?? "")
             }

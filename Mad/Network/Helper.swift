@@ -33,10 +33,12 @@ class Helper {
         }
     }
         
-    class func saveAlogin(token: String,email: String) {
+    class func saveAlogin(token: String,email: String,fName:String,lName:String) {
         let def = UserDefaults.standard
         def.set(token, forKey: "token")
         def.set(email, forKey: "email")
+        def.set(fName, forKey: "fName")
+        def.set(lName, forKey: "lName")
         def.synchronize()
     }
     
@@ -53,6 +55,14 @@ class Helper {
     }
     
     
+    class func getFName() -> String? {
+           let def = UserDefaults.standard
+           return def.object(forKey: "fName") as? String
+       }
+    class func getLName() -> String? {
+           let def = UserDefaults.standard
+           return def.object(forKey: "lName") as? String
+       }
 
     class func saveEmial(email: String) {
         let def = UserDefaults.standard

@@ -21,7 +21,9 @@ class AboutProjectVC: UIViewController {
     var endDateTf = String()
     var contentHtml = String()
     var uploadedPhoto :UIImage?
-
+    var selectedProducts = [Int]()
+    var products = [Product]()
+    
     lazy var toolbar: RichEditorToolbar = {
         let toolbar = RichEditorToolbar(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 44))
         toolbar.options = RichEditorDefaultOption.all
@@ -44,8 +46,15 @@ class AboutProjectVC: UIViewController {
             var options = toolbar.options
             options.append(item)
             toolbar.options = options
-        }
+        
+        let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.checkAction))
+        self.view.addGestureRecognizer(gesture)
+      
+    }
     
+    @objc func checkAction(sender : UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
     }
@@ -56,7 +65,8 @@ class AboutProjectVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
+        editorView.becomeFirstResponder()
+        editorView.isFirstResponder
     }
     
     override func viewDidLayoutSubviews() {
@@ -67,7 +77,18 @@ class AboutProjectVC: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    func validateInput() -> Bool {
+        if contentHtml == ""{
+            self.showMessage(text: "Please enter content of project")
+            return false
+        }else{
+            return true
+        }
+    }
+    
     @IBAction func nextButton(sender: UIButton) {
+        guard self.validateInput() else {return}
+
         let vc = CreatePackageVc.instantiateFromNib()
         vc!.selectedCat = selectedCat
         vc!.selectedArtist = selectedArtist
@@ -79,7 +100,8 @@ class AboutProjectVC: UIViewController {
         vc!.endDateTf = endDateTf
         vc!.contentHtml = contentHtml
         vc!.uploadedPhoto = uploadedPhoto
-
+        vc!.selectedProducts = selectedProducts
+        vc!.products = products
         self.navigationController?.pushViewController(vc!, animated: true)
     }
 }
