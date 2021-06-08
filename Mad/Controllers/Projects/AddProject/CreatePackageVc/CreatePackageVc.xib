@@ -31,7 +31,7 @@
                         <rect key="frame" x="0.0" y="8" width="414" height="100"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Package" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nIm-EC-wtE">
-                                <rect key="frame" x="150" y="40.5" width="114.5" height="19"/>
+                                <rect key="frame" x="147" y="42" width="120" height="16"/>
                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="16"/>
                                 <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -103,7 +103,7 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="dsu-dL-QCI">
                                                                         <rect key="frame" x="0.0" y="0.0" width="350" height="120"/>
                                                                         <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Email Address*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mUk-qY-M1B">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mUk-qY-M1B">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="350" height="34"/>
                                                                                 <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="16"/>
                                                                                 <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -159,7 +159,7 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="lAg-sT-PjL">
                                                                         <rect key="frame" x="0.0" y="136" width="350" height="164"/>
                                                                         <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Present yourself" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwu-e2-TAD">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwu-e2-TAD">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="350" height="19"/>
                                                                                 <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="16"/>
                                                                                 <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -406,7 +406,7 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="fgz-mx-VJ0">
                                                                         <rect key="frame" x="0.0" y="0.0" width="350" height="120"/>
                                                                         <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Email Address*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GFo-hs-2x4">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GFo-hs-2x4">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="350" height="34"/>
                                                                                 <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="16"/>
                                                                                 <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -462,7 +462,7 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="vre-uz-d9B">
                                                                         <rect key="frame" x="0.0" y="136" width="350" height="164"/>
                                                                         <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Present yourself" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCg-W4-JC1">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCg-W4-JC1">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="350" height="19"/>
                                                                                 <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="16"/>
                                                                                 <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -706,7 +706,7 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="DPh-aD-nht">
                                                                         <rect key="frame" x="0.0" y="0.0" width="350" height="120"/>
                                                                         <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Email Address*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M0o-EM-3qx">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M0o-EM-3qx">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="350" height="34"/>
                                                                                 <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="16"/>
                                                                                 <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -762,7 +762,7 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="J4U-BO-226">
                                                                         <rect key="frame" x="0.0" y="136" width="350" height="164"/>
                                                                         <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Present yourself" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0D-nS-OCf">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0D-nS-OCf">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="350" height="19"/>
                                                                                 <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="16"/>
                                                                                 <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -1063,43 +1063,43 @@
     </objects>
     <designables>
         <designable name="3sr-f7-dWS">
-            <size key="intrinsicContentSize" width="25" height="40.5"/>
+            <size key="intrinsicContentSize" width="24" height="37.5"/>
         </designable>
         <designable name="9G7-5E-yPh">
-            <size key="intrinsicContentSize" width="25" height="40.5"/>
+            <size key="intrinsicContentSize" width="24" height="37.5"/>
         </designable>
         <designable name="Bea-4C-zG9">
-            <size key="intrinsicContentSize" width="25" height="40.5"/>
+            <size key="intrinsicContentSize" width="24" height="37.5"/>
         </designable>
         <designable name="DvG-bX-wRL">
-            <size key="intrinsicContentSize" width="25" height="40.5"/>
+            <size key="intrinsicContentSize" width="24" height="37.5"/>
         </designable>
         <designable name="F1P-iq-B7V">
-            <size key="intrinsicContentSize" width="38" height="40.5"/>
+            <size key="intrinsicContentSize" width="40.5" height="37.5"/>
         </designable>
         <designable name="Vv0-BP-5or">
-            <size key="intrinsicContentSize" width="38" height="40.5"/>
+            <size key="intrinsicContentSize" width="38" height="37.5"/>
         </designable>
         <designable name="arc-zG-Vdd">
-            <size key="intrinsicContentSize" width="25" height="40.5"/>
+            <size key="intrinsicContentSize" width="24" height="37.5"/>
         </designable>
         <designable name="fXl-CA-qDX">
-            <size key="intrinsicContentSize" width="38" height="40.5"/>
+            <size key="intrinsicContentSize" width="40.5" height="37.5"/>
         </designable>
         <designable name="n5q-6L-HrV">
-            <size key="intrinsicContentSize" width="25" height="40.5"/>
+            <size key="intrinsicContentSize" width="24" height="37.5"/>
         </designable>
         <designable name="pHg-0K-yY0">
-            <size key="intrinsicContentSize" width="38" height="40.5"/>
+            <size key="intrinsicContentSize" width="38" height="37.5"/>
         </designable>
         <designable name="wTj-js-6gI">
-            <size key="intrinsicContentSize" width="38" height="40.5"/>
+            <size key="intrinsicContentSize" width="38" height="37.5"/>
         </designable>
         <designable name="z2l-ZY-tGZ">
             <size key="intrinsicContentSize" width="52" height="21"/>
         </designable>
         <designable name="zXK-0e-lx6">
-            <size key="intrinsicContentSize" width="38" height="40.5"/>
+            <size key="intrinsicContentSize" width="40.5" height="37.5"/>
         </designable>
     </designables>
     <resources>
