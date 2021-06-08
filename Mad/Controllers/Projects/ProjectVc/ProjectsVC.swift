@@ -22,7 +22,8 @@ class ProjectsVC : UIViewController {
     var disposeBag = DisposeBag()
     var parentVC : HomeVC?
     var token = Helper.getAPIToken() ?? ""
-
+    var type = Helper.getType() ?? false
+    
     var selectedIndex = -1
     var catId = Int()
     
@@ -148,26 +149,38 @@ extension ProjectsVC: UITableViewDelegate,UITableViewDataSource{
 
 extension ProjectsVC : UICollectionViewDelegate ,UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return  self.showShimmer ? 5 : Categories.count + 1
+        if type {
+            return  self.showShimmer ? 5 : Categories.count + 1
+        }else{
+            return  self.showShimmer ? 5 : Categories.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! ProjectCell
 
         if !self.showShimmer {
-        if indexPath.row == 0 {
+        if type {
+           if indexPath.row == 0 {
                 cell.catImage.isHidden = true
                 cell.addProjectBtn.isHidden = false
                 cell.projectNameLabel.text = "Creat project"
-            }else{
-                cell.catImage.isHidden = false
+             }else{
+                 cell.catImage.isHidden = false
                 cell.addProjectBtn.isHidden = true
                 cell.projectNameLabel.text = self.Categories[indexPath.row-1].name ?? ""
                 if let url = URL(string:   self.Categories[indexPath.row-1].imageURL ?? ""){
                 cell.catImage.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "Icon - Checkbox - Off"))
                 }
             }
-            
+            }else{
+                cell.catImage.isHidden = false
+                cell.addProjectBtn.isHidden = true
+                cell.projectNameLabel.text = self.Categories[indexPath.row].name ?? ""
+                if let url = URL(string:   self.Categories[indexPath.row].imageURL ?? ""){
+                cell.catImage.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "Icon - Checkbox - Off"))
+                }
+            }
             cell.add = {
                 if self.token != "" {
                     let vc = AddProjectdetailsVc.instantiateFromNib()

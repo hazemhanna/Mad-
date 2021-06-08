@@ -58,11 +58,13 @@ struct ProjectViewModel {
          return observer
      }
     
-    func getAllArtist(pageNum :Int) -> Observable<ArtistModelJson> {
+    func getSearchArtist(section : String,search:String,pageNum :Int) -> Observable<SearchArtistModel> {
         let params: [String: Any] = [
-            "page_number": pageNum
+            "page_number": pageNum,
+            "section":section,
+            "search":search
         ]
-        let observer = GetServices.shared.getAllArtist(param : params)
+        let observer = GetServices.shared.getSearch(param : params)
          return observer
      }
     

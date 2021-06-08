@@ -28,6 +28,7 @@ class ProductsVC : UIViewController {
     var TopProduct = [Product]()
     var categeory = [Category]()
     var token = Helper.getAPIToken() ?? ""
+    var type = Helper.getType() ?? false
 
     var showShimmer1: Bool = true
     var showShimmer2: Bool = true
@@ -71,7 +72,11 @@ class ProductsVC : UIViewController {
 extension ProductsVC: UICollectionViewDelegate,UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == addproductCollectionView {
-        return  self.showShimmer1 ? 5 : categeory.count + 1
+            if type {
+                return  self.showShimmer1 ? 5 : categeory.count + 1
+            }else{
+                return  self.showShimmer1 ? 5 : categeory.count
+            }
         }else if collectionView == topPrpductCollectionView{
             return  self.showShimmer4 ? 5 : TopProduct.count
         }else if collectionView == forYouCollectionView{
@@ -85,18 +90,27 @@ extension ProductsVC: UICollectionViewDelegate,UICollectionViewDataSource {
       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier1, for: indexPath) as! ProjectCell
       
         if !self.showShimmer1 {
-        if indexPath.row == 0 {
-                cell.catImage.isHidden = true
-                cell.addProjectBtn.isHidden = false
-                cell.projectNameLabel.text = "Add Product"
-            }else{
-                cell.catImage.isHidden = false
-                cell.addProjectBtn.isHidden = true
-                cell.projectNameLabel.text = self.categeory[indexPath.row-1].name ?? ""
-                if let url = URL(string:   self.categeory[indexPath.row-1].imageURL ?? ""){
-                cell.catImage.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "Icon - Checkbox - Off"))
+            if type {
+               if indexPath.row == 0 {
+                    cell.catImage.isHidden = true
+                    cell.addProjectBtn.isHidden = false
+                    cell.projectNameLabel.text = "Add Product"
+                 }else{
+                     cell.catImage.isHidden = false
+                    cell.addProjectBtn.isHidden = true
+                    cell.projectNameLabel.text = self.categeory[indexPath.row-1].name ?? ""
+                    if let url = URL(string:   self.categeory[indexPath.row-1].imageURL ?? ""){
+                    cell.catImage.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "Icon - Checkbox - Off"))
+                    }
                 }
-            }
+                }else{
+                    cell.catImage.isHidden = false
+                    cell.addProjectBtn.isHidden = true
+                    cell.projectNameLabel.text = self.categeory[indexPath.row].name ?? ""
+                    if let url = URL(string:   self.categeory[indexPath.row].imageURL ?? ""){
+                    cell.catImage.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "Icon - Checkbox - Off"))
+                    }
+                }
             cell.add = {
                 if self.token != "" {
                 let vc = AddProductImageVc.instantiateFromNib()

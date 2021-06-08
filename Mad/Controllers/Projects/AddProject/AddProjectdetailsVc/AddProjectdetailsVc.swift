@@ -52,7 +52,6 @@ class AddProjectdetailsVc : UIViewController {
     var catArray = [String]()
     var artistArray = [String]()
     var categeoryStrings = [String]()
-    var filterArtistArray = [String]()
     
     var uploadedPhoto :UIImage?
     var start  = true
@@ -112,7 +111,6 @@ class AddProjectdetailsVc : UIViewController {
         prjectVM.showIndicator()
         getCategory()
         getProduct()
-        getAllArtist(pageNum: 1)
     
         startDateTf.delegate = self
         endDateTf.delegate = self
@@ -217,7 +215,6 @@ class AddProjectdetailsVc : UIViewController {
     
     func validateInput() -> Bool {
         let tags =  self.selectedCat
-        let tags2 = self.selectedArtist
         let titles = self.titleTF.text ?? ""
         let shortDescription = self.short_description.text ?? ""
         let summery = self.summeryTf.text ?? ""
@@ -265,6 +262,7 @@ extension AddProjectdetailsVc: UITextFieldDelegate {
         self.view.endEditing(true)
         return true
     }
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField == startDateTf{
             if start {
@@ -337,7 +335,9 @@ extension AddProjectdetailsVc {
         artistField.onDidChangeText = { _, text in
             print("onDidChangeText")
 
-            self.filterArtistArray = self.artistArray.filter({return $0.contains(text ?? "")})
+            self.getAllArtist(section : "artists",search:text ?? "",pageNum :1)
+
+           // self.filterArtistArray = self.artistArray.filter({return $0.contains(text ?? "")})
             self.view.addSubview(self.artistPickerView)
             self.artistPickerView.frame = CGRect(x: 200, y: 400, width: 150, height: 160)
             self.artistPickerView.delegate = self
@@ -373,7 +373,7 @@ func numberOfComponents(in pickerView: UIPickerView) -> Int {
 
 func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
     if pickerView ==  artistPickerView{
-    return filterArtistArray.count
+    return artistArray.count
     }else {
         return categeoryStrings.count
     }
@@ -381,7 +381,7 @@ func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: I
     
 func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
     if pickerView ==  artistPickerView{
-        return filterArtistArray[row]
+        return artistArray[row]
     }else {
         return categeoryStrings[row]
     }
@@ -389,7 +389,7 @@ func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent c
 
 func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
     if pickerView ==  artistPickerView{
-        artistField.addTag(filterArtistArray[row])
+        artistField.addTag(artistArray[row])
         self.artistPickerView.isHidden = true
         view.endEditing(true)
 
@@ -431,10 +431,10 @@ extension AddProjectdetailsVc {
        }).disposed(by: disposeBag)
    }
     
-    func getAllArtist(pageNum : Int) {
-        prjectVM.getAllArtist(pageNum : pageNum).subscribe(onNext: { (dataModel) in
+    func getAllArtist(section : String,search:String,pageNum :Int) {
+        prjectVM.getSearchArtist(section : section,search:search,pageNum :pageNum).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
-            self.artist = dataModel.data?.data ?? []
+            self.artist = dataModel.data ?? []
             for index in self.artist {
                 self.artistArray.append(index.name ?? "")
             }

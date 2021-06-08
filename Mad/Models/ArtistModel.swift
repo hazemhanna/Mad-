@@ -41,7 +41,7 @@ struct Artist: Codable {
     let profilPicture: String?
     let bannerImg: String?
     let allFollowers, allFollowing: Int?
-    let isFavorite, music, art, design: Bool?
+    let isFavorite, music, art, is_mad_profile,design: Bool?
 
     enum CodingKeys: String, CodingKey {
         case id, name, headline
@@ -50,7 +50,7 @@ struct Artist: Codable {
         case allFollowers = "all_followers"
         case allFollowing = "all_following"
         case isFavorite = "is_favorite"
-        case music, art, design
+        case music, art, design,is_mad_profile
     }
 }
 
@@ -134,4 +134,11 @@ struct OngoingCompetition: Codable {
         case step2End = "step2_end"
         case resultDate = "result_date"
     }
+}
+
+struct SearchArtistModel: Codable {
+    let success: Bool?
+    let data: [Artist]?
+    let message: String?
+    let errors: Errors?
 }
