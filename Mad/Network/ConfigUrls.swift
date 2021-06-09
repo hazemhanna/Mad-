@@ -24,6 +24,8 @@ struct ConfigURLS {
     static var addToFavourite = BASE_URL  + "project/edit_favorite"
     static var shareProject = BASE_URL  + "project/share"
     static var getProjectDetails = BASE_URL  + "project/get"
+    static var createProject = BASE_URL  + "project/create"
+
     // artist
     static var addArtistToFavourite = BASE_URL  + "artist/edit_favorite"
     static var getAllArtist = BASE_URL  + "artist/all"
@@ -39,14 +41,16 @@ struct ConfigURLS {
     static var shareProduct = BASE_URL  + "product/share"
     static var createProduct = BASE_URL  + "product/create"
     static var catProduct = BASE_URL  + "categories/product"
-
-    
+    static var artistProduct = BASE_URL  + "product/get_for_artist"
     // video
     static var getAllvideos = BASE_URL  + "video/all"
     static var getVideoDetails = BASE_URL  + "video/get"
     static var addVideoToFavourite = BASE_URL  + "video/edit_favorite"
     static var shareVideo = BASE_URL  + "video/share"
+    // search
+    static var search = BASE_URL  + "search"
 
+    
    
     
 }

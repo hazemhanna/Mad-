@@ -154,3 +154,10 @@ struct ShareModel: Codable {
     let errors: Errors?
 }
 
+// MARK: - ProjectModel
+struct AddProjectModel: Codable {
+    let success: Bool?
+    let data: Project?
+    let message: String?
+    let errors: Errors?
+}

@@ -28,7 +28,7 @@
                         <rect key="frame" x="0.0" y="8" width="414" height="100"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Inventory and pricing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ww5-lc-4Oa">
-                                <rect key="frame" x="131.5" y="40.5" width="151" height="19"/>
+                                <rect key="frame" x="125" y="42" width="164" height="16"/>
                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="16"/>
                                 <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -522,19 +522,19 @@
     </objects>
     <designables>
         <designable name="Ev1-u9-Ohk">
-            <size key="intrinsicContentSize" width="47" height="40.5"/>
+            <size key="intrinsicContentSize" width="46" height="37.5"/>
         </designable>
         <designable name="Y3C-Hy-nqP">
-            <size key="intrinsicContentSize" width="47" height="40.5"/>
+            <size key="intrinsicContentSize" width="46" height="37.5"/>
         </designable>
         <designable name="oKu-3C-54Z">
             <size key="intrinsicContentSize" width="35" height="33"/>
         </designable>
         <designable name="pT6-s5-0B9">
-            <size key="intrinsicContentSize" width="38" height="40.5"/>
+            <size key="intrinsicContentSize" width="40.5" height="37.5"/>
         </designable>
         <designable name="yG5-3n-1Go">
-            <size key="intrinsicContentSize" width="38" height="40.5"/>
+            <size key="intrinsicContentSize" width="38" height="37.5"/>
         </designable>
     </designables>
     <resources>

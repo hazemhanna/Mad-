@@ -157,6 +157,7 @@ class ListingDetailsVC: UIViewController {
                 }
             }
         }
+        
         guard self.validateInput() else {return}
         let vc = InventoryPricingVC.instantiateFromNib()
         vc!.selectedCat =  self.selectedCat

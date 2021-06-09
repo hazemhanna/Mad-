@@ -3,12 +3,15 @@ PODS:
   - Differentiator (4.0.1)
   - DLRadioButton (1.4.12)
   - DropDown (2.3.13)
+  - FSCalendar (2.8.2)
+  - Gallery (2.4.0)
   - IQKeyboardManagerSwift (6.3.0)
   - Kingfisher (5.4.0)
   - KSToastView (0.5.7)
   - MOLH (1.4.3)
   - Pageboy (3.6.2)
   - PTCardTabBar (1.0.2)
+  - RichEditorView (5.0.0)
   - RxCocoa (5.1.1):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
@@ -56,11 +59,14 @@ DEPENDENCIES:
   - Alamofire (~> 4.8.2)
   - DLRadioButton (~> 1.4.12)
   - DropDown (~> 2.3.13)
+  - FSCalendar
+  - Gallery
   - IQKeyboardManagerSwift (~> 6.3.0)
   - Kingfisher (~> 5.4.0)
   - KSToastView
   - MOLH
   - PTCardTabBar
+  - RichEditorView
   - RxCocoa (~> 5)
   - RxDataSources (~> 4.0)
   - RxSwift (~> 5)
@@ -78,12 +84,15 @@ SPEC REPOS:
     - Differentiator
     - DLRadioButton
     - DropDown
+    - FSCalendar
+    - Gallery
     - IQKeyboardManagerSwift
     - Kingfisher
     - KSToastView
     - MOLH
     - Pageboy
     - PTCardTabBar
+    - RichEditorView
     - RxCocoa
     - RxDataSources
     - RxRelay
@@ -101,12 +110,15 @@ SPEC CHECKSUMS:
   Differentiator: 886080237d9f87f322641dedbc5be257061b0602
   DLRadioButton: d7c4e225ed0e8013cef7be61455230c7557ad7c1
   DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
+  FSCalendar: e6a2eb9c571bf0719ed797ef807e08426753c241
+  Gallery: b7fc1aeb68a39ad6d2c423574750196bf9b25e5c
   IQKeyboardManagerSwift: a8228c257614af98743b4cd8584637025f36358f
   Kingfisher: 9c8f2cc6710334e06f32ba2b45e77707d5e2f0c9
   KSToastView: aeb0ca50b44e9568b6f95b2d1ec53a3f016b50fc
   MOLH: e45827d200aeb1310641090fd8cd03ad2b42ae72
   Pageboy: cf121b9dd48c63f3f281b2a9ec93d02e0f23879b
   PTCardTabBar: 9f94e31b447629aead75cd21cdaa6ae1f2c8bac6
+  RichEditorView: 1bbb07b87ca2d479ac29a6877014b38b8df233ef
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxDataSources: efee07fa4de48477eca0a4611e6d11e2da9c1114
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
@@ -119,6 +131,6 @@ SPEC CHECKSUMS:
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   WSTagsField: a4e91b7d866e8c9755332ebcf8123f42f2abd4a0
 
-PODFILE CHECKSUM: b9026789b685849dd7230650af795dddb24f31ff
+PODFILE CHECKSUM: f1fec7d8f9bdcfa734d2aa0d49fd0e2332d8f2cb
 
 COCOAPODS: 1.10.1

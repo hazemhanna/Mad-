@@ -33,10 +33,21 @@ class Helper {
         }
     }
         
-    class func saveAlogin(token: String,email: String) {
+    class func saveAlogin(token: String,email: String,fName:String,lName:String,type:Bool) {
         let def = UserDefaults.standard
         def.set(token, forKey: "token")
         def.set(email, forKey: "email")
+        def.set(fName, forKey: "fName")
+        def.set(lName, forKey: "lName")
+        def.set(type, forKey: "type")
+        def.synchronize()
+    }
+    
+
+    class func LogOut() {
+        let def = UserDefaults.standard
+        def.removeObject(forKey: "token")
+        def.removeObject(forKey: "email")
         def.synchronize()
     }
     
@@ -45,15 +56,20 @@ class Helper {
            return def.object(forKey: "token") as? String
        }
     
-    class func LogOut() {
-        let def = UserDefaults.standard
-        def.removeObject(forKey: "token")
-        def.removeObject(forKey: "email")
-        def.synchronize()
-    }
-    
-    
+    class func getFName() -> String? {
+           let def = UserDefaults.standard
+           return def.object(forKey: "fName") as? String
+       }
+    class func getLName() -> String? {
+           let def = UserDefaults.standard
+           return def.object(forKey: "lName") as? String
+       }
 
+    class func getType() -> Bool? {
+           let def = UserDefaults.standard
+           return def.object(forKey: "type") as? Bool
+       }
+    
     class func saveEmial(email: String) {
         let def = UserDefaults.standard
         def.set(email, forKey: "email")
@@ -154,5 +170,23 @@ class Helper {
     }
     
     
+    class func saveDate1(code: String) {
+        let def = UserDefaults.standard
+        def.set(code, forKey: "date1")
+        def.synchronize()
+    }
+    class func getDate1() -> String? {
+        let def = UserDefaults.standard
+        return def.object(forKey: "date1") as? String
+    }
     
+    class func saveDate2(code: String) {
+        let def = UserDefaults.standard
+        def.set(code, forKey: "date2")
+        def.synchronize()
+    }
+    class func getDate2() -> String? {
+        let def = UserDefaults.standard
+        return def.object(forKey: "date2") as? String
+    }
 }

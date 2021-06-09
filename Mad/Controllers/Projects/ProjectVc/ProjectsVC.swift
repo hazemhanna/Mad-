@@ -9,6 +9,9 @@ import UIKit
 import RxSwift
 import RxCocoa
 import PTCardTabBar
+import Gallery
+
+
 
 class ProjectsVC : UIViewController {
    
@@ -18,8 +21,12 @@ class ProjectsVC : UIViewController {
     var homeVM = HomeViewModel()
     var disposeBag = DisposeBag()
     var parentVC : HomeVC?
+    var token = Helper.getAPIToken() ?? ""
+    var type = Helper.getType() ?? false
+    
     var selectedIndex = -1
     var catId = Int()
+    
     var Categories = [Category]() {
         didSet {
             DispatchQueue.main.async {
@@ -62,7 +69,6 @@ class ProjectsVC : UIViewController {
             ptcTBC.customTabBar.isHidden = false
         }
     }
-    
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
     }
@@ -97,7 +103,7 @@ extension ProjectsVC: UITableViewDelegate,UITableViewDataSource{
             
             // edit favourite
               cell.favourite = {
-                if Helper.getAPIToken() == nil {
+                if self.token == "" {
                     return
                 }
                 self.homeVM.showIndicator()
@@ -110,7 +116,7 @@ extension ProjectsVC: UITableViewDelegate,UITableViewDataSource{
             cell.favouriteStack.isHidden = false
              // share project
             cell.share = {
-                if Helper.getAPIToken() == nil {
+                if self.token == "" {
                     return
                 }
                 self.homeVM.showIndicator()
@@ -138,33 +144,52 @@ extension ProjectsVC: UITableViewDelegate,UITableViewDataSource{
         let main = ProjectDetailsVC.instantiateFromNib()
         main!.projectId =  self.projects[indexPath.row].id!
         self.navigationController?.pushViewController(main!, animated: true)
-     
     }
-    
 }
 
 extension ProjectsVC : UICollectionViewDelegate ,UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return  self.showShimmer ? 5 : Categories.count + 1
+        if type {
+            return  self.showShimmer ? 5 : Categories.count + 1
+        }else{
+            return  self.showShimmer ? 5 : Categories.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! ProjectCell
 
         if !self.showShimmer {
-        if indexPath.row == 0 {
+        if type {
+           if indexPath.row == 0 {
                 cell.catImage.isHidden = true
                 cell.addProjectBtn.isHidden = false
                 cell.projectNameLabel.text = "Creat project"
-            }else{
-                cell.catImage.isHidden = false
+             }else{
+                 cell.catImage.isHidden = false
                 cell.addProjectBtn.isHidden = true
                 cell.projectNameLabel.text = self.Categories[indexPath.row-1].name ?? ""
                 if let url = URL(string:   self.Categories[indexPath.row-1].imageURL ?? ""){
                 cell.catImage.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "Icon - Checkbox - Off"))
                 }
             }
-            
+            }else{
+                cell.catImage.isHidden = false
+                cell.addProjectBtn.isHidden = true
+                cell.projectNameLabel.text = self.Categories[indexPath.row].name ?? ""
+                if let url = URL(string:   self.Categories[indexPath.row].imageURL ?? ""){
+                cell.catImage.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "Icon - Checkbox - Off"))
+                }
+            }
+            cell.add = {
+                if self.token != "" {
+                    let vc = AddProjectdetailsVc.instantiateFromNib()
+                    self.navigationController?.pushViewController(vc!, animated: true)
+                }
+                else{
+                    self.showMessage(text: "please login first")
+                }
+            }
             if self.selectedIndex == indexPath.row{
                 cell.ProjectView.layer.borderColor = #colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1).cgColor
                 cell.ProjectView.layer.borderWidth = 2
@@ -249,4 +274,6 @@ extension ProjectsVC {
        }).disposed(by: disposeBag)
    }
 }
+
+
 

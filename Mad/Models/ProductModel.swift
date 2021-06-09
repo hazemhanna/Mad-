@@ -136,3 +136,11 @@ struct AddProductModelJson: Codable {
     let message: String?
     let errors: Errors?
 }
+
+
+struct ArtistProductModel: Codable {
+    let success: Bool?
+    let data: [Product]?
+    let message: String?
+    let errors: Errors?
+}
