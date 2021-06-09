@@ -50,6 +50,7 @@ PODS:
   - Tabman (2.9.1):
     - Pageboy (~> 3.6.0)
   - Toast-Swift (5.0.1)
+  - WSTagsField (5.4.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.8.2)
@@ -69,6 +70,7 @@ DEPENDENCIES:
   - SwiftyJSON (~> 5.0.0)
   - Tabman
   - Toast-Swift
+  - WSTagsField
 
 SPEC REPOS:
   trunk:
@@ -92,6 +94,7 @@ SPEC REPOS:
     - SwiftyJSON
     - Tabman
     - Toast-Swift
+    - WSTagsField
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
@@ -114,7 +117,8 @@ SPEC CHECKSUMS:
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   Tabman: 085d89c65be9e883629bdaf5b1453a6397e57846
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
+  WSTagsField: a4e91b7d866e8c9755332ebcf8123f42f2abd4a0
 
-PODFILE CHECKSUM: 5c9931aef7bc33e08fdf07456d82818d3a5c3a31
+PODFILE CHECKSUM: b9026789b685849dd7230650af795dddb24f31ff
 
 COCOAPODS: 1.10.1

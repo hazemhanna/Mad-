@@ -25,7 +25,6 @@ class ArtistProfileVc: UIViewController {
     var artistVM = ArtistViewModel()
     var disposeBag = DisposeBag()
     var artistId = Int()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -64,7 +63,6 @@ extension ArtistProfileVc  {
             if let profile = URL(string:   dataModel.data?.profilPicture ??  "" ){
             self.ProfileImage.kf.setImage(with: profile, placeholder: #imageLiteral(resourceName: "WhatsApp Image 2021-04-21 at 1.25.47 PM"))
            }
-
             if let bannerUrl = URL(string:   dataModel.data?.bannerImg ??  "" ){
             self.bannerImage.kf.setImage(with: bannerUrl, placeholder: #imageLiteral(resourceName: "WhatsApp Image 2021-04-21 at 1.25.47 PM"))
            }
@@ -74,8 +72,4 @@ extension ArtistProfileVc  {
 
        }).disposed(by: disposeBag)
    }
-}
-
-extension ArtistProfileVc {
-
 }

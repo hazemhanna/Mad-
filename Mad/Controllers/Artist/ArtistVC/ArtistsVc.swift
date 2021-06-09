@@ -14,6 +14,7 @@ class ArtistsVc: UIViewController {
     @IBOutlet weak var  topActiveCollectionView: UICollectionView!
     @IBOutlet weak var suggestedCollectionView: UICollectionView!
     @IBOutlet weak var artistsCollectionView: UICollectionView!
+    
     let cellIdentifier1 = "ProjectCell"
     let cellIdentifier2 = "SuggestedCell"
     let cellIdentifier3 = "ArtistCell"
@@ -54,7 +55,6 @@ class ArtistsVc: UIViewController {
         self.suggestedCollectionView.register(UINib(nibName: cellIdentifier2, bundle: nil), forCellWithReuseIdentifier: cellIdentifier2)
         self.artistsCollectionView.register(UINib(nibName: cellIdentifier3, bundle: nil), forCellWithReuseIdentifier: cellIdentifier3)
     }
-    
 }
 
 extension ArtistsVc : UICollectionViewDelegate ,UICollectionViewDataSource{
@@ -127,6 +127,7 @@ extension ArtistsVc : UICollectionViewDelegate ,UICollectionViewDataSource{
         if showShimmer3 {return}
         let vc = UIStoryboard(name: "Artist", bundle: nil).instantiateViewController(withIdentifier: "ArtistProfileVc")  as! ArtistProfileVc
             vc.artistId = self.artists[indexPath.row].id ?? 0
+            Helper.saveArtistId(id: self.artists[indexPath.row].id ?? 0)
         self.navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -215,6 +216,4 @@ extension ArtistsVc {
         self.artistVM.dismissIndicator()
        }).disposed(by: disposeBag)
    }
-
-    
 }

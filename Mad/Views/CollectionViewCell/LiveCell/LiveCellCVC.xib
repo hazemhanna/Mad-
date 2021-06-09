@@ -115,8 +115,11 @@
             </constraints>
             <size key="customSize" width="263" height="144"/>
             <connections>
+                <outlet property="bannerImage" destination="IuM-zf-1me" id="Lgy-Re-4B0"/>
                 <outlet property="editBtn" destination="SfV-BH-0bb" id="h8q-33-vjS"/>
+                <outlet property="priceLbl" destination="bwm-ou-Eu4" id="PTa-Wf-iYS"/>
                 <outlet property="shimmerView" destination="AU7-49-biv" id="gZ9-08-EtU"/>
+                <outlet property="titleLabel" destination="3u4-1O-HDF" id="H6U-gY-kMH"/>
             </connections>
             <point key="canvasLocation" x="-10.869565217391305" y="43.526785714285715"/>
         </collectionViewCell>

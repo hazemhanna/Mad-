@@ -129,3 +129,10 @@ struct ProductFavourite: Codable {
         case priceEur = "price_eur"
     }
 }
+
+struct AddProductModelJson: Codable {
+    let success: Bool?
+    let data: String?
+    let message: String?
+    let errors: Errors?
+}

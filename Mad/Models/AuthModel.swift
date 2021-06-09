@@ -49,7 +49,6 @@ struct User: Codable {
     let userEmail, userRegistered: String?
     let country: String?
     let categories: [Category]?
-
     enum CodingKeys: String, CodingKey {
         case id
         case firstName = "first_name"
@@ -62,5 +61,3 @@ struct User: Codable {
         case country, categories
     }
 }
-
-

@@ -181,10 +181,7 @@ extension ProductsVC: UICollectionViewDelegate,UICollectionViewDataSource {
             vc!.productId = self.product[indexPath.row].id ?? 0
             self.navigationController?.pushViewController(vc!, animated: true)
         }
-
-
     }
-    
 }
 
 extension ProductsVC: UICollectionViewDelegateFlowLayout {

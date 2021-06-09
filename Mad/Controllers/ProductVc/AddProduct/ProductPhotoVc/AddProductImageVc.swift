@@ -19,9 +19,7 @@ class AddProductImageVc: UIViewController {
     var disposeBag = DisposeBag()
     var uploadedPhoto = [UIImage]()
     var productPhoto = [AddPhotoModel]()
-
     let cellIdentifier = "AddProductPhotoCell"
-
     open lazy var customTabBar: PTCardTabBar = {
         return PTCardTabBar()
     }()
@@ -51,7 +49,6 @@ class AddProductImageVc: UIViewController {
         if let ptcTBC = tabBarController as? PTCardTabBarController {
             ptcTBC.customTabBar.isHidden = true
         }
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -64,9 +61,9 @@ class AddProductImageVc: UIViewController {
     
     @IBAction func nextButton(sender: UIButton) {
         let vc = ListingDetailsVC.instantiateFromNib()
+        vc!.uploadedPhoto = uploadedPhoto
         self.navigationController?.pushViewController(vc!, animated: true)
     }
-
 }
 
 extension AddProductImageVc: UICollectionViewDelegate ,UICollectionViewDataSource{

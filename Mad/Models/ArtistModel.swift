@@ -87,7 +87,7 @@ struct ArtistProfileModel: Codable {
     let isFavorite, isOwner: Bool?
     let projects: [Project]?
     let products: [Product]?
-
+    let socialLinks : [Social]?
     let ongoingCompetitions: [OngoingCompetition]?
     let completedCompetitions: [OngoingCompetition]?
 
@@ -111,7 +111,12 @@ struct ArtistProfileModel: Codable {
         case projects, products
         case ongoingCompetitions = "ongoing_competitions"
         case completedCompetitions = "completed_competitions"
+        case  socialLinks  = "social_links"
     }
+}
+
+struct Social: Codable {
+    let name, url, icon: String?
 }
 
 // MARK: - OngoingCompetition

@@ -19,15 +19,10 @@ class ContainerVC: TabmanViewController {
 
     let vc3 = UIStoryboard(name: "Artist", bundle: nil).instantiateViewController(withIdentifier: "AboutVc") as! AboutVc
 
-    let vc4 = UIStoryboard(name: "Artist", bundle: nil).instantiateViewController(withIdentifier: "CompetitionsVc") as! CompetitionsVc
-
-
-
     private lazy var viewControllers: [UIViewController] = [
         vc1,
         vc2,
         vc3,
-        vc4,
     ]
     
     override func viewDidLoad() {
@@ -35,7 +30,7 @@ class ContainerVC: TabmanViewController {
         self.dataSource = self
         self.delegate = self
         let bar = TMBarView.ButtonBar()
-        bar.layout.contentInset = UIEdgeInsets(top: 0.0, left: 32.0, bottom: 4.0, right: 0.0)
+        bar.layout.contentInset = UIEdgeInsets(top: 0.0, left: 64.0, bottom: 4.0, right: 64.0)
         bar.layout.interButtonSpacing = 24.0
         bar.indicator.weight = .light
         bar.indicator.cornerStyle = .eliptical
@@ -50,6 +45,7 @@ class ContainerVC: TabmanViewController {
         
         bar.indicator.tintColor = .clear
         addBar(bar.systemBar(), dataSource: self, at: .top)
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -76,10 +72,11 @@ func barItem(for bar: TMBar, at index: Int) -> TMBarItemable {
             return TMBarItem(title:  "Projects")
         }else if index == 1  {
             return TMBarItem(title:  "Products")
-        }else if index == 2  {
+        }else{
             return TMBarItem(title:  "About")
-        }else {
-           return TMBarItem(title:  "Competitions")
         }
     }
 }
+
+
+

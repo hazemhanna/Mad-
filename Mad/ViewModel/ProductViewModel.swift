@@ -56,7 +56,6 @@ struct ProductViewModel {
          return observer
      }
     
-    
     func addToFavourite(productId : Int,Type : Bool) -> Observable<ProductFavouriteModel> {
         let params: [String: Any] = [
             "product_id": productId,
@@ -66,12 +65,57 @@ struct ProductViewModel {
          return observer
      }
     
-    
     func shareProduct(productId : Int) -> Observable<ShareModel> {
         let params: [String: Any] = [
             "product_id": productId,
             ]
         let observer = AddServices.shared.shareProduct(param : params)
+         return observer
+     }
+    
+    func CreatProduct(categories :[Int],
+                      title :String,
+                      short_description:String,
+                      description:String,
+                      materials: String,
+                      length: Int,
+                      width: Int,
+                      height: Int,
+                      weight: Int,
+                      type: String,
+                      price:Int,
+                      price_eur:Int,
+                      quantity:Int,
+                      quantity_limitation:String,
+                      delivery:Int,
+                      delivery_index:String,
+                      photos:[UIImage]) -> Observable<AddProductModelJson> {
+        let params: [String: Any] = [
+            "categories": categories,
+            "title": title,
+            "short_description":short_description,
+            "description":description,
+            "materials":materials,
+            "length":length,
+            "width":width,
+            "height":height,
+            "weight":weight,
+            "type":type,
+            "price":price,
+            "price_eur":price_eur,
+            "quantity":quantity,
+            "quantity_limitation":quantity_limitation,
+            "delivery":delivery,
+            "delivery_index":delivery_index,
+        ]
+        let observer = AddServices.shared.createProduct(image: photos,params : params)
+            return observer
+     }
+    
+    
+    
+    func getProductCategories() -> Observable<CategoryModel> {
+         let observer = GetServices.shared.catProduct()
          return observer
      }
     

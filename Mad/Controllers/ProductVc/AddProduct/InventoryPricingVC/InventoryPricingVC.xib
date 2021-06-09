@@ -25,7 +25,7 @@
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U2O-yX-dEP">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                        <rect key="frame" x="0.0" y="8" width="414" height="100"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Inventory and pricing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ww5-lc-4Oa">
                                 <rect key="frame" x="131.5" y="40.5" width="151" height="19"/>
@@ -55,7 +55,7 @@
                         </constraints>
                     </view>
                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yoo-nJ-cP4">
-                        <rect key="frame" x="0.0" y="100" width="414" height="762"/>
+                        <rect key="frame" x="0.0" y="108" width="414" height="788"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c4E-kx-l5X">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="800"/>
@@ -383,24 +383,27 @@
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IwC-mr-wlW" customClass="CustomView" customModule="Mad" customModuleProvider="target">
                                                                         <rect key="frame" x="137" y="0.0" width="213" height="62"/>
                                                                         <subviews>
-                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Weekend" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SOO-Vp-iAU" customClass="TextFieldDropDown" customModule="Mad" customModuleProvider="target">
+                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Weekend" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uOf-y4-OuZ" customClass="TextFieldDropDown" customModule="Mad" customModuleProvider="target">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="213" height="62"/>
-                                                                                <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <color key="textColor" red="0.1333333333" green="0.2156862745" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="16"/>
-                                                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                                <textInputTraits key="textInputTraits"/>
                                                                                 <userDefinedRuntimeAttributes>
-                                                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
-                                                                                        <color key="value" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                    <userDefinedRuntimeAttribute type="color" keyPath="arrowColor">
+                                                                                        <color key="value" red="0.1333333333" green="0.2156862745" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedRowColor">
+                                                                                        <color key="value" red="0.1333333333" green="0.2156862745" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                                     </userDefinedRuntimeAttribute>
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </textField>
                                                                         </subviews>
                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                         <constraints>
-                                                                            <constraint firstItem="SOO-Vp-iAU" firstAttribute="leading" secondItem="IwC-mr-wlW" secondAttribute="leading" id="2ds-8X-0Mo"/>
-                                                                            <constraint firstAttribute="trailing" secondItem="SOO-Vp-iAU" secondAttribute="trailing" id="cYM-tP-3ga"/>
-                                                                            <constraint firstItem="SOO-Vp-iAU" firstAttribute="top" secondItem="IwC-mr-wlW" secondAttribute="top" id="oPT-YK-R5F"/>
-                                                                            <constraint firstAttribute="bottom" secondItem="SOO-Vp-iAU" secondAttribute="bottom" id="p6S-DA-9aL"/>
+                                                                            <constraint firstItem="uOf-y4-OuZ" firstAttribute="top" secondItem="IwC-mr-wlW" secondAttribute="top" id="Gnd-se-Xog"/>
+                                                                            <constraint firstItem="uOf-y4-OuZ" firstAttribute="leading" secondItem="IwC-mr-wlW" secondAttribute="leading" id="Px0-Gd-EC2"/>
+                                                                            <constraint firstAttribute="bottom" secondItem="uOf-y4-OuZ" secondAttribute="bottom" id="QEN-NU-8gW"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="uOf-y4-OuZ" secondAttribute="trailing" id="Ski-Mb-ZOz"/>
                                                                             <constraint firstAttribute="height" constant="62" id="z4o-hb-UXA"/>
                                                                         </constraints>
                                                                         <userDefinedRuntimeAttributes>
@@ -496,17 +499,22 @@
                 <constraints>
                     <constraint firstItem="U2O-yX-dEP" firstAttribute="leading" secondItem="GGt-WR-gvE" secondAttribute="leading" id="0As-Qk-W1q"/>
                     <constraint firstItem="GGt-WR-gvE" firstAttribute="trailing" secondItem="yoo-nJ-cP4" secondAttribute="trailing" id="0Ql-Fs-5Vm"/>
-                    <constraint firstItem="U2O-yX-dEP" firstAttribute="top" secondItem="GGt-WR-gvE" secondAttribute="top" constant="-44" id="4Wa-EL-bEP"/>
+                    <constraint firstItem="yoo-nJ-cP4" firstAttribute="top" secondItem="U2O-yX-dEP" secondAttribute="bottom" id="1o2-CX-XpE"/>
+                    <constraint firstItem="U2O-yX-dEP" firstAttribute="top" secondItem="duI-cv-xuZ" secondAttribute="top" constant="8" id="4Wa-EL-bEP"/>
                     <constraint firstItem="c4E-kx-l5X" firstAttribute="centerX" secondItem="GGt-WR-gvE" secondAttribute="centerX" id="B34-Zz-zwG"/>
                     <constraint firstItem="GGt-WR-gvE" firstAttribute="trailing" secondItem="U2O-yX-dEP" secondAttribute="trailing" id="PqZ-r7-8U2"/>
                     <constraint firstItem="yoo-nJ-cP4" firstAttribute="leading" secondItem="GGt-WR-gvE" secondAttribute="leading" id="fxe-AC-PBM"/>
-                    <constraint firstItem="yoo-nJ-cP4" firstAttribute="top" secondItem="duI-cv-xuZ" secondAttribute="top" constant="100" id="iDN-mx-Xil"/>
-                    <constraint firstItem="GGt-WR-gvE" firstAttribute="bottom" secondItem="yoo-nJ-cP4" secondAttribute="bottom" id="oj0-Gx-2B1"/>
+                    <constraint firstAttribute="bottom" secondItem="yoo-nJ-cP4" secondAttribute="bottom" id="oj0-Gx-2B1"/>
                 </constraints>
             </view>
             <navigationItem key="navigationItem" id="ujz-f7-Iak"/>
             <connections>
+                <outlet property="delivery" destination="Ev1-u9-Ohk" id="Ysm-9o-o7c"/>
+                <outlet property="deliveryIndex" destination="uOf-y4-OuZ" id="HuV-of-G9B"/>
                 <outlet property="limitedRadioButton" destination="Cdo-Q4-Z9l" id="wPx-vK-bdz"/>
+                <outlet property="price" destination="pT6-s5-0B9" id="mw6-qL-pb5"/>
+                <outlet property="price_eur" destination="yG5-3n-1Go" id="cBs-vg-6E9"/>
+                <outlet property="quantity" destination="Y3C-Hy-nqP" id="WcO-5k-GkS"/>
                 <outlet property="unlimitedRadioButton" destination="GeX-qa-a3u" id="cPT-ij-78X"/>
             </connections>
             <point key="canvasLocation" x="-1791.304347826087" y="1717.6339285714284"/>

@@ -9,6 +9,10 @@ import UIKit
 
 class LiveCellCVC: UICollectionViewCell {
 
+    
+    @IBOutlet weak var bannerImage: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var priceLbl: UILabel!
     @IBOutlet weak var shimmerView : ShimmerView!
     @IBOutlet weak var editBtn : UIButton!
 
