@@ -19,10 +19,10 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="auw-uX-Hpa" customClass="CustomView" customModule="Mad" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="169" height="149"/>
+                        <rect key="frame" x="4" y="4" width="161" height="141"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mask Group 102" translatesAutoresizingMaskIntoConstraints="NO" id="6R1-cd-zL3" customClass="CustomImageView" customModule="Mad" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="169" height="149"/>
+                                <rect key="frame" x="0.0" y="0.0" width="161" height="141"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="16"/>
@@ -30,7 +30,7 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y7u-gs-GbO" customClass="ShimmerView" customModule="Mad" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="169" height="149"/>
+                                <rect key="frame" x="0.0" y="0.0" width="161" height="141"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                         </subviews>
@@ -46,8 +46,21 @@
                             <constraint firstAttribute="bottom" secondItem="6R1-cd-zL3" secondAttribute="bottom" id="yvy-QV-LbE"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="NO"/>
+                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.16" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                <real key="value" value="0.69999999999999996"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                <real key="value" value="4"/>
+                            </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                 <real key="value" value="16"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                <size key="value" width="0.0" height="3"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
@@ -55,10 +68,10 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="auw-uX-Hpa" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="8md-o1-7gL"/>
-                <constraint firstAttribute="trailing" secondItem="auw-uX-Hpa" secondAttribute="trailing" id="Oa7-tc-4hb"/>
-                <constraint firstAttribute="bottom" secondItem="auw-uX-Hpa" secondAttribute="bottom" id="Qnu-KW-KMD"/>
-                <constraint firstItem="auw-uX-Hpa" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="vDO-S9-azd"/>
+                <constraint firstItem="auw-uX-Hpa" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="4" id="8md-o1-7gL"/>
+                <constraint firstAttribute="trailing" secondItem="auw-uX-Hpa" secondAttribute="trailing" constant="4" id="Oa7-tc-4hb"/>
+                <constraint firstAttribute="bottom" secondItem="auw-uX-Hpa" secondAttribute="bottom" constant="4" id="Qnu-KW-KMD"/>
+                <constraint firstItem="auw-uX-Hpa" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="4" id="vDO-S9-azd"/>
             </constraints>
             <size key="customSize" width="169" height="149"/>
             <connections>

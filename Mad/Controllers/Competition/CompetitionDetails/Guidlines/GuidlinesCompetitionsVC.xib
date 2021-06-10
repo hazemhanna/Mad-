@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Graphik-Medium.ttf">
+            <string>Graphik-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GuidlinesCompetitionsVC" customModule="Mad" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <viewController id="7I4-AZ-Bov" customClass="GuidlinesCompetitionsVC" customModule="Mad" customModuleProvider="target">
+            <view key="view" contentMode="scaleToFill" id="wgw-U6-WXg">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TIl-kp-gpf">
+                        <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ft7-Ye-apb">
+                                <rect key="frame" x="32" y="16" width="350" height="802"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" red="0.1333333333" green="0.2156862745" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Ft7-Ye-apb" firstAttribute="top" secondItem="TIl-kp-gpf" secondAttribute="top" constant="16" id="Imb-UJ-S6I"/>
+                            <constraint firstAttribute="bottom" secondItem="Ft7-Ye-apb" secondAttribute="bottom" id="KAd-tm-P66"/>
+                            <constraint firstAttribute="trailing" secondItem="Ft7-Ye-apb" secondAttribute="trailing" constant="32" id="cJY-mq-n37"/>
+                            <constraint firstItem="Ft7-Ye-apb" firstAttribute="leading" secondItem="TIl-kp-gpf" secondAttribute="leading" constant="32" id="h1Y-eg-5am"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <viewLayoutGuide key="safeArea" id="fIp-4y-aTq"/>
+                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                <constraints>
+                    <constraint firstItem="TIl-kp-gpf" firstAttribute="leading" secondItem="fIp-4y-aTq" secondAttribute="leading" id="7MG-bS-eVt"/>
+                    <constraint firstItem="fIp-4y-aTq" firstAttribute="trailing" secondItem="TIl-kp-gpf" secondAttribute="trailing" id="QT6-C4-Xaw"/>
+                    <constraint firstItem="TIl-kp-gpf" firstAttribute="top" secondItem="fIp-4y-aTq" secondAttribute="top" id="SrR-BS-T0x"/>
+                    <constraint firstItem="fIp-4y-aTq" firstAttribute="bottom" secondItem="TIl-kp-gpf" secondAttribute="bottom" id="lNw-gF-pG2"/>
+                </constraints>
+            </view>
+            <point key="canvasLocation" x="-360" y="93"/>
+        </viewController>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

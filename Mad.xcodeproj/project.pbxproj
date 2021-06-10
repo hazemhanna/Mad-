@@ -60,10 +60,25 @@
 		04319B14265BB8E0000535B2 /* BlogDetailsVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04319B12265BB8E0000535B2 /* BlogDetailsVc.xib */; };
 		04319B19265C5E5F000535B2 /* SocialCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04319B17265C5E5E000535B2 /* SocialCell.swift */; };
 		04319B1A265C5E5F000535B2 /* SocialCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04319B18265C5E5E000535B2 /* SocialCell.xib */; };
+		0439BD09267263C900AC5C59 /* AboutCompetitionsVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0439BD07267263C900AC5C59 /* AboutCompetitionsVc.swift */; };
+		0439BD0A267263C900AC5C59 /* AboutCompetitionsVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0439BD08267263C900AC5C59 /* AboutCompetitionsVc.xib */; };
+		0439BD0E2672640600AC5C59 /* GuidlinesCompetitionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0439BD0C2672640600AC5C59 /* GuidlinesCompetitionsVC.swift */; };
+		0439BD0F2672640600AC5C59 /* GuidlinesCompetitionsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0439BD0D2672640600AC5C59 /* GuidlinesCompetitionsVC.xib */; };
+		0439BD132672642B00AC5C59 /* DeadlinesCompetitionsVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0439BD112672642B00AC5C59 /* DeadlinesCompetitionsVc.swift */; };
+		0439BD142672642C00AC5C59 /* DeadlinesCompetitionsVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0439BD122672642B00AC5C59 /* DeadlinesCompetitionsVc.xib */; };
+		0439BD182672645E00AC5C59 /* PrizesCometitionsVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0439BD162672645E00AC5C59 /* PrizesCometitionsVc.swift */; };
+		0439BD192672645E00AC5C59 /* PrizesCometitionsVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0439BD172672645E00AC5C59 /* PrizesCometitionsVc.xib */; };
+		0439BD1D2672648900AC5C59 /* JudgesCompetitionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0439BD1B2672648900AC5C59 /* JudgesCompetitionsVC.swift */; };
+		0439BD1E2672648900AC5C59 /* JudgesCompetitionsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0439BD1C2672648900AC5C59 /* JudgesCompetitionsVC.xib */; };
+		0439BD222672823900AC5C59 /* CompetitionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0439BD212672823900AC5C59 /* CompetitionModel.swift */; };
 		043B47D5261DB5B500D67023 /* ForYouCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043B47D3261DB5B500D67023 /* ForYouCell.swift */; };
 		043B47D6261DB5B500D67023 /* ForYouCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 043B47D4261DB5B500D67023 /* ForYouCell.xib */; };
 		0440ECA82636C7C60046681C /* CompetitionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440ECA62636C7C60046681C /* CompetitionCell.swift */; };
 		0440ECA92636C7C60046681C /* CompetitionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0440ECA72636C7C60046681C /* CompetitionCell.xib */; };
+		0447A8F5267129B400F523CC /* HomeCompetitionsVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0447A8F3267129B400F523CC /* HomeCompetitionsVc.swift */; };
+		0447A8F6267129B400F523CC /* HomeCompetitionsVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0447A8F4267129B400F523CC /* HomeCompetitionsVc.xib */; };
+		0447A8FD26712E4200F523CC /* CompetitionsDetailsVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0447A8FB26712E4200F523CC /* CompetitionsDetailsVc.swift */; };
+		0447A8FE26712E4200F523CC /* CompetitionsDetailsVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0447A8FC26712E4200F523CC /* CompetitionsDetailsVc.xib */; };
 		0448E7922666D664009C4A6E /* AddProjectdetailsVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0448E7902666D664009C4A6E /* AddProjectdetailsVc.swift */; };
 		0448E7932666D664009C4A6E /* AddProjectdetailsVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0448E7912666D664009C4A6E /* AddProjectdetailsVc.xib */; };
 		0449A6F3262EF9E100604052 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0449A6F2262EF9E100604052 /* Authentication.storyboard */; };
@@ -223,10 +238,25 @@
 		04319B12265BB8E0000535B2 /* BlogDetailsVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BlogDetailsVc.xib; sourceTree = "<group>"; };
 		04319B17265C5E5E000535B2 /* SocialCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialCell.swift; sourceTree = "<group>"; };
 		04319B18265C5E5E000535B2 /* SocialCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SocialCell.xib; sourceTree = "<group>"; };
+		0439BD07267263C900AC5C59 /* AboutCompetitionsVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCompetitionsVc.swift; sourceTree = "<group>"; };
+		0439BD08267263C900AC5C59 /* AboutCompetitionsVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutCompetitionsVc.xib; sourceTree = "<group>"; };
+		0439BD0C2672640600AC5C59 /* GuidlinesCompetitionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidlinesCompetitionsVC.swift; sourceTree = "<group>"; };
+		0439BD0D2672640600AC5C59 /* GuidlinesCompetitionsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GuidlinesCompetitionsVC.xib; sourceTree = "<group>"; };
+		0439BD112672642B00AC5C59 /* DeadlinesCompetitionsVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlinesCompetitionsVc.swift; sourceTree = "<group>"; };
+		0439BD122672642B00AC5C59 /* DeadlinesCompetitionsVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeadlinesCompetitionsVc.xib; sourceTree = "<group>"; };
+		0439BD162672645E00AC5C59 /* PrizesCometitionsVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrizesCometitionsVc.swift; sourceTree = "<group>"; };
+		0439BD172672645E00AC5C59 /* PrizesCometitionsVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PrizesCometitionsVc.xib; sourceTree = "<group>"; };
+		0439BD1B2672648900AC5C59 /* JudgesCompetitionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JudgesCompetitionsVC.swift; sourceTree = "<group>"; };
+		0439BD1C2672648900AC5C59 /* JudgesCompetitionsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JudgesCompetitionsVC.xib; sourceTree = "<group>"; };
+		0439BD212672823900AC5C59 /* CompetitionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionModel.swift; sourceTree = "<group>"; };
 		043B47D3261DB5B500D67023 /* ForYouCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForYouCell.swift; sourceTree = "<group>"; };
 		043B47D4261DB5B500D67023 /* ForYouCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForYouCell.xib; sourceTree = "<group>"; };
 		0440ECA62636C7C60046681C /* CompetitionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionCell.swift; sourceTree = "<group>"; };
 		0440ECA72636C7C60046681C /* CompetitionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompetitionCell.xib; sourceTree = "<group>"; };
+		0447A8F3267129B400F523CC /* HomeCompetitionsVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCompetitionsVc.swift; sourceTree = "<group>"; };
+		0447A8F4267129B400F523CC /* HomeCompetitionsVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCompetitionsVc.xib; sourceTree = "<group>"; };
+		0447A8FB26712E4200F523CC /* CompetitionsDetailsVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionsDetailsVc.swift; sourceTree = "<group>"; };
+		0447A8FC26712E4200F523CC /* CompetitionsDetailsVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompetitionsDetailsVc.xib; sourceTree = "<group>"; };
 		0448E7902666D664009C4A6E /* AddProjectdetailsVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectdetailsVc.swift; sourceTree = "<group>"; };
 		0448E7912666D664009C4A6E /* AddProjectdetailsVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddProjectdetailsVc.xib; sourceTree = "<group>"; };
 		0449A6F2262EF9E100604052 /* Authentication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
@@ -545,6 +575,60 @@
 			path = SocialCell;
 			sourceTree = "<group>";
 		};
+		0439BCFE2672636400AC5C59 /* CompetitionsDetailsVc */ = {
+			isa = PBXGroup;
+			children = (
+				0447A8FB26712E4200F523CC /* CompetitionsDetailsVc.swift */,
+				0447A8FC26712E4200F523CC /* CompetitionsDetailsVc.xib */,
+			);
+			path = CompetitionsDetailsVc;
+			sourceTree = "<group>";
+		};
+		0439BD022672639500AC5C59 /* Judges */ = {
+			isa = PBXGroup;
+			children = (
+				0439BD1B2672648900AC5C59 /* JudgesCompetitionsVC.swift */,
+				0439BD1C2672648900AC5C59 /* JudgesCompetitionsVC.xib */,
+			);
+			path = Judges;
+			sourceTree = "<group>";
+		};
+		0439BD032672639900AC5C59 /* Prizes */ = {
+			isa = PBXGroup;
+			children = (
+				0439BD162672645E00AC5C59 /* PrizesCometitionsVc.swift */,
+				0439BD172672645E00AC5C59 /* PrizesCometitionsVc.xib */,
+			);
+			path = Prizes;
+			sourceTree = "<group>";
+		};
+		0439BD042672639D00AC5C59 /* Deadlines */ = {
+			isa = PBXGroup;
+			children = (
+				0439BD112672642B00AC5C59 /* DeadlinesCompetitionsVc.swift */,
+				0439BD122672642B00AC5C59 /* DeadlinesCompetitionsVc.xib */,
+			);
+			path = Deadlines;
+			sourceTree = "<group>";
+		};
+		0439BD05267263A000AC5C59 /* Guidlines */ = {
+			isa = PBXGroup;
+			children = (
+				0439BD0C2672640600AC5C59 /* GuidlinesCompetitionsVC.swift */,
+				0439BD0D2672640600AC5C59 /* GuidlinesCompetitionsVC.xib */,
+			);
+			path = Guidlines;
+			sourceTree = "<group>";
+		};
+		0439BD06267263A300AC5C59 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				0439BD07267263C900AC5C59 /* AboutCompetitionsVc.swift */,
+				0439BD08267263C900AC5C59 /* AboutCompetitionsVc.xib */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
 		043B47D2261DB58D00D67023 /* ForYouCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -561,6 +645,37 @@
 				0440ECA72636C7C60046681C /* CompetitionCell.xib */,
 			);
 			path = Competitions;
+			sourceTree = "<group>";
+		};
+		0447A8F22671295A00F523CC /* Competition */ = {
+			isa = PBXGroup;
+			children = (
+				0447A8F826712DBB00F523CC /* CompetitionVc */,
+				0447A8F926712DD000F523CC /* CompetitionDetails */,
+			);
+			path = Competition;
+			sourceTree = "<group>";
+		};
+		0447A8F826712DBB00F523CC /* CompetitionVc */ = {
+			isa = PBXGroup;
+			children = (
+				0447A8F3267129B400F523CC /* HomeCompetitionsVc.swift */,
+				0447A8F4267129B400F523CC /* HomeCompetitionsVc.xib */,
+			);
+			path = CompetitionVc;
+			sourceTree = "<group>";
+		};
+		0447A8F926712DD000F523CC /* CompetitionDetails */ = {
+			isa = PBXGroup;
+			children = (
+				0439BCFE2672636400AC5C59 /* CompetitionsDetailsVc */,
+				0439BD06267263A300AC5C59 /* About */,
+				0439BD05267263A000AC5C59 /* Guidlines */,
+				0439BD042672639D00AC5C59 /* Deadlines */,
+				0439BD032672639900AC5C59 /* Prizes */,
+				0439BD022672639500AC5C59 /* Judges */,
+			);
+			path = CompetitionDetails;
 			sourceTree = "<group>";
 		};
 		0448E75E26669E6B009C4A6E /* ProjectVc */ = {
@@ -900,6 +1015,7 @@
 				04B674192638626400AFF9C3 /* ProductModel.swift */,
 				040339A02638C95900CEDBD3 /* AddPhotoModel.swift */,
 				045AD32D264CA72800E42D4C /* VideoModel.swift */,
+				0439BD212672823900AC5C59 /* CompetitionModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -917,6 +1033,7 @@
 		0488CD332612141C00E05BEB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0447A8F22671295A00F523CC /* Competition */,
 				0482EEAE26164D6100CB4A24 /* Profile */,
 				0482EEAD26164D5200CB4A24 /* Search */,
 				0482EEAC26164D3F00CB4A24 /* Notification */,
@@ -1284,11 +1401,13 @@
 				0466871E261B3C32001D024D /* WelcomVc.xib in Resources */,
 				04668725261B3F89001D024D /* WelcomeCell.xib in Resources */,
 				0451FD8D2617A5D300AEE546 /* ProjectCell.xib in Resources */,
+				0439BD142672642C00AC5C59 /* DeadlinesCompetitionsVc.xib in Resources */,
 				0449A72F262F396400604052 /* Artist.storyboard in Resources */,
 				04911C6A261C9A2900705A58 /* SuggestedCell.xib in Resources */,
 				0458B3152667CC0B00382E77 /* PreviewProjectVc.xib in Resources */,
 				04F06AF72614E0D600B08606 /* CategeoryCell.xib in Resources */,
 				0414282E26176074000394CA /* HomeCell.xib in Resources */,
+				0447A8FE26712E4200F523CC /* CompetitionsDetailsVc.xib in Resources */,
 				04242AB526554089003C8B44 /* VideoArtistCell.xib in Resources */,
 				04528E562614B586009868EA /* NameVc.xib in Resources */,
 				04F06AF12614DD5100B08606 /* CategeoryVc.xib in Resources */,
@@ -1311,13 +1430,18 @@
 				0413E40E26307DC600F5977D /* ProductsVC.xib in Resources */,
 				04AD60B4262866E500ADF0DF /* ProjectDetailsVC.xib in Resources */,
 				0413E40826307D7300F5977D /* ProjectsVC.xib in Resources */,
+				0439BD192672645E00AC5C59 /* PrizesCometitionsVc.xib in Resources */,
 				0413E3F626307C6200F5977D /* BlogsVc.xib in Resources */,
 				0413E4192630879700F5977D /* ArtistsVc.xib in Resources */,
 				04B6740C263831EB00AFF9C3 /* AddProductImageVc.xib in Resources */,
 				04528E3E26149903009868EA /* EmailVc.xib in Resources */,
+				0439BD0A267263C900AC5C59 /* AboutCompetitionsVc.xib in Resources */,
+				0447A8F6267129B400F523CC /* HomeCompetitionsVc.xib in Resources */,
 				04F06AC62614C37200B08606 /* AgeVc.xib in Resources */,
 				045A66E82667136A00ED03CB /* CreatePackageVc.xib in Resources */,
+				0439BD0F2672640600AC5C59 /* GuidlinesCompetitionsVC.xib in Resources */,
 				04B6741326383DC600AFF9C3 /* AddProductPhotoCell.xib in Resources */,
+				0439BD1E2672648900AC5C59 /* JudgesCompetitionsVC.xib in Resources */,
 				04688789261E0E170056AC92 /* VerificationVc.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1383,6 +1507,7 @@
 				04319B13265BB8E0000535B2 /* BlogDetailsVc.swift in Sources */,
 				04528E4B2614B54B009868EA /* CreatPasswordVc.swift in Sources */,
 				04242A9D26553A12003C8B44 /* VideoArtistsVc.swift in Sources */,
+				0439BD0E2672640600AC5C59 /* GuidlinesCompetitionsVC.swift in Sources */,
 				0414282D26176074000394CA /* HomeCell.swift in Sources */,
 				04170D2B264ACB9E00745696 /* VideoDetailsVC.swift in Sources */,
 				0451B7632627041F000B3983 /* ProjectsModel.swift in Sources */,
@@ -1406,8 +1531,10 @@
 				04AD610C2628C52B00ADF0DF /* ImageModel.swift in Sources */,
 				0451FD642617A5B600AEE546 /* TitleCell.swift in Sources */,
 				040339D92638D0CD00CEDBD3 /* AlertService.swift in Sources */,
+				0439BD132672642B00AC5C59 /* DeadlinesCompetitionsVc.swift in Sources */,
 				0458B3142667CC0B00382E77 /* PreviewProjectVc.swift in Sources */,
 				0413E3F526307C6200F5977D /* BlogsVc.swift in Sources */,
+				0447A8F5267129B400F523CC /* HomeCompetitionsVc.swift in Sources */,
 				0413E40D26307DC600F5977D /* ProductsVC.swift in Sources */,
 				0413E3AA263051C300F5977D /* ArtistModel.swift in Sources */,
 				04242AA326553A37003C8B44 /* VideoProjectsVC.swift in Sources */,
@@ -1422,6 +1549,7 @@
 				0466871D261B3C32001D024D /* WelcomVc.swift in Sources */,
 				04528E472614A1FD009868EA /* CustomTextField.swift in Sources */,
 				0449A736262F477700604052 /* ArtistProjectsVc.swift in Sources */,
+				0439BD1D2672648900AC5C59 /* JudgesCompetitionsVC.swift in Sources */,
 				04528E5B2614B5AE009868EA /* CountryVc.swift in Sources */,
 				045A66E72667136A00ED03CB /* CreatePackageVc.swift in Sources */,
 				04D23EE526330D9B00290488 /* CompetitionsVc.swift in Sources */,
@@ -1456,17 +1584,21 @@
 				04F06AC52614C37200B08606 /* AgeVc.swift in Sources */,
 				04D23EE226330D7700290488 /* AboutVc.swift in Sources */,
 				04F06AF62614E0D600B08606 /* CategeoryCell.swift in Sources */,
+				0439BD09267263C900AC5C59 /* AboutCompetitionsVc.swift in Sources */,
 				0460CF6E261D04DD006685B6 /* SplashModel.swift in Sources */,
 				04AD60B3262866E500ADF0DF /* ProjectDetailsVC.swift in Sources */,
 				04242AB426554089003C8B44 /* VideoArtistCell.swift in Sources */,
 				04242AAE26553A65003C8B44 /* VideoPartners.swift in Sources */,
 				04B6740B263831EB00AFF9C3 /* AddProductImageVc.swift in Sources */,
+				0439BD182672645E00AC5C59 /* PrizesCometitionsVc.swift in Sources */,
+				0439BD222672823900AC5C59 /* CompetitionModel.swift in Sources */,
 				04C782A8263977B400C90851 /* InventoryPricingVC.swift in Sources */,
 				04528E2F26149496009868EA /* Helper.swift in Sources */,
 				0414286526176BCD000394CA /* HomeViewModel.swift in Sources */,
 				04DEAA412620B4A900F843A6 /* SplashCell.swift in Sources */,
 				04DEA9DC2620A0B200F843A6 /* AuthModel.swift in Sources */,
 				0449A733262F39C800604052 /* ArtistProfileVc.swift in Sources */,
+				0447A8FD26712E4200F523CC /* CompetitionsDetailsVc.swift in Sources */,
 				04B6741A2638626400AFF9C3 /* ProductModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

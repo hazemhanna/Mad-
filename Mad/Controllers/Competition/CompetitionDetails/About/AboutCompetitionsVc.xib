@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Graphik-Medium.ttf">
+            <string>Graphik-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AboutCompetitionsVc" customModule="Mad" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <viewController id="LJJ-dq-zgK" customClass="AboutCompetitionsVc" customModule="Mad" customModuleProvider="target">
+            <view key="view" contentMode="scaleToFill" id="PQG-7p-hIn">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YxM-xL-5Jp">
+                        <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9Of-YM-TwR">
+                                <rect key="frame" x="32" y="16" width="350" height="802"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" red="0.1333333333" green="0.2156862745" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="9Of-YM-TwR" secondAttribute="bottom" id="HDB-1p-xDi"/>
+                            <constraint firstItem="9Of-YM-TwR" firstAttribute="leading" secondItem="YxM-xL-5Jp" secondAttribute="leading" constant="32" id="K5t-lv-Z8N"/>
+                            <constraint firstItem="9Of-YM-TwR" firstAttribute="top" secondItem="YxM-xL-5Jp" secondAttribute="top" constant="16" id="rpd-bC-L15"/>
+                            <constraint firstAttribute="trailing" secondItem="9Of-YM-TwR" secondAttribute="trailing" constant="32" id="wYN-Rc-qIE"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <viewLayoutGuide key="safeArea" id="nzl-Nh-dYE"/>
+                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                <constraints>
+                    <constraint firstItem="YxM-xL-5Jp" firstAttribute="leading" secondItem="nzl-Nh-dYE" secondAttribute="leading" id="FzQ-88-grx"/>
+                    <constraint firstItem="YxM-xL-5Jp" firstAttribute="top" secondItem="nzl-Nh-dYE" secondAttribute="top" id="aV0-gO-17w"/>
+                    <constraint firstItem="nzl-Nh-dYE" firstAttribute="trailing" secondItem="YxM-xL-5Jp" secondAttribute="trailing" id="m5S-lI-vA0"/>
+                    <constraint firstItem="nzl-Nh-dYE" firstAttribute="bottom" secondItem="YxM-xL-5Jp" secondAttribute="bottom" id="syu-N5-HxW"/>
+                </constraints>
+            </view>
+            <point key="canvasLocation" x="-360" y="93"/>
+        </viewController>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

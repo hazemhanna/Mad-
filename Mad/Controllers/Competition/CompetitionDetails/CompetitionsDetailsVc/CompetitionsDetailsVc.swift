@@ -1,72 +1,80 @@
 //
-//  HomeVc.swift
+//  CompetitionsDetailsVc.swift
 //  Mad
 //
-//  Created by MAC on 02/04/2021.
+//  Created by MAC on 09/06/2021.
 //
+
 
 import UIKit
 import RxSwift
 import RxCocoa
+import PTCardTabBar
+import AVKit
+import AVFoundation
 
-class HomeVC: UIViewController {
+class CompetitionsDetailsVc  : UIViewController {
     
     @IBOutlet weak var titleCollectionView: UICollectionView!
     @IBOutlet weak var container: UIView!
-    @IBOutlet weak var titleView : UIView!
-
-    var homeVM = HomeViewModel()
+    @IBOutlet weak var bannerImage : UIImageView!
+    
+    var videoId = Int()
+    var videoVM = VideosViewModel()
     var disposeBag = DisposeBag()
+    var isFavorite = false
     var selectedIndex = 0
+    var videoUrl:String?
     var titles = [String](){
           didSet {
               DispatchQueue.main.async {
-                  self.homeVM.fetchtitle(data: self.titles)
+                  self.videoVM.fetchtitle(data: self.titles)
               }
           }
       }
     
-    lazy var instantVC1: ProjectsVC = {
-        var vc = ProjectsVC.instantiateFromNib()
+    open lazy var customTabBar: PTCardTabBar = {
+        return PTCardTabBar()
+    }()
+    
+    lazy var instantVC1: AboutCompetitionsVc = {
+        var vc = AboutCompetitionsVc.instantiateFromNib()
         self.add(asChildViewController: vc!)
         vc!.parentVC = self
         return vc!
     }()
-    lazy var instantVC2: ArtistsVc = {
-        var vc =  ArtistsVc.instantiateFromNib()
+    lazy var instantVC2: GuidlinesCompetitionsVC = {
+        var vc =  GuidlinesCompetitionsVC.instantiateFromNib()
+        self.add(asChildViewController: vc!)
+        vc!.parentVC = self
+        return vc!
+    }()
+    lazy var instantVC3: DeadlinesCompetitionsVc = {
+        var vc =  DeadlinesCompetitionsVc.instantiateFromNib()
         self.add(asChildViewController: vc!)
         vc!.parentVC = self
         return vc!
     }()
     
-    
-    
-    
-    
-    
-    lazy var instantVC3: HomeCompetitionsVc = {
-        var vc =  HomeCompetitionsVc.instantiateFromNib()
+    lazy var instantVC4: PrizesCometitionsVc = {
+        var vc =  PrizesCometitionsVc.instantiateFromNib()
         self.add(asChildViewController: vc!)
         vc!.parentVC = self
         return vc!
     }()
     
-    lazy var instantVC4: ProductsVC = {
-        var vc =  ProductsVC.instantiateFromNib()
+    lazy var instantVC5: JudgesCompetitionsVC = {
+        var vc =  JudgesCompetitionsVC.instantiateFromNib()
         self.add(asChildViewController: vc!)
         vc!.parentVC = self
         return vc!
     }()
-    lazy var instantVC5: VideosVC = {
-        var vc = VideosVC.instantiateFromNib()
+    
+    lazy var instantVC6: VideoPartners = {
+        var vc = VideoPartners.instantiateFromNib()
         self.add(asChildViewController: vc!)
-        vc!.parentVC = self
-        return vc!
-    }()
-    lazy var instantVC6: BlogsVc = {
-        var vc = BlogsVc.instantiateFromNib()
-        self.add(asChildViewController: vc!)
-        vc!.parentVC = self
+        vc!.parentVC2 = self
+        vc!.view.backgroundColor = #colorLiteral(red: 0.9725490196, green: 0.9725490196, blue: 0.9725490196, alpha: 1)
         return vc!
     }()
     
@@ -79,10 +87,22 @@ class HomeVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
+        if let ptcTBC = tabBarController as? PTCardTabBarController {
+            ptcTBC.customTabBar.isHidden = true
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+
+    }
+    
+    @IBAction func backButton(sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
     }
     
     func selectView(){
@@ -108,44 +128,22 @@ class HomeVC: UIViewController {
     
 }
 
+
 //MARK:- Data Binding
-extension HomeVC: UICollectionViewDelegate {
+extension CompetitionsDetailsVc: UICollectionViewDelegate {
     func setuptitleCollectionView() {
-        self.titles = ["Projects","Artists","Competitions","Products","Videos","Blogs"]
+        self.titles = ["About","Guidlines","Deadlines","Prizes","Judges","Partners"]
         let cellIdentifier = "TitleCell"
         self.titleCollectionView.rx.setDelegate(self).disposed(by: disposeBag)
         self.titleCollectionView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
-        self.homeVM.title.bind(to: self.titleCollectionView.rx.items(cellIdentifier: cellIdentifier, cellType: TitleCell.self)) { index, element, cell in
+        self.videoVM.title.bind(to: self.titleCollectionView.rx.items(cellIdentifier: cellIdentifier, cellType: TitleCell.self)) { index, element, cell in
             
              cell.titleBtn.text = self.titles[index]
-            if self.selectedIndex == 4 {
-                self.view.backgroundColor = UIColor.black
-                if self.selectedIndex == index{
-                    cell.backView.layer.borderColor = #colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1).cgColor
-                    cell.backView.layer.borderWidth = 2
-                    cell.backView.layer.cornerRadius = 20
-                    cell.titleBtn.textColor = #colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1)
-                }else {
-                    cell.backView.layer.borderColor = #colorLiteral(red: 0.9725490196, green: 0.9725490196, blue: 0.9725490196, alpha: 1).cgColor
-                    cell.backView.layer.borderWidth = 0
-                    cell.backView.layer.cornerRadius = 0
-                    cell.titleBtn.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-                   }
-                
-            }else{
-                self.view.backgroundColor = UIColor(red: 248/255, green: 248/255, blue: 248/255, alpha: 1)
             if self.selectedIndex == index{
-                cell.backView.layer.borderColor = #colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1).cgColor
-                cell.backView.layer.borderWidth = 2
-                cell.backView.layer.cornerRadius = 20
                 cell.titleBtn.textColor = #colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1)
             }else {
-                cell.backView.layer.borderColor = #colorLiteral(red: 0.9725490196, green: 0.9725490196, blue: 0.9725490196, alpha: 1).cgColor
-                cell.backView.layer.borderWidth = 0
-                cell.backView.layer.cornerRadius = 0
                 cell.titleBtn.textColor = #colorLiteral(red: 0.1176470588, green: 0.2156862745, blue: 0.4, alpha: 1)
-               }
-            }
+             }
             
         }.disposed(by: disposeBag)
         self.titleCollectionView.rx.itemSelected.bind { (indexPath) in
@@ -155,43 +153,35 @@ extension HomeVC: UICollectionViewDelegate {
             
         }.disposed(by: disposeBag)
     }
-    
-    
+   }
 
-}
-
-extension HomeVC: UICollectionViewDelegateFlowLayout {
+extension CompetitionsDetailsVc : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
             let flowayout = collectionViewLayout as? UICollectionViewFlowLayout
             let space: CGFloat = (flowayout?.minimumInteritemSpacing ?? 0.0) + (flowayout?.sectionInset.left ?? 0.0) + (flowayout?.sectionInset.right ?? 0.0)
             
-        let size:CGFloat = (collectionView.frame.size.width - space) / 3.5
+            let size:CGFloat = (collectionView.frame.size.width - space) / 4
             return CGSize(width: size, height: 40)
     }
-}
+ }
 
-     extension HomeVC {
+  extension CompetitionsDetailsVc {
             private func add(asChildViewController viewController: UIViewController) {
-                // Add Child View Controller
                 addChild(viewController)
-                
-                // Add Child View as Subview
                 container.addSubview(viewController.view)
-                // Configure Child View
                 viewController.view.frame = container.bounds
                 viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-                // Notify Child View Controller
                 viewController.didMove(toParent: self)
             }
 
             private func remove(asChildViewController viewController: UIViewController) {
-                // Notify Child View Controller
                 viewController.willMove(toParent: nil)
-                // Remove Child View From Superview
                 viewController.view.removeFromSuperview()
-                // Notify Child View Controller
                 viewController.removeFromParent()
             }
     }
 
 
+extension VideoDetailsVc {
+    
+}

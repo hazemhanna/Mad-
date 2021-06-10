@@ -8,6 +8,7 @@
 import UIKit
 
 class VideoPartenerCell: UICollectionViewCell {
+    
     @IBOutlet weak var shimmerView : ShimmerView!
     
     override func awakeFromNib() {
@@ -20,6 +21,4 @@ class VideoPartenerCell: UICollectionViewCell {
             self.shimmerView.isShimmering = showShimmer
         }
     }
-    
-    
 }

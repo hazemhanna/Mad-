@@ -13,8 +13,9 @@ class VideoPartners : UIViewController {
     @IBOutlet weak var PartenerCollectionView: UICollectionView!
 
     let cellIdentifier = "VideoPartenerCell"
-    var showShimmer: Bool = true
+    var showShimmer: Bool = false
     var parentVC : VideoDetailsVc?
+    var parentVC2 : CompetitionsDetailsVc?
 
     
     override func viewDidLoad() {
@@ -33,7 +34,7 @@ class VideoPartners : UIViewController {
 extension VideoPartners: UICollectionViewDelegate,UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return  self.showShimmer ? 2 : 4
+        return  self.showShimmer ? 2 : 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
