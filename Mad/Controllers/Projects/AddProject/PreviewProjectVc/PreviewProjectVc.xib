@@ -61,7 +61,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="800"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="Mdu-R2-nOz">
-                                        <rect key="frame" x="32" y="615" width="350" height="140"/>
+                                        <rect key="frame" x="32" y="577" width="350" height="140"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G75-hJ-zVn" customClass="CustomButtons" customModule="Mad" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="350" height="54"/>
@@ -108,7 +108,7 @@
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qz9-RX-iHf" customClass="CustomView" customModule="Mad" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="64" width="414" height="487"/>
+                                        <rect key="frame" x="0.0" y="64" width="414" height="449"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="BiU-Yr-gyq">
                                                 <rect key="frame" x="32" y="8" width="100.5" height="32"/>
@@ -206,54 +206,17 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="UNn-JK-2uS">
-                                                <rect key="frame" x="32" y="449" width="84" height="22"/>
-                                                <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="lww-05-Av3">
-                                                        <rect key="frame" x="0.0" y="0.0" width="35.5" height="22"/>
-                                                        <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4p-PT-Uys">
-                                                                <rect key="frame" x="0.0" y="0.0" width="20" height="22"/>
-                                                                <state key="normal" image="Group 140"/>
-                                                            </button>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7rI-kJ-wh4">
-                                                                <rect key="frame" x="28" y="5.5" width="7.5" height="11"/>
-                                                                <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="11"/>
-                                                                <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                        </subviews>
-                                                    </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="LKh-VS-5nB">
-                                                        <rect key="frame" x="51.5" y="0.0" width="32.5" height="22"/>
-                                                        <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TeZ-Lx-nGh">
-                                                                <rect key="frame" x="0.0" y="0.0" width="17" height="22"/>
-                                                                <state key="normal" image="Path 327"/>
-                                                            </button>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p4c-ac-caf">
-                                                                <rect key="frame" x="25" y="5.5" width="7.5" height="11"/>
-                                                                <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="11"/>
-                                                                <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                        </subviews>
-                                                    </stackView>
-                                                </subviews>
-                                            </stackView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="izF-JT-FMo" firstAttribute="leading" secondItem="Qz9-RX-iHf" secondAttribute="leading" constant="32" id="1fo-Ku-jO5"/>
                                             <constraint firstAttribute="trailing" secondItem="izF-JT-FMo" secondAttribute="trailing" constant="32" id="4R4-Ed-r2i"/>
                                             <constraint firstItem="A2v-vP-Hqa" firstAttribute="top" secondItem="izF-JT-FMo" secondAttribute="bottom" constant="16" id="99d-S2-f0W"/>
+                                            <constraint firstAttribute="bottom" secondItem="A2v-vP-Hqa" secondAttribute="bottom" constant="16" id="BLF-9X-pNW"/>
                                             <constraint firstAttribute="trailing" secondItem="A2v-vP-Hqa" secondAttribute="trailing" id="Im4-al-b24"/>
                                             <constraint firstItem="BiU-Yr-gyq" firstAttribute="leading" secondItem="Qz9-RX-iHf" secondAttribute="leading" constant="32" id="MeC-AK-k2z"/>
                                             <constraint firstItem="izF-JT-FMo" firstAttribute="top" secondItem="BiU-Yr-gyq" secondAttribute="bottom" constant="16" id="Nrl-9q-dNt"/>
-                                            <constraint firstItem="UNn-JK-2uS" firstAttribute="top" secondItem="A2v-vP-Hqa" secondAttribute="bottom" constant="16" id="OZd-KJ-uEd"/>
                                             <constraint firstItem="A2v-vP-Hqa" firstAttribute="leading" secondItem="Qz9-RX-iHf" secondAttribute="leading" constant="32" id="clZ-90-yBD"/>
-                                            <constraint firstItem="UNn-JK-2uS" firstAttribute="leading" secondItem="Qz9-RX-iHf" secondAttribute="leading" constant="32" id="uKW-hf-Sn9"/>
-                                            <constraint firstAttribute="bottom" secondItem="UNn-JK-2uS" secondAttribute="bottom" constant="16" id="xSn-Vv-9UC"/>
                                             <constraint firstItem="BiU-Yr-gyq" firstAttribute="top" secondItem="Qz9-RX-iHf" secondAttribute="top" constant="8" id="xfL-Ou-rC8"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
@@ -309,17 +272,12 @@
             </view>
             <navigationItem key="navigationItem" id="drD-S4-EPn"/>
             <connections>
-                <outlet property="LikeLbl" destination="7rI-kJ-wh4" id="jn2-PQ-uzL"/>
                 <outlet property="NameLbl" destination="tps-6g-0Fe" id="lBq-Db-P2s"/>
                 <outlet property="dateLbl" destination="Zcx-hR-v6m" id="HFt-RS-ywk"/>
-                <outlet property="favouriteBtn" destination="W4p-PT-Uys" id="gO4-gO-q2U"/>
-                <outlet property="favouriteStack" destination="lww-05-Av3" id="S1K-dJ-lO9"/>
                 <outlet property="liveCollectionView" destination="4WF-UU-8uz" id="DIg-rE-ihk"/>
                 <outlet property="liveView" destination="A2v-vP-Hqa" id="KtA-Vf-8BG"/>
                 <outlet property="profileImage" destination="7hR-M0-pAb" id="8bZ-ac-Mpu"/>
                 <outlet property="projectImage" destination="Hm2-Zw-aZV" id="S1j-KU-InH"/>
-                <outlet property="shareBtn" destination="TeZ-Lx-nGh" id="yPW-vB-lME"/>
-                <outlet property="shareLbl" destination="p4c-ac-caf" id="yG6-DQ-Kxb"/>
                 <outlet property="titleLbl" destination="0GD-wm-7zT" id="ndu-Hc-X4E"/>
             </connections>
             <point key="canvasLocation" x="-1791.304347826087" y="1717.6339285714284"/>
@@ -341,10 +299,8 @@
     </designables>
     <resources>
         <image name="Group 119" width="36" height="17"/>
-        <image name="Group 140" width="20" height="18"/>
         <image name="Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4" width="320" height="320"/>
         <image name="Mask Group 56" width="311" height="294"/>
-        <image name="Path 327" width="17" height="18.5"/>
         <image name="icon - c-check (1)" width="20" height="20"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -26,8 +26,13 @@ class AddProjectdetailsVc : UIViewController {
     @IBOutlet weak var summeryTf: CustomTextField!
     @IBOutlet weak var startDateTf: CustomTextField!
     @IBOutlet weak var endDateTf: CustomTextField!
-    @IBOutlet weak var locationTF: CustomTextField!
+    @IBOutlet weak var locationTF: TextFieldDropDown!
 
+    
+    var cats = [String]()
+    var countries = [String]() 
+    
+    
     @IBOutlet weak var liveCollectionView: UICollectionView!
     @IBOutlet weak var projectImage : UIImageView!
     var selectedIndex = -1
@@ -111,17 +116,24 @@ class AddProjectdetailsVc : UIViewController {
         prjectVM.showIndicator()
         getCategory()
         getProduct()
-    
+        getCountry()
         startDateTf.delegate = self
         endDateTf.delegate = self
         short_description.delegate = self
         titleTF.delegate = self
         summeryTf.delegate = self
         locationTF.delegate = self
-
     }
     
 
+    
+    func setupCountryDropDown(){
+        locationTF.optionArray = self.countries
+        locationTF.didSelect { (selectedText, index, id) in
+            self.locationTF.text = selectedText
+        }
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         startDateTf.text = Helper.getDate1() ?? ""
@@ -443,6 +455,20 @@ extension AddProjectdetailsVc {
 
        }).disposed(by: disposeBag)
    }
+    
+     func getCountry() {
+            prjectVM.getAllCountries().subscribe(onNext: { (dataModel) in
+                if dataModel.success ?? false {
+                    self.countries = dataModel.data ?? []
+                    self.setupCountryDropDown()
+                }
+            }, onError: { (error) in
+
+            }).disposed(by: disposeBag)
+        }
+    
+
+    
 }
 
 extension AddProjectdetailsVc :  UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
@@ -532,3 +558,4 @@ extension AddProjectdetailsVc : UIImagePickerControllerDelegate, UINavigationCon
     }
     
 }
+

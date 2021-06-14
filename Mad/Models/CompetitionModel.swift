@@ -9,16 +9,16 @@ import Foundation
 
 // MARK: - CompetitionsModelJSON
 struct CompetitionsModelJSON: Codable {
-    let success: Bool
-    let data: CompetitionsModel
-    let message: String
+    let success: Bool?
+    let data: CompetitionsModel?
+    let message: String?
     let errors: Errors?
 }
 
 // MARK: - DataClass
 struct CompetitionsModel: Codable {
-    let countItems, countPages: Int
-    let data: [Competitions]
+    let countItems, countPages: Int?
+    let data: [Competitions]?
 
     enum CodingKeys: String, CodingKey {
         case countItems = "count_items"
@@ -29,9 +29,9 @@ struct CompetitionsModel: Codable {
 
 // MARK: - Datum
 struct Competitions: Codable {
-    let id: Int
-    let title, bannerImg, step1Start, step1End: String
-    let step2Start, step2End, resultDate: String
+    let id: Int?
+    let title, bannerImg, step1Start, step1End: String?
+    let step2Start, step2End, resultDate: String?
 
     enum CodingKeys: String, CodingKey {
         case id, title

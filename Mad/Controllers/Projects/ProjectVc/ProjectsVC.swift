@@ -104,6 +104,10 @@ extension ProjectsVC: UITableViewDelegate,UITableViewDataSource{
             // edit favourite
               cell.favourite = {
                 if self.token == "" {
+                    let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
+                    if let appDelegate = UIApplication.shared.delegate {
+                        appDelegate.window??.rootViewController = sb
+                    }
                     return
                 }
                 self.homeVM.showIndicator()
@@ -117,6 +121,10 @@ extension ProjectsVC: UITableViewDelegate,UITableViewDataSource{
              // share project
             cell.share = {
                 if self.token == "" {
+                    let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
+                    if let appDelegate = UIApplication.shared.delegate {
+                        appDelegate.window??.rootViewController = sb
+                    }
                     return
                 }
                 self.homeVM.showIndicator()
@@ -188,6 +196,11 @@ extension ProjectsVC : UICollectionViewDelegate ,UICollectionViewDataSource{
                 }
                 else{
                     self.showMessage(text: "please login first")
+                    let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
+                    if let appDelegate = UIApplication.shared.delegate {
+                        appDelegate.window??.rootViewController = sb
+                    }
+                    return
                 }
             }
             if self.selectedIndex == indexPath.row{

@@ -79,6 +79,11 @@ class ProjectDetailsVC: UIViewController {
           }
         }else{
             self.showMessage(text: "please login first")
+                let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
+                if let appDelegate = UIApplication.shared.delegate {
+                    appDelegate.window??.rootViewController = sb
+                }
+           
         }
     }
     
@@ -88,6 +93,11 @@ class ProjectDetailsVC: UIViewController {
 
         }else{
             self.showMessage(text: "please login first")
+            self.showMessage(text: "please login first")
+                let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
+                if let appDelegate = UIApplication.shared.delegate {
+                    appDelegate.window??.rootViewController = sb
+                }
         }
     }
 }

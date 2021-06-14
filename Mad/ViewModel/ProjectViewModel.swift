@@ -75,5 +75,10 @@ struct ProjectViewModel {
      }
     
     
+    func getAllCountries() -> Observable<CountryModel> {
+         let observer = GetServices.shared.getAllCountry()
+         return observer
+     }
+    
     
 }

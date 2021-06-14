@@ -78,7 +78,6 @@ class InventoryPricingVC: UIViewController {
     }
     
     func validateInput() -> Bool {
-        
         let price =  self.price.text ?? ""
         let price_eur = self.price_eur.text ?? ""
         let quantity = self.quantity.text ?? ""
@@ -89,24 +88,29 @@ class InventoryPricingVC: UIViewController {
           return false
         }else if price_eur.isEmpty {
             self.showMessage(text: "Please Enter eur Price")
+            self.productVM.dismissIndicator()
             return false
         }else if quantity.isEmpty {
             self.showMessage(text: "Please Enter quantity")
+            self.productVM.dismissIndicator()
             return false
         }else if delivery.isEmpty {
             self.showMessage(text: "Please delivery price")
+            self.productVM.dismissIndicator()
             return false
         }else if deliveryIndex.isEmpty {
             self.showMessage(text: "Please Enter delivery time")
+            self.productVM.dismissIndicator()
             return false
         }else{
             return true
         }
+
     }
-    
     @IBAction func nextButton(sender: UIButton) {
         view.endEditing(true)
         guard self.validateInput() else { return }
+        self.productVM.showIndicator()
        self.AddProduct(categories: self.selectedCat, title: self.title ?? self.titleTV, short_description: self.short_description, description: self.descriptionTV, materials: self.materials, length: Int(self.length) ?? 0, width: Int(self.width) ?? 0, height: Int(self.height) ?? 0, weight: Int(self.weight) ?? 0, type: self.type, price: Int(self.price.text ?? "") ?? 0, price_eur: Int(self.price_eur.text ?? "") ?? 0, quantity: Int(self.quantity.text ?? "") ?? 0, quantity_limitation: self.quantitylimitation , delivery: Int(self.delivery.text ?? "") ?? 0, delivery_index: self.deliveryIndex.text ?? "" , photos: self.uploadedPhoto)
     }
 }

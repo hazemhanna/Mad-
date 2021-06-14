@@ -92,10 +92,10 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="coP-FH-RVQ" customClass="CustomView" customModule="Mad" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="174" width="414" height="280"/>
+                                                <rect key="frame" x="0.0" y="174" width="414" height="400"/>
                                                 <subviews>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="VXk-2F-WiA">
-                                                        <rect key="frame" x="8" y="0.0" width="398" height="280"/>
+                                                        <rect key="frame" x="8" y="0.0" width="398" height="400"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="931-4V-Kra">
                                                             <size key="itemSize" width="128" height="128"/>
@@ -110,7 +110,7 @@
                                                     <constraint firstAttribute="bottom" secondItem="VXk-2F-WiA" secondAttribute="bottom" id="RKc-fd-vhd"/>
                                                     <constraint firstItem="VXk-2F-WiA" firstAttribute="leading" secondItem="coP-FH-RVQ" secondAttribute="leading" constant="8" id="Uah-g4-8FH"/>
                                                     <constraint firstItem="VXk-2F-WiA" firstAttribute="top" secondItem="coP-FH-RVQ" secondAttribute="top" id="UhR-sl-sLu"/>
-                                                    <constraint firstAttribute="height" constant="280" id="VGC-ez-4cq"/>
+                                                    <constraint firstAttribute="height" constant="400" id="VGC-ez-4cq"/>
                                                     <constraint firstAttribute="trailing" secondItem="VXk-2F-WiA" secondAttribute="trailing" constant="8" id="WCg-DZ-HAd"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
@@ -120,7 +120,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iY9-8m-9Tn" customClass="CustomView" customModule="Mad" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="470" width="414" height="150"/>
+                                                <rect key="frame" x="0.0" y="590" width="414" height="150"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tips:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9Q-9o-Kpx">
                                                         <rect key="frame" x="32" y="8" width="36.5" height="16"/>
@@ -180,10 +180,10 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ooh-Va-HH6" customClass="CustomView" customModule="Mad" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="636" width="414" height="164"/>
+                                                <rect key="frame" x="0.0" y="756" width="414" height="44"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VAv-FB-LCC" customClass="CustomButtons" customModule="Mad" customModuleProvider="target">
-                                                        <rect key="frame" x="143" y="55" width="128" height="54"/>
+                                                        <rect key="frame" x="143" y="-5" width="128" height="54"/>
                                                         <color key="backgroundColor" red="0.8980392157" green="0.12549019610000001" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="54" id="AMg-bS-IBV"/>

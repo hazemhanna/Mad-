@@ -71,7 +71,7 @@ class PreviewProjectVc : UIViewController {
         super.viewDidAppear(animated)
         dateLbl.text = startDateTf
         titleLbl.text = titleTF
-        NameLbl.text = fName + lName
+        NameLbl.text = fName + " " + lName
         projectImage.image = uploadedPhoto
         for index in selectedProducts{
             for product in products{
@@ -80,6 +80,11 @@ class PreviewProjectVc : UIViewController {
                 }
             }
             liveCollectionView.reloadData()
+        }
+        if artistProducts.count > 0 {
+            liveView.isHidden = false
+        }else{
+            liveView.isHidden = true
         }
     }
     
@@ -91,11 +96,14 @@ class PreviewProjectVc : UIViewController {
     }
     
     @IBAction func saveButton(sender: UIButton) {
+        self.prjectVM.showIndicator()
+
         AddProject(categories: selectedCat, title: titleTF, short_description: short_description, summery: summeryTf, content: contentHtml, startDate: startDateTf, endDate: endDateTf, location: locationTF, submit: "submit", packages: packages, products: selectedProducts, artists: selectedArtist, photos: uploadedPhoto ?? #imageLiteral(resourceName: "Mask Group 12111"))
         
     }
     
     @IBAction func draftButton(sender: UIButton) {
+        self.prjectVM.showIndicator()
         AddProject(categories: selectedCat, title: titleTF, short_description: short_description, summery: summeryTf, content: contentHtml, startDate: startDateTf, endDate: endDateTf, location: locationTF, submit: "draft", packages: packages, products: selectedProducts, artists: selectedArtist, photos: uploadedPhoto ?? #imageLiteral(resourceName: "Mask Group 12111"))
         
     }

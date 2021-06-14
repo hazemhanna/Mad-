@@ -25,9 +25,8 @@ class VideoDetailsVc : UIViewController {
     @IBOutlet weak var likeBtn : UIButton!
     @IBOutlet weak var timeLbl : UILabel!
     @IBOutlet weak var pauseButton : UIButton!
-
-    
-    
+   
+    var token =  Helper.getAPIToken() ?? ""
     var videoId = Int()
     var videoVM = VideosViewModel()
     var disposeBag = DisposeBag()
@@ -118,23 +117,32 @@ class VideoDetailsVc : UIViewController {
     
     
     @IBAction func favouriteBtn(sender: UIButton) {
-     if Helper.getAPIToken() == nil {
-         return
+ 
+        if self.token == "" {
+            let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
+            if let appDelegate = UIApplication.shared.delegate {
+                appDelegate.window??.rootViewController = sb
+            }
+            return
         }
         self.videoVM.showIndicator()
         if isFavorite{
             self.editFavourite(videoId:  videoId, Type: false)
             self.likeBtn.setImage(#imageLiteral(resourceName: "Path 326"), for: .normal)
         }else{
-               self.editFavourite(videoId:  videoId, Type: true)
-                self.likeBtn.setImage(#imageLiteral(resourceName: "Group 155"), for: .normal)
-            }
+         self.editFavourite(videoId:  videoId, Type: true)
+         self.likeBtn.setImage(#imageLiteral(resourceName: "Group 155"), for: .normal)
+     }
     }
     
     @IBAction func shareBtn(sender: UIButton) {
-        if Helper.getAPIToken() == nil {
+        if self.token == "" {
+            let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
+            if let appDelegate = UIApplication.shared.delegate {
+                appDelegate.window??.rootViewController = sb
+            }
             return
-           }
+        }
         self.videoVM.showIndicator()
         self.shareVideo(videoId: self.videoId)
     }

@@ -49,6 +49,7 @@ struct ConfigURLS {
     static var shareVideo = BASE_URL  + "video/share"
     // competition
     static var getAllCompetition = BASE_URL  + "competition/all"
+  
     // search
     static var search = BASE_URL  + "search"
 

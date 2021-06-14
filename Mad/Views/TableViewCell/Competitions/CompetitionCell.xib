@@ -108,7 +108,10 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="bannermage" destination="opq-UG-YKy" id="0T1-bj-ThT"/>
+                <outlet property="dateLbl" destination="E3R-IE-dDQ" id="Ni7-Bj-sA1"/>
                 <outlet property="shimmerView" destination="83p-qY-ubB" id="G3Q-db-y8R"/>
+                <outlet property="titleLabel" destination="T0n-H6-VWP" id="8z6-TX-iDK"/>
             </connections>
             <point key="canvasLocation" x="-12.318840579710146" y="87.053571428571431"/>
         </tableViewCell>

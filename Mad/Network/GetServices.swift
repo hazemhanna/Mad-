@@ -397,7 +397,7 @@ class GetServices {
        }
     
     
-    func getAllCompetition(param : [String :Any]) -> Observable<SearchArtistModel> {
+    func getAllCompetition(param : [String :Any]) -> Observable<CompetitionsModelJSON> {
            return Observable.create { (observer) -> Disposable in
                let url = ConfigURLS.getAllCompetition
             let token = Helper.getAPIToken() ?? ""
@@ -409,7 +409,7 @@ class GetServices {
                    .validate(statusCode: 200..<300)
                    .responseJSON { (response: DataResponse<Any>) in
                        do {
-                           let data = try JSONDecoder().decode(SearchArtistModel.self, from: response.data!)
+                           let data = try JSONDecoder().decode(CompetitionsModelJSON.self, from: response.data!)
                            observer.onNext(data)
                        } catch {
                            print(error.localizedDescription)

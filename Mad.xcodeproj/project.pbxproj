@@ -129,6 +129,7 @@
 		04688789261E0E170056AC92 /* VerificationVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04688787261E0E170056AC92 /* VerificationVc.xib */; };
 		046887BE261E77970056AC92 /* ShowesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046887BC261E77970056AC92 /* ShowesCell.swift */; };
 		046887BF261E77970056AC92 /* ShowesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 046887BD261E77970056AC92 /* ShowesCell.xib */; };
+		046B2B1F2677AE4B00BAA2A3 /* CometitionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046B2B1E2677AE4B00BAA2A3 /* CometitionsViewModel.swift */; };
 		046E2E4826693A3300BFCDCC /* CalenderVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046E2E4626693A3300BFCDCC /* CalenderVc.swift */; };
 		046E2E4926693A3300BFCDCC /* CalenderVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 046E2E4726693A3300BFCDCC /* CalenderVc.xib */; };
 		0488CCE9261213E000E05BEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0488CCE8261213E000E05BEB /* AppDelegate.swift */; };
@@ -307,6 +308,7 @@
 		04688787261E0E170056AC92 /* VerificationVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VerificationVc.xib; sourceTree = "<group>"; };
 		046887BC261E77970056AC92 /* ShowesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowesCell.swift; sourceTree = "<group>"; };
 		046887BD261E77970056AC92 /* ShowesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowesCell.xib; sourceTree = "<group>"; };
+		046B2B1E2677AE4B00BAA2A3 /* CometitionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CometitionsViewModel.swift; sourceTree = "<group>"; };
 		046E2E4626693A3300BFCDCC /* CalenderVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderVc.swift; sourceTree = "<group>"; };
 		046E2E4726693A3300BFCDCC /* CalenderVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalenderVc.xib; sourceTree = "<group>"; };
 		0488CCE5261213E000E05BEB /* Mad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mad.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1060,6 +1062,7 @@
 				04B6741626384D2100AFF9C3 /* ProductViewModel.swift */,
 				045AD32A264CA49A00E42D4C /* VideosViewModel.swift */,
 				04297546266A92F6007284E4 /* ProjectViewModel.swift */,
+				046B2B1E2677AE4B00BAA2A3 /* CometitionsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1518,6 +1521,7 @@
 				04297547266A92F6007284E4 /* ProjectViewModel.swift in Sources */,
 				045AD32B264CA49A00E42D4C /* VideosViewModel.swift in Sources */,
 				0413E40726307D7300F5977D /* ProjectsVC.swift in Sources */,
+				046B2B1F2677AE4B00BAA2A3 /* CometitionsViewModel.swift in Sources */,
 				0440ECA82636C7C60046681C /* CompetitionCell.swift in Sources */,
 				04242AC226555E7A003C8B44 /* VideoPartenerCell.swift in Sources */,
 				0448E7922666D664009C4A6E /* AddProjectdetailsVc.swift in Sources */,

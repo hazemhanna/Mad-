@@ -33,6 +33,8 @@ class VideosVC: UIViewController {
     var showsCases = [Videos]()
     var afterMoviews = [Videos]()
     var disposeBag = DisposeBag()
+    var token = Helper.getAPIToken() ?? ""
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,8 +112,11 @@ extension VideosVC: UICollectionViewDelegate , UICollectionViewDataSource {
                              imageUrl :shows[indexPath.row].imageURL ?? "",
                              isFavourite :shows[indexPath.row].isFavorite ?? false)
                 cell.favourite = {
-                    if Helper.getAPIToken() == nil {
-                        return
+                    if self.token == "" {
+                        let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
+                        if let appDelegate = UIApplication.shared.delegate {
+                            appDelegate.window??.rootViewController = sb
+                        }
                     }
                     
                     self.VideosVM.showIndicator()
@@ -123,8 +128,11 @@ extension VideosVC: UICollectionViewDelegate , UICollectionViewDataSource {
                 }
                 
                 cell.share = {
-                    if Helper.getAPIToken() == nil {
-                        return
+                    if self.token == "" {
+                        let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
+                        if let appDelegate = UIApplication.shared.delegate {
+                            appDelegate.window??.rootViewController = sb
+                        }
                     }
                     self.shareVideo(videoId:  self.shows[indexPath.row].id ?? 0)
                 }
@@ -156,8 +164,11 @@ extension VideosVC: UICollectionViewDelegate , UICollectionViewDataSource {
                              isFavourite :showsCases[indexPath.row].isFavorite ?? false)
  
                 cell.favourite = {
-                    if Helper.getAPIToken() == nil {
-                        return
+                    if self.token == "" {
+                        let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
+                        if let appDelegate = UIApplication.shared.delegate {
+                            appDelegate.window??.rootViewController = sb
+                        }
                     }
                     
                     self.VideosVM.showIndicator()
@@ -169,8 +180,11 @@ extension VideosVC: UICollectionViewDelegate , UICollectionViewDataSource {
                 }
                 
                 cell.share = {
-                    if Helper.getAPIToken() == nil {
-                        return
+                    if self.token == "" {
+                        let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
+                        if let appDelegate = UIApplication.shared.delegate {
+                            appDelegate.window??.rootViewController = sb
+                        }
                     }
                     self.shareVideo(videoId:  self.showsCases[indexPath.row].id ?? 0)
                 }
@@ -203,10 +217,12 @@ extension VideosVC: UICollectionViewDelegate , UICollectionViewDataSource {
 
                 
                 cell.favourite = {
-                    if Helper.getAPIToken() == nil {
-                        return
+                    if self.token == ""{
+                        let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
+                        if let appDelegate = UIApplication.shared.delegate {
+                            appDelegate.window??.rootViewController = sb
+                        }
                     }
-                    
                     self.VideosVM.showIndicator()
                     if  self.interviews[indexPath.row].isFavorite ?? false {
                         self.editFavourite(videoId:  self.interviews[indexPath.row].id ?? 0, Type: false)
@@ -216,8 +232,12 @@ extension VideosVC: UICollectionViewDelegate , UICollectionViewDataSource {
                 }
                 
                 cell.share = {
-                    if Helper.getAPIToken() == nil {
-                        return
+                    if self.token == "" {
+                        let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
+                        if let appDelegate = UIApplication.shared.delegate {
+                            appDelegate.window??.rootViewController = sb
+                        }
+                        
                     }
                     self.shareVideo(videoId:  self.interviews[indexPath.row].id ?? 0)
                 }

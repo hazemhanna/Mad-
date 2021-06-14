@@ -18,10 +18,11 @@ class HomeCompetitionsVc : UIViewController {
     var parentVC : HomeVC?
 
     
-    var artistVM = ArtistViewModel()
+    var competitionVm = CometitionsViewModel()
     var disposeBag = DisposeBag()
     var artistId = Int()
-    
+    var showShimmer: Bool = true
+    var competitions = [Competitions]()
     override func viewDidLoad() {
         super.viewDidLoad()
         setupContentTableView()
@@ -44,11 +45,16 @@ extension HomeCompetitionsVc : UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return self.showShimmer ? 3 : competitions.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier) as! CompetitionCell
+        if !self.showShimmer {
+            cell.confic(imageUrl: self.competitions[indexPath.row].bannerImg ?? "", title: self.competitions[indexPath.row].title ?? "", date: self.competitions[indexPath.row].resultDate ?? "")
+        }
+        cell.showShimmer = showShimmer
+
         return cell
     }
     
@@ -64,5 +70,14 @@ extension HomeCompetitionsVc : UITableViewDelegate,UITableViewDataSource{
 }
 
 extension HomeCompetitionsVc{
-    
+    func getProject(search : String,step:String,pageNum :Int) {
+        competitionVm.getAllCompetions(search: search, step: step, pageNum: pageNum).subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+            self.showShimmer = false
+            self.competitions = dataModel.data?.data ?? []
+           }
+       }, onError: { (error) in
+
+       }).disposed(by: disposeBag)
+   }
 }
