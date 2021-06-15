@@ -8,12 +8,12 @@
 import UIKit
 
 class GuidlinesCompetitionsVC: UIViewController {
-
+    @IBOutlet weak var guideTV : UITextView!
+    var guide = String()
     var  parentVC: CompetitionsDetailsVc?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 

@@ -19,16 +19,15 @@ class CompetitionsDetailsVc  : UIViewController {
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var bannerImage : UIImageView!
     
-    var videoId = Int()
-    var videoVM = VideosViewModel()
+    var compId = Int()
+    var competitionVm = CometitionsViewModel()
     var disposeBag = DisposeBag()
-    var isFavorite = false
     var selectedIndex = 0
-    var videoUrl:String?
+
     var titles = [String](){
           didSet {
               DispatchQueue.main.async {
-                  self.videoVM.fetchtitle(data: self.titles)
+                  self.competitionVm.fetchtitle(data: self.titles)
               }
           }
       }
@@ -86,6 +85,7 @@ class CompetitionsDetailsVc  : UIViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
+        competitionVm.showIndicator()
         self.navigationController?.navigationBar.isHidden = true
         if let ptcTBC = tabBarController as? PTCardTabBarController {
             ptcTBC.customTabBar.isHidden = true
@@ -98,7 +98,7 @@ class CompetitionsDetailsVc  : UIViewController {
     
     
     override func viewDidAppear(_ animated: Bool) {
-
+        getCompetitions(compId :self.compId)
     }
     
     @IBAction func backButton(sender: UIButton) {
@@ -136,7 +136,7 @@ extension CompetitionsDetailsVc: UICollectionViewDelegate {
         let cellIdentifier = "TitleCell"
         self.titleCollectionView.rx.setDelegate(self).disposed(by: disposeBag)
         self.titleCollectionView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
-        self.videoVM.title.bind(to: self.titleCollectionView.rx.items(cellIdentifier: cellIdentifier, cellType: TitleCell.self)) { index, element, cell in
+        self.competitionVm.title.bind(to: self.titleCollectionView.rx.items(cellIdentifier: cellIdentifier, cellType: TitleCell.self)) { index, element, cell in
             
              cell.titleBtn.text = self.titles[index]
             if self.selectedIndex == index{
@@ -182,6 +182,23 @@ extension CompetitionsDetailsVc : UICollectionViewDelegateFlowLayout {
     }
 
 
-extension VideoDetailsVc {
+extension CompetitionsDetailsVc {
+    
+    func getCompetitions(compId :Int) {
+        competitionVm.getCompetitionsDetails(id: compId).subscribe(onNext: { (dataModel) in
+            self.competitionVm.dismissIndicator()
+           if dataModel.success ?? false {
+            self.instantVC1.aboutTV.text = dataModel.data?.about?.html2String ?? ""
+            self.instantVC2.guideTV.text = dataModel.data?.guidelines?.html2String ?? ""
+            self.instantVC3.deadlinesTV.text = dataModel.data?.deadlines?.html2String ?? ""
+            self.instantVC4.prizersTV.text = dataModel.data?.prizes?.html2String ?? ""
+            if let url = URL(string: dataModel.data?.bannerImg ?? ""){
+                self.bannerImage.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4"))
+            }
+         }
+       }, onError: { (error) in
+        self.competitionVm.dismissIndicator()
+       }).disposed(by: disposeBag)
+   }
     
 }

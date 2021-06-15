@@ -8,12 +8,11 @@
 import UIKit
 
 class AboutCompetitionsVc: UIViewController {
-
+    @IBOutlet weak var aboutTV : UITextView!
+    var about = String()
     var  parentVC: CompetitionsDetailsVc?
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
 

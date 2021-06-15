@@ -51,6 +51,9 @@
                     <constraint firstItem="nzl-Nh-dYE" firstAttribute="bottom" secondItem="YxM-xL-5Jp" secondAttribute="bottom" id="syu-N5-HxW"/>
                 </constraints>
             </view>
+            <connections>
+                <outlet property="aboutTV" destination="9Of-YM-TwR" id="V5L-QF-OzA"/>
+            </connections>
             <point key="canvasLocation" x="-360" y="93"/>
         </viewController>
     </objects>

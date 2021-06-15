@@ -14,6 +14,14 @@ import SVProgressHUD
 
 struct CometitionsViewModel {
     
+    
+    var title = PublishSubject<[String]>()
+
+    func fetchtitle(data: [String]) {
+        self.title.onNext(data)
+       }
+    
+    
     func showIndicator() {
         SVProgressHUD.show()
     }
@@ -31,6 +39,15 @@ struct CometitionsViewModel {
          let observer = GetServices.shared.getAllCompetition(param: params)
          return observer
      }
+   
+    func getCompetitionsDetails(id :Int) -> Observable<CompetitionsDetailsModelJSON> {
+        let params: [String: Any] = [
+            "id": id
+        ]
+         let observer = GetServices.shared.getCompetitionDetails(param: params)
+         return observer
+     }
+    
     
     
     

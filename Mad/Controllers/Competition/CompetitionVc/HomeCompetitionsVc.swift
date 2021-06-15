@@ -16,7 +16,6 @@ class HomeCompetitionsVc : UIViewController {
     @IBOutlet weak var tableView: UITableView!
     let cellIdentifier = "CompetitionCell"
     var parentVC : HomeVC?
-
     
     var competitionVm = CometitionsViewModel()
     var disposeBag = DisposeBag()
@@ -26,12 +25,14 @@ class HomeCompetitionsVc : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupContentTableView()
-
     }
     
+    
     override func viewWillAppear(_ animated: Bool) {
+        getCompetitions(search: "", step: "ongoing", pageNum: 1)
         self.navigationController?.navigationBar.isHidden = true
     }
+
 }
 
 extension HomeCompetitionsVc : UITableViewDelegate,UITableViewDataSource{
@@ -54,7 +55,6 @@ extension HomeCompetitionsVc : UITableViewDelegate,UITableViewDataSource{
             cell.confic(imageUrl: self.competitions[indexPath.row].bannerImg ?? "", title: self.competitions[indexPath.row].title ?? "", date: self.competitions[indexPath.row].resultDate ?? "")
         }
         cell.showShimmer = showShimmer
-
         return cell
     }
     
@@ -63,18 +63,21 @@ extension HomeCompetitionsVc : UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let main = CompetitionsDetailsVc.instantiateFromNib()
-        self.navigationController?.pushViewController(main!, animated: true)
+        DispatchQueue.main.async {
+            let main = CompetitionsDetailsVc.instantiateFromNib()
+            main!.compId = self.competitions[indexPath.row].id ?? 0
+            self.navigationController?.pushViewController(main!, animated: true)
+        }
     }
-    
 }
 
 extension HomeCompetitionsVc{
-    func getProject(search : String,step:String,pageNum :Int) {
+    func getCompetitions(search : String,step:String,pageNum :Int) {
         competitionVm.getAllCompetions(search: search, step: step, pageNum: pageNum).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
             self.showShimmer = false
             self.competitions = dataModel.data?.data ?? []
+            self.tableView.reloadData()
            }
        }, onError: { (error) in
 

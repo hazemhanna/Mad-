@@ -9,11 +9,11 @@ import UIKit
 
 class DeadlinesCompetitionsVc: UIViewController {
 
-    
+    @IBOutlet weak var deadlinesTV : UITextView!
+    var deadLine = String()
     var  parentVC: CompetitionsDetailsVc?
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 

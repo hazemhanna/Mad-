@@ -51,6 +51,9 @@
                     <constraint firstItem="fIp-4y-aTq" firstAttribute="bottom" secondItem="TIl-kp-gpf" secondAttribute="bottom" id="lNw-gF-pG2"/>
                 </constraints>
             </view>
+            <connections>
+                <outlet property="guideTV" destination="Ft7-Ye-apb" id="M0x-gP-zLX"/>
+            </connections>
             <point key="canvasLocation" x="-360" y="93"/>
         </viewController>
     </objects>
