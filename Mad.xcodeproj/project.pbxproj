@@ -147,6 +147,8 @@
 		04B6741326383DC600AFF9C3 /* AddProductPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B6741126383DC600AFF9C3 /* AddProductPhotoCell.xib */; };
 		04B6741726384D2100AFF9C3 /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6741626384D2100AFF9C3 /* ProductViewModel.swift */; };
 		04B6741A2638626400AFF9C3 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B674192638626400AFF9C3 /* ProductModel.swift */; };
+		04C6E4792678C87700C90C7E /* PartenersVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C6E4772678C87700C90C7E /* PartenersVc.swift */; };
+		04C6E47A2678C87700C90C7E /* PartenersVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04C6E4782678C87700C90C7E /* PartenersVc.xib */; };
 		04C782A8263977B400C90851 /* InventoryPricingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C782A6263977B400C90851 /* InventoryPricingVC.swift */; };
 		04C782A9263977B400C90851 /* InventoryPricingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04C782A7263977B400C90851 /* InventoryPricingVC.xib */; };
 		04D23EC9263306B500290488 /* ContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D23EC8263306B500290488 /* ContainerVC.swift */; };
@@ -329,6 +331,8 @@
 		04B6741126383DC600AFF9C3 /* AddProductPhotoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddProductPhotoCell.xib; sourceTree = "<group>"; };
 		04B6741626384D2100AFF9C3 /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
 		04B674192638626400AFF9C3 /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
+		04C6E4772678C87700C90C7E /* PartenersVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartenersVc.swift; sourceTree = "<group>"; };
+		04C6E4782678C87700C90C7E /* PartenersVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PartenersVc.xib; sourceTree = "<group>"; };
 		04C782A6263977B400C90851 /* InventoryPricingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryPricingVC.swift; sourceTree = "<group>"; };
 		04C782A7263977B400C90851 /* InventoryPricingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InventoryPricingVC.xib; sourceTree = "<group>"; };
 		04D23EC8263306B500290488 /* ContainerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerVC.swift; sourceTree = "<group>"; };
@@ -676,6 +680,7 @@
 				0439BD042672639D00AC5C59 /* Deadlines */,
 				0439BD032672639900AC5C59 /* Prizes */,
 				0439BD022672639500AC5C59 /* Judges */,
+				04C6E4762678C84400C90C7E /* PartenersVc */,
 			);
 			path = CompetitionDetails;
 			sourceTree = "<group>";
@@ -1209,6 +1214,15 @@
 			path = AddProductPhotoCell;
 			sourceTree = "<group>";
 		};
+		04C6E4762678C84400C90C7E /* PartenersVc */ = {
+			isa = PBXGroup;
+			children = (
+				04C6E4772678C87700C90C7E /* PartenersVc.swift */,
+				04C6E4782678C87700C90C7E /* PartenersVc.xib */,
+			);
+			path = PartenersVc;
+			sourceTree = "<group>";
+		};
 		04C782A42639773F00C90851 /* InventoryPricingVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -1432,6 +1446,7 @@
 				04DEAA3C2620B25400F843A6 /* SplashVC.xib in Resources */,
 				0413E40E26307DC600F5977D /* ProductsVC.xib in Resources */,
 				04AD60B4262866E500ADF0DF /* ProjectDetailsVC.xib in Resources */,
+				04C6E47A2678C87700C90C7E /* PartenersVc.xib in Resources */,
 				0413E40826307D7300F5977D /* ProjectsVC.xib in Resources */,
 				0439BD192672645E00AC5C59 /* PrizesCometitionsVc.xib in Resources */,
 				0413E3F626307C6200F5977D /* BlogsVc.xib in Resources */,
@@ -1571,6 +1586,7 @@
 				043B47D5261DB5B500D67023 /* ForYouCell.swift in Sources */,
 				045A66E12667134300ED03CB /* AboutProjectVC.swift in Sources */,
 				046E2E4826693A3300BFCDCC /* CalenderVc.swift in Sources */,
+				04C6E4792678C87700C90C7E /* PartenersVc.swift in Sources */,
 				0413E40126307D3700F5977D /* VideosVC.swift in Sources */,
 				04242AA826553A4E003C8B44 /* VideoPurchaseVc.swift in Sources */,
 				04DEA9D62620947100F843A6 /* Authentication.swift in Sources */,

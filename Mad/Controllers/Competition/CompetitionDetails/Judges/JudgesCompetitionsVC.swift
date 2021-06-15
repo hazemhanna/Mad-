@@ -15,8 +15,13 @@ import RxCocoa
 class JudgesCompetitionsVC : UIViewController {
    
     @IBOutlet weak var tableView: UITableView!
-   
-    
+    var showShimmer: Bool = true
+    var judges = [Judge](){
+        didSet{
+            tableView.reloadData()
+            showShimmer = false
+        }
+    }
     var  parentVC: CompetitionsDetailsVc?
 
     let cellIdentifier = "CompetitionCell"
@@ -46,11 +51,16 @@ extension JudgesCompetitionsVC : UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return self.showShimmer ? 1 : judges.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier) as! CompetitionCell
+        if !self.showShimmer{
+            cell.confic(imageUrl: self.judges[indexPath.row].bannerImg ?? "", title: self.judges[indexPath.row].name ?? "", date:(self.judges[indexPath.row].headline ?? ""))
+
+        }
+        cell.showShimmer = self.showShimmer
         return cell
     }
     
@@ -59,12 +69,7 @@ extension JudgesCompetitionsVC : UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let main = CompetitionsDetailsVc.instantiateFromNib()
-        self.navigationController?.pushViewController(main!, animated: true)
-    }
-    
-}
 
-extension JudgesCompetitionsVC{
+    }
     
 }

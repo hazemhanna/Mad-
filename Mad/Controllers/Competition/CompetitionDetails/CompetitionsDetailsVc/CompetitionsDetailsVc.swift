@@ -69,10 +69,10 @@ class CompetitionsDetailsVc  : UIViewController {
         return vc!
     }()
     
-    lazy var instantVC6: VideoPartners = {
-        var vc = VideoPartners.instantiateFromNib()
+    lazy var instantVC6: PartenersVc = {
+        var vc = PartenersVc.instantiateFromNib()
         self.add(asChildViewController: vc!)
-        vc!.parentVC2 = self
+        vc!.parentVC = self
         vc!.view.backgroundColor = #colorLiteral(red: 0.9725490196, green: 0.9725490196, blue: 0.9725490196, alpha: 1)
         return vc!
     }()
@@ -192,6 +192,8 @@ extension CompetitionsDetailsVc {
             self.instantVC2.guideTV.text = dataModel.data?.guidelines?.html2String ?? ""
             self.instantVC3.deadlinesTV.text = dataModel.data?.deadlines?.html2String ?? ""
             self.instantVC4.prizersTV.text = dataModel.data?.prizes?.html2String ?? ""
+            self.instantVC5.judges =  dataModel.data?.judges ?? []
+            self.instantVC6.partenersTV.text  = dataModel.data?.partner?.html2String ?? ""
             if let url = URL(string: dataModel.data?.bannerImg ?? ""){
                 self.bannerImage.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4"))
             }

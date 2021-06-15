@@ -14,17 +14,17 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DeadlinesCompetitionsVc" customModule="Mad" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PartenersVc" customModule="Mad" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <viewController id="Uhg-79-RBm" customClass="DeadlinesCompetitionsVc" customModule="Mad" customModuleProvider="target">
-            <view key="view" contentMode="scaleToFill" id="ILE-Qz-Sq7">
+        <viewController id="eWb-NQ-arc" customClass="PartenersVc" customModule="Mad" customModuleProvider="target">
+            <view key="view" contentMode="scaleToFill" id="X6b-GO-co0">
                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fjq-54-GdE">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yWK-pz-u71">
                         <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZJD-OO-x3l">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sO6-4V-BwP">
                                 <rect key="frame" x="32" y="16" width="350" height="802"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" red="0.1333333333" green="0.2156862745" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -34,24 +34,24 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="ZJD-OO-x3l" firstAttribute="leading" secondItem="Fjq-54-GdE" secondAttribute="leading" constant="32" id="OYe-J7-fYT"/>
-                            <constraint firstAttribute="trailing" secondItem="ZJD-OO-x3l" secondAttribute="trailing" constant="32" id="oZu-ge-GlE"/>
-                            <constraint firstItem="ZJD-OO-x3l" firstAttribute="top" secondItem="Fjq-54-GdE" secondAttribute="top" constant="16" id="sM3-cf-Hia"/>
-                            <constraint firstAttribute="bottom" secondItem="ZJD-OO-x3l" secondAttribute="bottom" id="tfK-XE-YcH"/>
+                            <constraint firstItem="sO6-4V-BwP" firstAttribute="top" secondItem="yWK-pz-u71" secondAttribute="top" constant="16" id="CH3-P1-mR3"/>
+                            <constraint firstAttribute="bottom" secondItem="sO6-4V-BwP" secondAttribute="bottom" id="PDw-0a-zlf"/>
+                            <constraint firstItem="sO6-4V-BwP" firstAttribute="leading" secondItem="yWK-pz-u71" secondAttribute="leading" constant="32" id="nbk-qW-fKo"/>
+                            <constraint firstAttribute="trailing" secondItem="sO6-4V-BwP" secondAttribute="trailing" constant="32" id="qJ2-V3-naa"/>
                         </constraints>
                     </view>
                 </subviews>
-                <viewLayoutGuide key="safeArea" id="izE-CC-iaS"/>
+                <viewLayoutGuide key="safeArea" id="2dX-ru-Go7"/>
                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 <constraints>
-                    <constraint firstItem="izE-CC-iaS" firstAttribute="trailing" secondItem="Fjq-54-GdE" secondAttribute="trailing" id="0Zu-hZ-tlN"/>
-                    <constraint firstItem="Fjq-54-GdE" firstAttribute="leading" secondItem="izE-CC-iaS" secondAttribute="leading" id="JGu-N6-Xk3"/>
-                    <constraint firstItem="Fjq-54-GdE" firstAttribute="top" secondItem="izE-CC-iaS" secondAttribute="top" id="QuA-Ji-vqv"/>
-                    <constraint firstItem="izE-CC-iaS" firstAttribute="bottom" secondItem="Fjq-54-GdE" secondAttribute="bottom" id="YuC-hn-3So"/>
+                    <constraint firstItem="yWK-pz-u71" firstAttribute="top" secondItem="2dX-ru-Go7" secondAttribute="top" id="6xJ-jh-vg8"/>
+                    <constraint firstItem="yWK-pz-u71" firstAttribute="leading" secondItem="2dX-ru-Go7" secondAttribute="leading" id="7eC-tb-krK"/>
+                    <constraint firstItem="2dX-ru-Go7" firstAttribute="bottom" secondItem="yWK-pz-u71" secondAttribute="bottom" id="Ano-0e-I8a"/>
+                    <constraint firstItem="2dX-ru-Go7" firstAttribute="trailing" secondItem="yWK-pz-u71" secondAttribute="trailing" id="EQe-3d-T6H"/>
                 </constraints>
             </view>
             <connections>
-                <outlet property="deadlinesTV" destination="ZJD-OO-x3l" id="1y3-p9-XjX"/>
+                <outlet property="partenersTV" destination="sO6-4V-BwP" id="hPs-Qs-rVj"/>
             </connections>
             <point key="canvasLocation" x="-360" y="93"/>
         </viewController>
