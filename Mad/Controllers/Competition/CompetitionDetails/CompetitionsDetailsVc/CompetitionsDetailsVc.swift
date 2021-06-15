@@ -12,6 +12,7 @@ import RxCocoa
 import PTCardTabBar
 import AVKit
 import AVFoundation
+import SwiftSoup
 
 class CompetitionsDetailsVc  : UIViewController {
     
@@ -193,7 +194,19 @@ extension CompetitionsDetailsVc {
             self.instantVC3.deadlinesTV.text = dataModel.data?.deadlines?.html2String ?? ""
             self.instantVC4.prizersTV.text = dataModel.data?.prizes?.html2String ?? ""
             self.instantVC5.judges =  dataModel.data?.judges ?? []
-            self.instantVC6.partenersTV.text  = dataModel.data?.partner?.html2String ?? ""
+            do {
+                let doc: Document = try SwiftSoup.parse(dataModel.data?.partner ?? "")
+                let srcs: Elements = try doc.select("img[src]")
+                let srcsStringArray: [String?] = srcs.array().map { try? $0.attr("src").description }
+                print(srcsStringArray)
+                if let url = URL(string: srcsStringArray[0] ?? ""){
+                    self.instantVC6.imageUrl.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4"))
+                }
+            } catch Exception.Error(_, let message) {
+                print(message)
+            } catch {
+                print("error")
+            }
             if let url = URL(string: dataModel.data?.bannerImg ?? ""){
                 self.bannerImage.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4"))
             }
@@ -202,5 +215,4 @@ extension CompetitionsDetailsVc {
         self.competitionVm.dismissIndicator()
        }).disposed(by: disposeBag)
    }
-    
 }

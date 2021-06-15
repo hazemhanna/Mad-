@@ -27,6 +27,7 @@ target 'Mad' do
   pod 'Gallery'
   pod 'FSCalendar'
   pod "RichEditorView"
+  pod 'SwiftSoup'
 
 
 end

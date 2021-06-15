@@ -24,7 +24,7 @@ class ProductDetailsVC: UIViewController {
     @IBOutlet weak var artistName: UILabel!
     @IBOutlet weak var artistPhoto: UIImageView!
     @IBOutlet weak var contentSizeHieght : NSLayoutConstraint!
-    
+    var token = Helper.getAPIToken() ?? ""
     var productId = Int()
     var showShimmer: Bool = true
     var showShimmer2: Bool = true
@@ -81,26 +81,38 @@ class ProductDetailsVC: UIViewController {
     }
     
     @IBAction func favouriteAction(_ sender: UIButton) {
-        if Helper.getAPIToken() != nil {
-        self.productVM.showIndicator()
-        if  self.isFavourite {
-            self.editFavourite(productId:  self.productId, Type: false)
-            self.favouritBtn.setImage(#imageLiteral(resourceName: "Group 140"), for: .normal)
+        if self.token == "" {
+            let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
+            if let appDelegate = UIApplication.shared.delegate {
+                appDelegate.window??.rootViewController = sb
+            }
+            return
         }else{
-            self.editFavourite(productId:  self.productId, Type: true)
-            self.favouritBtn.setImage(#imageLiteral(resourceName: "Group 155"), for: .normal)
-          }
-        }else{
-            self.showMessage(text: "please login first")
+            self.productVM.showIndicator()
+            if  self.isFavourite {
+                self.editFavourite(productId:  self.productId, Type: false)
+                self.favouritBtn.setImage(#imageLiteral(resourceName: "Group 140"), for: .normal)
+            }else{
+                self.editFavourite(productId:  self.productId, Type: true)
+                self.favouritBtn.setImage(#imageLiteral(resourceName: "Group 155"), for: .normal)
+              }
         }
+        
     }
     
     @IBAction func shareAction(_ sender: UIButton) {
-        if Helper.getAPIToken() != nil {
-            self.shareProject(productId : self.productId)
+        if self.token == "" {
+            let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
+            if let appDelegate = UIApplication.shared.delegate {
+                appDelegate.window??.rootViewController = sb
+            }
+            return
         }else{
-            self.showMessage(text: "please login first")
+            self.shareProject(productId : self.productId)
+
         }
+
+        
     }
 }
 

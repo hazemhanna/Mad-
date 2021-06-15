@@ -61,7 +61,6 @@ extension VideoPurchaseVc: UICollectionViewDelegate,UICollectionViewDataSource {
         cell.showShimmer = showShimmer
         return cell
       }
-
     }
 
 extension VideoPurchaseVc: UICollectionViewDelegateFlowLayout {

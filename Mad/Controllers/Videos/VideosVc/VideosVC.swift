@@ -117,6 +117,7 @@ extension VideosVC: UICollectionViewDelegate , UICollectionViewDataSource {
                         if let appDelegate = UIApplication.shared.delegate {
                             appDelegate.window??.rootViewController = sb
                         }
+                        return
                     }
                     
                     self.VideosVM.showIndicator()
@@ -133,6 +134,7 @@ extension VideosVC: UICollectionViewDelegate , UICollectionViewDataSource {
                         if let appDelegate = UIApplication.shared.delegate {
                             appDelegate.window??.rootViewController = sb
                         }
+                    return
                     }
                     self.shareVideo(videoId:  self.shows[indexPath.row].id ?? 0)
                 }
@@ -169,6 +171,7 @@ extension VideosVC: UICollectionViewDelegate , UICollectionViewDataSource {
                         if let appDelegate = UIApplication.shared.delegate {
                             appDelegate.window??.rootViewController = sb
                         }
+                        return
                     }
                     
                     self.VideosVM.showIndicator()
@@ -185,6 +188,7 @@ extension VideosVC: UICollectionViewDelegate , UICollectionViewDataSource {
                         if let appDelegate = UIApplication.shared.delegate {
                             appDelegate.window??.rootViewController = sb
                         }
+                        return
                     }
                     self.shareVideo(videoId:  self.showsCases[indexPath.row].id ?? 0)
                 }
@@ -222,6 +226,7 @@ extension VideosVC: UICollectionViewDelegate , UICollectionViewDataSource {
                         if let appDelegate = UIApplication.shared.delegate {
                             appDelegate.window??.rootViewController = sb
                         }
+                        return
                     }
                     self.VideosVM.showIndicator()
                     if  self.interviews[indexPath.row].isFavorite ?? false {
@@ -238,6 +243,7 @@ extension VideosVC: UICollectionViewDelegate , UICollectionViewDataSource {
                             appDelegate.window??.rootViewController = sb
                         }
                         
+                        return
                     }
                     self.shareVideo(videoId:  self.interviews[indexPath.row].id ?? 0)
                 }
@@ -269,7 +275,11 @@ extension VideosVC: UICollectionViewDelegate , UICollectionViewDataSource {
                              imageUrl :afterMoviews[indexPath.row].imageURL ?? "",
                              isFavourite :afterMoviews[indexPath.row].isFavorite ?? false)
                   cell.favourite = {
-                    if Helper.getAPIToken() == nil {
+                    if self.token == "" {
+                        let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
+                        if let appDelegate = UIApplication.shared.delegate {
+                            appDelegate.window??.rootViewController = sb
+                        }
                         return
                     }
                     
@@ -282,9 +292,14 @@ extension VideosVC: UICollectionViewDelegate , UICollectionViewDataSource {
                 }
                 
                 cell.share = {
-                    if Helper.getAPIToken() == nil {
+                    if self.token == "" {
+                        let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
+                        if let appDelegate = UIApplication.shared.delegate {
+                            appDelegate.window??.rootViewController = sb
+                        }
                         return
                     }
+                    
                     self.shareVideo(videoId:  self.afterMoviews[indexPath.row].id ?? 0)
                 }
                 

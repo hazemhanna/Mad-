@@ -9,9 +9,9 @@ import UIKit
 
 class PartenersVc: UIViewController {
 
-    @IBOutlet weak var partenersTV : UITextView!
-    var  parentVC: CompetitionsDetailsVc?
+    @IBOutlet weak var imageUrl : UIImageView!
 
+    var  parentVC: CompetitionsDetailsVc?
     override func viewDidLoad() {
         super.viewDidLoad()
 
