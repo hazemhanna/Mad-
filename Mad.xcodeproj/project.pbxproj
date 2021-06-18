@@ -11,6 +11,8 @@
 		040339D92638D0CD00CEDBD3 /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040339D82638D0CD00CEDBD3 /* AlertService.swift */; };
 		040339E12638F21000CEDBD3 /* ListingDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040339DF2638F21000CEDBD3 /* ListingDetailsVC.swift */; };
 		040339E22638F21000CEDBD3 /* ListingDetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 040339E02638F21000CEDBD3 /* ListingDetailsVC.xib */; };
+		0412D4F5267C5BD200E4022C /* CompetitionsResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0412D4F3267C5BD200E4022C /* CompetitionsResultCell.swift */; };
+		0412D4F6267C5BD200E4022C /* CompetitionsResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0412D4F4267C5BD200E4022C /* CompetitionsResultCell.xib */; };
 		0413E3AA263051C300F5977D /* ArtistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0413E3A9263051C300F5977D /* ArtistModel.swift */; };
 		0413E3AD2630536E00F5977D /* ArtistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0413E3AC2630536E00F5977D /* ArtistViewModel.swift */; };
 		0413E3F526307C6200F5977D /* BlogsVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0413E3F326307C6200F5977D /* BlogsVc.swift */; };
@@ -132,6 +134,14 @@
 		046B2B1F2677AE4B00BAA2A3 /* CometitionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046B2B1E2677AE4B00BAA2A3 /* CometitionsViewModel.swift */; };
 		046E2E4826693A3300BFCDCC /* CalenderVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046E2E4626693A3300BFCDCC /* CalenderVc.swift */; };
 		046E2E4926693A3300BFCDCC /* CalenderVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 046E2E4726693A3300BFCDCC /* CalenderVc.xib */; };
+		047DD026267C36EC00C78C49 /* AddCompetitionsDetailsVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047DD024267C36EC00C78C49 /* AddCompetitionsDetailsVc.swift */; };
+		047DD027267C36EC00C78C49 /* AddCompetitionsDetailsVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047DD025267C36EC00C78C49 /* AddCompetitionsDetailsVc.xib */; };
+		047DD02E267C3AE300C78C49 /* AddCompetitionsUploadFileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047DD02C267C3AE300C78C49 /* AddCompetitionsUploadFileVC.swift */; };
+		047DD02F267C3AE300C78C49 /* AddCompetitionsUploadFileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047DD02D267C3AE300C78C49 /* AddCompetitionsUploadFileVC.xib */; };
+		047DD035267C3DA100C78C49 /* SubmitCopetitionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047DD033267C3DA100C78C49 /* SubmitCopetitionsVC.swift */; };
+		047DD036267C3DA100C78C49 /* SubmitCopetitionsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047DD034267C3DA100C78C49 /* SubmitCopetitionsVC.xib */; };
+		047DD03E267C4F7F00C78C49 /* CompetitionResultslistsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047DD03C267C4F7F00C78C49 /* CompetitionResultslistsVC.swift */; };
+		047DD03F267C4F7F00C78C49 /* CompetitionResultslistsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047DD03D267C4F7F00C78C49 /* CompetitionResultslistsVC.xib */; };
 		0488CCE9261213E000E05BEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0488CCE8261213E000E05BEB /* AppDelegate.swift */; };
 		0488CCF0261213E000E05BEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0488CCEE261213E000E05BEB /* Main.storyboard */; };
 		0488CCF2261213E400E05BEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0488CCF1261213E400E05BEB /* Assets.xcassets */; };
@@ -191,6 +201,8 @@
 		040339D82638D0CD00CEDBD3 /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
 		040339DF2638F21000CEDBD3 /* ListingDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingDetailsVC.swift; sourceTree = "<group>"; };
 		040339E02638F21000CEDBD3 /* ListingDetailsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListingDetailsVC.xib; sourceTree = "<group>"; };
+		0412D4F3267C5BD200E4022C /* CompetitionsResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionsResultCell.swift; sourceTree = "<group>"; };
+		0412D4F4267C5BD200E4022C /* CompetitionsResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompetitionsResultCell.xib; sourceTree = "<group>"; };
 		0413E3A9263051C300F5977D /* ArtistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistModel.swift; sourceTree = "<group>"; };
 		0413E3AC2630536E00F5977D /* ArtistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistViewModel.swift; sourceTree = "<group>"; };
 		0413E3F326307C6200F5977D /* BlogsVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogsVc.swift; sourceTree = "<group>"; };
@@ -313,6 +325,14 @@
 		046B2B1E2677AE4B00BAA2A3 /* CometitionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CometitionsViewModel.swift; sourceTree = "<group>"; };
 		046E2E4626693A3300BFCDCC /* CalenderVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderVc.swift; sourceTree = "<group>"; };
 		046E2E4726693A3300BFCDCC /* CalenderVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalenderVc.xib; sourceTree = "<group>"; };
+		047DD024267C36EC00C78C49 /* AddCompetitionsDetailsVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCompetitionsDetailsVc.swift; sourceTree = "<group>"; };
+		047DD025267C36EC00C78C49 /* AddCompetitionsDetailsVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCompetitionsDetailsVc.xib; sourceTree = "<group>"; };
+		047DD02C267C3AE300C78C49 /* AddCompetitionsUploadFileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCompetitionsUploadFileVC.swift; sourceTree = "<group>"; };
+		047DD02D267C3AE300C78C49 /* AddCompetitionsUploadFileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCompetitionsUploadFileVC.xib; sourceTree = "<group>"; };
+		047DD033267C3DA100C78C49 /* SubmitCopetitionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitCopetitionsVC.swift; sourceTree = "<group>"; };
+		047DD034267C3DA100C78C49 /* SubmitCopetitionsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubmitCopetitionsVC.xib; sourceTree = "<group>"; };
+		047DD03C267C4F7F00C78C49 /* CompetitionResultslistsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionResultslistsVC.swift; sourceTree = "<group>"; };
+		047DD03D267C4F7F00C78C49 /* CompetitionResultslistsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompetitionResultslistsVC.xib; sourceTree = "<group>"; };
 		0488CCE5261213E000E05BEB /* Mad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0488CCE8261213E000E05BEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0488CCEF261213E000E05BEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -413,6 +433,15 @@
 			path = ListingDetailsVC;
 			sourceTree = "<group>";
 		};
+		0412D4F2267C5BB200E4022C /* CompetitionsResultCell */ = {
+			isa = PBXGroup;
+			children = (
+				0412D4F3267C5BD200E4022C /* CompetitionsResultCell.swift */,
+				0412D4F4267C5BD200E4022C /* CompetitionsResultCell.xib */,
+			);
+			path = CompetitionsResultCell;
+			sourceTree = "<group>";
+		};
 		0413E3E12630731E00F5977D /* BlogsVc */ = {
 			isa = PBXGroup;
 			children = (
@@ -444,6 +473,7 @@
 		0413E4512630A37800F5977D /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				0412D4F2267C5BB200E4022C /* CompetitionsResultCell */,
 				04319B16265C5E3A000535B2 /* SocialCell */,
 				04242AB826554B12003C8B44 /* VideoProjectCell */,
 				04242AB126554066003C8B44 /* VideoArtistCell */,
@@ -656,8 +686,10 @@
 		0447A8F22671295A00F523CC /* Competition */ = {
 			isa = PBXGroup;
 			children = (
+				047DD03B267C4F4500C78C49 /* CompetitionResultslistsVC */,
 				0447A8F826712DBB00F523CC /* CompetitionVc */,
 				0447A8F926712DD000F523CC /* CompetitionDetails */,
+				047DD023267C369C00C78C49 /* AddCompetitions */,
 			);
 			path = Competition;
 			sourceTree = "<group>";
@@ -940,6 +972,52 @@
 				046E2E4726693A3300BFCDCC /* CalenderVc.xib */,
 			);
 			path = CalenderVc;
+			sourceTree = "<group>";
+		};
+		047DD023267C369C00C78C49 /* AddCompetitions */ = {
+			isa = PBXGroup;
+			children = (
+				047DD029267C36FA00C78C49 /* AddCompetitionsDetailsVc */,
+				047DD02B267C3AA500C78C49 /* AddCompetitionsUploadFileVC */,
+				047DD032267C3D7800C78C49 /* SubmitCopetitionsVC */,
+			);
+			path = AddCompetitions;
+			sourceTree = "<group>";
+		};
+		047DD029267C36FA00C78C49 /* AddCompetitionsDetailsVc */ = {
+			isa = PBXGroup;
+			children = (
+				047DD024267C36EC00C78C49 /* AddCompetitionsDetailsVc.swift */,
+				047DD025267C36EC00C78C49 /* AddCompetitionsDetailsVc.xib */,
+			);
+			path = AddCompetitionsDetailsVc;
+			sourceTree = "<group>";
+		};
+		047DD02B267C3AA500C78C49 /* AddCompetitionsUploadFileVC */ = {
+			isa = PBXGroup;
+			children = (
+				047DD02C267C3AE300C78C49 /* AddCompetitionsUploadFileVC.swift */,
+				047DD02D267C3AE300C78C49 /* AddCompetitionsUploadFileVC.xib */,
+			);
+			path = AddCompetitionsUploadFileVC;
+			sourceTree = "<group>";
+		};
+		047DD032267C3D7800C78C49 /* SubmitCopetitionsVC */ = {
+			isa = PBXGroup;
+			children = (
+				047DD033267C3DA100C78C49 /* SubmitCopetitionsVC.swift */,
+				047DD034267C3DA100C78C49 /* SubmitCopetitionsVC.xib */,
+			);
+			path = SubmitCopetitionsVC;
+			sourceTree = "<group>";
+		};
+		047DD03B267C4F4500C78C49 /* CompetitionResultslistsVC */ = {
+			isa = PBXGroup;
+			children = (
+				047DD03C267C4F7F00C78C49 /* CompetitionResultslistsVC.swift */,
+				047DD03D267C4F7F00C78C49 /* CompetitionResultslistsVC.xib */,
+			);
+			path = CompetitionResultslistsVC;
 			sourceTree = "<group>";
 		};
 		0482EEAB26164D3800CB4A24 /* Home */ = {
@@ -1394,6 +1472,7 @@
 			files = (
 				04D23EEC2633127800290488 /* Graphik-Bold.ttf in Resources */,
 				04D23EED2633127800290488 /* Graphik-Light.ttf in Resources */,
+				047DD03F267C4F7F00C78C49 /* CompetitionResultslistsVC.xib in Resources */,
 				04D23EEE2633127800290488 /* Graphik-Medium.ttf in Resources */,
 				04D23EEF2633127800290488 /* Graphik-Regular.ttf in Resources */,
 				04D23EF02633127800290488 /* Graphik-Semibold.ttf in Resources */,
@@ -1412,6 +1491,7 @@
 				04528E4C2614B54B009868EA /* CreatPasswordVc.xib in Resources */,
 				0449A6F3262EF9E100604052 /* Authentication.storyboard in Resources */,
 				04170D12264AAFAC00745696 /* Video.storyboard in Resources */,
+				047DD02F267C3AE300C78C49 /* AddCompetitionsUploadFileVC.xib in Resources */,
 				04C782A9263977B400C90851 /* InventoryPricingVC.xib in Resources */,
 				0449A72C262EFE1800604052 /* Home.storyboard in Resources */,
 				0440ECA92636C7C60046681C /* CompetitionCell.xib in Resources */,
@@ -1434,15 +1514,18 @@
 				04242A9E26553A12003C8B44 /* VideoArtistsVc.xib in Resources */,
 				04319B1A265C5E5F000535B2 /* SocialCell.xib in Resources */,
 				04242AAF26553A65003C8B44 /* VideoPartners.xib in Resources */,
+				0412D4F6267C5BD200E4022C /* CompetitionsResultCell.xib in Resources */,
 				0414287826177E69000394CA /* LiveCellCVC.xib in Resources */,
 				0427A21826405B2D0029A10C /* AddsCell.xib in Resources */,
 				04DEAA422620B4A900F843A6 /* SplashCell.xib in Resources */,
+				047DD036267C3DA100C78C49 /* SubmitCopetitionsVC.xib in Resources */,
 				0427A212263FFA7B0029A10C /* ProductDetailsVC.xib in Resources */,
 				04242AA426553A37003C8B44 /* VideoProjectsVC.xib in Resources */,
 				04528E5C2614B5AE009868EA /* CountryVc.xib in Resources */,
 				04242AC326555E7A003C8B44 /* VideoPartenerCell.xib in Resources */,
 				0488CCF0261213E000E05BEB /* Main.storyboard in Resources */,
 				046887BF261E77970056AC92 /* ShowesCell.xib in Resources */,
+				047DD027267C36EC00C78C49 /* AddCompetitionsDetailsVc.xib in Resources */,
 				04DEAA3C2620B25400F843A6 /* SplashVC.xib in Resources */,
 				0413E40E26307DC600F5977D /* ProductsVC.xib in Resources */,
 				04AD60B4262866E500ADF0DF /* ProjectDetailsVC.xib in Resources */,
@@ -1513,7 +1596,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				047DD02E267C3AE300C78C49 /* AddCompetitionsUploadFileVC.swift in Sources */,
 				04668724261B3F89001D024D /* WelcomeCell.swift in Sources */,
+				047DD035267C3DA100C78C49 /* SubmitCopetitionsVC.swift in Sources */,
 				04DEAA362620AD0200F843A6 /* UIViewController+Extention.swift in Sources */,
 				040339E12638F21000CEDBD3 /* ListingDetailsVC.swift in Sources */,
 				0460CF45261CEC27006685B6 /* ArtistCell.swift in Sources */,
@@ -1544,6 +1629,7 @@
 				042C082A2613943900BE1806 /* LoadingLoginVc.swift in Sources */,
 				042C081126136B9700BE1806 /* CustomDropDown.swift in Sources */,
 				0413E3AD2630536E00F5977D /* ArtistViewModel.swift in Sources */,
+				047DD026267C36EC00C78C49 /* AddCompetitionsDetailsVc.swift in Sources */,
 				040339A12638C95900CEDBD3 /* AddPhotoModel.swift in Sources */,
 				04DEA9D0262093E500F843A6 /* GetServices.swift in Sources */,
 				0451FD8C2617A5D300AEE546 /* ProjectCell.swift in Sources */,
@@ -1610,6 +1696,8 @@
 				04242AB426554089003C8B44 /* VideoArtistCell.swift in Sources */,
 				04242AAE26553A65003C8B44 /* VideoPartners.swift in Sources */,
 				04B6740B263831EB00AFF9C3 /* AddProductImageVc.swift in Sources */,
+				0412D4F5267C5BD200E4022C /* CompetitionsResultCell.swift in Sources */,
+				047DD03E267C4F7F00C78C49 /* CompetitionResultslistsVC.swift in Sources */,
 				0439BD182672645E00AC5C59 /* PrizesCometitionsVc.swift in Sources */,
 				0439BD222672823900AC5C59 /* CompetitionModel.swift in Sources */,
 				04C782A8263977B400C90851 /* InventoryPricingVC.swift in Sources */,

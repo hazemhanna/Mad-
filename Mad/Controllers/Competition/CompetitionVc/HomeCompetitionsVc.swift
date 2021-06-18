@@ -33,6 +33,7 @@ class HomeCompetitionsVc : UIViewController {
         self.navigationController?.navigationBar.isHidden = true
     }
 
+ 
 }
 
 extension HomeCompetitionsVc : UITableViewDelegate,UITableViewDataSource{

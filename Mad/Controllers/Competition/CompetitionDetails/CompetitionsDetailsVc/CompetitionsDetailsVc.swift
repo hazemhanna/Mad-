@@ -124,6 +124,11 @@ class CompetitionsDetailsVc  : UIViewController {
 
         default:  break
         }
+    }
+    
+    @IBAction func competeButton(sender: UIButton) {
+        let vc = AddCompetitionsDetailsVc.instantiateFromNib()
+        self.navigationController?.pushViewController(vc!, animated: true)
         
     }
     
