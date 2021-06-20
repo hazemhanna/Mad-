@@ -28,7 +28,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I want to participate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRo-Ce-FyR">
-                                <rect key="frame" x="130.5" y="42" width="153" height="16"/>
+                                <rect key="frame" x="136" y="40.5" width="142.5" height="19"/>
                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="16"/>
                                 <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -81,23 +81,27 @@
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group 324" translatesAutoresizingMaskIntoConstraints="NO" id="Mc9-mj-KOi">
                                                                         <rect key="frame" x="0.0" y="0.0" width="350" height="200"/>
                                                                     </imageView>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Path 412" translatesAutoresizingMaskIntoConstraints="NO" id="otz-a2-iW7">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="77g-rE-fQ6">
                                                                         <rect key="frame" x="135" y="75" width="80" height="50"/>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="height" constant="50" id="360-Pm-hrx"/>
-                                                                            <constraint firstAttribute="width" constant="80" id="vde-kE-5k1"/>
+                                                                            <constraint firstAttribute="width" constant="80" id="NXm-xx-xkc"/>
+                                                                            <constraint firstAttribute="height" constant="50" id="bdP-gq-Zhu"/>
                                                                         </constraints>
-                                                                    </imageView>
+                                                                        <state key="normal" image="Path 412"/>
+                                                                        <connections>
+                                                                            <action selector="uploadButtonWithSender:" destination="57j-Ak-SfN" eventType="touchUpInside" id="RBY-Hk-ba5"/>
+                                                                        </connections>
+                                                                    </button>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstItem="Mc9-mj-KOi" firstAttribute="leading" secondItem="WvX-rO-Ep5" secondAttribute="leading" id="2Ve-4a-yU7"/>
-                                                                    <constraint firstItem="otz-a2-iW7" firstAttribute="centerY" secondItem="WvX-rO-Ep5" secondAttribute="centerY" id="Pgw-3b-XAu"/>
-                                                                    <constraint firstItem="otz-a2-iW7" firstAttribute="centerX" secondItem="WvX-rO-Ep5" secondAttribute="centerX" id="Qi9-hZ-YVV"/>
+                                                                    <constraint firstItem="77g-rE-fQ6" firstAttribute="centerY" secondItem="WvX-rO-Ep5" secondAttribute="centerY" id="Njb-3p-lUI"/>
                                                                     <constraint firstItem="Mc9-mj-KOi" firstAttribute="top" secondItem="WvX-rO-Ep5" secondAttribute="top" id="bdd-PY-jD9"/>
                                                                     <constraint firstAttribute="height" constant="200" id="dex-S0-8b9"/>
                                                                     <constraint firstAttribute="bottom" secondItem="Mc9-mj-KOi" secondAttribute="bottom" id="kb8-Bl-KaH"/>
                                                                     <constraint firstAttribute="trailing" secondItem="Mc9-mj-KOi" secondAttribute="trailing" id="lag-dH-9f1"/>
+                                                                    <constraint firstItem="77g-rE-fQ6" firstAttribute="centerX" secondItem="WvX-rO-Ep5" secondAttribute="centerX" id="r3X-bi-cG0"/>
                                                                 </constraints>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="NO"/>
@@ -266,7 +270,7 @@
             <size key="intrinsicContentSize" width="52" height="21"/>
         </designable>
         <designable name="Svd-z1-zo3">
-            <size key="intrinsicContentSize" width="24" height="37.5"/>
+            <size key="intrinsicContentSize" width="5" height="20.5"/>
         </designable>
     </designables>
     <resources>
