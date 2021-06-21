@@ -30,8 +30,8 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cBD-K7-cy1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I want to participate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dV9-o5-W2b">
-                                <rect key="frame" x="136" y="40.5" width="142.5" height="19"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I want to participate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dV9-o5-W2b">
+                                <rect key="frame" x="84" y="40.5" width="298" height="19"/>
                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="16"/>
                                 <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -50,8 +50,9 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="dV9-o5-W2b" firstAttribute="centerX" secondItem="cBD-K7-cy1" secondAttribute="centerX" id="0dp-f5-FwQ"/>
                             <constraint firstItem="4JV-wD-WaS" firstAttribute="leading" secondItem="cBD-K7-cy1" secondAttribute="leading" constant="32" id="5eZ-Lg-YRn"/>
+                            <constraint firstAttribute="trailing" secondItem="dV9-o5-W2b" secondAttribute="trailing" constant="32" id="LJ4-wJ-7cZ"/>
+                            <constraint firstItem="dV9-o5-W2b" firstAttribute="leading" secondItem="4JV-wD-WaS" secondAttribute="trailing" constant="16" id="NLu-nU-Sgh"/>
                             <constraint firstItem="dV9-o5-W2b" firstAttribute="centerY" secondItem="cBD-K7-cy1" secondAttribute="centerY" id="Shi-Bq-wqV"/>
                             <constraint firstAttribute="height" constant="100" id="dc5-zE-K30"/>
                             <constraint firstItem="4JV-wD-WaS" firstAttribute="centerY" secondItem="cBD-K7-cy1" secondAttribute="centerY" id="eDp-Z6-pMB"/>
@@ -243,7 +244,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Raj-bt-XkI">
                                                         <rect key="frame" x="0.0" y="0.0" width="350" height="50"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eU1-zP-91L" customClass="CustomButtons" customModule="Mad" customModuleProvider="target">
+                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eU1-zP-91L" customClass="CustomButtons" customModule="Mad" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="175" height="50"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="16"/>
@@ -261,13 +262,24 @@
                                                                         <real key="value" value="25"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="listButtonWithSender:" destination="h3Y-i5-5w5" eventType="touchUpInside" id="fbI-e2-Bv6"/>
+                                                                </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ptr-Vd-6U4" customClass="CustomButtons" customModule="Mad" customModuleProvider="target">
+                                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ptr-Vd-6U4" customClass="CustomButtons" customModule="Mad" customModuleProvider="target">
                                                                 <rect key="frame" x="175" y="0.0" width="175" height="50"/>
                                                                 <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="16"/>
                                                                 <state key="normal" title="Short List">
                                                                     <color key="titleColor" red="0.1333333333" green="0.2156862745" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="25"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="listButtonWithSender:" destination="h3Y-i5-5w5" eventType="touchUpInside" id="Ho4-IB-lhX"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -337,7 +349,14 @@
             <navigationItem key="navigationItem" id="PcD-Yl-21g"/>
             <size key="freeformSize" width="414" height="1200"/>
             <connections>
+                <outlet property="finalListBtn" destination="eU1-zP-91L" id="7mZ-J9-AyE"/>
+                <outlet property="resultView" destination="p6Y-oJ-Q7W" id="Yro-gO-WaJ"/>
+                <outlet property="shortListBtn" destination="ptr-Vd-6U4" id="q85-VL-U16"/>
                 <outlet property="tableView" destination="mHL-Ft-21s" id="4L1-wZ-uSC"/>
+                <outlet property="titlelLbl" destination="dV9-o5-W2b" id="Pvn-6f-zoy"/>
+                <outlet property="totalLbl" destination="ZSc-BV-aQl" id="v0L-kM-AI3"/>
+                <outlet property="winnerImage" destination="Mp0-Vc-T6t" id="cla-vf-RMf"/>
+                <outlet property="winnerName" destination="uni-4V-drJ" id="h3R-5G-B24"/>
             </connections>
             <point key="canvasLocation" x="-1791.304347826087" y="1717.6339285714284"/>
         </viewController>

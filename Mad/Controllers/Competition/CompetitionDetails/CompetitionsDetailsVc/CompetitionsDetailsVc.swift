@@ -28,6 +28,11 @@ class CompetitionsDetailsVc  : UIViewController {
     var result  = false
     var vote  = false
     var compete  = false
+    var finalList = [Winner]()
+    var shortList = [Winner]()
+    var winner : Winner?
+    var titleCompetitions = String()
+    var totalVote = Int()
 
     var titles = [String](){
           didSet {
@@ -134,21 +139,34 @@ class CompetitionsDetailsVc  : UIViewController {
         }
     }
     
+    
     @IBAction func competeButton(sender: UIButton) {
         if compete {
         let vc = AddCompetitionsDetailsVc.instantiateFromNib()
         self.navigationController?.pushViewController(vc!, animated: true)
         }else if vote {
             let vc = CompetitionResultslistsVC.instantiateFromNib()
+            vc!.result = self.result
+            vc!.finalList =  self.finalList
+            vc!.shortList  =  self.shortList
+            vc!.winner  =  self.winner
+            vc!.titleCompetitions = titleCompetitions
+            vc!.totalVote =  totalVote
+            vc!.compId = compId
             self.navigationController?.pushViewController(vc!, animated: true)
         }else if result{
             let vc = CompetitionResultslistsVC.instantiateFromNib()
+            vc!.result = self.result
+            vc!.finalList =  self.finalList
+            vc!.shortList  =  self.shortList
+            vc!.winner  =  self.winner
+            vc!.titleCompetitions = titleCompetitions
+            vc!.totalVote =  totalVote
+            vc!.compId = compId
             self.navigationController?.pushViewController(vc!, animated: true)
         }
     }
-    
 }
-
 
 //MARK:- Data Binding
 extension CompetitionsDetailsVc: UICollectionViewDelegate {
@@ -214,6 +232,15 @@ extension CompetitionsDetailsVc {
             self.instantVC3.deadlinesTV.text = dataModel.data?.deadlines?.html2String ?? ""
             self.instantVC4.prizersTV.text = dataModel.data?.prizes?.html2String ?? ""
             self.instantVC5.judges =  dataModel.data?.judges ?? []
+            
+            self.finalList = dataModel.data?.finalists ?? []
+            self.shortList = dataModel.data?.shortlisted ?? []
+            self.winner = dataModel.data?.winner
+            
+            
+            self.titleCompetitions = dataModel.data?.title ?? ""
+            self.totalVote = dataModel.data?.countAllVotes ?? 0
+            
             self.result  = dataModel.data?.end_competition ?? false
             self.vote  = dataModel.data?.can_vote ?? false
             self.compete  = dataModel.data?.can_compete ?? false

@@ -358,7 +358,7 @@ struct AddServices {
     
     
     //MARK:- POSt  favourit
-    func voteCompetition(param : [String :Any]) -> Observable<FavouriteModel> {
+    func voteCompetition(param : [String :Any]) -> Observable<CompetitionsDetailsModelJSON> {
            return Observable.create { (observer) -> Disposable in
                let url = ConfigURLS.voteCompetition
             
@@ -370,7 +370,7 @@ struct AddServices {
                    .validate(statusCode: 200..<300)
                    .responseJSON { (response: DataResponse<Any>) in
                        do {
-                           let data = try JSONDecoder().decode(FavouriteModel.self, from: response.data!)
+                           let data = try JSONDecoder().decode(CompetitionsDetailsModelJSON.self, from: response.data!)
                            observer.onNext(data)
                        } catch {
                            print(error.localizedDescription)

@@ -21,7 +21,6 @@ struct CometitionsViewModel {
         self.title.onNext(data)
        }
     
-    
     func showIndicator() {
         SVProgressHUD.show()
     }
@@ -77,5 +76,15 @@ struct CometitionsViewModel {
         let observer = AddServices.shared.addCompete(file: file, params: params)
             return observer
      }
+    
+    func voteCompetitions(competitionId :Int,candidateId :Int) -> Observable<CompetitionsDetailsModelJSON> {
+        let params: [String: Any] = [
+            "competition_id": competitionId,
+            "candidate_id": candidateId
+        ]
+         let observer = AddServices.shared.voteCompetition(param: params)
+         return observer
+     }
+    
     
 }
