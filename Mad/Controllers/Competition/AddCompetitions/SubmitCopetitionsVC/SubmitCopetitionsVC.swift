@@ -15,7 +15,20 @@ class SubmitCopetitionsVC: UIViewController {
     @IBOutlet weak var presentTf: CustomTextField!
     @IBOutlet weak var socialTF: TextFieldDropDown!
     
+    var competitionVm = CometitionsViewModel()
+    var disposeBag = DisposeBag()
+    var compId = Int()
+    var uploadImage = UIImage()
+    var firstName = String()
+    var lastName = String()
+    var phoneNumber = String()
+    var email = String()
+    var artistName = String()
+    var personal = String()
+    var linke = String()
     var social = [String]()
+    var socialLinks = [SocialModel]()
+    var selectedSocial = String()
 
     open lazy var customTabBar: PTCardTabBar = {
         return PTCardTabBar()
@@ -23,7 +36,9 @@ class SubmitCopetitionsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        getSocial()
+        presentTf.delegate = self
+        socialTF.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,6 +56,7 @@ class SubmitCopetitionsVC: UIViewController {
         socialTF.optionArray = self.social
         socialTF.didSelect { (selectedText, index, id) in
             self.socialTF.text = selectedText
+            self.selectedSocial = self.socialLinks[index].key ?? ""
         }
     }
     
@@ -65,12 +81,68 @@ class SubmitCopetitionsVC: UIViewController {
     
     @IBAction func saveButton(sender: UIButton) {
         guard self.validateInput() else {return}
-
+        self.competitionVm.showIndicator()
+        addCompete(competitionId: compId, fName: firstName, lName: lastName, phone: phoneNumber, email: email, personal: personal, artist_name: artistName, video_link: linke, project_description: self.presentTf.text  ?? "", know_about: self.selectedSocial, submit: "draft", file: uploadImage)
     }
 
     @IBAction func submitButton(sender: UIButton) {
         guard self.validateInput() else {return}
-
+        self.competitionVm.showIndicator()
+        addCompete(competitionId: compId, fName: firstName, lName: lastName, phone: phoneNumber, email: email, personal: personal, artist_name: artistName,  video_link: linke, project_description: self.presentTf.text  ?? "", know_about: self.selectedSocial, submit: "submit", file: uploadImage)
     }
     
+}
+
+extension SubmitCopetitionsVC{
+    func getSocial() {
+        competitionVm.getAboutCompetitionsl().subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+            self.competitionVm.dismissIndicator()
+            self.socialLinks = dataModel.data ?? []
+            for index in self.socialLinks {
+                self.social.append(index.value ?? "")
+            }
+            self.setupsocialDropDown()
+           }
+       }, onError: { (error) in
+        self.competitionVm.dismissIndicator()
+
+       }).disposed(by: disposeBag)
+   }
+    
+    func addCompete(competitionId :Int,
+                    fName :String,
+                    lName :String,
+                    phone:String,
+                    email:String,
+                    personal:String,
+                    artist_name:String,
+                    video_link:String,
+                    project_description:String,
+                    know_about:String,
+                    submit:String,
+                    file :UIImage) {
+        competitionVm.CreateCompete(competitionId: competitionId, fName: fName, lName: lName, phone: phone, email: email, personal: personal, artist_name: artist_name,video_link: video_link, project_description: project_description, know_about: know_about, submit: submit, file: file).subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+            self.competitionVm.dismissIndicator()
+            self.showMessage(text: dataModel.message ?? "")
+            let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
+            self.navigationController!.popToViewController(viewControllers[viewControllers.count - 5], animated: true)
+           }else{
+            self.competitionVm.dismissIndicator()
+            self.showMessage(text: dataModel.message ?? "")
+           }
+       }, onError: { (error) in
+        self.competitionVm.dismissIndicator()
+
+       }).disposed(by: disposeBag)
+   }
+    
+}
+
+extension SubmitCopetitionsVC: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
 }

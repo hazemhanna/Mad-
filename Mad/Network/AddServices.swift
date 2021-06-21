@@ -312,7 +312,7 @@ struct AddServices {
       }//END of POST Register
     
     
-    func addCompete(file: URL,params: [String : Any]) -> Observable<AddProductModelJson> {
+    func addCompete(file: UIImage,params: [String : Any]) -> Observable<AddProductModelJson> {
           return Observable.create { (observer) -> Disposable in
             let url = ConfigURLS.addCompetition
             let token = Helper.getAPIToken() ?? ""
@@ -321,9 +321,9 @@ struct AddServices {
             ]
             
               Alamofire.upload(multipartFormData: { (form: MultipartFormData) in
-                
-                form.append(file, withName: "introduction_file", fileName: "test.pdf", mimeType: "application/pdf")
-                
+                if let data = file.jpegData(compressionQuality: 0.5) {
+                  form.append(data, withName: "introduction_file", fileName: "image.jpeg", mimeType: "image/jpeg")
+                }
                 for (key, value) in params {
                     if let temp = value as? String {
                         form.append(temp.data(using: .utf8)!, withName: key)

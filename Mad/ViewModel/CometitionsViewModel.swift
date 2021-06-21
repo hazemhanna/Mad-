@@ -47,18 +47,18 @@ struct CometitionsViewModel {
          return observer
      }
     
-    func CreateCompete(competitionId :String,
+    func CreateCompete(competitionId :Int,
                       fName :String,
                       lName :String,
                       phone:String,
                       email:String,
                       personal:String,
                       artist_name:String,
-                      introduction:String,
                       video_link:String,
                       project_description:String,
                       know_about:String,
-                      submit:String,file :URL) -> Observable<AddProductModelJson> {
+                      submit:String,
+                      file :UIImage) -> Observable<AddProductModelJson> {
         let params: [String: Any] = [
             "competition_id":competitionId,
             "last_name":lName,
@@ -67,7 +67,6 @@ struct CometitionsViewModel {
             "email":email,
             "introduction":personal,
             "artist_name":artist_name,
-            "introduction":introduction,
             "video_link":video_link,
             "project_description":project_description,
             "know_about":know_about,
@@ -83,6 +82,11 @@ struct CometitionsViewModel {
             "candidate_id": candidateId
         ]
          let observer = AddServices.shared.voteCompetition(param: params)
+         return observer
+     }
+    
+    func getAboutCompetitionsl() -> Observable<AboutCompetitionsModelJSON> {
+         let observer = GetServices.shared.aboutCompetition()
          return observer
      }
     

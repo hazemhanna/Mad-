@@ -19,13 +19,20 @@ class AddCompetitionsDetailsVc: UIViewController {
     @IBOutlet weak var emailTf: CustomTextField!
     @IBOutlet weak var personalTf: CustomTextField!
 
-    
+    var compId = Int()
     open lazy var customTabBar: PTCardTabBar = {
         return PTCardTabBar()
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        firstNameTF.delegate = self
+        lastNameTF.delegate = self
+        phoneNumberTF.delegate = self
+        artistNameTF.delegate = self
+        emailTf.delegate = self
+        personalTf.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {        
@@ -76,9 +83,22 @@ class AddCompetitionsDetailsVc: UIViewController {
 
     @IBAction func nextButton(sender: UIButton) {
         guard self.validateInput() else {return}
-
         let vc = AddCompetitionsUploadFileVC.instantiateFromNib()
+        vc!.firstName = self.firstNameTF.text ?? ""
+        vc!.lastName = self.lastNameTF.text ?? ""
+        vc!.phoneNumber = self.phoneNumberTF.text ?? ""
+        vc!.email = self.emailTf.text ?? ""
+        vc!.artistName = self.artistNameTF.text ?? ""
+        vc!.personal = self.personalTf.text ?? ""
+        vc!.compId = compId
         self.navigationController?.pushViewController(vc!, animated: true)
     }
     
+}
+
+extension AddCompetitionsDetailsVc: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
 }

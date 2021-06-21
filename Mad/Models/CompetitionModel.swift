@@ -127,24 +127,13 @@ struct Judge: Codable {
 }
 
 
-//// MARK: - ArtistProfileModelJSON
-//struct SocialModelJSON: Codable {
-//    let success: Bool?
-//    let data: Social?
-//    let message: String?
-//    let errors: Errors?
-//}
-//
-//// MARK: - DataClass
-//struct Social: Codable {
-//    let null, réseauSociaux, presse, boucheÀOreille: String?
-//    let deQuoiJeMeMêle: String?
-//
-//    enum CodingKeys: String, CodingKey {
-//        case null
-//        case réseauSociaux = "Réseau sociaux"
-//        case presse = "Presse"
-//        case boucheÀOreille = "Bouche à Oreille"
-//        case deQuoiJeMeMêle = "De quoi je me mêle ?"
-//    }
-//}
+struct AboutCompetitionsModelJSON: Codable {
+    let success: Bool?
+    let data: [SocialModel]?
+    let message: String?
+    let errors: Errors?
+}
+
+struct SocialModel: Codable {
+    let key, value : String?
+}

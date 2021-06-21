@@ -143,6 +143,7 @@ class CompetitionsDetailsVc  : UIViewController {
     @IBAction func competeButton(sender: UIButton) {
         if compete {
         let vc = AddCompetitionsDetailsVc.instantiateFromNib()
+        vc!.compId = compId
         self.navigationController?.pushViewController(vc!, animated: true)
         }else if vote {
             let vc = CompetitionResultslistsVC.instantiateFromNib()
