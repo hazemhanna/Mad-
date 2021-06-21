@@ -448,6 +448,32 @@ class GetServices {
        }
     
     
+ 
+    func aboutCompetition(param : [String :Any]) -> Observable<CompetitionsDetailsModelJSON> {
+           return Observable.create { (observer) -> Disposable in
+               let url = ConfigURLS.aboutCompetition
+            let token = Helper.getAPIToken() ?? ""
+            let headers = [
+                "Authorization": "Bearer \(token)"
+            ]
+            
+               Alamofire.request(url, method: .get, parameters: param, encoding: URLEncoding.default, headers: headers)
+                   .validate(statusCode: 200..<300)
+                   .responseJSON { (response: DataResponse<Any>) in
+                       do {
+                           let data = try JSONDecoder().decode(CompetitionsDetailsModelJSON.self, from: response.data!)
+                        print(data)
+                           observer.onNext(data)
+                       } catch {
+                           print(error.localizedDescription)
+                           observer.onError(error)
+                       }
+               }
+               return Disposables.create()
+           }
+       }
+    
+    
     
     
 }

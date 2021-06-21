@@ -28,7 +28,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I want to participate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yIn-xq-op8">
-                                <rect key="frame" x="130.5" y="42" width="153" height="16"/>
+                                <rect key="frame" x="136" y="40.5" width="142.5" height="19"/>
                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="16"/>
                                 <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -67,7 +67,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="350" height="40"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfE-Dx-8Az">
-                                                        <rect key="frame" x="0.0" y="24" width="48.5" height="16"/>
+                                                        <rect key="frame" x="0.0" y="21" width="49" height="19"/>
                                                         <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="16"/>
                                                         <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -513,6 +513,14 @@
             </view>
             <navigationItem key="navigationItem" id="wvN-H8-hV3"/>
             <size key="freeformSize" width="414" height="1200"/>
+            <connections>
+                <outlet property="artistNameTF" destination="DjM-K2-FUd" id="Ed4-n8-bew"/>
+                <outlet property="emailTf" destination="xwC-2N-Vjg" id="I47-ZX-hg1"/>
+                <outlet property="firstNameTF" destination="9AN-uR-uCX" id="fOm-er-mKK"/>
+                <outlet property="lastNameTF" destination="cGI-3a-9Py" id="HWp-CD-oND"/>
+                <outlet property="personalTf" destination="uXY-dE-Zay" id="nq6-Tt-4cX"/>
+                <outlet property="phoneNumberTF" destination="FtA-FY-V1S" id="YG2-eZ-uhM"/>
+            </connections>
             <point key="canvasLocation" x="-1791.304347826087" y="1717.6339285714284"/>
         </viewController>
     </objects>
@@ -521,22 +529,22 @@
             <size key="intrinsicContentSize" width="52" height="21"/>
         </designable>
         <designable name="9AN-uR-uCX">
-            <size key="intrinsicContentSize" width="24" height="37.5"/>
+            <size key="intrinsicContentSize" width="25" height="40.5"/>
         </designable>
         <designable name="DjM-K2-FUd">
-            <size key="intrinsicContentSize" width="24" height="37.5"/>
+            <size key="intrinsicContentSize" width="25" height="40.5"/>
         </designable>
         <designable name="FtA-FY-V1S">
-            <size key="intrinsicContentSize" width="24" height="37.5"/>
+            <size key="intrinsicContentSize" width="25" height="40.5"/>
         </designable>
         <designable name="cGI-3a-9Py">
-            <size key="intrinsicContentSize" width="24" height="37.5"/>
+            <size key="intrinsicContentSize" width="25" height="40.5"/>
         </designable>
         <designable name="uXY-dE-Zay">
-            <size key="intrinsicContentSize" width="24" height="37.5"/>
+            <size key="intrinsicContentSize" width="25" height="40.5"/>
         </designable>
         <designable name="xwC-2N-Vjg">
-            <size key="intrinsicContentSize" width="24" height="37.5"/>
+            <size key="intrinsicContentSize" width="25" height="40.5"/>
         </designable>
     </designables>
     <resources>

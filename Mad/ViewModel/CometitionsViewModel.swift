@@ -48,7 +48,34 @@ struct CometitionsViewModel {
          return observer
      }
     
-    
-    
+    func CreateCompete(competitionId :String,
+                      fName :String,
+                      lName :String,
+                      phone:String,
+                      email:String,
+                      personal:String,
+                      artist_name:String,
+                      introduction:String,
+                      video_link:String,
+                      project_description:String,
+                      know_about:String,
+                      submit:String,file :URL) -> Observable<AddProductModelJson> {
+        let params: [String: Any] = [
+            "competition_id":competitionId,
+            "last_name":lName,
+            "first_name": fName,
+            "phone": phone,
+            "email":email,
+            "introduction":personal,
+            "artist_name":artist_name,
+            "introduction":introduction,
+            "video_link":video_link,
+            "project_description":project_description,
+            "know_about":know_about,
+            "submit":submit
+        ]
+        let observer = AddServices.shared.addCompete(file: file, params: params)
+            return observer
+     }
     
 }

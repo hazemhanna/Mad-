@@ -28,7 +28,7 @@
                         <rect key="frame" x="0.0" y="8" width="414" height="100"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I want to participate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ygK-Dn-7PI">
-                                <rect key="frame" x="130.5" y="42" width="153" height="16"/>
+                                <rect key="frame" x="136" y="40.5" width="142.5" height="19"/>
                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="16"/>
                                 <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -64,13 +64,13 @@
                                         <rect key="frame" x="32" y="16" width="350" height="80"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Work details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cM6-1T-Lfz">
-                                                <rect key="frame" x="0.0" y="8" width="88" height="16"/>
+                                                <rect key="frame" x="0.0" y="8" width="88" height="19"/>
                                                 <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="16"/>
                                                 <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="What do you want to present (400 words)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IT3-EX-qxr">
-                                                <rect key="frame" x="0.0" y="56" width="301" height="16"/>
+                                                <rect key="frame" x="0.0" y="59" width="295" height="19"/>
                                                 <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="16"/>
                                                 <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -87,9 +87,21 @@
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VEY-oP-7Hy" customClass="CustomView" customModule="Mad" customModuleProvider="target">
                                         <rect key="frame" x="32" y="112" width="350" height="250"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UCX-Q5-Rsi" customClass="CustomTextField" customModule="Mad" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="350" height="250"/>
+                                                <color key="textColor" red="0.1333333333" green="0.2156862745" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="250" id="4oL-ZI-oyn"/>
+                                            <constraint firstItem="UCX-Q5-Rsi" firstAttribute="leading" secondItem="VEY-oP-7Hy" secondAttribute="leading" id="Hup-45-pbz"/>
+                                            <constraint firstItem="UCX-Q5-Rsi" firstAttribute="top" secondItem="VEY-oP-7Hy" secondAttribute="top" id="Nec-3k-dYK"/>
+                                            <constraint firstAttribute="trailing" secondItem="UCX-Q5-Rsi" secondAttribute="trailing" id="XhW-ne-dTI"/>
+                                            <constraint firstAttribute="bottom" secondItem="UCX-Q5-Rsi" secondAttribute="bottom" id="xW1-Fh-c5c"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="NO"/>
@@ -130,6 +142,11 @@
                                                                 <color key="textColor" red="0.1333333333" green="0.2156862745" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedRowColor">
+                                                                        <color key="value" red="0.1333333333" green="0.2156862745" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
                                                             </textField>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -260,10 +277,17 @@
                 </constraints>
             </view>
             <navigationItem key="navigationItem" id="pBF-Ec-Zrr"/>
+            <connections>
+                <outlet property="presentTf" destination="UCX-Q5-Rsi" id="HGf-s4-CBG"/>
+                <outlet property="socialTF" destination="WvQ-8u-QBF" id="zxZ-RR-Fpx"/>
+            </connections>
             <point key="canvasLocation" x="-1791.304347826087" y="1717.6339285714284"/>
         </viewController>
     </objects>
     <designables>
+        <designable name="UCX-Q5-Rsi">
+            <size key="intrinsicContentSize" width="25" height="40.5"/>
+        </designable>
         <designable name="hUZ-tp-ei4">
             <size key="intrinsicContentSize" width="194" height="34"/>
         </designable>

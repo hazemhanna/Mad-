@@ -312,6 +312,75 @@ struct AddServices {
       }//END of POST Register
     
     
+    func addCompete(file: URL,params: [String : Any]) -> Observable<AddProductModelJson> {
+          return Observable.create { (observer) -> Disposable in
+            let url = ConfigURLS.addCompetition
+            let token = Helper.getAPIToken() ?? ""
+            let headers = [
+                "Authorization": "Bearer \(token)"
+            ]
+            
+              Alamofire.upload(multipartFormData: { (form: MultipartFormData) in
+                
+                form.append(file, withName: "introduction_file", fileName: "test.pdf", mimeType: "application/pdf")
+                
+                for (key, value) in params {
+                    if let temp = value as? String {
+                        form.append(temp.data(using: .utf8)!, withName: key)
+                     }
+                    if let temp = value as? Int {
+                        form.append("\(temp)".data(using: .utf8)!, withName: key)
+                    }
+                }
+              }, usingThreshold: SessionManager.multipartFormDataEncodingMemoryThreshold, to: url, method: .post, headers: headers) { (result: SessionManager.MultipartFormDataEncodingResult) in
+                      switch result {
+                  case .failure(let error):
+                      print(error.localizedDescription)
+                      observer.onError(error)
+                  case .success(request: let upload, streamingFromDisk: _, streamFileURL: _):
+                      upload.uploadProgress { (progress) in
+                        print("Image Uploading Progress: \(progress.fractionCompleted)")
+                    }.responseJSON { (response: DataResponse<Any>) in
+               do {
+                      let data = try JSONDecoder().decode(AddProductModelJson.self, from: response.data!)
+                        print(data)
+                        observer.onNext(data)
+                       } catch {
+                           print(error.localizedDescription)
+                          observer.onError(error)
+                      }
+                    }
+                  }
+               }
+              return Disposables.create()
+          }
+      }//END of POST Register
+    
+    
+    //MARK:- POSt  favourit
+    func voteCompetition(param : [String :Any]) -> Observable<FavouriteModel> {
+           return Observable.create { (observer) -> Disposable in
+               let url = ConfigURLS.voteCompetition
+            
+            let token = Helper.getAPIToken() ?? ""
+            let headers = [
+                "Authorization": "Bearer \(token)"
+            ]
+               Alamofire.request(url, method: .post, parameters: param, encoding: URLEncoding.default, headers: headers)
+                   .validate(statusCode: 200..<300)
+                   .responseJSON { (response: DataResponse<Any>) in
+                       do {
+                           let data = try JSONDecoder().decode(FavouriteModel.self, from: response.data!)
+                           observer.onNext(data)
+                       } catch {
+                           print(error.localizedDescription)
+                           observer.onError(error)
+                       }
+               }
+               return Disposables.create()
+           }
+       }
+
     
     
     

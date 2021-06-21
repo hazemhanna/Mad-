@@ -204,6 +204,7 @@
             <navigationItem key="navigationItem" id="TIM-ka-0Jw"/>
             <connections>
                 <outlet property="bannerImage" destination="VW4-wJ-gV7" id="jKo-SN-LEc"/>
+                <outlet property="competeBtn" destination="B6f-xd-UYl" id="2by-V6-ifJ"/>
                 <outlet property="container" destination="nX9-Ww-foN" id="hIe-9M-ND2"/>
                 <outlet property="titleCollectionView" destination="GZ8-zQ-7Te" id="p9P-FT-x7X"/>
             </connections>

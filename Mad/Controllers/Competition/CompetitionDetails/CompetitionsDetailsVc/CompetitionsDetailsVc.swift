@@ -19,11 +19,15 @@ class CompetitionsDetailsVc  : UIViewController {
     @IBOutlet weak var titleCollectionView: UICollectionView!
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var bannerImage : UIImageView!
-    
+    @IBOutlet weak var competeBtn : UIButton!
+
     var compId = Int()
     var competitionVm = CometitionsViewModel()
     var disposeBag = DisposeBag()
     var selectedIndex = 0
+    var result  = false
+    var vote  = false
+    var compete  = false
 
     var titles = [String](){
           didSet {
@@ -86,11 +90,15 @@ class CompetitionsDetailsVc  : UIViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        self.competeBtn.layer.borderColor = #colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1)
+        self.competeBtn.layer.borderWidth = 1
         competitionVm.showIndicator()
         self.navigationController?.navigationBar.isHidden = true
         if let ptcTBC = tabBarController as? PTCardTabBarController {
             ptcTBC.customTabBar.isHidden = true
         }
+    
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -127,9 +135,16 @@ class CompetitionsDetailsVc  : UIViewController {
     }
     
     @IBAction func competeButton(sender: UIButton) {
+        if compete {
         let vc = AddCompetitionsDetailsVc.instantiateFromNib()
         self.navigationController?.pushViewController(vc!, animated: true)
-        
+        }else if vote {
+            let vc = CompetitionResultslistsVC.instantiateFromNib()
+            self.navigationController?.pushViewController(vc!, animated: true)
+        }else if result{
+            let vc = CompetitionResultslistsVC.instantiateFromNib()
+            self.navigationController?.pushViewController(vc!, animated: true)
+        }
     }
     
 }
@@ -199,14 +214,34 @@ extension CompetitionsDetailsVc {
             self.instantVC3.deadlinesTV.text = dataModel.data?.deadlines?.html2String ?? ""
             self.instantVC4.prizersTV.text = dataModel.data?.prizes?.html2String ?? ""
             self.instantVC5.judges =  dataModel.data?.judges ?? []
+            self.result  = dataModel.data?.end_competition ?? false
+            self.vote  = dataModel.data?.can_vote ?? false
+            self.compete  = dataModel.data?.can_compete ?? false
+            if self.compete{
+                self.competeBtn.backgroundColor = #colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1)
+                self.competeBtn.setTitle("Compete Now", for: .normal)
+                self.competeBtn.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
+            }else if self.vote{
+                self.competeBtn.backgroundColor = .white
+                self.competeBtn.setTitle("Short List", for: .normal)
+                self.competeBtn.setTitleColor(#colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1), for: .normal)
+            }else if self.result{
+                self.competeBtn.backgroundColor = .white
+                self.competeBtn.setTitle("Result", for: .normal)
+                self.competeBtn.setTitleColor(#colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1), for: .normal)
+
+            }
+            
             do {
                 let doc: Document = try SwiftSoup.parse(dataModel.data?.partner ?? "")
                 let srcs: Elements = try doc.select("img[src]")
                 let srcsStringArray: [String?] = srcs.array().map { try? $0.attr("src").description }
                 print(srcsStringArray)
+                if srcsStringArray.count > 0 {
                 if let url = URL(string: srcsStringArray[0] ?? ""){
                     self.instantVC6.imageUrl.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4"))
                 }
+            }
             } catch Exception.Error(_, let message) {
                 print(message)
             } catch {

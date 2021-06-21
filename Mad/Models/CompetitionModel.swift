@@ -64,7 +64,8 @@ struct CompetitionsDetails: Codable {
     let countAllVotes: Int?
     let winner: Winner?
     let finalists, shortlisted: [Winner]?
-
+    let can_compete ,can_vote,end_competition :Bool?
+    
     enum CodingKeys: String, CodingKey {
         case id, title, about, guidelines, deadlines, prizes, judges, partner
         case bannerImg = "banner_img"
@@ -78,6 +79,7 @@ struct CompetitionsDetails: Codable {
         case status
         case countAllVotes = "count_all_votes"
         case winner, finalists, shortlisted
+        case can_compete, can_vote,end_competition
     }
 }
 
@@ -123,3 +125,26 @@ struct Judge: Codable {
         case isMadProfile = "is_mad_profile"
     }
 }
+
+
+//// MARK: - ArtistProfileModelJSON
+//struct SocialModelJSON: Codable {
+//    let success: Bool?
+//    let data: Social?
+//    let message: String?
+//    let errors: Errors?
+//}
+//
+//// MARK: - DataClass
+//struct Social: Codable {
+//    let null, réseauSociaux, presse, boucheÀOreille: String?
+//    let deQuoiJeMeMêle: String?
+//
+//    enum CodingKeys: String, CodingKey {
+//        case null
+//        case réseauSociaux = "Réseau sociaux"
+//        case presse = "Presse"
+//        case boucheÀOreille = "Bouche à Oreille"
+//        case deQuoiJeMeMêle = "De quoi je me mêle ?"
+//    }
+//}

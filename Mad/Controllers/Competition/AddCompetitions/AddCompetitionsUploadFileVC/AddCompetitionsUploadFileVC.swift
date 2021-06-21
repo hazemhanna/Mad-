@@ -14,6 +14,8 @@ import UniformTypeIdentifiers
 
 class AddCompetitionsUploadFileVC: UIViewController {
 
+    @IBOutlet weak var linkeTF : CustomTextField!
+
     
     open lazy var customTabBar: PTCardTabBar = {
         return PTCardTabBar()
@@ -41,13 +43,24 @@ class AddCompetitionsUploadFileVC: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    func validateInput() -> Bool {
+        let link = self.linkeTF.text ?? ""
+       
+        
+        if link.isEmpty {
+            self.showMessage(text: "Please Enter link")
+            return false
+        }else{
+            return true
+        }
+    }
     @IBAction func nextButton(sender: UIButton) {
+        guard self.validateInput() else {return}
         let vc = SubmitCopetitionsVC.instantiateFromNib()
         self.navigationController?.pushViewController(vc!, animated: true)
     }
     
     @IBAction func uploadButton(sender: UIButton) {
-        print("hazem")
         self.clickFunction()
     }
     
@@ -55,12 +68,12 @@ class AddCompetitionsUploadFileVC: UIViewController {
 
 extension AddCompetitionsUploadFileVC : UIDocumentPickerDelegate,UINavigationControllerDelegate{
     func clickFunction(){
-        let importMenu = UIDocumentPickerViewController(documentTypes: ["com.microsoft.word.doc","org.openxmlformats.wordprocessingml.document", kUTTypePDF as String], in: UIDocumentPickerMode.import)
-        importMenu.delegate = self
-        importMenu.modalPresentationStyle = .formSheet
-        self.present(importMenu, animated: true, completion: nil)
+        let types: [String] = [(kUTTypeItem as String)]
+        let documentPicker = UIDocumentPickerViewController(documentTypes: types, in: .import)
+        documentPicker.delegate = self
+        documentPicker.modalPresentationStyle = .formSheet
+        self.present(documentPicker, animated: true, completion: nil)
     }
-    
     
     public func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
         guard let myURL = urls.first else {

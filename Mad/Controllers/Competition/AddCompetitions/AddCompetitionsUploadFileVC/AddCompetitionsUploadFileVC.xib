@@ -262,6 +262,9 @@
             </view>
             <navigationItem key="navigationItem" id="pKz-8J-eWP"/>
             <size key="freeformSize" width="414" height="900"/>
+            <connections>
+                <outlet property="linkeTF" destination="Svd-z1-zo3" id="GHP-bB-5nf"/>
+            </connections>
             <point key="canvasLocation" x="-1791.304347826087" y="1717.6339285714284"/>
         </viewController>
     </objects>
@@ -270,7 +273,7 @@
             <size key="intrinsicContentSize" width="52" height="21"/>
         </designable>
         <designable name="Svd-z1-zo3">
-            <size key="intrinsicContentSize" width="5" height="20.5"/>
+            <size key="intrinsicContentSize" width="25" height="40.5"/>
         </designable>
     </designables>
     <resources>

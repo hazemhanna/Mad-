@@ -50,7 +50,13 @@ struct ConfigURLS {
     // competition
     static var getAllCompetition = BASE_URL  + "competition/all"
     static var getCompetitionDetails = BASE_URL  + "competition/get"
+    static var addCompetition = BASE_URL  + "competition/compete"
+    static var voteCompetition = BASE_URL  + "competition/vote"
+    static var aboutCompetition = BASE_URL  + "competition/know_about"
 
+    
+    
+    
     // search
     static var search = BASE_URL  + "search"
 
