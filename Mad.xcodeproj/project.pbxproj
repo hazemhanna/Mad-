@@ -145,6 +145,10 @@
 		046CD68E2682A15B004FE6C6 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046CD68D2682A15B004FE6C6 /* SearchViewModel.swift */; };
 		046CD6952682A87A004FE6C6 /* SearchItemsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046CD6932682A87A004FE6C6 /* SearchItemsCell.swift */; };
 		046CD6962682A87A004FE6C6 /* SearchItemsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 046CD6942682A87A004FE6C6 /* SearchItemsCell.xib */; };
+		046CD69B2682B383004FE6C6 /* TagsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046CD6992682B383004FE6C6 /* TagsCell.swift */; };
+		046CD69C2682B383004FE6C6 /* TagsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 046CD69A2682B383004FE6C6 /* TagsCell.xib */; };
+		046CD6A22682B928004FE6C6 /* SearchArtistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046CD6A02682B928004FE6C6 /* SearchArtistCell.swift */; };
+		046CD6A32682B928004FE6C6 /* SearchArtistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 046CD6A12682B928004FE6C6 /* SearchArtistCell.xib */; };
 		046E2E4826693A3300BFCDCC /* CalenderVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046E2E4626693A3300BFCDCC /* CalenderVc.swift */; };
 		046E2E4926693A3300BFCDCC /* CalenderVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 046E2E4726693A3300BFCDCC /* CalenderVc.xib */; };
 		047DD026267C36EC00C78C49 /* AddCompetitionsDetailsVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047DD024267C36EC00C78C49 /* AddCompetitionsDetailsVc.swift */; };
@@ -351,6 +355,10 @@
 		046CD68D2682A15B004FE6C6 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		046CD6932682A87A004FE6C6 /* SearchItemsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItemsCell.swift; sourceTree = "<group>"; };
 		046CD6942682A87A004FE6C6 /* SearchItemsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchItemsCell.xib; sourceTree = "<group>"; };
+		046CD6992682B383004FE6C6 /* TagsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsCell.swift; sourceTree = "<group>"; };
+		046CD69A2682B383004FE6C6 /* TagsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagsCell.xib; sourceTree = "<group>"; };
+		046CD6A02682B928004FE6C6 /* SearchArtistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchArtistCell.swift; sourceTree = "<group>"; };
+		046CD6A12682B928004FE6C6 /* SearchArtistCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchArtistCell.xib; sourceTree = "<group>"; };
 		046E2E4626693A3300BFCDCC /* CalenderVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderVc.swift; sourceTree = "<group>"; };
 		046E2E4726693A3300BFCDCC /* CalenderVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalenderVc.xib; sourceTree = "<group>"; };
 		047DD024267C36EC00C78C49 /* AddCompetitionsDetailsVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCompetitionsDetailsVc.swift; sourceTree = "<group>"; };
@@ -1045,6 +1053,8 @@
 		046CD6902682A802004FE6C6 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				046CD69F2682B8D4004FE6C6 /* SearchArtistCell */,
+				046CD6982682B363004FE6C6 /* TagsCell */,
 				046CD6912682A810004FE6C6 /* SearchItemsCell */,
 			);
 			path = Search;
@@ -1057,6 +1067,24 @@
 				046CD6942682A87A004FE6C6 /* SearchItemsCell.xib */,
 			);
 			path = SearchItemsCell;
+			sourceTree = "<group>";
+		};
+		046CD6982682B363004FE6C6 /* TagsCell */ = {
+			isa = PBXGroup;
+			children = (
+				046CD6992682B383004FE6C6 /* TagsCell.swift */,
+				046CD69A2682B383004FE6C6 /* TagsCell.xib */,
+			);
+			path = TagsCell;
+			sourceTree = "<group>";
+		};
+		046CD69F2682B8D4004FE6C6 /* SearchArtistCell */ = {
+			isa = PBXGroup;
+			children = (
+				046CD6A02682B928004FE6C6 /* SearchArtistCell.swift */,
+				046CD6A12682B928004FE6C6 /* SearchArtistCell.xib */,
+			);
+			path = SearchArtistCell;
 			sourceTree = "<group>";
 		};
 		046E2E4526693A1600BFCDCC /* CalenderVc */ = {
@@ -1628,6 +1656,7 @@
 				04319B1A265C5E5F000535B2 /* SocialCell.xib in Resources */,
 				04242AAF26553A65003C8B44 /* VideoPartners.xib in Resources */,
 				0412D4F6267C5BD200E4022C /* CompetitionsResultCell.xib in Resources */,
+				046CD69C2682B383004FE6C6 /* TagsCell.xib in Resources */,
 				0414287826177E69000394CA /* LiveCellCVC.xib in Resources */,
 				0427A21826405B2D0029A10C /* AddsCell.xib in Resources */,
 				04D13D6F2682968A0020CF11 /* SearchResultVc.xib in Resources */,
@@ -1635,6 +1664,7 @@
 				047DD036267C3DA100C78C49 /* SubmitCopetitionsVC.xib in Resources */,
 				0427A212263FFA7B0029A10C /* ProductDetailsVC.xib in Resources */,
 				04242AA426553A37003C8B44 /* VideoProjectsVC.xib in Resources */,
+				046CD6A32682B928004FE6C6 /* SearchArtistCell.xib in Resources */,
 				04528E5C2614B5AE009868EA /* CountryVc.xib in Resources */,
 				04242AC326555E7A003C8B44 /* VideoPartenerCell.xib in Resources */,
 				0488CCF0261213E000E05BEB /* Main.storyboard in Resources */,
@@ -1728,6 +1758,7 @@
 				04242A9D26553A12003C8B44 /* VideoArtistsVc.swift in Sources */,
 				046CD6952682A87A004FE6C6 /* SearchItemsCell.swift in Sources */,
 				0439BD0E2672640600AC5C59 /* GuidlinesCompetitionsVC.swift in Sources */,
+				046CD6A22682B928004FE6C6 /* SearchArtistCell.swift in Sources */,
 				0414282D26176074000394CA /* HomeCell.swift in Sources */,
 				04170D2B264ACB9E00745696 /* VideoDetailsVC.swift in Sources */,
 				0451B7632627041F000B3983 /* ProjectsModel.swift in Sources */,
@@ -1754,6 +1785,7 @@
 				04AD610C2628C52B00ADF0DF /* ImageModel.swift in Sources */,
 				0451FD642617A5B600AEE546 /* TitleCell.swift in Sources */,
 				040339D92638D0CD00CEDBD3 /* AlertService.swift in Sources */,
+				046CD69B2682B383004FE6C6 /* TagsCell.swift in Sources */,
 				0439BD132672642B00AC5C59 /* DeadlinesCompetitionsVc.swift in Sources */,
 				0458B3142667CC0B00382E77 /* PreviewProjectVc.swift in Sources */,
 				0413E3F526307C6200F5977D /* BlogsVc.swift in Sources */,

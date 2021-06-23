@@ -21,7 +21,7 @@ class SearchTagsVC : UIViewController {
     }
     var  parentVC: SearchResultVc?
 
-    let cellIdentifier = "CompetitionCell"
+    let cellIdentifier = "TagsCell"
     var artistVM = ArtistViewModel()
     var disposeBag = DisposeBag()
 
@@ -46,7 +46,7 @@ extension SearchTagsVC : UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier) as! CompetitionCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier) as! TagsCell
         if !self.showShimmer{
             
         }
@@ -55,7 +55,7 @@ extension SearchTagsVC : UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 130
+        return 90
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

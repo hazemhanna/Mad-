@@ -168,7 +168,9 @@ Workshop</string>
                                     </view>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="lic-ad-YIX" firstAttribute="height" secondItem="3qj-j4-tWn" secondAttribute="height" id="XKF-57-J79"/>
                                     <constraint firstItem="0D6-4G-aDV" firstAttribute="width" secondItem="3qj-j4-tWn" secondAttribute="width" multiplier="0.285467" id="XLE-Gp-81O"/>
+                                    <constraint firstItem="0D6-4G-aDV" firstAttribute="height" secondItem="3qj-j4-tWn" secondAttribute="height" id="nbL-TF-tiI"/>
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EiX-DQ-XTS" customClass="ShimmerView" customModule="Mad" customModuleProvider="target">

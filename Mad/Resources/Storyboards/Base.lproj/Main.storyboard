@@ -29,7 +29,7 @@
                     </tabBar>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                            <color key="value" red="0.11764705882352941" green="0.21568627450980393" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <color key="value" red="0.89803921568627454" green="0.12549019607843137" blue="0.3529411764705882" alpha="1" colorSpace="calibratedRGB"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
@@ -66,7 +66,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lCA-t5-GCN">
-                                        <rect key="frame" x="46" y="8.5" width="296" height="33"/>
+                                        <rect key="frame" x="46" y="10" width="296" height="30"/>
                                         <fontDescription key="fontDescription" name="Graphik-Regular" family="Graphik" pointSize="18"/>
                                         <state key="normal" title="Type your search ">
                                             <color key="titleColor" red="0.1333333333" green="0.2156862745" blue="0.38823529410000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -101,13 +101,13 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Popular search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HdA-J4-QW9">
-                                                        <rect key="frame" x="32" y="8" width="108" height="19"/>
+                                                        <rect key="frame" x="32" y="8" width="114" height="16"/>
                                                         <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="16"/>
                                                         <color key="textColor" red="0.1333333333" green="0.2156862745" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="I62-JX-ihV" customClass="CustomCollectionView" customModule="Mad" customModuleProvider="target">
-                                                        <rect key="frame" x="32" y="59" width="350" height="941"/>
+                                                        <rect key="frame" x="32" y="56" width="350" height="944"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BaK-GW-6OY">
                                                             <size key="itemSize" width="50" height="50"/>
@@ -345,7 +345,7 @@
         <scene sceneID="bNy-27-lvo">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ueo-gj-QUF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="home" id="ZVV-Aa-aXq"/>
+                    <tabBarItem key="tabBarItem" title="" image="icon - home" id="ZVV-Aa-aXq"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="enG-WL-xOU">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -363,7 +363,7 @@
     </scenes>
     <resources>
         <image name="Search-1" width="22" height="22"/>
-        <image name="home" width="22.5" height="20.5"/>
+        <image name="icon - home" width="23" height="22"/>
         <image name="notification" width="22" height="22"/>
         <image name="profile" width="19" height="19"/>
         <image name="search" width="22" height="22"/>
