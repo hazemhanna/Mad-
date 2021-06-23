@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Graphik-Bold.ttf">
+            <string>Graphik-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchCompetitionsVC" customModule="Mad" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <viewController id="Syf-a3-1c4" customClass="SearchCompetitionsVC" customModule="Mad" customModuleProvider="target">
+            <view key="view" contentMode="scaleToFill" id="4Mu-j0-wue">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xgs-le-8ND">
+                        <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recent" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iMS-17-flT">
+                                <rect key="frame" x="32" y="0.0" width="56" height="16"/>
+                                <fontDescription key="fontDescription" name="Graphik-Bold" family="Graphik" pointSize="16"/>
+                                <color key="textColor" red="0.1333333333" green="0.2156862745" blue="0.38823529410000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jSM-cN-Grm">
+                                <rect key="frame" x="8" y="32" width="398" height="786"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jSM-cN-Grm" firstAttribute="top" secondItem="iMS-17-flT" secondAttribute="bottom" constant="16" id="31z-fp-2He"/>
+                            <constraint firstItem="iMS-17-flT" firstAttribute="leading" secondItem="xgs-le-8ND" secondAttribute="leading" constant="32" id="BoB-9k-vnT"/>
+                            <constraint firstAttribute="bottom" secondItem="jSM-cN-Grm" secondAttribute="bottom" id="k94-qO-HYa"/>
+                            <constraint firstItem="iMS-17-flT" firstAttribute="top" secondItem="xgs-le-8ND" secondAttribute="top" id="mV2-e7-1Oy"/>
+                            <constraint firstItem="jSM-cN-Grm" firstAttribute="leading" secondItem="xgs-le-8ND" secondAttribute="leading" constant="8" id="r9y-Uy-MGQ"/>
+                            <constraint firstAttribute="trailing" secondItem="jSM-cN-Grm" secondAttribute="trailing" constant="8" id="uW6-3s-48M"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <viewLayoutGuide key="safeArea" id="WbU-bs-Qgv"/>
+                <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstItem="WbU-bs-Qgv" firstAttribute="trailing" secondItem="xgs-le-8ND" secondAttribute="trailing" id="6gu-rb-lQ1"/>
+                    <constraint firstItem="WbU-bs-Qgv" firstAttribute="bottom" secondItem="xgs-le-8ND" secondAttribute="bottom" id="Fgh-T5-DUU"/>
+                    <constraint firstItem="xgs-le-8ND" firstAttribute="top" secondItem="WbU-bs-Qgv" secondAttribute="top" id="Uws-yZ-f8L"/>
+                    <constraint firstItem="xgs-le-8ND" firstAttribute="leading" secondItem="WbU-bs-Qgv" secondAttribute="leading" id="fL5-Pu-OHZ"/>
+                </constraints>
+            </view>
+            <connections>
+                <outlet property="tableView" destination="jSM-cN-Grm" id="D7Z-Xc-3qz"/>
+            </connections>
+            <point key="canvasLocation" x="-567" y="89"/>
+        </viewController>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -13,6 +13,8 @@ class ArtistCell: UICollectionViewCell {
     @IBOutlet weak var bannerImage: UIImageView!
     @IBOutlet weak var favouriteCount: UILabel!
     @IBOutlet weak var followerCount: UILabel!
+    @IBOutlet weak var mainStack : UIStackView!
+
     @IBOutlet weak var shimmerView : ShimmerView!
     
     override func awakeFromNib() {

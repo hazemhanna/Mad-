@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Graphik-Bold.ttf">
+            <string>Graphik-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchArtistVC" customModule="Mad" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <viewController id="VyI-wG-wT4" customClass="SearchArtistVC" customModule="Mad" customModuleProvider="target">
+            <view key="view" contentMode="scaleToFill" id="xum-iV-4sZ">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oCk-1k-9Vo">
+                        <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recent" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VD0-Hq-2ZE">
+                                <rect key="frame" x="32" y="0.0" width="56" height="16"/>
+                                <fontDescription key="fontDescription" name="Graphik-Bold" family="Graphik" pointSize="16"/>
+                                <color key="textColor" red="0.1333333333" green="0.2156862745" blue="0.38823529410000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cAu-oO-DcS">
+                                <rect key="frame" x="8" y="32" width="398" height="786"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="cAu-oO-DcS" firstAttribute="top" secondItem="VD0-Hq-2ZE" secondAttribute="bottom" constant="16" id="5t6-nv-xfN"/>
+                            <constraint firstItem="VD0-Hq-2ZE" firstAttribute="top" secondItem="oCk-1k-9Vo" secondAttribute="top" id="JSn-Ot-DOK"/>
+                            <constraint firstAttribute="trailing" secondItem="cAu-oO-DcS" secondAttribute="trailing" constant="8" id="K3I-5D-bZz"/>
+                            <constraint firstItem="VD0-Hq-2ZE" firstAttribute="leading" secondItem="oCk-1k-9Vo" secondAttribute="leading" constant="32" id="Mmj-hu-Ict"/>
+                            <constraint firstItem="cAu-oO-DcS" firstAttribute="leading" secondItem="oCk-1k-9Vo" secondAttribute="leading" constant="8" id="hQW-vJ-0MR"/>
+                            <constraint firstAttribute="bottom" secondItem="cAu-oO-DcS" secondAttribute="bottom" id="tAN-ef-f3d"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <viewLayoutGuide key="safeArea" id="HWi-8m-kAB"/>
+                <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstItem="oCk-1k-9Vo" firstAttribute="top" secondItem="HWi-8m-kAB" secondAttribute="top" id="JaB-Dy-HqC"/>
+                    <constraint firstItem="HWi-8m-kAB" firstAttribute="bottom" secondItem="oCk-1k-9Vo" secondAttribute="bottom" id="Ky5-dC-U6y"/>
+                    <constraint firstItem="HWi-8m-kAB" firstAttribute="trailing" secondItem="oCk-1k-9Vo" secondAttribute="trailing" id="qmu-og-GVA"/>
+                    <constraint firstItem="oCk-1k-9Vo" firstAttribute="leading" secondItem="HWi-8m-kAB" secondAttribute="leading" id="weN-Ec-CWx"/>
+                </constraints>
+            </view>
+            <connections>
+                <outlet property="tableView" destination="cAu-oO-DcS" id="Xda-4Y-qQq"/>
+            </connections>
+            <point key="canvasLocation" x="-567" y="89"/>
+        </viewController>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

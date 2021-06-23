@@ -128,6 +128,7 @@
                 <outlet property="bannerImage" destination="zOm-Rw-VBQ" id="OAk-HI-FXz"/>
                 <outlet property="favouriteCount" destination="bHG-gg-Wm9" id="HXO-sm-Boo"/>
                 <outlet property="followerCount" destination="nWd-Lj-GDT" id="xvD-5Y-fLO"/>
+                <outlet property="mainStack" destination="Z30-S0-j0n" id="G33-rX-np2"/>
                 <outlet property="shimmerView" destination="wYQ-Gn-MDx" id="rkO-sl-vhv"/>
             </connections>
             <point key="canvasLocation" x="102.89855072463769" y="94.754464285714278"/>
