@@ -279,7 +279,7 @@
         <scene sceneID="vIE-4n-LST">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="CVW-ha-Hn7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="Search-1" id="FoM-TL-EtZ"/>
+                    <tabBarItem key="tabBarItem" title="" image="Search-1" selectedImage="search" id="FoM-TL-EtZ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gz4-zw-ENy">
                         <autoresizingMask key="autoresizingMask"/>
@@ -297,7 +297,7 @@
         <scene sceneID="BYA-3r-oiE">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tJZ-Ai-BJW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="notification" id="Oi3-6F-YD3"/>
+                    <tabBarItem key="tabBarItem" title="" image="notification" selectedImage="alarm" id="Oi3-6F-YD3"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="wO0-i8-laA">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -316,7 +316,7 @@
         <scene sceneID="fwA-yX-qYj">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="k64-b3-n9k" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="profile" id="i0n-A3-XNd"/>
+                    <tabBarItem key="tabBarItem" title="" image="profile" selectedImage="Component 65 – 1" id="i0n-A3-XNd"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="src-qN-F1e">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -345,7 +345,7 @@
         <scene sceneID="bNy-27-lvo">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ueo-gj-QUF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="icon - home" id="ZVV-Aa-aXq"/>
+                    <tabBarItem key="tabBarItem" title="" image="icon - home" selectedImage="home" id="ZVV-Aa-aXq"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="enG-WL-xOU">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -362,7 +362,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Component 65 – 1" width="18" height="19"/>
         <image name="Search-1" width="22" height="22"/>
+        <image name="alarm" width="19" height="22"/>
+        <image name="home" width="22.5" height="20.5"/>
         <image name="icon - home" width="23" height="22"/>
         <image name="notification" width="22" height="22"/>
         <image name="profile" width="19" height="19"/>

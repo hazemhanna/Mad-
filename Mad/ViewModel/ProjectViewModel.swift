@@ -64,7 +64,7 @@ struct ProjectViewModel {
             "section":section,
             "search":search
         ]
-        let observer = GetServices.shared.getSearch(param : params)
+        let observer = GetServices.shared.getSearchArtist(param : params)
          return observer
      }
     

@@ -6,42 +6,35 @@
 //
 
 import Foundation
-// MARK: - ProjectDetails
+// MARK: - TagsModelJSON
 struct ArtistModelJson: Codable {
     let success: Bool?
     let data: ArtistModel?
     let message: String?
-    let errors: Errors?
+    let errors: Errors??
 }
+
 
 // MARK: - DataClass
 struct ArtistModel: Codable {
-    let countitems, countPages: Int
+    let countItems, countPages: Int?
     let data: [Artist]?
 
     enum CodingKeys: String, CodingKey {
-        case countitems = "count_items"
+        case countItems = "count_items"
         case countPages = "count_pages"
         case data
     }
 }
 
-struct SuggestedModel: Codable {
-    let success: Bool?
-    let data: [Artist]?
-    let message: String?
-    let errors: Errors?
-}
-
 // MARK: - Datum
 struct Artist: Codable {
     let id: Int?
-    let name: String?
-    let headline: String?
-    let profilPicture: String?
-    let bannerImg: String?
+    let name, headline: String?
+    let profilPicture, bannerImg: String?
     let allFollowers, allFollowing: Int?
-    let isFavorite, music, art, is_mad_profile,design: Bool?
+    let isFavorite, music, art, design: Bool?
+    let isMadProfile: Bool?
 
     enum CodingKeys: String, CodingKey {
         case id, name, headline
@@ -50,8 +43,16 @@ struct Artist: Codable {
         case allFollowers = "all_followers"
         case allFollowing = "all_following"
         case isFavorite = "is_favorite"
-        case music, art, design,is_mad_profile
+        case music, art, design
+        case isMadProfile = "is_mad_profile"
     }
+}
+
+struct SuggestedModel: Codable {
+    let success: Bool?
+    let data: [Artist]?
+    let message: String?
+    let errors: Errors?
 }
 
 struct ArtistFavouriteModel: Codable {
@@ -136,9 +137,3 @@ struct OngoingCompetition: Codable {
     }
 }
 
-struct SearchArtistModel: Codable {
-    let success: Bool?
-    let data: [Artist]?
-    let message: String?
-    let errors: Errors?
-}

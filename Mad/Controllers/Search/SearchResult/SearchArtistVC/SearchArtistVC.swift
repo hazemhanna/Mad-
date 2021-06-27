@@ -13,7 +13,7 @@ class SearchArtistVC : UIViewController {
    
     @IBOutlet weak var tableView: UITableView!
     var showShimmer: Bool = true
-    var artists = [Int](){
+    var artists = [Artist](){
         didSet{
             tableView.reloadData()
             showShimmer = false
@@ -42,14 +42,18 @@ class SearchArtistVC : UIViewController {
 extension SearchArtistVC : UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.showShimmer ? 1 : artists.count
+        return self.showShimmer ? 3 : artists.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier) as! SearchArtistCell
-        if !self.showShimmer{
-            
-        }
+//        if !self.showShimmer{
+//            cell.titleLabel.text = self.artists[indexPath.row].name ?? ""
+//            cell.subTitleLabel.text = self.artists[indexPath.row].headline ?? ""
+//            if let bannerUrl = URL(string:   self.artists[indexPath.row].bannerImg ?? ""){
+//            cell.bannermage.kf.setImage(with: bannerUrl, placeholder: #imageLiteral(resourceName: "WhatsApp Image 2021-04-21 at 1.25.47 PM"))
+//           }
+//        }
         cell.showShimmer = self.showShimmer
         return cell
     }

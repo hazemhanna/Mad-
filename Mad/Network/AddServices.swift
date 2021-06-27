@@ -382,6 +382,50 @@ struct AddServices {
        }
 
     
+    func addNewVisit(param : [String :Any]) -> Observable<AddProductModelJson> {
+           return Observable.create { (observer) -> Disposable in
+               let url = ConfigURLS.addNewVisit
+            
+            let token = Helper.getAPIToken() ?? ""
+            let headers = [
+                "Authorization": "Bearer \(token)"
+            ]
+               Alamofire.request(url, method: .post, parameters: param, encoding: URLEncoding.default, headers: headers)
+                   .validate(statusCode: 200..<300)
+                   .responseJSON { (response: DataResponse<Any>) in
+                       do {
+                           let data = try JSONDecoder().decode(AddProductModelJson.self, from: response.data!)
+                           observer.onNext(data)
+                       } catch {
+                           print(error.localizedDescription)
+                           observer.onError(error)
+                       }
+               }
+               return Disposables.create()
+           }
+       }
     
     
+    func removeVisit(param : [String :Any]) -> Observable<AddProductModelJson> {
+           return Observable.create { (observer) -> Disposable in
+               let url = ConfigURLS.removeVisit
+            
+            let token = Helper.getAPIToken() ?? ""
+            let headers = [
+                "Authorization": "Bearer \(token)"
+            ]
+               Alamofire.request(url, method: .post, parameters: param, encoding: URLEncoding.default, headers: headers)
+                   .validate(statusCode: 200..<300)
+                   .responseJSON { (response: DataResponse<Any>) in
+                       do {
+                           let data = try JSONDecoder().decode(AddProductModelJson.self, from: response.data!)
+                           observer.onNext(data)
+                       } catch {
+                           print(error.localizedDescription)
+                           observer.onError(error)
+                       }
+               }
+               return Disposables.create()
+           }
+       }
 }

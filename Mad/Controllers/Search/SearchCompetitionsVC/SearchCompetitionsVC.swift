@@ -14,7 +14,7 @@ class SearchCompetitionsVC : UIViewController {
    
     @IBOutlet weak var tableView: UITableView!
     var showShimmer: Bool = true
-    var competitions = [Int](){
+    var competitions = [Competitions](){
         didSet{
             tableView.reloadData()
             showShimmer = false

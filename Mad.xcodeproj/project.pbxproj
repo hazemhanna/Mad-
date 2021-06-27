@@ -165,6 +165,7 @@
 		0488CCF5261213E400E05BEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0488CCF3261213E400E05BEB /* LaunchScreen.storyboard */; };
 		04911C69261C9A2900705A58 /* SuggestedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04911C67261C9A2900705A58 /* SuggestedCell.swift */; };
 		04911C6A261C9A2900705A58 /* SuggestedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04911C68261C9A2900705A58 /* SuggestedCell.xib */; };
+		04A41ECB268560DD00F9B730 /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A41ECA268560DC00F9B730 /* SearchModel.swift */; };
 		04AD60B3262866E500ADF0DF /* ProjectDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD60B1262866E500ADF0DF /* ProjectDetailsVC.swift */; };
 		04AD60B4262866E500ADF0DF /* ProjectDetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04AD60B2262866E500ADF0DF /* ProjectDetailsVC.xib */; };
 		04AD610C2628C52B00ADF0DF /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD610B2628C52B00ADF0DF /* ImageModel.swift */; };
@@ -378,6 +379,7 @@
 		04911C67261C9A2900705A58 /* SuggestedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedCell.swift; sourceTree = "<group>"; };
 		04911C68261C9A2900705A58 /* SuggestedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuggestedCell.xib; sourceTree = "<group>"; };
 		04981128261F6BD5008C09D8 /* JJStaggeredGridCollectionView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = JJStaggeredGridCollectionView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		04A41ECA268560DC00F9B730 /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
 		04AD60B1262866E500ADF0DF /* ProjectDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsVC.swift; sourceTree = "<group>"; };
 		04AD60B2262866E500ADF0DF /* ProjectDetailsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectDetailsVC.xib; sourceTree = "<group>"; };
 		04AD610B2628C52B00ADF0DF /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
@@ -1146,6 +1148,12 @@
 			isa = PBXGroup;
 			children = (
 				0413E41226307F5E00F5977D /* HomeVc.swift */,
+				04911C5A261C83D100705A58 /* Projects */,
+				04668760261B6784001D024D /* Artist */,
+				04668764261B6A29001D024D /* Product */,
+				0447A8F22671295A00F523CC /* Competition */,
+				046887B6261E72430056AC92 /* Videos */,
+				0413E3E12630731E00F5977D /* BlogsVc */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1224,6 +1232,7 @@
 				040339A02638C95900CEDBD3 /* AddPhotoModel.swift */,
 				045AD32D264CA72800E42D4C /* VideoModel.swift */,
 				0439BD212672823900AC5C59 /* CompetitionModel.swift */,
+				04A41ECA268560DC00F9B730 /* SearchModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1241,15 +1250,9 @@
 		0488CD332612141C00E05BEB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				0447A8F22671295A00F523CC /* Competition */,
 				0482EEAE26164D6100CB4A24 /* Profile */,
 				0482EEAD26164D5200CB4A24 /* Search */,
 				0482EEAC26164D3F00CB4A24 /* Notification */,
-				0413E3E12630731E00F5977D /* BlogsVc */,
-				04911C5A261C83D100705A58 /* Projects */,
-				046887B6261E72430056AC92 /* Videos */,
-				04668760261B6784001D024D /* Artist */,
-				04668764261B6A29001D024D /* Product */,
 				0482EEAB26164D3800CB4A24 /* Home */,
 				042C08272613941600BE1806 /* Auth */,
 				04E186F72613616100824E37 /* Splash */,
@@ -1829,6 +1832,7 @@
 				0413E40126307D3700F5977D /* VideosVC.swift in Sources */,
 				04242AA826553A4E003C8B44 /* VideoPurchaseVc.swift in Sources */,
 				04DEA9D62620947100F843A6 /* Authentication.swift in Sources */,
+				04A41ECB268560DD00F9B730 /* SearchModel.swift in Sources */,
 				041427FF26174D76000394CA /* NotificationVc.swift in Sources */,
 				04528E35261495D0009868EA /* LocalizationTitles.swift in Sources */,
 				042C080E26136B6E00BE1806 /* CustomButtons.swift in Sources */,

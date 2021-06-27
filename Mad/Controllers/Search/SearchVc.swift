@@ -6,14 +6,23 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+
+
 
 class SearchVc: UIViewController {
 
     @IBOutlet weak var popularCollectionView: UICollectionView!
     @IBOutlet weak var searchTf : UITextField!
 
+    var SearchVM = SearchViewModel()
+    var disposeBag = DisposeBag()
+    
     let cellIdentifier = "ArtistCell"
-    var showShimmer : Bool = false
+    var showShimmer : Bool = true
+    var artists = [Artist]()
+    var data : SearchModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +32,7 @@ class SearchVc: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        getPopularArtist()
         self.navigationController?.navigationBar.isHidden = true
     }
     override func viewWillDisappear(_ animated: Bool) {
@@ -31,6 +41,7 @@ class SearchVc: UIViewController {
     
     @IBAction func searchButton(sender: UIButton) {
         let main = SearchResultVc.instantiateFromNib()
+        main!.data = self.data
         self.navigationController?.pushViewController(main!, animated: true)
         
     }
@@ -38,7 +49,7 @@ class SearchVc: UIViewController {
 
 extension SearchVc : UICollectionViewDelegate ,UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return  self.showShimmer ? 5 : 7
+        return  self.showShimmer ? 5 : artists.count
        
     }
     
@@ -46,12 +57,10 @@ extension SearchVc : UICollectionViewDelegate ,UICollectionViewDataSource{
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! ArtistCell
         if !self.showShimmer {
             if !self.showShimmer {
-//                cell.artistNameLabel.text = self.artists[indexPath.row].name ?? ""
-//                cell.favouriteCount.text = "\(self.artists[indexPath.row].allFollowers ?? 0)"
-//                cell.followerCount.text = "\(self.artists[indexPath.row].allFollowing ?? 0)"
-//                if let bannerUrl = URL(string:   self.artists[indexPath.row].bannerImg ?? ""){
-//                cell.bannerImage.kf.setImage(with: bannerUrl, placeholder: #imageLiteral(resourceName: "WhatsApp Image 2021-04-21 at 1.25.47 PM"))
-//               }
+                cell.artistNameLabel.text = self.artists[indexPath.row].name ?? ""
+                if let bannerUrl = URL(string:   self.artists[indexPath.row].bannerImg ?? ""){
+                cell.bannerImage.kf.setImage(with: bannerUrl, placeholder: #imageLiteral(resourceName: "WhatsApp Image 2021-04-21 at 1.25.47 PM"))
+               }
                 cell.mainStack.isHidden = true
              }
         }
@@ -72,4 +81,22 @@ extension SearchVc: UICollectionViewDelegateFlowLayout {
             let height : CGFloat = 140
             return CGSize(width: width, height: height)
     }
+}
+
+
+
+
+extension SearchVc{
+func getPopularArtist() {
+    SearchVM.getPopular().subscribe(onNext: { (dataModel) in
+       if dataModel.success ?? false {
+        self.showShimmer = false
+        self.artists = dataModel.data?.popularArtists ?? []
+        self.data = dataModel.data
+        self.popularCollectionView.reloadData()
+       }
+   }, onError: { (error) in
+
+   }).disposed(by: disposeBag)
+}
 }

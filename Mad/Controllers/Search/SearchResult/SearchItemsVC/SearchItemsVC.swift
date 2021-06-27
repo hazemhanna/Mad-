@@ -15,7 +15,7 @@ class SearchItemsVC : UIViewController {
    
     @IBOutlet weak var tableView: UITableView!
     var showShimmer: Bool = true
-    var items = [Int](){
+    var items = [Product](){
         didSet{
             tableView.reloadData()
             showShimmer = false

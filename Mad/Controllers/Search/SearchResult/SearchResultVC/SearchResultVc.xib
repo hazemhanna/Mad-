@@ -38,7 +38,7 @@
                                 <rect key="frame" x="76" y="15.5" width="306" height="50"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RF5-CM-Ije">
-                                        <rect key="frame" x="0.0" y="0.0" width="306" height="50"/>
+                                        <rect key="frame" x="16" y="0.0" width="290" height="50"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="textColor" red="0.1333333333" green="0.2156862745" blue="0.38823529410000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="14"/>
@@ -55,7 +55,7 @@
                                     <constraint firstAttribute="trailing" secondItem="RF5-CM-Ije" secondAttribute="trailing" id="V7s-jC-roz"/>
                                     <constraint firstAttribute="bottom" secondItem="RF5-CM-Ije" secondAttribute="bottom" id="Vr4-7I-VKv"/>
                                     <constraint firstItem="RF5-CM-Ije" firstAttribute="top" secondItem="Au3-jW-JLE" secondAttribute="top" id="s5T-s6-2zI"/>
-                                    <constraint firstItem="RF5-CM-Ije" firstAttribute="leading" secondItem="Au3-jW-JLE" secondAttribute="leading" id="sSV-LJ-pDy"/>
+                                    <constraint firstItem="RF5-CM-Ije" firstAttribute="leading" secondItem="Au3-jW-JLE" secondAttribute="leading" constant="16" id="sSV-LJ-pDy"/>
                                     <constraint firstAttribute="height" constant="50" id="xpS-xM-XaC"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -148,6 +148,7 @@
             <navigationItem key="navigationItem" id="bk2-Uu-YJ6"/>
             <connections>
                 <outlet property="container" destination="5mB-fE-aEW" id="gQs-s0-3eN"/>
+                <outlet property="searchBar" destination="RF5-CM-Ije" id="50W-Sg-afQ"/>
                 <outlet property="titleCollectionView" destination="lsV-uZ-XZu" id="3pb-Xa-7gl"/>
             </connections>
             <point key="canvasLocation" x="-11914" y="-471"/>

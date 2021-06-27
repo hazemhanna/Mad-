@@ -373,29 +373,7 @@ class GetServices {
        }
     
     
-    func getSearch(param : [String :Any]) -> Observable<SearchArtistModel> {
-           return Observable.create { (observer) -> Disposable in
-               let url = ConfigURLS.search
-            let token = Helper.getAPIToken() ?? ""
-            let headers = [
-                "Authorization": "Bearer \(token)"
-            ]
-            
-               Alamofire.request(url, method: .get, parameters: param, encoding: URLEncoding.default, headers: headers)
-                   .validate(statusCode: 200..<300)
-                   .responseJSON { (response: DataResponse<Any>) in
-                       do {
-                           let data = try JSONDecoder().decode(SearchArtistModel.self, from: response.data!)
-                           observer.onNext(data)
-                       } catch {
-                           print(error.localizedDescription)
-                           observer.onError(error)
-                       }
-               }
-               return Disposables.create()
-           }
-       }
-    
+ 
     
     func getAllCompetition(param : [String :Any]) -> Observable<CompetitionsModelJSON> {
            return Observable.create { (observer) -> Disposable in
@@ -473,6 +451,127 @@ class GetServices {
            }
        }
     
+    
+    
+ 
+    func popularSearch() -> Observable<SearchModelJason> {
+           return Observable.create { (observer) -> Disposable in
+               let url = ConfigURLS.popularSearch
+            let token = Helper.getAPIToken() ?? ""
+            let headers = [
+                "Authorization": "Bearer \(token)"
+            ]
+            
+               Alamofire.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers)
+                   .validate(statusCode: 200..<300)
+                   .responseJSON { (response: DataResponse<Any>) in
+                       do {
+                           let data = try JSONDecoder().decode(SearchModelJason.self, from: response.data!)
+                        print(data)
+                           observer.onNext(data)
+                       } catch {
+                           print(error.localizedDescription)
+                           observer.onError(error)
+                       }
+               }
+               return Disposables.create()
+           }
+       }
+    
+    func getSearchArtist(param : [String :Any]) -> Observable<SearchArtistModel> {
+           return Observable.create { (observer) -> Disposable in
+               let url = ConfigURLS.search
+            let token = Helper.getAPIToken() ?? ""
+            let headers = [
+                "Authorization": "Bearer \(token)"
+            ]
+            
+               Alamofire.request(url, method: .get, parameters: param, encoding: URLEncoding.default, headers: headers)
+                   .validate(statusCode: 200..<300)
+                   .responseJSON { (response: DataResponse<Any>) in
+                       do {
+                           let data = try JSONDecoder().decode(SearchArtistModel.self, from: response.data!)
+                           observer.onNext(data)
+                       } catch {
+                           print(error.localizedDescription)
+                           observer.onError(error)
+                       }
+               }
+               return Disposables.create()
+           }
+       }
+    
+    func getSearchTags(param : [String :Any]) -> Observable<SearchTagsModel> {
+           return Observable.create { (observer) -> Disposable in
+               let url = ConfigURLS.search
+            let token = Helper.getAPIToken() ?? ""
+            let headers = [
+                "Authorization": "Bearer \(token)"
+            ]
+            
+               Alamofire.request(url, method: .get, parameters: param, encoding: URLEncoding.default, headers: headers)
+                   .validate(statusCode: 200..<300)
+                   .responseJSON { (response: DataResponse<Any>) in
+                       do {
+                           let data = try JSONDecoder().decode(SearchTagsModel.self, from: response.data!)
+                           observer.onNext(data)
+                       } catch {
+                           print(error.localizedDescription)
+                           observer.onError(error)
+                       }
+               }
+               return Disposables.create()
+           }
+       }
+    
+    
+    
+    func getSearchCompetitons(param : [String :Any]) -> Observable<SearchCompetitionsModel> {
+           return Observable.create { (observer) -> Disposable in
+               let url = ConfigURLS.search
+            let token = Helper.getAPIToken() ?? ""
+            let headers = [
+                "Authorization": "Bearer \(token)"
+            ]
+            
+               Alamofire.request(url, method: .get, parameters: param, encoding: URLEncoding.default, headers: headers)
+                   .validate(statusCode: 200..<300)
+                   .responseJSON { (response: DataResponse<Any>) in
+                       do {
+                           let data = try JSONDecoder().decode(SearchCompetitionsModel.self, from: response.data!)
+                           observer.onNext(data)
+                       } catch {
+                           print(error.localizedDescription)
+                           observer.onError(error)
+                       }
+               }
+               return Disposables.create()
+           }
+       }
+    
+    
+    func getSearchProduct(param : [String :Any]) -> Observable<SearchProductModel> {
+           return Observable.create { (observer) -> Disposable in
+               let url = ConfigURLS.search
+            let token = Helper.getAPIToken() ?? ""
+            let headers = [
+                "Authorization": "Bearer \(token)"
+            ]
+            
+               Alamofire.request(url, method: .get, parameters: param, encoding: URLEncoding.default, headers: headers)
+                   .validate(statusCode: 200..<300)
+                   .responseJSON { (response: DataResponse<Any>) in
+                       do {
+                           let data = try JSONDecoder().decode(SearchProductModel.self, from: response.data!)
+                           observer.onNext(data)
+                       } catch {
+                           print(error.localizedDescription)
+                           observer.onError(error)
+                       }
+               }
+               return Disposables.create()
+           }
+       }
     
     
     

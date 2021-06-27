@@ -13,7 +13,7 @@ class SearchTagsVC : UIViewController {
    
     @IBOutlet weak var tableView: UITableView!
     var showShimmer: Bool = true
-    var tags = [Int](){
+    var tags = [Tags](){
         didSet{
             tableView.reloadData()
             showShimmer = false

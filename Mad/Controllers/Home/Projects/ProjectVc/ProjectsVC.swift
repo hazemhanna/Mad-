@@ -245,7 +245,6 @@ extension ProjectsVC {
            if dataModel.success ?? false {
             self.showShimmer = false
                self.Categories = dataModel.data ?? []
-
            }
        }, onError: { (error) in
 

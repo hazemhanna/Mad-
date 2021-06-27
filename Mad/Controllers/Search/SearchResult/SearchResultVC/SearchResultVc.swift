@@ -16,10 +16,12 @@ class SearchResultVc  : UIViewController {
     @IBOutlet weak var titleCollectionView: UICollectionView!
     @IBOutlet weak var container: UIView!
 
+    @IBOutlet weak var searchBar: UITextField!
+
+    var data : SearchModel?
     var searchVM = SearchViewModel()
     var disposeBag = DisposeBag()
     var selectedIndex = 0
-   
 
     var titles = [String](){
           didSet {
@@ -55,15 +57,12 @@ class SearchResultVc  : UIViewController {
         return vc!
     }()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setuptitleCollectionView()
-        instantVC1.artists = [1,2,3,4,5]
-        instantVC2.items = [1,2,3,4,5]
-        instantVC3.tags = [1,2,3,4,5]
-        instantVC4.competitions = [1,2,3,4,5]
         selectView()
+        searchBar.addTarget(self, action: #selector(SearchResultVc.textFieldDidChange(_:)), for: .editingChanged)
+        searchBar.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -76,8 +75,12 @@ class SearchResultVc  : UIViewController {
     
     
     override func viewDidAppear(_ animated: Bool) {
-
+        self.instantVC1.artists = data?.recentArtists ?? []
+        self.instantVC2.items = data?.recentProducts ?? []
+        self.instantVC3.tags = data?.recentTags ?? []
+        self.instantVC4.competitions = data?.recentCompetitions ?? []
     }
+    
     
     @IBAction func backButton(sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
@@ -154,6 +157,63 @@ extension SearchResultVc : UICollectionViewDelegateFlowLayout {
     }
 
 
+extension SearchResultVc :UITextFieldDelegate{
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        if self.selectedIndex == 0{
+            getSearchArtist(section: "artists", search: textField.text ?? "", pageNum: 1)
+        }else if self.selectedIndex == 1{
+            getSearchProduct(section: "products", search: textField.text ?? "", pageNum: 1)
+        }else if self.selectedIndex == 2{
+            getSearchTags(section: "tags", search: textField.text ?? "", pageNum: 1)
+        }else if self.selectedIndex == 3{
+            getSearchCompetitions(section: "competitions", search: textField.text ?? "", pageNum: 1)
+        }
+    }
+}
+
 extension SearchResultVc {
+    
+    func getSearchArtist(section : String,search:String,pageNum :Int) {
+        searchVM.getSearchArtist(section : section,search:search,pageNum :pageNum).subscribe(onNext: { (dataModel) in
+            self.instantVC1.showShimmer = true
+            if dataModel.success ?? false {
+            self.instantVC1.artists = dataModel.data ?? []
+           }
+       }, onError: { (error) in
+
+       }).disposed(by: disposeBag)
+   }
+    
+    func getSearchProduct(section : String,search:String,pageNum :Int) {
+        searchVM.getSearchProduct(section : section,search:search,pageNum :pageNum).subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+            self.instantVC2.items = dataModel.data ?? []
+           }
+       }, onError: { (error) in
+
+       }).disposed(by: disposeBag)
+   }
+    
+    func getSearchTags(section : String,search:String,pageNum :Int) {
+        searchVM.getSearchTags(section : section,search:search,pageNum :pageNum).subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+            self.instantVC3.tags = dataModel.data ?? []
+           }
+       }, onError: { (error) in
+
+       }).disposed(by: disposeBag)
+   }
+    
+    
+    func getSearchCompetitions(section : String,search:String,pageNum :Int) {
+        searchVM.getSearchCompetitions(section : section,search:search,pageNum :pageNum).subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+            self.instantVC4.competitions = dataModel.data ?? []
+           }
+       }, onError: { (error) in
+
+       }).disposed(by: disposeBag)
+   }
+    
     
 }

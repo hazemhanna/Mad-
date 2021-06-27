@@ -151,6 +151,7 @@ Workshop</string>
             <connections>
                 <outlet property="bannermage" destination="SZW-VA-89X" id="XMd-I0-b97"/>
                 <outlet property="shimmerView" destination="6j6-ND-bCZ" id="h1x-UD-sWh"/>
+                <outlet property="subTitleLabel" destination="E8B-44-ykB" id="Xkt-Jn-hjO"/>
                 <outlet property="titleLabel" destination="obq-uD-LtF" id="jL7-D5-PBd"/>
             </connections>
             <point key="canvasLocation" x="-13.768115942028986" y="75"/>
