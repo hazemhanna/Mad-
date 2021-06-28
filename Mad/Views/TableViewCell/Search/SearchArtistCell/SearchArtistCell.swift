@@ -13,6 +13,7 @@ class SearchArtistCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subTitleLabel: UILabel!
     @IBOutlet weak var shimmerView : ShimmerView!
+    var remove : (() -> Void)? = nil
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,5 +30,7 @@ class SearchArtistCell: UITableViewCell {
             self.shimmerView.isShimmering = showShimmer
         }
     }
-
+    @IBAction func removeAction(_ sender: UIButton) {
+        self.remove?()
+    }
 }

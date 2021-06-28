@@ -29,3 +29,10 @@ extension StringProtocol {
 }
 
 
+extension String {
+    func toDate() -> Date? {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+        return formatter.date(from: self)
+    }
+}

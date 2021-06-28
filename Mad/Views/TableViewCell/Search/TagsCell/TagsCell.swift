@@ -11,8 +11,8 @@ class TagsCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var shimmerView : ShimmerView!
+    var remove : (() -> Void)? = nil
 
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         showShimmer = false
@@ -26,5 +26,9 @@ class TagsCell: UITableViewCell {
         didSet {
             self.shimmerView.isShimmering = showShimmer
         }
+    }
+    
+    @IBAction func removeAction(_ sender: UIButton) {
+        self.remove?()
     }
 }

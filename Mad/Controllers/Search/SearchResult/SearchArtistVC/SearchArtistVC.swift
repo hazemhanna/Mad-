@@ -19,13 +19,13 @@ class SearchArtistVC : UIViewController {
             showShimmer = false
         }
     }
+    
+    
     var  parentVC: SearchResultVc?
 
     let cellIdentifier = "SearchArtistCell"
-    var artistVM = ArtistViewModel()
+    var searchVM = SearchViewModel()
     var disposeBag = DisposeBag()
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -42,19 +42,22 @@ class SearchArtistVC : UIViewController {
 extension SearchArtistVC : UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.showShimmer ? 3 : artists.count
+        return artists.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier) as! SearchArtistCell
-//        if !self.showShimmer{
-//            cell.titleLabel.text = self.artists[indexPath.row].name ?? ""
-//            cell.subTitleLabel.text = self.artists[indexPath.row].headline ?? ""
-//            if let bannerUrl = URL(string:   self.artists[indexPath.row].bannerImg ?? ""){
-//            cell.bannermage.kf.setImage(with: bannerUrl, placeholder: #imageLiteral(resourceName: "WhatsApp Image 2021-04-21 at 1.25.47 PM"))
-//           }
-//        }
-        cell.showShimmer = self.showShimmer
+            cell.titleLabel.text = self.artists[indexPath.row].name ?? ""
+            cell.subTitleLabel.text = self.artists[indexPath.row].headline ?? ""
+            if let bannerUrl = URL(string:   self.artists[indexPath.row].bannerImg ?? ""){
+            cell.bannermage.kf.setImage(with: bannerUrl, placeholder: #imageLiteral(resourceName: "WhatsApp Image 2021-04-21 at 1.25.47 PM"))
+           }
+        
+        cell.remove = {
+            self.searchVM.showIndicator()
+            self.remove(section: "artists", objectId: self.artists[indexPath.row].id ?? 0)
+            self.artists.remove(at: indexPath.row)
+        }
         return cell
     }
     
@@ -63,7 +66,39 @@ extension SearchArtistVC : UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        if showShimmer {return}
+        self.addNewVisit(section: "artists", objectId: self.artists[indexPath.row].id ?? 0)
+        let vc = UIStoryboard(name: "Artist", bundle: nil).instantiateViewController(withIdentifier: "ArtistProfileVc")  as! ArtistProfileVc
+            vc.artistId = self.artists[indexPath.row].id ?? 0
+            Helper.saveArtistId(id: self.artists[indexPath.row].id ?? 0)
+        self.navigationController?.pushViewController(vc, animated: true)
+        
     }
     
+}
+
+extension SearchArtistVC{
+    func remove(section : String,objectId:Int) {
+        searchVM.removeVisit(section: section, id: objectId).subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+            self.searchVM.dismissIndicator()
+            self.tableView.reloadData()
+           }
+       }, onError: { (error) in
+        self.searchVM.dismissIndicator()
+
+       }).disposed(by: disposeBag)
+   }
+    
+    
+    
+    func addNewVisit(section : String,objectId:Int) {
+        searchVM.addNewVisit(section: section, id: objectId).subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+
+           }
+       }, onError: { (error) in
+
+       }).disposed(by: disposeBag)
+   }
 }

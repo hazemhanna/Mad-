@@ -81,6 +81,9 @@ Workshop</string>
                                                 <state key="normal" title="X">
                                                     <color key="titleColor" red="0.1333333333" green="0.2156862745" blue="0.38823529410000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="removeAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="idW-sw-0md"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -148,6 +151,7 @@ Workshop</string>
             <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="shimmerView" destination="BFp-SP-ITK" id="9ha-Zj-1cp"/>
+                <outlet property="titleLabel" destination="wox-HC-1Te" id="suZ-ZW-ax0"/>
             </connections>
             <point key="canvasLocation" x="-10" y="62"/>
         </tableViewCell>

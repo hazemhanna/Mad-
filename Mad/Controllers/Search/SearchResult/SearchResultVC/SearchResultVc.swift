@@ -175,7 +175,6 @@ extension SearchResultVc {
     
     func getSearchArtist(section : String,search:String,pageNum :Int) {
         searchVM.getSearchArtist(section : section,search:search,pageNum :pageNum).subscribe(onNext: { (dataModel) in
-            self.instantVC1.showShimmer = true
             if dataModel.success ?? false {
             self.instantVC1.artists = dataModel.data ?? []
            }
