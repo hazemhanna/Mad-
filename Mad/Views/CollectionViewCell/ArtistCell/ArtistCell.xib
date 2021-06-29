@@ -26,7 +26,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3qC-jt-4zD" customClass="CustomView" customModule="Mad" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="224" height="221"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="320" translatesAutoresizingMaskIntoConstraints="NO" id="zOm-Rw-VBQ" customClass="CustomImageView" customModule="Mad" customModuleProvider="target">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="320" translatesAutoresizingMaskIntoConstraints="NO" id="zOm-Rw-VBQ" customClass="CustomImageView" customModule="Mad" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="224" height="221"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">

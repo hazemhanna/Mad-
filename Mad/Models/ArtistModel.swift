@@ -6,14 +6,14 @@
 //
 
 import Foundation
-// MARK: - TagsModelJSON
-struct ArtistModelJson: Codable {
+
+// MARK: - ArtistsMainModel
+struct ArtistsMainModel: Codable {
     let success: Bool?
     let data: ArtistModel?
     let message: String?
-    let errors: Errors??
+    let errors: Errors?
 }
-
 
 // MARK: - DataClass
 struct ArtistModel: Codable {

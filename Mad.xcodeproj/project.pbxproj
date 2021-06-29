@@ -1152,7 +1152,6 @@
 				04668760261B6784001D024D /* Artist */,
 				04668764261B6A29001D024D /* Product */,
 				0447A8F22671295A00F523CC /* Competition */,
-				046887B6261E72430056AC92 /* Videos */,
 				0413E3E12630731E00F5977D /* BlogsVc */,
 			);
 			path = Home;
@@ -1250,6 +1249,7 @@
 		0488CD332612141C00E05BEB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				046887B6261E72430056AC92 /* Videos */,
 				0482EEAE26164D6100CB4A24 /* Profile */,
 				0482EEAD26164D5200CB4A24 /* Search */,
 				0482EEAC26164D3F00CB4A24 /* Notification */,

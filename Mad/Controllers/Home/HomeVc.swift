@@ -26,23 +26,18 @@ class HomeVC: UIViewController {
           }
       }
     
-    lazy var instantVC1: ProjectsVC = {
-        var vc = ProjectsVC.instantiateFromNib()
+    lazy var instantVC1: ArtistsVc = {
+        var vc = ArtistsVc.instantiateFromNib()
         self.add(asChildViewController: vc!)
         vc!.parentVC = self
         return vc!
     }()
-    lazy var instantVC2: ArtistsVc = {
-        var vc =  ArtistsVc.instantiateFromNib()
+    lazy var instantVC2: ProductsVC = {
+        var vc =  ProductsVC.instantiateFromNib()
         self.add(asChildViewController: vc!)
         vc!.parentVC = self
         return vc!
     }()
-    
-    
-    
-    
-    
     
     lazy var instantVC3: HomeCompetitionsVc = {
         var vc =  HomeCompetitionsVc.instantiateFromNib()
@@ -51,19 +46,14 @@ class HomeVC: UIViewController {
         return vc!
     }()
     
-    lazy var instantVC4: ProductsVC = {
-        var vc =  ProductsVC.instantiateFromNib()
+    lazy var instantVC4: ProjectsVC = {
+        var vc =  ProjectsVC.instantiateFromNib()
         self.add(asChildViewController: vc!)
         vc!.parentVC = self
         return vc!
     }()
-    lazy var instantVC5: VideosVC = {
-        var vc = VideosVC.instantiateFromNib()
-        self.add(asChildViewController: vc!)
-        vc!.parentVC = self
-        return vc!
-    }()
-    lazy var instantVC6: BlogsVc = {
+
+    lazy var instantVC5: BlogsVc = {
         var vc = BlogsVc.instantiateFromNib()
         self.add(asChildViewController: vc!)
         vc!.parentVC = self
@@ -91,7 +81,6 @@ class HomeVC: UIViewController {
         self.remove(asChildViewController: self.instantVC3)
         self.remove(asChildViewController: self.instantVC4)
         self.remove(asChildViewController: self.instantVC5)
-        self.remove(asChildViewController: self.instantVC6)
 
         switch  self.selectedIndex {
         case 0: self.add(asChildViewController: self.instantVC1)
@@ -99,41 +88,24 @@ class HomeVC: UIViewController {
         case 2: self.add(asChildViewController: self.instantVC3)
         case 3: self.add(asChildViewController: self.instantVC4)
         case 4: self.add(asChildViewController: self.instantVC5)
-        case 5: self.add(asChildViewController: self.instantVC6)
 
         default:  break
         }
         
     }
-    
 }
 
 //MARK:- Data Binding
 extension HomeVC: UICollectionViewDelegate {
     func setuptitleCollectionView() {
-        self.titles = ["Projects","Artists","Competitions","Products","Videos","Blogs"]
+        self.titles = ["Artists","Shop","Competitions","Projects","Blog"]
         let cellIdentifier = "TitleCell"
         self.titleCollectionView.rx.setDelegate(self).disposed(by: disposeBag)
         self.titleCollectionView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
         self.homeVM.title.bind(to: self.titleCollectionView.rx.items(cellIdentifier: cellIdentifier, cellType: TitleCell.self)) { index, element, cell in
             
              cell.titleBtn.text = self.titles[index]
-            if self.selectedIndex == 4 {
-                self.view.backgroundColor = UIColor.black
-                if self.selectedIndex == index{
-                    cell.backView.layer.borderColor = #colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1).cgColor
-                    cell.backView.layer.borderWidth = 2
-                    cell.backView.layer.cornerRadius = 20
-                    cell.titleBtn.textColor = #colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1)
-                }else {
-                    cell.backView.layer.borderColor = #colorLiteral(red: 0.9725490196, green: 0.9725490196, blue: 0.9725490196, alpha: 1).cgColor
-                    cell.backView.layer.borderWidth = 0
-                    cell.backView.layer.cornerRadius = 0
-                    cell.titleBtn.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-                   }
-                
-            }else{
-                self.view.backgroundColor = UIColor(red: 248/255, green: 248/255, blue: 248/255, alpha: 1)
+
             if self.selectedIndex == index{
                 cell.backView.layer.borderColor = #colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1).cgColor
                 cell.backView.layer.borderWidth = 2
@@ -145,7 +117,6 @@ extension HomeVC: UICollectionViewDelegate {
                 cell.backView.layer.cornerRadius = 0
                 cell.titleBtn.textColor = #colorLiteral(red: 0.1176470588, green: 0.2156862745, blue: 0.4, alpha: 1)
                }
-            }
             
         }.disposed(by: disposeBag)
         self.titleCollectionView.rx.itemSelected.bind { (indexPath) in

@@ -14,9 +14,13 @@ import RxCocoa
 class HomeCompetitionsVc : UIViewController {
    
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var selectCompDropDown: TextFieldDropDown!
+    @IBOutlet weak var searchBar: UITextField!
+
     let cellIdentifier = "CompetitionCell"
     var parentVC : HomeVC?
-    
+    var comp = ["all","ongoing","complete"]
+    var compValue = "ongoing"
     var competitionVm = CometitionsViewModel()
     var disposeBag = DisposeBag()
     var artistId = Int()
@@ -25,16 +29,26 @@ class HomeCompetitionsVc : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupContentTableView()
+        setupCopDropDown()
+        searchBar.addTarget(self, action: #selector(HomeCompetitionsVc.textFieldDidChange(_:)), for: .editingChanged)
+        searchBar.delegate = self
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
-        getCompetitions(search: "", step: "ongoing", pageNum: 1)
+        getCompetitions(search: "", step: self.compValue, pageNum: 1)
         self.navigationController?.navigationBar.isHidden = true
     }
-
- 
+    
+    func setupCopDropDown(){
+        selectCompDropDown.optionArray = self.comp
+        selectCompDropDown.didSelect { (selectedText, index, id) in
+            self.selectCompDropDown.text = selectedText
+            self.compValue = self.comp[index]
+            self.getCompetitions(search: "", step: self.compValue, pageNum: 1)
+        }
+    }
 }
+
 
 extension HomeCompetitionsVc : UITableViewDelegate,UITableViewDataSource{
     
@@ -84,4 +98,15 @@ extension HomeCompetitionsVc{
 
        }).disposed(by: disposeBag)
    }
+}
+
+extension HomeCompetitionsVc :UITextFieldDelegate{
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        self.getCompetitions(search: textField.text ?? "" , step: self.compValue, pageNum: 1)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
 }

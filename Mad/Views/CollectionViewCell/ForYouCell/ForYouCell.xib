@@ -67,7 +67,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Omc-0K-GPM">
                                         <rect key="frame" x="0.0" y="38" width="119" height="206"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mask Group 85-1" translatesAutoresizingMaskIntoConstraints="NO" id="v1d-Ws-AFd" customClass="CustomImageView" customModule="Mad" customModuleProvider="target">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mask Group 85-1" translatesAutoresizingMaskIntoConstraints="NO" id="v1d-Ws-AFd" customClass="CustomImageView" customModule="Mad" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="119" height="123.5"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">

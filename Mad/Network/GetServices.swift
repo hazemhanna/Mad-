@@ -96,7 +96,7 @@ class GetServices {
            }
        }
     
-    func getAllArtist(param : [String :Any]) -> Observable<ArtistModelJson> {
+    func getAllArtist(param : [String :Any]) -> Observable<ArtistsMainModel> {
            return Observable.create { (observer) -> Disposable in
                let url = ConfigURLS.getAllArtist
             let token = Helper.getAPIToken() ?? ""
@@ -108,7 +108,7 @@ class GetServices {
                    .validate(statusCode: 200..<300)
                    .responseJSON { (response: DataResponse<Any>) in
                        do {
-                           let data = try JSONDecoder().decode(ArtistModelJson.self, from: response.data!)
+                           let data = try JSONDecoder().decode(ArtistsMainModel.self, from: response.data!)
                            observer.onNext(data)
                        } catch {
                            print(error.localizedDescription)
@@ -142,7 +142,7 @@ class GetServices {
            }
        }
     
-    func getTopArtist(param : [String :Any],catId : Int) -> Observable<ArtistModelJson> {
+    func getTopArtist(param : [String :Any],catId : Int) -> Observable<ArtistsMainModel> {
            return Observable.create { (observer) -> Disposable in
                let url = ConfigURLS.getAllArtist + "?category_id=\(catId)"
             let token = Helper.getAPIToken() ?? ""
@@ -154,7 +154,7 @@ class GetServices {
                    .validate(statusCode: 200..<300)
                    .responseJSON { (response: DataResponse<Any>) in
                        do {
-                           let data = try JSONDecoder().decode(ArtistModelJson.self, from: response.data!)
+                           let data = try JSONDecoder().decode(ArtistsMainModel.self, from: response.data!)
                            observer.onNext(data)
                        } catch {
                            print(error.localizedDescription)

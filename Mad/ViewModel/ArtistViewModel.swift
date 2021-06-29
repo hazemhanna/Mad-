@@ -19,7 +19,7 @@ struct ArtistViewModel {
         SVProgressHUD.dismiss()
     }
     
-    func getAllArtist(pageNum :Int) -> Observable<ArtistModelJson> {
+    func getAllArtist(pageNum :Int) -> Observable<ArtistsMainModel> {
         let params: [String: Any] = [
             "page_number": pageNum
         ]
@@ -27,7 +27,7 @@ struct ArtistViewModel {
          return observer
      }
     
-    func getTopArtist(pageNum :Int,catId :Int) -> Observable<ArtistModelJson> {
+    func getTopArtist(pageNum :Int,catId :Int) -> Observable<ArtistsMainModel> {
         let params: [String: Any] = [
             "page_number": pageNum
         ]
