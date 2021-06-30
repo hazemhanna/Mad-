@@ -24,11 +24,15 @@ class ProductDetailsVC: UIViewController {
     @IBOutlet weak var artistName: UILabel!
     @IBOutlet weak var artistPhoto: UIImageView!
     @IBOutlet weak var contentSizeHieght : NSLayoutConstraint!
+    @IBOutlet weak var productMatrial: UILabel!
+    @IBOutlet weak var cartCount: UILabel!
+
     var token = Helper.getAPIToken() ?? ""
     var productId = Int()
     var showShimmer: Bool = true
     var showShimmer2: Bool = true
     var isFavourite: Bool = false
+    var counter = 1
 
     var disposeBag = DisposeBag()
     var productVM = ProductViewModel()
@@ -66,6 +70,7 @@ class ProductDetailsVC: UIViewController {
         }
     }
     override func viewDidAppear(_ animated: Bool) {
+        productVM.showIndicator()
         getproductDetails(id: self.productId)
     }
     
@@ -111,9 +116,37 @@ class ProductDetailsVC: UIViewController {
             self.shareProject(productId : self.productId)
 
         }
-
-        
     }
+    
+    @IBAction func plusAction(_ sender: UIButton) {
+        if self.token == "" {
+            let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
+            if let appDelegate = UIApplication.shared.delegate {
+                appDelegate.window??.rootViewController = sb
+            }
+            return
+        }else{
+            self.counter = counter + 1
+            self.cartCount.text = "\(self.counter)"
+        }
+    }
+    
+    @IBAction func minusAction(_ sender: UIButton) {
+        if self.token == "" {
+            let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
+            if let appDelegate = UIApplication.shared.delegate {
+                appDelegate.window??.rootViewController = sb
+            }
+            return
+        }else{
+            if counter > 1{
+                self.counter = counter - 1
+                self.cartCount.text = "\(self.counter)"
+            
+            }
+        }
+    }
+    
 }
 
 extension ProductDetailsVC : UICollectionViewDelegate ,UICollectionViewDataSource{
@@ -173,6 +206,7 @@ extension ProductDetailsVC {
     func getproductDetails(id : Int) {
         productVM.getTopProductDetails(id: id).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
+            self.productVM.dismissIndicator()
             self.showShimmer = false
             if let data = dataModel.data {
             self.photos = data.photos ?? []
@@ -181,6 +215,8 @@ extension ProductDetailsVC {
             self.artistName.text = data.artist?.name ?? ""
             self.productPrice.text = "USD " + String(data.price ?? 0)
             self.producttitle.text = data.dataDescription ?? ""
+            self.productMatrial.text = data.materials ?? ""
+                
             self.productName.text = data.title ?? ""
             self.isFavourite = data.isFavorite ?? false
             let height = self.producttitle.intrinsicContentSize.height
@@ -202,6 +238,7 @@ extension ProductDetailsVC {
               }
             }
        }, onError: { (error) in
+        self.productVM.dismissIndicator()
        }).disposed(by: disposeBag)
     }
     
