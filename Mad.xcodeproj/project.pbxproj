@@ -30,7 +30,7 @@
 		0413E4192630879700F5977D /* ArtistsVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0413E4172630879700F5977D /* ArtistsVc.xib */; };
 		041427FF26174D76000394CA /* NotificationVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041427FE26174D76000394CA /* NotificationVc.swift */; };
 		0414280226174D8A000394CA /* SearchVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0414280126174D8A000394CA /* SearchVc.swift */; };
-		0414280526174D9D000394CA /* ProfileVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0414280426174D9D000394CA /* ProfileVc.swift */; };
+		0414280526174D9D000394CA /* MyProfileVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0414280426174D9D000394CA /* MyProfileVc.swift */; };
 		0414282D26176074000394CA /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0414282B26176074000394CA /* HomeCell.swift */; };
 		0414282E26176074000394CA /* HomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0414282C26176074000394CA /* HomeCell.xib */; };
 		0414286526176BCD000394CA /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0414286426176BCD000394CA /* HomeViewModel.swift */; };
@@ -165,6 +165,13 @@
 		0488CCF5261213E400E05BEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0488CCF3261213E400E05BEB /* LaunchScreen.storyboard */; };
 		04911C69261C9A2900705A58 /* SuggestedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04911C67261C9A2900705A58 /* SuggestedCell.swift */; };
 		04911C6A261C9A2900705A58 /* SuggestedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04911C68261C9A2900705A58 /* SuggestedCell.xib */; };
+		049302462690276B00086C58 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049302452690276B00086C58 /* Profile.storyboard */; };
+		0493024926902F2A00086C58 /* MyProfileContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0493024826902F2A00086C58 /* MyProfileContainerVC.swift */; };
+		0493024D2690308800086C58 /* MyprofileProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0493024C2690308800086C58 /* MyprofileProducts.swift */; };
+		049302502690309D00086C58 /* MyProfileProjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0493024F2690309D00086C58 /* MyProfileProjects.swift */; };
+		04930253269030B500086C58 /* MyProfileAbout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04930252269030B500086C58 /* MyProfileAbout.swift */; };
+		04930256269030DD00086C58 /* MyProfileCompetitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04930255269030DD00086C58 /* MyProfileCompetitions.swift */; };
+		04930259269030F500086C58 /* MyProfileVideos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04930258269030F500086C58 /* MyProfileVideos.swift */; };
 		04A41ECB268560DD00F9B730 /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A41ECA268560DC00F9B730 /* SearchModel.swift */; };
 		04AD60B3262866E500ADF0DF /* ProjectDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD60B1262866E500ADF0DF /* ProjectDetailsVC.swift */; };
 		04AD60B4262866E500ADF0DF /* ProjectDetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04AD60B2262866E500ADF0DF /* ProjectDetailsVC.xib */; };
@@ -240,7 +247,7 @@
 		0413E4172630879700F5977D /* ArtistsVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArtistsVc.xib; sourceTree = "<group>"; };
 		041427FE26174D76000394CA /* NotificationVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationVc.swift; sourceTree = "<group>"; };
 		0414280126174D8A000394CA /* SearchVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVc.swift; sourceTree = "<group>"; };
-		0414280426174D9D000394CA /* ProfileVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVc.swift; sourceTree = "<group>"; };
+		0414280426174D9D000394CA /* MyProfileVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileVc.swift; sourceTree = "<group>"; };
 		0414282B26176074000394CA /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		0414282C26176074000394CA /* HomeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCell.xib; sourceTree = "<group>"; };
 		0414286426176BCD000394CA /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -378,6 +385,13 @@
 		0488CCF6261213E400E05BEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04911C67261C9A2900705A58 /* SuggestedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedCell.swift; sourceTree = "<group>"; };
 		04911C68261C9A2900705A58 /* SuggestedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuggestedCell.xib; sourceTree = "<group>"; };
+		049302452690276B00086C58 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		0493024826902F2A00086C58 /* MyProfileContainerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileContainerVC.swift; sourceTree = "<group>"; };
+		0493024C2690308800086C58 /* MyprofileProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyprofileProducts.swift; sourceTree = "<group>"; };
+		0493024F2690309D00086C58 /* MyProfileProjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileProjects.swift; sourceTree = "<group>"; };
+		04930252269030B500086C58 /* MyProfileAbout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileAbout.swift; sourceTree = "<group>"; };
+		04930255269030DD00086C58 /* MyProfileCompetitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileCompetitions.swift; sourceTree = "<group>"; };
+		04930258269030F500086C58 /* MyProfileVideos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileVideos.swift; sourceTree = "<group>"; };
 		04981128261F6BD5008C09D8 /* JJStaggeredGridCollectionView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = JJStaggeredGridCollectionView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		04A41ECA268560DC00F9B730 /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
 		04AD60B1262866E500ADF0DF /* ProjectDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsVC.swift; sourceTree = "<group>"; };
@@ -1177,7 +1191,13 @@
 		0482EEAE26164D6100CB4A24 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				0414280426174D9D000394CA /* ProfileVc.swift */,
+				0414280426174D9D000394CA /* MyProfileVc.swift */,
+				0493024826902F2A00086C58 /* MyProfileContainerVC.swift */,
+				0493024F2690309D00086C58 /* MyProfileProjects.swift */,
+				0493024C2690308800086C58 /* MyprofileProducts.swift */,
+				04930252269030B500086C58 /* MyProfileAbout.swift */,
+				04930255269030DD00086C58 /* MyProfileCompetitions.swift */,
+				04930258269030F500086C58 /* MyProfileVideos.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -1313,11 +1333,12 @@
 			isa = PBXGroup;
 			children = (
 				0488CCEE261213E000E05BEB /* Main.storyboard */,
-				0449A72E262F396400604052 /* Artist.storyboard */,
 				0449A72B262EFE1800604052 /* Home.storyboard */,
+				0449A72E262F396400604052 /* Artist.storyboard */,
 				0488CCF3261213E400E05BEB /* LaunchScreen.storyboard */,
 				0449A6F2262EF9E100604052 /* Authentication.storyboard */,
 				04170D11264AAFAC00745696 /* Video.storyboard */,
+				049302452690276B00086C58 /* Profile.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -1626,6 +1647,7 @@
 				04319B14265BB8E0000535B2 /* BlogDetailsVc.xib in Resources */,
 				04528E4426149915009868EA /* PasswordVc.xib in Resources */,
 				04242ABC26554B2C003C8B44 /* VideoProjectCell.xib in Resources */,
+				049302462690276B00086C58 /* Profile.storyboard in Resources */,
 				045A66E22667134300ED03CB /* AboutProjectVC.xib in Resources */,
 				043B47D6261DB5B500D67023 /* ForYouCell.xib in Resources */,
 				0451FD652617A5B600AEE546 /* TitleCell.xib in Resources */,
@@ -1746,6 +1768,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				047DD02E267C3AE300C78C49 /* AddCompetitionsUploadFileVC.swift in Sources */,
+				04930253269030B500086C58 /* MyProfileAbout.swift in Sources */,
 				04668724261B3F89001D024D /* WelcomeCell.swift in Sources */,
 				047DD035267C3DA100C78C49 /* SubmitCopetitionsVC.swift in Sources */,
 				04DEAA362620AD0200F843A6 /* UIViewController+Extention.swift in Sources */,
@@ -1753,6 +1776,7 @@
 				0460CF45261CEC27006685B6 /* ArtistCell.swift in Sources */,
 				045AD32E264CA72800E42D4C /* VideoModel.swift in Sources */,
 				0414280226174D8A000394CA /* SearchVc.swift in Sources */,
+				049302502690309D00086C58 /* MyProfileProjects.swift in Sources */,
 				04528E3226149579009868EA /* AuthenticationViewModel.swift in Sources */,
 				0413E4182630879700F5977D /* ArtistsVc.swift in Sources */,
 				04F06AFA2614E18D00B08606 /* CustomImageView.swift in Sources */,
@@ -1765,7 +1789,7 @@
 				0414282D26176074000394CA /* HomeCell.swift in Sources */,
 				04170D2B264ACB9E00745696 /* VideoDetailsVC.swift in Sources */,
 				0451B7632627041F000B3983 /* ProjectsModel.swift in Sources */,
-				0414280526174D9D000394CA /* ProfileVc.swift in Sources */,
+				0414280526174D9D000394CA /* MyProfileVc.swift in Sources */,
 				046CD67F26829E6D004FE6C6 /* SearchItemsVC.swift in Sources */,
 				04E1871726136B1600824E37 /* CustomView.swift in Sources */,
 				04528E552614B586009868EA /* NameVc.swift in Sources */,
@@ -1800,6 +1824,7 @@
 				04B6741726384D2100AFF9C3 /* ProductViewModel.swift in Sources */,
 				04528E3D26149903009868EA /* EmailVc.swift in Sources */,
 				04DEA9962620901000F843A6 /* CategeoryModel.swift in Sources */,
+				04930259269030F500086C58 /* MyProfileVideos.swift in Sources */,
 				04528E4326149915009868EA /* PasswordVc.swift in Sources */,
 				04668728261B447B001D024D /* AdsViewModel.swift in Sources */,
 				04DEAA3B2620B25400F843A6 /* SplashVC.swift in Sources */,
@@ -1844,9 +1869,12 @@
 				046CD68426829EA1004FE6C6 /* SearchTagsVC.swift in Sources */,
 				04D23EC9263306B500290488 /* ContainerVC.swift in Sources */,
 				0414287726177E69000394CA /* LiveCellCVC.swift in Sources */,
+				0493024D2690308800086C58 /* MyprofileProducts.swift in Sources */,
 				0427A21726405B2D0029A10C /* AddsCell.swift in Sources */,
 				04911C69261C9A2900705A58 /* SuggestedCell.swift in Sources */,
 				04F06AC52614C37200B08606 /* AgeVc.swift in Sources */,
+				04930256269030DD00086C58 /* MyProfileCompetitions.swift in Sources */,
+				0493024926902F2A00086C58 /* MyProfileContainerVC.swift in Sources */,
 				04D23EE226330D7700290488 /* AboutVc.swift in Sources */,
 				04F06AF62614E0D600B08606 /* CategeoryCell.swift in Sources */,
 				0439BD09267263C900AC5C59 /* AboutCompetitionsVc.swift in Sources */,

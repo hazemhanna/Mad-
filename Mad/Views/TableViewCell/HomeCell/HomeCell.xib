@@ -84,7 +84,7 @@
                                         <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tm8-gk-kKN" customClass="CustomImageView" customModule="Mad" customModuleProvider="target">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mask Group 85-1" translatesAutoresizingMaskIntoConstraints="NO" id="Tm8-gk-kKN" customClass="CustomImageView" customModule="Mad" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="8" width="509" height="175"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="175" id="Fjx-Qm-P2s"/>
@@ -259,10 +259,14 @@
         <designable name="Qyl-Ze-22C">
             <size key="intrinsicContentSize" width="320" height="320"/>
         </designable>
+        <designable name="Tm8-gk-kKN">
+            <size key="intrinsicContentSize" width="119" height="96"/>
+        </designable>
     </designables>
     <resources>
         <image name="Group 140" width="20" height="18"/>
         <image name="Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4" width="320" height="320"/>
+        <image name="Mask Group 85-1" width="119" height="96"/>
         <image name="Path 327" width="17" height="18.5"/>
         <image name="icon - c-check (1)" width="20" height="20"/>
         <systemColor name="systemBackgroundColor">
