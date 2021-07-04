@@ -41,7 +41,8 @@ class MyProfileVc: UIViewController {
     }
     
     @IBAction func menuButton(sender: UIButton) {
-
+        let main = MenuVC.instantiateFromNib()
+        self.navigationController?.pushViewController(main!, animated: true)
     }
     
     
