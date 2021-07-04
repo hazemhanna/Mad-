@@ -39,6 +39,9 @@
                                     <constraint firstAttribute="width" constant="36" id="gYf-Xg-XUz"/>
                                 </constraints>
                                 <state key="normal" image="Group 119"/>
+                                <connections>
+                                    <action selector="backButtonWithSender:" destination="gH6-x4-vCf" eventType="touchUpInside" id="CVW-JN-HMp"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q2u-0y-4IX">
                                 <rect key="frame" x="352" y="22.5" width="30" height="30"/>
@@ -272,7 +275,7 @@
                                                             <color key="titleColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="myCartButtonWithSender:" destination="gH6-x4-vCf" eventType="touchUpInside" id="Z7r-Ko-7hb"/>
+                                                            <action selector="myCartActionWithSender:" destination="gH6-x4-vCf" eventType="touchUpInside" id="Za7-Hw-bN1"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4V1-xa-GRC" customClass="CustomButtons" customModule="Mad" customModuleProvider="target">

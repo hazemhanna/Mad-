@@ -188,6 +188,8 @@
 		04B6741326383DC600AFF9C3 /* AddProductPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B6741126383DC600AFF9C3 /* AddProductPhotoCell.xib */; };
 		04B6741726384D2100AFF9C3 /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6741626384D2100AFF9C3 /* ProductViewModel.swift */; };
 		04B6741A2638626400AFF9C3 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B674192638626400AFF9C3 /* ProductModel.swift */; };
+		04C4D15526925F0B0086B393 /* MyCartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C4D15326925F0B0086B393 /* MyCartCell.swift */; };
+		04C4D15626925F0B0086B393 /* MyCartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04C4D15426925F0B0086B393 /* MyCartCell.xib */; };
 		04C6E4792678C87700C90C7E /* PartenersVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C6E4772678C87700C90C7E /* PartenersVc.swift */; };
 		04C6E47A2678C87700C90C7E /* PartenersVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04C6E4782678C87700C90C7E /* PartenersVc.xib */; };
 		04C782A8263977B400C90851 /* InventoryPricingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C782A6263977B400C90851 /* InventoryPricingVC.swift */; };
@@ -415,6 +417,8 @@
 		04B6741126383DC600AFF9C3 /* AddProductPhotoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddProductPhotoCell.xib; sourceTree = "<group>"; };
 		04B6741626384D2100AFF9C3 /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
 		04B674192638626400AFF9C3 /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
+		04C4D15326925F0B0086B393 /* MyCartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCartCell.swift; sourceTree = "<group>"; };
+		04C4D15426925F0B0086B393 /* MyCartCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCartCell.xib; sourceTree = "<group>"; };
 		04C6E4772678C87700C90C7E /* PartenersVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartenersVc.swift; sourceTree = "<group>"; };
 		04C6E4782678C87700C90C7E /* PartenersVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PartenersVc.xib; sourceTree = "<group>"; };
 		04C782A6263977B400C90851 /* InventoryPricingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryPricingVC.swift; sourceTree = "<group>"; };
@@ -539,6 +543,7 @@
 		0413E4512630A37800F5977D /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				04C4D15226925EF10086B393 /* MyCartCell */,
 				046CD6902682A802004FE6C6 /* Search */,
 				0412D4F2267C5BB200E4022C /* CompetitionsResultCell */,
 				04319B16265C5E3A000535B2 /* SocialCell */,
@@ -1500,6 +1505,15 @@
 			path = AddProductPhotoCell;
 			sourceTree = "<group>";
 		};
+		04C4D15226925EF10086B393 /* MyCartCell */ = {
+			isa = PBXGroup;
+			children = (
+				04C4D15326925F0B0086B393 /* MyCartCell.swift */,
+				04C4D15426925F0B0086B393 /* MyCartCell.xib */,
+			);
+			path = MyCartCell;
+			sourceTree = "<group>";
+		};
 		04C6E4762678C84400C90C7E /* PartenersVc */ = {
 			isa = PBXGroup;
 			children = (
@@ -1693,6 +1707,7 @@
 				04D23EEC2633127800290488 /* Graphik-Bold.ttf in Resources */,
 				04D23EED2633127800290488 /* Graphik-Light.ttf in Resources */,
 				047DD03F267C4F7F00C78C49 /* CompetitionResultslistsVC.xib in Resources */,
+				04C4D15626925F0B0086B393 /* MyCartCell.xib in Resources */,
 				04D23EEE2633127800290488 /* Graphik-Medium.ttf in Resources */,
 				04D23EEF2633127800290488 /* Graphik-Regular.ttf in Resources */,
 				04D23EF02633127800290488 /* Graphik-Semibold.ttf in Resources */,
@@ -1843,6 +1858,7 @@
 				04F06AFA2614E18D00B08606 /* CustomImageView.swift in Sources */,
 				04319B13265BB8E0000535B2 /* BlogDetailsVc.swift in Sources */,
 				04528E4B2614B54B009868EA /* CreatPasswordVc.swift in Sources */,
+				04C4D15526925F0B0086B393 /* MyCartCell.swift in Sources */,
 				04242A9D26553A12003C8B44 /* VideoArtistsVc.swift in Sources */,
 				046CD6952682A87A004FE6C6 /* SearchItemsCell.swift in Sources */,
 				0439BD0E2672640600AC5C59 /* GuidlinesCompetitionsVC.swift in Sources */,

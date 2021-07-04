@@ -35,11 +35,14 @@ class MenuVC: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
     }
+    
     override func viewDidAppear(_ animated: Bool) {
 
     }
-    @IBAction func myCartButton(sender: UIButton) {
-
+    
+    @IBAction func myCartAction(sender: UIButton) {
+        let main = MyCartVc.instantiateFromNib()
+        self.navigationController?.pushViewController(main!, animated: true)
     }
     
     @IBAction func backButton(sender: UIButton) {
