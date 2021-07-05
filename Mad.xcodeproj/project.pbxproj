@@ -165,6 +165,10 @@
 		047DD036267C3DA100C78C49 /* SubmitCopetitionsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047DD034267C3DA100C78C49 /* SubmitCopetitionsVC.xib */; };
 		047DD03E267C4F7F00C78C49 /* CompetitionResultslistsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047DD03C267C4F7F00C78C49 /* CompetitionResultslistsVC.swift */; };
 		047DD03F267C4F7F00C78C49 /* CompetitionResultslistsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047DD03D267C4F7F00C78C49 /* CompetitionResultslistsVC.xib */; };
+		0486DE9F26936635001DA69E /* AddressVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0486DE9D26936635001DA69E /* AddressVC.swift */; };
+		0486DEA026936635001DA69E /* AddressVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0486DE9E26936635001DA69E /* AddressVC.xib */; };
+		0486DEC126939848001DA69E /* MyOrderDetailsVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0486DEBF26939848001DA69E /* MyOrderDetailsVc.swift */; };
+		0486DEC226939848001DA69E /* MyOrderDetailsVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0486DEC026939848001DA69E /* MyOrderDetailsVc.xib */; };
 		0488CCE9261213E000E05BEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0488CCE8261213E000E05BEB /* AppDelegate.swift */; };
 		0488CCF0261213E000E05BEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0488CCEE261213E000E05BEB /* Main.storyboard */; };
 		0488CCF2261213E400E05BEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0488CCF1261213E400E05BEB /* Assets.xcassets */; };
@@ -391,6 +395,10 @@
 		047DD034267C3DA100C78C49 /* SubmitCopetitionsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubmitCopetitionsVC.xib; sourceTree = "<group>"; };
 		047DD03C267C4F7F00C78C49 /* CompetitionResultslistsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionResultslistsVC.swift; sourceTree = "<group>"; };
 		047DD03D267C4F7F00C78C49 /* CompetitionResultslistsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompetitionResultslistsVC.xib; sourceTree = "<group>"; };
+		0486DE9D26936635001DA69E /* AddressVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressVC.swift; sourceTree = "<group>"; };
+		0486DE9E26936635001DA69E /* AddressVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressVC.xib; sourceTree = "<group>"; };
+		0486DEBF26939848001DA69E /* MyOrderDetailsVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderDetailsVc.swift; sourceTree = "<group>"; };
+		0486DEC026939848001DA69E /* MyOrderDetailsVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyOrderDetailsVc.xib; sourceTree = "<group>"; };
 		0488CCE5261213E000E05BEB /* Mad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0488CCE8261213E000E05BEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0488CCEF261213E000E05BEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -1259,10 +1267,45 @@
 			isa = PBXGroup;
 			children = (
 				04534AF02691E2CE00B15C9C /* provileVC */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		0486DE9B269365FA001DA69E /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				0486DEBD2693981D001DA69E /* MyOrder */,
+				0486DE9C26936618001DA69E /* AddressVC */,
 				04534B0E2691E31E00B15C9C /* MenuVC */,
 				04534B0D2691E31800B15C9C /* MyCart */,
 			);
-			path = Profile;
+			path = SideMenu;
+			sourceTree = "<group>";
+		};
+		0486DE9C26936618001DA69E /* AddressVC */ = {
+			isa = PBXGroup;
+			children = (
+				0486DE9D26936635001DA69E /* AddressVC.swift */,
+				0486DE9E26936635001DA69E /* AddressVC.xib */,
+			);
+			path = AddressVC;
+			sourceTree = "<group>";
+		};
+		0486DEBD2693981D001DA69E /* MyOrder */ = {
+			isa = PBXGroup;
+			children = (
+				0486DEBE2693982B001DA69E /* MyOrderDetailsVc */,
+			);
+			path = MyOrder;
+			sourceTree = "<group>";
+		};
+		0486DEBE2693982B001DA69E /* MyOrderDetailsVc */ = {
+			isa = PBXGroup;
+			children = (
+				0486DEBF26939848001DA69E /* MyOrderDetailsVc.swift */,
+				0486DEC026939848001DA69E /* MyOrderDetailsVc.xib */,
+			);
+			path = MyOrderDetailsVc;
 			sourceTree = "<group>";
 		};
 		0488CCDC261213E000E05BEB = {
@@ -1332,6 +1375,7 @@
 		0488CD332612141C00E05BEB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0486DE9B269365FA001DA69E /* SideMenu */,
 				046887B6261E72430056AC92 /* Videos */,
 				0482EEAE26164D6100CB4A24 /* Profile */,
 				0482EEAD26164D5200CB4A24 /* Search */,
@@ -1770,6 +1814,7 @@
 				04242AC326555E7A003C8B44 /* VideoPartenerCell.xib in Resources */,
 				0488CCF0261213E000E05BEB /* Main.storyboard in Resources */,
 				046887BF261E77970056AC92 /* ShowesCell.xib in Resources */,
+				0486DEC226939848001DA69E /* MyOrderDetailsVc.xib in Resources */,
 				047DD027267C36EC00C78C49 /* AddCompetitionsDetailsVc.xib in Resources */,
 				046CD67B26829E3A004FE6C6 /* SearchArtistVC.xib in Resources */,
 				04DEAA3C2620B25400F843A6 /* SplashVC.xib in Resources */,
@@ -1781,6 +1826,7 @@
 				0413E3F626307C6200F5977D /* BlogsVc.xib in Resources */,
 				0413E4192630879700F5977D /* ArtistsVc.xib in Resources */,
 				04B6740C263831EB00AFF9C3 /* AddProductImageVc.xib in Resources */,
+				0486DEA026936635001DA69E /* AddressVC.xib in Resources */,
 				04528E3E26149903009868EA /* EmailVc.xib in Resources */,
 				0439BD0A267263C900AC5C59 /* AboutCompetitionsVc.xib in Resources */,
 				0447A8F6267129B400F523CC /* HomeCompetitionsVc.xib in Resources */,
@@ -1880,6 +1926,7 @@
 				04242AC226555E7A003C8B44 /* VideoPartenerCell.swift in Sources */,
 				0448E7922666D664009C4A6E /* AddProjectdetailsVc.swift in Sources */,
 				04DEAA462620BC9500F843A6 /* SplashViewModel.swift in Sources */,
+				0486DE9F26936635001DA69E /* AddressVC.swift in Sources */,
 				042C082A2613943900BE1806 /* LoadingLoginVc.swift in Sources */,
 				042C081126136B9700BE1806 /* CustomDropDown.swift in Sources */,
 				0413E3AD2630536E00F5977D /* ArtistViewModel.swift in Sources */,
@@ -1964,6 +2011,7 @@
 				04242AAE26553A65003C8B44 /* VideoPartners.swift in Sources */,
 				04B6740B263831EB00AFF9C3 /* AddProductImageVc.swift in Sources */,
 				0412D4F5267C5BD200E4022C /* CompetitionsResultCell.swift in Sources */,
+				0486DEC126939848001DA69E /* MyOrderDetailsVc.swift in Sources */,
 				047DD03E267C4F7F00C78C49 /* CompetitionResultslistsVC.swift in Sources */,
 				0439BD182672645E00AC5C59 /* PrizesCometitionsVc.swift in Sources */,
 				0439BD222672823900AC5C59 /* CompetitionModel.swift in Sources */,

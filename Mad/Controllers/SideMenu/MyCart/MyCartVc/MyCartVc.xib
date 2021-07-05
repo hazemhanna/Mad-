@@ -71,6 +71,9 @@
                                     <constraint firstAttribute="width" constant="36" id="UnC-MD-VLc"/>
                                 </constraints>
                                 <state key="normal" image="Group 119"/>
+                                <connections>
+                                    <action selector="backButtonWithSender:" destination="ee4-W8-5du" eventType="touchUpInside" id="RSr-co-KMe"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -45,6 +45,12 @@ class MenuVC: UIViewController {
         self.navigationController?.pushViewController(main!, animated: true)
     }
     
+    
+    @IBAction func addressAction(sender: UIButton) {
+        let main = AddressVC.instantiateFromNib()
+        self.navigationController?.pushViewController(main!, animated: true)
+    }
+    
     @IBAction func backButton(sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
 
