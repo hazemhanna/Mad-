@@ -58,8 +58,12 @@ struct ConfigURLS {
     static var popularSearch = BASE_URL  + "search/get_recent"
     static var addNewVisit = BASE_URL  + "search/add_new_visit"
     static var removeVisit = BASE_URL  + "search/remove_visit"
-
-
+    // cart
+    static var addToCart = BASE_URL  + "cart/add_product"
+    static var getCart = BASE_URL  + "cart/get_content_for_user"
+    static var getCartDetails = BASE_URL  + "cart/get_details"
+    static var updateCartDetails = BASE_URL  + "cart/update_details"
+    static var updateCartProduct = BASE_URL  + "cart/update_product"
     
     
 }

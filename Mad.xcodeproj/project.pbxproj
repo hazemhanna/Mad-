@@ -163,6 +163,8 @@
 		046CD6A32682B928004FE6C6 /* SearchArtistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 046CD6A12682B928004FE6C6 /* SearchArtistCell.xib */; };
 		046E2E4826693A3300BFCDCC /* CalenderVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046E2E4626693A3300BFCDCC /* CalenderVc.swift */; };
 		046E2E4926693A3300BFCDCC /* CalenderVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 046E2E4726693A3300BFCDCC /* CalenderVc.xib */; };
+		047991AC2694FD5500859254 /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047991AB2694FD5500859254 /* CartViewModel.swift */; };
+		047991AF2694FFDB00859254 /* CartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047991AE2694FFDB00859254 /* CartModel.swift */; };
 		047DD026267C36EC00C78C49 /* AddCompetitionsDetailsVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047DD024267C36EC00C78C49 /* AddCompetitionsDetailsVc.swift */; };
 		047DD027267C36EC00C78C49 /* AddCompetitionsDetailsVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047DD025267C36EC00C78C49 /* AddCompetitionsDetailsVc.xib */; };
 		047DD02E267C3AE300C78C49 /* AddCompetitionsUploadFileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047DD02C267C3AE300C78C49 /* AddCompetitionsUploadFileVC.swift */; };
@@ -399,6 +401,8 @@
 		046CD6A12682B928004FE6C6 /* SearchArtistCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchArtistCell.xib; sourceTree = "<group>"; };
 		046E2E4626693A3300BFCDCC /* CalenderVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderVc.swift; sourceTree = "<group>"; };
 		046E2E4726693A3300BFCDCC /* CalenderVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalenderVc.xib; sourceTree = "<group>"; };
+		047991AB2694FD5500859254 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
+		047991AE2694FFDB00859254 /* CartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartModel.swift; sourceTree = "<group>"; };
 		047DD024267C36EC00C78C49 /* AddCompetitionsDetailsVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCompetitionsDetailsVc.swift; sourceTree = "<group>"; };
 		047DD025267C36EC00C78C49 /* AddCompetitionsDetailsVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCompetitionsDetailsVc.xib; sourceTree = "<group>"; };
 		047DD02C267C3AE300C78C49 /* AddCompetitionsUploadFileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCompetitionsUploadFileVC.swift; sourceTree = "<group>"; };
@@ -1400,6 +1404,7 @@
 				045AD32D264CA72800E42D4C /* VideoModel.swift */,
 				0439BD212672823900AC5C59 /* CompetitionModel.swift */,
 				04A41ECA268560DC00F9B730 /* SearchModel.swift */,
+				047991AE2694FFDB00859254 /* CartModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1442,6 +1447,7 @@
 				04297546266A92F6007284E4 /* ProjectViewModel.swift */,
 				046B2B1E2677AE4B00BAA2A3 /* CometitionsViewModel.swift */,
 				046CD68D2682A15B004FE6C6 /* SearchViewModel.swift */,
+				047991AB2694FD5500859254 /* CartViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1950,6 +1956,7 @@
 				04F06AFA2614E18D00B08606 /* CustomImageView.swift in Sources */,
 				04319B13265BB8E0000535B2 /* BlogDetailsVc.swift in Sources */,
 				04528E4B2614B54B009868EA /* CreatPasswordVc.swift in Sources */,
+				047991AC2694FD5500859254 /* CartViewModel.swift in Sources */,
 				04C4D15526925F0B0086B393 /* MyCartCell.swift in Sources */,
 				04242A9D26553A12003C8B44 /* VideoArtistsVc.swift in Sources */,
 				046CD6952682A87A004FE6C6 /* SearchItemsCell.swift in Sources */,
@@ -2068,6 +2075,7 @@
 				04528E2F26149496009868EA /* Helper.swift in Sources */,
 				0414286526176BCD000394CA /* HomeViewModel.swift in Sources */,
 				04DEAA412620B4A900F843A6 /* SplashCell.swift in Sources */,
+				047991AF2694FFDB00859254 /* CartModel.swift in Sources */,
 				04DEA9DC2620A0B200F843A6 /* AuthModel.swift in Sources */,
 				04D13D6E2682968A0020CF11 /* SearchResultVc.swift in Sources */,
 				0449A733262F39C800604052 /* ArtistProfileVc.swift in Sources */,
