@@ -91,6 +91,12 @@
 		0449A733262F39C800604052 /* ArtistProfileVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0449A732262F39C800604052 /* ArtistProfileVc.swift */; };
 		0449A736262F477700604052 /* ArtistProjectsVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0449A735262F477700604052 /* ArtistProjectsVc.swift */; };
 		0449A73A262F939300604052 /* String+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0449A739262F939300604052 /* String+Extention.swift */; };
+		045039972693DCFD002151F0 /* MyOrderVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045039952693DCFD002151F0 /* MyOrderVc.swift */; };
+		045039982693DCFD002151F0 /* MyOrderVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045039962693DCFD002151F0 /* MyOrderVc.xib */; };
+		04503A422693DF2E002151F0 /* ContentHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04503A402693DF2E002151F0 /* ContentHeader.swift */; };
+		04503A432693DF2E002151F0 /* ContentHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04503A412693DF2E002151F0 /* ContentHeader.xib */; };
+		04503A472693E03F002151F0 /* MyOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04503A452693E03F002151F0 /* MyOrderCell.swift */; };
+		04503A482693E03F002151F0 /* MyOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04503A462693E03F002151F0 /* MyOrderCell.xib */; };
 		0451B7632627041F000B3983 /* ProjectsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0451B7622627041F000B3983 /* ProjectsModel.swift */; };
 		0451B7A9262716E8000B3983 /* ShimmerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0451B7A8262716E8000B3983 /* ShimmerView.swift */; };
 		0451FD642617A5B600AEE546 /* TitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0451FD622617A5B500AEE546 /* TitleCell.swift */; };
@@ -321,6 +327,12 @@
 		0449A732262F39C800604052 /* ArtistProfileVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistProfileVc.swift; sourceTree = "<group>"; };
 		0449A735262F477700604052 /* ArtistProjectsVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistProjectsVc.swift; sourceTree = "<group>"; };
 		0449A739262F939300604052 /* String+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extention.swift"; sourceTree = "<group>"; };
+		045039952693DCFD002151F0 /* MyOrderVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderVc.swift; sourceTree = "<group>"; };
+		045039962693DCFD002151F0 /* MyOrderVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyOrderVc.xib; sourceTree = "<group>"; };
+		04503A402693DF2E002151F0 /* ContentHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentHeader.swift; sourceTree = "<group>"; };
+		04503A412693DF2E002151F0 /* ContentHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContentHeader.xib; sourceTree = "<group>"; };
+		04503A452693E03F002151F0 /* MyOrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderCell.swift; sourceTree = "<group>"; };
+		04503A462693E03F002151F0 /* MyOrderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyOrderCell.xib; sourceTree = "<group>"; };
 		0451B7622627041F000B3983 /* ProjectsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsModel.swift; sourceTree = "<group>"; };
 		0451B7A8262716E8000B3983 /* ShimmerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerView.swift; sourceTree = "<group>"; };
 		0451FD622617A5B500AEE546 /* TitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCell.swift; sourceTree = "<group>"; };
@@ -551,6 +563,8 @@
 		0413E4512630A37800F5977D /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				0450399B2693DE90002151F0 /* ContentHeader */,
+				04503A442693DFF6002151F0 /* MyOrderCell */,
 				04C4D15226925EF10086B393 /* MyCartCell */,
 				046CD6902682A802004FE6C6 /* Search */,
 				0412D4F2267C5BB200E4022C /* CompetitionsResultCell */,
@@ -856,6 +870,33 @@
 				04D23EE426330D9B00290488 /* CompetitionsVc.swift */,
 			);
 			path = ArtistProfile;
+			sourceTree = "<group>";
+		};
+		0450399A2693DD08002151F0 /* MyOrderVc */ = {
+			isa = PBXGroup;
+			children = (
+				045039952693DCFD002151F0 /* MyOrderVc.swift */,
+				045039962693DCFD002151F0 /* MyOrderVc.xib */,
+			);
+			path = MyOrderVc;
+			sourceTree = "<group>";
+		};
+		0450399B2693DE90002151F0 /* ContentHeader */ = {
+			isa = PBXGroup;
+			children = (
+				04503A402693DF2E002151F0 /* ContentHeader.swift */,
+				04503A412693DF2E002151F0 /* ContentHeader.xib */,
+			);
+			path = ContentHeader;
+			sourceTree = "<group>";
+		};
+		04503A442693DFF6002151F0 /* MyOrderCell */ = {
+			isa = PBXGroup;
+			children = (
+				04503A452693E03F002151F0 /* MyOrderCell.swift */,
+				04503A462693E03F002151F0 /* MyOrderCell.xib */,
+			);
+			path = MyOrderCell;
 			sourceTree = "<group>";
 		};
 		0451FD612617A59C00AEE546 /* TitleCell */ = {
@@ -1294,6 +1335,7 @@
 		0486DEBD2693981D001DA69E /* MyOrder */ = {
 			isa = PBXGroup;
 			children = (
+				0450399A2693DD08002151F0 /* MyOrderVc */,
 				0486DEBE2693982B001DA69E /* MyOrderDetailsVc */,
 			);
 			path = MyOrder;
@@ -1767,6 +1809,7 @@
 				04528E4426149915009868EA /* PasswordVc.xib in Resources */,
 				04242ABC26554B2C003C8B44 /* VideoProjectCell.xib in Resources */,
 				049302462690276B00086C58 /* Profile.storyboard in Resources */,
+				045039982693DCFD002151F0 /* MyOrderVc.xib in Resources */,
 				045A66E22667134300ED03CB /* AboutProjectVC.xib in Resources */,
 				043B47D6261DB5B500D67023 /* ForYouCell.xib in Resources */,
 				0451FD652617A5B600AEE546 /* TitleCell.xib in Resources */,
@@ -1777,6 +1820,7 @@
 				04170D12264AAFAC00745696 /* Video.storyboard in Resources */,
 				047DD02F267C3AE300C78C49 /* AddCompetitionsUploadFileVC.xib in Resources */,
 				04C782A9263977B400C90851 /* InventoryPricingVC.xib in Resources */,
+				04503A482693E03F002151F0 /* MyOrderCell.xib in Resources */,
 				0449A72C262EFE1800604052 /* Home.storyboard in Resources */,
 				0440ECA92636C7C60046681C /* CompetitionCell.xib in Resources */,
 				046CD68A26829EBD004FE6C6 /* SearchCompetitionsVC.xib in Resources */,
@@ -1829,6 +1873,7 @@
 				0486DEA026936635001DA69E /* AddressVC.xib in Resources */,
 				04528E3E26149903009868EA /* EmailVc.xib in Resources */,
 				0439BD0A267263C900AC5C59 /* AboutCompetitionsVc.xib in Resources */,
+				04503A432693DF2E002151F0 /* ContentHeader.xib in Resources */,
 				0447A8F6267129B400F523CC /* HomeCompetitionsVc.xib in Resources */,
 				04F06AC62614C37200B08606 /* AgeVc.xib in Resources */,
 				045A66E82667136A00ED03CB /* CreatePackageVc.xib in Resources */,
@@ -1893,6 +1938,7 @@
 				04930253269030B500086C58 /* MyProfileAbout.swift in Sources */,
 				04668724261B3F89001D024D /* WelcomeCell.swift in Sources */,
 				047DD035267C3DA100C78C49 /* SubmitCopetitionsVC.swift in Sources */,
+				04503A422693DF2E002151F0 /* ContentHeader.swift in Sources */,
 				04DEAA362620AD0200F843A6 /* UIViewController+Extention.swift in Sources */,
 				040339E12638F21000CEDBD3 /* ListingDetailsVC.swift in Sources */,
 				0460CF45261CEC27006685B6 /* ArtistCell.swift in Sources */,
@@ -1924,6 +1970,7 @@
 				046B2B1F2677AE4B00BAA2A3 /* CometitionsViewModel.swift in Sources */,
 				0440ECA82636C7C60046681C /* CompetitionCell.swift in Sources */,
 				04242AC226555E7A003C8B44 /* VideoPartenerCell.swift in Sources */,
+				04503A472693E03F002151F0 /* MyOrderCell.swift in Sources */,
 				0448E7922666D664009C4A6E /* AddProjectdetailsVc.swift in Sources */,
 				04DEAA462620BC9500F843A6 /* SplashViewModel.swift in Sources */,
 				0486DE9F26936635001DA69E /* AddressVC.swift in Sources */,
@@ -1938,6 +1985,7 @@
 				0451FD642617A5B600AEE546 /* TitleCell.swift in Sources */,
 				040339D92638D0CD00CEDBD3 /* AlertService.swift in Sources */,
 				046CD69B2682B383004FE6C6 /* TagsCell.swift in Sources */,
+				045039972693DCFD002151F0 /* MyOrderVc.swift in Sources */,
 				0439BD132672642B00AC5C59 /* DeadlinesCompetitionsVc.swift in Sources */,
 				0458B3142667CC0B00382E77 /* PreviewProjectVc.swift in Sources */,
 				0413E3F526307C6200F5977D /* BlogsVc.swift in Sources */,
