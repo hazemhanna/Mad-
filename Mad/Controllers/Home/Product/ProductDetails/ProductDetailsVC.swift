@@ -26,7 +26,13 @@ class ProductDetailsVC: UIViewController {
     @IBOutlet weak var contentSizeHieght : NSLayoutConstraint!
     @IBOutlet weak var productMatrial: UILabel!
     @IBOutlet weak var cartCount: UILabel!
+    @IBOutlet weak var CounterLbl: UILabel!
 
+    @IBOutlet weak var cartView: UIView!
+    @IBOutlet weak var hideCartBtn: UIButton!
+
+
+    
     var token = Helper.getAPIToken() ?? ""
     var productId = Int()
     var showShimmer: Bool = true
@@ -72,6 +78,8 @@ class ProductDetailsVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         productVM.showIndicator()
         getproductDetails(id: self.productId)
+        self.getCart()
+
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -114,8 +122,25 @@ class ProductDetailsVC: UIViewController {
             return
         }else{
             self.shareProject(productId : self.productId)
-
         }
+    }
+    
+    @IBAction func addToCartAction(_ sender: UIButton) {
+        if self.token == "" {
+            let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
+            if let appDelegate = UIApplication.shared.delegate {
+                appDelegate.window??.rootViewController = sb
+            }
+            return
+        }else{
+            self.productVM.showIndicator()
+            self.addToCart(productId : self.productId,quantity: self.counter)
+        }
+    }
+    
+    @IBAction func hideCartButton(sender: UIButton) {
+        self.cartView.isHidden = true
+        self.hideCartBtn.isHidden = true
     }
     
     @IBAction func plusAction(_ sender: UIButton) {
@@ -127,7 +152,7 @@ class ProductDetailsVC: UIViewController {
             return
         }else{
             self.counter = counter + 1
-            self.cartCount.text = "\(self.counter)"
+            self.CounterLbl.text = "\(self.counter)"
         }
     }
     
@@ -141,7 +166,7 @@ class ProductDetailsVC: UIViewController {
         }else{
             if counter > 1{
                 self.counter = counter - 1
-                self.cartCount.text = "\(self.counter)"
+                self.CounterLbl.text = "\(self.counter)"
             
             }
         }
@@ -193,7 +218,7 @@ extension ProductDetailsVC : UICollectionViewDelegateFlowLayout {
         let size:CGFloat
         
         if collectionView == addsCollectionView {
-            size = (collectionView.frame.size.width - space) / 1.1
+            size = (collectionView.frame.size.width)
         }else{
              size = (collectionView.frame.size.width - space) / 1.4
         }
@@ -214,13 +239,13 @@ extension ProductDetailsVC {
             self.addsCollectionView.reloadData()
             self.artistName.text = data.artist?.name ?? ""
             self.productPrice.text = "USD " + String(data.price ?? 0)
-            self.producttitle.text = data.dataDescription ?? ""
+            self.producttitle.text = data.dataDescription?.html2String ?? ""
             self.productMatrial.text = data.materials ?? ""
                 
             self.productName.text = data.title ?? ""
             self.isFavourite = data.isFavorite ?? false
             let height = self.producttitle.intrinsicContentSize.height
-            self.contentSizeHieght.constant = 600 + height                
+            self.contentSizeHieght.constant = 800 + height                
             self.photoCount.text = String(data.photos?.count ?? 0)
                 if data.photos?.count ?? 0 > 0 {
                     self.photoIndex.text =  "1"
@@ -266,6 +291,36 @@ extension ProductDetailsVC {
         self.productVM.dismissIndicator()
        }).disposed(by: disposeBag)
    }
+    
+    
+    func addToCart(productId : Int,quantity :Int) {
+        productVM.addToCart(id:  productId,quantity:quantity).subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+            self.getCart()
+            self.productVM.dismissIndicator()
+            self.showMessage(text: dataModel.message ?? "")
+           }else{
+            self.productVM.dismissIndicator()
+            self.showMessage(text: dataModel.message ?? "")
+           }
+       }, onError: { (error) in
+        self.productVM.dismissIndicator()
+       }).disposed(by: disposeBag)
+   }
+    
+    
+    func getCart() {
+        productVM.getCart().subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+            self.productVM.dismissIndicator()
+            self.cartCount.text = "\(dataModel.data?.cardProducts?.count ?? 0)"
+           }
+       }, onError: { (error) in
+        self.productVM.dismissIndicator()
+       }).disposed(by: disposeBag)
+   }
+    
+    
 }
 
 extension ProductDetailsVC: UIScrollViewDelegate {

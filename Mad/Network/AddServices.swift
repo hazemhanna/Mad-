@@ -454,7 +454,7 @@ struct AddServices {
        }
     
     
-    func updateCartProduct(param : [String :Any]) -> Observable<AddProductModelJson> {
+    func updateCartProduct(param : [String :Any]) -> Observable<CartModelJSON> {
            return Observable.create { (observer) -> Disposable in
                let url = ConfigURLS.updateCartProduct
             
@@ -466,7 +466,7 @@ struct AddServices {
                    .validate(statusCode: 200..<300)
                    .responseJSON { (response: DataResponse<Any>) in
                        do {
-                           let data = try JSONDecoder().decode(AddProductModelJson.self, from: response.data!)
+                           let data = try JSONDecoder().decode(CartModelJSON.self, from: response.data!)
                            observer.onNext(data)
                        } catch {
                            print(error.localizedDescription)
@@ -478,7 +478,7 @@ struct AddServices {
        }
     
     
-    func updateCartDetails(param : [String :Any]) -> Observable<AddProductModelJson> {
+    func updateCartDetails(param : [String :Any]) -> Observable<CartDetailsModelJSON> {
            return Observable.create { (observer) -> Disposable in
                let url = ConfigURLS.updateCartDetails
             
@@ -490,7 +490,7 @@ struct AddServices {
                    .validate(statusCode: 200..<300)
                    .responseJSON { (response: DataResponse<Any>) in
                        do {
-                           let data = try JSONDecoder().decode(AddProductModelJson.self, from: response.data!)
+                           let data = try JSONDecoder().decode(CartDetailsModelJSON.self, from: response.data!)
                            observer.onNext(data)
                        } catch {
                            print(error.localizedDescription)

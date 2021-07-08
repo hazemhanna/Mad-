@@ -28,7 +28,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My cart - Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pKR-LS-65a">
-                                <rect key="frame" x="145.5" y="42" width="123" height="16"/>
+                                <rect key="frame" x="148" y="40.5" width="118" height="19"/>
                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="16"/>
                                 <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -67,7 +67,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="350" height="40"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Address details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7KE-Fw-TV1">
-                                                        <rect key="frame" x="0.0" y="24" width="117.5" height="16"/>
+                                                        <rect key="frame" x="0.0" y="21" width="110.5" height="19"/>
                                                         <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="16"/>
                                                         <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -185,7 +185,7 @@ Second floor </string>
                                                 <rect key="frame" x="0.0" y="354" width="350" height="40"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Contact details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ns2-Uq-u5q">
-                                                        <rect key="frame" x="0.0" y="24" width="116" height="16"/>
+                                                        <rect key="frame" x="0.0" y="21" width="108.5" height="19"/>
                                                         <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="16"/>
                                                         <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -299,6 +299,9 @@ Second floor </string>
                                                                 <real key="value" value="8"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="editAddressActionWithSender:" destination="mD1-64-Lnp" eventType="touchUpInside" id="A2F-NF-jn4"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -373,12 +376,19 @@ Second floor </string>
             </view>
             <navigationItem key="navigationItem" id="I3h-Wn-DRw"/>
             <size key="freeformSize" width="414" height="900"/>
+            <connections>
+                <outlet property="addressLbl" destination="YMI-Tw-Gvt" id="nXT-JA-UOJ"/>
+                <outlet property="citylbl" destination="PW1-oJ-JZS" id="KuF-xO-fh4"/>
+                <outlet property="countrylbl" destination="vKj-nK-p23" id="fTi-XU-PST"/>
+                <outlet property="emaillbl" destination="U5T-Sk-A9y" id="BiU-oN-u6Z"/>
+                <outlet property="phoneNumberlbl" destination="lxI-K6-E2q" id="Adp-xm-EM7"/>
+            </connections>
             <point key="canvasLocation" x="-1791.304347826087" y="1717.6339285714284"/>
         </viewController>
     </objects>
     <designables>
         <designable name="pdd-NA-AaK">
-            <size key="intrinsicContentSize" width="97" height="30"/>
+            <size key="intrinsicContentSize" width="92" height="33"/>
         </designable>
         <designable name="tD2-Cw-0sg">
             <size key="intrinsicContentSize" width="52" height="21"/>

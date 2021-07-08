@@ -6,13 +6,25 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+import PTCardTabBar
+
 
 class MenuVC: UIViewController {
 
     @IBOutlet weak var userView: UIView!
     @IBOutlet weak var artistView: UIView!
     @IBOutlet weak var titleLble: UILabel!
+    @IBOutlet weak var cartCount: UILabel!
 
+    var disposeBag = DisposeBag()
+    var cartVM = CartViewModel()
+    
+    open lazy var customTabBar: PTCardTabBar = {
+        return PTCardTabBar()
+    }()
+    
     let type = Helper.getType() ?? false
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +41,12 @@ class MenuVC: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        if let ptcTBC = tabBarController as? PTCardTabBarController{
+            ptcTBC.customTabBar.isHidden = false
+        }
+        
+        self.cartVM.showIndicator()
+        getCart()
         self.navigationController?.navigationBar.isHidden = true
     }
     
@@ -60,4 +78,17 @@ class MenuVC: UIViewController {
         self.navigationController?.popViewController(animated: true)
 
     }
+}
+
+extension MenuVC{
+func getCart() {
+    cartVM.getCart().subscribe(onNext: { (dataModel) in
+       if dataModel.success ?? false {
+        self.cartVM.dismissIndicator()
+        self.cartCount.text = "\(dataModel.data?.cardProducts?.count ?? 0)"
+       }
+   }, onError: { (error) in
+    self.cartVM.dismissIndicator()
+   }).disposed(by: disposeBag)
+  }
 }

@@ -56,6 +56,21 @@ struct ProductViewModel {
          return observer
      }
     
+    func addToCart(id :Int,quantity : Int) -> Observable<AddProductModelJson> {
+        let params: [String: Any] = [
+            "id": id,
+            "quantity": quantity
+        ]
+         let observer = AddServices.shared.addToCart(param: params)
+         return observer
+     }
+    
+    
+    func getCart() -> Observable<CartModelJSON> {
+         let observer = GetServices.shared.getCart()
+         return observer
+     }
+    
     func addToFavourite(productId : Int,Type : Bool) -> Observable<ProductFavouriteModel> {
         let params: [String: Any] = [
             "product_id": productId,

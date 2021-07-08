@@ -31,10 +31,11 @@ class MyCartCell: UITableViewCell {
     }
 
     
-    func confic(name : String , productUrl : String , price : String , count : String){
+    func confic(name : String , productUrl : String , price : Int , count : String){
+       
         NameLbl.text = name
-        countLbl.text = name
-        priceLbl.text = name
+        countLbl.text = count
+        priceLbl.text = String(price)
         
         if  let productUrl = URL(string: productUrl){
             self.productmage.kf.setImage(with: productUrl, placeholder: #imageLiteral(resourceName: "WhatsApp Image 2021-04-21 at 1.25.47 PM"))

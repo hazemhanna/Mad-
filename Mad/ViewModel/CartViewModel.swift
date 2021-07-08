@@ -22,17 +22,7 @@ struct CartViewModel {
     
 
    
-    func addToCart(id :Int,quantity : Int) -> Observable<AddProductModelJson> {
-        let params: [String: Any] = [
-            "id": id,
-            "quantity": quantity
-        ]
-         let observer = AddServices.shared.addToCart(param: params)
-         return observer
-     }
-    
-    
-     func updateCart(id :Int,quantity : Int) -> Observable<AddProductModelJson> {
+     func updateCart(id :Int,quantity : Int) -> Observable<CartModelJSON> {
          let params: [String: Any] = [
              "id": id,
              "quantity": quantity
@@ -42,8 +32,7 @@ struct CartViewModel {
       }
      
     
-    func updateCartDetails(competitionId :Int,
-                      fName :String,
+    func updateCartDetails(fName :String,
                       lName :String,
                       phone:String,
                       email:String,
@@ -53,13 +42,13 @@ struct CartViewModel {
                       city:String,
                       state:String,
                       postcode:String,
-                      other_note:String ) -> Observable<AddProductModelJson> {
+                      other_note:String ) -> Observable<CartDetailsModelJSON> {
         let params: [String: Any] = [
             "first_name": fName,
             "last_name":lName,
             "company_name":company_name,
             "phone": phone,
-            "email":email,
+            "email_address":email,
             "country":country,
             "street_address":street_address,
             "city":city,
@@ -80,5 +69,10 @@ struct CartViewModel {
          return observer
      }
     
+    
+    func getAllCountries() -> Observable<CountryModel> {
+         let observer = GetServices.shared.getAllCountry()
+         return observer
+     }
     
 }
