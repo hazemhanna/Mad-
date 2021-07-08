@@ -623,6 +623,54 @@ class GetServices {
            }
        }
     
+   
+    func getOrders() -> Observable<CartDetailsModelJSON> {
+           return Observable.create { (observer) -> Disposable in
+               let url = ConfigURLS.getOrders
+            let token = Helper.getAPIToken() ?? ""
+            let headers = [
+                "Authorization": "Bearer \(token)"
+            ]
+            
+               Alamofire.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers)
+                   .validate(statusCode: 200..<300)
+                   .responseJSON { (response: DataResponse<Any>) in
+                       do {
+                           let data = try JSONDecoder().decode(CartDetailsModelJSON.self, from: response.data!)
+                           observer.onNext(data)
+                       } catch {
+                           print(error.localizedDescription)
+                           observer.onError(error)
+                       }
+               }
+               return Disposables.create()
+           }
+       }
+    
+    
+    func getOrderDetails() -> Observable<CartDetailsModelJSON> {
+           return Observable.create { (observer) -> Disposable in
+               let url = ConfigURLS.getOrdersDetails
+            let token = Helper.getAPIToken() ?? ""
+            let headers = [
+                "Authorization": "Bearer \(token)"
+            ]
+            
+               Alamofire.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers)
+                   .validate(statusCode: 200..<300)
+                   .responseJSON { (response: DataResponse<Any>) in
+                       do {
+                           let data = try JSONDecoder().decode(CartDetailsModelJSON.self, from: response.data!)
+                           observer.onNext(data)
+                       } catch {
+                           print(error.localizedDescription)
+                           observer.onError(error)
+                       }
+               }
+               return Disposables.create()
+           }
+       }
+
     
     
 }

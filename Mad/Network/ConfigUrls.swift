@@ -64,6 +64,10 @@ struct ConfigURLS {
     static var getCartDetails = BASE_URL  + "cart/get_details"
     static var updateCartDetails = BASE_URL  + "cart/update_details"
     static var updateCartProduct = BASE_URL  + "cart/update_product"
+    // order
+    static var getOrders = BASE_URL  + "order"
+    static var getOrdersDetails = BASE_URL  + "order/get"
+    
     
     
 }
