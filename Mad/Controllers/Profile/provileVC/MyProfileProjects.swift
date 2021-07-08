@@ -21,7 +21,6 @@ import RxCocoa
 class MyProfileProjects : UIViewController {
     
     @IBOutlet weak var mainTableView: UITableView!
-    
     private let CellIdentifier = "HomeCell"
   
 

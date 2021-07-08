@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Graphik-Light.ttf">
+            <string>Graphik-Light</string>
+        </array>
+        <array key="Graphik-Medium.ttf">
+            <string>Graphik-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="InboxCell" rowHeight="99" id="KGk-i7-Jjw" customClass="InboxCell" customModule="Mad" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="331" height="99"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="331" height="99"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ex4-BK-fLR" customClass="CustomView" customModule="Mad" customModuleProvider="target">
+                        <rect key="frame" x="4" y="0.0" width="323" height="83"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2ZM-DX-cny">
+                                <rect key="frame" x="16" y="21.5" width="291" height="40"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4" translatesAutoresizingMaskIntoConstraints="NO" id="dEk-lX-1G0" customClass="CustomImageView" customModule="Mad" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="DnA-ED-A8b"/>
+                                            <constraint firstAttribute="height" constant="40" id="xha-Qy-vwH"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="t1o-mK-bhn">
+                                        <rect key="frame" x="48" y="0.0" width="243" height="40"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Karim" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wOx-OE-0Qi">
+                                                <rect key="frame" x="0.0" y="0.0" width="243" height="18"/>
+                                                <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="14"/>
+                                                <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No need to do this" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DZJ-Bc-BPy">
+                                                <rect key="frame" x="0.0" y="26" width="243" height="14"/>
+                                                <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="14"/>
+                                                <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="2ZM-DX-cny" secondAttribute="trailing" constant="16" id="EBz-T0-72F"/>
+                            <constraint firstItem="2ZM-DX-cny" firstAttribute="leading" secondItem="Ex4-BK-fLR" secondAttribute="leading" constant="16" id="Mcl-eQ-Z7e"/>
+                            <constraint firstItem="2ZM-DX-cny" firstAttribute="centerY" secondItem="Ex4-BK-fLR" secondAttribute="centerY" id="Mzw-wp-RWB"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="NO"/>
+                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.16" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                <real key="value" value="0.69999999999999996"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                <real key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                <size key="value" width="0.0" height="3"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="20"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Ex4-BK-fLR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Mlk-Cg-42h"/>
+                    <constraint firstItem="Ex4-BK-fLR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="4" id="kpY-gz-Qqi"/>
+                    <constraint firstAttribute="trailing" secondItem="Ex4-BK-fLR" secondAttribute="trailing" constant="4" id="oYW-ET-1M8"/>
+                    <constraint firstAttribute="bottom" secondItem="Ex4-BK-fLR" secondAttribute="bottom" constant="16" id="vdj-D0-nZf"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
+            <point key="canvasLocation" x="-5.0724637681159424" y="73.995535714285708"/>
+        </tableViewCell>
+    </objects>
+    <designables>
+        <designable name="dEk-lX-1G0">
+            <size key="intrinsicContentSize" width="320" height="320"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4" width="320" height="320"/>
+    </resources>
+</document>
