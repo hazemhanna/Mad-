@@ -241,6 +241,9 @@
                                                         <state key="normal" title="Favorites">
                                                             <color key="titleColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="favouriteActionWithSender:" destination="gH6-x4-vCf" eventType="touchUpInside" id="84m-v2-hMr"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>

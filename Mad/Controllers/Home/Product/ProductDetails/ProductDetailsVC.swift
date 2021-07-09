@@ -14,7 +14,6 @@ class ProductDetailsVC: UIViewController {
 
     @IBOutlet weak var addsCollectionView: UICollectionView!
     @IBOutlet weak var relatedProductCollectionView: UICollectionView!
-
     @IBOutlet weak var photoCount: UILabel!
     @IBOutlet weak var photoIndex: UILabel!
     @IBOutlet weak var productName: UILabel!
@@ -27,12 +26,16 @@ class ProductDetailsVC: UIViewController {
     @IBOutlet weak var productMatrial: UILabel!
     @IBOutlet weak var cartCount: UILabel!
     @IBOutlet weak var CounterLbl: UILabel!
-
     @IBOutlet weak var cartView: UIView!
     @IBOutlet weak var hideCartBtn: UIButton!
+    @IBOutlet weak var reviewTableView: UITableView!
+    @IBOutlet weak var descriptionBtn: UIButton!
+    @IBOutlet weak var reviewsBtn: UIButton!
+    @IBOutlet weak var descriptionStack: UIStackView!
+    @IBOutlet weak var reviewsStack : UIStackView!
+    @IBOutlet weak var reviewsStackSizeHieght : NSLayoutConstraint!
+    @IBOutlet weak var contentView: UIView!
 
-
-    
     var token = Helper.getAPIToken() ?? ""
     var productId = Int()
     var showShimmer: Bool = true
@@ -51,22 +54,22 @@ class ProductDetailsVC: UIViewController {
     
    private let CellIdentifier = "LiveCellCVC"
    private let cellIdentifier = "AddsCell"
+    private let cellIdentifier2 = "ReviewCell"
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.addsCollectionView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
-        
         self.relatedProductCollectionView.register(UINib(nibName: CellIdentifier, bundle: nil), forCellWithReuseIdentifier: CellIdentifier)
-
-        
         showShimmer = false
         addsCollectionView.delegate = self
         addsCollectionView.dataSource = self
         addsCollectionView.isPagingEnabled = true
         relatedProductCollectionView.delegate = self
         relatedProductCollectionView.dataSource = self
-        
+        reviewsStack.isHidden = true
+        setupContentTableView()
+        contentView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -79,7 +82,6 @@ class ProductDetailsVC: UIViewController {
         productVM.showIndicator()
         getproductDetails(id: self.productId)
         self.getCart()
-
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -92,6 +94,28 @@ class ProductDetailsVC: UIViewController {
     @IBAction func backButton(sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
+    
+    @IBAction func descriptionBtn(sender: UIButton) {
+        if sender.tag == 1 {
+            reviewsBtn.setTitleColor(#colorLiteral(red: 0.1176470588, green: 0.2156862745, blue: 0.4, alpha: 1), for: .normal)
+            descriptionBtn.setTitleColor(#colorLiteral(red: 0.8980392157, green: 0.1254901961, blue: 0.3529411765, alpha: 1), for: .normal)
+            descriptionStack.isHidden = false
+            reviewsStack.isHidden = true
+            contentView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        }else{
+            descriptionBtn.setTitleColor(#colorLiteral(red: 0.1176470588, green: 0.2156862745, blue: 0.4, alpha: 1), for: .normal)
+            reviewsBtn.setTitleColor(#colorLiteral(red: 0.8980392157, green: 0.1254901961, blue: 0.3529411765, alpha: 1), for: .normal)
+            descriptionStack.isHidden = true
+            reviewsStack.isHidden = false
+            contentView.backgroundColor = #colorLiteral(red: 0.9725490196, green: 0.9725490196, blue: 0.9725490196, alpha: 1)
+        }
+    }
+    
+    @IBAction func addReviewBtn(sender: UIButton) {
+        let vc = AddReviewVC.instantiateFromNib()
+        self.navigationController?.pushViewController(vc!, animated: true)
+    }
+    
     
     @IBAction func favouriteAction(_ sender: UIButton) {
         if self.token == "" {
@@ -110,7 +134,6 @@ class ProductDetailsVC: UIViewController {
                 self.favouritBtn.setImage(#imageLiteral(resourceName: "Group 155"), for: .normal)
               }
         }
-        
     }
     
     @IBAction func shareAction(_ sender: UIButton) {
@@ -171,7 +194,6 @@ class ProductDetailsVC: UIViewController {
             }
         }
     }
-    
 }
 
 extension ProductDetailsVC : UICollectionViewDelegate ,UICollectionViewDataSource{
@@ -199,7 +221,6 @@ extension ProductDetailsVC : UICollectionViewDelegate ,UICollectionViewDataSourc
             
             cell.showShimmer = showShimmer2
             return cell
-
         }
     }
     
@@ -223,10 +244,33 @@ extension ProductDetailsVC : UICollectionViewDelegateFlowLayout {
              size = (collectionView.frame.size.width - space) / 1.4
         }
         return CGSize(width: size, height: (collectionView.frame.size.height))
-
     }
 }
 
+extension ProductDetailsVC : UITableViewDelegate,UITableViewDataSource{
+    
+    func setupContentTableView() {
+        reviewTableView.delegate = self
+        reviewTableView.dataSource = self
+        self.reviewTableView.register(UINib(nibName: self.cellIdentifier2, bundle: nil), forCellReuseIdentifier: self.cellIdentifier2)
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+         return 9
+    
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier2) as! ReviewCell
+            return cell
+    }
+    
+    
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
+    }
+
+}
 extension ProductDetailsVC {
     func getproductDetails(id : Int) {
         productVM.getTopProductDetails(id: id).subscribe(onNext: { (dataModel) in
@@ -235,17 +279,16 @@ extension ProductDetailsVC {
             self.showShimmer = false
             if let data = dataModel.data {
             self.photos = data.photos ?? []
-         
             self.addsCollectionView.reloadData()
             self.artistName.text = data.artist?.name ?? ""
             self.productPrice.text = "USD " + String(data.price ?? 0)
             self.producttitle.text = data.dataDescription?.html2String ?? ""
             self.productMatrial.text = data.materials ?? ""
-                
             self.productName.text = data.title ?? ""
             self.isFavourite = data.isFavorite ?? false
             let height = self.producttitle.intrinsicContentSize.height
-            self.contentSizeHieght.constant = 800 + height                
+            self.contentSizeHieght.constant = 800 + height
+            self.reviewsStackSizeHieght.constant = 200 + height
             self.photoCount.text = String(data.photos?.count ?? 0)
                 if data.photos?.count ?? 0 > 0 {
                     self.photoIndex.text =  "1"
@@ -319,6 +362,7 @@ extension ProductDetailsVC {
         self.productVM.dismissIndicator()
        }).disposed(by: disposeBag)
    }
+    
     
     
 }

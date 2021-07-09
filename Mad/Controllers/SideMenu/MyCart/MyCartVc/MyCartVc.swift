@@ -54,8 +54,15 @@ class MyCartVc: UIViewController {
     
     @IBAction func backButton(sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+   
+    @IBAction func nextButton(sender: UIButton) {
+        let main = MyCartDetailsVc.instantiateFromNib()
+        self.navigationController?.pushViewController(main!, animated: true)
 
     }
+    
 }
 
 extension MyCartVc: UITableViewDelegate,UITableViewDataSource{
@@ -89,8 +96,7 @@ extension MyCartVc: UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let main = MyCartDetailsVc.instantiateFromNib()
-        self.navigationController?.pushViewController(main!, animated: true)
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

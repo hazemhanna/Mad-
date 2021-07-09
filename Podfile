@@ -28,6 +28,7 @@ target 'Mad' do
   pod 'FSCalendar'
   pod "RichEditorView"
   pod 'SwiftSoup'
+  pod 'Cosmos', '~> 21.0.0'
 
 
 end

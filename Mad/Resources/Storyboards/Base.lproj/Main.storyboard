@@ -67,7 +67,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lCA-t5-GCN">
-                                        <rect key="frame" x="46" y="8.5" width="296" height="33"/>
+                                        <rect key="frame" x="46" y="10" width="296" height="30"/>
                                         <fontDescription key="fontDescription" name="Graphik-Regular" family="Graphik" pointSize="18"/>
                                         <state key="normal" title="Type your search ">
                                             <color key="titleColor" red="0.1333333333" green="0.2156862745" blue="0.38823529410000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -102,13 +102,13 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Popular search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HdA-J4-QW9">
-                                                        <rect key="frame" x="32" y="8" width="108" height="19"/>
+                                                        <rect key="frame" x="32" y="8" width="114" height="16"/>
                                                         <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="16"/>
                                                         <color key="textColor" red="0.1333333333" green="0.2156862745" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="I62-JX-ihV" customClass="CustomCollectionView" customModule="Mad" customModuleProvider="target">
-                                                        <rect key="frame" x="32" y="59" width="350" height="941"/>
+                                                        <rect key="frame" x="32" y="56" width="350" height="944"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BaK-GW-6OY">
                                                             <size key="itemSize" width="50" height="50"/>
@@ -349,7 +349,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g6E-jz-1mm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1762" y="1475"/>
+            <point key="canvasLocation" x="-1919" y="1492"/>
         </scene>
         <!--MyProfileVc-->
         <scene sceneID="euh-7a-0bd">
@@ -359,7 +359,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6F2-KL-83s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-169" y="1306"/>
+            <point key="canvasLocation" x="-1076" y="1165"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vIE-4n-LST">
@@ -395,7 +395,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JUt-IA-MUB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1763.7681159420292" y="636.83035714285711"/>
+            <point key="canvasLocation" x="-1920" y="637"/>
         </scene>
         <!--HomeVC-->
         <scene sceneID="KJv-Xb-pmg">
@@ -405,7 +405,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lSp-le-QXQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5042" y="1165"/>
+            <point key="canvasLocation" x="-3449" y="1100"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bNy-27-lvo">
@@ -424,7 +424,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="isM-fj-IbT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3767" y="605"/>
+            <point key="canvasLocation" x="-3448" y="637"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="L0R-OM-f4l">
@@ -443,7 +443,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vnJ-fu-jqN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-62" y="605"/>
+            <point key="canvasLocation" x="-1138" y="637"/>
         </scene>
     </scenes>
     <resources>

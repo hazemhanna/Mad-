@@ -102,6 +102,9 @@
                                 <real key="value" value="28"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="nextButtonWithSender:" destination="ee4-W8-5du" eventType="touchUpInside" id="JsT-5M-j7n"/>
+                        </connections>
                     </button>
                 </subviews>
                 <viewLayoutGuide key="safeArea" id="Vhb-eM-HLK"/>
