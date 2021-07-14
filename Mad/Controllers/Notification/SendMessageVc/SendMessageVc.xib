@@ -124,8 +124,8 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TOa-Ky-tFi" customClass="CustomView" customModule="Mad" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="38" width="350" height="62"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="top" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WFR-Z8-1tB" customClass="TextFieldDropDown" customModule="Mad" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="350" height="62"/>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" text="Project" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WFR-Z8-1tB" customClass="TextFieldDropDown" customModule="Mad" customModuleProvider="target">
+                                                                        <rect key="frame" x="32" y="0.0" width="318" height="62"/>
                                                                         <color key="textColor" red="0.1333333333" green="0.2156862745" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="16"/>
                                                                         <textInputTraits key="textInputTraits"/>
@@ -143,7 +143,7 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="bottom" secondItem="WFR-Z8-1tB" secondAttribute="bottom" id="4BM-cK-dCS"/>
                                                                     <constraint firstItem="WFR-Z8-1tB" firstAttribute="top" secondItem="TOa-Ky-tFi" secondAttribute="top" id="6iA-CV-Xhi"/>
-                                                                    <constraint firstItem="WFR-Z8-1tB" firstAttribute="leading" secondItem="TOa-Ky-tFi" secondAttribute="leading" id="BjQ-Ic-HAf"/>
+                                                                    <constraint firstItem="WFR-Z8-1tB" firstAttribute="leading" secondItem="TOa-Ky-tFi" secondAttribute="leading" constant="32" id="BjQ-Ic-HAf"/>
                                                                     <constraint firstAttribute="height" constant="62" id="qES-JQ-giS"/>
                                                                     <constraint firstAttribute="trailing" secondItem="WFR-Z8-1tB" secondAttribute="trailing" id="zVA-Fx-EM5"/>
                                                                 </constraints>
@@ -201,20 +201,20 @@
                                                                         </constraints>
                                                                         <state key="normal" image="Group 514"/>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ToT-bU-Sdd">
-                                                                        <rect key="frame" x="160" y="60" width="30" height="30"/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="width" constant="30" id="8O9-Qn-zwg"/>
-                                                                            <constraint firstAttribute="height" constant="30" id="XJ9-9c-Thb"/>
-                                                                        </constraints>
-                                                                        <state key="normal" image="Group 514"/>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ToT-bU-Sdd">
+                                                                        <rect key="frame" x="129" y="80" width="92" height="34"/>
+                                                                        <state key="normal" title="Select Now">
+                                                                            <color key="titleColor" red="0.13333333333333333" green="0.21568627450980393" blue="0.38823529411764707" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        </state>
                                                                     </button>
                                                                 </subviews>
                                                                 <color key="backgroundColor" red="0.94117647058823528" green="0.95294117647058818" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <constraints>
+                                                                    <constraint firstItem="ToT-bU-Sdd" firstAttribute="centerX" secondItem="iDA-fh-HTl" secondAttribute="centerX" id="Abb-zb-ezd"/>
                                                                     <constraint firstAttribute="height" constant="150" id="Gca-ha-Ewc"/>
                                                                     <constraint firstItem="Yke-8p-Ets" firstAttribute="centerX" secondItem="iDA-fh-HTl" secondAttribute="centerX" id="I6i-SA-jxy"/>
                                                                     <constraint firstItem="Yke-8p-Ets" firstAttribute="top" secondItem="iDA-fh-HTl" secondAttribute="top" constant="50" id="P4O-Gh-aP0"/>
+                                                                    <constraint firstItem="ToT-bU-Sdd" firstAttribute="top" secondItem="Yke-8p-Ets" secondAttribute="bottom" id="nKw-wM-tQO"/>
                                                                 </constraints>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="NO"/>
@@ -267,7 +267,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="nextButtonWithSender:" destination="BIY-ed-Ky9" eventType="touchUpInside" id="oIK-Sq-2EM"/>
+                                                            <action selector="sendButtonWithSender:" destination="BIY-ed-Ky9" eventType="touchUpInside" id="2rD-b7-9Y6"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -317,7 +317,6 @@
             <connections>
                 <outlet property="tagsView" destination="sgx-Bt-rph" id="Zff-8O-lvo"/>
                 <outlet property="tagsViewHeight" destination="Ziy-k1-XPy" id="zNu-Ko-KZz"/>
-                <outlet property="titleTV" destination="WFR-Z8-1tB" id="7D5-7W-VJS"/>
             </connections>
             <point key="canvasLocation" x="-1791.304347826087" y="1717.6339285714284"/>
         </viewController>

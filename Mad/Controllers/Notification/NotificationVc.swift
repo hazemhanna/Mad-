@@ -30,16 +30,22 @@ class NotificationVc: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupContentTableView()
+        messageView.isHidden = true
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        messageView.isHidden = true
         self.navigationController?.navigationBar.isHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
     }
+    
+    @IBAction func sendMessageAction(sender: UIButton) {
+        let main = SendMessageVc.instantiateFromNib()
+        self.navigationController?.pushViewController(main!, animated: true)
+    }
+    
     
     @IBAction func notificationBtn(sender: UIButton) {
         if sender.tag == 1 {
