@@ -15,9 +15,9 @@ import SVProgressHUD
 struct AdsViewModel {
     
     
-    var data = PublishSubject<[String]>()
+    var data = PublishSubject<[SplashModel]>()
   
-    func fetchAds(data: [String]) {
+    func fetchAds(data: [SplashModel]) {
         self.data.onNext(data)
        }
     

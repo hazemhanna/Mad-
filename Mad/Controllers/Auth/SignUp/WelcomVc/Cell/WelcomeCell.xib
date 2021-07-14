@@ -20,17 +20,17 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WelcomeCell" id="gTV-IL-0wX" customClass="WelcomeCell" customModule="Mad" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="230" height="207"/>
+            <rect key="frame" x="0.0" y="0.0" width="250" height="309"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="230" height="207"/>
+                <rect key="frame" x="0.0" y="0.0" width="250" height="309"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tRH-k0-Z1A" customClass="CustomView" customModule="Mad" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="230" height="207"/>
+                        <rect key="frame" x="0.0" y="0.0" width="250" height="309"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4" translatesAutoresizingMaskIntoConstraints="NO" id="W7t-hg-9aa" customClass="CustomImageView" customModule="Mad" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="230" height="207"/>
+                                <rect key="frame" x="0.0" y="0.0" width="250" height="309"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="16"/>
@@ -38,8 +38,24 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D45-mu-mHz" customClass="CustomView" customModule="Mad" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="230" height="207"/>
+                                <rect key="frame" x="0.0" y="0.0" width="250" height="309"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle 71" translatesAutoresizingMaskIntoConstraints="NO" id="bOy-g3-pmM" customClass="CustomImageView" customModule="Mad" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="309"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="16"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                </subviews>
                                 <color key="backgroundColor" red="0.13333333333333333" green="0.21568627450980393" blue="0.38823529411764707" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="bOy-g3-pmM" firstAttribute="top" secondItem="D45-mu-mHz" secondAttribute="top" id="PAd-qC-6zA"/>
+                                    <constraint firstItem="bOy-g3-pmM" firstAttribute="leading" secondItem="D45-mu-mHz" secondAttribute="leading" id="Pbn-dS-BMU"/>
+                                    <constraint firstAttribute="bottom" secondItem="bOy-g3-pmM" secondAttribute="bottom" id="ciM-bg-N2a"/>
+                                    <constraint firstAttribute="trailing" secondItem="bOy-g3-pmM" secondAttribute="trailing" id="oDd-sA-9xS"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="16"/>
@@ -47,16 +63,16 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Esm-yx-G5X">
-                                <rect key="frame" x="16" y="101" width="182" height="90"/>
+                                <rect key="frame" x="16" y="219" width="202" height="74"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Compete to Win it all" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MxV-4L-uxu">
-                                        <rect key="frame" x="0.0" y="0.0" width="182" height="18"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="202" height="18"/>
                                         <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="18"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Participate in competitions, get visibility &amp; win cool prizes" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AUg-Ym-NzE">
-                                        <rect key="frame" x="0.0" y="26" width="182" height="64"/>
+                                        <rect key="frame" x="0.0" y="26" width="202" height="48"/>
                                         <fontDescription key="fontDescription" name="Graphik-Regular" family="Graphik" pointSize="16"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -93,17 +109,26 @@
                 <constraint firstItem="tRH-k0-Z1A" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="fyg-qB-Fkq"/>
                 <constraint firstAttribute="bottom" secondItem="tRH-k0-Z1A" secondAttribute="bottom" id="klu-Kg-f8p"/>
             </constraints>
-            <size key="customSize" width="230" height="207"/>
-            <point key="canvasLocation" x="186" y="133"/>
+            <size key="customSize" width="250" height="309"/>
+            <connections>
+                <outlet property="imageIcon" destination="W7t-hg-9aa" id="Brd-KL-Rvd"/>
+                <outlet property="seconTitleleLbl" destination="AUg-Ym-NzE" id="82u-sf-JGR"/>
+                <outlet property="titleLbl" destination="MxV-4L-uxu" id="QdE-f4-IVG"/>
+            </connections>
+            <point key="canvasLocation" x="200.00000000000003" y="167.07589285714286"/>
         </collectionViewCell>
     </objects>
     <designables>
         <designable name="W7t-hg-9aa">
             <size key="intrinsicContentSize" width="320" height="320"/>
         </designable>
+        <designable name="bOy-g3-pmM">
+            <size key="intrinsicContentSize" width="317" height="416"/>
+        </designable>
     </designables>
     <resources>
         <image name="Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4" width="320" height="320"/>
+        <image name="Rectangle 71" width="317" height="416"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

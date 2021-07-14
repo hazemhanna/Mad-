@@ -18,10 +18,10 @@ class WelcomVc: UIViewController {
     var disposeBag = DisposeBag()
     private let AdsVM = AdsViewModel()
     
-    var ads = [String]() {
+    var data  = [SplashModel]() {
         didSet {
             DispatchQueue.main.async {
-                self.AdsVM.fetchAds(data: self.ads)
+                self.AdsVM.fetchAds(data: self.data)
 
             }
         }
@@ -31,6 +31,13 @@ class WelcomVc: UIViewController {
         super.viewDidLoad()
         collectionView.isPagingEnabled = true
         setupCollectionView()
+        
+        data.append(SplashModel(images: #imageLiteral(resourceName: "Mask Group 27"), title: "Compete to win it all", title2: "Apply to competitions, get visibility & win cool prizes"))
+        data.append(SplashModel(images: #imageLiteral(resourceName: "Mask Group 34"), title: "Sell your creations & art", title2: "We love everything you do. Sell your work now."))
+        data.append(SplashModel(images: #imageLiteral(resourceName: "Mask Group 27"), title: "Artfluencer?", title2: "Create content for brands by being part of their campaigns"))
+        data.append(SplashModel(images: #imageLiteral(resourceName: "Mask Group 34"), title: "Get featured in MAD Content", title2: "Shows, interviews, events,  showcases & so much more"))
+        data.append(SplashModel(images: #imageLiteral(resourceName: "Mask Group 32"), title: " What are you working on?", title2: "Create your projects, promote them and get them sponsored"))
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,7 +56,7 @@ class WelcomVc: UIViewController {
     
     @IBAction func nexButton(sender: UIButton) {
         DispatchQueue.main.async {
-            let lastIndex = (self.ads.count) - 1
+            let lastIndex = (self.data.count) - 1
             let visibleIndices = self.collectionView.indexPathsForVisibleItems
             let nextIndex = visibleIndices[0].row + 1
             let nextIndexPath: IndexPath = IndexPath.init(item: nextIndex, section: 0)
@@ -70,12 +77,14 @@ class WelcomVc: UIViewController {
 
 extension WelcomVc: UICollectionViewDelegate {
     func setupCollectionView() {
-        ads = ["1","2","3","4"]
+
         let cellIdentifier = "WelcomeCell"
         self.collectionView.rx.setDelegate(self).disposed(by: disposeBag)
         self.collectionView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
         self.AdsVM.data.bind(to: self.collectionView.rx.items(cellIdentifier: cellIdentifier, cellType: WelcomeCell.self)) { index, element, cell in
-                    
+            cell.imageIcon.image = self.data[index].images
+            cell.titleLbl.text = self.data[index].title
+            cell.seconTitleleLbl.text = self.data[index].title2
             
         }.disposed(by: disposeBag)
         
