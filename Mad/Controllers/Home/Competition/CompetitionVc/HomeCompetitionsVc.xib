@@ -23,7 +23,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l5d-Am-CJL" customClass="CustomView" customModule="Mad" customModuleProvider="target">
                         <rect key="frame" x="32" y="44" width="350" height="100"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Ongoing" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cED-Vg-aX6" customClass="TextFieldDropDown" customModule="Mad" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="all" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cED-Vg-aX6" customClass="TextFieldDropDown" customModule="Mad" customModuleProvider="target">
                                 <rect key="frame" x="64" y="0.0" width="222" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
