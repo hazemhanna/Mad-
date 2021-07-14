@@ -672,5 +672,29 @@ class GetServices {
        }
 
     
+    func getAllBlogs(param : [String :Any]) -> Observable<BlogModelJSON> {
+           return Observable.create { (observer) -> Disposable in
+               let url = ConfigURLS.allBlogs
+            let token = Helper.getAPIToken() ?? ""
+            let headers = [
+                "Authorization": "Bearer \(token)"
+            ]
+            
+               Alamofire.request(url, method: .get, parameters: param, encoding: URLEncoding.default, headers: headers)
+                   .validate(statusCode: 200..<300)
+                   .responseJSON { (response: DataResponse<Any>) in
+                       do {
+                           let data = try JSONDecoder().decode(BlogModelJSON.self, from: response.data!)
+                           observer.onNext(data)
+                       } catch {
+                           print(error.localizedDescription)
+                           observer.onError(error)
+                       }
+               }
+               return Disposables.create()
+           }
+       }
+    
+    
     
 }

@@ -15,7 +15,7 @@ class BlogsVc  : UIViewController {
     @IBOutlet weak var mainTableView: UITableView!
     @IBOutlet weak var catCollectionView: UICollectionView!
     
-    var homeVM = HomeViewModel()
+    var blogsVM = BlogsViewModel()
     var disposeBag = DisposeBag()
     var parentVC : HomeVC?
     var token = Helper.getAPIToken() ?? ""
@@ -28,7 +28,7 @@ class BlogsVc  : UIViewController {
         }
     }
     
-    var projects = [Project]() {
+    var blogs = [Blog]() {
         didSet {
             DispatchQueue.main.async {
                 self.mainTableView?.reloadData()
@@ -77,54 +77,40 @@ extension BlogsVc : UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.showShimmer ? 1 : projects.count
+        return self.showShimmer ? 1 : blogs.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.CellIdentifier) as! HomeCell
         if !self.showShimmer {
-            cell.confic(name : projects[indexPath.row].artist?.name ?? "MAD"
-                        ,date : projects[indexPath.row].createdAt ?? ""
-                        , title : projects[indexPath.row].title ?? ""
-                        , like :projects[indexPath.row].favoriteCount ?? 0
-                        , share : projects[indexPath.row].shareCount ?? 0
-                        , profileUrl : projects[indexPath.row].artist?.profilPicture ?? ""
-                        , projectUrl :projects[indexPath.row].imageURL ?? ""
-                        , trustUrl : "", isFavourite: projects[indexPath.row].isFavorite ?? false)
+            cell.confic(name : ""
+                        ,date : blogs[indexPath.row].createdAt ?? ""
+                        , title : blogs[indexPath.row].title ?? ""
+                        , like : 0
+                        , share : blogs[indexPath.row].shareCount ?? 0
+                        , profileUrl : ""
+                        , projectUrl :blogs[indexPath.row].imageURL ?? ""
+                        , trustUrl : "", isFavourite: false)
                
-            
-            // edit favourite
-              cell.favourite = {
-                if self.token == ""{
-                    return
-                }
-                self.homeVM.showIndicator()
-                if  self.projects[indexPath.row].isFavorite ?? false {
-                    self.editFavourite(productID:  self.projects[indexPath.row].id ?? 0, Type: false)
-                }else{
-                  self.editFavourite(productID:  self.projects[indexPath.row].id ?? 0, Type: true)
-                }
-             }
-            
             cell.favouriteStack.isHidden = true
              // share project
-            cell.share = {
-                if self.token == ""{
-                    return
-                }
-                self.homeVM.showIndicator()
-                self.shareProject(productID:  self.projects[indexPath.row].id ?? 0)
-
-                // text to share
-                let text = self.projects[indexPath.row].title ?? ""
-                let image = self.projects[indexPath.row].artist?.profilPicture ?? ""
-                let textToShare = [ text ,image]
-                let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
-                activityViewController.popoverPresentationController?.sourceView = self.view
-              activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.postToFacebook ]
-                self.present(activityViewController, animated: true, completion: nil)
-                
-            }
+//            cell.share = {
+//                if self.token == ""{
+//                    return
+//                }
+//                self.homeVM.showIndicator()
+//                self.shareProject(productID:  self.blogs[indexPath.row].id ?? 0)
+//
+//                // text to share
+//                let text = self.blogs[indexPath.row].title ?? ""
+//                let image = self.blogs[indexPath.row].artist?.profilPicture ?? ""
+//                let textToShare = [ text ,image]
+//                let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+//                activityViewController.popoverPresentationController?.sourceView = self.view
+//              activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.postToFacebook ]
+//                self.present(activityViewController, animated: true, completion: nil)
+//
+//            }
         }
         cell.showShimmer = showProjectShimmer
         return cell
@@ -135,7 +121,7 @@ extension BlogsVc : UITableViewDelegate,UITableViewDataSource{
             return
         }
         let main = ProjectDetailsVC.instantiateFromNib()
-        main!.projectId =  self.projects[indexPath.row].id!
+        main!.projectId =  self.blogs[indexPath.row].id!
         self.navigationController?.pushViewController(main!, animated: true)
      
     }
@@ -182,7 +168,7 @@ extension BlogsVc  : UICollectionViewDelegateFlowLayout {
 
 extension BlogsVc  {
     func getCategory() {
-        homeVM.getCategories().subscribe(onNext: { (dataModel) in
+        blogsVM.getCategories().subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
             self.showShimmer = false
                self.Categories = dataModel.data ?? []
@@ -194,38 +180,27 @@ extension BlogsVc  {
    }
     
     func getProject() {
-        homeVM.getProject(page: 1, catId: 0).subscribe(onNext: { (dataModel) in
+        blogsVM.getBlogs(page: 1, catId: 0).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
             self.showProjectShimmer = false
-            self.projects = dataModel.data?.data ?? []
+            self.blogs = dataModel.data?.data ?? []
            }
        }, onError: { (error) in
 
        }).disposed(by: disposeBag)
    }
 
-    func editFavourite(productID : Int,Type : Bool) {
-        homeVM.addToFavourite(productID: productID, Type: Type).subscribe(onNext: { (dataModel) in
-           if dataModel.success ?? false {
-            self.homeVM.dismissIndicator()
-            self.getProject()
-            self.showMessage(text: dataModel.message ?? "")
-           }
-       }, onError: { (error) in
-        self.homeVM.dismissIndicator()
-       }).disposed(by: disposeBag)
-   }
     
-    func shareProject(productID : Int) {
-        homeVM.shareProject(productID: productID).subscribe(onNext: { (dataModel) in
-           if dataModel.success ?? false {
-            self.homeVM.dismissIndicator()
-            self.getProject()
-            self.showMessage(text: dataModel.message ?? "")
-           }
-       }, onError: { (error) in
-        self.homeVM.dismissIndicator()
-       }).disposed(by: disposeBag)
-   }
+//    func shareProject(productID : Int) {
+//        blogsVM.shareProject(productID: productID).subscribe(onNext: { (dataModel) in
+//           if dataModel.success ?? false {
+//            self.homeVM.dismissIndicator()
+//            self.getProject()
+//            self.showMessage(text: dataModel.message ?? "")
+//           }
+//       }, onError: { (error) in
+//        self.homeVM.dismissIndicator()
+//       }).disposed(by: disposeBag)
+//   }
 }
 

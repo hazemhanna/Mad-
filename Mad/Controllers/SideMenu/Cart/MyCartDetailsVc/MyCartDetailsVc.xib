@@ -25,16 +25,16 @@
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r0o-FU-P85">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="75"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My cart - Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pKR-LS-65a">
-                                <rect key="frame" x="145.5" y="42" width="123" height="16"/>
+                                <rect key="frame" x="145.5" y="29.5" width="123" height="16"/>
                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="16"/>
                                 <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LYm-Ql-5RN">
-                                <rect key="frame" x="32" y="41.5" width="36" height="17"/>
+                                <rect key="frame" x="32" y="29" width="36" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="36" id="VF8-Y6-ghU"/>
                                     <constraint firstAttribute="height" constant="17" id="gyN-Du-0nz"/>
@@ -48,14 +48,14 @@
                         <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="pKR-LS-65a" firstAttribute="centerY" secondItem="r0o-FU-P85" secondAttribute="centerY" id="KKf-Uq-eSB"/>
-                            <constraint firstAttribute="height" constant="100" id="MoW-Qp-Fag"/>
+                            <constraint firstAttribute="height" constant="75" id="MoW-Qp-Fag"/>
                             <constraint firstItem="LYm-Ql-5RN" firstAttribute="leading" secondItem="r0o-FU-P85" secondAttribute="leading" constant="32" id="Ox0-EA-aTw"/>
                             <constraint firstItem="pKR-LS-65a" firstAttribute="centerX" secondItem="r0o-FU-P85" secondAttribute="centerX" id="Xoj-KB-Dhz"/>
                             <constraint firstItem="LYm-Ql-5RN" firstAttribute="centerY" secondItem="r0o-FU-P85" secondAttribute="centerY" id="vfn-A0-zyM"/>
                         </constraints>
                     </view>
                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D59-Os-xMB">
-                        <rect key="frame" x="0.0" y="100" width="414" height="800"/>
+                        <rect key="frame" x="0.0" y="119" width="414" height="781"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JwZ-tU-Xlv">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="900"/>
@@ -367,14 +367,14 @@ Second floor </string>
                 <viewLayoutGuide key="safeArea" id="PaA-lW-9rt"/>
                 <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
-                    <constraint firstItem="D59-Os-xMB" firstAttribute="top" secondItem="b3B-C3-3ZN" secondAttribute="top" constant="100" id="00J-XN-fve"/>
                     <constraint firstItem="PaA-lW-9rt" firstAttribute="trailing" secondItem="r0o-FU-P85" secondAttribute="trailing" id="28O-Vu-TW4"/>
                     <constraint firstAttribute="bottom" secondItem="D59-Os-xMB" secondAttribute="bottom" id="HIw-zq-W1u"/>
                     <constraint firstItem="D59-Os-xMB" firstAttribute="leading" secondItem="PaA-lW-9rt" secondAttribute="leading" id="MCN-7G-7Nq"/>
                     <constraint firstItem="JwZ-tU-Xlv" firstAttribute="centerX" secondItem="PaA-lW-9rt" secondAttribute="centerX" id="UYb-MR-3xW"/>
                     <constraint firstItem="PaA-lW-9rt" firstAttribute="trailing" secondItem="D59-Os-xMB" secondAttribute="trailing" id="W35-ZQ-aYN"/>
                     <constraint firstItem="r0o-FU-P85" firstAttribute="leading" secondItem="PaA-lW-9rt" secondAttribute="leading" id="d9J-Kf-Cae"/>
-                    <constraint firstItem="r0o-FU-P85" firstAttribute="top" secondItem="b3B-C3-3ZN" secondAttribute="top" id="q6K-2n-vVp"/>
+                    <constraint firstItem="D59-Os-xMB" firstAttribute="top" secondItem="r0o-FU-P85" secondAttribute="bottom" id="dPg-7B-pZB"/>
+                    <constraint firstItem="r0o-FU-P85" firstAttribute="top" secondItem="PaA-lW-9rt" secondAttribute="top" id="q6K-2n-vVp"/>
                 </constraints>
             </view>
             <navigationItem key="navigationItem" id="I3h-Wn-DRw"/>

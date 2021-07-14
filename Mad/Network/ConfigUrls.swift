@@ -67,7 +67,10 @@ struct ConfigURLS {
     // order
     static var getOrders = BASE_URL  + "order"
     static var getOrdersDetails = BASE_URL  + "order/get"
-    
+    // blogs
+    static var allBlogs  = BASE_URL  + "blog/all"
+    static var blogDetails  = BASE_URL  + "blog/get"
+
     
     
 }

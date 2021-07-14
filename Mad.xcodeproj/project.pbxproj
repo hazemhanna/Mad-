@@ -261,6 +261,8 @@
 		04F06AF62614E0D600B08606 /* CategeoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F06AF42614E0D600B08606 /* CategeoryCell.swift */; };
 		04F06AF72614E0D600B08606 /* CategeoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F06AF52614E0D600B08606 /* CategeoryCell.xib */; };
 		04F06AFA2614E18D00B08606 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F06AF92614E18D00B08606 /* CustomImageView.swift */; };
+		04F63024269F09AC00BA4C08 /* BlogsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F63023269F09AC00BA4C08 /* BlogsModel.swift */; };
+		04F63027269F0BAF00BA4C08 /* BlogsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F63026269F0BAF00BA4C08 /* BlogsViewModel.swift */; };
 		4EA4B62CD9716EDECB49E672 /* Pods_Mad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 736F74D20B54C3DE91AB8D69 /* Pods_Mad.framework */; };
 /* End PBXBuildFile section */
 
@@ -535,6 +537,8 @@
 		04F06AF42614E0D600B08606 /* CategeoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategeoryCell.swift; sourceTree = "<group>"; };
 		04F06AF52614E0D600B08606 /* CategeoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategeoryCell.xib; sourceTree = "<group>"; };
 		04F06AF92614E18D00B08606 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
+		04F63023269F09AC00BA4C08 /* BlogsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogsModel.swift; sourceTree = "<group>"; };
+		04F63026269F0BAF00BA4C08 /* BlogsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogsViewModel.swift; sourceTree = "<group>"; };
 		2DB430330E0AB5843CC86F37 /* Pods-Mad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mad.debug.xcconfig"; path = "Target Support Files/Pods-Mad/Pods-Mad.debug.xcconfig"; sourceTree = "<group>"; };
 		736F74D20B54C3DE91AB8D69 /* Pods_Mad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F578A37B5916C20B109CC26C /* Pods-Mad.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mad.release.xcconfig"; path = "Target Support Files/Pods-Mad/Pods-Mad.release.xcconfig"; sourceTree = "<group>"; };
@@ -1546,6 +1550,7 @@
 				04A41ECA268560DC00F9B730 /* SearchModel.swift */,
 				047991AE2694FFDB00859254 /* CartModel.swift */,
 				04042FCC2696D699009844C7 /* OrdersModel.swift */,
+				04F63023269F09AC00BA4C08 /* BlogsModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1589,6 +1594,7 @@
 				046B2B1E2677AE4B00BAA2A3 /* CometitionsViewModel.swift */,
 				046CD68D2682A15B004FE6C6 /* SearchViewModel.swift */,
 				047991AB2694FD5500859254 /* CartViewModel.swift */,
+				04F63026269F0BAF00BA4C08 /* BlogsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -2159,6 +2165,7 @@
 				04DEA9D0262093E500F843A6 /* GetServices.swift in Sources */,
 				0451FD8C2617A5D300AEE546 /* ProjectCell.swift in Sources */,
 				04AD610C2628C52B00ADF0DF /* ImageModel.swift in Sources */,
+				04F63024269F09AC00BA4C08 /* BlogsModel.swift in Sources */,
 				0451FD642617A5B600AEE546 /* TitleCell.swift in Sources */,
 				040339D92638D0CD00CEDBD3 /* AlertService.swift in Sources */,
 				046CD69B2682B383004FE6C6 /* TagsCell.swift in Sources */,
@@ -2256,6 +2263,7 @@
 				04DEAA412620B4A900F843A6 /* SplashCell.swift in Sources */,
 				047991AF2694FFDB00859254 /* CartModel.swift in Sources */,
 				0431ADEB26976F8700589F52 /* InboxCell.swift in Sources */,
+				04F63027269F0BAF00BA4C08 /* BlogsViewModel.swift in Sources */,
 				04DEA9DC2620A0B200F843A6 /* AuthModel.swift in Sources */,
 				04D13D6E2682968A0020CF11 /* SearchResultVc.swift in Sources */,
 				0449A733262F39C800604052 /* ArtistProfileVc.swift in Sources */,

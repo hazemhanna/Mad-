@@ -97,6 +97,8 @@ func getCart() {
        if dataModel.success ?? false {
         self.cartVM.dismissIndicator()
         self.cartCount.text = "\(dataModel.data?.cardProducts?.count ?? 0)"
+       }else{
+        self.cartVM.dismissIndicator()
        }
    }, onError: { (error) in
     self.cartVM.dismissIndicator()
