@@ -225,7 +225,6 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="mdA-4o-EUt" firstAttribute="centerY" secondItem="Mzf-VW-O97" secondAttribute="centerY" id="YQ8-CZ-3SH"/>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="75" id="acX-OK-hSb"/>
                             <constraint firstItem="yQB-Af-JLV" firstAttribute="centerY" secondItem="Mzf-VW-O97" secondAttribute="centerY" id="cHx-C0-9De"/>
                             <constraint firstItem="mdA-4o-EUt" firstAttribute="leading" secondItem="Mzf-VW-O97" secondAttribute="leading" constant="32" id="gLg-AS-Ito"/>
                             <constraint firstAttribute="height" constant="75" id="oQq-m6-3iE"/>

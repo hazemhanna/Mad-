@@ -19,7 +19,9 @@ class BlogsVc  : UIViewController {
     var disposeBag = DisposeBag()
     var parentVC : HomeVC?
     var token = Helper.getAPIToken() ?? ""
-
+    var selectedIndex = -1
+    var catId = Int()
+    
     var Categories = [Category]() {
         didSet {
             DispatchQueue.main.async {
@@ -47,12 +49,11 @@ class BlogsVc  : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupContentTableView()
+
         self.catCollectionView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
         catCollectionView.delegate = self
         catCollectionView.dataSource = self
-       // getCategory()
-       // getProject()
+        setupContentTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,6 +61,8 @@ class BlogsVc  : UIViewController {
         if let ptcTBC = tabBarController as? PTCardTabBarController {
             ptcTBC.customTabBar.isHidden = false
         }
+        getCategory()
+        getBlogs(catId : 0)
     }
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
@@ -83,27 +86,16 @@ extension BlogsVc : UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.CellIdentifier) as! HomeCell
         if !self.showShimmer {
-            cell.confic(name : ""
-                        ,date : blogs[indexPath.row].createdAt ?? ""
-                        , title : blogs[indexPath.row].title ?? ""
-                        , like : 0
-                        , share : blogs[indexPath.row].shareCount ?? 0
-                        , profileUrl : ""
-                        , projectUrl :blogs[indexPath.row].imageURL ?? ""
-                        , trustUrl : "", isFavourite: false)
-               
+            cell.confic(name : blogs[indexPath.row].title ?? "" ,date : blogs[indexPath.row].createdAt ?? "",title: blogs[indexPath.row].content ?? "",  share: blogs[indexPath.row].shareCount ?? 0, projectUrl: blogs[indexPath.row].imageURL ?? "" )
             cell.favouriteStack.isHidden = true
-             // share project
+            cell.profileImage.isHidden = true
+            
 //            cell.share = {
-//                if self.token == ""{
-//                    return
-//                }
-//                self.homeVM.showIndicator()
-//                self.shareProject(productID:  self.blogs[indexPath.row].id ?? 0)
-//
-//                // text to share
+//                if self.token == ""{return}
+//                self.blogsVM.showIndicator()
+//                self.shareBlogs(blogsId: self.blogs[indexPath.row].id ?? 0)
 //                let text = self.blogs[indexPath.row].title ?? ""
-//                let image = self.blogs[indexPath.row].artist?.profilPicture ?? ""
+//                let image = self.blogs[indexPath.row].imageURL ?? ""
 //                let textToShare = [ text ,image]
 //                let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
 //                activityViewController.popoverPresentationController?.sourceView = self.view
@@ -117,14 +109,12 @@ extension BlogsVc : UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if showProjectShimmer {
-            return
-        }
-        let main = ProjectDetailsVC.instantiateFromNib()
-        main!.projectId =  self.blogs[indexPath.row].id!
+        if showProjectShimmer {return}
+        let main = BlogDetailsVc.instantiateFromNib()
+        main!.blogId =  self.blogs[indexPath.row].id ?? 0 
         self.navigationController?.pushViewController(main!, animated: true)
-     
     }
+    
     
 }
 
@@ -144,15 +134,28 @@ extension BlogsVc  : UICollectionViewDelegate ,UICollectionViewDataSource{
                 if let url = URL(string:   self.Categories[indexPath.row].imageURL ?? ""){
                 cell.catImage.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "Icon - Checkbox - Off"))
                 }
+            
+            if self.selectedIndex == indexPath.row{
+                cell.ProjectView.layer.borderColor = #colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1).cgColor
+                cell.ProjectView.layer.borderWidth = 2
+            }else {
+                cell.ProjectView.layer.borderColor = #colorLiteral(red: 0.9725490196, green: 0.9725490196, blue: 0.9725490196, alpha: 1).cgColor
+                cell.ProjectView.layer.borderWidth = 0
+               }
         }
         cell.showShimmer = showShimmer
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if showShimmer {
-            return
-        }
+        if showShimmer {return}
+        self.selectedIndex = indexPath.row
+        self.catCollectionView.reloadData()
+            self.showProjectShimmer = true
+            self.mainTableView.reloadData()
+            self.catId  = self.Categories[indexPath.row-1].id ?? 0
+            getBlogs(catId:self.Categories[indexPath.row-1].id ?? 0)
+        
     }
 }
 
@@ -179,11 +182,13 @@ extension BlogsVc  {
        }).disposed(by: disposeBag)
    }
     
-    func getProject() {
-        blogsVM.getBlogs(page: 1, catId: 0).subscribe(onNext: { (dataModel) in
+    func getBlogs(catId : Int) {
+        blogsVM.getBlogs(page: 1, catId: catId).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
             self.showProjectShimmer = false
             self.blogs = dataModel.data?.data ?? []
+            self.mainTableView.reloadData()
+            
            }
        }, onError: { (error) in
 
@@ -191,16 +196,16 @@ extension BlogsVc  {
    }
 
     
-//    func shareProject(productID : Int) {
-//        blogsVM.shareProject(productID: productID).subscribe(onNext: { (dataModel) in
-//           if dataModel.success ?? false {
-//            self.homeVM.dismissIndicator()
-//            self.getProject()
-//            self.showMessage(text: dataModel.message ?? "")
-//           }
-//       }, onError: { (error) in
-//        self.homeVM.dismissIndicator()
-//       }).disposed(by: disposeBag)
-//   }
+    func shareBlogs(blogsId : Int) {
+        blogsVM.shareBlogs(blogsId: blogsId).subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+            self.blogsVM.dismissIndicator()
+            self.getBlogs(catId: self.catId)
+            self.showMessage(text: dataModel.message ?? "")
+           }
+       }, onError: { (error) in
+        self.blogsVM.dismissIndicator()
+       }).disposed(by: disposeBag)
+   }
 }
 

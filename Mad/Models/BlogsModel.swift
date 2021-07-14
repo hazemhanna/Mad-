@@ -48,3 +48,32 @@ struct Blog: Codable {
         case relateProducts = "relate_products"
     }
 }
+
+
+struct BlogDetailsModelJSON: Codable {
+    let success: Bool?
+    let data: BlogDetailsModel?
+    let message: String?
+    let errors: Errors?
+}
+
+struct BlogDetailsModel: Codable {
+    let id: Int?
+    let title, type, status: String?
+    let imageURL: String?
+    let shareCount: Int?
+    let createdAt: String?
+    let music, art, design: Bool?
+    let categories: [Category]?
+    let content: String?
+    let relateProducts: [Product]?
+
+    enum CodingKeys: String, CodingKey {
+        case id, title, type, status
+        case imageURL = "image_url"
+        case shareCount = "share_count"
+        case createdAt = "created_at"
+        case music, art, design, categories, content
+        case relateProducts = "relate_products"
+    }
+}

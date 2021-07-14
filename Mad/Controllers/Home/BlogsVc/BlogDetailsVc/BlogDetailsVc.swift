@@ -15,19 +15,17 @@ class BlogDetailsVc : UIViewController {
     @IBOutlet weak var productCollectionView: UICollectionView!
     @IBOutlet weak var aboutView: UIView!
     @IBOutlet weak var titleLbl: UILabel!
-    @IBOutlet weak var LikeLbl: UILabel!
     @IBOutlet weak var shareLbl: UILabel!
     @IBOutlet weak var projectImage: UIImageView!
-    @IBOutlet weak var favouriteBtn: UIButton!
     @IBOutlet weak var shareBtn: UIButton!
     @IBOutlet weak var aboutTV: UILabel!
     @IBOutlet weak var typeLbl: UILabel!
     @IBOutlet weak var contentSizeHieght : NSLayoutConstraint!
 
-    var homeVM = HomeViewModel()
+    var blogsVM = BlogsViewModel()
     var disposeBag = DisposeBag()
     var showShimmer: Bool = true
-    var projectId = 0
+    var blogId = 0
     var isFavourite: Bool = false
     var token = Helper.getAPIToken() ?? ""
 
@@ -38,14 +36,11 @@ class BlogDetailsVc : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.productCollectionView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
         productCollectionView.delegate = self
         productCollectionView.dataSource = self
+        self.blogsVM.showIndicator()
         
-        //self.aboutTV.isEditable = false
-        //self.aboutTV.isSelectable = false
-        self.homeVM.showIndicator()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,7 +52,7 @@ class BlogDetailsVc : UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        getProjectDetails(productID : self.projectId)
+        getBlogsDetails(blogId : self.blogId)
         if let ptcTBC = tabBarController as? PTCardTabBarController {
             ptcTBC.customTabBar.isHidden = true
         }
@@ -67,28 +62,13 @@ class BlogDetailsVc : UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func favouriteAction(_ sender: UIButton) {
-        if Helper.getAPIToken() != nil {
-        self.homeVM.showIndicator()
-        if  self.isFavourite {
-            self.editFavourite(productID:  self.projectId, Type: false)
-            self.favouriteBtn.setImage(#imageLiteral(resourceName: "Group 140"), for: .normal)
-        }else{
-            self.editFavourite(productID:  self.projectId, Type: true)
-            self.favouriteBtn.setImage(#imageLiteral(resourceName: "Group 155"), for: .normal)
-          }
-        }else{
-            self.showMessage(text: "please login first")
-        }
-    }
     
     @IBAction func shareAction(_ sender: UIButton) {
-        if Helper.getAPIToken() != nil {
-            self.shareProject(productID : self.projectId)
-
-        }else{
-            self.showMessage(text: "please login first")
-        }
+//        if Helper.getAPIToken() != nil {
+//            self.shareProject(productID : self.blogId)
+//        }else{
+//            self.showMessage(text: "please login first")
+//        }
     }
 }
 
@@ -115,12 +95,10 @@ extension BlogDetailsVc :  UICollectionViewDelegate, UICollectionViewDataSource,
 }
 
 extension BlogDetailsVc {
-func getProjectDetails(productID : Int) {
-    homeVM.getProjectDetails(productID: productID).subscribe(onNext: { (data) in
+func getBlogsDetails(blogId : Int) {
+    blogsVM.getBlogsDetails(blogId: blogId).subscribe(onNext: { (data) in
        if data.success ?? false {
-        self.homeVM.dismissIndicator()
-        
-        self.LikeLbl.text = "\(data.data?.favoriteCount ?? 0)"
+        self.blogsVM.dismissIndicator()
         self.shareLbl.text = "\(data.data?.shareCount ?? 0)"
         self.aboutTV.text = data.data?.content?.html2String ?? ""
         self.titleLbl.text = data.data?.title ?? ""
@@ -129,49 +107,29 @@ func getProjectDetails(productID : Int) {
             projectCat.append(cat.name ?? "")
         }
         self.typeLbl.text =   projectCat.joined(separator: ",")
-        self.isFavourite = data.data?.isFavorite ?? false
         let height = self.aboutTV.intrinsicContentSize.height
         self.contentSizeHieght.constant = 450 + height
         if  let projectUrl = URL(string: data.data?.imageURL ?? ""){
         self.projectImage.kf.setImage(with: projectUrl, placeholder: #imageLiteral(resourceName: "Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4"))
         }
-        if data.data?.isFavorite ?? false {
-            self.favouriteBtn.setImage(#imageLiteral(resourceName: "Group 155"), for: .normal)
-        }else{
-            self.favouriteBtn.setImage(#imageLiteral(resourceName: "Group 140"), for: .normal)
-          }
+      
        }
    }, onError: { (error) in
-    self.homeVM.dismissIndicator()
+    self.blogsVM.dismissIndicator()
    }).disposed(by: disposeBag)
   }
     
-    
-    func editFavourite(productID : Int,Type : Bool) {
-        homeVM.addToFavourite(productID: productID, Type: Type).subscribe(onNext: { (dataModel) in
-           if dataModel.success ?? false {
-            self.getProjectDetails(productID : productID)
-            self.homeVM.dismissIndicator()
-            self.showMessage(text: dataModel.message ?? "")
-           }
-       }, onError: { (error) in
-        self.homeVM.dismissIndicator()
-       }).disposed(by: disposeBag)
-   }
-    
-    
-    
-    func shareProject(productID : Int) {
-        homeVM.shareProject(productID: productID).subscribe(onNext: { (dataModel) in
-           if dataModel.success ?? false {
-            self.homeVM.dismissIndicator()
-            self.getProjectDetails(productID : productID)
-            self.showMessage(text: dataModel.message ?? "")
-           }
-       }, onError: { (error) in
-        self.homeVM.dismissIndicator()
-       }).disposed(by: disposeBag)
-   }
+//    func shareProject(productID : Int) {
+//        homeVM.shareProject(productID: productID).subscribe(onNext: { (dataModel) in
+//           if dataModel.success ?? false {
+//            self.homeVM.dismissIndicator()
+//            self.getProjectDetails(productID : productID)
+//            self.showMessage(text: dataModel.message ?? "")
+//           }
+//       }, onError: { (error) in
+//        self.homeVM.dismissIndicator()
+//       }).disposed(by: disposeBag)
+//   }
     
 }
 

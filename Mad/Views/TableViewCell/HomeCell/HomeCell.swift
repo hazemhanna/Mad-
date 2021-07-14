@@ -24,10 +24,11 @@ class HomeCell: UITableViewCell {
     @IBOutlet weak var shareBtn: UIButton!
     @IBOutlet weak var favouriteStack : UIStackView!
     @IBOutlet weak var shimmerView : ShimmerView!
+    @IBOutlet weak var artistStack : UIStackView!
 
+    
     var favourite: (() -> Void)? = nil
     var share: (() -> Void)? = nil
-
     
     let cellIdentifier = "LiveCellCVC"
     var liveData = [String]()
@@ -68,6 +69,24 @@ class HomeCell: UITableViewCell {
         self.favouriteBtn.setImage(#imageLiteral(resourceName: "Group 140"), for: .normal)
 
         }
+    }
+    
+    
+    
+    
+    func confic (name : String,date : String,title : String , share : Int , projectUrl :String){
+        
+        NameLbl.text = name
+        NameLbl.numberOfLines = 2
+        dateLbl.text = date
+        titleLbl.text = title
+        titleLbl.numberOfLines = 2
+        shareLbl.text = "\(share)"
+        
+        if let projectUrl = URL(string: projectUrl){
+        self.projectImage.kf.setImage(with: projectUrl, placeholder: #imageLiteral(resourceName: "WhatsApp Image 2021-04-21 at 1.25.47 PM"))
+        }
+    
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

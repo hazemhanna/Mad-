@@ -240,7 +240,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "495"
                   endingLineNumber = "495"
-                  offsetFromSymbolStart = "1255">
+                  offsetFromSymbolStart = "464">
                </Location>
                <Location
                   uuid = "E1947D20-0453-4545-BF9B-C16EBAC37FDC - 619d061b3a75e608"
@@ -255,7 +255,22 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "495"
                   endingLineNumber = "495"
-                  offsetFromSymbolStart = "1518">
+                  offsetFromSymbolStart = "860">
+               </Location>
+               <Location
+                  uuid = "E1947D20-0453-4545-BF9B-C16EBAC37FDC - 619d061b3a75e608"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any&gt;) -&gt; () in closure #1 (RxSwift.AnyObserver&lt;Mad.CartDetailsModelJSON&gt;) -&gt; RxSwift.Disposable in Mad.AddServices.updateCartDetails(param: Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; RxSwift.Observable&lt;Mad.CartDetailsModelJSON&gt;"
+                  moduleName = "Mad"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac/Desktop/work/Cnepho/mad/Mad/Network/AddServices.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "495"
+                  endingLineNumber = "495"
+                  offsetFromSymbolStart = "1024">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -401,6 +416,181 @@
             startingLineNumber = "31"
             endingLineNumber = "31"
             landmarkName = "updateCart(id:quantity:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4A270FA1-B34D-4E9F-A058-2E05651F48ED"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mad/Network/GetServices.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "710"
+            endingLineNumber = "710"
+            landmarkName = "getBlogsDetails(param:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1916E7E9-E828-42E3-B062-440AAF0A2080"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mad/Network/GetServices.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "711"
+            endingLineNumber = "711"
+            landmarkName = "getBlogsDetails(param:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5622A83E-28FA-4733-AAE2-8BF859F52F49"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mad/Network/GetServices.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "712"
+            endingLineNumber = "712"
+            landmarkName = "getBlogsDetails(param:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "5622A83E-28FA-4733-AAE2-8BF859F52F49 - f9ac9fed888143e5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any&gt;) -&gt; () in closure #1 (RxSwift.AnyObserver&lt;Mad.BlogDetailsModelJSON&gt;) -&gt; RxSwift.Disposable in Mad.GetServices.getBlogsDetails(param: Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; RxSwift.Observable&lt;Mad.BlogDetailsModelJSON&gt;"
+                  moduleName = "Mad"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac/Desktop/work/Cnepho/mad/Mad/Network/GetServices.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "712"
+                  endingLineNumber = "712"
+                  offsetFromSymbolStart = "472">
+               </Location>
+               <Location
+                  uuid = "5622A83E-28FA-4733-AAE2-8BF859F52F49 - f9ac9fed888143e5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any&gt;) -&gt; () in closure #1 (RxSwift.AnyObserver&lt;Mad.BlogDetailsModelJSON&gt;) -&gt; RxSwift.Disposable in Mad.GetServices.getBlogsDetails(param: Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; RxSwift.Observable&lt;Mad.BlogDetailsModelJSON&gt;"
+                  moduleName = "Mad"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac/Desktop/work/Cnepho/mad/Mad/Network/GetServices.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "712"
+                  endingLineNumber = "712"
+                  offsetFromSymbolStart = "980">
+               </Location>
+               <Location
+                  uuid = "5622A83E-28FA-4733-AAE2-8BF859F52F49 - f9ac9fed888143e5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any&gt;) -&gt; () in closure #1 (RxSwift.AnyObserver&lt;Mad.BlogDetailsModelJSON&gt;) -&gt; RxSwift.Disposable in Mad.GetServices.getBlogsDetails(param: Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; RxSwift.Observable&lt;Mad.BlogDetailsModelJSON&gt;"
+                  moduleName = "Mad"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac/Desktop/work/Cnepho/mad/Mad/Network/GetServices.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "712"
+                  endingLineNumber = "712"
+                  offsetFromSymbolStart = "1208">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "15D55D45-9FB0-4FCF-8FF3-B6267ABF1DBA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mad/Network/GetServices.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "714"
+            endingLineNumber = "714"
+            landmarkName = "getBlogsDetails(param:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A6874CDD-7F5E-4F7E-A2D1-B0B88EAE2A21"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mad/Network/GetServices.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "709"
+            endingLineNumber = "709"
+            landmarkName = "getBlogsDetails(param:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AFDFDC49-C7F8-4F5B-8C1C-EAC5CDD1DD7B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mad/Network/GetServices.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "713"
+            endingLineNumber = "713"
+            landmarkName = "getBlogsDetails(param:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "148D1992-0D9D-4828-8069-65DC893105CD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mad/ViewModel/BlogsViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "getBlogsDetails(blogId:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BFE5140A-528E-4113-846E-DBD8F163C798"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mad/ViewModel/BlogsViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "getBlogsDetails(blogId:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

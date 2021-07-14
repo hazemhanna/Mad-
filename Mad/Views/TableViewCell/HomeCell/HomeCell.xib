@@ -30,7 +30,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="573" height="403"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ef5-tD-Ljc">
-                                <rect key="frame" x="32" y="8" width="100.5" height="32"/>
+                                <rect key="frame" x="32" y="8" width="509" height="32"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4" translatesAutoresizingMaskIntoConstraints="NO" id="Qyl-Ze-22C" customClass="CustomImageView" customModule="Mad" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
@@ -45,7 +45,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="t3v-uc-QAJ">
-                                        <rect key="frame" x="40" y="0.0" width="60.5" height="32"/>
+                                        <rect key="frame" x="40" y="0.0" width="469" height="32"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="GDo-tl-plL">
                                                 <rect key="frame" x="0.0" y="0.0" width="41" height="22"/>
@@ -185,6 +185,7 @@
                             <constraint firstItem="Ef5-tD-Ljc" firstAttribute="top" secondItem="edd-y9-s3d" secondAttribute="top" constant="8" id="cwD-dZ-khn"/>
                             <constraint firstAttribute="trailing" secondItem="jjl-3y-osl" secondAttribute="trailing" id="dxp-3b-KGs"/>
                             <constraint firstAttribute="bottom" secondItem="h1Y-NF-YDm" secondAttribute="bottom" constant="16" id="fPW-Fe-hlc"/>
+                            <constraint firstAttribute="trailing" secondItem="Ef5-tD-Ljc" secondAttribute="trailing" constant="32" id="hF8-C5-LaT"/>
                             <constraint firstItem="lBw-72-Gqd" firstAttribute="leading" secondItem="edd-y9-s3d" secondAttribute="leading" constant="32" id="jJX-G2-riD"/>
                             <constraint firstItem="h1Y-NF-YDm" firstAttribute="top" secondItem="lBw-72-Gqd" secondAttribute="bottom" constant="16" id="nM2-3c-bDD"/>
                             <constraint firstItem="lBw-72-Gqd" firstAttribute="top" secondItem="73l-u0-5hr" secondAttribute="bottom" constant="16" id="puF-eq-vZR"/>
@@ -238,6 +239,7 @@
             <connections>
                 <outlet property="LikeLbl" destination="GxI-EK-n0Z" id="wAJ-ce-CLj"/>
                 <outlet property="NameLbl" destination="thc-sT-il2" id="AEc-8J-y7H"/>
+                <outlet property="artistStack" destination="Ef5-tD-Ljc" id="LuV-CY-rAH"/>
                 <outlet property="dateLbl" destination="IjN-qt-ANa" id="yh8-cE-l8n"/>
                 <outlet property="favouriteBtn" destination="ohK-nB-JrN" id="PCw-KL-76b"/>
                 <outlet property="favouriteStack" destination="T7h-vG-lCD" id="8ZH-8w-0Va"/>
