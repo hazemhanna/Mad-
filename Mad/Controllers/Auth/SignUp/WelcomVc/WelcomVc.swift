@@ -34,8 +34,8 @@ class WelcomVc: UIViewController {
         
         data.append(SplashModel(images: #imageLiteral(resourceName: "Mask Group 27"), title: "Compete to win it all", title2: "Apply to competitions, get visibility & win cool prizes"))
         data.append(SplashModel(images: #imageLiteral(resourceName: "Mask Group 34"), title: "Sell your creations & art", title2: "We love everything you do. Sell your work now."))
-        data.append(SplashModel(images: #imageLiteral(resourceName: "Mask Group 27"), title: "Artfluencer?", title2: "Create content for brands by being part of their campaigns"))
-        data.append(SplashModel(images: #imageLiteral(resourceName: "Mask Group 34"), title: "Get featured in MAD Content", title2: "Shows, interviews, events,  showcases & so much more"))
+        data.append(SplashModel(images: #imageLiteral(resourceName: "pawel-szvmanski-i73F7ma3Q9k-unsplash"), title: "Artfluencer?", title2: "Create content for brands by being part of their campaigns"))
+        data.append(SplashModel(images: #imageLiteral(resourceName: "mohsen-shenavari-0WkVr4IINKQ-unsplash"), title: "Get featured in MAD Content", title2: "Shows, interviews, events,  showcases & so much more"))
         data.append(SplashModel(images: #imageLiteral(resourceName: "Mask Group 32"), title: " What are you working on?", title2: "Create your projects, promote them and get them sponsored"))
         
     }
