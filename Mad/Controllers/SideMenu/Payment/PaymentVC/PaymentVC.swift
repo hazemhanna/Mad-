@@ -1,15 +1,16 @@
 //
-//  MyCartDetailsVc.swift
+//  PaymentVC.swift
 //  Mad
 //
-//  Created by MAC on 04/07/2021.
+//  Created by MAC on 14/07/2021.
 //
+
 
 import UIKit
 import RxSwift
 import RxCocoa
 
-class MyCartDetailsVc: UIViewController {
+class PaymentVC: UIViewController {
 
     @IBOutlet weak var phoneNumberlbl: UILabel!
     @IBOutlet weak var emaillbl: UILabel!
@@ -27,8 +28,6 @@ class MyCartDetailsVc: UIViewController {
 
 
     override func viewWillAppear(_ animated: Bool) {
-        cartVM.showIndicator()
-        getCartDetails()
         self.navigationController?.navigationBar.isHidden = true
         
     }
@@ -47,25 +46,13 @@ class MyCartDetailsVc: UIViewController {
     }
     
     @IBAction func editAddressAction(sender: UIButton) {
-        let main = AddressVC.instantiateFromNib()
+        let main = PaymentDetailsVC.instantiateFromNib()
         self.navigationController?.pushViewController(main!, animated: true)
     }
     
 }
 
-extension MyCartDetailsVc{
-func getCartDetails() {
-    cartVM.getCartDetials().subscribe(onNext: { (dataModel) in
-       if dataModel.success ?? false {
-        self.cartVM.dismissIndicator()
-        self.countrylbl.text  = dataModel.data?.country ?? ""
-        self.citylbl.text  = dataModel.data?.city ?? ""
-        self.addressLbl.text  = dataModel.data?.address ?? ""
-        self.emaillbl.text  = dataModel.data?.email ?? ""
-        self.phoneNumberlbl.text  = dataModel.data?.phone ?? ""
-       }
-   }, onError: { (error) in
-    self.cartVM.dismissIndicator()
-   }).disposed(by: disposeBag)
-  }
+extension PaymentVC{
+
+
 }

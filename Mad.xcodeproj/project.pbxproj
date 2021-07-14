@@ -69,6 +69,12 @@
 		04319B1A265C5E5F000535B2 /* SocialCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04319B18265C5E5E000535B2 /* SocialCell.xib */; };
 		0431ADEB26976F8700589F52 /* InboxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0431ADE926976F8700589F52 /* InboxCell.swift */; };
 		0431ADEC26976F8700589F52 /* InboxCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0431ADEA26976F8700589F52 /* InboxCell.xib */; };
+		0437FA61269E99F800CD594D /* PaymentDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0437FA5F269E99F800CD594D /* PaymentDetailsVC.swift */; };
+		0437FA62269E99F800CD594D /* PaymentDetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0437FA60269E99F800CD594D /* PaymentDetailsVC.xib */; };
+		0437FA69269E9A3000CD594D /* PaymentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0437FA67269E9A2F00CD594D /* PaymentVC.swift */; };
+		0437FA6A269E9A3000CD594D /* PaymentVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0437FA68269E9A2F00CD594D /* PaymentVC.xib */; };
+		0437FA70269EA95300CD594D /* SendMessageVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0437FA6E269EA95300CD594D /* SendMessageVc.swift */; };
+		0437FA71269EA95300CD594D /* SendMessageVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0437FA6F269EA95300CD594D /* SendMessageVc.xib */; };
 		0439BD09267263C900AC5C59 /* AboutCompetitionsVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0439BD07267263C900AC5C59 /* AboutCompetitionsVc.swift */; };
 		0439BD0A267263C900AC5C59 /* AboutCompetitionsVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0439BD08267263C900AC5C59 /* AboutCompetitionsVc.xib */; };
 		0439BD0E2672640600AC5C59 /* GuidlinesCompetitionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0439BD0C2672640600AC5C59 /* GuidlinesCompetitionsVC.swift */; };
@@ -322,6 +328,12 @@
 		04319B18265C5E5E000535B2 /* SocialCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SocialCell.xib; sourceTree = "<group>"; };
 		0431ADE926976F8700589F52 /* InboxCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxCell.swift; sourceTree = "<group>"; };
 		0431ADEA26976F8700589F52 /* InboxCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InboxCell.xib; sourceTree = "<group>"; };
+		0437FA5F269E99F800CD594D /* PaymentDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentDetailsVC.swift; sourceTree = "<group>"; };
+		0437FA60269E99F800CD594D /* PaymentDetailsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentDetailsVC.xib; sourceTree = "<group>"; };
+		0437FA67269E9A2F00CD594D /* PaymentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentVC.swift; sourceTree = "<group>"; };
+		0437FA68269E9A2F00CD594D /* PaymentVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentVC.xib; sourceTree = "<group>"; };
+		0437FA6E269EA95300CD594D /* SendMessageVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMessageVc.swift; sourceTree = "<group>"; };
+		0437FA6F269EA95300CD594D /* SendMessageVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SendMessageVc.xib; sourceTree = "<group>"; };
 		0439BD07267263C900AC5C59 /* AboutCompetitionsVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCompetitionsVc.swift; sourceTree = "<group>"; };
 		0439BD08267263C900AC5C59 /* AboutCompetitionsVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutCompetitionsVc.xib; sourceTree = "<group>"; };
 		0439BD0C2672640600AC5C59 /* GuidlinesCompetitionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidlinesCompetitionsVC.swift; sourceTree = "<group>"; };
@@ -761,6 +773,42 @@
 			path = SocialCell;
 			sourceTree = "<group>";
 		};
+		0437FA5E269E99CB00CD594D /* PaymentDetailsVC */ = {
+			isa = PBXGroup;
+			children = (
+				0437FA5F269E99F800CD594D /* PaymentDetailsVC.swift */,
+				0437FA60269E99F800CD594D /* PaymentDetailsVC.xib */,
+			);
+			path = PaymentDetailsVC;
+			sourceTree = "<group>";
+		};
+		0437FA64269E9A0900CD594D /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				0437FA66269E9A1D00CD594D /* PaymentVC */,
+				0437FA5E269E99CB00CD594D /* PaymentDetailsVC */,
+			);
+			path = Payment;
+			sourceTree = "<group>";
+		};
+		0437FA66269E9A1D00CD594D /* PaymentVC */ = {
+			isa = PBXGroup;
+			children = (
+				0437FA67269E9A2F00CD594D /* PaymentVC.swift */,
+				0437FA68269E9A2F00CD594D /* PaymentVC.xib */,
+			);
+			path = PaymentVC;
+			sourceTree = "<group>";
+		};
+		0437FA6D269EA93800CD594D /* SendMessageVc */ = {
+			isa = PBXGroup;
+			children = (
+				0437FA6E269EA95300CD594D /* SendMessageVc.swift */,
+				0437FA6F269EA95300CD594D /* SendMessageVc.xib */,
+			);
+			path = SendMessageVc;
+			sourceTree = "<group>";
+		};
 		0439BCFE2672636400AC5C59 /* CompetitionsDetailsVc */ = {
 			isa = PBXGroup;
 			children = (
@@ -1055,13 +1103,13 @@
 			path = provileVC;
 			sourceTree = "<group>";
 		};
-		04534B0D2691E31800B15C9C /* MyCart */ = {
+		04534B0D2691E31800B15C9C /* Cart */ = {
 			isa = PBXGroup;
 			children = (
 				04534B142691E3EE00B15C9C /* MyCartVc */,
 				04534B122691E3C400B15C9C /* MyCartDetailsVc */,
 			);
-			path = MyCart;
+			path = Cart;
 			sourceTree = "<group>";
 		};
 		04534B0E2691E31E00B15C9C /* MenuVC */ = {
@@ -1383,6 +1431,7 @@
 		0482EEAC26164D3F00CB4A24 /* Notification */ = {
 			isa = PBXGroup;
 			children = (
+				0437FA6D269EA93800CD594D /* SendMessageVc */,
 				041427FE26174D76000394CA /* NotificationVc.swift */,
 			);
 			path = Notification;
@@ -1408,11 +1457,12 @@
 		0486DE9B269365FA001DA69E /* SideMenu */ = {
 			isa = PBXGroup;
 			children = (
+				0437FA64269E9A0900CD594D /* Payment */,
 				0479928F26987702008314D4 /* FavouriteVC */,
 				0486DEBD2693981D001DA69E /* MyOrder */,
 				0486DE9C26936618001DA69E /* AddressVC */,
 				04534B0E2691E31E00B15C9C /* MenuVC */,
-				04534B0D2691E31800B15C9C /* MyCart */,
+				04534B0D2691E31800B15C9C /* Cart */,
 			);
 			path = SideMenu;
 			sourceTree = "<group>";
@@ -1915,6 +1965,7 @@
 				04D23EEA2633121300290488 /* Graphik-Black.ttf in Resources */,
 				0413E40226307D3700F5977D /* VideosVC.xib in Resources */,
 				047992932698771C008314D4 /* FavouriteVc.xib in Resources */,
+				0437FA62269E99F800CD594D /* PaymentDetailsVC.xib in Resources */,
 				046E2E4926693A3300BFCDCC /* CalenderVc.xib in Resources */,
 				04534B232691E46300B15C9C /* MyCartDetailsVc.xib in Resources */,
 				04534B192691E42F00B15C9C /* MenuVC.xib in Resources */,
@@ -1962,6 +2013,7 @@
 				0488CCF2261213E400E05BEB /* Assets.xcassets in Resources */,
 				0448E7932666D664009C4A6E /* AddProjectdetailsVc.xib in Resources */,
 				04242A9E26553A12003C8B44 /* VideoArtistsVc.xib in Resources */,
+				0437FA71269EA95300CD594D /* SendMessageVc.xib in Resources */,
 				04319B1A265C5E5F000535B2 /* SocialCell.xib in Resources */,
 				04242AAF26553A65003C8B44 /* VideoPartners.xib in Resources */,
 				0412D4F6267C5BD200E4022C /* CompetitionsResultCell.xib in Resources */,
@@ -1993,6 +2045,7 @@
 				0413E4192630879700F5977D /* ArtistsVc.xib in Resources */,
 				04B6740C263831EB00AFF9C3 /* AddProductImageVc.xib in Resources */,
 				0486DEA026936635001DA69E /* AddressVC.xib in Resources */,
+				0437FA6A269E9A3000CD594D /* PaymentVC.xib in Resources */,
 				04528E3E26149903009868EA /* EmailVc.xib in Resources */,
 				0439BD0A267263C900AC5C59 /* AboutCompetitionsVc.xib in Resources */,
 				04503A432693DF2E002151F0 /* ContentHeader.xib in Resources */,
@@ -2090,6 +2143,7 @@
 				045AD32B264CA49A00E42D4C /* VideosViewModel.swift in Sources */,
 				0413E40726307D7300F5977D /* ProjectsVC.swift in Sources */,
 				04534B1D2691E44C00B15C9C /* MyCartVc.swift in Sources */,
+				0437FA61269E99F800CD594D /* PaymentDetailsVC.swift in Sources */,
 				046B2B1F2677AE4B00BAA2A3 /* CometitionsViewModel.swift in Sources */,
 				0440ECA82636C7C60046681C /* CompetitionCell.swift in Sources */,
 				04242AC226555E7A003C8B44 /* VideoPartenerCell.swift in Sources */,
@@ -2147,6 +2201,7 @@
 				0488CCE9261213E000E05BEB /* AppDelegate.swift in Sources */,
 				04D23EE826330DBA00290488 /* ArtistProductsVc.swift in Sources */,
 				04688788261E0E170056AC92 /* VerificationVc.swift in Sources */,
+				0437FA69269E9A3000CD594D /* PaymentVC.swift in Sources */,
 				04242ABB26554B2C003C8B44 /* VideoProjectCell.swift in Sources */,
 				04E186F5261360F400824E37 /* StoryBoardExtension.swift in Sources */,
 				0413E41326307F5E00F5977D /* HomeVc.swift in Sources */,
@@ -2180,6 +2235,7 @@
 				04930256269030DD00086C58 /* MyProfileCompetitions.swift in Sources */,
 				0493024926902F2A00086C58 /* MyProfileContainerVC.swift in Sources */,
 				04D23EE226330D7700290488 /* AboutVc.swift in Sources */,
+				0437FA70269EA95300CD594D /* SendMessageVc.swift in Sources */,
 				04F06AF62614E0D600B08606 /* CategeoryCell.swift in Sources */,
 				0439BD09267263C900AC5C59 /* AboutCompetitionsVc.swift in Sources */,
 				0460CF6E261D04DD006685B6 /* SplashModel.swift in Sources */,

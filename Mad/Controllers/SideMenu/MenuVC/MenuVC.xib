@@ -332,6 +332,9 @@
                                                 <state key="normal" title="Payment details">
                                                     <color key="titleColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="paymentctionWithSender:" destination="gH6-x4-vCf" eventType="touchUpInside" id="3dg-AU-SaR"/>
+                                                </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D7g-Gb-S8Y">
                                                 <rect key="frame" x="0.0" y="638" width="350" height="1"/>

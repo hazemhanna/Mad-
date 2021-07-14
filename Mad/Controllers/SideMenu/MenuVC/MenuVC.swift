@@ -79,6 +79,12 @@ class MenuVC: UIViewController {
         self.navigationController?.pushViewController(main!, animated: true)
     }
     
+    @IBAction func paymentction(sender: UIButton) {
+        let main = PaymentDetailsVC.instantiateFromNib()
+        self.navigationController?.pushViewController(main!, animated: true)
+    }
+    
+    
     @IBAction func backButton(sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
 
