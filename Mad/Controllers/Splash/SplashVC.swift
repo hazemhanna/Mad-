@@ -36,11 +36,9 @@ class SplashVC: UIViewController {
         data.append(SplashModel(images: #imageLiteral(resourceName: "Component 4 – 1"), title: "SHOP", title2: "Artist creations"))
         data.append(SplashModel(images: #imageLiteral(resourceName: "Layer 0"), title: "Or JOIN AS AN ARTIST", title2: "Get visibility & sell your creations"))
         data.append(SplashModel(images: #imageLiteral(resourceName: "Component 63 – 1"), title: "APPLY & REGISTER", title2: "To Competitions and events "))
-        
         firstView.clipsToBounds = true
         firstView.layer.cornerRadius = 3
         firstView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMinXMinYCorner]
-        
         lastView.clipsToBounds = true
         lastView.layer.cornerRadius = 3
         lastView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
@@ -107,7 +105,10 @@ extension SplashVC: UICollectionViewDelegate {
 extension SplashVC : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-        return CGSize(width: (collectionView.frame.size.width), height: (collectionView.frame.size.height))
+        let flowayout = collectionViewLayout as? UICollectionViewFlowLayout
+        let space: CGFloat = (flowayout?.minimumInteritemSpacing ?? 0.0) + (flowayout?.sectionInset.left ?? 0.0) + (flowayout?.sectionInset.right ?? 0.0)
         
+        let size:CGFloat = (collectionView.frame.size.width - space)
+        return CGSize(width: size, height: collectionView.frame.size.height)
     }
 }
