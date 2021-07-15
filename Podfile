@@ -26,7 +26,6 @@ target 'Mad' do
   pod "WSTagsField"
   pod 'Gallery'
   pod 'FSCalendar'
-  pod "RichEditorView"
   pod 'SwiftSoup'
   pod 'Cosmos', '~> 21.0.0'
 

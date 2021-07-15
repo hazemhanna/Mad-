@@ -139,28 +139,30 @@
                                                 <rect key="frame" x="319" y="16" width="15" height="22"/>
                                                 <state key="normal" image="Group 262"/>
                                             </button>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q96-v6-fG0">
-                                                <rect key="frame" x="0.0" y="306" width="350" height="194"/>
-                                                <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LDw-9B-D4O" customClass="RichEditorView" customModule="RichEditorView">
-                                                        <rect key="frame" x="16" y="0.0" width="318" height="194"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <color key="tintColor" red="0.1333333333" green="0.2156862745" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </view>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="LDw-9B-D4O" secondAttribute="bottom" id="Cd8-qt-OCW"/>
-                                                    <constraint firstAttribute="trailing" secondItem="LDw-9B-D4O" secondAttribute="trailing" constant="16" id="QZK-MB-BLR"/>
-                                                    <constraint firstItem="LDw-9B-D4O" firstAttribute="leading" secondItem="q96-v6-fG0" secondAttribute="leading" constant="16" id="WSm-21-xCp"/>
-                                                    <constraint firstItem="LDw-9B-D4O" firstAttribute="top" secondItem="q96-v6-fG0" secondAttribute="top" id="qf0-sk-N3R"/>
-                                                </constraints>
-                                            </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dy3-JK-Zbp">
                                                 <rect key="frame" x="0.0" y="254" width="350" height="44"/>
                                                 <color key="backgroundColor" red="0.94901960784313721" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="qiM-nx-y6T"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q96-v6-fG0">
+                                                <rect key="frame" x="0.0" y="306" width="350" height="194"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e2p-ZW-Btf">
+                                                        <rect key="frame" x="16" y="0.0" width="318" height="150"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="150" id="iBb-QN-0nl"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="e2p-ZW-Btf" secondAttribute="trailing" constant="16" id="7Zy-hu-uWc"/>
+                                                    <constraint firstItem="e2p-ZW-Btf" firstAttribute="leading" secondItem="q96-v6-fG0" secondAttribute="leading" constant="16" id="eJ2-Jf-G7j"/>
+                                                    <constraint firstItem="e2p-ZW-Btf" firstAttribute="top" secondItem="q96-v6-fG0" secondAttribute="top" id="egq-Wy-tPJ"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -249,7 +251,7 @@
             </view>
             <navigationItem key="navigationItem" id="owm-kO-lc2"/>
             <connections>
-                <outlet property="editorView" destination="LDw-9B-D4O" id="75P-rm-sSF"/>
+                <outlet property="editorTF" destination="e2p-ZW-Btf" id="erH-gZ-Ueg"/>
             </connections>
             <point key="canvasLocation" x="-1791.304347826087" y="1717.6339285714284"/>
         </viewController>

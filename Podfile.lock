@@ -12,7 +12,6 @@ PODS:
   - MOLH (1.4.3)
   - Pageboy (3.6.2)
   - PTCardTabBar (1.0.2)
-  - RichEditorView (5.0.0)
   - RxCocoa (5.1.1):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
@@ -69,7 +68,6 @@ DEPENDENCIES:
   - KSToastView
   - MOLH
   - PTCardTabBar
-  - RichEditorView
   - RxCocoa (~> 5)
   - RxDataSources (~> 4.0)
   - RxSwift (~> 5)
@@ -97,7 +95,6 @@ SPEC REPOS:
     - MOLH
     - Pageboy
     - PTCardTabBar
-    - RichEditorView
     - RxCocoa
     - RxDataSources
     - RxRelay
@@ -125,7 +122,6 @@ SPEC CHECKSUMS:
   MOLH: e45827d200aeb1310641090fd8cd03ad2b42ae72
   Pageboy: cf121b9dd48c63f3f281b2a9ec93d02e0f23879b
   PTCardTabBar: 9f94e31b447629aead75cd21cdaa6ae1f2c8bac6
-  RichEditorView: 1bbb07b87ca2d479ac29a6877014b38b8df233ef
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxDataSources: efee07fa4de48477eca0a4611e6d11e2da9c1114
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
@@ -139,6 +135,6 @@ SPEC CHECKSUMS:
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   WSTagsField: a4e91b7d866e8c9755332ebcf8123f42f2abd4a0
 
-PODFILE CHECKSUM: e86523e1bf934277c92e7e39ac445afa1bbb036a
+PODFILE CHECKSUM: b33240682a9816a38ce7f63b4b6d833bbd7327cc
 
 COCOAPODS: 1.10.1
