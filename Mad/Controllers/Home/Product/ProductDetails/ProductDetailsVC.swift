@@ -35,7 +35,9 @@ class ProductDetailsVC: UIViewController {
     @IBOutlet weak var reviewsStack : UIStackView!
     @IBOutlet weak var reviewsStackSizeHieght : NSLayoutConstraint!
     @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var blackView: UIView!
 
+    
     var token = Helper.getAPIToken() ?? ""
     var productId = Int()
     var showShimmer: Bool = true
@@ -77,6 +79,7 @@ class ProductDetailsVC: UIViewController {
         if let ptcTBC = tabBarController as? PTCardTabBarController {
             ptcTBC.customTabBar.isHidden = true
         }
+        blackView.isHidden = true
     }
     override func viewDidAppear(_ animated: Bool) {
         productVM.showIndicator()
@@ -194,6 +197,18 @@ class ProductDetailsVC: UIViewController {
             }
         }
     }
+    
+    @IBAction func dismissAction(_ sender: UIButton) {
+        blackView.isHidden = true
+    }
+    
+
+    @IBAction func viewCartAction(_ sender: UIButton) {
+        let main = MyCartVc.instantiateFromNib()
+        self.navigationController?.pushViewController(main!, animated: true)
+    }
+    
+    
 }
 
 extension ProductDetailsVC : UICollectionViewDelegate ,UICollectionViewDataSource{
@@ -341,7 +356,7 @@ extension ProductDetailsVC {
            if dataModel.success ?? false {
             self.getCart()
             self.productVM.dismissIndicator()
-            self.showMessage(text: dataModel.message ?? "")
+            self.blackView.isHidden = false
            }else{
             self.productVM.dismissIndicator()
             self.showMessage(text: dataModel.message ?? "")

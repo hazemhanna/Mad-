@@ -346,9 +346,7 @@ extension AddProjectdetailsVc {
 
         artistField.onDidChangeText = { _, text in
             print("onDidChangeText")
-
             self.getAllArtist(section : "artists",search:text ?? "",pageNum :1)
-
            // self.filterArtistArray = self.artistArray.filter({return $0.contains(text ?? "")})
             self.view.addSubview(self.artistPickerView)
             self.artistPickerView.frame = CGRect(x: 200, y: 400, width: 150, height: 160)

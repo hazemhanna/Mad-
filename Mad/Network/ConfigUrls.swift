@@ -70,7 +70,13 @@ struct ConfigURLS {
     // blogs
     static var allBlogs  = BASE_URL  + "blog/all"
     static var blogDetails  = BASE_URL  + "blog/get"
+    // chat
+    
+    static var creatConverstion  = BASE_URL  + "conversation/create"
+    static var getAllConverstion  = BASE_URL  + "conversation"
 
-    
-    
+    static var getAllMessages  = BASE_URL  + "conversation/get_messages"
+
+    static var sendMessages  = BASE_URL  + "conversation/send_message"
+
 }
