@@ -110,7 +110,7 @@ extension NotificationVc : UITableViewDelegate,UITableViewDataSource{
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier2) as! InboxCell
             if !showShimmer{
-                cell.confic(name: self.inbox[indexPath.row].destinataire?.name ?? "" , artistUrl: self.inbox[indexPath.row].destinataire?.profilPicture ?? "", content: self.inbox[indexPath.row].body ?? "")
+                cell.confic(name: self.inbox[indexPath.row].object?.artist?.name ?? "" , artistUrl: self.inbox[indexPath.row].object?.artist?.profilPicture ?? "", content: self.inbox[indexPath.row].body ?? "")
             }
             cell.showShimmer = showShimmer
             return cell

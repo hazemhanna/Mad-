@@ -16,8 +16,9 @@ class ChatCell: UITableViewCell {
     @IBOutlet weak var dateLabel : UILabel!
     @IBOutlet weak var MessageContent: CustomView!
     @IBOutlet weak var dateContentView: UIStackView!
-    @IBOutlet weak var profileContentView: UIStackView!
-
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var nameLbl: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -31,7 +32,7 @@ class ChatCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func config(Message: String, ReceiverFlag: Bool) {
+    func config(Message: String, ReceiverFlag: Bool,name:String,image : String) {
         if ReceiverFlag {
             self.MessageContentView.semanticContentAttribute = .forceLeftToRight
             self.UserContentView.alignment = .leading
@@ -46,6 +47,11 @@ class ChatCell: UITableViewCell {
             MessageContent.layer.masksToBounds = true
         }
         self.MessageContentTV.text = Message
+        self.nameLbl.text = name
+        if let profileImageUrl = URL(string: image){
+        self.profileImage.kf.setImage(with: profileImageUrl, placeholder: #imageLiteral(resourceName: "Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4"))
+        }
+        
         self.MessageContentTV.sizeToFit()
         self.MessageContentTV.layoutIfNeeded()
     }

@@ -69,7 +69,7 @@ struct ConversationModelJSON: Codable {
 
 // MARK: - DataClass
 struct AllConversationModel: Codable {
-    let inbox, unread, sent: [Inbox]
+    let inbox: [Inbox]
 }
 
 // MARK: - Inbox

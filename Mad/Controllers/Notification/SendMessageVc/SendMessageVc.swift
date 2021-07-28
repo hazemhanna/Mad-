@@ -26,10 +26,13 @@ class SendMessageVc: UIViewController {
     var object :[String] = []
     var project :[Project] = []
     var Product :[Product] = []
-
+    
     var filteredStrings = [String]()
     var subject = ["Product","Project","Order","Collaboration"]
-   
+    var selectedSubject = String()
+    var objectId = Int()
+    var artistId = Int()
+
     fileprivate let tagsField = WSTagsField()
     var typePickerView: UIPickerView = UIPickerView()
     
@@ -89,21 +92,27 @@ class SendMessageVc: UIViewController {
             if index == 0 {
                 self.object.removeAll()
                 self.titleLbl.text = "Choose Product"
+                self.selectedSubject  = "Product"
                 for index in self.Product {
                     self.object.append(index.title ?? "")
                 }
             }else if index == 1 {
                 self.object.removeAll()
                 self.titleLbl.text = "Choose Project"
+                self.selectedSubject  = "Project"
                 for index in self.project {
                     self.object.append(index.title ?? "")
                 }
             }else if index == 2 {
                 self.object.removeAll()
                 self.titleLbl.text = "Choose Order"
+                self.selectedSubject  = ""
+
             }else if index == 3 {
                 self.object.removeAll()
                 self.titleLbl.text = "Choose Collaboration"
+                self.selectedSubject  = ""
+
             }
             self.setupObjectDropDown()
         }
@@ -113,6 +122,12 @@ class SendMessageVc: UIViewController {
         selectProjectDropDown.optionArray = self.object
         selectProjectDropDown.didSelect { (selectedText, index, id) in
             self.selectProjectDropDown.text = selectedText
+            
+            if self.selectedSubject == "Product"{
+                self.objectId = self.Product[index].id ?? 0
+            }else if self.selectedSubject == "Project"{
+                self.objectId = self.project[index].id ?? 0
+            }
         }
     }
     
@@ -120,12 +135,27 @@ class SendMessageVc: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func sendButton(sender: UIButton) {
-   
+    func validateInput() -> Bool {
+        let subject =  self.selectSubjectDropDown.text ?? ""
+        let object =  self.selectProjectDropDown.text ?? ""
+        if subject.isEmpty {
+          self.showMessage(text: "Please select subject")
+          return false
+        }else if object.isEmpty {
+          self.showMessage(text: "Please select object")
+          return false
+        }else{
+            return true
+        }
+        
     }
-    
-    
+    @IBAction func sendButton(sender: UIButton) {
+      guard self.validateInput() else { return }
+        self.ChatVM.showIndicator()
+        creatConversation(subject: self.selectedSubject, artistId: self.artistId, subjectId: self.objectId)
+    }
 }
+
 
 extension SendMessageVc: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -135,8 +165,6 @@ extension SendMessageVc: UITextFieldDelegate {
         return true
     }
 }
-
-
 
 extension SendMessageVc {
     fileprivate func textFieldEvents() {
@@ -164,15 +192,16 @@ extension SendMessageVc {
         tagsField.onDidChangeHeightTo = { _, height in
             print("HeightTo \(height)")
             self.tagsViewHeight.constant = height + 40
-
         }
-
+        
         tagsField.onDidSelectTagView = { _, tagView in
             print("Select \(tagView)")
         }
+       
         tagsField.onDidUnselectTagView = { _, tagView in
             print("Unselect \(tagView)")
         }
+        
         tagsField.onShouldAcceptTag = { field in
             return field.text != "OMG"
         }
@@ -202,6 +231,7 @@ func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent c
      tagsField.addTag(filteredStrings[row])
      self.typePickerView.isHidden = true
     self.ChatVM.showIndicator()
+    self.artistId = artist[row].id ?? 0
     getArtistProfile(id: artist[row].id ?? 0)
      view.endEditing(true)
   }
@@ -231,6 +261,21 @@ extension SendMessageVc {
             self.Product = dataModel.data?.products ?? []
             self.project = dataModel.data?.projects ?? []
          }
+       }, onError: { (error) in
+        self.ChatVM.dismissIndicator()
+
+       }).disposed(by: disposeBag)
+   }
+    
+    
+    func creatConversation(subject:String,artistId : Int,subjectId:Int) {
+        ChatVM.creatConversation(subject: subject, artistId: artistId, subjectId: subjectId).subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+            self.ChatVM.dismissIndicator()
+            let main = ChatVc.instantiateFromNib()
+            main?.convId = dataModel.data?.id ?? 0
+            self.navigationController?.pushViewController(main!, animated: true)
+           }
        }, onError: { (error) in
         self.ChatVM.dismissIndicator()
 

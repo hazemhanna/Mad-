@@ -743,81 +743,33 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "277BC13D-CC1B-4C3E-BCBF-E4B3FE19D499"
+            uuid = "CF0C3719-60C0-47BE-AD98-837CB5C09082"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Mad/Network/ChatServices.swift"
+            filePath = "Mad/ViewModel/ChatViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
-            landmarkName = "getMessages(param:)"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "creatConversation(subject:artistId:subjectId:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F4816905-637A-4B40-9A98-E9A17CAB9AEB"
+            uuid = "8FFB9F58-6938-4548-B043-3A2EEA542315"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Mad/Network/ChatServices.swift"
+            filePath = "Mad/ViewModel/ChatViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "getMessages(param:)"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "creatConversation(subject:artistId:subjectId:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D9985DC9-6B9B-4B8C-9F2D-182E47799D6D"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Mad/Network/ChatServices.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
-            landmarkName = "getMessages(param:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "D9985DC9-6B9B-4B8C-9F2D-182E47799D6D - 3d58bdbc841cf4eb"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any&gt;) -&gt; () in closure #1 (RxSwift.AnyObserver&lt;Mad.MessagesModelJSON&gt;) -&gt; RxSwift.Disposable in Mad.ChatServices.getMessages(param: Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; RxSwift.Observable&lt;Mad.MessagesModelJSON&gt;"
-                  moduleName = "Mad"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mac/Desktop/work/Cnepho/mad/Mad/Network/ChatServices.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "77"
-                  endingLineNumber = "77"
-                  offsetFromSymbolStart = "873">
-               </Location>
-               <Location
-                  uuid = "D9985DC9-6B9B-4B8C-9F2D-182E47799D6D - 3d58bdbc841cf4eb"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any&gt;) -&gt; () in closure #1 (RxSwift.AnyObserver&lt;Mad.MessagesModelJSON&gt;) -&gt; RxSwift.Disposable in Mad.ChatServices.getMessages(param: Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; RxSwift.Observable&lt;Mad.MessagesModelJSON&gt;"
-                  moduleName = "Mad"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mac/Desktop/work/Cnepho/mad/Mad/Network/ChatServices.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "77"
-                  endingLineNumber = "77"
-                  offsetFromSymbolStart = "1011">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -117,6 +117,8 @@
                 <outlet property="UserContentView" destination="Uij-MV-5kg" id="e7L-r7-OQe"/>
                 <outlet property="dateContentView" destination="e6s-S6-Bdt" id="unm-RB-3Cg"/>
                 <outlet property="dateLabel" destination="108-Cf-ljY" id="hIX-I7-Cb7"/>
+                <outlet property="nameLbl" destination="95W-F1-o5M" id="OdU-Sc-fba"/>
+                <outlet property="profileImage" destination="5cC-7a-vlF" id="25k-i7-WUA"/>
             </connections>
             <point key="canvasLocation" x="37.681159420289859" y="97.767857142857139"/>
         </tableViewCell>

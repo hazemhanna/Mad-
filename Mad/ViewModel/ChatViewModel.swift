@@ -53,7 +53,6 @@ struct ChatViewModel {
             "subject": subject,
             "contact_artist": artistId,
             "artist_object": subjectId,
-
             ]
         let observer = ChatServices.shared.creatConverstion(param : params)
          return observer

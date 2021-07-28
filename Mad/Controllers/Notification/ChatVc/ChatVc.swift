@@ -97,12 +97,16 @@ extension ChatVc : UITableViewDelegate,UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier) as! ChatCell
         let msg = messages[indexPath.row].content ?? ""
         let ReceiverFlag: Bool?
-        if userId == messages[indexPath.row].destinataire?.id ?? 0 {
-            ReceiverFlag = true
-        }else{
+        var name = String()
+        var image = String()
+        name = messages[indexPath.row].user?.name ?? ""
+        image = messages[indexPath.row].user?.profilPicture ?? ""
+        if userId == messages[indexPath.row].user?.id ?? 0 {
             ReceiverFlag = false
+        }else{
+            ReceiverFlag = true
         }
-        cell.config(Message: msg, ReceiverFlag: ReceiverFlag ?? false)
+        cell.config(Message: msg, ReceiverFlag: ReceiverFlag ?? false , name: name,image: image)
         return cell
     }
 }
