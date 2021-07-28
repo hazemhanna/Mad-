@@ -107,7 +107,10 @@ struct Messages: Codable {
     let user: Artist?
     let destinataire: Artist?
     let content: String?
-    let attachement: String?
+    let attachement: Attachement?
     let date: String?
     let seen: Int?
+}
+struct Attachement: Codable {
+    let url, icon, name: String
 }

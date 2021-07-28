@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -94,16 +95,30 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HzE-m5-rNM" customClass="ShimmerView" customModule="Mad" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="331" height="99"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Ex4-BK-fLR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Mlk-Cg-42h"/>
+                    <constraint firstAttribute="bottom" secondItem="HzE-m5-rNM" secondAttribute="bottom" id="VLz-6S-4r1"/>
                     <constraint firstItem="Ex4-BK-fLR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="4" id="kpY-gz-Qqi"/>
+                    <constraint firstItem="HzE-m5-rNM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="oNQ-id-Jc8"/>
                     <constraint firstAttribute="trailing" secondItem="Ex4-BK-fLR" secondAttribute="trailing" constant="4" id="oYW-ET-1M8"/>
+                    <constraint firstAttribute="trailing" secondItem="HzE-m5-rNM" secondAttribute="trailing" id="qqn-Zw-78k"/>
                     <constraint firstAttribute="bottom" secondItem="Ex4-BK-fLR" secondAttribute="bottom" constant="16" id="vdj-D0-nZf"/>
+                    <constraint firstItem="HzE-m5-rNM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="w0B-UF-gXc"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
+            <connections>
+                <outlet property="NameLbl" destination="wOx-OE-0Qi" id="yEJ-Wq-w6X"/>
+                <outlet property="artistImage" destination="dEk-lX-1G0" id="hSe-OL-Fps"/>
+                <outlet property="contentLbl" destination="DZJ-Bc-BPy" id="SDE-9C-W2S"/>
+                <outlet property="shimmerView" destination="HzE-m5-rNM" id="KeL-IG-nQT"/>
+            </connections>
             <point key="canvasLocation" x="-5.0724637681159424" y="73.995535714285708"/>
         </tableViewCell>
     </objects>
@@ -114,5 +129,8 @@
     </designables>
     <resources>
         <image name="Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4" width="320" height="320"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

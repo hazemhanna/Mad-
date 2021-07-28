@@ -8,24 +8,32 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import PTCardTabBar
 
 
 class NotificationVc: UIViewController {
-
     
     @IBOutlet weak var notificationTableView: UITableView!
     @IBOutlet weak var inboxTableView: UITableView!
-    
     @IBOutlet weak var notificationBtn: UIButton!
     @IBOutlet weak var notificationView: UIView!
     @IBOutlet weak var indexBtn: UIButton!
     @IBOutlet weak var indexView: UIView!
     @IBOutlet weak var messageView: UIView!
-
     
     private let cellIdentifier = "NotificationCell"
     private let cellIdentifier2 = "InboxCell"
     
+    var chatVM = ChatViewModel()
+    var disposeBag = DisposeBag()
+    var showShimmer: Bool = true
+
+    
+    var inbox = [Inbox]()
+    
+    open lazy var customTabBar: PTCardTabBar = {
+        return PTCardTabBar()
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +42,11 @@ class NotificationVc: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        getInbox()
         self.navigationController?.navigationBar.isHidden = true
+        if let ptcTBC = tabBarController as? PTCardTabBarController {
+            ptcTBC.customTabBar.isHidden = false
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -86,7 +98,7 @@ extension NotificationVc : UITableViewDelegate,UITableViewDataSource{
      if tableView == notificationTableView {
         return 4
      }else{
-         return 8
+        return inbox.count
       }
     }
     
@@ -97,7 +109,21 @@ extension NotificationVc : UITableViewDelegate,UITableViewDataSource{
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier2) as! InboxCell
+            if !showShimmer{
+                cell.confic(name: self.inbox[indexPath.row].destinataire?.name ?? "" , artistUrl: self.inbox[indexPath.row].destinataire?.profilPicture ?? "", content: self.inbox[indexPath.row].body ?? "")
+            }
+            cell.showShimmer = showShimmer
             return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tableView == notificationTableView {
+        
+        }else{
+            let main = ChatVc.instantiateFromNib()
+            main?.convId = self.inbox[indexPath.row].id ?? 0
+            self.navigationController?.pushViewController(main!, animated: true)
         }
     }
     
@@ -108,4 +134,18 @@ extension NotificationVc : UITableViewDelegate,UITableViewDataSource{
         return 90
         }
     }
+}
+
+extension NotificationVc{
+    func getInbox() {
+        chatVM.getConversation().subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+            self.showShimmer = false
+            self.inbox = dataModel.data?.inbox ?? []
+            self.inboxTableView.reloadData()
+           }
+       }, onError: { (error) in
+
+       }).disposed(by: disposeBag)
+   }
 }

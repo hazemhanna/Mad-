@@ -33,17 +33,17 @@ class Helper {
         }
     }
         
-    class func saveAlogin(token: String,email: String,fName:String,lName:String,type:Bool) {
+    class func saveAlogin(token: String,email: String,fName:String,lName:String,type:Bool,id:Int) {
         let def = UserDefaults.standard
         def.set(token, forKey: "token")
         def.set(email, forKey: "email")
         def.set(fName, forKey: "fName")
         def.set(lName, forKey: "lName")
         def.set(type, forKey: "type")
+        def.set(id, forKey: "id")
         def.synchronize()
     }
     
-
     class func LogOut() {
         let def = UserDefaults.standard
         def.removeObject(forKey: "token")
@@ -54,6 +54,11 @@ class Helper {
     class func getAPIToken() -> String? {
            let def = UserDefaults.standard
            return def.object(forKey: "token") as? String
+       }
+    
+    class func getId() -> Int? {
+           let def = UserDefaults.standard
+           return def.object(forKey: "id") as? Int
        }
     
     class func getFName() -> String? {

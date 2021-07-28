@@ -10,6 +10,7 @@ import DLRadioButton
 import WSTagsField
 import RxSwift
 import RxCocoa
+import PTCardTabBar
 
 class SendMessageVc: UIViewController {
     
@@ -31,6 +32,10 @@ class SendMessageVc: UIViewController {
    
     fileprivate let tagsField = WSTagsField()
     var typePickerView: UIPickerView = UIPickerView()
+    
+    open lazy var customTabBar: PTCardTabBar = {
+        return PTCardTabBar()
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +63,9 @@ class SendMessageVc: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
+        if let ptcTBC = tabBarController as? PTCardTabBarController {
+            ptcTBC.customTabBar.isHidden = true
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
