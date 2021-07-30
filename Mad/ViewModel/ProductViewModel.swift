@@ -127,10 +127,17 @@ struct ProductViewModel {
             return observer
      }
     
-    
-    
     func getProductCategories() -> Observable<CategoryModel> {
          let observer = GetServices.shared.catProduct()
+         return observer
+     }
+    
+    func addComment(productId : Int,comment:String,rate:Int) -> Observable<ReviewModelJson> {
+        let params: [String: Any] = [
+            "product_id": productId,
+            "comment": comment,
+            "rate": rate]
+        let observer = AddServices.shared.addComment(param : params)
          return observer
      }
     

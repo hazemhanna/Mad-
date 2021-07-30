@@ -69,7 +69,6 @@ struct ProductDetailsModelJson: Codable {
 
 // MARK: - DataClass
 struct ProductDetailsModel: Codable {
-    
     let id: Int
     let artist: Artist?
     let title: String?
@@ -81,7 +80,8 @@ struct ProductDetailsModel: Codable {
     let type, shortDescription, dataDescription, materials,deliveryIndex: String?
     let length, width, height, weight: Int?
     let photos: [String]?
-    let categories: [Category]
+    let categories: [Category]?
+    let reviews: [Review]?
 
     enum CodingKeys: String, CodingKey {
         case id, artist, title
@@ -97,7 +97,22 @@ struct ProductDetailsModel: Codable {
         case type
         case shortDescription = "short_description"
         case dataDescription = "description"
-        case materials, length, width, height, weight, photos, categories
+        case materials, length, width, height, weight, photos, categories,reviews
+    }
+}
+
+// MARK: - Review
+struct Review: Codable {
+    let id: Int?
+    let title, content: String?
+    let rate: Int?
+    let createdAt: String?
+    let author: Author?
+
+    enum CodingKeys: String, CodingKey {
+        case id, title, content, rate
+        case createdAt = "created_at"
+        case author
     }
 }
 
@@ -142,6 +157,14 @@ struct AddProductModelJson: Codable {
 struct ArtistProductModel: Codable {
     let success: Bool?
     let data: [Product]?
+    let message: String?
+    let errors: Errors?
+}
+
+
+struct ReviewModelJson: Codable {
+    let success: Bool?
+    let data: ProductDetailsModel?
     let message: String?
     let errors: Errors?
 }

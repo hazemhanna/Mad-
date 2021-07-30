@@ -25,7 +25,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Review here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ue-rg-lZI">
-                                <rect key="frame" x="160.5" y="42" width="93" height="16"/>
+                                <rect key="frame" x="163.5" y="40.5" width="87.5" height="19"/>
                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="16"/>
                                 <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -64,7 +64,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="350" height="80"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Leave a review" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTq-2V-XVn">
-                                                        <rect key="frame" x="0.0" y="8" width="112" height="16"/>
+                                                        <rect key="frame" x="0.0" y="8" width="106.5" height="19"/>
                                                         <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="16"/>
                                                         <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -262,6 +262,7 @@
             <navigationItem key="navigationItem" id="2AO-Qv-JTY"/>
             <connections>
                 <outlet property="commentTf" destination="lNi-kb-YiY" id="ueh-yV-Nxy"/>
+                <outlet property="rateView" destination="tVT-Mh-L75" id="GY8-Rf-k1v"/>
                 <outlet property="titleTf" destination="SJ1-dD-fbf" id="h0Y-My-fAt"/>
             </connections>
             <point key="canvasLocation" x="-1791.304347826087" y="1717.6339285714284"/>
@@ -269,16 +270,13 @@
     </objects>
     <designables>
         <designable name="SJ1-dD-fbf">
-            <size key="intrinsicContentSize" width="53.5" height="37.5"/>
+            <size key="intrinsicContentSize" width="30" height="20.5"/>
         </designable>
         <designable name="dKn-Dl-5LJ">
             <size key="intrinsicContentSize" width="129" height="33"/>
         </designable>
         <designable name="lNi-kb-YiY">
-            <size key="intrinsicContentSize" width="134.5" height="37.5"/>
-        </designable>
-        <designable name="tVT-Mh-L75">
-            <size key="intrinsicContentSize" width="120" height="20"/>
+            <size key="intrinsicContentSize" width="106.5" height="20.5"/>
         </designable>
     </designables>
     <resources>

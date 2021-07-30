@@ -48,6 +48,8 @@ struct ConfigURLS {
     static var createProduct = BASE_URL  + "product/create"
     static var catProduct = BASE_URL  + "categories/product"
     static var artistProduct = BASE_URL  + "product/get_for_artist"
+    static var addComment = BASE_URL  + "product/add_comment"
+    
     // video
     static var getAllvideos = BASE_URL  + "video/all"
     static var getVideoDetails = BASE_URL  + "video/get"

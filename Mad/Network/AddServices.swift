@@ -501,6 +501,27 @@ struct AddServices {
            }
        }
     
+    func addComment(param : [String :Any]) -> Observable<ReviewModelJson> {
+           return Observable.create { (observer) -> Disposable in
+               let url = ConfigURLS.addComment
+            let token = Helper.getAPIToken() ?? ""
+            let headers = [
+                "Authorization": "Bearer \(token)"
+            ]
+               Alamofire.request(url, method: .post, parameters: param, encoding: URLEncoding.default, headers: headers)
+                   .validate(statusCode: 200..<300)
+                   .responseJSON { (response: DataResponse<Any>) in
+                       do {
+                           let data = try JSONDecoder().decode(ReviewModelJson.self, from: response.data!)
+                           observer.onNext(data)
+                       } catch {
+                           print(error.localizedDescription)
+                           observer.onError(error)
+                       }
+               }
+               return Disposables.create()
+           }
+       }
     
     
 }

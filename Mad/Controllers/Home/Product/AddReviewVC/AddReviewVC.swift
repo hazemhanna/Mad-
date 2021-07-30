@@ -9,14 +9,17 @@ import UIKit
 import RxSwift
 import RxCocoa
 import PTCardTabBar
-
+import Cosmos
 
 class AddReviewVC: UIViewController {
-
     
+    @IBOutlet weak var rateView: CosmosView!
     @IBOutlet weak var titleTf: CustomTextField!
     @IBOutlet weak var commentTf: CustomTextField!
     
+    var disposeBag = DisposeBag()
+    var productVM = ProductViewModel()
+    var productId = Int()
     open lazy var customTabBar: PTCardTabBar = {
         return PTCardTabBar()
     }()
@@ -42,10 +45,7 @@ class AddReviewVC: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-
     }
-    
-
     
     @IBAction func backButton(sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
@@ -53,9 +53,30 @@ class AddReviewVC: UIViewController {
    
     
     @IBAction func submitButton(sender: UIButton) {
-
-
+        if commentTf.text != ""{
+            self.productVM.showIndicator()
+            addComment(productId: productId, comment: commentTf.text ?? "" , rate: Int(rateView.rating))
+        }else{
+            self.showMessage(text: "write comment")
+        }
+        
     }
     
     
+}
+
+
+extension AddReviewVC {
+    func addComment (productId : Int,comment:String,rate:Int) {
+        productVM.addComment(productId: productId, comment: comment, rate: rate).subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+            self.productVM.dismissIndicator()
+
+            self.navigationController?.popViewController(animated: true)
+           }
+       }, onError: { (error) in
+        self.productVM.dismissIndicator()
+
+       }).disposed(by: disposeBag)
+   }
 }

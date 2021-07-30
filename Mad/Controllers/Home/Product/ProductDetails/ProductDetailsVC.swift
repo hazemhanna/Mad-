@@ -49,6 +49,7 @@ class ProductDetailsVC: UIViewController {
     var productVM = ProductViewModel()
     
     var photos = [String]()
+    var reviews = [Review]()
 
     open lazy var customTabBar: PTCardTabBar = {
         return PTCardTabBar()
@@ -116,6 +117,7 @@ class ProductDetailsVC: UIViewController {
     
     @IBAction func addReviewBtn(sender: UIButton) {
         let vc = AddReviewVC.instantiateFromNib()
+        vc?.productId = self.productId 
         self.navigationController?.pushViewController(vc!, animated: true)
     }
     
@@ -271,13 +273,17 @@ extension ProductDetailsVC : UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-         return 9
-    
+    return reviews.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier2) as! ReviewCell
-            return cell
+    cell.confic(name: (self.reviews[indexPath.row].author?.firstName ?? "") + " " + (self.reviews[indexPath.row].author?.lastName ?? "") ,
+                    imageUrl: self.reviews[indexPath.row].author?.profilePicture ?? "" ,
+                    address: self.reviews[indexPath.row].content ?? "" ,
+                    comment: self.reviews[indexPath.row].content ?? "",
+                    rate :  self.reviews[indexPath.row].rate ?? 0)
+        return cell
     }
     
     
@@ -294,6 +300,8 @@ extension ProductDetailsVC {
             self.showShimmer = false
             if let data = dataModel.data {
             self.photos = data.photos ?? []
+            self.reviews = data.reviews ?? []
+            self.reviewTableView.reloadData()
             self.addsCollectionView.reloadData()
             self.artistName.text = data.artist?.name ?? ""
             self.productPrice.text = "USD " + String(data.price ?? 0)
@@ -303,7 +311,7 @@ extension ProductDetailsVC {
             self.isFavourite = data.isFavorite ?? false
             let height = self.producttitle.intrinsicContentSize.height
             self.contentSizeHieght.constant = 800 + height
-            self.reviewsStackSizeHieght.constant = 200 + height
+            self.reviewsStackSizeHieght.constant = 400 + height
             self.photoCount.text = String(data.photos?.count ?? 0)
                 if data.photos?.count ?? 0 > 0 {
                     self.photoIndex.text =  "1"
