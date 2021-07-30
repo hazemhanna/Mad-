@@ -81,4 +81,11 @@ struct ChatViewModel {
         let observer = ChatServices.shared.SendMessage(param : params)
          return observer
      }
+    
+    
+    func getNotifications() -> Observable<NotificationModelJSON> {
+        let observer = GetServices.shared.getNotifications()
+         return observer
+     }
+    
 }

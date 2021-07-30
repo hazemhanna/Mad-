@@ -1,4 +1,4 @@
-//
+
 //  ArtistVc.swift
 //  Mad
 //
@@ -11,8 +11,9 @@ import RxCocoa
 import AVKit
 import AVFoundation
 
+
 class VideosVC: UIViewController {
-   
+    
     @IBOutlet weak var productCollectionView: UICollectionView!
     @IBOutlet weak var  showsCollectionView: UICollectionView!
     @IBOutlet weak var interviewsCollectionView: UICollectionView!

@@ -32,6 +32,58 @@ class GetServices {
         }
     }
     
+    
+    func getProductCategories() -> Observable<CategoryModel> {
+        return Observable.create { (observer) -> Disposable in
+            let url = ConfigURLS.getProductCategeory
+            Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil)
+                .validate(statusCode: 200..<300)
+                .responseJSON { (response: DataResponse<Any>) in
+                    do {
+                        let CategoriesData = try JSONDecoder().decode(CategoryModel.self, from: response.data!)
+                        observer.onNext(CategoriesData)
+                    } catch {
+                        print(error.localizedDescription)
+                        observer.onError(error)
+                    }
+            }
+            return Disposables.create()
+        }
+    }
+    func getProjectCategories() -> Observable<CategoryModel> {
+        return Observable.create { (observer) -> Disposable in
+            let url = ConfigURLS.getProjectCategeory
+            Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil)
+                .validate(statusCode: 200..<300)
+                .responseJSON { (response: DataResponse<Any>) in
+                    do {
+                        let CategoriesData = try JSONDecoder().decode(CategoryModel.self, from: response.data!)
+                        observer.onNext(CategoriesData)
+                    } catch {
+                        print(error.localizedDescription)
+                        observer.onError(error)
+                    }
+            }
+            return Disposables.create()
+        }
+    }
+    func getBlogCategories() -> Observable<CategoryModel> {
+        return Observable.create { (observer) -> Disposable in
+            let url = ConfigURLS.getBlogCategeory
+            Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil)
+                .validate(statusCode: 200..<300)
+                .responseJSON { (response: DataResponse<Any>) in
+                    do {
+                        let CategoriesData = try JSONDecoder().decode(CategoryModel.self, from: response.data!)
+                        observer.onNext(CategoriesData)
+                    } catch {
+                        print(error.localizedDescription)
+                        observer.onError(error)
+                    }
+            }
+            return Disposables.create()
+        }
+    }
     func getAllCountry() -> Observable<CountryModel> {
         return Observable.create { (observer) -> Disposable in
             let url = ConfigURLS.getCountry
@@ -720,5 +772,27 @@ class GetServices {
     
     
     
+    func getNotifications() -> Observable<NotificationModelJSON> {
+           return Observable.create { (observer) -> Disposable in
+               let url = ConfigURLS.notitfication
+            let token = Helper.getAPIToken() ?? ""
+            let headers = [
+                "Authorization": "Bearer \(token)"
+            ]
+            
+               Alamofire.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers)
+                   .validate(statusCode: 200..<300)
+                   .responseJSON { (response: DataResponse<Any>) in
+                       do {
+                           let data = try JSONDecoder().decode(NotificationModelJSON.self, from: response.data!)
+                           observer.onNext(data)
+                       } catch {
+                           print(error.localizedDescription)
+                           observer.onError(error)
+                       }
+               }
+               return Disposables.create()
+           }
+       }
     
 }

@@ -30,7 +30,8 @@ class NotificationVc: UIViewController {
 
     
     var inbox = [Inbox]()
-    
+    var notifications = [Notifications]()
+
     open lazy var customTabBar: PTCardTabBar = {
         return PTCardTabBar()
     }()
@@ -42,6 +43,7 @@ class NotificationVc: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        getNotification()
         getInbox()
         self.navigationController?.navigationBar.isHidden = true
         if let ptcTBC = tabBarController as? PTCardTabBarController {
@@ -96,16 +98,20 @@ extension NotificationVc : UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
      if tableView == notificationTableView {
-        return 4
+        return notifications.count
      }else{
         return inbox.count
       }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         if tableView == notificationTableView {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier) as! NotificationCell
+            if !showShimmer{
+                cell.confic(date: self.notifications[indexPath.row].createdAt ?? "" , artistUrl: self.notifications[indexPath.row].imageURL ?? "", content: self.notifications[indexPath.row].body ?? "")
+            }
+            cell.showShimmer = showShimmer
+            
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier2) as! InboxCell
@@ -148,4 +154,17 @@ extension NotificationVc{
 
        }).disposed(by: disposeBag)
    }
+    
+    func getNotification() {
+        chatVM.getNotifications().subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+            self.showShimmer = false
+            self.notifications = dataModel.data ?? []
+            self.notificationTableView.reloadData()
+           }
+       }, onError: { (error) in
+
+       }).disposed(by: disposeBag)
+   }
+    
 }

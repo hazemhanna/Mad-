@@ -23,7 +23,8 @@ class ProjectsVC : UIViewController {
     var parentVC : HomeVC?
     var token = Helper.getAPIToken() ?? ""
     var type = Helper.getType() ?? false
-    
+    var active = Helper.getIsActive() ?? false
+
     var selectedIndex = -1
     var catId = Int()
     
@@ -157,7 +158,7 @@ extension ProjectsVC: UITableViewDelegate,UITableViewDataSource{
 
 extension ProjectsVC : UICollectionViewDelegate ,UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if type {
+        if active {
             return  self.showShimmer ? 5 : Categories.count + 1
         }else{
             return  self.showShimmer ? 5 : Categories.count
@@ -168,7 +169,7 @@ extension ProjectsVC : UICollectionViewDelegate ,UICollectionViewDataSource{
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! ProjectCell
 
         if !self.showShimmer {
-        if type {
+        if active {
            if indexPath.row == 0 {
                 cell.catImage.isHidden = true
                 cell.addProjectBtn.isHidden = false

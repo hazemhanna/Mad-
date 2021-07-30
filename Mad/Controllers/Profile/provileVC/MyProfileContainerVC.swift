@@ -11,19 +11,22 @@ import Pageboy
 
 class MyProfileContainerVC : TabmanViewController {
 
+    var active = Helper.getIsActive() ?? false
+    
     let vc1 = UIStoryboard(name: "Profile", bundle: nil).instantiateViewController(withIdentifier: "MyProfileProjects") as! MyProfileProjects
     let vc2 = UIStoryboard(name: "Profile", bundle: nil).instantiateViewController(withIdentifier: "MyprofileProducts") as! MyprofileProducts
     let vc3 = UIStoryboard(name: "Profile", bundle: nil).instantiateViewController(withIdentifier: "MyProfileAbout") as! MyProfileAbout
     let vc4 = UIStoryboard(name: "Profile", bundle: nil).instantiateViewController(withIdentifier: "MyProfileCompetitions") as! MyProfileCompetitions
     let vc5 = UIStoryboard(name: "Profile", bundle: nil).instantiateViewController(withIdentifier: "MyProfileVideos") as! MyProfileVideos
 
-    private lazy var viewControllers: [UIViewController] = [
-        vc1,
-        vc2,
-        vc3,
-        vc4,
-        vc5
-    ]
+    private lazy var viewControllers : [UIViewController] = [vc1,
+                                                              vc2,
+                                                              vc3,
+                                                              vc4,
+                                                              vc5]
+    
+    private lazy var viewControllers2 : [UIViewController] = [vc3,
+                                                             vc4]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +48,6 @@ class MyProfileContainerVC : TabmanViewController {
         
         bar.indicator.tintColor = .clear
         addBar(bar.systemBar(), dataSource: self, at: .top)
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,11 +58,21 @@ class MyProfileContainerVC : TabmanViewController {
 extension MyProfileContainerVC  : PageboyViewControllerDataSource, TMBarDataSource{
 
 func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> Int {
+    if active {
     return viewControllers.count
+    }else{
+        return viewControllers2.count
+
+    }
 }
 
 func viewController(for pageboyViewController: PageboyViewController, at index: PageboyViewController.PageIndex) -> UIViewController? {
+    if active {
     return viewControllers[index]
+    }else{
+        return viewControllers2[index]
+
+    }
 }
 
 func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
@@ -68,6 +80,7 @@ func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyVie
 }
 
 func barItem(for bar: TMBar, at index: Int) -> TMBarItemable {
+    if active {
         if index == 0 {
             return TMBarItem(title:  "Projects")
         }else if index == 1  {
@@ -79,6 +92,13 @@ func barItem(for bar: TMBar, at index: Int) -> TMBarItemable {
         }else  {
             return TMBarItem(title:  "Videos")
         }
+    }else{
+         if index == 0{
+            return TMBarItem(title:  "About")
+        }else{
+            return TMBarItem(title:  "Competitions")
+        }
+      }
     }
 }
 

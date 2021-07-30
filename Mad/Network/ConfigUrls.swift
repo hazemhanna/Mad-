@@ -17,8 +17,14 @@ struct ConfigURLS {
     static var checkOtp = BASE_URL  + "auth/check_otp"
     static var completeRegister = BASE_URL  + "auth/complete_profile"
     static var login = BASE_URL  + "auth/login"
+    static var upgradeProfile  = BASE_URL  + "auth/upgrade_to_artist"
     static var getCountry = BASE_URL  + "active_countries"
+     // categories
     static var getCategeory = BASE_URL  + "categories"
+    static var getProductCategeory = BASE_URL  + "categories/product"
+    static var getProjectCategeory = BASE_URL  + "categories/project"
+    static var getBlogCategeory = BASE_URL  + "categories/blog"
+
     // project
     static var getProject = BASE_URL  + "project/all"
     static var addToFavourite = BASE_URL  + "project/edit_favorite"
@@ -71,12 +77,12 @@ struct ConfigURLS {
     static var allBlogs  = BASE_URL  + "blog/all"
     static var blogDetails  = BASE_URL  + "blog/get"
     // chat
-    
     static var creatConverstion  = BASE_URL  + "conversation/create"
     static var getAllConverstion  = BASE_URL  + "conversation"
-
     static var getAllMessages  = BASE_URL  + "conversation/get_messages"
-
     static var sendMessages  = BASE_URL  + "conversation/send_message"
+    // general
+    static var notitfication  = BASE_URL  + "notification"
 
+    
 }

@@ -114,3 +114,30 @@ struct Messages: Codable {
 struct Attachement: Codable {
     let url, icon, name: String
 }
+
+
+
+// MARK: - NotificationModelJSON
+struct NotificationModelJSON: Codable {
+    let success: Bool?
+    let data: [Notifications]?
+    let message: String?
+    let errors: Errors?
+}
+
+// MARK: - Datum
+struct Notifications: Codable {
+    let id: Int?
+    let imageURL, title, createdAt, body: String?
+    let type: String?
+    let objectID: Int?
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case imageURL = "image_url"
+        case title
+        case createdAt = "created_at"
+        case body, type
+        case objectID = "object_id"
+    }
+}

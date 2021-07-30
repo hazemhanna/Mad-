@@ -17,16 +17,22 @@ class MyProfileVc: UIViewController {
     @IBOutlet weak var ProfileImage: UIImageView!
     @IBOutlet weak var favouriteCount: UILabel!
     @IBOutlet weak var followersCount: UILabel!
-    @IBOutlet weak var followingCount: UILabel!
     @IBOutlet weak var artistName: UILabel!
-    @IBOutlet weak var followBtn: UIButton!
-
-
+    @IBOutlet weak var  upgradeView : UIView!
+    
+    var active = Helper.getIsActive() ?? false
     var artistVM = ArtistViewModel()
     var disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if active{
+            upgradeView.isHidden = true
+        }else{
+            upgradeView.isHidden = false
+
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,6 +52,12 @@ class MyProfileVc: UIViewController {
     }
     
     
+    @IBAction func upgradeButton(sender: UIButton) {
+
+
+    }
+    
+    
 }
 
 extension MyProfileVc  {
@@ -58,7 +70,6 @@ extension MyProfileVc  {
             self.artistName.text = dataModel.data?.name ??  ""
             self.favouriteCount.text = "\(dataModel.data?.allFollowers ?? 0)"
             self.followersCount.text = "\(dataModel.data?.allFollowing ?? 0)"
-            self.followingCount.text = "\(dataModel.data?.allFollowing ?? 0)"
             if let profile = URL(string:   dataModel.data?.profilPicture ??  "" ){
             self.ProfileImage.kf.setImage(with: profile, placeholder: #imageLiteral(resourceName: "WhatsApp Image 2021-04-21 at 1.25.47 PM"))
            }

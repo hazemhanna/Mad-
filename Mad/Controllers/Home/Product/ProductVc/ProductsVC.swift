@@ -29,7 +29,7 @@ class ProductsVC : UIViewController {
     var categeory = [Category]()
     var token = Helper.getAPIToken() ?? ""
     var type = Helper.getType() ?? false
-
+    var active = Helper.getIsActive() ?? false
     var showShimmer1: Bool = true
     var showShimmer2: Bool = true
     var showShimmer3: Bool = true
@@ -72,7 +72,7 @@ class ProductsVC : UIViewController {
 extension ProductsVC: UICollectionViewDelegate,UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == addproductCollectionView {
-            if type {
+            if active {
                 return  self.showShimmer1 ? 5 : categeory.count + 1
             }else{
                 return  self.showShimmer1 ? 5 : categeory.count
@@ -90,7 +90,7 @@ extension ProductsVC: UICollectionViewDelegate,UICollectionViewDataSource {
       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier1, for: indexPath) as! ProjectCell
       
         if !self.showShimmer1 {
-            if type {
+            if active {
                if indexPath.row == 0 {
                     cell.catImage.isHidden = true
                     cell.addProjectBtn.isHidden = false

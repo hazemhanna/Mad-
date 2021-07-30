@@ -57,7 +57,7 @@ struct HomeViewModel {
      }
     
     func getCategories() -> Observable<CategoryModel> {
-         let observer = GetServices.shared.getAllCategories()
+         let observer = GetServices.shared.getProjectCategories()
          return observer
      }
     

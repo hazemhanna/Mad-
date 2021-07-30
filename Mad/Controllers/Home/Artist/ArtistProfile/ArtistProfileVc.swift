@@ -17,7 +17,6 @@ class ArtistProfileVc: UIViewController {
     @IBOutlet weak var ProfileImage: UIImageView!
     @IBOutlet weak var favouriteCount: UILabel!
     @IBOutlet weak var followersCount: UILabel!
-    @IBOutlet weak var followingCount: UILabel!
     @IBOutlet weak var artistName: UILabel!
     @IBOutlet weak var followBtn: UIButton!
 
@@ -39,7 +38,6 @@ class ArtistProfileVc: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         artistVM.showIndicator()
          getArtistProfile(artistId : artistId)
-
     }
     
     @IBAction func backButton(sender: UIButton) {
@@ -59,7 +57,6 @@ extension ArtistProfileVc  {
             self.artistName.text = dataModel.data?.name ??  ""
             self.favouriteCount.text = "\(dataModel.data?.allFollowers ?? 0)"
             self.followersCount.text = "\(dataModel.data?.allFollowing ?? 0)"
-            self.followingCount.text = "\(dataModel.data?.allFollowing ?? 0)"
             if let profile = URL(string:   dataModel.data?.profilPicture ??  "" ){
             self.ProfileImage.kf.setImage(with: profile, placeholder: #imageLiteral(resourceName: "WhatsApp Image 2021-04-21 at 1.25.47 PM"))
            }

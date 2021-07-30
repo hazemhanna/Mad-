@@ -44,7 +44,7 @@ struct ProductViewModel {
      }
 
     func getCategories() -> Observable<CategoryModel> {
-         let observer = GetServices.shared.getAllCategories()
+         let observer = GetServices.shared.getProductCategories()
          return observer
      }
     

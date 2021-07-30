@@ -17,9 +17,7 @@ class MyProfileAbout : UIViewController {
     @IBOutlet weak var  pointLbl: UILabel!
     @IBOutlet weak var  bioLbL : UILabel!
     @IBOutlet weak var  socialTableview : UITableView!
-    
     let cellIdentifier = "SocialCell"
-
     var artistVM = ArtistViewModel()
     var disposeBag = DisposeBag()
     var artistId = Helper.getArtistId() ?? 0
