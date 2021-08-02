@@ -89,6 +89,7 @@
 		043B47D6261DB5B500D67023 /* ForYouCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 043B47D4261DB5B500D67023 /* ForYouCell.xib */; };
 		0440ECA82636C7C60046681C /* CompetitionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440ECA62636C7C60046681C /* CompetitionCell.swift */; };
 		0440ECA92636C7C60046681C /* CompetitionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0440ECA72636C7C60046681C /* CompetitionCell.xib */; };
+		0441AE0826B47427007FDBE5 /* FavouriteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0441AE0726B47427007FDBE5 /* FavouriteModel.swift */; };
 		0447A8F5267129B400F523CC /* HomeCompetitionsVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0447A8F3267129B400F523CC /* HomeCompetitionsVc.swift */; };
 		0447A8F6267129B400F523CC /* HomeCompetitionsVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0447A8F4267129B400F523CC /* HomeCompetitionsVc.xib */; };
 		0447A8FD26712E4200F523CC /* CompetitionsDetailsVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0447A8FB26712E4200F523CC /* CompetitionsDetailsVc.swift */; };
@@ -357,6 +358,7 @@
 		043B47D4261DB5B500D67023 /* ForYouCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForYouCell.xib; sourceTree = "<group>"; };
 		0440ECA62636C7C60046681C /* CompetitionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionCell.swift; sourceTree = "<group>"; };
 		0440ECA72636C7C60046681C /* CompetitionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompetitionCell.xib; sourceTree = "<group>"; };
+		0441AE0726B47427007FDBE5 /* FavouriteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteModel.swift; sourceTree = "<group>"; };
 		0447A8F3267129B400F523CC /* HomeCompetitionsVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCompetitionsVc.swift; sourceTree = "<group>"; };
 		0447A8F4267129B400F523CC /* HomeCompetitionsVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCompetitionsVc.xib; sourceTree = "<group>"; };
 		0447A8FB26712E4200F523CC /* CompetitionsDetailsVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionsDetailsVc.swift; sourceTree = "<group>"; };
@@ -1567,6 +1569,7 @@
 				04042FCC2696D699009844C7 /* OrdersModel.swift */,
 				04F63023269F09AC00BA4C08 /* BlogsModel.swift */,
 				047A798A26B00D2300C6EFA2 /* ChatModel.swift */,
+				0441AE0726B47427007FDBE5 /* FavouriteModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -2277,6 +2280,7 @@
 				0451B7A9262716E8000B3983 /* ShimmerView.swift in Sources */,
 				04B6741226383DC600AFF9C3 /* AddProductPhotoCell.swift in Sources */,
 				046CD68426829EA1004FE6C6 /* SearchTagsVC.swift in Sources */,
+				0441AE0826B47427007FDBE5 /* FavouriteModel.swift in Sources */,
 				04D23EC9263306B500290488 /* ContainerVC.swift in Sources */,
 				0414287726177E69000394CA /* LiveCellCVC.swift in Sources */,
 				0493024D2690308800086C58 /* MyprofileProducts.swift in Sources */,

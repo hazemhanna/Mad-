@@ -18,6 +18,8 @@ struct ConfigURLS {
     static var completeRegister = BASE_URL  + "auth/complete_profile"
     static var login = BASE_URL  + "auth/login"
     static var upgradeProfile  = BASE_URL  + "auth/upgrade_to_artist"
+    static var getFavourite   = BASE_URL  + "auth/get_favorites"
+
     static var getCountry = BASE_URL  + "active_countries"
      // categories
     static var getCategeory = BASE_URL  + "categories"

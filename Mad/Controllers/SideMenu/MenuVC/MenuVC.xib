@@ -27,7 +27,7 @@
                         <rect key="frame" x="0.0" y="44" width="414" height="75"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User menu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e4n-Ue-ZGW">
-                                <rect key="frame" x="168" y="28" width="78" height="19"/>
+                                <rect key="frame" x="166" y="29.5" width="82.5" height="16"/>
                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="16"/>
                                 <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -76,13 +76,13 @@
                                                 <rect key="frame" x="0.0" y="-110" width="350" height="110"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upgrade to artist account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uX5-qC-BUA">
-                                                        <rect key="frame" x="72" y="16" width="206.5" height="21"/>
+                                                        <rect key="frame" x="65.5" y="16" width="219.5" height="18"/>
                                                         <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="18"/>
                                                         <color key="textColor" red="0.11764705882352941" green="0.21568627450980393" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R4l-cH-JbD">
-                                                        <rect key="frame" x="30" y="53" width="290" height="60"/>
+                                                        <rect key="frame" x="30" y="50" width="290" height="60"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle 16" translatesAutoresizingMaskIntoConstraints="NO" id="i1f-rs-wSM">
                                                                 <rect key="frame" x="0.0" y="0.0" width="280" height="60"/>
@@ -255,13 +255,13 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Purchase menu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sWl-qz-PSc">
-                                                <rect key="frame" x="0.0" y="352" width="350" height="19"/>
+                                                <rect key="frame" x="0.0" y="352" width="350" height="16"/>
                                                 <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="16"/>
                                                 <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Qv1-er-ijs">
-                                                <rect key="frame" x="0.0" y="403" width="350" height="20"/>
+                                                <rect key="frame" x="0.0" y="400" width="350" height="20"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HOe-lL-5wq">
                                                         <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -307,7 +307,7 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ILZ-8x-K5r">
-                                                <rect key="frame" x="0.0" y="455" width="350" height="33"/>
+                                                <rect key="frame" x="0.0" y="452" width="350" height="30"/>
                                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="18"/>
                                                 <state key="normal" title="My orders">
                                                     <color key="titleColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -317,7 +317,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QwQ-Rp-fCo">
-                                                <rect key="frame" x="0.0" y="520" width="350" height="33"/>
+                                                <rect key="frame" x="0.0" y="514" width="350" height="30"/>
                                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="18"/>
                                                 <state key="normal" title="Contact &amp; address details">
                                                     <color key="titleColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -327,7 +327,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AcZ-mn-1qW">
-                                                <rect key="frame" x="0.0" y="585" width="350" height="33"/>
+                                                <rect key="frame" x="0.0" y="576" width="350" height="30"/>
                                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="18"/>
                                                 <state key="normal" title="Payment details">
                                                     <color key="titleColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -337,55 +337,61 @@
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D7g-Gb-S8Y">
-                                                <rect key="frame" x="0.0" y="650" width="350" height="1"/>
+                                                <rect key="frame" x="0.0" y="638" width="350" height="1"/>
                                                 <color key="backgroundColor" red="0.87843137250000003" green="0.89019607840000003" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="hfm-ie-Qpx"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Application Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wIX-2e-3iU">
-                                                <rect key="frame" x="0.0" y="683" width="350" height="19"/>
+                                                <rect key="frame" x="0.0" y="671" width="350" height="16"/>
                                                 <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="16"/>
                                                 <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vmv-lE-BF4">
-                                                <rect key="frame" x="0.0" y="734" width="350" height="33"/>
+                                                <rect key="frame" x="0.0" y="719" width="350" height="30"/>
                                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="18"/>
                                                 <state key="normal" title="Language">
                                                     <color key="titleColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cFm-kf-Z7h">
-                                                <rect key="frame" x="0.0" y="799" width="350" height="33"/>
+                                                <rect key="frame" x="0.0" y="781" width="350" height="30"/>
                                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="18"/>
                                                 <state key="normal" title="Notifications">
                                                     <color key="titleColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zCU-Kb-gP4">
-                                                <rect key="frame" x="0.0" y="864" width="350" height="33"/>
+                                                <rect key="frame" x="0.0" y="843" width="350" height="30"/>
                                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="18"/>
                                                 <state key="normal" title="Terms of Use">
                                                     <color key="titleColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="termsActionWithSender:" destination="gH6-x4-vCf" eventType="touchUpInside" id="eel-0q-ezz"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ryX-oN-aVk">
-                                                <rect key="frame" x="0.0" y="929" width="350" height="33"/>
+                                                <rect key="frame" x="0.0" y="905" width="350" height="30"/>
                                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="18"/>
                                                 <state key="normal" title="Terms &amp; Conditions">
                                                     <color key="titleColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="policyActionWithSender:" destination="gH6-x4-vCf" eventType="touchUpInside" id="vXr-4R-wxu"/>
+                                                </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3hW-dv-D7p">
-                                                <rect key="frame" x="0.0" y="994" width="350" height="1"/>
+                                                <rect key="frame" x="0.0" y="967" width="350" height="1"/>
                                                 <color key="backgroundColor" red="0.87843137250000003" green="0.89019607840000003" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="DL8-Aa-nti"/>
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="b0O-Em-Sdb">
-                                                <rect key="frame" x="0.0" y="1027" width="350" height="20"/>
+                                                <rect key="frame" x="0.0" y="1000" width="350" height="20"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8xL-wA-2yR">
                                                         <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -401,11 +407,14 @@
                                                         <state key="normal" title="Logout ">
                                                             <color key="titleColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="logOutActionWithSender:" destination="gH6-x4-vCf" eventType="touchUpInside" id="gl3-tz-ZTN"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7pZ-GA-8wJ">
-                                                <rect key="frame" x="0.0" y="1079" width="350" height="21"/>
+                                                <rect key="frame" x="0.0" y="1052" width="350" height="48"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                         </subviews>
@@ -456,10 +465,10 @@
     </objects>
     <designables>
         <designable name="9OD-cN-C4v">
-            <size key="intrinsicContentSize" width="159" height="32"/>
+            <size key="intrinsicContentSize" width="165" height="32"/>
         </designable>
         <designable name="Isq-Vw-wg8">
-            <size key="intrinsicContentSize" width="111" height="24"/>
+            <size key="intrinsicContentSize" width="117" height="20"/>
         </designable>
     </designables>
     <resources>
