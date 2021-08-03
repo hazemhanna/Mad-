@@ -28,7 +28,7 @@
                         <rect key="frame" x="0.0" y="44" width="414" height="75"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My cart - Payment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="580-so-B5Z">
-                                <rect key="frame" x="138.5" y="29.5" width="137.5" height="16"/>
+                                <rect key="frame" x="141" y="28" width="132.5" height="19"/>
                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="16"/>
                                 <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -267,6 +267,7 @@
             <size key="freeformSize" width="414" height="900"/>
             <connections>
                 <outlet property="addressLbl" destination="koU-za-tnX" id="Fjr-XG-u6h"/>
+                <outlet property="buyButton" destination="qNJ-gb-Nn2" id="oKA-6T-Om7"/>
                 <outlet property="citylbl" destination="KKZ-pk-tM2" id="bTw-93-6p7"/>
                 <outlet property="countrylbl" destination="J1K-ku-FJf" id="WSY-td-kqh"/>
             </connections>
@@ -275,7 +276,7 @@
     </objects>
     <designables>
         <designable name="JjP-zv-TEc">
-            <size key="intrinsicContentSize" width="97" height="30"/>
+            <size key="intrinsicContentSize" width="92" height="33"/>
         </designable>
         <designable name="qNJ-gb-Nn2">
             <size key="intrinsicContentSize" width="76" height="33"/>

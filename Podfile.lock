@@ -23,6 +23,12 @@ PODS:
     - RxSwift (~> 5)
   - RxSwift (5.1.1)
   - Shimmer (1.0.2)
+  - Stripe (21.7.0):
+    - Stripe/Stripe3DS2 (= 21.7.0)
+    - StripeCore (= 21.7.0)
+  - Stripe/Stripe3DS2 (21.7.0):
+    - StripeCore (= 21.7.0)
+  - StripeCore (21.7.0)
   - SVProgressHUD (2.2.5)
   - SwifterSwift (5.2.0):
     - SwifterSwift/AppKit (= 5.2.0)
@@ -72,6 +78,7 @@ DEPENDENCIES:
   - RxDataSources (~> 4.0)
   - RxSwift (~> 5)
   - Shimmer
+  - Stripe
   - SVProgressHUD (~> 2.2.5)
   - SwifterSwift
   - SwiftSoup
@@ -100,6 +107,8 @@ SPEC REPOS:
     - RxRelay
     - RxSwift
     - Shimmer
+    - Stripe
+    - StripeCore
     - SVProgressHUD
     - SwifterSwift
     - SwiftSoup
@@ -127,6 +136,8 @@ SPEC CHECKSUMS:
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   Shimmer: c5374be1c2b0c9e292fb05b339a513cf291cac86
+  Stripe: 90596971ef49bade169f68bc59369a796b30a045
+  StripeCore: c09b492efc3b269a6ff875ad738ca366db97e03b
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwifterSwift: 334181863c416882d97b7a60c05054d9e4d799e2
   SwiftSoup: f97bc4e988c7729d6457f9642f974c617a6e2510
@@ -135,6 +146,6 @@ SPEC CHECKSUMS:
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   WSTagsField: a4e91b7d866e8c9755332ebcf8123f42f2abd4a0
 
-PODFILE CHECKSUM: b33240682a9816a38ce7f63b4b6d833bbd7327cc
+PODFILE CHECKSUM: 9f7451c8106508746c97da746cceb35e085642c1
 
 COCOAPODS: 1.10.1

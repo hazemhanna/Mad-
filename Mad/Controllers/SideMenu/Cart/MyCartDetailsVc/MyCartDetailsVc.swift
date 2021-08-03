@@ -16,13 +16,14 @@ class MyCartDetailsVc: UIViewController {
     @IBOutlet weak var countrylbl: UILabel!
     @IBOutlet weak var addressLbl: UILabel!
     @IBOutlet weak var citylbl: UILabel!
-
+    @IBOutlet weak var buyButton: UIButton!
     
     var disposeBag = DisposeBag()
     var cartVM = CartViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
     }
 
 
@@ -53,8 +54,8 @@ class MyCartDetailsVc: UIViewController {
     
     
     @IBAction func nextAction(sender: UIButton) {
-        let main = PaymentVC.instantiateFromNib()
-        self.navigationController?.pushViewController(main!, animated: true)
+        let main =  CheckoutViewController()
+        self.navigationController?.pushViewController(main, animated: true)
     }
     
 }
@@ -75,3 +76,4 @@ func getCartDetails() {
    }).disposed(by: disposeBag)
   }
 }
+

@@ -9,21 +9,21 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Stripe
 
 class PaymentVC: UIViewController {
 
-    @IBOutlet weak var phoneNumberlbl: UILabel!
-    @IBOutlet weak var emaillbl: UILabel!
     @IBOutlet weak var countrylbl: UILabel!
     @IBOutlet weak var addressLbl: UILabel!
     @IBOutlet weak var citylbl: UILabel!
-
-    
+   
     var disposeBag = DisposeBag()
     var cartVM = CartViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+       // buyButton.isEnabled = false
     }
 
 
@@ -50,9 +50,8 @@ class PaymentVC: UIViewController {
         self.navigationController?.pushViewController(main!, animated: true)
     }
     
-}
-
-extension PaymentVC{
-
+    
 
 }
+
+
