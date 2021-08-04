@@ -89,10 +89,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="izu-kj-HzI">
-                                        <rect key="frame" x="135" y="0.0" width="162.5" height="107"/>
+                                        <rect key="frame" x="135" y="0.5" width="162.5" height="106.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mUc-II-tsO">
-                                                <rect key="frame" x="0.0" y="0.0" width="162.5" height="33"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="162.5" height="28"/>
                                                 <string key="text">Live from your Art
 Workshop</string>
                                                 <fontDescription key="fontDescription" name="Graphik-Regular" family="Graphik" pointSize="14"/>
@@ -100,7 +100,7 @@ Workshop</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="PhC-rh-G6b">
-                                                <rect key="frame" x="0.0" y="49" width="162.5" height="30"/>
+                                                <rect key="frame" x="0.0" y="44" width="162.5" height="30"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4" translatesAutoresizingMaskIntoConstraints="NO" id="Bj4-8X-A2l" customClass="CustomImageView" customModule="Mad" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -129,16 +129,16 @@ Workshop</string>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="MoH-HP-YsJ">
-                                                <rect key="frame" x="0.0" y="95" width="162.5" height="12"/>
+                                                <rect key="frame" x="0.0" y="90" width="162.5" height="16.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD 40" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w0n-k6-aKY">
-                                                        <rect key="frame" x="0.0" y="0.0" width="81.5" height="12"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="81.5" height="16.5"/>
                                                         <fontDescription key="fontDescription" name="Graphik-Bold" family="Graphik" pointSize="9"/>
                                                         <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="thM-U5-YvS">
-                                                        <rect key="frame" x="81.5" y="0.0" width="81" height="12"/>
+                                                        <rect key="frame" x="81.5" y="0.0" width="81" height="16.5"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="10"/>
                                                         <inset key="imageEdgeInsets" minX="80" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         <state key="normal" title="View details" image="Group 463">
@@ -201,6 +201,9 @@ Workshop</string>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="NameLbl" destination="mUc-II-tsO" id="hHZ-Sn-m1K"/>
+                <outlet property="artistImage" destination="Bj4-8X-A2l" id="WkQ-XA-dfI"/>
+                <outlet property="artistNameLbl" destination="T1X-jd-qd2" id="ZQm-iB-MJ7"/>
+                <outlet property="orderNumLbl" destination="1S0-19-tTw" id="m0i-6E-uck"/>
                 <outlet property="priceLbl" destination="w0n-k6-aKY" id="iOP-rR-0Qc"/>
                 <outlet property="productmage" destination="1EL-nV-elc" id="kuN-kM-6Si"/>
                 <outlet property="shimmerView" destination="HJr-PE-aWH" id="ShV-4X-afP"/>

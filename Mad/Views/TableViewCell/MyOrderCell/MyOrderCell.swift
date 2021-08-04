@@ -12,6 +12,10 @@ class MyOrderCell: UITableViewCell {
     @IBOutlet weak var NameLbl: UILabel!
     @IBOutlet weak var priceLbl: UILabel!
     @IBOutlet weak var productmage: UIImageView!
+    @IBOutlet weak var artistImage: UIImageView!
+    @IBOutlet weak var artistNameLbl: UILabel!
+    @IBOutlet weak var orderNumLbl: UILabel!
+
     @IBOutlet weak var shimmerView : ShimmerView!
 
     var details : (() -> Void)? = nil
@@ -29,9 +33,15 @@ class MyOrderCell: UITableViewCell {
     }
     
     
-    func confic(name : String , productUrl : String , price : String , count : String){
+    func confic(name : String , productUrl : String , price : String , orderNum : String , artistName : String , artistUrl : String){
         NameLbl.text = name
         priceLbl.text = name
+        artistNameLbl.text = artistName
+        orderNumLbl.text = "Order #" + orderNum
+        if  let artistUrl = URL(string: artistUrl){
+            self.artistImage.kf.setImage(with: artistUrl, placeholder: #imageLiteral(resourceName: "WhatsApp Image 2021-04-21 at 1.25.47 PM"))
+        }
+        
         if  let productUrl = URL(string: productUrl){
             self.productmage.kf.setImage(with: productUrl, placeholder: #imageLiteral(resourceName: "WhatsApp Image 2021-04-21 at 1.25.47 PM"))
         }

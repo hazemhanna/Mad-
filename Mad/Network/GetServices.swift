@@ -676,7 +676,7 @@ class GetServices {
        }
     
    
-    func getOrders() -> Observable<CartDetailsModelJSON> {
+    func getOrders() -> Observable<OrderModelJSON> {
            return Observable.create { (observer) -> Disposable in
                let url = ConfigURLS.getOrders
             let token = Helper.getAPIToken() ?? ""
@@ -688,7 +688,7 @@ class GetServices {
                    .validate(statusCode: 200..<300)
                    .responseJSON { (response: DataResponse<Any>) in
                        do {
-                           let data = try JSONDecoder().decode(CartDetailsModelJSON.self, from: response.data!)
+                           let data = try JSONDecoder().decode(OrderModelJSON.self, from: response.data!)
                            observer.onNext(data)
                        } catch {
                            print(error.localizedDescription)
@@ -795,7 +795,7 @@ class GetServices {
            }
     }
     
-    func getFavourite() -> Observable<NotificationModelJSON> {
+    func getFavourite() -> Observable<FavouriteModelJSON> {
            return Observable.create { (observer) -> Disposable in
                let url = ConfigURLS.getFavourite
             let token = Helper.getAPIToken() ?? ""
@@ -807,7 +807,7 @@ class GetServices {
                    .validate(statusCode: 200..<300)
                    .responseJSON { (response: DataResponse<Any>) in
                        do {
-                           let data = try JSONDecoder().decode(NotificationModelJSON.self, from: response.data!)
+                           let data = try JSONDecoder().decode(FavouriteModelJSON.self, from: response.data!)
                            observer.onNext(data)
                        } catch {
                            print(error.localizedDescription)

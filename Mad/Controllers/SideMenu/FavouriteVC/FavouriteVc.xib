@@ -257,8 +257,11 @@
             <size key="freeformSize" width="414" height="1500"/>
             <connections>
                 <outlet property="artistTableView" destination="s2y-bU-1RE" id="3M4-dL-toJ"/>
+                <outlet property="artistView" destination="qSm-Xq-Z66" id="qeC-ks-rtK"/>
                 <outlet property="productTableView" destination="VI2-m2-ALE" id="hey-PQ-lOp"/>
+                <outlet property="productView" destination="Nxg-4y-Rs8" id="yS9-5t-BYx"/>
                 <outlet property="projectTableView" destination="YYQ-14-mqN" id="maJ-xf-vkz"/>
+                <outlet property="projectView" destination="o2a-JO-noU" id="Van-tc-3Ks"/>
             </connections>
             <point key="canvasLocation" x="-1791.304347826087" y="1717.6339285714284"/>
         </viewController>

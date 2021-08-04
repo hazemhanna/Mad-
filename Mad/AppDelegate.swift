@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          window?.rootViewController = sb
         }
         
-        StripeAPI.defaultPublishableKey = "pk_test_51JK7koDEjVvEhMZXSuT96D66jyAu1RI1myrcSa9M2ej5MJZSvSDeTEFSXkpHajtxgXPtenYxL45b63eeNv22yHD600vVMWrN64"
+        //StripeAPI.defaultPublishableKey = "pk_test_51JK7koDEjVvEhMZXSuT96D66jyAu1RI1myrcSa9M2ej5MJZSvSDeTEFSXkpHajtxgXPtenYxL45b63eeNv22yHD600vVMWrN64"
         
       // Secret key "sk_test_51JK7koDEjVvEhMZX2FF1DlIllL4RxVNU1RaslJhxzNRmP4sDJqgsXZXmzLrZuez1laNAznSpIva4CpGSInATwpqG00D6jjaqzm"
 

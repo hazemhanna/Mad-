@@ -9,10 +9,11 @@ import Foundation
 import UIKit
 import Stripe
 
-let backendUrl = "http://127.0.0.1:4242/"
+let backendUrl = "http://mad.cnepho.com/api/"
 
 class CheckoutViewController: UIViewController {
   var paymentIntentClientSecret: String?
+    var cartVM = CartViewModel()
 
   lazy var cardTextField: STPPaymentCardTextField = {
     let cardTextField = STPPaymentCardTextField()
@@ -61,11 +62,9 @@ class CheckoutViewController: UIViewController {
     
   override func viewDidLoad() {
     super.viewDidLoad()
-    StripeAPI.defaultPublishableKey = "pk_test_51JK7koDEjVvEhMZXSuT96D66jyAu1RI1myrcSa9M2ej5MJZSvSDeTEFSXkpHajtxgXPtenYxL45b63eeNv22yHD600vVMWrN64"
+    StripeAPI.defaultPublishableKey = "pk_test_51JKJ4jG4ObXTFzUIqnUT18la6OUPL91V1OPvjSA9IkTm288rIWpB4p9DjzIvi1UICjq2Ufi7IphdpIpojT6CGZ4P00EJWzoYw4"
 
     view.backgroundColor = .white
-    
-    
     view.addSubview(titleLbl)
     titleLbl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     titleLbl.topAnchor.constraint(equalTo: view.topAnchor, constant: 45).isActive = true
@@ -73,9 +72,6 @@ class CheckoutViewController: UIViewController {
     view.addSubview(backButton)
     backButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 32).isActive = true
     backButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isActive = true
-    //backButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
-    //backButton.widthAnchor.constraint(equalToConstant: 20).isActive = true
-
     
     view.addSubview(cardTextField)
     cardTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -103,22 +99,22 @@ class CheckoutViewController: UIViewController {
 
   func startCheckout() {
     // Create a PaymentIntent as soon as the view loads
-    let url = URL(string: backendUrl + "create-payment-intent")!
-    let json: [String: Any] = [
-      "items": [
-          ["id": "xl-shirt"]
-      ]
-    ]
+    let url = URL(string: backendUrl + "generate_client_secret")!
+//    let json: [String: Any] = [
+//      "items": [
+//          ["id": "xl-shirt"]
+//      ]
+//    ]
     var request = URLRequest(url: url)
     request.httpMethod = "POST"
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-    request.httpBody = try? JSONSerialization.data(withJSONObject: json)
+   // request.httpBody = try? JSONSerialization.data(withJSONObject: json)
     let task = URLSession.shared.dataTask(with: request, completionHandler: { [weak self] (data, response, error) in
       guard let response = response as? HTTPURLResponse,
         response.statusCode == 200,
         let data = data,
         let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String : Any],
-        let clientSecret = json["clientSecret"] as? String else {
+        let clientSecret = json["data"] as? String else {
             let message = error?.localizedDescription ?? "Failed to decode response from server."
             self?.displayAlert(title: "Error loading page", message: message)
             return
@@ -136,6 +132,7 @@ class CheckoutViewController: UIViewController {
     
   @objc
   func pay() {
+    cartVM.showIndicator()
     guard let paymentIntentClientSecret = paymentIntentClientSecret else {
         return;
     }
@@ -147,15 +144,18 @@ class CheckoutViewController: UIViewController {
 
     // Submit the payment
     let paymentHandler = STPPaymentHandler.shared()
-    paymentHandler.confirmPayment(withParams: paymentIntentParams, authenticationContext: self) { (status, paymentIntent, error) in
+    paymentHandler.confirmPayment(paymentIntentParams, with: self) { (status, paymentIntent, error) in
       switch (status) {
       case .failed:
+        self.cartVM.dismissIndicator()
           self.displayAlert(title: "Payment failed", message: error?.localizedDescription ?? "")
           break
       case .canceled:
+        self.cartVM.dismissIndicator()
           self.displayAlert(title: "Payment canceled", message: error?.localizedDescription ?? "")
           break
       case .succeeded:
+        self.cartVM.dismissIndicator()
           self.displayAlert(title: "Payment succeeded", message: paymentIntent?.description ?? "")
           break
       @unknown default:

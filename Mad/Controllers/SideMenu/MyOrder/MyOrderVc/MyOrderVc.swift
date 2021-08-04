@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 import PTCardTabBar
 
 
@@ -16,6 +18,12 @@ class MyOrderVc : UIViewController {
     let headerCellIdentifier = "ContentHeader"
 
     var showShimmer: Bool = false
+    
+    var disposeBag = DisposeBag()
+    var orderVM = OrderViewModel()
+    var ongoing = [History]()
+    var history = [History]()
+
     
     open lazy var customTabBar: PTCardTabBar = {
         return PTCardTabBar()
@@ -32,6 +40,7 @@ class MyOrderVc : UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        getOrders()
         self.navigationController?.navigationBar.isHidden = true
         if let ptcTBC = tabBarController as? PTCardTabBarController {
             ptcTBC.customTabBar.isHidden = true
@@ -60,7 +69,11 @@ extension MyOrderVc : UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.showShimmer ? 1 : 2
+        if section == 0 {
+            return self.showShimmer ? 1 : ongoing.count
+        }else{
+            return self.showShimmer ? 1 : history.count
+        }
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -76,7 +89,12 @@ extension MyOrderVc : UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier) as! MyOrderCell
         if !self.showShimmer {
-            
+            if indexPath.section == 0 {
+                cell.confic(name: self.ongoing[indexPath.row].product?.title ?? "", productUrl: self.ongoing[indexPath.row].product?.imageURL ?? "", price: String(self.ongoing[indexPath.row].product?.price ?? 0), orderNum : String(self.ongoing[indexPath.row].orderID ?? 0) , artistName : self.ongoing[indexPath.row].product?.artist?.name ?? "" , artistUrl : self.ongoing[indexPath.row].product?.artist?.profilPicture ?? "")
+            }else{
+                cell.confic(name: self.history[indexPath.row].product?.title ?? "", productUrl: self.history[indexPath.row].product?.imageURL ?? "", price: String(self.history[indexPath.row].product?.price ?? 0), orderNum : String(self.history[indexPath.row].orderID ?? 0) , artistName : self.history[indexPath.row].product?.artist?.name ?? "" , artistUrl : self.history[indexPath.row].product?.artist?.profilPicture ?? "")
+
+            }
         }
         cell.showShimmer = showShimmer
         return cell
@@ -97,4 +115,20 @@ extension MyOrderVc : UITableViewDelegate,UITableViewDataSource{
     }
     
     
+}
+extension MyOrderVc {
+
+func getOrders() {
+    orderVM.getOrders().subscribe(onNext: { (dataModel) in
+       if dataModel.success ?? false {
+        self.showShimmer = false
+        self.ongoing = dataModel.data?.ongoing ?? []
+        self.history = dataModel.data?.history ?? []
+
+        self.tableView.reloadData()
+       }
+   }, onError: { (error) in
+
+   }).disposed(by: disposeBag)
+  }
 }

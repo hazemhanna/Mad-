@@ -154,6 +154,9 @@
 		04668725261B3F89001D024D /* WelcomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04668723261B3F89001D024D /* WelcomeCell.xib */; };
 		04668728261B447B001D024D /* AdsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04668727261B447B001D024D /* AdsViewModel.swift */; };
 		0466872B261B5B1C001D024D /* UICollectionView+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0466872A261B5B1C001D024D /* UICollectionView+Extention.swift */; };
+		0466DC2026BA7234005A80B6 /* FavouriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0466DC1F26BA7234005A80B6 /* FavouriteViewModel.swift */; };
+		0466DC2326BAB7DD005A80B6 /* OrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0466DC2226BAB7DD005A80B6 /* OrderModel.swift */; };
+		0466DC4426BABC27005A80B6 /* OrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0466DC4326BABC27005A80B6 /* OrderViewModel.swift */; };
 		04688788261E0E170056AC92 /* VerificationVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04688786261E0E170056AC92 /* VerificationVc.swift */; };
 		04688789261E0E170056AC92 /* VerificationVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04688787261E0E170056AC92 /* VerificationVc.xib */; };
 		046887BE261E77970056AC92 /* ShowesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046887BC261E77970056AC92 /* ShowesCell.swift */; };
@@ -425,6 +428,9 @@
 		04668723261B3F89001D024D /* WelcomeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeCell.xib; sourceTree = "<group>"; };
 		04668727261B447B001D024D /* AdsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsViewModel.swift; sourceTree = "<group>"; };
 		0466872A261B5B1C001D024D /* UICollectionView+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extention.swift"; sourceTree = "<group>"; };
+		0466DC1F26BA7234005A80B6 /* FavouriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewModel.swift; sourceTree = "<group>"; };
+		0466DC2226BAB7DD005A80B6 /* OrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderModel.swift; sourceTree = "<group>"; };
+		0466DC4326BABC27005A80B6 /* OrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewModel.swift; sourceTree = "<group>"; };
 		04688786261E0E170056AC92 /* VerificationVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationVc.swift; sourceTree = "<group>"; };
 		04688787261E0E170056AC92 /* VerificationVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VerificationVc.xib; sourceTree = "<group>"; };
 		046887BC261E77970056AC92 /* ShowesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowesCell.swift; sourceTree = "<group>"; };
@@ -1575,6 +1581,7 @@
 				04F63023269F09AC00BA4C08 /* BlogsModel.swift */,
 				047A798A26B00D2300C6EFA2 /* ChatModel.swift */,
 				0441AE0726B47427007FDBE5 /* FavouriteModel.swift */,
+				0466DC2226BAB7DD005A80B6 /* OrderModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1620,6 +1627,8 @@
 				047991AB2694FD5500859254 /* CartViewModel.swift */,
 				04F63026269F0BAF00BA4C08 /* BlogsViewModel.swift */,
 				049D9F7F26AF256E008186D6 /* ChatViewModel.swift */,
+				0466DC1F26BA7234005A80B6 /* FavouriteViewModel.swift */,
+				0466DC4326BABC27005A80B6 /* OrderViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -2198,6 +2207,7 @@
 				0413E40726307D7300F5977D /* ProjectsVC.swift in Sources */,
 				04534B1D2691E44C00B15C9C /* MyCartVc.swift in Sources */,
 				0437FA61269E99F800CD594D /* PaymentDetailsVC.swift in Sources */,
+				0466DC2026BA7234005A80B6 /* FavouriteViewModel.swift in Sources */,
 				046B2B1F2677AE4B00BAA2A3 /* CometitionsViewModel.swift in Sources */,
 				0440ECA82636C7C60046681C /* CompetitionCell.swift in Sources */,
 				04A05D3B26B0BC8C0066522A /* ChatCell.swift in Sources */,
@@ -2258,6 +2268,7 @@
 				040E398126806E71006E7479 /* AVFileType+Extentions.swift in Sources */,
 				04F06AF02614DD5100B08606 /* CategeoryVc.swift in Sources */,
 				0488CCE9261213E000E05BEB /* AppDelegate.swift in Sources */,
+				0466DC2326BAB7DD005A80B6 /* OrderModel.swift in Sources */,
 				04D23EE826330DBA00290488 /* ArtistProductsVc.swift in Sources */,
 				04688788261E0E170056AC92 /* VerificationVc.swift in Sources */,
 				0437FA69269E9A3000CD594D /* PaymentVC.swift in Sources */,
@@ -2317,6 +2328,7 @@
 				0414286526176BCD000394CA /* HomeViewModel.swift in Sources */,
 				04DEAA412620B4A900F843A6 /* SplashCell.swift in Sources */,
 				047991AF2694FFDB00859254 /* CartModel.swift in Sources */,
+				0466DC4426BABC27005A80B6 /* OrderViewModel.swift in Sources */,
 				0431ADEB26976F8700589F52 /* InboxCell.swift in Sources */,
 				04F63027269F0BAF00BA4C08 /* BlogsViewModel.swift in Sources */,
 				04DEA9DC2620A0B200F843A6 /* AuthModel.swift in Sources */,

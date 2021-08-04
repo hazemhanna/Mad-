@@ -16,11 +16,24 @@ class FavouriteVc: UIViewController {
     @IBOutlet weak var productTableView: UITableView!
     @IBOutlet weak var artistTableView: UITableView!
     
+    @IBOutlet weak var projectView: UIView!
+    @IBOutlet weak var productView: UIView!
+    @IBOutlet weak var artistView: UIView!
+    
     let cellIdentifier = "FavouritProjectCell"
     let cellIdentifier2 = "FavouritProjectCell"
     let cellIdentifier3 = "FavouriteArtistCell"
     
-    var showShimmer: Bool = false
+    
+    var disposeBag = DisposeBag()
+    var favouriteVM = FavouriteViewModel()
+    
+    
+    var artists = [Artist]()
+    var products = [Product]()
+    var projects = [Project]()
+
+    var showShimmer: Bool = true
     
     open lazy var customTabBar: PTCardTabBar = {
         return PTCardTabBar()
@@ -32,6 +45,7 @@ class FavouriteVc: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        getFavourite()
         self.navigationController?.navigationBar.isHidden = true
         if let ptcTBC = tabBarController as? PTCardTabBarController{
             ptcTBC.customTabBar.isHidden = true
@@ -70,21 +84,18 @@ extension FavouriteVc  : UITableViewDelegate,UITableViewDataSource{
         productTableView.dataSource = self
         
         self.productTableView.register(UINib(nibName: self.cellIdentifier2, bundle: nil), forCellReuseIdentifier: self.cellIdentifier2)
-
         projectTableView.delegate = self
         projectTableView.dataSource = self
         self.projectTableView.register(UINib(nibName: self.cellIdentifier, bundle: nil), forCellReuseIdentifier: self.cellIdentifier)
-       
-
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
      if tableView == projectTableView {
-        return 2
+        return  self.showShimmer ? 2 : projects.count
      }else if tableView == productTableView {
-        return 2
+        return self.showShimmer ? 2 : products.count
      }else {
-         return 2
+        return  self.showShimmer ? 2 : artists.count
       }
     }
     
@@ -93,7 +104,14 @@ extension FavouriteVc  : UITableViewDelegate,UITableViewDataSource{
         if tableView == projectTableView {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier) as! FavouritProjectCell
             if !self.showShimmer{
-                cell.priceLbl.isHidden = true
+              cell.priceLbl.isHidden = true
+                cell.confic(name: self.projects[indexPath.row].title ?? "", price: "", image: self.projects[indexPath.row].imageURL ?? "")
+                
+                cell.removeFavourite = {
+                    self.favouriteVM.showIndicator()
+                    self.projectFavourite(id: self.projects[indexPath.row].id ?? 0, Type: false)
+                }
+                
             }
             cell.showShimmer = self.showShimmer
 
@@ -102,6 +120,14 @@ extension FavouriteVc  : UITableViewDelegate,UITableViewDataSource{
             let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier2) as! FavouritProjectCell
             if !self.showShimmer{
                 cell.priceLbl.isHidden = false
+                cell.confic(name: self.products[indexPath.row].title ?? "", price:  String(self.products[indexPath.row].price ?? 0), image: self.products[indexPath.row].imageURL ?? "")
+                
+                
+                cell.removeFavourite = {
+                    self.favouriteVM.showIndicator()
+                    self.productFavourite(id: self.products[indexPath.row].id ?? 0, Type: false)
+
+                }
 
             }
             cell.showShimmer = self.showShimmer
@@ -109,7 +135,13 @@ extension FavouriteVc  : UITableViewDelegate,UITableViewDataSource{
             }else {
             let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier3) as! FavouriteArtistCell
                 if !self.showShimmer{
-               
+                    cell.confic(name: self.artists[indexPath.row].name ?? "", price: self.artists[indexPath.row].headline ?? "", image: self.artists[indexPath.row].profilPicture ?? "")
+                    
+                    cell.removeFavourite = {
+                        self.favouriteVM.showIndicator()
+                        self.artistFavourite(id: self.artists[indexPath.row].id ?? 0, Type: false)
+
+                    }
                 }
                 cell.showShimmer = self.showShimmer
             return cell
@@ -118,5 +150,88 @@ extension FavouriteVc  : UITableViewDelegate,UITableViewDataSource{
     
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
+    }
+}
+
+extension FavouriteVc  {
+
+func getFavourite() {
+    favouriteVM.getFavourite().subscribe(onNext: { (dataModel) in
+       if dataModel.success ?? false {
+        self.showShimmer = false
+        self.products = dataModel.data?.favoriteProducts ?? []
+        self.artists = dataModel.data?.favoriteArtists ?? []
+        self.projects = dataModel.data?.favoriteProjects ?? []
+        self.artistTableView.reloadData()
+        self.projectTableView.reloadData()
+        self.productTableView.reloadData()
+        
+        if self.artists.count > 0 {
+            self.artistView.isHidden = false
+        }else{
+            self.artistView.isHidden = true
+        }
+        
+        if self.projects.count > 0 {
+            self.projectView.isHidden = false
+        }else{
+            self.projectView.isHidden = true
+        }
+        if self.products.count > 0 {
+            self.productView.isHidden = false
+
+        }else{
+            self.productView.isHidden = true
+        }
+        
+       }
+   }, onError: { (error) in
+
+   }).disposed(by: disposeBag)
+}
+    
+    
+    func productFavourite(id : Int , Type : Bool) {
+        favouriteVM.productFavourite(productId: id, Type: Type).subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+            self.showShimmer = false
+            self.favouriteVM.dismissIndicator()
+            self.getFavourite()
+           }
+       }, onError: { (error) in
+           self.favouriteVM.dismissIndicator()
+
+       }).disposed(by: disposeBag)
+    }
+    
+    
+    func artistFavourite(id : Int , Type : Bool) {
+        favouriteVM.artistFavourite(artistId: id, Type: Type).subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+            self.showShimmer = false
+            self.favouriteVM.dismissIndicator()
+            self.getFavourite()
+
+           }
+       }, onError: { (error) in
+           self.favouriteVM.dismissIndicator()
+
+       }).disposed(by: disposeBag)
+    }
+    
+    
+    
+    func projectFavourite(id : Int , Type : Bool) {
+        favouriteVM.projectFavourite(productID: id, Type: Type).subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+            self.showShimmer = false
+            self.favouriteVM.dismissIndicator()
+            self.getFavourite()
+
+           }
+       }, onError: { (error) in
+           self.favouriteVM.dismissIndicator()
+
+       }).disposed(by: disposeBag)
     }
 }
