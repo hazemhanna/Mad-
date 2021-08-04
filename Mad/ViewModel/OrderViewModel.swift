@@ -25,4 +25,14 @@ struct OrderViewModel {
          return observer
      }
     
+    
+    func getOrderDetails(id : Int) -> Observable<OrderDetailsModelJSON> {
+        let params: [String: Any] = [
+            "id": id,
+            ]
+        let observer = GetServices.shared.getOrderDetails(param : params)
+         return observer
+     }
+    
+    
 }

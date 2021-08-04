@@ -700,7 +700,7 @@ class GetServices {
        }
     
     
-    func getOrderDetails() -> Observable<CartDetailsModelJSON> {
+    func getOrderDetails(param : [String :Any]) -> Observable<OrderDetailsModelJSON> {
            return Observable.create { (observer) -> Disposable in
                let url = ConfigURLS.getOrdersDetails
             let token = Helper.getAPIToken() ?? ""
@@ -708,11 +708,11 @@ class GetServices {
                 "Authorization": "Bearer \(token)"
             ]
             
-               Alamofire.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers)
+               Alamofire.request(url, method: .get, parameters: param, encoding: URLEncoding.default, headers: headers)
                    .validate(statusCode: 200..<300)
                    .responseJSON { (response: DataResponse<Any>) in
                        do {
-                           let data = try JSONDecoder().decode(CartDetailsModelJSON.self, from: response.data!)
+                           let data = try JSONDecoder().decode(OrderDetailsModelJSON.self, from: response.data!)
                            observer.onNext(data)
                        } catch {
                            print(error.localizedDescription)

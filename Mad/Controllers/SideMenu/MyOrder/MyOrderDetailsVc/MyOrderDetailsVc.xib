@@ -83,6 +83,10 @@
                                                                                 <subviews>
                                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mask Group 85-1" translatesAutoresizingMaskIntoConstraints="NO" id="9LX-Pr-VAx" customClass="CustomImageView" customModule="Mad" customModuleProvider="target">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="95.5" height="96"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="height" constant="96" id="HIb-Ha-WI4"/>
+                                                                                            <constraint firstAttribute="width" constant="95.5" id="ZDZ-Op-qvk"/>
+                                                                                        </constraints>
                                                                                         <userDefinedRuntimeAttributes>
                                                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                                                 <real key="value" value="8"/>
@@ -503,6 +507,22 @@ Second floor </string>
             </view>
             <navigationItem key="navigationItem" id="Ubm-eg-sTS"/>
             <size key="freeformSize" width="414" height="1200"/>
+            <connections>
+                <outlet property="addressLbl" destination="naV-HC-HTm" id="tMY-rq-5qU"/>
+                <outlet property="artistImage" destination="bOk-PE-oba" id="eIA-ha-QxK"/>
+                <outlet property="artistNameLbl" destination="tJg-2b-w1M" id="Vcb-LK-bHm"/>
+                <outlet property="cityLbl" destination="gYQ-SW-cQi" id="Urk-hg-yVN"/>
+                <outlet property="countryLbl" destination="Cf3-t6-WHy" id="131-UJ-zsD"/>
+                <outlet property="emailLbl" destination="T1M-1Y-Gih" id="jYa-3J-T0i"/>
+                <outlet property="itemCoupone" destination="mxN-Si-5ia" id="2Vn-d5-0YG"/>
+                <outlet property="itemNumLbl" destination="6lq-fs-nXb" id="LUT-9m-Jua"/>
+                <outlet property="mobileLbl" destination="wMj-Iu-VUX" id="lVr-Sk-aQV"/>
+                <outlet property="orderNumlLbl" destination="ruV-Rd-8US" id="JrE-gI-GNQ"/>
+                <outlet property="priceLbl" destination="6Oz-eT-jEE" id="O9W-Fw-d6u"/>
+                <outlet property="productmage" destination="9LX-Pr-VAx" id="pYD-Dl-Nu2"/>
+                <outlet property="projectNameLbl" destination="fey-hU-Ptv" id="vDu-rI-D5w"/>
+                <outlet property="totalLbl" destination="k4P-cX-7Lj" id="9B6-ct-HhE"/>
+            </connections>
             <point key="canvasLocation" x="-1791.304347826087" y="1717.6339285714284"/>
         </viewController>
     </objects>

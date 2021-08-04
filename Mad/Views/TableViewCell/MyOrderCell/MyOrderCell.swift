@@ -22,17 +22,11 @@ class MyOrderCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         showShimmer = false
-
     }
-
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
     }
-    
-    
     func confic(name : String , productUrl : String , price : String , orderNum : String , artistName : String , artistUrl : String){
         NameLbl.text = name
         priceLbl.text = name

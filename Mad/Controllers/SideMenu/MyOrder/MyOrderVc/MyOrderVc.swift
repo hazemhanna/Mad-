@@ -58,7 +58,6 @@ class MyOrderVc : UIViewController {
     
     @IBAction func backButton(sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
-
     }
 }
 
@@ -101,9 +100,16 @@ extension MyOrderVc : UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let main = MyOrderDetailsVc.instantiateFromNib()
-        self.navigationController?.pushViewController(main!, animated: true)
+        if indexPath.section == 0 {
+            let main = MyOrderDetailsVc.instantiateFromNib()
+            main!.orderId = self.ongoing[indexPath.row].orderID ?? 0
+            self.navigationController?.pushViewController(main!, animated: true)
+        }else{
+            let vc = ProductDetailsVC.instantiateFromNib()
+            vc!.productId = self.history[indexPath.row].productID ?? 0
+            self.navigationController?.pushViewController(vc!, animated: true)
     }
+}
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
@@ -113,8 +119,6 @@ extension MyOrderVc : UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50
     }
-    
-    
 }
 extension MyOrderVc {
 
