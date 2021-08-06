@@ -14,11 +14,11 @@ let backendUrl = "http://mad.cnepho.com/api/"
 class CheckoutViewController: UIViewController {
   var paymentIntentClientSecret: String?
     var cartVM = CartViewModel()
-
+    
   lazy var cardTextField: STPPaymentCardTextField = {
     let cardTextField = STPPaymentCardTextField()
+    
     cardTextField.translatesAutoresizingMaskIntoConstraints = false
-
     return cardTextField
   }()
 

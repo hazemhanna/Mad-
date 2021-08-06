@@ -178,6 +178,7 @@
 		046CD6A32682B928004FE6C6 /* SearchArtistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 046CD6A12682B928004FE6C6 /* SearchArtistCell.xib */; };
 		046E2E4826693A3300BFCDCC /* CalenderVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046E2E4626693A3300BFCDCC /* CalenderVc.swift */; };
 		046E2E4926693A3300BFCDCC /* CalenderVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 046E2E4726693A3300BFCDCC /* CalenderVc.xib */; };
+		0475B31A26BD735A003A4F14 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0475B31926BD735A003A4F14 /* GoogleService-Info.plist */; };
 		047991AC2694FD5500859254 /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047991AB2694FD5500859254 /* CartViewModel.swift */; };
 		047991AF2694FFDB00859254 /* CartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047991AE2694FFDB00859254 /* CartModel.swift */; };
 		047992922698771C008314D4 /* FavouriteVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047992902698771C008314D4 /* FavouriteVc.swift */; };
@@ -451,6 +452,8 @@
 		046CD6A12682B928004FE6C6 /* SearchArtistCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchArtistCell.xib; sourceTree = "<group>"; };
 		046E2E4626693A3300BFCDCC /* CalenderVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderVc.swift; sourceTree = "<group>"; };
 		046E2E4726693A3300BFCDCC /* CalenderVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalenderVc.xib; sourceTree = "<group>"; };
+		0475B31926BD735A003A4F14 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0475B31D26BD73E9003A4F14 /* Mad.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mad.entitlements; sourceTree = "<group>"; };
 		047991AB2694FD5500859254 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
 		047991AE2694FFDB00859254 /* CartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartModel.swift; sourceTree = "<group>"; };
 		047992902698771C008314D4 /* FavouriteVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteVc.swift; sourceTree = "<group>"; };
@@ -1545,6 +1548,7 @@
 		0488CCE7261213E000E05BEB /* Mad */ = {
 			isa = PBXGroup;
 			children = (
+				0475B31D26BD73E9003A4F14 /* Mad.entitlements */,
 				0488CD42261216D600E05BEB /* AppFiles */,
 				0488CD372612142B00E05BEB /* Network */,
 				0488CD352612142200E05BEB /* Extensions */,
@@ -1718,6 +1722,7 @@
 			children = (
 				0488CCE8261213E000E05BEB /* AppDelegate.swift */,
 				0488CCF6261213E400E05BEB /* Info.plist */,
+				0475B31926BD735A003A4F14 /* GoogleService-Info.plist */,
 			);
 			name = AppFiles;
 			sourceTree = "<group>";
@@ -2078,6 +2083,7 @@
 				0412D4F6267C5BD200E4022C /* CompetitionsResultCell.xib in Resources */,
 				046CD69C2682B383004FE6C6 /* TagsCell.xib in Resources */,
 				0414287826177E69000394CA /* LiveCellCVC.xib in Resources */,
+				0475B31A26BD735A003A4F14 /* GoogleService-Info.plist in Resources */,
 				0427A21826405B2D0029A10C /* AddsCell.xib in Resources */,
 				04D13D6F2682968A0020CF11 /* SearchResultVc.xib in Resources */,
 				04DEAA422620B4A900F843A6 /* SplashCell.xib in Resources */,
@@ -2480,6 +2486,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Mad/Mad.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UK3S3D6VYH;
 				INFOPLIST_FILE = Mad/Info.plist;
@@ -2488,7 +2495,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "hazemhanna99-yahoo.com.Mad";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cnepho.mad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2501,6 +2508,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Mad/Mad.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UK3S3D6VYH;
 				INFOPLIST_FILE = Mad/Info.plist;
@@ -2509,7 +2517,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "hazemhanna99-yahoo.com.Mad";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cnepho.mad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

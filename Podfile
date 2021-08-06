@@ -29,5 +29,9 @@ target 'Mad' do
   pod 'SwiftSoup'
   pod 'Cosmos', '~> 21.0.0'
   pod 'Stripe'
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Messaging'
+  pod 'Firebase'
+  pod 'Firebase/Auth'
   
 end
