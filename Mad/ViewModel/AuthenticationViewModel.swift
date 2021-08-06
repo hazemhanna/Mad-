@@ -103,4 +103,13 @@ struct AuthenticationViewModel {
          return observer
      }
     
+    
+    func postFCM(token:String) -> Observable<AddProductModelJson> {
+        let params: [String: Any] = [
+            "token": token
+            ]
+        let observer = Authentication.shared.postFCM(params: params)
+        return observer
+    }
+    
 }

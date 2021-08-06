@@ -10,13 +10,17 @@ import Stripe
 import Firebase
 import UserNotifications
 import FirebaseMessaging
-
+import RxSwift
+import RxCocoa
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     let gcmMessageIDKey = "gcm.message_id"
+    var disposeBag = DisposeBag()
+    var authVM = AuthenticationViewModel()
+    
     var token = Helper.getAPIToken() ?? ""
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         if token !=  "" {
@@ -86,19 +90,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print("Error fetching remote instange ID: \(error)")
             } else if let result = result {
                 print("Remote instance ID token: \(result.token)")
-               // Helper.saveDeviceToken(deviceToken: result.token)
-//                if self.token != "" {
-//                Authentication.postDeviceToken(type: "ios", DeviceToken: result.token, completion: { (error: Error?, success: Success_ErrorModel?) in
-//                        if let success = success {
-//
-//                            if success.successMessage != "" {
-//                            } else if success.type != [""] {
-//
-//                            } else if success.device_token != [""] {
-//                            }
-//                        }
-//                    })
-//                }
+                Helper.saveDeviceToken(token: result.token)
+                if self.token != "" {
+                    self.authVM.postFCM(token:  result.token).subscribe(onNext: { (dataModel) in
+                       if dataModel.success ?? false {
+                       
+                       }
+                   }, onError: { (error) in
+
+                   }).disposed(by: self.disposeBag)
+                }
             }
         })
         

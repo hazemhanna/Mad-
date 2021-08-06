@@ -93,6 +93,19 @@ class Helper {
         return def.object(forKey: "email") as? String
     }
     
+    class func saveDeviceToken(token: String) {
+        let def = UserDefaults.standard
+        def.set(token, forKey: "deviceToken")
+        def.synchronize()
+    }
+    
+    class func getDeviceToken() -> String? {
+        let def = UserDefaults.standard
+        return def.object(forKey: "deviceToken") as? String
+    }
+    
+    
+    
     class func savePAssword(pass: String) {
         let def = UserDefaults.standard
         def.set(pass, forKey: "password")
