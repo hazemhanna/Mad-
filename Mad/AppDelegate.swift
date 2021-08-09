@@ -31,8 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          window?.rootViewController = sb
         }
         
-        
-        
         if #available(iOS 10.0, *) {
             // For iOS 10 display notification (sent via APNS)
             UNUserNotificationCenter.current().delegate = self

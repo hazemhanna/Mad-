@@ -143,6 +143,7 @@
             </view>
             <connections>
                 <outlet property="emailTF" destination="RDB-Gf-CdX" id="D2Y-bX-thc"/>
+                <outlet property="titleLbl" destination="97J-Ki-n3z" id="5wP-9S-CGU"/>
             </connections>
             <point key="canvasLocation" x="-467" y="114"/>
         </viewController>

@@ -17,7 +17,10 @@ struct ConfigURLS {
     static var checkOtp = BASE_URL  + "auth/check_otp"
     static var completeRegister = BASE_URL  + "auth/complete_profile"
     static var FCm = BASE_URL  + "auth/update_fcm_token"
-
+    static var getMyProfile = BASE_URL  + "auth/me"
+    static var updateBanner = BASE_URL  + "auth/update_banner_image"
+    static var updateProfile = BASE_URL  + "auth/update_profile_picture"
+    
     static var login = BASE_URL  + "auth/login"
     static var upgradeProfile  = BASE_URL  + "auth/upgrade_to_artist"
     static var getFavourite   = BASE_URL  + "auth/get_favorites"

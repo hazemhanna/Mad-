@@ -818,4 +818,32 @@ class GetServices {
            }
        }
     
+    
+    
+    
+    func getMyProfile() -> Observable<ProfileModelJSON> {
+           return Observable.create { (observer) -> Disposable in
+               let url = ConfigURLS.getMyProfile
+            let token = Helper.getAPIToken() ?? ""
+            let headers = [
+                "Authorization": "Bearer \(token)"
+            ]
+            
+               Alamofire.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers)
+                   .validate(statusCode: 200..<300)
+                   .responseJSON { (response: DataResponse<Any>) in
+                       do {
+                           let data = try JSONDecoder().decode(ProfileModelJSON.self, from: response.data!)
+                           observer.onNext(data)
+                       } catch {
+                           print(error.localizedDescription)
+                           observer.onError(error)
+                       }
+               }
+               return Disposables.create()
+           }
+       }
+    
+    
+    
 }

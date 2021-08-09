@@ -524,4 +524,79 @@ struct AddServices {
        }
     
     
+
+    func updateBanner(image: UIImage) -> Observable<AddProductModelJson> {
+          return Observable.create { (observer) -> Disposable in
+            let url = ConfigURLS.updateBanner
+            let token = Helper.getAPIToken() ?? ""
+            let headers = [
+                "Authorization": "Bearer \(token)"
+            ]
+            
+              Alamofire.upload(multipartFormData: { (form: MultipartFormData) in
+                if let data = image.jpegData(compressionQuality: 0.5) {
+                    form.append(data, withName: "banner_img", fileName: "image.jpeg", mimeType: "image/jpeg")
+                    }
+                
+              }, usingThreshold: SessionManager.multipartFormDataEncodingMemoryThreshold, to: url, method: .post, headers: headers) { (result: SessionManager.MultipartFormDataEncodingResult) in
+                      switch result {
+                  case .failure(let error):
+                      print(error.localizedDescription)
+                      observer.onError(error)
+                  case .success(request: let upload, streamingFromDisk: _, streamFileURL: _):
+                      upload.uploadProgress { (progress) in
+                        print("Image Uploading Progress: \(progress.fractionCompleted)")
+                    }.responseJSON { (response: DataResponse<Any>) in
+               do {
+                      let data = try JSONDecoder().decode(AddProductModelJson.self, from: response.data!)
+                        print(data)
+                          observer.onNext(data)
+                       } catch {
+                           print(error.localizedDescription)
+                          observer.onError(error)
+                      }
+                    }
+                  }
+               }
+              return Disposables.create()
+          }
+      }//END
+
+    
+    func updateProfile(image: UIImage) -> Observable<AddProductModelJson> {
+          return Observable.create { (observer) -> Disposable in
+            let url = ConfigURLS.updateProfile
+            let token = Helper.getAPIToken() ?? ""
+            let headers = [
+                "Authorization": "Bearer \(token)"
+            ]
+            
+              Alamofire.upload(multipartFormData: { (form: MultipartFormData) in
+                if let data = image.jpegData(compressionQuality: 0.5) {
+                    form.append(data, withName: "profile_picture", fileName: "image.jpeg", mimeType: "image/jpeg")
+                    }
+                
+              }, usingThreshold: SessionManager.multipartFormDataEncodingMemoryThreshold, to: url, method: .post, headers: headers) { (result: SessionManager.MultipartFormDataEncodingResult) in
+                      switch result {
+                  case .failure(let error):
+                      print(error.localizedDescription)
+                      observer.onError(error)
+                  case .success(request: let upload, streamingFromDisk: _, streamFileURL: _):
+                      upload.uploadProgress { (progress) in
+                        print("Image Uploading Progress: \(progress.fractionCompleted)")
+                    }.responseJSON { (response: DataResponse<Any>) in
+               do {
+                      let data = try JSONDecoder().decode(AddProductModelJson.self, from: response.data!)
+                        print(data)
+                          observer.onNext(data)
+                       } catch {
+                           print(error.localizedDescription)
+                          observer.onError(error)
+                      }
+                    }
+                  }
+               }
+              return Disposables.create()
+          }
+      }
 }

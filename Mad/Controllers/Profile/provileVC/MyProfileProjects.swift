@@ -5,13 +5,6 @@
 //  Created by MAC on 03/07/2021.
 //
 
-import Foundation
-//
-//  ArtistProjectsVc.swift
-//  Mad
-//
-//  Created by MAC on 20/04/2021.
-//
 
 
 import UIKit
@@ -23,8 +16,10 @@ class MyProfileProjects : UIViewController {
     @IBOutlet weak var mainTableView: UITableView!
     private let CellIdentifier = "HomeCell"
   
-
-    var showShimmer: Bool = false
+    var artistVM = ArtistViewModel()
+    var disposeBag = DisposeBag()
+    
+    var showShimmer: Bool = true
     var projects = [Project]()
     
     override func viewDidLoad() {
@@ -33,8 +28,15 @@ class MyProfileProjects : UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        getProfile()
         self.navigationController?.navigationBar.isHidden = true
     }
+    
+    @IBAction func addProjectButton(sender: UIButton) {
+        let vc = AddProjectdetailsVc.instantiateFromNib()
+        self.navigationController?.pushViewController(vc!, animated: true)
+    }
+
 }
 
 extension MyProfileProjects: UITableViewDelegate,UITableViewDataSource{
@@ -48,21 +50,21 @@ extension MyProfileProjects: UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return  4
+        return  self.showShimmer ? 3 : projects.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.CellIdentifier) as! HomeCell
-//        if !self.showShimmer {
-//        cell.confic(name : projects[indexPath.row].artist?.name ?? "MAD"
-//                    ,date : projects[indexPath.row].createdAt ?? ""
-//                    , title : projects[indexPath.row].title ?? ""
-//                    , like :projects[indexPath.row].favoriteCount ?? 0
-//                    , share : projects[indexPath.row].shareCount ?? 0
-//                    , profileUrl : projects[indexPath.row].artist?.profilPicture ?? ""
-//                    , projectUrl :projects[indexPath.row].imageURL ?? ""
-//                    , trustUrl : "", isFavourite: projects[indexPath.row].isFavorite ?? false)
-//        }
+        if !self.showShimmer {
+        cell.confic(name : projects[indexPath.row].artist?.name ?? "MAD"
+                    ,date : projects[indexPath.row].createdAt ?? ""
+                    , title : projects[indexPath.row].title ?? ""
+                    , like :projects[indexPath.row].favoriteCount ?? 0
+                    , share : projects[indexPath.row].shareCount ?? 0
+                    , profileUrl : projects[indexPath.row].artist?.profilPicture ?? ""
+                    , projectUrl :projects[indexPath.row].imageURL ?? ""
+                    , trustUrl : "", isFavourite: projects[indexPath.row].isFavorite ?? false)
+        }
         cell.showShimmer = false
         return cell
     }
@@ -71,3 +73,18 @@ extension MyProfileProjects: UITableViewDelegate,UITableViewDataSource{
     }
     
 }
+extension MyProfileProjects  {
+    func getProfile() {
+        artistVM.getMyProfile().subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+            self.showShimmer  = false
+            self.projects = dataModel.data?.projects ?? []
+            self.mainTableView.reloadData()
+         }
+       }, onError: { (error) in
+        self.artistVM.dismissIndicator()
+
+       }).disposed(by: disposeBag)
+   }
+}
+

@@ -327,64 +327,127 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "ADF11710-9ED1-4413-91AB-D7A33A461C82"
+            uuid = "6191C8FF-58B7-40AB-9F10-347FDA4426D3"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Mad/Network/Authentication.swift"
+            filePath = "Mad/Network/AddServices.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
-            landmarkName = "postFCM(params:)"
+            startingLineNumber = "590"
+            endingLineNumber = "590"
+            landmarkName = "updateProfile(image:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F5482BB9-ED01-4CD4-891F-550320DDFA31"
+            uuid = "77A17150-F956-40B6-A219-3D185DC65CB4"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Mad/Network/Authentication.swift"
+            filePath = "Mad/Network/AddServices.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
-            landmarkName = "postFCM(params:)"
+            startingLineNumber = "591"
+            endingLineNumber = "591"
+            landmarkName = "updateProfile(image:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "DE1736C9-D6FE-4B2F-B5AB-CF903F9CAD98"
+            uuid = "854C742E-AACC-4115-B42E-E0FC0D07DFC7"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Mad/Network/Authentication.swift"
+            filePath = "Mad/Network/AddServices.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
-            landmarkName = "postFCM(params:)"
+            startingLineNumber = "588"
+            endingLineNumber = "588"
+            landmarkName = "updateProfile(image:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3B44C78D-1192-4035-A0E0-338860D42939"
+            uuid = "00B6B94C-DA08-4E4B-A2CD-BD597C282459"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Mad/Network/Authentication.swift"
+            filePath = "Mad/Network/AddServices.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
-            landmarkName = "postFCM(params:)"
+            startingLineNumber = "587"
+            endingLineNumber = "587"
+            landmarkName = "updateProfile(image:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "00B6B94C-DA08-4E4B-A2CD-BD597C282459 - c30b961df5ca1639"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Alamofire.SessionManager.MultipartFormDataEncodingResult) -&gt; () in closure #1 (RxSwift.AnyObserver&lt;Mad.AddProductModelJson&gt;) -&gt; RxSwift.Disposable in Mad.AddServices.updateProfile(image: __C.UIImage) -&gt; RxSwift.Observable&lt;Mad.AddProductModelJson&gt;"
+                  moduleName = "Mad"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac/Desktop/work/Cnepho/mad/Mad/Network/AddServices.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "587"
+                  endingLineNumber = "587"
+                  offsetFromSymbolStart = "948">
+               </Location>
+               <Location
+                  uuid = "00B6B94C-DA08-4E4B-A2CD-BD597C282459 - 8b49b48947b22605"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.NSProgress) -&gt; () in closure #2 (Alamofire.SessionManager.MultipartFormDataEncodingResult) -&gt; () in closure #1 (RxSwift.AnyObserver&lt;Mad.AddProductModelJson&gt;) -&gt; RxSwift.Disposable in Mad.AddServices.updateProfile(image: __C.UIImage) -&gt; RxSwift.Observable&lt;Mad.AddProductModelJson&gt;"
+                  moduleName = "Mad"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac/Desktop/work/Cnepho/mad/Mad/Network/AddServices.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "587"
+                  endingLineNumber = "587"
+                  offsetFromSymbolStart = "420">
+               </Location>
+               <Location
+                  uuid = "00B6B94C-DA08-4E4B-A2CD-BD597C282459 - a5692ce606b448b9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Alamofire.DataResponse&lt;Any&gt;) -&gt; () in closure #2 (Alamofire.SessionManager.MultipartFormDataEncodingResult) -&gt; () in closure #1 (RxSwift.AnyObserver&lt;Mad.AddProductModelJson&gt;) -&gt; RxSwift.Disposable in Mad.AddServices.updateProfile(image: __C.UIImage) -&gt; RxSwift.Observable&lt;Mad.AddProductModelJson&gt;"
+                  moduleName = "Mad"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac/Desktop/work/Cnepho/mad/Mad/Network/AddServices.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "589"
+                  endingLineNumber = "589"
+                  offsetFromSymbolStart = "220">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "51DAE337-CDB5-47B4-9070-20C797DBAEE5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mad/Network/AddServices.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "589"
+            endingLineNumber = "589"
+            landmarkName = "updateProfile(image:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

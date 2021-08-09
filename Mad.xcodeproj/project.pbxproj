@@ -103,6 +103,7 @@
 		0449A733262F39C800604052 /* ArtistProfileVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0449A732262F39C800604052 /* ArtistProfileVc.swift */; };
 		0449A736262F477700604052 /* ArtistProjectsVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0449A735262F477700604052 /* ArtistProjectsVc.swift */; };
 		0449A73A262F939300604052 /* String+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0449A739262F939300604052 /* String+Extention.swift */; };
+		0449F37A26C12FF80024B0A2 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0449F37926C12FF80024B0A2 /* ProfileModel.swift */; };
 		045039972693DCFD002151F0 /* MyOrderVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045039952693DCFD002151F0 /* MyOrderVc.swift */; };
 		045039982693DCFD002151F0 /* MyOrderVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045039962693DCFD002151F0 /* MyOrderVc.xib */; };
 		04503A422693DF2E002151F0 /* ContentHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04503A402693DF2E002151F0 /* ContentHeader.swift */; };
@@ -377,6 +378,7 @@
 		0449A732262F39C800604052 /* ArtistProfileVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistProfileVc.swift; sourceTree = "<group>"; };
 		0449A735262F477700604052 /* ArtistProjectsVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistProjectsVc.swift; sourceTree = "<group>"; };
 		0449A739262F939300604052 /* String+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extention.swift"; sourceTree = "<group>"; };
+		0449F37926C12FF80024B0A2 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		045039952693DCFD002151F0 /* MyOrderVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderVc.swift; sourceTree = "<group>"; };
 		045039962693DCFD002151F0 /* MyOrderVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyOrderVc.xib; sourceTree = "<group>"; };
 		04503A402693DF2E002151F0 /* ContentHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentHeader.swift; sourceTree = "<group>"; };
@@ -1583,6 +1585,7 @@
 				047A798A26B00D2300C6EFA2 /* ChatModel.swift */,
 				0441AE0726B47427007FDBE5 /* FavouriteModel.swift */,
 				0466DC2226BAB7DD005A80B6 /* OrderModel.swift */,
+				0449F37926C12FF80024B0A2 /* ProfileModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -2305,6 +2308,7 @@
 				0493024D2690308800086C58 /* MyprofileProducts.swift in Sources */,
 				0427A21726405B2D0029A10C /* AddsCell.swift in Sources */,
 				04911C69261C9A2900705A58 /* SuggestedCell.swift in Sources */,
+				0449F37A26C12FF80024B0A2 /* ProfileModel.swift in Sources */,
 				04F06AC52614C37200B08606 /* AgeVc.swift in Sources */,
 				0411AB1026B9539F0008F1D5 /* PayNowVC.swift in Sources */,
 				04930256269030DD00086C58 /* MyProfileCompetitions.swift in Sources */,

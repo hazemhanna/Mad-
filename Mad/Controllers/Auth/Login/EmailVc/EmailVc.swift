@@ -12,6 +12,7 @@ import RxCocoa
 class EmailVc: UIViewController {
 
     @IBOutlet weak var emailTF: UITextField!
+    @IBOutlet weak var titleLbl : UILabel!
 
     private let AuthViewModel = AuthenticationViewModel()
     var disposeBag = DisposeBag()
@@ -30,6 +31,16 @@ class EmailVc: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if register {
+            titleLbl.text = "LOGIN"
+        }else{
+            titleLbl.text = "SIGNUP"
+        }
+        
     }
     
     func validateInput() -> Bool {

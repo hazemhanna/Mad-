@@ -9,6 +9,7 @@ import UIKit
 import Tabman
 import Pageboy
 
+
 class MyProfileContainerVC : TabmanViewController {
 
     var active = Helper.getIsActive() ?? false
@@ -101,6 +102,4 @@ func barItem(for bar: TMBar, at index: Int) -> TMBarItemable {
       }
     }
 }
-
-
 

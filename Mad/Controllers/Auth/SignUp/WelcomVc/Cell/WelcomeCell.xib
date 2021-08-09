@@ -29,7 +29,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tRH-k0-Z1A" customClass="CustomView" customModule="Mad" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="250" height="309"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4" translatesAutoresizingMaskIntoConstraints="NO" id="W7t-hg-9aa" customClass="CustomImageView" customModule="Mad" customModuleProvider="target">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4" translatesAutoresizingMaskIntoConstraints="NO" id="W7t-hg-9aa" customClass="CustomImageView" customModule="Mad" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="250" height="309"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -62,17 +62,17 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Esm-yx-G5X">
-                                <rect key="frame" x="16" y="219" width="202" height="74"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Esm-yx-G5X">
+                                <rect key="frame" x="16" y="219" width="218" height="74"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Compete to Win it all" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MxV-4L-uxu">
-                                        <rect key="frame" x="0.0" y="0.0" width="202" height="18"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Compete to Win it all" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MxV-4L-uxu">
+                                        <rect key="frame" x="19.5" y="0.0" width="179" height="18"/>
                                         <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="18"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Participate in competitions, get visibility &amp; win cool prizes" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AUg-Ym-NzE">
-                                        <rect key="frame" x="0.0" y="26" width="202" height="48"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Participate in competitions, get visibility &amp; win cool prizes" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AUg-Ym-NzE">
+                                        <rect key="frame" x="4" y="26" width="210.5" height="48"/>
                                         <fontDescription key="fontDescription" name="Graphik-Regular" family="Graphik" pointSize="16"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -84,7 +84,7 @@
                         <constraints>
                             <constraint firstItem="W7t-hg-9aa" firstAttribute="top" secondItem="tRH-k0-Z1A" secondAttribute="top" id="0yc-wP-iU6"/>
                             <constraint firstAttribute="bottom" secondItem="Esm-yx-G5X" secondAttribute="bottom" constant="16" id="96x-XB-utK"/>
-                            <constraint firstAttribute="trailing" secondItem="Esm-yx-G5X" secondAttribute="trailing" constant="32" id="BZS-9o-In1"/>
+                            <constraint firstAttribute="trailing" secondItem="Esm-yx-G5X" secondAttribute="trailing" constant="16" id="BZS-9o-In1"/>
                             <constraint firstItem="Esm-yx-G5X" firstAttribute="leading" secondItem="tRH-k0-Z1A" secondAttribute="leading" constant="16" id="BuL-hB-HOk"/>
                             <constraint firstAttribute="trailing" secondItem="W7t-hg-9aa" secondAttribute="trailing" id="DWb-Ix-yNl"/>
                             <constraint firstAttribute="bottom" secondItem="D45-mu-mHz" secondAttribute="bottom" id="NEe-VQ-dUh"/>

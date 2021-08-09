@@ -57,4 +57,18 @@ struct ArtistViewModel {
          return observer
      }
     
+    func getMyProfile() -> Observable<ProfileModelJSON> {
+         let observer = GetServices.shared.getMyProfile()
+         return observer
+     }
+    
+    func updateBanner(image : UIImage) -> Observable<AddProductModelJson> {
+        let observer = AddServices.shared.updateBanner(image : image)
+         return observer
+     }
+    
+    func updateProfile(image : UIImage) -> Observable<AddProductModelJson> {
+        let observer = AddServices.shared.updateProfile(image: image)
+         return observer
+     }
 }
