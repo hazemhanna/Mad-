@@ -31,6 +31,13 @@ class MyProfileAbout : UIViewController {
         getProfile()
         self.navigationController?.navigationBar.isHidden = true
     }
+    
+    
+    @IBAction func editProfile(sender: UIButton) {
+        let vc = EditMyProfileVc.instantiateFromNib()
+        self.navigationController?.pushViewController(vc!, animated: true)
+    }
+    
 }
 
 

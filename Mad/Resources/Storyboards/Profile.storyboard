@@ -662,11 +662,21 @@
                                                                     </label>
                                                                 </subviews>
                                                             </stackView>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i8H-cr-wuD">
+                                                                <rect key="frame" x="0.0" y="0.0" width="331" height="46"/>
+                                                                <connections>
+                                                                    <action selector="editProfileWithSender:" destination="voT-af-rYC" eventType="touchUpInside" id="bro-2c-hh3"/>
+                                                                </connections>
+                                                            </button>
                                                         </subviews>
                                                         <color key="backgroundColor" red="0.86666666670000003" green="0.90588235289999997" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstItem="glv-hX-iNo" firstAttribute="centerX" secondItem="5Qy-PA-aUg" secondAttribute="centerX" id="4EN-ZL-9a9"/>
+                                                            <constraint firstItem="i8H-cr-wuD" firstAttribute="leading" secondItem="5Qy-PA-aUg" secondAttribute="leading" id="9e7-y6-L2H"/>
                                                             <constraint firstItem="glv-hX-iNo" firstAttribute="centerY" secondItem="5Qy-PA-aUg" secondAttribute="centerY" id="Cdd-MI-V65"/>
+                                                            <constraint firstAttribute="bottom" secondItem="i8H-cr-wuD" secondAttribute="bottom" id="VYb-R6-pdo"/>
+                                                            <constraint firstAttribute="trailing" secondItem="i8H-cr-wuD" secondAttribute="trailing" id="bQK-f3-wT8"/>
+                                                            <constraint firstItem="i8H-cr-wuD" firstAttribute="top" secondItem="5Qy-PA-aUg" secondAttribute="top" id="fuf-I7-jaz"/>
                                                             <constraint firstAttribute="height" constant="46" id="vJx-NG-Lxh"/>
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
