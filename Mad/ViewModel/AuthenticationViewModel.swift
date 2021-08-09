@@ -112,4 +112,33 @@ struct AuthenticationViewModel {
         return observer
     }
     
+    
+    func resetPassword() -> Observable<AddProductModelJson> {
+        let bindedEmail = Helper.getUserEmail() ?? ""
+        let bindedPassword =  Helper.getUserPass() ?? ""
+        let code =  Helper.getUserCode() ?? ""
+         let params: [String: Any] = [
+            "email": bindedEmail,
+            "password": bindedPassword,
+            "password_confirmation": bindedPassword,
+            "verification_code": code
+           ]
+        
+        let observer = Authentication.shared.resetPassword(params: params)
+        return observer
+    }
+    
+    func forgetPassword() -> Observable<AddProductModelJson> {
+        let bindedEmail = Helper.getUserEmail() ?? ""
+         let params: [String: Any] = [
+            "email": bindedEmail,
+           ]
+        let observer = Authentication.shared.forgetPassword(params: params)
+        return observer
+    }
+    
+    
+    
+    
+    
 }

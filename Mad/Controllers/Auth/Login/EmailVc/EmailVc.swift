@@ -17,9 +17,7 @@ class EmailVc: UIViewController {
     private let AuthViewModel = AuthenticationViewModel()
     var disposeBag = DisposeBag()
     var register = false
-    
-    
-    
+    var reset  = false
     override func viewDidLoad() {
         super.viewDidLoad()
         emailTF.delegate = self
@@ -36,9 +34,9 @@ class EmailVc: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         if register {
-            titleLbl.text = "LOGIN"
-        }else{
             titleLbl.text = "SIGNUP"
+        }else{
+            titleLbl.text = "LOGIN"
         }
         
     }
@@ -59,6 +57,9 @@ class EmailVc: UIViewController {
         if register {
             self.AuthViewModel.showIndicator()
             CreateAccount()
+        }else if reset {
+            self.AuthViewModel.showIndicator()
+            forgetPassword()
         }else{
             let main = PasswordVc.instantiateFromNib()
             self.navigationController?.pushViewController(main!, animated: true)
@@ -89,6 +90,26 @@ extension EmailVc {
 
         }).disposed(by: disposeBag)
     }
+    
+    
+    func forgetPassword() {
+       AuthViewModel.forgetPassword().subscribe(onNext: { (registerData) in
+           if registerData.success ?? false {
+               self.AuthViewModel.dismissIndicator()
+               self.showMessage(text: registerData.message ?? "")
+            let main = VerificationVc.instantiateFromNib()
+            main?.reset = true
+            self.navigationController?.pushViewController(main!, animated: true)
+           }else{
+               self.AuthViewModel.dismissIndicator()
+               self.showMessage(text: registerData.message ?? "")
+           }
+       }, onError: { (error) in
+           self.AuthViewModel.dismissIndicator()
+
+       }).disposed(by: disposeBag)
+   }
+    
 }
 
 extension EmailVc:UITextFieldDelegate{

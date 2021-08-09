@@ -17,6 +17,7 @@ class VerificationVc: UIViewController {
     var disposeBag = DisposeBag()
     var email = Helper.getUserEmail()
     
+    var reset = false
     override func viewDidLoad() {
         super.viewDidLoad()
         codeTF.delegate = self
@@ -48,8 +49,13 @@ class VerificationVc: UIViewController {
     @IBAction func nextButton(sender: UIButton) {
         guard self.validateInput() else { return }
         Helper.saveCode(code : codeTF.text ?? "")
-        self.AuthViewModel.showIndicator()
-        verfiyAccount()
+        if reset {
+            let main = ResetPasswordVC.instantiateFromNib()
+            self.navigationController?.pushViewController(main!, animated: true)
+        }else {
+            self.AuthViewModel.showIndicator()
+            verfiyAccount()
+        }
     }
 }
 

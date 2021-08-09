@@ -16,6 +16,10 @@
 		040CA93126B405D0008FF173 /* VideosVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040CA93026B405D0008FF173 /* VideosVC.swift */; };
 		040E398126806E71006E7479 /* AVFileType+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E398026806E71006E7479 /* AVFileType+Extentions.swift */; };
 		040E399E26807071006E7479 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E399D26807071006E7479 /* Document.swift */; };
+		040EBE5826C1903A000E20FA /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040EBE5626C1903A000E20FA /* ResetPasswordVC.swift */; };
+		040EBE5926C1903A000E20FA /* ResetPasswordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 040EBE5726C1903A000E20FA /* ResetPasswordVC.xib */; };
+		040EBE5F26C1999C000E20FA /* EditMyProfileVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040EBE5D26C1999B000E20FA /* EditMyProfileVc.swift */; };
+		040EBE6026C1999C000E20FA /* EditMyProfileVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 040EBE5E26C1999B000E20FA /* EditMyProfileVc.xib */; };
 		0411AB1026B9539F0008F1D5 /* PayNowVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0411AB0F26B9539F0008F1D5 /* PayNowVC.swift */; };
 		0412D4F5267C5BD200E4022C /* CompetitionsResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0412D4F3267C5BD200E4022C /* CompetitionsResultCell.swift */; };
 		0412D4F6267C5BD200E4022C /* CompetitionsResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0412D4F4267C5BD200E4022C /* CompetitionsResultCell.xib */; };
@@ -290,6 +294,10 @@
 		040CA93026B405D0008FF173 /* VideosVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosVC.swift; sourceTree = "<group>"; };
 		040E398026806E71006E7479 /* AVFileType+Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVFileType+Extentions.swift"; sourceTree = "<group>"; };
 		040E399D26807071006E7479 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		040EBE5626C1903A000E20FA /* ResetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
+		040EBE5726C1903A000E20FA /* ResetPasswordVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResetPasswordVC.xib; sourceTree = "<group>"; };
+		040EBE5D26C1999B000E20FA /* EditMyProfileVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMyProfileVc.swift; sourceTree = "<group>"; };
+		040EBE5E26C1999B000E20FA /* EditMyProfileVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditMyProfileVc.xib; sourceTree = "<group>"; };
 		0411AB0F26B9539F0008F1D5 /* PayNowVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayNowVC.swift; sourceTree = "<group>"; };
 		0412D4F3267C5BD200E4022C /* CompetitionsResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionsResultCell.swift; sourceTree = "<group>"; };
 		0412D4F4267C5BD200E4022C /* CompetitionsResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompetitionsResultCell.xib; sourceTree = "<group>"; };
@@ -620,6 +628,24 @@
 			path = NotificationCell;
 			sourceTree = "<group>";
 		};
+		040EBE5526C19004000E20FA /* ResetPasswordVC */ = {
+			isa = PBXGroup;
+			children = (
+				040EBE5626C1903A000E20FA /* ResetPasswordVC.swift */,
+				040EBE5726C1903A000E20FA /* ResetPasswordVC.xib */,
+			);
+			path = ResetPasswordVC;
+			sourceTree = "<group>";
+		};
+		040EBE5C26C1997E000E20FA /* EditProfileVc */ = {
+			isa = PBXGroup;
+			children = (
+				040EBE5D26C1999B000E20FA /* EditMyProfileVc.swift */,
+				040EBE5E26C1999B000E20FA /* EditMyProfileVc.xib */,
+			);
+			path = EditProfileVc;
+			sourceTree = "<group>";
+		};
 		0412D4F2267C5BB200E4022C /* CompetitionsResultCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -776,6 +802,7 @@
 				042C08282613941F00BE1806 /* LoadingLogin */,
 				04528E3826149885009868EA /* Login */,
 				04528E3726149882009868EA /* SignUp */,
+				040EBE5526C19004000E20FA /* ResetPasswordVC */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -1484,6 +1511,7 @@
 		0482EEAE26164D6100CB4A24 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				040EBE5C26C1997E000E20FA /* EditProfileVc */,
 				04534AF02691E2CE00B15C9C /* provileVC */,
 			);
 			path = Profile;
@@ -2056,6 +2084,7 @@
 				047992A22698802A008314D4 /* FavouritProjectCell.xib in Resources */,
 				04170D12264AAFAC00745696 /* Video.storyboard in Resources */,
 				04A05D0426B05B3B0066522A /* ChatVc.xib in Resources */,
+				040EBE5926C1903A000E20FA /* ResetPasswordVC.xib in Resources */,
 				047DD02F267C3AE300C78C49 /* AddCompetitionsUploadFileVC.xib in Resources */,
 				04C782A9263977B400C90851 /* InventoryPricingVC.xib in Resources */,
 				04D2B9DF2698576B009B48ED /* ReviewCell.xib in Resources */,
@@ -2076,6 +2105,7 @@
 				04242AB526554089003C8B44 /* VideoArtistCell.xib in Resources */,
 				04528E562614B586009868EA /* NameVc.xib in Resources */,
 				04F06AF12614DD5100B08606 /* CategeoryVc.xib in Resources */,
+				040EBE6026C1999C000E20FA /* EditMyProfileVc.xib in Resources */,
 				040339E22638F21000CEDBD3 /* ListingDetailsVC.xib in Resources */,
 				0488CCF2261213E400E05BEB /* Assets.xcassets in Resources */,
 				0448E7932666D664009C4A6E /* AddProjectdetailsVc.xib in Resources */,
@@ -2279,6 +2309,7 @@
 				04688788261E0E170056AC92 /* VerificationVc.swift in Sources */,
 				0437FA69269E9A3000CD594D /* PaymentVC.swift in Sources */,
 				04242ABB26554B2C003C8B44 /* VideoProjectCell.swift in Sources */,
+				040EBE5F26C1999C000E20FA /* EditMyProfileVc.swift in Sources */,
 				04E186F5261360F400824E37 /* StoryBoardExtension.swift in Sources */,
 				0413E41326307F5E00F5977D /* HomeVc.swift in Sources */,
 				04DEA9D926209FA100F843A6 /* Errors.swift in Sources */,
@@ -2310,6 +2341,7 @@
 				04911C69261C9A2900705A58 /* SuggestedCell.swift in Sources */,
 				0449F37A26C12FF80024B0A2 /* ProfileModel.swift in Sources */,
 				04F06AC52614C37200B08606 /* AgeVc.swift in Sources */,
+				040EBE5826C1903A000E20FA /* ResetPasswordVC.swift in Sources */,
 				0411AB1026B9539F0008F1D5 /* PayNowVC.swift in Sources */,
 				04930256269030DD00086C58 /* MyProfileCompetitions.swift in Sources */,
 				0493024926902F2A00086C58 /* MyProfileContainerVC.swift in Sources */,

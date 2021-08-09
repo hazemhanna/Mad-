@@ -21,6 +21,9 @@ struct ConfigURLS {
     static var updateBanner = BASE_URL  + "auth/update_banner_image"
     static var updateProfile = BASE_URL  + "auth/update_profile_picture"
     
+    static var resetPassword = BASE_URL  + "auth/reset_password"
+    static var forgetPassword = BASE_URL  + "auth/forget_password"
+    
     static var login = BASE_URL  + "auth/login"
     static var upgradeProfile  = BASE_URL  + "auth/upgrade_to_artist"
     static var getFavourite   = BASE_URL  + "auth/get_favorites"

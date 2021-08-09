@@ -1,31 +1,30 @@
 //
-//  PasswordVc.swift
+//  ResetPasswordVC.swift
 //  Mad
 //
-//  Created by MAC on 31/03/2021.
+//  Created by MAC on 09/08/2021.
 //
 
 import UIKit
 import RxSwift
 import RxCocoa
 
-class PasswordVc: UIViewController {
+class ResetPasswordVC: UIViewController {
    
     @IBOutlet weak var passwordTF: CustomTextField!
+    @IBOutlet weak var confirmTF: CustomTextField!
+    
     @IBOutlet weak var lineImage: UIImageView!
-    @IBOutlet weak var resetLbl: UILabel!
+    @IBOutlet weak var lineImage2: UIImageView!
+
     
     private let AuthViewModel = AuthenticationViewModel()
     var disposeBag = DisposeBag()
     var email = Helper.getUserEmail()
     override func viewDidLoad() {
         super.viewDidLoad()
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.ResetTapAction(_:)))
-        resetLbl.isUserInteractionEnabled = true
-        resetLbl.addGestureRecognizer(gestureRecognizer)
-        setupMultiColorRegisterLabel()
-        
         passwordTF.delegate = self
+        confirmTF.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,42 +53,48 @@ class PasswordVc: UIViewController {
               }
       }
     
-    //MARK:- Register Label Action Configurations
-    @objc func ResetTapAction(_ sender: UITapGestureRecognizer) {
-        let main = EmailVc.instantiateFromNib()
-        main?.reset = true
-        self.navigationController?.pushViewController(main!, animated: true)
-        
-    }
     
-    func setupMultiColorRegisterLabel() {
-        let main_string = "Forgot PASSWORD? Reset Now"
-        let coloredString = "Reset Now"
-        let Range = (main_string as NSString).range(of: coloredString)
-        let attribute = NSMutableAttributedString.init(string: main_string)
-        attribute.addAttribute(NSAttributedString.Key.foregroundColor, value: #colorLiteral(red: 0.1176470588, green: 0.2156862745, blue: 0.4, alpha: 1) , range: Range)
-        resetLbl.attributedText = attribute
-    }
+    
+    var showOld2  = false
+    @IBAction func showOld2Actions(_ sender: UIButton) {
+              if showOld2 ==  false  {
+                  self.confirmTF.isSecureTextEntry = false
+                  lineImage2.isHidden = true
+                  showOld2 = true
+              }else{
+                self.confirmTF.isSecureTextEntry = true
+                lineImage2.isHidden = false
+                showOld2 = false
+              }
+      }
+    
     
     func validateInput() -> Bool {
-        let email =  self.passwordTF.text ?? ""
-        if email.isEmpty {
+        let password =  self.passwordTF.text ?? ""
+        let confirmPassword =  self.confirmTF.text ?? ""
+
+        if password.isEmpty {
           self.showMessage(text: "Please Enter Your Password")
           return false
-        }else{
+        }else if confirmPassword.isEmpty {
+            self.showMessage(text: "Please Enter Your Password")
+            return false
+          }else{
             return true
         }
     }
     @IBAction func nextButton(sender: UIButton) {
+        Helper.savePAssword(pass: passwordTF.text ?? "")
         guard self.validateInput() else { return }
         self.AuthViewModel.showIndicator()
-        login()
+        reset()
     }
+    
 }
 
-extension PasswordVc {
-     func login() {
-        AuthViewModel.attemptToLogin(bindedEmail: email ?? "" ,bindedPassword : passwordTF.text ?? "" ).subscribe(onNext: { (registerData) in
+extension ResetPasswordVC {
+     func reset() {
+        AuthViewModel.resetPassword().subscribe(onNext: { (registerData) in
             self.AuthViewModel.dismissIndicator()
             if registerData.success ?? false {
                 let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CardTabBarController")
@@ -107,7 +112,7 @@ extension PasswordVc {
     }
 }
 
-extension PasswordVc :UITextFieldDelegate{
+extension ResetPasswordVC :UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
            self.view.endEditing(true)
            return false
