@@ -79,6 +79,9 @@ class ResetPasswordVC: UIViewController {
         }else if confirmPassword.isEmpty {
             self.showMessage(text: "Please Enter Your Password")
             return false
+        }else if confirmPassword != password {
+            self.showMessage(text: "password not match")
+            return false
           }else{
             return true
         }

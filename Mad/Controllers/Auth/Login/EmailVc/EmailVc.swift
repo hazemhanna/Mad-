@@ -27,8 +27,6 @@ class EmailVc: UIViewController {
         sigenLbl.isUserInteractionEnabled = true
         sigenLbl.addGestureRecognizer(gestureRecognizer)
         setupMultiColorRegisterLabel()
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,7 +37,6 @@ class EmailVc: UIViewController {
         self.navigationController?.navigationBar.isHidden = false
     }
     
-    
     override func viewDidAppear(_ animated: Bool) {
         if register {
             titleLbl.text = "SIGNUP"
@@ -47,9 +44,7 @@ class EmailVc: UIViewController {
         }else{
             titleLbl.text = "LOGIN"
             self.sigenLbl.isHidden = false
-
         }
-        
     }
     
     //MARK:- Register Label Action Configurations
