@@ -22,7 +22,16 @@ class EditMyProfileVc: UIViewController {
     
     @IBOutlet weak var  socialTableview : UITableView!
     @IBOutlet weak var  socialTableviewHieght : NSLayoutConstraint!
+    
+    @IBOutlet weak var  facebookLink : UITextField!
+    @IBOutlet weak var  facebooName : UITextField!
+    @IBOutlet weak var  instgramLink : UITextField!
+    @IBOutlet weak var  instgramName : UITextField!
+    @IBOutlet weak var  twitterLink : UITextField!
+    @IBOutlet weak var  twittweName : UITextField!
+    @IBOutlet weak var  socialView : UIView!
 
+    
     let cellIdentifier = "SocialCell"
     
     var social  = [socialMedia](){
@@ -40,7 +49,7 @@ class EditMyProfileVc: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupContentTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,6 +71,34 @@ class EditMyProfileVc: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    
+    
+    
+    @IBAction func addSocialButton(sender: UIButton) {
+        socialView.isHidden = false
+    }
+  
+    
+    
+    @IBAction func doneAddSocialButton(sender: UIButton) {
+        socialView.isHidden = true
+        if facebookLink.text != "" {
+            social.append(socialMedia(icon: #imageLiteral(resourceName: "Path 430"), name: facebooName.text ?? "" , url: facebookLink.text ?? ""))
+        }
+        if instgramLink.text != "" {
+            social.append(socialMedia(icon: #imageLiteral(resourceName: "Group 350"),  name: instgramName.text ?? "" , url: instgramLink.text ?? ""))
+        }
+        if twitterLink.text != "" {
+            social.append(socialMedia(icon: #imageLiteral(resourceName: "Path 429"),  name: twittweName.text ?? "" , url: twitterLink.text ?? ""))
+        }
+    
+        facebooName.text = ""
+        facebookLink.text = ""
+        instgramName.text = ""
+        instgramLink.text = ""
+        twittweName.text = ""
+        twitterLink.text = ""
+    }
     
 }
 
