@@ -119,6 +119,12 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Component 7 – 2" translatesAutoresizingMaskIntoConstraints="NO" id="jx1-YK-QFY">
                         <rect key="frame" x="0.0" y="535" width="414" height="327"/>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account? Sign up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8g2-Pe-6aE">
+                        <rect key="frame" x="93" y="444" width="228.5" height="16"/>
+                        <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="16"/>
+                        <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <viewLayoutGuide key="safeArea" id="4A0-P6-1PZ"/>
                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -135,6 +141,8 @@
                     <constraint firstItem="8Su-5B-PqX" firstAttribute="top" secondItem="0Kc-bR-4vn" secondAttribute="bottom" constant="16" id="HCq-bB-jq1"/>
                     <constraint firstItem="97J-Ki-n3z" firstAttribute="top" secondItem="4A0-P6-1PZ" secondAttribute="top" constant="112" id="Hdw-WY-ZMz"/>
                     <constraint firstItem="jx1-YK-QFY" firstAttribute="height" secondItem="4A0-P6-1PZ" secondAttribute="height" multiplier="0.4" id="LBy-Bq-7Xr"/>
+                    <constraint firstItem="8g2-Pe-6aE" firstAttribute="centerX" secondItem="fUm-5y-Jdk" secondAttribute="centerX" id="N4s-CH-NVF"/>
+                    <constraint firstItem="8g2-Pe-6aE" firstAttribute="top" secondItem="nJa-hM-UZl" secondAttribute="bottom" constant="32" id="NhA-T2-JEx"/>
                     <constraint firstItem="0Kc-bR-4vn" firstAttribute="top" secondItem="97J-Ki-n3z" secondAttribute="bottom" constant="64" id="P8D-Ga-rBx"/>
                     <constraint firstItem="8Su-5B-PqX" firstAttribute="centerX" secondItem="fUm-5y-Jdk" secondAttribute="centerX" id="Z4P-hh-bLZ"/>
                     <constraint firstItem="jx1-YK-QFY" firstAttribute="bottom" secondItem="4A0-P6-1PZ" secondAttribute="bottom" id="gbJ-fn-9eF"/>
@@ -143,6 +151,7 @@
             </view>
             <connections>
                 <outlet property="emailTF" destination="RDB-Gf-CdX" id="D2Y-bX-thc"/>
+                <outlet property="sigenLbl" destination="8g2-Pe-6aE" id="JbN-rW-2PB"/>
                 <outlet property="titleLbl" destination="97J-Ki-n3z" id="5wP-9S-CGU"/>
             </connections>
             <point key="canvasLocation" x="-467" y="114"/>

@@ -11,14 +11,26 @@ import RxSwift
 import RxCocoa
 import PTCardTabBar
 
-class EditMyProfileVc: UIViewController {
+struct socialMedia {
+    let icon : UIImage?
+    let name : String?
+    let url : String?
+    
+}
 
-    @IBOutlet weak var aboutView: UIView!
-    @IBOutlet weak var titleLbl: UILabel!
-    @IBOutlet weak var LikeLbl: UILabel!
-    @IBOutlet weak var shareLbl: UILabel!
-    @IBOutlet weak var projectImage: UIImageView!
-    @IBOutlet weak var favouriteBtn: UIButton!
+class EditMyProfileVc: UIViewController {
+    
+    @IBOutlet weak var  socialTableview : UITableView!
+    @IBOutlet weak var  socialTableviewHieght : NSLayoutConstraint!
+
+    let cellIdentifier = "SocialCell"
+    
+    var social  = [socialMedia](){
+        didSet{
+            socialTableviewHieght.constant = CGFloat((40 * self.social.count))
+            socialTableview.reloadData()
+        }
+    }
 
     var homeVM = HomeViewModel()
     var disposeBag = DisposeBag()
@@ -55,4 +67,27 @@ class EditMyProfileVc: UIViewController {
 
 
 
+extension EditMyProfileVc : UITableViewDelegate,UITableViewDataSource{
+    func setupContentTableView() {
+        socialTableview.delegate = self
+        socialTableview.dataSource = self
+        self.socialTableview.register(UINib(nibName: self.cellIdentifier, bundle: nil), forCellReuseIdentifier: self.cellIdentifier)
+    
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return social.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier) as! SocialCell
+        cell.nameLbl.text = self.social[indexPath.row].name ?? ""
+        cell.iconImage.image = self.social[indexPath.row].icon
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 40
+    }
 
+}

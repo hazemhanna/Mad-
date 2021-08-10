@@ -13,6 +13,7 @@ class EmailVc: UIViewController {
 
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var titleLbl : UILabel!
+    @IBOutlet weak var sigenLbl: UILabel!
 
     private let AuthViewModel = AuthenticationViewModel()
     var disposeBag = DisposeBag()
@@ -21,6 +22,13 @@ class EmailVc: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         emailTF.delegate = self
+        
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.ResetTapAction(_:)))
+        sigenLbl.isUserInteractionEnabled = true
+        sigenLbl.addGestureRecognizer(gestureRecognizer)
+        setupMultiColorRegisterLabel()
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,10 +43,29 @@ class EmailVc: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         if register {
             titleLbl.text = "SIGNUP"
+            self.sigenLbl.isHidden = true
         }else{
             titleLbl.text = "LOGIN"
+            self.sigenLbl.isHidden = false
+
         }
         
+    }
+    
+    //MARK:- Register Label Action Configurations
+    @objc func ResetTapAction(_ sender: UITapGestureRecognizer) {
+        let main = EmailVc.instantiateFromNib()
+        main?.register = true
+        self.navigationController?.pushViewController(main!, animated: true)
+    }
+    
+    func setupMultiColorRegisterLabel() {
+        let main_string = "Don't have an account? Sign up"
+        let coloredString = "Sign up"
+        let Range = (main_string as NSString).range(of: coloredString)
+        let attribute = NSMutableAttributedString.init(string: main_string)
+        attribute.addAttribute(NSAttributedString.Key.foregroundColor, value: #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1) , range: Range)
+        sigenLbl.attributedText = attribute
     }
     
     func validateInput() -> Bool {

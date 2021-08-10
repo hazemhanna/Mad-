@@ -737,7 +737,7 @@
         <scene sceneID="6Rs-cA-Mpd">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="s55-jA-2YA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="Group 163" id="5bG-Gz-0Mt"/>
+                    <tabBarItem key="tabBarItem" title="" image="play-button (2)" id="5bG-Gz-0Mt"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8ac-sO-Aeu">
                         <autoresizingMask key="autoresizingMask"/>
@@ -754,13 +754,13 @@
     </scenes>
     <resources>
         <image name="Component 65 – 1" width="17.5" height="19"/>
-        <image name="Group 163" width="30" height="26"/>
         <image name="Group 512" width="26.5" height="26.5"/>
         <image name="Search-1" width="22" height="22"/>
         <image name="alarm" width="18.5" height="22"/>
         <image name="home" width="22.5" height="20.5"/>
         <image name="icon - home" width="23" height="22"/>
         <image name="notification" width="22" height="22"/>
+        <image name="play-button (2)" width="32" height="32"/>
         <image name="profile" width="19" height="19"/>
         <image name="search" width="22" height="22"/>
         <systemColor name="systemBackgroundColor">

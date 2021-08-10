@@ -42,7 +42,7 @@
                         </connections>
                     </button>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="wTJ-z3-OEw">
-                        <rect key="frame" x="0.0" y="188" width="414" height="409"/>
+                        <rect key="frame" x="8" y="188" width="406" height="409"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cNT-rR-nD9">
                             <size key="itemSize" width="128" height="128"/>
@@ -109,7 +109,7 @@
                     <constraint firstItem="cb5-gO-MLp" firstAttribute="top" secondItem="Ey7-jE-f4K" secondAttribute="bottom" constant="64" id="UXK-GV-iWt"/>
                     <constraint firstItem="GdM-z9-dAU" firstAttribute="trailing" secondItem="Ey7-jE-f4K" secondAttribute="trailing" constant="8" id="Ugg-Ug-Nxj"/>
                     <constraint firstItem="wTJ-z3-OEw" firstAttribute="height" secondItem="GdM-z9-dAU" secondAttribute="height" multiplier="0.5" id="VZg-Zp-RZs"/>
-                    <constraint firstItem="wTJ-z3-OEw" firstAttribute="leading" secondItem="GdM-z9-dAU" secondAttribute="leading" id="ZOk-bz-r5f"/>
+                    <constraint firstItem="wTJ-z3-OEw" firstAttribute="leading" secondItem="GdM-z9-dAU" secondAttribute="leading" constant="8" id="ZOk-bz-r5f"/>
                     <constraint firstItem="GdM-z9-dAU" firstAttribute="trailing" secondItem="wTJ-z3-OEw" secondAttribute="trailing" id="ZR6-l5-9KR"/>
                     <constraint firstItem="5U9-jn-Tth" firstAttribute="centerX" secondItem="3os-gN-pje" secondAttribute="centerX" id="c96-1y-fOQ"/>
                     <constraint firstItem="rPk-9R-oAJ" firstAttribute="top" secondItem="GdM-z9-dAU" secondAttribute="top" constant="30" id="rUy-3l-Dag"/>

@@ -352,7 +352,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "587"
                   endingLineNumber = "587"
-                  offsetFromSymbolStart = "948">
+                  offsetFromSymbolStart = "868">
                </Location>
                <Location
                   uuid = "00B6B94C-DA08-4E4B-A2CD-BD597C282459 - 8b49b48947b22605"
@@ -367,7 +367,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "587"
                   endingLineNumber = "587"
-                  offsetFromSymbolStart = "420">
+                  offsetFromSymbolStart = "428">
                </Location>
                <Location
                   uuid = "00B6B94C-DA08-4E4B-A2CD-BD597C282459 - a5692ce606b448b9"
@@ -382,7 +382,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "589"
                   endingLineNumber = "589"
-                  offsetFromSymbolStart = "220">
+                  offsetFromSymbolStart = "186">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -400,6 +400,70 @@
             startingLineNumber = "589"
             endingLineNumber = "589"
             landmarkName = "updateProfile(image:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8C34D089-22F3-4C15-B8B7-44C605E7FD34"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mad/Controllers/Auth/Login/EmailVc/EmailVc.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "viewDidAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A4B3A2A4-01D9-4389-BA36-AD4B245EB38A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mad/Controllers/Auth/Login/EmailVc/EmailVc.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "viewDidAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6D94B7FE-1A80-4027-9946-013EC62EE1DE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mad/Controllers/Auth/Login/EmailVc/EmailVc.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "viewDidAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BDF2E388-BE1F-4F1C-97D4-DC4942DEBC2C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mad/Controllers/Auth/Login/EmailVc/EmailVc.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "viewDidAppear(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
