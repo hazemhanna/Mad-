@@ -100,10 +100,8 @@ extension ResetPasswordVC {
         AuthViewModel.resetPassword().subscribe(onNext: { (registerData) in
             self.AuthViewModel.dismissIndicator()
             if registerData.success ?? false {
-                let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CardTabBarController")
-                if let appDelegate = UIApplication.shared.delegate {
-                    appDelegate.window??.rootViewController = sb
-                }
+                let main = EmailVc.instantiateFromNib()
+                self.navigationController?.pushViewController(main!, animated: true)
             }else{
                 self.showMessage(text: registerData.message ?? "")
             }
