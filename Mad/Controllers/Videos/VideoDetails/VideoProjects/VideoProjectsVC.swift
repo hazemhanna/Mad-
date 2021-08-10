@@ -49,6 +49,20 @@ extension VideoProjectsVC : UITableViewDelegate,UITableViewDataSource{
                         , projectUrl :project[indexPath.row].imageURL ?? ""
                         , isFavourite: project[indexPath.row].isFavorite ?? false)
             
+            cell.favourite = {
+                if Helper.getAPIToken() != nil {
+                self.parentVC?.videoVM.showIndicator()
+             if self.project[indexPath.row].isFavorite ?? false{
+                self.parentVC?.addProjectToFavourite(projectID:  self.project[indexPath.row].id ?? 0, Type: false)
+                self.tableView.reloadData()
+                }else{
+                    self.parentVC?.addProjectToFavourite(projectID:  self.project[indexPath.row].id ?? 0, Type: true)
+                    self.tableView.reloadData()
+               }
+              }else {
+                self.showMessage(text: "please login first")
+             }
+            }
         }
         cell.showShimmer = showShimmer
         return cell

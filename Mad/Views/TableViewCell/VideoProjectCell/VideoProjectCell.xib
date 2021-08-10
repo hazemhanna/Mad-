@@ -55,6 +55,9 @@
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ApI-I6-iJs">
                                                                         <rect key="frame" x="0.0" y="0.0" width="17.5" height="22"/>
                                                                         <state key="normal" image="Path 326"/>
+                                                                        <connections>
+                                                                            <action selector="favouriteAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="dhH-GC-yqO"/>
+                                                                        </connections>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="345" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QKK-Zy-Lq9">
                                                                         <rect key="frame" x="25.5" y="5.5" width="19" height="11"/>
@@ -70,6 +73,9 @@
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xta-HY-6Gh">
                                                                         <rect key="frame" x="0.0" y="0.0" width="15" height="22"/>
                                                                         <state key="normal" image="Component 34 – 6"/>
+                                                                        <connections>
+                                                                            <action selector="shareAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="gnX-hR-RHc"/>
+                                                                        </connections>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ah5-BF-x61">
                                                                         <rect key="frame" x="23" y="5.5" width="6.5" height="11"/>

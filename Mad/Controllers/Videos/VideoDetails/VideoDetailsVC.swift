@@ -161,8 +161,6 @@ class VideoDetailsVc : UIViewController {
                 })
         }
     }
-    
-    
 }
 
 
@@ -256,6 +254,32 @@ extension VideoDetailsVc {
         self.videoVM.dismissIndicator()
        }).disposed(by: disposeBag)
    }
+    
+    func addToFavourite(artistId : Int,Type : Bool) {
+        videoVM.addToFavourite(artistId: artistId, Type: Type).subscribe(onNext: { [self] (dataModel) in
+           if dataModel.success ?? false {
+            self.videoVM.dismissIndicator()
+            self.showMessage(text: dataModel.message ?? "")
+            self.getVideoDetails(id : self.videoId)
+           }
+       }, onError: { (error) in
+        self.videoVM.dismissIndicator()
+       }).disposed(by: disposeBag)
+   }
+    
+    func addProjectToFavourite(projectID : Int,Type : Bool) {
+        videoVM.addProjectToFavourite(projectID: projectID, Type: Type).subscribe(onNext: { [self] (dataModel) in
+           if dataModel.success ?? false {
+            self.videoVM.dismissIndicator()
+            self.showMessage(text: dataModel.message ?? "")
+            self.getVideoDetails(id : self.videoId)
+           }
+       }, onError: { (error) in
+        self.videoVM.dismissIndicator()
+       }).disposed(by: disposeBag)
+   }
+    
+    
     
     func shareVideo(videoId : Int) {
         videoVM.shareVideo(videoId: videoId).subscribe(onNext: { (dataModel) in

@@ -104,6 +104,7 @@ extension ArtistsVc : UICollectionViewDelegate ,UICollectionViewDataSource{
                     self.showMessage(text: "please login first")
                  }
                 }
+                
             }
              cell.showShimmer = showShimmer2
             return cell
@@ -177,7 +178,6 @@ extension ArtistsVc {
        }).disposed(by: disposeBag)
    }
     
-   
     func getAllArtist(pageNum : Int) {
         artistVM.getAllArtist(pageNum : pageNum).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
@@ -190,7 +190,6 @@ extension ArtistsVc {
        }).disposed(by: disposeBag)
    }
     
-    
     func getTopArtist(pageNum : Int , catId : Int) {
         artistVM.getTopArtist(pageNum : pageNum , catId : catId).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
@@ -202,7 +201,6 @@ extension ArtistsVc {
 
        }).disposed(by: disposeBag)
    }
-    
     
     func editFavourite(artistId : Int,Type : Bool) {
         artistVM.addToFavourite(artistId: artistId, Type: Type).subscribe(onNext: { (dataModel) in

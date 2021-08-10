@@ -49,6 +49,22 @@ extension VideoArtistsVc : UITableViewDelegate,UITableViewDataSource{
                         music: self.artist[indexPath.row].isFavorite ?? false,
                         design: self.artist[indexPath.row].isFavorite ?? false)
             
+            cell.editFavourite = {
+                if Helper.getAPIToken() != nil {
+                    self.parentVC?.videoVM.showIndicator()
+             if self.artist[indexPath.row].isFavorite ?? false{
+                self.parentVC?.addToFavourite(artistId:  self.artist[indexPath.row].id ?? 0, Type: false)
+                cell.favouriteBtn.backgroundColor = #colorLiteral(red: 0.9282042384, green: 0.2310142517, blue: 0.4267850518, alpha: 1)
+                self.tableView.reloadData()
+                }else{
+                    self.parentVC?.addToFavourite(artistId:  self.artist[indexPath.row].id ?? 0, Type: true)
+                    cell.favouriteBtn.backgroundColor = #colorLiteral(red: 0.5764705882, green: 0.6235294118, blue: 0.7137254902, alpha: 1)
+                    self.tableView.reloadData()
+               }
+               }else {
+                self.showMessage(text: "please login first")
+             }
+            }
         }
         cell.showShimmer = showShimmer
         return cell

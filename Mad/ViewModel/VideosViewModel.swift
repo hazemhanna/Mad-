@@ -63,4 +63,25 @@ struct VideosViewModel {
          return observer
      }
     
+    
+    func addToFavourite(artistId : Int,Type : Bool) -> Observable<ArtistFavouriteModel> {
+        let params: [String: Any] = [
+            "artist_id": artistId,
+            "is_favorite": Type
+            ]
+        let observer = AddServices.shared.addArtistToFavourite(param : params)
+         return observer
+     }
+    
+    
+    func addProjectToFavourite(projectID : Int,Type : Bool) -> Observable<FavouriteModel> {
+        let params: [String: Any] = [
+            "project_id": projectID,
+            "is_favorite": Type
+            ]
+        let observer = AddServices.shared.addToFavourite(param : params)
+         return observer
+     }
+    
+    
 }
