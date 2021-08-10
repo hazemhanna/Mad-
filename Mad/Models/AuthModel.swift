@@ -28,7 +28,7 @@ struct AuthRegisterModel: Codable {
 }
 
 struct RegisterModel: Codable {
-    let user: User?
+    let user: ProfileModel?
     let accessToken, tokenType: String?
     let expiresIn: Int?
 

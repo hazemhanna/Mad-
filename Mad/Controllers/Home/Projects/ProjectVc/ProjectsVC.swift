@@ -210,7 +210,9 @@ extension ProjectsVC : UICollectionViewDelegate ,UICollectionViewDataSource{
             }else {
                 cell.ProjectView.layer.borderColor = #colorLiteral(red: 0.9725490196, green: 0.9725490196, blue: 0.9725490196, alpha: 1).cgColor
                 cell.ProjectView.layer.borderWidth = 0
-               }
+            }
+            
+            
         }
         cell.showShimmer = showShimmer
         return cell
@@ -218,6 +220,7 @@ extension ProjectsVC : UICollectionViewDelegate ,UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if showShimmer {return}
+        if active {
         if indexPath.row != 0 {
         self.selectedIndex = indexPath.row
         self.projectCollectionView.reloadData()
@@ -225,6 +228,14 @@ extension ProjectsVC : UICollectionViewDelegate ,UICollectionViewDataSource{
             self.mainTableView.reloadData()
             self.catId  = self.Categories[indexPath.row-1].id ?? 0
             getProject(catId:self.Categories[indexPath.row-1].id ?? 0)
+        }
+        }else{
+            self.selectedIndex = indexPath.row
+            self.projectCollectionView.reloadData()
+                self.showProjectShimmer = true
+                self.mainTableView.reloadData()
+                self.catId  = self.Categories[indexPath.row].id ?? 0
+                getProject(catId:self.Categories[indexPath.row].id ?? 0)
         }
     }
 }
