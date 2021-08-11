@@ -62,6 +62,13 @@ class Helper {
            return def.object(forKey: "id") as? Int
        }
     
+    
+    class func saveActive(isActive: Bool) {
+        let def = UserDefaults.standard
+        def.set(isActive, forKey: "isActive")
+        def.synchronize()
+    }
+    
     class func getIsActive() -> Bool? {
            let def = UserDefaults.standard
            return def.object(forKey: "isActive") as? Bool

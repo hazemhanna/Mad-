@@ -124,12 +124,23 @@ extension ArtistsVc : UICollectionViewDelegate ,UICollectionViewDataSource{
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView == artistsCollectionView {
         if showShimmer3 {return}
+
+        if collectionView == artistsCollectionView {
         let vc = UIStoryboard(name: "Artist", bundle: nil).instantiateViewController(withIdentifier: "ArtistProfileVc")  as! ArtistProfileVc
             vc.artistId = self.artists[indexPath.row].id ?? 0
             Helper.saveArtistId(id: self.artists[indexPath.row].id ?? 0)
         self.navigationController?.pushViewController(vc, animated: true)
+        }else if collectionView == topActiveCollectionView{
+            let vc = UIStoryboard(name: "Artist", bundle: nil).instantiateViewController(withIdentifier: "ArtistProfileVc")  as! ArtistProfileVc
+                vc.artistId = self.topActive[indexPath.row].id ?? 0
+                Helper.saveArtistId(id: self.topActive[indexPath.row].id ?? 0)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }else {
+            let vc = UIStoryboard(name: "Artist", bundle: nil).instantiateViewController(withIdentifier: "ArtistProfileVc")  as! ArtistProfileVc
+                vc.artistId = self.suggested[indexPath.row].id ?? 0
+                Helper.saveArtistId(id: self.suggested[indexPath.row].id ?? 0)
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
 }

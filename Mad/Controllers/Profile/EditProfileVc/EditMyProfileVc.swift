@@ -42,7 +42,7 @@ class EditMyProfileVc: UIViewController {
     @IBOutlet weak var  socialView : UIView!
     let cellIdentifier = "SocialCell"
     
-    
+    var upgrad = false
     var active = Helper.getIsActive() ?? false
     var artistVM = ArtistViewModel()
     var disposeBag = DisposeBag()
@@ -63,6 +63,21 @@ class EditMyProfileVc: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupContentTableView()
+        
+        twittweName.delegate = self
+        instgramName.delegate = self
+        instgramLink.delegate = self
+        facebooName.delegate = self
+        facebookLink.delegate = self
+        
+        headLineTf.delegate = self
+        phoneTf.delegate = self
+        emailTf.delegate = self
+        BiosTf.delegate = self
+        ageTf.delegate = self
+        lastNameTF.delegate = self
+        firstNameTF.delegate = self
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -96,10 +111,54 @@ class EditMyProfileVc: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    func validateInput() -> Bool {
+        let email =  self.emailTf.text ?? ""
+        let phone =  self.phoneTf.text ?? ""
+        let firstName =  self.firstNameTF.text ?? ""
+        let lastName =  self.lastNameTF.text ?? ""
+        let age =  self.ageTf.text ?? ""
+        let selectCountry =  self.selectCateDropDown.text ?? ""
+        let BiosTf =  self.BiosTf.text ?? ""
+        let headLine =  self.headLineTf.text ?? ""
+
+        if email.isEmpty {
+          self.showMessage(text: "Please Enter Your Password")
+          return false
+        }else if phone.isEmpty {
+            self.showMessage(text: "Please Enter Your phone")
+            return false
+          }else if firstName.isEmpty {
+            self.showMessage(text: "Please Enter Your first Name")
+            return false
+          }else if lastName.isEmpty {
+            self.showMessage(text: "Please Enter Your last Name")
+            return false
+          }else if age.isEmpty {
+            self.showMessage(text: "Please Enter Your age")
+            return false
+          }else if selectCountry.isEmpty {
+            self.showMessage(text: "Please Enter Your Country")
+            return false
+          }else if BiosTf.isEmpty {
+            self.showMessage(text: "Please Enter Bios")
+            return false
+          }else if headLine.isEmpty {
+            self.showMessage(text: "Please Enter Your headLine")
+            return false
+          }else{
+            return true
+        }
+    }
+    
     
     @IBAction func saveButton(sender: UIButton) {
-
-
+        guard self.validateInput() else { return }
+        self.artistVM.showIndicator()
+        if upgrad {
+            self.upgeadeProfile(email: self.emailTf.text ?? "", phone: self.phoneTf.text ?? "", firstName: self.firstNameTF.text ?? "", lastName: self.lastNameTF.text ?? "", age: self.ageTf.text ?? "", country: self.selectCateDropDown.text ?? "", about: self.BiosTf.text ?? "", headLine: self.headLineTf.text ?? "", instgram: self.instgramLink.text ?? "", faceBook: self.facebookLink.text ?? "", twitter: self.twitterLink.text ?? "")
+        }else{
+            self.updateProfile(email: self.emailTf.text ?? "", phone: self.phoneTf.text ?? "", firstName: self.firstNameTF.text ?? "", lastName: self.lastNameTF.text ?? "", age: self.ageTf.text ?? "", country: self.selectCateDropDown.text ?? "", about: self.BiosTf.text ?? "", headLine: self.headLineTf.text ?? "", instgram: self.instgramLink.text ?? "", faceBook: self.facebookLink.text ?? "", twitter: self.twitterLink.text ?? "")
+        }
     }
     
     
@@ -174,6 +233,42 @@ func getProfile() {
 
    }).disposed(by: disposeBag)
 }
+    
+    func upgeadeProfile(email : String,phone : String,firstName : String,lastName : String,age : String,country : String,about : String,headLine : String,instgram : String,faceBook : String,twitter : String) {
+        artistVM.upgradeMyProfile(email: email, phone: phone, firstName: firstName, lastName: lastName, age: age, country: country, about: about, headLine: headLine, instgram: instgram, faceBook: faceBook, twitter: twitter).subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+            self.artistVM.dismissIndicator()
+            self.firstNameTF.text = dataModel.data?.firstName ??  ""
+            self.lastNameTF.text = dataModel.data?.lastName ?? ""
+            self.emailTf.text = dataModel.data?.userEmail ?? ""
+            self.phoneTf.text = dataModel.data?.phone ?? ""
+            self.selectCateDropDown.text = dataModel.data?.country ?? ""
+            self.BiosTf.text = dataModel.data?.about ?? ""
+            self.headLineTf.text = dataModel.data?.headline ?? ""
+         }
+       }, onError: { (error) in
+        self.artistVM.dismissIndicator()
+
+       }).disposed(by: disposeBag)
+    }
+    func updateProfile(email : String,phone : String,firstName : String,lastName : String,age : String,country : String,about : String,headLine : String,instgram : String,faceBook : String,twitter : String) {
+        artistVM.updateProfile(email: email, phone: phone, firstName: firstName, lastName: lastName, age: age, country: country, about: about, headLine: headLine, instgram: instgram, faceBook: faceBook, twitter: twitter).subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+            self.artistVM.dismissIndicator()
+            self.firstNameTF.text = dataModel.data?.firstName ??  ""
+            self.lastNameTF.text = dataModel.data?.lastName ?? ""
+            self.emailTf.text = dataModel.data?.userEmail ?? ""
+            self.phoneTf.text = dataModel.data?.phone ?? ""
+            self.selectCateDropDown.text = dataModel.data?.country ?? ""
+            self.BiosTf.text = dataModel.data?.about ?? ""
+            self.headLineTf.text = dataModel.data?.headline ?? ""
+         }
+       }, onError: { (error) in
+        self.artistVM.dismissIndicator()
+
+       }).disposed(by: disposeBag)
+    }
+    
     func getCountry() {
         artistVM.getAllCountries().subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
@@ -186,4 +281,11 @@ func getProfile() {
 
        }).disposed(by: disposeBag)
    }
+}
+
+extension EditMyProfileVc: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
 }

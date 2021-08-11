@@ -166,7 +166,7 @@ class Authentication {
     
     
     
-    func updateProfile(params: [String: Any]) -> Observable<AddProductModelJson> {
+    func updateProfile(params: [String: Any]) -> Observable<ProfileModelJSON> {
         return Observable.create { (observer) -> Disposable in
             let url = ConfigURLS.updateMyProfile
             let token = Helper.getAPIToken() ?? ""
@@ -177,7 +177,7 @@ class Authentication {
                 .validate(statusCode: 200..<300)
                 .responseJSON { (response: DataResponse<Any>) in
                     do {
-                        let data = try JSONDecoder().decode(AddProductModelJson.self, from: response.data!)
+                        let data = try JSONDecoder().decode(ProfileModelJSON.self, from: response.data!)
                         observer.onNext(data)
                     } catch {
                         print(error.localizedDescription)
@@ -190,7 +190,7 @@ class Authentication {
     
     
     
-    func upgradeMyProfile(params: [String: Any]) -> Observable<AddProductModelJson> {
+    func upgradeMyProfile(params: [String: Any]) -> Observable<ProfileModelJSON> {
         return Observable.create { (observer) -> Disposable in
             let url = ConfigURLS.upgradeMyProfile
             let token = Helper.getAPIToken() ?? ""
@@ -201,7 +201,7 @@ class Authentication {
                 .validate(statusCode: 200..<300)
                 .responseJSON { (response: DataResponse<Any>) in
                     do {
-                        let data = try JSONDecoder().decode(AddProductModelJson.self, from: response.data!)
+                        let data = try JSONDecoder().decode(ProfileModelJSON.self, from: response.data!)
                         observer.onNext(data)
                     } catch {
                         print(error.localizedDescription)
