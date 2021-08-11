@@ -31,27 +31,34 @@ class HomeCell: UITableViewCell {
     var share: (() -> Void)? = nil
     
     let cellIdentifier = "LiveCellCVC"
-    var liveData = [String]()
+    var product  = [Product]()
     var isFavourite  = false
     override func awakeFromNib() {
         super.awakeFromNib()
-        liveData = ["1","2","3"]
+
         self.liveCollectionView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
         liveCollectionView.delegate = self
         liveCollectionView.dataSource = self
         self.showShimmer = false
-        liveCollectionViewHieht.constant = 1
-        liveView.isHidden = true
     }
     
     
-    func confic (name : String,date : String, title : String , like :Int , share : Int, profileUrl : String , projectUrl :String , trustUrl : String,isFavourite : Bool){
+    func confic (name : String,date : String, title : String , like :Int , share : Int, profileUrl : String , projectUrl :String , trustUrl : String,isFavourite : Bool,relatedProduct : [Product]){
         
-        NameLbl.text = name
+         NameLbl.text = name
          dateLbl.text = date
          titleLbl.text = title
          LikeLbl.text = "\(like)"
-        shareLbl.text = "\(share)" 
+         shareLbl.text = "\(share)"
+        self.product = relatedProduct
+        liveCollectionView.reloadData()
+        if relatedProduct.count > 0{
+            liveCollectionViewHieht.constant = 100
+            liveView.isHidden = false
+        }else{
+            liveCollectionViewHieht.constant = 1
+            liveView.isHidden = true
+        }
         
         if let profileImageUrl = URL(string: profileUrl){
         self.profileImage.kf.setImage(with: profileImageUrl, placeholder: #imageLiteral(resourceName: "Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4"))
@@ -119,12 +126,22 @@ class HomeCell: UITableViewCell {
 extension HomeCell:  UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return liveData.count
+        return  self.showShimmer ? 3 : product.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! LiveCellCVC
        
+        if !self.showShimmer {
+            cell.priceLbl.text = "USD \(self.product[indexPath.row].price ?? 0.0)"
+            cell.titleLabel.text = self.product[indexPath.row].title ?? ""
+
+            if let bannerUrl = URL(string:   self.product[indexPath.row].imageURL ?? ""){
+            cell.bannerImage.kf.setImage(with: bannerUrl, placeholder: #imageLiteral(resourceName: "WhatsApp Image 2021-04-21 at 1.25.47 PM"))
+           }
+            cell.editBtn.isHidden = true
+        }
+         cell.showShimmer = showShimmer        
         return cell
     }
     

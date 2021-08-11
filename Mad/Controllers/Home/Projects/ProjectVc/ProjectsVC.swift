@@ -99,7 +99,7 @@ extension ProjectsVC: UITableViewDelegate,UITableViewDataSource{
                         , share : projects[indexPath.row].shareCount ?? 0
                         , profileUrl : projects[indexPath.row].artist?.profilPicture ?? ""
                         , projectUrl :projects[indexPath.row].imageURL ?? ""
-                        , trustUrl : "", isFavourite: projects[indexPath.row].isFavorite ?? false)
+                        , trustUrl : "", isFavourite: projects[indexPath.row].isFavorite ?? false,relatedProduct: projects[indexPath.row].relateProducts ?? [])
                
             
             // edit favourite

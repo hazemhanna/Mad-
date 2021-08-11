@@ -37,6 +37,7 @@ struct Project: Codable {
     let favoriteCount, shareCount: Int?
     let createdAt: String?
     let isFavorite: Bool?
+    let relateProducts : [Product]?
 
     enum CodingKeys: String, CodingKey {
         case id, artist, title
@@ -45,6 +46,7 @@ struct Project: Codable {
         case shareCount = "share_count"
         case createdAt = "created_at"
         case isFavorite = "is_favorite"
+        case relateProducts = "relate_products"
     }
 }
 

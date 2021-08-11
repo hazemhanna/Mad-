@@ -11,6 +11,8 @@ import RxSwift
 import RxCocoa
 import PTCardTabBar
 
+
+
 struct socialMedia {
     let icon : UIImage?
     let name : String?
@@ -22,7 +24,15 @@ class EditMyProfileVc: UIViewController {
     
     @IBOutlet weak var  socialTableview : UITableView!
     @IBOutlet weak var  socialTableviewHieght : NSLayoutConstraint!
-    
+    @IBOutlet weak var selectCateDropDown: TextFieldDropDown!
+
+    @IBOutlet weak var  firstNameTF : UITextField!
+    @IBOutlet weak var  lastNameTF : UITextField!
+    @IBOutlet weak var  ageTf : UITextField!
+    @IBOutlet weak var  BiosTf : UITextField!
+    @IBOutlet weak var  emailTf : UITextField!
+    @IBOutlet weak var  phoneTf : UITextField!
+    @IBOutlet weak var  headLineTf : UITextField!
     @IBOutlet weak var  facebookLink : UITextField!
     @IBOutlet weak var  facebooName : UITextField!
     @IBOutlet weak var  instgramLink : UITextField!
@@ -30,9 +40,16 @@ class EditMyProfileVc: UIViewController {
     @IBOutlet weak var  twitterLink : UITextField!
     @IBOutlet weak var  twittweName : UITextField!
     @IBOutlet weak var  socialView : UIView!
-
-    
     let cellIdentifier = "SocialCell"
+    
+    
+    var active = Helper.getIsActive() ?? false
+    var artistVM = ArtistViewModel()
+    var disposeBag = DisposeBag()
+    var countries = [String]()
+    open lazy var customTabBar: PTCardTabBar = {
+        return PTCardTabBar()
+    }()
     
     var social  = [socialMedia](){
         didSet{
@@ -41,11 +58,7 @@ class EditMyProfileVc: UIViewController {
         }
     }
 
-    var homeVM = HomeViewModel()
-    var disposeBag = DisposeBag()
-    open lazy var customTabBar: PTCardTabBar = {
-        return PTCardTabBar()
-    }()
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +66,9 @@ class EditMyProfileVc: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.artistVM.showIndicator()
+        getProfile()
+        getCountry()
         self.navigationController?.navigationBar.isHidden = true
         if let ptcTBC = tabBarController as? PTCardTabBarController {
             ptcTBC.customTabBar.isHidden = false
@@ -67,19 +83,30 @@ class EditMyProfileVc: UIViewController {
       
     }
     
+    
+    func setupCatDropDown(){
+        selectCateDropDown.optionArray = self.countries
+        selectCateDropDown.didSelect { (selectedText, index, id) in
+            self.selectCateDropDown.text = selectedText
+            Helper.saveCountry(id: self.countries[index])
+        }
+    }
+    
     @IBAction func backButton(sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
     
     
+    @IBAction func saveButton(sender: UIButton) {
+
+
+    }
     
     
     @IBAction func addSocialButton(sender: UIButton) {
         socialView.isHidden = false
     }
   
-    
-    
     @IBAction func doneAddSocialButton(sender: UIButton) {
         socialView.isHidden = true
         if facebookLink.text != "" {
@@ -127,4 +154,36 @@ extension EditMyProfileVc : UITableViewDelegate,UITableViewDataSource{
         return 40
     }
 
+}
+
+extension EditMyProfileVc {
+func getProfile() {
+    artistVM.getMyProfile().subscribe(onNext: { (dataModel) in
+       if dataModel.success ?? false {
+        self.artistVM.dismissIndicator()
+        self.firstNameTF.text = dataModel.data?.firstName ??  ""
+        self.lastNameTF.text = dataModel.data?.lastName ?? ""
+        self.emailTf.text = dataModel.data?.userEmail ?? ""
+        self.phoneTf.text = dataModel.data?.phone ?? ""
+        self.selectCateDropDown.text = dataModel.data?.country ?? ""
+        self.BiosTf.text = dataModel.data?.about ?? ""
+        self.headLineTf.text = dataModel.data?.headline ?? ""
+     }
+   }, onError: { (error) in
+    self.artistVM.dismissIndicator()
+
+   }).disposed(by: disposeBag)
+}
+    func getCountry() {
+        artistVM.getAllCountries().subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+               self.artistVM.dismissIndicator()
+               self.countries = dataModel.data ?? []
+               self.setupCatDropDown()
+           }
+       }, onError: { (error) in
+           self.artistVM.dismissIndicator()
+
+       }).disposed(by: disposeBag)
+   }
 }

@@ -71,4 +71,51 @@ struct ArtistViewModel {
         let observer = AddServices.shared.updateProfile(image: image)
          return observer
      }
+    
+    func updateProfile(email : String,phone : String,firstName : String,lastName : String,age : String,country : String,about : String,headLine : String,instgram : String,faceBook : String,twitter : String) -> Observable<AddProductModelJson> {
+        let params: [String: Any] = [
+            "email": email,
+            "first_name": firstName,
+            "last_name": lastName,
+            "phone": phone,
+            "about":about ,
+            "age": age,
+            "country": country,
+            "headline": headLine,
+            "facebook": faceBook,
+            "instagram": instgram,
+            "twitter":twitter
+           ]
+        
+        let observer = Authentication.shared.updateProfile(params: params)
+        return observer
+    }
+    
+    func upgradeMyProfile(email : String,phone : String,firstName : String,lastName : String,age : String,country : String,about : String,headLine : String,instgram : String,faceBook : String,twitter : String) -> Observable<AddProductModelJson> {
+        let params: [String: Any] = [
+            "email": email,
+            "first_name": firstName,
+            "last_name": lastName,
+            "phone": phone,
+            "about":about ,
+            "age": age,
+            "country": country,
+            "headline": headLine,
+            "facebook": faceBook,
+            "instagram": instgram,
+            "twitter":twitter
+           ]
+        
+        let observer = Authentication.shared.updateProfile(params: params)
+        return observer
+    }
+    
+    
+    func getAllCountries() -> Observable<CountryModel> {
+         let observer = GetServices.shared.getAllCountry()
+         return observer
+     }
+    
+    
+    
 }
