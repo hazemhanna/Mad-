@@ -35,6 +35,7 @@ class MyProfileAbout : UIViewController {
     
     @IBAction func editProfile(sender: UIButton) {
         let vc = EditMyProfileVc.instantiateFromNib()
+        vc?.upgrad = false
         self.navigationController?.pushViewController(vc!, animated: true)
     }
     

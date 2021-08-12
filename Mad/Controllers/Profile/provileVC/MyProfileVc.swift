@@ -62,7 +62,9 @@ class MyProfileVc: UIViewController {
     
     
     @IBAction func upgradeButton(sender: UIButton) {
-
+        let vc = EditMyProfileVc.instantiateFromNib()
+        vc?.upgrad = true
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
    
     @IBAction func profileButton(sender: UIButton) {

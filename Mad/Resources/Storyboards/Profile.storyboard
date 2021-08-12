@@ -58,7 +58,7 @@
                                                                             <action selector="bannerButtonWithSender:" destination="uVV-7o-nOI" eventType="touchUpInside" id="UD7-5i-dc8"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WhatsApp Image 2021-04-21 at 1.25.47 PM" translatesAutoresizingMaskIntoConstraints="NO" id="bcB-bm-pQn">
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bcB-bm-pQn">
                                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="220"/>
                                                                     </imageView>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lil-oU-vdc">
@@ -1259,7 +1259,6 @@
         <image name="Path 412" width="82" height="53.5"/>
         <image name="Path 437" width="7.5" height="13"/>
         <image name="Rectangle 16" width="286" height="68"/>
-        <image name="WhatsApp Image 2021-04-21 at 1.25.47 PM" width="375" height="193"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

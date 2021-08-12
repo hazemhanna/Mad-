@@ -352,7 +352,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "587"
                   endingLineNumber = "587"
-                  offsetFromSymbolStart = "868">
+                  offsetFromSymbolStart = "948">
                </Location>
                <Location
                   uuid = "00B6B94C-DA08-4E4B-A2CD-BD597C282459 - 8b49b48947b22605"
@@ -367,7 +367,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "587"
                   endingLineNumber = "587"
-                  offsetFromSymbolStart = "428">
+                  offsetFromSymbolStart = "420">
                </Location>
                <Location
                   uuid = "00B6B94C-DA08-4E4B-A2CD-BD597C282459 - a5692ce606b448b9"
@@ -382,7 +382,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "589"
                   endingLineNumber = "589"
-                  offsetFromSymbolStart = "186">
+                  offsetFromSymbolStart = "220">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -483,7 +483,7 @@
             landmarkType = "0">
             <Locations>
                <Location
-                  uuid = "D407B82C-F5B9-48B4-BB60-6A16B28DCDAC - 44253247a2057427"
+                  uuid = "D407B82C-F5B9-48B4-BB60-6A16B28DCDAC - 44253247a2057406"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -493,12 +493,12 @@
                   urlString = "file:///Users/mac/Desktop/work/Cnepho/mad/Mad/Controllers/Videos/VideoDetails/VideoProjects/VideoProjectsVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "53"
-                  endingLineNumber = "53"
-                  offsetFromSymbolStart = "4262">
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "3280">
                </Location>
                <Location
-                  uuid = "D407B82C-F5B9-48B4-BB60-6A16B28DCDAC - 67462f983e75ab05"
+                  uuid = "D407B82C-F5B9-48B4-BB60-6A16B28DCDAC - 67462f983e75a8e6"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -508,9 +508,9 @@
                   urlString = "file:///Users/mac/Desktop/work/Cnepho/mad/Mad/Controllers/Videos/VideoDetails/VideoProjects/VideoProjectsVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "54"
-                  endingLineNumber = "54"
-                  offsetFromSymbolStart = "155">
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "220">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -529,6 +529,70 @@
             endingLineNumber = "55"
             landmarkName = "unknown"
             landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3730D1EF-9EEE-48F9-BC2C-3A84E5F82D93"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mad/Network/Authentication.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "179"
+            endingLineNumber = "179"
+            landmarkName = "updateProfile(params:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "ED0E2660-F61F-4003-838B-6F392ED7D339"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mad/Network/Authentication.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "180"
+            endingLineNumber = "180"
+            landmarkName = "updateProfile(params:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "213D77AD-E680-4246-BAA2-1740249E7922"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mad/Network/Authentication.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "183"
+            endingLineNumber = "183"
+            landmarkName = "updateProfile(params:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9B0A9D57-B241-4952-9E61-45D588BAE92C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mad/Network/Authentication.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "184"
+            endingLineNumber = "184"
+            landmarkName = "updateProfile(params:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

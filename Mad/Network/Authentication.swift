@@ -188,8 +188,6 @@ class Authentication {
         }
     }//END of POST CompleteProfile
     
-    
-    
     func upgradeMyProfile(params: [String: Any]) -> Observable<ProfileModelJSON> {
         return Observable.create { (observer) -> Disposable in
             let url = ConfigURLS.upgradeMyProfile
