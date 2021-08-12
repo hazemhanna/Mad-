@@ -666,7 +666,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z5C-J5-JLu" customClass="CustomView" customModule="Mad" customModuleProvider="target">
-                                <rect key="frame" x="41.5" y="224" width="331" height="448"/>
+                                <rect key="frame" x="41.5" y="57" width="331" height="582"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ARd-0i-Ils">
                                         <rect key="frame" x="16" y="16" width="299" height="399"/>
@@ -785,8 +785,8 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="z5C-J5-JLu" firstAttribute="height" secondItem="kNn-Eh-vhH" secondAttribute="height" multiplier="0.5" id="3Y4-Oh-Frc"/>
-                            <constraint firstItem="z5C-J5-JLu" firstAttribute="centerY" secondItem="kNn-Eh-vhH" secondAttribute="centerY" id="4Gd-i7-0sT"/>
+                            <constraint firstItem="z5C-J5-JLu" firstAttribute="height" secondItem="kNn-Eh-vhH" secondAttribute="height" multiplier="0.65" id="3Y4-Oh-Frc"/>
+                            <constraint firstItem="z5C-J5-JLu" firstAttribute="centerY" secondItem="kNn-Eh-vhH" secondAttribute="centerY" constant="-100" id="4Gd-i7-0sT"/>
                             <constraint firstItem="z5C-J5-JLu" firstAttribute="width" secondItem="kNn-Eh-vhH" secondAttribute="width" multiplier="0.8" id="8U1-7R-b5Y"/>
                             <constraint firstItem="z5C-J5-JLu" firstAttribute="centerX" secondItem="kNn-Eh-vhH" secondAttribute="centerX" id="L1r-DJ-2Vu"/>
                         </constraints>

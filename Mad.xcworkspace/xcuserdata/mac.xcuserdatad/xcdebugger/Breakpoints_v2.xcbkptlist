@@ -534,64 +534,48 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3730D1EF-9EEE-48F9-BC2C-3A84E5F82D93"
+            uuid = "39338D7E-4610-4430-8B26-724F262DD32E"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Mad/Network/Authentication.swift"
+            filePath = "Mad/Controllers/Profile/EditProfileVc/EditMyProfileVc.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "179"
-            endingLineNumber = "179"
-            landmarkName = "updateProfile(params:)"
+            startingLineNumber = "345"
+            endingLineNumber = "345"
+            landmarkName = "getProfile()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "ED0E2660-F61F-4003-838B-6F392ED7D339"
+            uuid = "E1B133B6-E7FD-41B3-9BD5-CF3660EC5BF0"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Mad/Network/Authentication.swift"
+            filePath = "Mad/Controllers/Profile/EditProfileVc/EditMyProfileVc.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "180"
-            endingLineNumber = "180"
-            landmarkName = "updateProfile(params:)"
+            startingLineNumber = "344"
+            endingLineNumber = "344"
+            landmarkName = "getProfile()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "213D77AD-E680-4246-BAA2-1740249E7922"
+            uuid = "E7215CFD-F83D-428D-B1B8-FD2555F69F12"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Mad/Network/Authentication.swift"
+            filePath = "Mad/Controllers/Profile/EditProfileVc/EditMyProfileVc.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "183"
-            endingLineNumber = "183"
-            landmarkName = "updateProfile(params:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "9B0A9D57-B241-4952-9E61-45D588BAE92C"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Mad/Network/Authentication.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "184"
-            endingLineNumber = "184"
-            landmarkName = "updateProfile(params:)"
+            startingLineNumber = "343"
+            endingLineNumber = "343"
+            landmarkName = "getProfile()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

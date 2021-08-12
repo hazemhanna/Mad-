@@ -205,14 +205,19 @@ extension ProjectsVC : UICollectionViewDelegate ,UICollectionViewDataSource{
                 }
             }
             if self.selectedIndex == indexPath.row{
-                cell.ProjectView.layer.borderColor = #colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1).cgColor
-                cell.ProjectView.layer.borderWidth = 2
+                if cell.ProjectView.layer.borderColor == #colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1).cgColor {
+                    cell.ProjectView.layer.borderColor = #colorLiteral(red: 0.9725490196, green: 0.9725490196, blue: 0.9725490196, alpha: 1).cgColor
+                    cell.ProjectView.layer.borderWidth = 0
+                }else {
+                    cell.ProjectView.layer.borderColor = #colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1).cgColor
+                    cell.ProjectView.layer.borderWidth = 2
+                }
+               
+            
             }else {
                 cell.ProjectView.layer.borderColor = #colorLiteral(red: 0.9725490196, green: 0.9725490196, blue: 0.9725490196, alpha: 1).cgColor
                 cell.ProjectView.layer.borderWidth = 0
             }
-            
-            
         }
         cell.showShimmer = showShimmer
         return cell

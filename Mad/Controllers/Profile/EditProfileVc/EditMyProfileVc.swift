@@ -11,15 +11,6 @@ import RxSwift
 import RxCocoa
 import PTCardTabBar
 
-
-
-struct socialMedia {
-    let icon : UIImage?
-    let name : String?
-    let url : String?
-    
-}
-
 class EditMyProfileVc: UIViewController {
     
     @IBOutlet weak var  socialTableview : UITableView!
@@ -61,7 +52,7 @@ class EditMyProfileVc: UIViewController {
         return PTCardTabBar()
     }()
     
-    var social  = [socialMedia](){
+    var social  = [Social](){
         didSet{
             socialTableviewHieght.constant = CGFloat((30 * self.social.count))
             socialTableview.reloadData()
@@ -253,13 +244,13 @@ class EditMyProfileVc: UIViewController {
     @IBAction func doneAddSocialButton(sender: UIButton) {
         socialView.isHidden = true
         if facebookLink.text != "" {
-            social.append(socialMedia(icon: #imageLiteral(resourceName: "Path 430"), name: facebooName.text ?? "" , url: facebookLink.text ?? ""))
+            social.append(Social(name: facebooName.text ?? "", url: facebookLink.text ?? "" , icon: "http://mad.cnepho.com/wp-content/plugins/MAD/img/facebook_mail.png" ))
         }
         if instgramLink.text != "" {
-            social.append(socialMedia(icon: #imageLiteral(resourceName: "Group 350"),  name: instgramName.text ?? "" , url: instgramLink.text ?? ""))
+            social.append(Social(name: instgramName.text ?? "",  url: instgramLink.text ?? "" , icon: "http://mad.cnepho.com/wp-content/plugins/MAD/img/instagram_mail.png"))
         }
         if twitterLink.text != "" {
-            social.append(socialMedia(icon: #imageLiteral(resourceName: "Path 429"),  name: twittweName.text ?? "" , url: twitterLink.text ?? ""))
+            social.append(Social(name: twittweName.text ?? "",  url: twitterLink.text ?? "" , icon: "" ))
         }
     
         facebooName.text = ""
@@ -311,15 +302,13 @@ extension EditMyProfileVc : UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier) as! SocialCell
-        cell.nameLbl.text = self.social[indexPath.row].name ?? ""
-        cell.iconImage.image = self.social[indexPath.row].icon
+        cell.confic(name:  self.social[indexPath.row].name ?? "", icon: self.social[indexPath.row].icon ?? "")
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 30
     }
-
 }
 
 extension EditMyProfileVc {
@@ -352,7 +341,8 @@ func getProfile() {
         self.PointLbl.text = String(dataModel.data?.points ?? 0)
         self.flowersLbl.text = String(dataModel.data?.allFollowers ?? 0)
         self.flowingLbl.text = String(dataModel.data?.allFollowing ?? 0)
-
+        self.social = dataModel.data?.socialLinks ?? []
+        self.socialTableview.reloadData()
      }
    }, onError: { (error) in
     self.artistVM.dismissIndicator()
@@ -371,6 +361,8 @@ func updateProfile(email : String,phone : String,firstName : String,lastName : S
             self.selectCateDropDown.text = dataModel.data?.country ?? ""
             self.BiosTf.text = dataModel.data?.about ?? ""
             self.headLineTf.text = dataModel.data?.headline ?? ""
+            self.social = dataModel.data?.socialLinks ?? []
+            self.socialTableview.reloadData()
             self.showMessage(text: dataModel.message ?? "")
          }else{
             self.artistVM.dismissIndicator()

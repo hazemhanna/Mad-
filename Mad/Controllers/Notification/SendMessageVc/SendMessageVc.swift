@@ -266,8 +266,6 @@ extension SendMessageVc {
 
        }).disposed(by: disposeBag)
    }
-    
-    
     func creatConversation(subject:String,artistId : Int,subjectId:Int) {
         ChatVM.creatConversation(subject: subject, artistId: artistId, subjectId: subjectId).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
@@ -281,6 +279,7 @@ extension SendMessageVc {
 
        }).disposed(by: disposeBag)
    }
+    
     
 }
 

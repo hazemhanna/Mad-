@@ -23,6 +23,11 @@ class ProjectDetailsVC: UIViewController {
     @IBOutlet weak var aboutTV: UILabel!
     @IBOutlet weak var typeLbl: UILabel!
     @IBOutlet weak var contentSizeHieght : NSLayoutConstraint!
+    @IBOutlet weak var descriptionBtn: UIButton!
+    @IBOutlet weak var reviewsBtn: UIButton!
+    @IBOutlet weak var descriptionStack: UIStackView!
+    @IBOutlet weak var reviewsStack : UIStackView!
+    @IBOutlet weak var reviewTableView: UITableView!
 
     var homeVM = HomeViewModel()
     var disposeBag = DisposeBag()
@@ -60,6 +65,22 @@ class ProjectDetailsVC: UIViewController {
         getProjectDetails(productID : self.projectId)
         if let ptcTBC = tabBarController as? PTCardTabBarController {
             ptcTBC.customTabBar.isHidden = true
+        }
+    }
+    
+    @IBAction func descriptionBtn(sender: UIButton) {
+        if sender.tag == 1 {
+            reviewsBtn.setTitleColor(#colorLiteral(red: 0.1176470588, green: 0.2156862745, blue: 0.4, alpha: 1), for: .normal)
+            descriptionBtn.setTitleColor(#colorLiteral(red: 0.8980392157, green: 0.1254901961, blue: 0.3529411765, alpha: 1), for: .normal)
+            descriptionStack.isHidden = false
+            reviewsStack.isHidden = true
+            contentView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        }else{
+            descriptionBtn.setTitleColor(#colorLiteral(red: 0.1176470588, green: 0.2156862745, blue: 0.4, alpha: 1), for: .normal)
+            reviewsBtn.setTitleColor(#colorLiteral(red: 0.8980392157, green: 0.1254901961, blue: 0.3529411765, alpha: 1), for: .normal)
+            descriptionStack.isHidden = true
+            reviewsStack.isHidden = false
+            contentView.backgroundColor = #colorLiteral(red: 0.9725490196, green: 0.9725490196, blue: 0.9725490196, alpha: 1)
         }
     }
     
@@ -101,7 +122,50 @@ class ProjectDetailsVC: UIViewController {
         }
     }
 }
+extension ProductDetailsVC : UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let flowayout = collectionViewLayout as? UICollectionViewFlowLayout
+        let space: CGFloat = (flowayout?.minimumInteritemSpacing ?? 0.0) + (flowayout?.sectionInset.left ?? 0.0) + (flowayout?.sectionInset.right ?? 0.0)
+        let size:CGFloat
+        
+        if collectionView == addsCollectionView {
+            size = (collectionView.frame.size.width)
+        }else{
+             size = (collectionView.frame.size.width - space) / 1.4
+        }
+        return CGSize(width: size, height: (collectionView.frame.size.height))
+    }
+}
 
+
+extension ProductDetailsVC : UITableViewDelegate,UITableViewDataSource{
+    func setupContentTableView() {
+        reviewTableView.delegate = self
+        reviewTableView.dataSource = self
+        self.reviewTableView.register(UINib(nibName: self.cellIdentifier2, bundle: nil), forCellReuseIdentifier: self.cellIdentifier2)
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return reviews.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier2) as! ReviewCell
+    cell.confic(name: (self.reviews[indexPath.row].author?.firstName ?? "") + " " + (self.reviews[indexPath.row].author?.lastName ?? "") ,
+                    imageUrl: self.reviews[indexPath.row].author?.profilePicture ?? "" ,
+                    address: self.reviews[indexPath.row].content ?? "" ,
+                    comment: self.reviews[indexPath.row].content ?? "",
+                    rate :  self.reviews[indexPath.row].rate ?? 0)
+        return cell
+    }
+    
+    
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
+    }
+
+}
 
 extension ProjectDetailsVC :  UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
