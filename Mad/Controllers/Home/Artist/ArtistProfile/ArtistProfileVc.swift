@@ -46,7 +46,7 @@ class ArtistProfileVc: UIViewController {
     }
     
     @IBAction func followButton(sender: UIButton) {
-
+        
         if Helper.getAPIToken() != nil {
         self.artistVM.showIndicator()
      if isFavorite{
@@ -62,7 +62,9 @@ class ArtistProfileVc: UIViewController {
     }
     
     @IBAction func messageButton(sender: UIButton) {
-        
+        let vc = SendMessageVc.instantiateFromNib()
+        vc?.artistId = self.artistId
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
     
 }

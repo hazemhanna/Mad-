@@ -27,7 +27,8 @@ class ProjectsVC : UIViewController {
 
     var selectedIndex = -1
     var catId = Int()
-    
+    var selectTwice = false
+
     var Categories = [Category]() {
         didSet {
             DispatchQueue.main.async {
@@ -204,20 +205,20 @@ extension ProjectsVC : UICollectionViewDelegate ,UICollectionViewDataSource{
                     return
                 }
             }
+           
             if self.selectedIndex == indexPath.row{
-                if cell.ProjectView.layer.borderColor == #colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1).cgColor {
+                if self.selectTwice {
                     cell.ProjectView.layer.borderColor = #colorLiteral(red: 0.9725490196, green: 0.9725490196, blue: 0.9725490196, alpha: 1).cgColor
                     cell.ProjectView.layer.borderWidth = 0
-                }else {
+                }else{
                     cell.ProjectView.layer.borderColor = #colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1).cgColor
                     cell.ProjectView.layer.borderWidth = 2
                 }
-               
-            
             }else {
                 cell.ProjectView.layer.borderColor = #colorLiteral(red: 0.9725490196, green: 0.9725490196, blue: 0.9725490196, alpha: 1).cgColor
                 cell.ProjectView.layer.borderWidth = 0
-            }
+               }
+            
         }
         cell.showShimmer = showShimmer
         return cell
@@ -227,22 +228,44 @@ extension ProjectsVC : UICollectionViewDelegate ,UICollectionViewDataSource{
         if showShimmer {return}
         if active {
         if indexPath.row != 0 {
-        self.selectedIndex = indexPath.row
-        self.projectCollectionView.reloadData()
-            self.showProjectShimmer = true
-            self.mainTableView.reloadData()
-            self.catId  = self.Categories[indexPath.row-1].id ?? 0
-            getProject(catId:self.Categories[indexPath.row-1].id ?? 0)
-        }
-        }else{
-            self.selectedIndex = indexPath.row
-            self.projectCollectionView.reloadData()
+            if  self.selectedIndex == indexPath.row {
+                self.selectedIndex = indexPath.row
+                self.projectCollectionView.reloadData()
                 self.showProjectShimmer = true
                 self.mainTableView.reloadData()
+                self.selectTwice = true
+                getProject(catId : 0)
+                
+                }else{
+                self.selectedIndex = indexPath.row
+                self.projectCollectionView.reloadData()
+                self.showProjectShimmer = true
+                self.mainTableView.reloadData()
+                self.selectTwice = false
+                self.catId  = self.Categories[indexPath.row-1].id ?? 0
+                getProject(catId:self.Categories[indexPath.row-1].id ?? 0)
+            }
+        }
+        }else{
+            if self.selectedIndex == indexPath.row {
+                self.selectedIndex = indexPath.row
+                self.projectCollectionView.reloadData()
+                self.showProjectShimmer = true
+                self.mainTableView.reloadData()
+                self.selectTwice = true
+                getProject(catId : 0)
+            }else{
+                self.selectedIndex = indexPath.row
+                self.projectCollectionView.reloadData()
+                self.showProjectShimmer = true
+                self.mainTableView.reloadData()
+                self.selectTwice = false
                 self.catId  = self.Categories[indexPath.row].id ?? 0
                 getProject(catId:self.Categories[indexPath.row].id ?? 0)
+            }
         }
     }
+    
 }
 
 extension ProjectsVC : UICollectionViewDelegateFlowLayout {

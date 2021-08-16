@@ -32,7 +32,8 @@ class SendMessageVc: UIViewController {
     var selectedSubject = String()
     var objectId = Int()
     var artistId = Int()
-
+    var artistName = String()
+    
     fileprivate let tagsField = WSTagsField()
     var typePickerView: UIPickerView = UIPickerView()
     
@@ -78,6 +79,9 @@ class SendMessageVc: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         tagsField.beginEditing()
+        if artistId != nil {
+            self.getArtistProfile(id: artistId)
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -180,7 +184,6 @@ extension SendMessageVc {
         tagsField.onDidChangeText = { _, text in
             print("onDidChangeText")
             self.getAllArtist(section : "artists",search:text ?? "",pageNum :1)
-
             self.view.addSubview(self.typePickerView)
             self.typePickerView.frame = CGRect(x: 200, y: 100, width: 150, height: 160)
             self.typePickerView.delegate = self
@@ -258,8 +261,11 @@ extension SendMessageVc {
         ChatVM.getArtistProfile(artistId: id).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
             self.ChatVM.dismissIndicator()
+            self.artistName = dataModel.data?.name ?? ""
             self.Product = dataModel.data?.products ?? []
             self.project = dataModel.data?.projects ?? []
+            self.tagsField.text = self.artistName
+
          }
        }, onError: { (error) in
         self.ChatVM.dismissIndicator()

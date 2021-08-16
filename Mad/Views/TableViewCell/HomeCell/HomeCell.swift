@@ -81,7 +81,7 @@ class HomeCell: UITableViewCell {
     
     
     
-    func confic (name : String,date : String,title : String , share : Int , projectUrl :String){
+    func confic (name : String,date : String,title : String , share : Int , projectUrl :String,relatedProduct : [Product]){
         
         NameLbl.text = name
         NameLbl.numberOfLines = 2
@@ -89,7 +89,15 @@ class HomeCell: UITableViewCell {
         titleLbl.text = title
         titleLbl.numberOfLines = 2
         shareLbl.text = "\(share)"
-        
+        self.product = relatedProduct
+        liveCollectionView.reloadData()
+        if relatedProduct.count > 0{
+            liveCollectionViewHieht.constant = 100
+            liveView.isHidden = false
+        }else{
+            liveCollectionViewHieht.constant = 1
+            liveView.isHidden = true
+        }
         if let projectUrl = URL(string: projectUrl){
         self.projectImage.kf.setImage(with: projectUrl, placeholder: #imageLiteral(resourceName: "WhatsApp Image 2021-04-21 at 1.25.47 PM"))
         }

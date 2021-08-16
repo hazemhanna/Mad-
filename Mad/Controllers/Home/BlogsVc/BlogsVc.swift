@@ -19,9 +19,13 @@ class BlogsVc  : UIViewController {
     var disposeBag = DisposeBag()
     var parentVC : HomeVC?
     var token = Helper.getAPIToken() ?? ""
+    var active = Helper.getIsActive() ?? false
+
     var selectedIndex = -1
+
     var catId = Int()
-    
+    var selectTwice = false
+
     var Categories = [Category]() {
         didSet {
             DispatchQueue.main.async {
@@ -62,7 +66,7 @@ class BlogsVc  : UIViewController {
             ptcTBC.customTabBar.isHidden = false
         }
         getCategory()
-        getBlogs(catId : 0)
+        getBlogs(catId : catId)
     }
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
@@ -86,7 +90,12 @@ extension BlogsVc : UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.CellIdentifier) as! HomeCell
         if !self.showShimmer {
-            cell.confic(name : blogs[indexPath.row].title ?? "" ,date : blogs[indexPath.row].createdAt ?? "",title: blogs[indexPath.row].content ?? "",  share: blogs[indexPath.row].shareCount ?? 0, projectUrl: blogs[indexPath.row].imageURL ?? "" )
+            cell.confic(name : blogs[indexPath.row].title ?? "" ,
+                        date : blogs[indexPath.row].createdAt ?? "",
+                        title: blogs[indexPath.row].content ?? "",
+                        share: blogs[indexPath.row].shareCount ?? 0,
+                        projectUrl: blogs[indexPath.row].imageURL ?? "",
+                        relatedProduct : blogs[indexPath.row].relateProducts ?? [] )
             cell.favouriteStack.isHidden = true
             cell.profileImage.isHidden = true
             
@@ -136,8 +145,13 @@ extension BlogsVc  : UICollectionViewDelegate ,UICollectionViewDataSource{
                 }
             
             if self.selectedIndex == indexPath.row{
-                cell.ProjectView.layer.borderColor = #colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1).cgColor
-                cell.ProjectView.layer.borderWidth = 2
+                if self.selectTwice {
+                    cell.ProjectView.layer.borderColor = #colorLiteral(red: 0.9725490196, green: 0.9725490196, blue: 0.9725490196, alpha: 1).cgColor
+                    cell.ProjectView.layer.borderWidth = 0
+                }else{
+                    cell.ProjectView.layer.borderColor = #colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1).cgColor
+                    cell.ProjectView.layer.borderWidth = 2
+                }
             }else {
                 cell.ProjectView.layer.borderColor = #colorLiteral(red: 0.9725490196, green: 0.9725490196, blue: 0.9725490196, alpha: 1).cgColor
                 cell.ProjectView.layer.borderWidth = 0
@@ -149,14 +163,45 @@ extension BlogsVc  : UICollectionViewDelegate ,UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if showShimmer {return}
-        self.selectedIndex = indexPath.row
-        self.catCollectionView.reloadData()
-            self.showProjectShimmer = true
-            self.mainTableView.reloadData()
-            self.catId  = self.Categories[indexPath.row-1].id ?? 0
-            getBlogs(catId:self.Categories[indexPath.row-1].id ?? 0)
-        
+        if active {
+        if indexPath.row != 0 {
+            if  self.selectedIndex == indexPath.row {
+                self.selectedIndex = indexPath.row
+                self.catCollectionView.reloadData()
+                self.showProjectShimmer = true
+                self.mainTableView.reloadData()
+                self.selectTwice = true
+                getBlogs(catId: 0)
+            }else{
+                self.selectedIndex = indexPath.row
+                self.catCollectionView.reloadData()
+                self.showProjectShimmer = true
+                self.mainTableView.reloadData()
+                self.selectTwice = false
+                self.catId  = self.Categories[indexPath.row-1].id ?? 0
+                getBlogs(catId:self.Categories[indexPath.row-1].id ?? 0)
+            }
+        }
+        }else{
+            if self.selectedIndex == indexPath.row {
+                self.selectedIndex = indexPath.row
+                self.catCollectionView.reloadData()
+                self.showProjectShimmer = true
+                self.mainTableView.reloadData()
+                self.selectTwice = true
+                getBlogs(catId: 0)
+            }else{
+                self.selectedIndex = indexPath.row
+                self.catCollectionView.reloadData()
+                self.showProjectShimmer = true
+                self.mainTableView.reloadData()
+                self.selectTwice = false
+                self.catId  = self.Categories[indexPath.row].id ?? 0
+                getBlogs(catId:self.Categories[indexPath.row].id ?? 0)
+            }
+        }
     }
+    
 }
 
 extension BlogsVc  : UICollectionViewDelegateFlowLayout {

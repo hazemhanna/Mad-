@@ -35,6 +35,8 @@ class ProjectDetailsVC: UIViewController {
     var projectId = 0
     var isFavourite: Bool = false
     var token = Helper.getAPIToken() ?? ""
+    var reviews = [Review]()
+    private let cellIdentifier2 = "ReviewCell"
 
     let cellIdentifier = "LiveCellCVC"
     open lazy var customTabBar: PTCardTabBar = {
@@ -74,13 +76,11 @@ class ProjectDetailsVC: UIViewController {
             descriptionBtn.setTitleColor(#colorLiteral(red: 0.8980392157, green: 0.1254901961, blue: 0.3529411765, alpha: 1), for: .normal)
             descriptionStack.isHidden = false
             reviewsStack.isHidden = true
-            contentView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         }else{
             descriptionBtn.setTitleColor(#colorLiteral(red: 0.1176470588, green: 0.2156862745, blue: 0.4, alpha: 1), for: .normal)
             reviewsBtn.setTitleColor(#colorLiteral(red: 0.8980392157, green: 0.1254901961, blue: 0.3529411765, alpha: 1), for: .normal)
             descriptionStack.isHidden = true
             reviewsStack.isHidden = false
-            contentView.backgroundColor = #colorLiteral(red: 0.9725490196, green: 0.9725490196, blue: 0.9725490196, alpha: 1)
         }
     }
     
@@ -122,24 +122,10 @@ class ProjectDetailsVC: UIViewController {
         }
     }
 }
-extension ProductDetailsVC : UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let flowayout = collectionViewLayout as? UICollectionViewFlowLayout
-        let space: CGFloat = (flowayout?.minimumInteritemSpacing ?? 0.0) + (flowayout?.sectionInset.left ?? 0.0) + (flowayout?.sectionInset.right ?? 0.0)
-        let size:CGFloat
-        
-        if collectionView == addsCollectionView {
-            size = (collectionView.frame.size.width)
-        }else{
-             size = (collectionView.frame.size.width - space) / 1.4
-        }
-        return CGSize(width: size, height: (collectionView.frame.size.height))
-    }
-}
 
 
-extension ProductDetailsVC : UITableViewDelegate,UITableViewDataSource{
+
+extension ProjectDetailsVC : UITableViewDelegate,UITableViewDataSource{
     func setupContentTableView() {
         reviewTableView.delegate = self
         reviewTableView.dataSource = self
@@ -198,6 +184,7 @@ func getProjectDetails(productID : Int) {
         self.shareLbl.text = "\(data.data?.shareCount ?? 0)"
         self.aboutTV.text = data.data?.content?.html2String ?? ""
         self.titleLbl.text = data.data?.title ?? ""
+        //self.reviews = data.data?.comments ?? []
         var projectCat = [String]()
         for cat in data.data?.categories ?? []{
             projectCat.append(cat.name ?? "")
