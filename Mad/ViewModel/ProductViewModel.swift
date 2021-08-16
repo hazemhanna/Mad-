@@ -22,13 +22,22 @@ struct ProductViewModel {
     
     func getAllProduct(pageNum :Int) -> Observable<ProductModelJson> {
         let params: [String: Any] = [
-            "page_number": pageNum
+            "page_number": pageNum,
         ]
         let observer = GetServices.shared.getAllProduct(param : params)
          return observer
      }
     
 
+    func getAllProductWithCat(pageNum :Int,catId : Int) -> Observable<ProductModelJson> {
+        let params: [String: Any] = [
+            "page_number": pageNum,
+            "category_id":catId
+        ]
+        let observer = GetServices.shared.getAllProduct(param : params)
+         return observer
+     }
+    
     func getTopProduct(id :Int,pageNum :Int) -> Observable<ProductModelJson> {
         let params: [String: Any] = [
             "page_number": pageNum,

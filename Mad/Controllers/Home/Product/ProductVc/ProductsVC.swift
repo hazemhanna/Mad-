@@ -123,6 +123,20 @@ extension ProductsVC: UICollectionViewDelegate,UICollectionViewDataSource {
                     self.showMessage(text: "please login first")
                 }
             }
+            
+            if self.selectedIndex == indexPath.row{
+                if self.selectTwice {
+                    cell.ProjectView.layer.borderColor = #colorLiteral(red: 0.9725490196, green: 0.9725490196, blue: 0.9725490196, alpha: 1).cgColor
+                    cell.ProjectView.layer.borderWidth = 0
+                }else{
+                    cell.ProjectView.layer.borderColor = #colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1).cgColor
+                    cell.ProjectView.layer.borderWidth = 2
+                }
+            }else {
+                cell.ProjectView.layer.borderColor = #colorLiteral(red: 0.9725490196, green: 0.9725490196, blue: 0.9725490196, alpha: 1).cgColor
+                cell.ProjectView.layer.borderWidth = 0
+               }
+            
         }
         cell.showShimmer = showShimmer1
         return cell
@@ -178,57 +192,53 @@ extension ProductsVC: UICollectionViewDelegate,UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
         if collectionView == addproductCollectionView {
-            if indexPath.row == 0 {
-                if self.token != "" {
-                let vc = AddProductImageVc.instantiateFromNib()
-                self.navigationController?.pushViewController(vc!, animated: true)
+            if active {
+            if indexPath.row != 0 {
+                if  self.selectedIndex == indexPath.row {
+                    self.selectedIndex = indexPath.row
+                    self.addproductCollectionView.reloadData()
+                    self.showShimmer3 = true
+                    self.showShimmer4 = true
+                    self.topPrpductCollectionView.reloadData()
+                    self.productCollectionView.reloadData()
+                    self.selectTwice = true
+                    getAllproduct(pageNum : 1)
+                    getTopproduct(CategoryId : 36,pageNum : 1)
                 }else{
-                 self.showMessage(text: "please login first")
-                
+                    self.selectedIndex = indexPath.row
+                    self.addproductCollectionView.reloadData()
+                    self.selectTwice = false
+                    self.showShimmer3 = true
+                    self.showShimmer4 = true
+                    self.topPrpductCollectionView.reloadData()
+                    self.productCollectionView.reloadData()
+                    getAllproductWithCat(pageNum : 1, catId: self.categeory[indexPath.row - 1].id ?? 0)
+                    getTopproduct(CategoryId : self.categeory[indexPath.row - 1].id ?? 0,pageNum : 1)
                 }
             }
-            
-            
-//            if active {
-//            if indexPath.row != 0 {
-//                if  self.selectedIndex == indexPath.row {
-//                    self.selectedIndex = indexPath.row
-//                    self.addproductCollectionView.reloadData()
-//                    self.showProjectShimmer = true
-//                    self.mainTableView.reloadData()
-//                    self.selectTwice = true
-//                    getProject(catId : 0)
-//
-//                    }else{
-//                    self.selectedIndex = indexPath.row
-//                    self.addproductCollectionView.reloadData()
-//                    self.showProjectShimmer = true
-//                    self.mainTableView.reloadData()
-//                    self.selectTwice = false
-//                    self.catId  = self.Categories[indexPath.row-1].id ?? 0
-//                    getProject(catId:self.Categories[indexPath.row-1].id ?? 0)
-//                }
-//            }
-//            }else{
-//                if self.selectedIndex == indexPath.row {
-//                    self.selectedIndex = indexPath.row
-//                    self.addproductCollectionView.reloadData()
-//                    self.showProjectShimmer = true
-//                    self.mainTableView.reloadData()
-//                    self.selectTwice = true
-//                    getProject(catId : 0)
-//                }else{
-//                    self.selectedIndex = indexPath.row
-//                    self.addproductCollectionView.reloadData()
-//                    self.showProjectShimmer = true
-//                    self.mainTableView.reloadData()
-//                    self.selectTwice = false
-//                    self.catId  = self.Categories[indexPath.row].id ?? 0
-//                    getProject(catId:self.Categories[indexPath.row].id ?? 0)
-//                }
-//            }
-            
-            
+            }else{
+                if self.selectedIndex == indexPath.row {
+                    self.selectedIndex = indexPath.row
+                    self.addproductCollectionView.reloadData()
+                    self.selectTwice = true
+                    self.showShimmer3 = true
+                    self.showShimmer4 = true
+                    self.topPrpductCollectionView.reloadData()
+                    self.productCollectionView.reloadData()
+                    getAllproduct(pageNum : 1)
+                    getTopproduct(CategoryId : 36,pageNum : 1)
+                }else{
+                    self.selectedIndex = indexPath.row
+                    self.addproductCollectionView.reloadData()
+                    self.selectTwice = false
+                    self.showShimmer3 = true
+                    self.showShimmer4 = true
+                    self.topPrpductCollectionView.reloadData()
+                    self.productCollectionView.reloadData()
+                    getAllproductWithCat(pageNum : 1, catId: self.categeory[indexPath.row].id ?? 0)
+                    getTopproduct(CategoryId : self.categeory[indexPath.row].id ?? 0,pageNum : 1)
+                }
+            }
         }else if  collectionView == topPrpductCollectionView{
             let vc = ProductDetailsVC.instantiateFromNib()
             vc!.productId = self.TopProduct[indexPath.row].id ?? 0
@@ -306,6 +316,18 @@ extension ProductsVC {
     
     func getAllproduct(pageNum : Int) {
         productVM.getAllProduct(pageNum : pageNum).subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+            self.showShimmer3 = false
+            self.product = dataModel.data?.data ?? []
+            self.productCollectionView.reloadData()
+           }
+       }, onError: { (error) in
+
+       }).disposed(by: disposeBag)
+   }
+    
+    func getAllproductWithCat(pageNum : Int,catId:Int) {
+        productVM.getAllProductWithCat(pageNum : pageNum,catId : catId).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
             self.showShimmer3 = false
             self.product = dataModel.data?.data ?? []
