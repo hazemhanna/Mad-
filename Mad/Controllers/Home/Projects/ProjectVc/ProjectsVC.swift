@@ -27,6 +27,9 @@ class ProjectsVC : UIViewController {
     var selectedIndex = -1
     var catId = Int()
     var selectTwice = false
+    var page = 1
+    var isFatching = true
+
     var Categories = [Category]() {
         didSet {
             DispatchQueue.main.async {
@@ -60,7 +63,7 @@ class ProjectsVC : UIViewController {
         projectCollectionView.delegate = self
         projectCollectionView.dataSource = self
         getCategory()
-        getProject(catId: self.catId)
+        getProject(catId: self.catId, page: page)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -74,11 +77,12 @@ class ProjectsVC : UIViewController {
     }
 }
 
-extension ProjectsVC: UITableViewDelegate,UITableViewDataSource{
+extension ProjectsVC: UITableViewDelegate,UITableViewDataSource ,UITableViewDataSourcePrefetching{
     
     func setupContentTableView() {
         mainTableView.delegate = self
         mainTableView.dataSource = self
+        mainTableView.prefetchDataSource = self
         self.mainTableView.register(UINib(nibName: self.CellIdentifier, bundle: nil), forCellReuseIdentifier: self.CellIdentifier)
         self.mainTableView.rowHeight = UITableView.automaticDimension
         self.mainTableView.estimatedRowHeight = UITableView.automaticDimension
@@ -153,6 +157,17 @@ extension ProjectsVC: UITableViewDelegate,UITableViewDataSource{
         main!.projectId =  self.projects[indexPath.row].id!
         self.navigationController?.pushViewController(main!, animated: true)
     }
+    
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        for index in indexPaths {
+            if index.row >= (projects.count) - 2  && isFatching{
+                getProject(catId: self.catId,page : self.page)
+                isFatching = false
+                break
+            }
+        }
+    }
+    
 }
 
 extension ProjectsVC : UICollectionViewDelegate ,UICollectionViewDataSource{
@@ -232,7 +247,7 @@ extension ProjectsVC : UICollectionViewDelegate ,UICollectionViewDataSource{
                 self.showProjectShimmer = true
                 self.mainTableView.reloadData()
                 self.selectTwice = true
-                getProject(catId : 0)
+                getProject(catId : 0, page: page)
                 
                 }else{
                 self.selectedIndex = indexPath.row
@@ -241,7 +256,7 @@ extension ProjectsVC : UICollectionViewDelegate ,UICollectionViewDataSource{
                 self.mainTableView.reloadData()
                 self.selectTwice = false
                 self.catId  = self.Categories[indexPath.row-1].id ?? 0
-                getProject(catId:self.Categories[indexPath.row-1].id ?? 0)
+                    getProject(catId:self.Categories[indexPath.row-1].id ?? 0, page: page)
             }
         }
         }else{
@@ -251,7 +266,7 @@ extension ProjectsVC : UICollectionViewDelegate ,UICollectionViewDataSource{
                 self.showProjectShimmer = true
                 self.mainTableView.reloadData()
                 self.selectTwice = true
-                getProject(catId : 0)
+                getProject(catId : 0, page: page)
             }else{
                 self.selectedIndex = indexPath.row
                 self.projectCollectionView.reloadData()
@@ -259,7 +274,7 @@ extension ProjectsVC : UICollectionViewDelegate ,UICollectionViewDataSource{
                 self.mainTableView.reloadData()
                 self.selectTwice = false
                 self.catId  = self.Categories[indexPath.row].id ?? 0
-                getProject(catId:self.Categories[indexPath.row].id ?? 0)
+                getProject(catId:self.Categories[indexPath.row].id ?? 0, page: page)
             }
         }
     }
@@ -289,11 +304,15 @@ extension ProjectsVC {
        }).disposed(by: disposeBag)
    }
     
-    func getProject(catId : Int) {
-        homeVM.getProject(page: 1,catId: catId).subscribe(onNext: { (dataModel) in
+    func getProject(catId : Int,page:Int) {
+        homeVM.getProject(page: page,catId: catId).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
             self.showProjectShimmer = false
-            self.projects = dataModel.data?.data ?? []
+            self.projects.append(contentsOf: dataModel.data?.data ?? [])
+            if  self.page < dataModel.data?.countPages ?? 0 && !self.isFatching{
+                self.isFatching = true
+                self.page += 1
+            }
            }
        }, onError: { (error) in
 
@@ -304,7 +323,7 @@ extension ProjectsVC {
         homeVM.addToFavourite(productID: productID, Type: Type).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
             self.homeVM.dismissIndicator()
-            self.getProject(catId: self.catId)
+            self.getProject(catId: self.catId, page: self.page)
             self.showMessage(text: dataModel.message ?? "")
            }
        }, onError: { (error) in
@@ -316,7 +335,7 @@ extension ProjectsVC {
         homeVM.shareProject(productID: productID).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
             self.homeVM.dismissIndicator()
-            self.getProject(catId: self.catId)
+            self.getProject(catId: self.catId, page: self.page)
             self.showMessage(text: dataModel.message ?? "")
            }
        }, onError: { (error) in
