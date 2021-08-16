@@ -364,6 +364,8 @@ func updateProfile(email : String,phone : String,firstName : String,lastName : S
             self.social = dataModel.data?.socialLinks ?? []
             self.socialTableview.reloadData()
             self.showMessage(text: dataModel.message ?? "")
+            self.navigationController?.popViewController(animated: true)
+
          }else{
             self.artistVM.dismissIndicator()
             self.showMessage(text: dataModel.message ?? "")
@@ -377,15 +379,9 @@ func updateProfile(email : String,phone : String,firstName : String,lastName : S
         artistVM.upgradeMyProfile(email: email, phone: phone, firstName: firstName, lastName: lastName, age: age, country: country, about: about, headLine: headLine, instgram: instgram, faceBook: faceBook, twitter: twitter).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
             self.artistVM.dismissIndicator()
-            self.firstNameTF.text = dataModel.data?.firstName ??  ""
-            self.lastNameTF.text = dataModel.data?.lastName ?? ""
-            self.emailTf.text = dataModel.data?.userEmail ?? ""
-            self.phoneTf.text = dataModel.data?.phone ?? ""
-            self.selectCateDropDown.text = dataModel.data?.country ?? ""
-            self.BiosTf.text = dataModel.data?.about ?? ""
-            self.headLineTf.text = dataModel.data?.headline ?? ""
-            Helper.saveActive(isActive: dataModel.data?.activatedArtist ?? false)
             self.showMessage(text: dataModel.message ?? "")
+            //Helper.saveActive(isActive: dataModel.data?.activatedArtist ?? false)
+            self.navigationController?.popViewController(animated: true)
            }else{
             self.artistVM.dismissIndicator()
             self.showMessage(text: dataModel.message ?? "")

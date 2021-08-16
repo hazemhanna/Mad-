@@ -37,6 +37,8 @@ class ProductsVC : UIViewController {
     var selectedIndex = -1
     var catId = Int()
     var selectTwice = false
+    var page = 1
+    var isFatching = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,10 +71,13 @@ class ProductsVC : UIViewController {
     self.productCollectionView.register(UINib(nibName: cellIdentifier3, bundle: nil), forCellWithReuseIdentifier: cellIdentifier3)
     productCollectionView.delegate = self
     productCollectionView.dataSource = self
+    productCollectionView.prefetchDataSource = self
+    productCollectionView.isPrefetchingEnabled = true
+
     
    }
 }
-extension ProductsVC: UICollectionViewDelegate,UICollectionViewDataSource {
+extension ProductsVC: UICollectionViewDelegate,UICollectionViewDataSource ,UICollectionViewDataSourcePrefetching{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == addproductCollectionView {
             if active {
@@ -253,6 +258,25 @@ extension ProductsVC: UICollectionViewDelegate,UICollectionViewDataSource {
             self.navigationController?.pushViewController(vc!, animated: true)
         }
     }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        for index in indexPaths {
+            if index.row >= (product.count) - 4  && isFatching{
+                getAllproduct(pageNum: self.page)
+                isFatching = false
+                break
+            }
+        }
+      }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.row >= (product.count) - 4  && isFatching{
+            getAllproduct(pageNum: self.page)
+            isFatching = false
+        }
+    }
 }
 
 extension ProductsVC: UICollectionViewDelegateFlowLayout {
@@ -318,8 +342,13 @@ extension ProductsVC {
         productVM.getAllProduct(pageNum : pageNum).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
             self.showShimmer3 = false
-            self.product = dataModel.data?.data ?? []
+            self.product.append(contentsOf: dataModel.data?.data ?? [])
             self.productCollectionView.reloadData()
+            if  self.page < dataModel.data?.countPages ?? 0 && !self.isFatching{
+                self.isFatching = true
+                self.page += 1
+            }
+            
            }
        }, onError: { (error) in
 

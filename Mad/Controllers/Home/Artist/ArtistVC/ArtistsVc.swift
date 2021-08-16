@@ -27,15 +27,17 @@ class ArtistsVc: UIViewController {
     var showShimmer1: Bool = true
     var showShimmer2: Bool = true
     var showShimmer3: Bool = true
-
+    var page = 1
+    var isFatching = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupeNib()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        getTopArtist(pageNum : 1 , catId : 31)
-        getAllArtist(pageNum : 1)
+        getTopArtist(pageNum : page , catId : 31)
+        getAllArtist(pageNum : page)
         getSuggested()
         self.navigationController?.navigationBar.isHidden = true
     }
@@ -51,13 +53,16 @@ class ArtistsVc: UIViewController {
         suggestedCollectionView.dataSource = self
         artistsCollectionView.delegate = self
         artistsCollectionView.dataSource = self
+        artistsCollectionView.prefetchDataSource = self
+        artistsCollectionView.isPrefetchingEnabled = true
+        
         self.topActiveCollectionView.register(UINib(nibName: cellIdentifier1, bundle: nil), forCellWithReuseIdentifier: cellIdentifier1)
         self.suggestedCollectionView.register(UINib(nibName: cellIdentifier2, bundle: nil), forCellWithReuseIdentifier: cellIdentifier2)
         self.artistsCollectionView.register(UINib(nibName: cellIdentifier3, bundle: nil), forCellWithReuseIdentifier: cellIdentifier3)
     }
 }
 
-extension ArtistsVc : UICollectionViewDelegate ,UICollectionViewDataSource{
+extension ArtistsVc : UICollectionViewDelegate ,UICollectionViewDataSource , UICollectionViewDataSourcePrefetching{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == topActiveCollectionView {
         return  self.showShimmer1 ? 5 : topActive.count
@@ -143,6 +148,25 @@ extension ArtistsVc : UICollectionViewDelegate ,UICollectionViewDataSource{
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        for index in indexPaths {
+            if index.row >= (artists.count) - 4  && isFatching{
+                getAllArtist(pageNum: self.page)
+                isFatching = false
+                break
+            }
+        }
+      }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.row >= (artists.count) - 4  && isFatching{
+            getAllArtist(pageNum: self.page)
+            isFatching = false
+        }
+    }
+    
 }
 
 
@@ -169,7 +193,6 @@ extension ArtistsVc: UICollectionViewDelegateFlowLayout {
             let  width : CGFloat = (collectionView.frame.size.width - space) / 3.5
             let height : CGFloat = 140
             return CGSize(width: width, height: height)
-        
         }
     }
 }
@@ -182,7 +205,6 @@ extension ArtistsVc {
             self.showShimmer2 = false
             self.suggested = dataModel.data ?? []
              self.suggestedCollectionView.reloadData()
-
            }
        }, onError: { (error) in
 
@@ -193,9 +215,13 @@ extension ArtistsVc {
         artistVM.getAllArtist(pageNum : pageNum).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
             self.showShimmer3 = false
-            self.artists = dataModel.data?.data ?? []
+            self.artists.append(contentsOf: dataModel.data?.data ?? [])
             self.artistsCollectionView.reloadData()
-           }
+            if  self.page < dataModel.data?.countPages ?? 0 && !self.isFatching{
+                self.isFatching = true
+                self.page += 1
+            }
+         }
        }, onError: { (error) in
 
        }).disposed(by: disposeBag)
