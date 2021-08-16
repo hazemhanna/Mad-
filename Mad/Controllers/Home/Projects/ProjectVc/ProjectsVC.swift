@@ -24,11 +24,9 @@ class ProjectsVC : UIViewController {
     var token = Helper.getAPIToken() ?? ""
     var type = Helper.getType() ?? false
     var active = Helper.getIsActive() ?? false
-
     var selectedIndex = -1
     var catId = Int()
     var selectTwice = false
-
     var Categories = [Category]() {
         didSet {
             DispatchQueue.main.async {

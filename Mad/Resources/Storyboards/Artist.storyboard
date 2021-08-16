@@ -98,22 +98,22 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="WUf-t5-QBl">
-                                                                <rect key="frame" x="76" y="233" width="262" height="110"/>
+                                                                <rect key="frame" x="76" y="233" width="262" height="107"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="G3t-fc-VKo">
-                                                                        <rect key="frame" x="84.5" y="0.0" width="93.5" height="49"/>
+                                                                        <rect key="frame" x="84" y="0.0" width="94" height="46"/>
                                                                         <subviews>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="tSm-92-6hs">
-                                                                                <rect key="frame" x="18.5" y="0.0" width="56.5" height="19"/>
+                                                                                <rect key="frame" x="18.5" y="0.0" width="57" height="16"/>
                                                                                 <subviews>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MAD " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZgV-bL-D5Q">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="40.5" height="19"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="41" height="16"/>
                                                                                         <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="16"/>
                                                                                         <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon - c-check (1)" translatesAutoresizingMaskIntoConstraints="NO" id="rlx-HL-vFM">
-                                                                                        <rect key="frame" x="43.5" y="3" width="13" height="13"/>
+                                                                                        <rect key="frame" x="44" y="1.5" width="13" height="13"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="height" constant="13" id="9QD-sl-Ptw"/>
                                                                                             <constraint firstAttribute="width" constant="13" id="iaI-cJ-pda"/>
@@ -122,17 +122,17 @@
                                                                                 </subviews>
                                                                             </stackView>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="arG-JM-Raq">
-                                                                                <rect key="frame" x="0.0" y="27" width="93.5" height="22"/>
+                                                                                <rect key="frame" x="0.0" y="24" width="94" height="22"/>
                                                                                 <subviews>
                                                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7fc-I1-WRe">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="41.5" height="22"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="40" height="22"/>
                                                                                         <subviews>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x4I-Zt-NtE">
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="12.5" height="22"/>
                                                                                                 <state key="normal" image="Component 45 – 1"/>
                                                                                             </button>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.2K" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OSe-V8-9V5">
-                                                                                                <rect key="frame" x="20.5" y="5" width="21" height="12"/>
+                                                                                                <rect key="frame" x="20.5" y="6" width="19.5" height="10"/>
                                                                                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="10"/>
                                                                                                 <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                                                                 <nil key="highlightedColor"/>
@@ -140,14 +140,14 @@
                                                                                         </subviews>
                                                                                     </stackView>
                                                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="VWb-9D-1aJ">
-                                                                                        <rect key="frame" x="57.5" y="0.0" width="36" height="22"/>
+                                                                                        <rect key="frame" x="56" y="0.0" width="38" height="22"/>
                                                                                         <subviews>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tLX-mo-8SO">
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="11" height="22"/>
                                                                                                 <state key="normal" image="Component 46 – 1"/>
                                                                                             </button>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="345" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FYw-fH-JyD">
-                                                                                                <rect key="frame" x="19" y="5" width="17" height="12"/>
+                                                                                                <rect key="frame" x="19" y="6" width="19" height="10"/>
                                                                                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="10"/>
                                                                                                 <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                                                                 <nil key="highlightedColor"/>
@@ -159,7 +159,7 @@
                                                                         </subviews>
                                                                     </stackView>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="c0R-E8-NV6">
-                                                                        <rect key="frame" x="0.0" y="65" width="262" height="45"/>
+                                                                        <rect key="frame" x="0.0" y="62" width="262" height="45"/>
                                                                         <subviews>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A4a-nq-vOB" customClass="CustomButtons" customModule="Mad" customModuleProvider="target">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="115" height="45"/>
@@ -521,10 +521,10 @@
     </scenes>
     <designables>
         <designable name="4YJ-0Z-SrJ">
-            <size key="intrinsicContentSize" width="69" height="32"/>
+            <size key="intrinsicContentSize" width="72" height="29"/>
         </designable>
         <designable name="A4a-nq-vOB">
-            <size key="intrinsicContentSize" width="50" height="32"/>
+            <size key="intrinsicContentSize" width="53" height="29"/>
         </designable>
         <designable name="qfv-Ah-2a2">
             <size key="intrinsicContentSize" width="320" height="320"/>

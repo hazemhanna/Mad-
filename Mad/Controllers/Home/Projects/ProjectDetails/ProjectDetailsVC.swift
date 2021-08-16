@@ -25,10 +25,9 @@ class ProjectDetailsVC: UIViewController {
     @IBOutlet weak var contentSizeHieght : NSLayoutConstraint!
     @IBOutlet weak var descriptionBtn: UIButton!
     @IBOutlet weak var reviewsBtn: UIButton!
-    @IBOutlet weak var descriptionStack: UIStackView!
     @IBOutlet weak var reviewsStack : UIStackView!
-    @IBOutlet weak var reviewTableView: UITableView!
 
+    
     var homeVM = HomeViewModel()
     var disposeBag = DisposeBag()
     var showShimmer: Bool = true
@@ -49,10 +48,7 @@ class ProjectDetailsVC: UIViewController {
         self.productCollectionView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
         productCollectionView.delegate = self
         productCollectionView.dataSource = self
-        
-        //self.aboutTV.isEditable = false
-        //self.aboutTV.isSelectable = false
-        self.homeVM.showIndicator()    
+        self.homeVM.showIndicator()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -74,12 +70,12 @@ class ProjectDetailsVC: UIViewController {
         if sender.tag == 1 {
             reviewsBtn.setTitleColor(#colorLiteral(red: 0.1176470588, green: 0.2156862745, blue: 0.4, alpha: 1), for: .normal)
             descriptionBtn.setTitleColor(#colorLiteral(red: 0.8980392157, green: 0.1254901961, blue: 0.3529411765, alpha: 1), for: .normal)
-            descriptionStack.isHidden = false
+            aboutView.isHidden = false
             reviewsStack.isHidden = true
         }else{
             descriptionBtn.setTitleColor(#colorLiteral(red: 0.1176470588, green: 0.2156862745, blue: 0.4, alpha: 1), for: .normal)
             reviewsBtn.setTitleColor(#colorLiteral(red: 0.8980392157, green: 0.1254901961, blue: 0.3529411765, alpha: 1), for: .normal)
-            descriptionStack.isHidden = true
+            aboutView.isHidden = true
             reviewsStack.isHidden = false
         }
     }
@@ -125,34 +121,6 @@ class ProjectDetailsVC: UIViewController {
 
 
 
-extension ProjectDetailsVC : UITableViewDelegate,UITableViewDataSource{
-    func setupContentTableView() {
-        reviewTableView.delegate = self
-        reviewTableView.dataSource = self
-        self.reviewTableView.register(UINib(nibName: self.cellIdentifier2, bundle: nil), forCellReuseIdentifier: self.cellIdentifier2)
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return reviews.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier2) as! ReviewCell
-    cell.confic(name: (self.reviews[indexPath.row].author?.firstName ?? "") + " " + (self.reviews[indexPath.row].author?.lastName ?? "") ,
-                    imageUrl: self.reviews[indexPath.row].author?.profilePicture ?? "" ,
-                    address: self.reviews[indexPath.row].content ?? "" ,
-                    comment: self.reviews[indexPath.row].content ?? "",
-                    rate :  self.reviews[indexPath.row].rate ?? 0)
-        return cell
-    }
-    
-    
-  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
-    }
-
-}
-
 extension ProjectDetailsVC :  UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -184,7 +152,6 @@ func getProjectDetails(productID : Int) {
         self.shareLbl.text = "\(data.data?.shareCount ?? 0)"
         self.aboutTV.text = data.data?.content?.html2String ?? ""
         self.titleLbl.text = data.data?.title ?? ""
-        //self.reviews = data.data?.comments ?? []
         var projectCat = [String]()
         for cat in data.data?.categories ?? []{
             projectCat.append(cat.name ?? "")
