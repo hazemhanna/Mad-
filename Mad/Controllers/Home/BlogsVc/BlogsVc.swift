@@ -101,19 +101,22 @@ extension BlogsVc : UITableViewDelegate,UITableViewDataSource , UITableViewDataS
             cell.favouriteStack.isHidden = true
             cell.profileImage.isHidden = true
             
-//            cell.share = {
-//                if self.token == ""{return}
-//                self.blogsVM.showIndicator()
-//                self.shareBlogs(blogsId: self.blogs[indexPath.row].id ?? 0)
-//                let text = self.blogs[indexPath.row].title ?? ""
-//                let image = self.blogs[indexPath.row].imageURL ?? ""
-//                let textToShare = [ text ,image]
-//                let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
-//                activityViewController.popoverPresentationController?.sourceView = self.view
-//              activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.postToFacebook ]
-//                self.present(activityViewController, animated: true, completion: nil)
-//
-//            }
+            cell.share = {
+                if self.token == ""{
+                    return
+                    
+                }
+                self.blogsVM.showIndicator()
+                self.shareBlogs(blogsId: self.blogs[indexPath.row].id ?? 0)
+                let text = self.blogs[indexPath.row].title ?? ""
+                let image = self.blogs[indexPath.row].imageURL ?? ""
+                let textToShare = [ text ,image]
+                let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+                activityViewController.popoverPresentationController?.sourceView = self.view
+              activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.postToFacebook ]
+                self.present(activityViewController, animated: true, completion: nil)
+
+            }
         }
         cell.showShimmer = showProjectShimmer
         return cell
@@ -264,6 +267,9 @@ extension BlogsVc  {
             self.blogsVM.dismissIndicator()
             self.getBlogs(catId: self.catId, page: self.page)
             self.showMessage(text: dataModel.message ?? "")
+           }else{
+            self.blogsVM.dismissIndicator()
+
            }
        }, onError: { (error) in
         self.blogsVM.dismissIndicator()

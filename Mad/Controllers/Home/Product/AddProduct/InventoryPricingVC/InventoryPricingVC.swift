@@ -20,7 +20,7 @@ class InventoryPricingVC: UIViewController {
     @IBOutlet weak var delivery: UITextField!
     @IBOutlet weak var deliveryIndex: TextFieldDropDown!
     
-    var titles = ["Weekend", "Month","year"]
+    var titles = ["days", "weeks"]
     var  short_description = String()
     var  descriptionTV = String()
     var  titleTV = String()
@@ -31,6 +31,8 @@ class InventoryPricingVC: UIViewController {
     var  weight = String()
     var type = String()
     var quantitylimitation = "limited"
+    var limited = true
+
     var selectedCat = [Int]()
     var uploadedPhoto = [UIImage]()
     
@@ -68,8 +70,10 @@ class InventoryPricingVC: UIViewController {
     @IBAction func selectTypeAction(_ sender: DLRadioButton) {
         if sender.tag == 1 {
             self.quantitylimitation = "limited"
+            limited = true
         } else if sender.tag == 2 {
-            self.quantitylimitation = "Unlimited"
+            self.quantitylimitation = "unlimited"
+            limited = false
         }
     }
     
@@ -90,11 +94,7 @@ class InventoryPricingVC: UIViewController {
             self.showMessage(text: "Please Enter eur Price")
             self.productVM.dismissIndicator()
             return false
-        }else if quantity.isEmpty {
-            self.showMessage(text: "Please Enter quantity")
-            self.productVM.dismissIndicator()
-            return false
-        }else if delivery.isEmpty {
+        } else if delivery.isEmpty {
             self.showMessage(text: "Please delivery price")
             self.productVM.dismissIndicator()
             return false
@@ -102,6 +102,14 @@ class InventoryPricingVC: UIViewController {
             self.showMessage(text: "Please Enter delivery time")
             self.productVM.dismissIndicator()
             return false
+        }else if limited{
+            if quantity.isEmpty {
+                self.showMessage(text: "Please Enter quantity")
+                self.productVM.dismissIndicator()
+                return false
+            }else{
+                return true
+            }
         }else{
             return true
         }
@@ -140,6 +148,7 @@ extension InventoryPricingVC {
                 let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
                 self.navigationController!.popToViewController(viewControllers[viewControllers.count - 4], animated: true)
             }else{
+                self.productVM.dismissIndicator()
                 self.showMessage(text: dataModel.message ?? "")
             }
         }, onError: { (error) in

@@ -257,7 +257,6 @@ extension SendMessageVc {
 
        }).disposed(by: disposeBag)
    }
-
     
     func getArtistProfile(id : Int) {
         ChatVM.getArtistProfile(artistId: id).subscribe(onNext: { (dataModel) in

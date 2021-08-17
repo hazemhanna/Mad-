@@ -89,6 +89,8 @@ struct ConfigURLS {
     // blogs
     static var allBlogs  = BASE_URL  + "blog/all"
     static var blogDetails  = BASE_URL  + "blog/get"
+    static var blogShare  = BASE_URL  + "blog/share"
+
     // chat
     static var creatConverstion  = BASE_URL  + "conversation/create"
     static var getAllConverstion  = BASE_URL  + "conversation"

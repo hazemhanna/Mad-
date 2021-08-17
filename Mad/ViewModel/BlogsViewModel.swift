@@ -54,9 +54,9 @@ struct BlogsViewModel {
     
     func shareBlogs(blogsId : Int) -> Observable<ShareModel> {
         let params: [String: Any] = [
-            "project_id": blogsId,
+            "id": blogsId,
             ]
-        let observer = AddServices.shared.shareProject(param : params)
+        let observer = AddServices.shared.blogShare(param : params)
          return observer
      }
     

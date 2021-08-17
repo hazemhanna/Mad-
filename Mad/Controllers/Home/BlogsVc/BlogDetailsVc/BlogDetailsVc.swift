@@ -64,11 +64,12 @@ class BlogDetailsVc : UIViewController {
     
     
     @IBAction func shareAction(_ sender: UIButton) {
-//        if Helper.getAPIToken() != nil {
-//            self.shareProject(productID : self.blogId)
-//        }else{
-//            self.showMessage(text: "please login first")
-//        }
+        if Helper.getAPIToken() != "" {
+            self.blogsVM.showIndicator()
+            self.shareBlog(blogId : self.blogId)
+        }else{
+            self.showMessage(text: "please login first")
+        }
     }
 }
 
@@ -119,17 +120,25 @@ func getBlogsDetails(blogId : Int) {
    }).disposed(by: disposeBag)
   }
     
-//    func shareProject(productID : Int) {
-//        homeVM.shareProject(productID: productID).subscribe(onNext: { (dataModel) in
-//           if dataModel.success ?? false {
-//            self.homeVM.dismissIndicator()
-//            self.getProjectDetails(productID : productID)
-//            self.showMessage(text: dataModel.message ?? "")
-//           }
-//       }, onError: { (error) in
-//        self.homeVM.dismissIndicator()
-//       }).disposed(by: disposeBag)
-//   }
+    func shareBlog(blogId : Int) {
+        blogsVM.shareBlogs(blogsId: blogId).subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+            self.blogsVM.dismissIndicator()
+            self.getBlogsDetails(blogId : blogId)
+            self.showMessage(text: dataModel.message ?? "")
+            let text = self.titleLbl.text ?? ""
+            let image = self.projectImage.image
+            let textToShare = [text ,image] as [Any]
+            let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+            activityViewController.popoverPresentationController?.sourceView = self.view
+          activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.postToFacebook ]
+            self.present(activityViewController, animated: true, completion: nil)
+            
+           }
+       }, onError: { (error) in
+        self.blogsVM.dismissIndicator()
+       }).disposed(by: disposeBag)
+   }
     
 }
 
