@@ -35,6 +35,7 @@ class ChatVc: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupChatTableView()
+        messegtTF.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -74,6 +75,7 @@ class ChatVc: UIViewController {
 
 extension ChatVc: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        view.endEditing(true)
         return true
     }
 }
@@ -139,4 +141,6 @@ extension ChatVc {
        }).disposed(by: disposeBag)
    }
 }
+
+
 

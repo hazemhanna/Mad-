@@ -32,8 +32,7 @@ class SendMessageVc: UIViewController {
     var selectedSubject = String()
     var objectId = Int()
     var artistId = Int()
-    var artistName = String()
-    
+    var fromArtistPage = false
     fileprivate let tagsField = WSTagsField()
     var typePickerView: UIPickerView = UIPickerView()
     
@@ -66,6 +65,7 @@ class SendMessageVc: UIViewController {
 
     
     override func viewWillAppear(_ animated: Bool) {
+        self.typePickerView.isHidden = true
         self.navigationController?.navigationBar.isHidden = true
         if let ptcTBC = tabBarController as? PTCardTabBarController {
             ptcTBC.customTabBar.isHidden = true
@@ -73,13 +73,16 @@ class SendMessageVc: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        if let ptcTBC = tabBarController as? PTCardTabBarController {
+            ptcTBC.customTabBar.isHidden = false
+        }
         self.navigationController?.navigationBar.isHidden = false
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        tagsField.beginEditing()
-        if artistId != nil {
+       // tagsField.beginEditing()
+        if fromArtistPage{
             self.getArtistProfile(id: artistId)
         }
     }
@@ -165,6 +168,7 @@ extension SendMessageVc: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == tagsField {
             self.typePickerView.isHidden = true
+            view.endEditing(true)
         }
         return true
     }
@@ -183,6 +187,7 @@ extension SendMessageVc {
 
         tagsField.onDidChangeText = { _, text in
             print("onDidChangeText")
+            self.typePickerView.isHidden = false
             self.getAllArtist(section : "artists",search:text ?? "",pageNum :1)
             self.view.addSubview(self.typePickerView)
             self.typePickerView.frame = CGRect(x: 200, y: 100, width: 150, height: 160)
@@ -221,21 +226,21 @@ func numberOfComponents(in pickerView: UIPickerView) -> Int {
 // Number of rows
 
 func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-    return filteredStrings.count // Number of rows = the amount in currency array
+    return artist.count // Number of rows = the amount in currency array
 }
 
 // Row Title
 
 func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-   return filteredStrings[row]
+    return artist[row].name ?? ""
 }
 
 func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-     tagsField.addTag(filteredStrings[row])
-     self.typePickerView.isHidden = true
-    self.ChatVM.showIndicator()
+    tagsField.addTag(artist[row].name ?? "")
     self.artistId = artist[row].id ?? 0
-    getArtistProfile(id: artist[row].id ?? 0)
+    self.ChatVM.showIndicator()
+    getArtistProfile(id: self.artistId)
+    self.typePickerView.isHidden = true
      view.endEditing(true)
   }
 }
@@ -245,10 +250,7 @@ extension SendMessageVc {
         ChatVM.getSearchArtist(section : section,search:search,pageNum :pageNum).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
             self.ChatVM.dismissIndicator()
-            self.artist = dataModel.data ?? []
-            for index in dataModel.data ?? [] {
-                self.filteredStrings.append(index.name ?? "")
-            }
+            self.artist.append(contentsOf:  dataModel.data ?? [])
            }
        }, onError: { (error) in
         self.ChatVM.dismissIndicator()
@@ -261,11 +263,12 @@ extension SendMessageVc {
         ChatVM.getArtistProfile(artistId: id).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
             self.ChatVM.dismissIndicator()
-            self.artistName = dataModel.data?.name ?? ""
             self.Product = dataModel.data?.products ?? []
             self.project = dataModel.data?.projects ?? []
-            self.tagsField.text = self.artistName
-
+            if self.fromArtistPage{
+                self.tagsField.addTag(dataModel.data?.name ?? "")
+                self.typePickerView.isHidden = true
+            }
          }
        }, onError: { (error) in
         self.ChatVM.dismissIndicator()

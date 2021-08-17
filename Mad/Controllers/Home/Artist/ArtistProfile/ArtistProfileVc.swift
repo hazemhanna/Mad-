@@ -64,6 +64,7 @@ class ArtistProfileVc: UIViewController {
     @IBAction func messageButton(sender: UIButton) {
         let vc = SendMessageVc.instantiateFromNib()
         vc?.artistId = self.artistId
+        vc?.fromArtistPage = true
         self.navigationController?.pushViewController(vc!, animated: true)
     }
     

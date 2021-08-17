@@ -57,6 +57,8 @@ class NotificationVc: UIViewController {
     
     @IBAction func sendMessageAction(sender: UIButton) {
         let main = SendMessageVc.instantiateFromNib()
+        main?.artistId = 0
+        main?.fromArtistPage = false
         self.navigationController?.pushViewController(main!, animated: true)
     }
     

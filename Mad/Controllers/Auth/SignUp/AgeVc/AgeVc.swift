@@ -12,7 +12,7 @@ class AgeVc: UIViewController {
     @IBOutlet weak var nameLbl : UILabel!
     @IBOutlet weak var ageTF : CustomTextField!
 
-    var name  = (Helper.getUserLastName() ?? "") + (Helper.getUserLastName() ?? "")
+    var name  = (Helper.getUserFirstName() ?? "") + " " + (Helper.getUserLastName() ?? "")
     
     
     override func viewDidLoad() {

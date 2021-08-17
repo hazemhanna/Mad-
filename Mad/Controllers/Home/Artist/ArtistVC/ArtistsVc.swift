@@ -33,12 +33,12 @@ class ArtistsVc: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupeNib()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
         getTopArtist(pageNum : page , catId : 31)
         getAllArtist(pageNum : page)
         getSuggested()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
     }
     
