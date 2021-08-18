@@ -244,6 +244,8 @@ extension ProjectsVC : UICollectionViewDelegate ,UICollectionViewDataSource{
             if  self.selectedIndex == indexPath.row {
                 self.selectedIndex = indexPath.row
                 self.projectCollectionView.reloadData()
+                self.projects.removeAll()
+                self.page = 1
                 self.showProjectShimmer = true
                 self.mainTableView.reloadData()
                 self.selectTwice = true
@@ -253,16 +255,20 @@ extension ProjectsVC : UICollectionViewDelegate ,UICollectionViewDataSource{
                 self.selectedIndex = indexPath.row
                 self.projectCollectionView.reloadData()
                 self.showProjectShimmer = true
+                self.projects.removeAll()
+                self.page = 1
                 self.mainTableView.reloadData()
                 self.selectTwice = false
                 self.catId  = self.Categories[indexPath.row-1].id ?? 0
-                    getProject(catId:self.Categories[indexPath.row-1].id ?? 0, page: page)
+                getProject(catId:self.Categories[indexPath.row-1].id ?? 0, page: page)
             }
         }
         }else{
             if self.selectedIndex == indexPath.row {
                 self.selectedIndex = indexPath.row
                 self.projectCollectionView.reloadData()
+                self.projects.removeAll()
+                self.page = 1
                 self.showProjectShimmer = true
                 self.mainTableView.reloadData()
                 self.selectTwice = true
@@ -270,6 +276,8 @@ extension ProjectsVC : UICollectionViewDelegate ,UICollectionViewDataSource{
             }else{
                 self.selectedIndex = indexPath.row
                 self.projectCollectionView.reloadData()
+                self.projects.removeAll()
+                self.page = 1
                 self.showProjectShimmer = true
                 self.mainTableView.reloadData()
                 self.selectTwice = false

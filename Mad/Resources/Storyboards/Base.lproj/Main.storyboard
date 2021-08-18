@@ -723,10 +723,14 @@
                     <navigationItem key="navigationItem" id="Ze5-yT-kRx"/>
                     <connections>
                         <outlet property="afterMovieCollectionView" destination="YIT-Jp-xR1" id="6Di-Y1-CN6"/>
+                        <outlet property="afterMovieView" destination="H00-SX-I8Y" id="sKN-WT-sXk"/>
                         <outlet property="interviewsCollectionView" destination="sFb-Oc-93L" id="iZU-LF-Lb5"/>
+                        <outlet property="interviewsView" destination="Zv3-Ak-euM" id="AiU-fv-97X"/>
                         <outlet property="productCollectionView" destination="CWx-9I-8Yn" id="9BY-ZF-PuO"/>
                         <outlet property="showCasesCollectionView" destination="SKT-tS-C4Q" id="fjU-0I-ARm"/>
+                        <outlet property="showCasesView" destination="rnG-ye-tpF" id="q4Z-32-1sY"/>
                         <outlet property="showsCollectionView" destination="e9C-i3-mZ7" id="rxG-yA-3cZ"/>
+                        <outlet property="showsView" destination="4qW-H9-pIT" id="S2C-FB-PBP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jDb-bb-ya5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

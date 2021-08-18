@@ -263,6 +263,7 @@ extension ProductsVC: UICollectionViewDelegate,UICollectionViewDataSource ,UICol
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         for index in indexPaths {
             if index.row >= (product.count) - 4  && isFatching{
+                self.productVM.showIndicator()
                 getAllproduct(pageNum: self.page)
                 isFatching = false
                 break
@@ -342,16 +343,16 @@ extension ProductsVC {
         productVM.getAllProduct(pageNum : pageNum).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
             self.showShimmer3 = false
+            self.productVM.dismissIndicator()
             self.product.append(contentsOf: dataModel.data?.data ?? [])
             self.productCollectionView.reloadData()
             if  self.page < dataModel.data?.countPages ?? 0 && !self.isFatching{
                 self.isFatching = true
                 self.page += 1
             }
-            
            }
        }, onError: { (error) in
-
+        self.productVM.dismissIndicator()
        }).disposed(by: disposeBag)
    }
     

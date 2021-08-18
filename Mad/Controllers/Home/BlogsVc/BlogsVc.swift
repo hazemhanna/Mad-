@@ -179,29 +179,12 @@ extension BlogsVc  : UICollectionViewDelegate ,UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if showShimmer {return}
-        if active {
-        if indexPath.row != 0 {
-            if  self.selectedIndex == indexPath.row {
-                self.selectedIndex = indexPath.row
-                self.catCollectionView.reloadData()
-                self.showProjectShimmer = true
-                self.mainTableView.reloadData()
-                self.selectTwice = true
-                getBlogs(catId: 0, page: page)
-            }else{
-                self.selectedIndex = indexPath.row
-                self.catCollectionView.reloadData()
-                self.showProjectShimmer = true
-                self.mainTableView.reloadData()
-                self.selectTwice = false
-                self.catId  = self.Categories[indexPath.row-1].id ?? 0
-                getBlogs(catId:self.Categories[indexPath.row-1].id ?? 0, page: page)
-            }
-        }
-        }else{
+      
             if self.selectedIndex == indexPath.row {
                 self.selectedIndex = indexPath.row
                 self.catCollectionView.reloadData()
+                self.page = 1
+                self.blogs.removeAll()
                 self.showProjectShimmer = true
                 self.mainTableView.reloadData()
                 self.selectTwice = true
@@ -209,6 +192,8 @@ extension BlogsVc  : UICollectionViewDelegate ,UICollectionViewDataSource {
             }else{
                 self.selectedIndex = indexPath.row
                 self.catCollectionView.reloadData()
+                self.page = 1
+                self.blogs.removeAll()
                 self.showProjectShimmer = true
                 self.mainTableView.reloadData()
                 self.selectTwice = false
@@ -216,7 +201,6 @@ extension BlogsVc  : UICollectionViewDelegate ,UICollectionViewDataSource {
                 getBlogs(catId:self.Categories[indexPath.row].id ?? 0, page: page)
             }
         }
-    }
     
 }
 
@@ -247,13 +231,11 @@ extension BlogsVc  {
         blogsVM.getBlogs(page: page, catId: catId).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
             self.showProjectShimmer = false
-            self.mainTableView.reloadData()
             self.blogs.append(contentsOf: dataModel.data?.data ?? [])
             if  self.page < dataModel.data?.countPages ?? 0 && !self.isFatching{
                 self.isFatching = true
                 self.page += 1
             }
-            
            }
        }, onError: { (error) in
 

@@ -168,7 +168,6 @@ extension SearchResultVc : UICollectionViewDelegateFlowLayout {
             }
     }
 
-
 extension SearchResultVc :UITextFieldDelegate{
     @objc func textFieldDidChange(_ textField: UITextField) {
         if self.selectedIndex == 0{

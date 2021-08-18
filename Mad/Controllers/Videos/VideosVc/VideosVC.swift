@@ -20,6 +20,12 @@ class VideosVC: UIViewController {
     @IBOutlet weak var showCasesCollectionView: UICollectionView!
     @IBOutlet weak var afterMovieCollectionView: UICollectionView!
     
+    @IBOutlet weak var  showsView: UIView!
+    @IBOutlet weak var interviewsView: UIView!
+    @IBOutlet weak var showCasesView: UIView!
+    @IBOutlet weak var afterMovieView: UIView!
+    
+    
     var VideosVM = VideosViewModel()
     var parentVC : HomeVC?
     let cellIdentifier = "ProjectCell"
@@ -390,6 +396,30 @@ extension VideosVC {
             self.showsCases = dataModel.data?.Showcases ?? []
             self.afterMoviews = dataModel.data?.Aftermovies ?? []
             self.interviews = dataModel.data?.Interviews ?? []
+                
+                if dataModel.data?.Shows?.count ?? 0 > 0 {
+                    self.showsView.isHidden = false
+                }else{
+                    self.showsView.isHidden = true
+                }
+                
+                if dataModel.data?.Showcases?.count  ?? 0 > 0 {
+                    self.showCasesView.isHidden = false
+                }else{
+                    self.showCasesView.isHidden = true
+                }
+                
+                if dataModel.data?.Aftermovies?.count ?? 0  > 0 {
+                    self.afterMovieView.isHidden = false
+                }else{
+                    self.afterMovieView.isHidden = true
+                }
+                
+                if dataModel.data?.Interviews?.count  ?? 0 > 0 {
+                    self.interviewsView.isHidden = false
+                }else{
+                    self.interviewsView.isHidden = true
+                }
                 self.afterMovieCollectionView.reloadData()
                 self.showCasesCollectionView.reloadData()
                 self.showsCollectionView.reloadData()
