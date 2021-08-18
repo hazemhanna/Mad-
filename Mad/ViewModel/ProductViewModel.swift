@@ -150,4 +150,15 @@ struct ProductViewModel {
          return observer
      }
     
+    
+    func creatConversation(subject:String,artistId : Int,subjectId : Int) -> Observable<CreatConversationModelJSON> {
+        let params: [String: Any] = [
+            "subject": subject,
+            "contact_artist": artistId,
+            "artist_object": subjectId,
+            ]
+        let observer = ChatServices.shared.creatConverstion(param : params)
+         return observer
+     }
+    
 }

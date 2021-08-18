@@ -66,6 +66,18 @@ class SearchResultVc  : UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        if self.searchBar.text != ""{
+            if self.selectedIndex == 0{
+                getSearchArtist(section: "artists", search: searchBar.text ?? "", pageNum: 1)
+            }else if self.selectedIndex == 1{
+                getSearchProduct(section: "products", search: searchBar.text ?? "", pageNum: 1)
+            }else if self.selectedIndex == 2{
+                getSearchTags(section: "tags", search: searchBar.text ?? "", pageNum: 1)
+            }else if self.selectedIndex == 3{
+                getSearchCompetitions(section: "competitions", search: searchBar.text ?? "", pageNum: 1)
+            }
+        }
+        
         self.navigationController?.navigationBar.isHidden = true
     }
     
@@ -168,6 +180,12 @@ extension SearchResultVc :UITextFieldDelegate{
         }else if self.selectedIndex == 3{
             getSearchCompetitions(section: "competitions", search: textField.text ?? "", pageNum: 1)
         }
+    }
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
     }
 }
 

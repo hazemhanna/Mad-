@@ -72,6 +72,9 @@ class CompetitionResultslistsVC: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
+        if let ptcTBC = tabBarController as? PTCardTabBarController{
+            ptcTBC.customTabBar.isHidden = false
+        }
     }
     
     @IBAction func backButton(sender: UIButton) {

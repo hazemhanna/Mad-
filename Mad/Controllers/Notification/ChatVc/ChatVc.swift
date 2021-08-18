@@ -20,7 +20,9 @@ class ChatVc: UIViewController {
     @IBOutlet fileprivate weak var chatTableView : UITableView!
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var messegtTF: UITextField!
-
+    @IBOutlet weak var inputViewBottom: NSLayoutConstraint!
+    @IBOutlet weak var inputContainView: UIView!
+    
     var disposeBag = DisposeBag()
     var ChatVM = ChatViewModel()
     private let cellIdentifier = "ChatCell"
@@ -35,6 +37,7 @@ class ChatVc: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupChatTableView()
+        addKeyboardObserver()
         messegtTF.delegate = self
     }
     
@@ -70,7 +73,41 @@ class ChatVc: UIViewController {
         }
     }
     
+    func addKeyboardObserver() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardFrameWillChange(notification:)),
+                                               name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+    }
     
+    @objc func keyboardFrameWillChange(notification: NSNotification) {
+        guard let userInfo = notification.userInfo,
+            let endKeyboardFrameValue = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue,
+            let durationValue = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber else {
+                return
+        }
+        
+        let endKeyboardFrame = endKeyboardFrameValue.cgRectValue
+        let duration = durationValue.doubleValue
+        
+        let isShowing: Bool = endKeyboardFrame.maxY > UIScreen.main.bounds.height ? false : true
+        
+        UIView.animate(withDuration: duration) { [weak self] in
+            guard let strongSelf = self else {
+                return
+            }
+            
+            if isShowing {
+                let offsetY = strongSelf.inputContainView.frame.maxY - endKeyboardFrame.minY
+                guard offsetY > 0 else {
+                    return
+                }
+                strongSelf.inputViewBottom.constant = -offsetY
+            } else {
+                strongSelf.inputViewBottom.constant = 0
+            }
+            strongSelf.view.layoutIfNeeded()
+        }
+    }
 }
 
 extension ChatVc: UITextFieldDelegate {
@@ -103,7 +140,7 @@ extension ChatVc : UITableViewDelegate,UITableViewDataSource{
         var image = String()
         name = messages[indexPath.row].user?.name ?? ""
         image = messages[indexPath.row].user?.profilPicture ?? ""
-        if userId == messages[indexPath.row].user?.id ?? 0 {
+        if self.userId == messages[indexPath.row].user?.id ?? 0 {
             ReceiverFlag = false
         }else{
             ReceiverFlag = true
@@ -120,6 +157,11 @@ extension ChatVc {
             self.ChatVM.dismissIndicator()
             self.messages = dataModel.data ?? []
             self.chatTableView.reloadData()
+            if self.messages.count > 0 {
+            let end = IndexPath(row: self.messages.count - 1, section: 0)
+            self.chatTableView.scrollToRow(at: end, at: .bottom, animated: true)
+            }
+            
            }
        }, onError: { (error) in
         self.ChatVM.dismissIndicator()

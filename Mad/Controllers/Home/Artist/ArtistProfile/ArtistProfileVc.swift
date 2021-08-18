@@ -46,7 +46,6 @@ class ArtistProfileVc: UIViewController {
     }
     
     @IBAction func followButton(sender: UIButton) {
-        
         if Helper.getAPIToken() != nil {
         self.artistVM.showIndicator()
      if isFavorite{
@@ -67,7 +66,6 @@ class ArtistProfileVc: UIViewController {
         vc?.fromArtistPage = true
         self.navigationController?.pushViewController(vc!, animated: true)
     }
-    
 }
 
 extension ArtistProfileVc  {
@@ -105,7 +103,7 @@ extension ArtistProfileVc  {
         artistVM.addToFavourite(artistId: artistId, Type: Type).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
             self.artistVM.dismissIndicator()
-            
+            self.getArtistProfile(artistId : artistId)
          }
        }, onError: { (error) in
         self.artistVM.dismissIndicator()

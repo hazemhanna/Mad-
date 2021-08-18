@@ -283,7 +283,7 @@
                                                                         <rect key="frame" x="77.5" y="0.0" width="69" height="22"/>
                                                                         <state key="normal" image="Component 37 – 1"/>
                                                                         <connections>
-                                                                            <action selector="shareAction:" destination="MNL-tg-UoB" eventType="touchUpInside" id="7q6-5f-mxb"/>
+                                                                            <action selector="chatButtonWithSender:" destination="MNL-tg-UoB" eventType="touchUpInside" id="2Hz-iC-d8E"/>
                                                                         </connections>
                                                                     </button>
                                                                 </subviews>

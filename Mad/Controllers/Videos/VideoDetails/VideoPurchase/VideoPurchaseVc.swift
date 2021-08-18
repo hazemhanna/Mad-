@@ -61,6 +61,13 @@ extension VideoPurchaseVc: UICollectionViewDelegate,UICollectionViewDataSource {
         cell.showShimmer = showShimmer
         return cell
       }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = ProductDetailsVC.instantiateFromNib()
+        vc!.productId = self.product[indexPath.row].id ?? 0
+        self.navigationController?.pushViewController(vc!, animated: true)
+    }
+    
     }
 
 extension VideoPurchaseVc: UICollectionViewDelegateFlowLayout {

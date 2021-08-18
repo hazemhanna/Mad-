@@ -76,8 +76,11 @@ extension VideoArtistsVc : UITableViewDelegate,UITableViewDataSource{
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    
+        let vc = UIStoryboard(name: "Artist", bundle: nil).instantiateViewController(withIdentifier: "ArtistProfileVc")  as! ArtistProfileVc
+            vc.artistId = self.artist[indexPath.row].id ?? 0
+            Helper.saveArtistId(id: self.artist[indexPath.row].id ?? 0)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    
 }
+

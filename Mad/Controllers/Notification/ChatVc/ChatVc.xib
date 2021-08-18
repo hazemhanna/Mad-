@@ -120,7 +120,7 @@
                             <constraint firstAttribute="trailing" secondItem="nbF-Qz-4bj" secondAttribute="trailing" id="zlp-hM-pih"/>
                         </constraints>
                     </view>
-                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="laf-wn-fgv">
+                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="laf-wn-fgv">
                         <rect key="frame" x="32" y="127" width="350" height="673"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tableView>
@@ -144,6 +144,8 @@
             <size key="freeformSize" width="414" height="900"/>
             <connections>
                 <outlet property="chatTableView" destination="laf-wn-fgv" id="dBK-6g-uwn"/>
+                <outlet property="inputContainView" destination="OLr-bG-EWI" id="qIZ-VK-lhF"/>
+                <outlet property="inputViewBottom" destination="d9H-MU-xmQ" id="wM1-eq-rOi"/>
                 <outlet property="messegtTF" destination="XJe-Uf-hqm" id="O7M-ML-SiH"/>
                 <outlet property="titleLbl" destination="lIe-S9-vfm" id="zsZ-qg-EDQ"/>
             </connections>

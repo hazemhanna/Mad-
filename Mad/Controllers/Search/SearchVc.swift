@@ -58,7 +58,7 @@ extension SearchVc : UICollectionViewDelegate ,UICollectionViewDataSource{
         if !self.showShimmer {
             if !self.showShimmer {
                 cell.artistNameLabel.text = self.artists[indexPath.row].name ?? ""
-                if let bannerUrl = URL(string:   self.artists[indexPath.row].bannerImg ?? ""){
+                if let bannerUrl = URL(string:   self.artists[indexPath.row].profilPicture ?? ""){
                 cell.bannerImage.kf.setImage(with: bannerUrl, placeholder: #imageLiteral(resourceName: "WhatsApp Image 2021-04-21 at 1.25.47 PM"))
                }
                 cell.mainStack.isHidden = true
@@ -69,7 +69,10 @@ extension SearchVc : UICollectionViewDelegate ,UICollectionViewDataSource{
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-      
+        let vc = UIStoryboard(name: "Artist", bundle: nil).instantiateViewController(withIdentifier: "ArtistProfileVc")  as! ArtistProfileVc
+            vc.artistId = self.artists[indexPath.row].id ?? 0
+            Helper.saveArtistId(id: self.artists[indexPath.row].id ?? 0)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 

@@ -94,7 +94,7 @@ extension BlogsVc : UITableViewDelegate,UITableViewDataSource , UITableViewDataS
         if !self.showShimmer {
             cell.confic(name : blogs[indexPath.row].title ?? "" ,
                         date : blogs[indexPath.row].createdAt ?? "",
-                        title: blogs[indexPath.row].content ?? "",
+                        title: blogs[indexPath.row].content?.html2String ?? "",
                         share: blogs[indexPath.row].shareCount ?? 0,
                         projectUrl: blogs[indexPath.row].imageURL ?? "",
                         relatedProduct : blogs[indexPath.row].relateProducts ?? [] )
@@ -108,7 +108,7 @@ extension BlogsVc : UITableViewDelegate,UITableViewDataSource , UITableViewDataS
                 }
                 self.blogsVM.showIndicator()
                 self.shareBlogs(blogsId: self.blogs[indexPath.row].id ?? 0)
-                let text = self.blogs[indexPath.row].title ?? ""
+                let text = self.blogs[indexPath.row].title?.html2String ?? ""
                 let image = self.blogs[indexPath.row].imageURL ?? ""
                 let textToShare = [ text ,image]
                 let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)

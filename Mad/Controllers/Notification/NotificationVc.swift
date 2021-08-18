@@ -110,7 +110,7 @@ extension NotificationVc : UITableViewDelegate,UITableViewDataSource{
         if tableView == notificationTableView {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier) as! NotificationCell
             if !showShimmer{
-                cell.confic(date: self.notifications[indexPath.row].createdAt ?? "" , artistUrl: self.notifications[indexPath.row].imageURL ?? "", content: self.notifications[indexPath.row].body ?? "")
+                cell.confic(date: self.notifications[indexPath.row].createdAt ?? "" , artistUrl: self.notifications[indexPath.row].imageURL ?? "", content: self.notifications[indexPath.row].body?.html2String ?? "")
             }
             cell.showShimmer = showShimmer
             

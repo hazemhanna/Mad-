@@ -74,7 +74,9 @@ extension VideoProjectsVC : UITableViewDelegate,UITableViewDataSource{
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    
+        let main = ProjectDetailsVC.instantiateFromNib()
+        main!.projectId =  self.project[indexPath.row].id!
+        self.navigationController?.pushViewController(main!, animated: true)
     }
     
     

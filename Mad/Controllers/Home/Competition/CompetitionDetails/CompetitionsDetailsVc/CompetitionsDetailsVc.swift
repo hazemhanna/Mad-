@@ -14,6 +14,7 @@ import AVKit
 import AVFoundation
 import SwiftSoup
 
+
 class CompetitionsDetailsVc  : UIViewController {
     
     @IBOutlet weak var titleCollectionView: UICollectionView!
@@ -107,6 +108,10 @@ class CompetitionsDetailsVc  : UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        if let ptcTBC = tabBarController as? PTCardTabBarController{
+            ptcTBC.customTabBar.isHidden = false
+        }
+        
         self.navigationController?.navigationBar.isHidden = false
     }
     

@@ -119,7 +119,7 @@ extension ArtistsVc : UICollectionViewDelegate ,UICollectionViewDataSource , UIC
                 cell.artistNameLabel.text = self.artists[indexPath.row].name ?? ""
                 cell.favouriteCount.text = "\(self.artists[indexPath.row].allFollowers ?? 0)"
                 cell.followerCount.text = "\(self.artists[indexPath.row].allFollowing ?? 0)"
-                if let bannerUrl = URL(string:   self.artists[indexPath.row].bannerImg ?? ""){
+                if let bannerUrl = URL(string:   self.artists[indexPath.row].profilPicture ?? ""){
                 cell.bannerImage.kf.setImage(with: bannerUrl, placeholder: #imageLiteral(resourceName: "WhatsApp Image 2021-04-21 at 1.25.47 PM"))
                }
              }
