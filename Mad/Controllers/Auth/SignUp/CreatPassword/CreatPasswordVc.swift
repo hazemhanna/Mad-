@@ -30,7 +30,7 @@ class CreatPasswordVc: UIViewController {
           self.showMessage(text: "Please Enter Your Password")
           return false
         }else if password.isPasswordValid() != true {
-            self.showMessage(text: "Your Password Not Valid")
+            self.showMessage(text: "Your Password Should be 8 characters. at least one special characters and one capital letter")
             return false
           }else{
             return true
