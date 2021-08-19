@@ -29,8 +29,8 @@ class CreatPasswordVc: UIViewController {
         if password.isEmpty {
           self.showMessage(text: "Please Enter Your Password")
           return false
-        }else if password.count < 7 {
-            self.showMessage(text: "Your Password must be more than 7 character")
+        }else if password.isPasswordValid() != true {
+            self.showMessage(text: "Your Password Not Valid")
             return false
           }else{
             return true
@@ -47,19 +47,12 @@ class CreatPasswordVc: UIViewController {
     
     @IBAction func backButton(sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
-
     }
-    
-    
- 
-    
 }
 
-
 extension CreatPasswordVc :UITextFieldDelegate{
-    
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        if passwordTF.text?.count ?? 0 >= 7 {
+        if passwordTF.text?.isPasswordValid() == true {
             iconImage.isHidden = false
         }else{
             iconImage.isHidden = true
