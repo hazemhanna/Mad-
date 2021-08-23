@@ -103,8 +103,11 @@ extension BlogsVc : UITableViewDelegate,UITableViewDataSource , UITableViewDataS
             
             cell.share = {
                 if self.token == ""{
+                    let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
+                    if let appDelegate = UIApplication.shared.delegate {
+                        appDelegate.window??.rootViewController = sb
+                    }
                     return
-                    
                 }
                 self.blogsVM.showIndicator()
                 self.shareBlogs(blogsId: self.blogs[indexPath.row].id ?? 0)

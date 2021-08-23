@@ -199,6 +199,7 @@
             <connections>
                 <outlet property="addproductCollectionView" destination="ZLz-ma-Sal" id="KoH-kf-bLs"/>
                 <outlet property="forYouCollectionView" destination="Jmp-p4-ECf" id="TiA-tw-GaR"/>
+                <outlet property="forYouView" destination="SeJ-AM-Aqg" id="Rmd-ci-biq"/>
                 <outlet property="productView" destination="PaW-VM-YLy" id="3sI-Q9-ckL"/>
                 <outlet property="topPrpductCollectionView" destination="ofb-u9-dtJ" id="m5Z-8i-hix"/>
             </connections>

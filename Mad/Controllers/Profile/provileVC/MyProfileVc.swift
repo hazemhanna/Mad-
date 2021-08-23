@@ -48,7 +48,11 @@ class MyProfileVc: UIViewController {
         artistVM.showIndicator()
         getProfile()
         }else{
-            self.showMessage(text: "please login first")
+            let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
+            if let appDelegate = UIApplication.shared.delegate {
+                appDelegate.window??.rootViewController = sb
+            }
+            return
         }
         self.navigationController?.navigationBar.isHidden = true
     }

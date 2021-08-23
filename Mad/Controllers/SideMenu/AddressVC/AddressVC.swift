@@ -28,6 +28,22 @@ class AddressVC: UIViewController {
     @IBOutlet weak var postCodeTf: CustomTextField!
     @IBOutlet weak var noteTf: CustomTextField!
 
+    @IBOutlet weak var titleLbL: UILabel!
+    @IBOutlet weak var contactTitleLbL: UILabel!
+    @IBOutlet weak var addressTitleLbL: UILabel!
+    @IBOutlet weak var firstNameLbL: UILabel!
+    @IBOutlet weak var lastNameLbL: UILabel!
+    @IBOutlet weak var phoneNumberLbL: UILabel!
+    @IBOutlet weak var CompanyameLbL: UILabel!
+    @IBOutlet weak var emailLbL: UILabel!
+    @IBOutlet weak var countryLbL: UILabel!
+    @IBOutlet weak var streetLbL: UILabel!
+    @IBOutlet weak var cityLbL: UILabel!
+    @IBOutlet weak var stateLbL: UILabel!
+    @IBOutlet weak var postCodeLbL: UILabel!
+    @IBOutlet weak var noteLbL: UILabel!
+    @IBOutlet weak var savBtn: UIButton!
+
     var compId = Int()
     open lazy var customTabBar: PTCardTabBar = {
         return PTCardTabBar()
@@ -52,8 +68,8 @@ class AddressVC: UIViewController {
         streetTF.delegate = self
         stateTF.delegate = self
         postCodeTf.delegate = self
-        
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
@@ -93,31 +109,31 @@ class AddressVC: UIViewController {
         let postcode = self.postCodeTf.text ?? ""
         
         if firstName.isEmpty {
-            self.showMessage(text: "Please Enter first Name")
+            self.showMessage(text: "Enter.first.Name".localized)
             return false
         }else if lastName.isEmpty {
-            self.showMessage(text: "Please Enter last Name")
+            self.showMessage(text: "Enter.last.Name".localized)
             return false
         }else if phoneNumber.isEmpty {
-            self.showMessage(text: "Please Enter phone Number")
+            self.showMessage(text: "Enter.phone".localized)
             return false
         }else if email.isEmpty {
-            self.showMessage(text: "Please Enter email")
+            self.showMessage(text: "Enter.email".localized)
             return false
         }else if country.isEmpty {
-            self.showMessage(text: "Please Enter country Name")
+            self.showMessage(text: "Enter.country".localized)
             return false
         }else if street.isEmpty {
-            self.showMessage(text: "Please Enter street ")
+            self.showMessage(text: "Enter.street".localized)
             return false
         }else if city.isEmpty {
-            self.showMessage(text: "Please Enter city ")
+            self.showMessage(text: "Enter.city".localized)
             return false
         }else if state.isEmpty {
-            self.showMessage(text: "Please Enter state ")
+            self.showMessage(text: "Enter.state".localized)
             return false
         }else if postcode.isEmpty {
-            self.showMessage(text: "Please Enter postcode ")
+            self.showMessage(text: "Enter.postcode".localized)
             return false
         }else{
             return true

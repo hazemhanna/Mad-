@@ -15,7 +15,9 @@ class ArtistsVc: UIViewController {
     @IBOutlet weak var  topActiveCollectionView: UICollectionView!
     @IBOutlet weak var suggestedCollectionView: UICollectionView!
     @IBOutlet weak var artistsView: UIView!
+    @IBOutlet weak var suggestedView: UIView!
 
+    var token = Helper.getAPIToken() ?? ""
     let cellIdentifier1 = "ProjectCell"
     let cellIdentifier2 = "SuggestedCell"
     let cellIdentifier3 = "ArtistCell"
@@ -36,7 +38,14 @@ class ArtistsVc: UIViewController {
         setupeNib()
         getTopArtist(pageNum : page , catId : 31)
         getAllArtist(pageNum : page)
+        if token != "" {
+            self.suggestedView.isHidden = false
+        }else{
+            self.suggestedView.isHidden = true
+        }
         getSuggested()
+
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -121,7 +130,7 @@ extension ArtistsVc : UICollectionViewDelegate ,UICollectionViewDataSource , UIC
                 cell.confic(name : self.suggested[indexPath.row].name ?? "" , bannerImg : self.suggested[indexPath.row].bannerImg ?? "",profilPicture: self.suggested[indexPath.row].profilPicture ?? "",isFavourite: self.suggested[indexPath.row].isFavorite ?? false,art: self.suggested[indexPath.row].art ?? false,music: self.suggested[indexPath.row].music ?? false ,design: self.suggested[indexPath.row].design ?? false)
                 
                 cell.editFavourite = {
-                    if Helper.getAPIToken() != nil {
+                    if self.token != "" {
                     self.artistVM.showIndicator()
                  if self.suggested[indexPath.row].isFavorite ?? false{
                     self.editFavourite(artistId:  self.suggested[indexPath.row].id ?? 0, Type: false)
@@ -133,8 +142,12 @@ extension ArtistsVc : UICollectionViewDelegate ,UICollectionViewDataSource , UIC
                         self.suggestedCollectionView.reloadData()
                    }
                    }else {
-                    self.showMessage(text: "please login first")
-                 }
+                    let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
+                    if let appDelegate = UIApplication.shared.delegate {
+                        appDelegate.window??.rootViewController = sb
+                    }
+                    return
+                   }
                 }
                 
             }
@@ -231,6 +244,11 @@ extension ArtistsVc {
            if dataModel.success ?? false {
             self.showShimmer2 = false
             self.suggested = dataModel.data ?? []
+            if self.suggested.count  > 0 {
+                self.suggestedView.isHidden = false
+            }else{
+                self.suggestedView.isHidden = true
+            }
              self.suggestedCollectionView.reloadData()
            }
        }, onError: { (error) in

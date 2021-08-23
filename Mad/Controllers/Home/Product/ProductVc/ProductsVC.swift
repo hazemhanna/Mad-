@@ -17,7 +17,10 @@ class ProductsVC : UIViewController {
     @IBOutlet weak var  topPrpductCollectionView: UICollectionView!
     @IBOutlet weak var forYouCollectionView: UICollectionView!
     @IBOutlet weak var  productView: UIView!
+    @IBOutlet weak var  forYouView: UIView!
 
+    
+    
     var disposeBag = DisposeBag()
     var productVM = ProductViewModel()
     var parentVC : HomeVC?
@@ -45,7 +48,11 @@ class ProductsVC : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNib()
-       
+        if token != "" {
+            self.forYouView.isHidden = false
+        }else{
+            self.forYouView.isHidden = true
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -99,7 +106,6 @@ class ProductsVC : UIViewController {
         collectionView.backgroundColor = .clear
         return collectionView
     }()
-    
 }
 extension ProductsVC: UICollectionViewDelegate,UICollectionViewDataSource ,UICollectionViewDataSourcePrefetching{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -149,7 +155,11 @@ extension ProductsVC: UICollectionViewDelegate,UICollectionViewDataSource ,UICol
                 self.navigationController?.pushViewController(vc!, animated: true)
                 }
                 else{
-                    self.showMessage(text: "please login first")
+                    let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
+                    if let appDelegate = UIApplication.shared.delegate {
+                        appDelegate.window??.rootViewController = sb
+                    }
+                    return
                 }
             }
             
@@ -354,8 +364,12 @@ extension ProductsVC {
            if dataModel.success ?? false {
             self.showShimmer2 = false
             self.suggested = dataModel.data ?? []
-             self.forYouCollectionView.reloadData()
-            self.topPrpductCollectionView.reloadData()
+            if self.suggested.count > 0 {
+                self.forYouView.isHidden = false
+            }else{
+                self.forYouView.isHidden = true
+            }
+            self.forYouCollectionView.reloadData()
 
            }
        }, onError: { (error) in
