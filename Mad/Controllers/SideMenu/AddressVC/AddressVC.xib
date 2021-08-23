@@ -28,7 +28,7 @@
                         <rect key="frame" x="0.0" y="44" width="414" height="75"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact &amp; Address details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jte-JA-gIx">
-                                <rect key="frame" x="114" y="28" width="186.5" height="19"/>
+                                <rect key="frame" x="108" y="29.5" width="198" height="16"/>
                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="16"/>
                                 <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -67,7 +67,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="350" height="40"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Contact details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R3Z-Rh-T4V">
-                                                        <rect key="frame" x="0.0" y="21" width="108.5" height="19"/>
+                                                        <rect key="frame" x="0.0" y="24" width="116" height="16"/>
                                                         <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="16"/>
                                                         <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -90,7 +90,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="350" height="32"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="First name* " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LT9-RU-PHB">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="350" height="19"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="350" height="16"/>
                                                                         <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="16"/>
                                                                         <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
@@ -394,7 +394,7 @@
                                                 <rect key="frame" x="0.0" y="682" width="350" height="40"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Address details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aSN-Wl-tjj">
-                                                        <rect key="frame" x="0.0" y="21" width="110.5" height="19"/>
+                                                        <rect key="frame" x="0.0" y="24" width="117.5" height="16"/>
                                                         <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="16"/>
                                                         <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -881,34 +881,34 @@
     </objects>
     <designables>
         <designable name="2mb-51-HIx">
-            <size key="intrinsicContentSize" width="25" height="40.5"/>
+            <size key="intrinsicContentSize" width="24" height="37.5"/>
         </designable>
         <designable name="3Bv-3M-wGR">
-            <size key="intrinsicContentSize" width="25" height="40.5"/>
+            <size key="intrinsicContentSize" width="24" height="37.5"/>
         </designable>
         <designable name="Fch-Vs-46C">
-            <size key="intrinsicContentSize" width="25" height="40.5"/>
+            <size key="intrinsicContentSize" width="24" height="37.5"/>
         </designable>
         <designable name="Jzs-vw-JZw">
-            <size key="intrinsicContentSize" width="25" height="40.5"/>
+            <size key="intrinsicContentSize" width="24" height="37.5"/>
         </designable>
         <designable name="Ol2-I9-BKg">
-            <size key="intrinsicContentSize" width="25" height="40.5"/>
+            <size key="intrinsicContentSize" width="24" height="37.5"/>
         </designable>
         <designable name="P44-EH-pFn">
-            <size key="intrinsicContentSize" width="25" height="40.5"/>
+            <size key="intrinsicContentSize" width="24" height="37.5"/>
         </designable>
         <designable name="Yh2-EC-aeB">
-            <size key="intrinsicContentSize" width="25" height="40.5"/>
+            <size key="intrinsicContentSize" width="24" height="37.5"/>
         </designable>
         <designable name="bDJ-PW-cww">
-            <size key="intrinsicContentSize" width="25" height="40.5"/>
+            <size key="intrinsicContentSize" width="24" height="37.5"/>
         </designable>
         <designable name="ja0-Xl-xia">
-            <size key="intrinsicContentSize" width="25" height="40.5"/>
+            <size key="intrinsicContentSize" width="24" height="37.5"/>
         </designable>
         <designable name="sKK-dp-tsB">
-            <size key="intrinsicContentSize" width="25" height="40.5"/>
+            <size key="intrinsicContentSize" width="24" height="37.5"/>
         </designable>
         <designable name="yfd-WS-wNB">
             <size key="intrinsicContentSize" width="43" height="33"/>

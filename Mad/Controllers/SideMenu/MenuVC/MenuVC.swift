@@ -18,6 +18,22 @@ class MenuVC: UIViewController {
     @IBOutlet weak var titleLble: UILabel!
     @IBOutlet weak var cartCount: UILabel!
         
+    @IBOutlet weak var upgradeBtn: UIButton!
+    @IBOutlet weak var shoutOutBtn: UIButton!
+    @IBOutlet weak var savedBtn : UIButton!
+    @IBOutlet weak var favouriteBtn: UIButton!
+    @IBOutlet weak var cartBtn: UIButton!
+    @IBOutlet weak var orderBtn : UIButton!
+    @IBOutlet weak var addressBtn : UIButton!
+    @IBOutlet weak var paymentBtn : UIButton!
+    @IBOutlet weak var languageBtn : UIButton!
+    @IBOutlet weak var termsUsebtn  : UIButton!
+    @IBOutlet weak var  termsCondetionsBtn : UIButton!
+    @IBOutlet weak var notiticationBtn : UIButton!
+    @IBOutlet weak var  logoutBtn  : UIButton!
+    @IBOutlet weak var aplicationSettingLbl : UILabel!
+    @IBOutlet weak var paurchesedLbl : UILabel!
+
     var active = Helper.getIsActive() ?? false
     var disposeBag = DisposeBag()
     var cartVM = CartViewModel()
@@ -37,6 +53,24 @@ class MenuVC: UIViewController {
             userView.isHidden = false
             artistView.isHidden = true
         }
+        
+        titleLble.text = "title.menu".localized
+        paurchesedLbl.text = "Purchase.menu".localized
+        aplicationSettingLbl.text = "Application.Settings".localized
+        upgradeBtn.setTitle("Upgrade.now".localized, for: .normal)
+        shoutOutBtn.setTitle("Shout.Out".localized, for: .normal)
+        savedBtn.setTitle("Saved.competitions".localized, for: .normal)
+        favouriteBtn.setTitle("Favorites".localized, for: .normal)
+        cartBtn.setTitle("MyCard".localized, for: .normal)
+        orderBtn.setTitle("Myorders".localized, for: .normal)
+        addressBtn.setTitle("Contact.Address.details".localized, for: .normal)
+        paymentBtn.setTitle("Payment.details".localized, for: .normal)
+        languageBtn.setTitle("Language".localized, for: .normal)
+        termsUsebtn.setTitle("Terms.Use".localized, for: .normal)
+        termsCondetionsBtn.setTitle("Terms.Conditions".localized, for: .normal)
+        notiticationBtn.setTitle("Notifications".localized, for: .normal)
+        logoutBtn.setTitle("Logout".localized, for: .normal)
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
