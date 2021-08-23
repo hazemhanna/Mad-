@@ -8,13 +8,14 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import StagLayout
 
 class ArtistsVc: UIViewController {
     
     @IBOutlet weak var  topActiveCollectionView: UICollectionView!
     @IBOutlet weak var suggestedCollectionView: UICollectionView!
-    @IBOutlet weak var artistsCollectionView: UICollectionView!
-    
+    @IBOutlet weak var artistsView: UIView!
+
     let cellIdentifier1 = "ProjectCell"
     let cellIdentifier2 = "SuggestedCell"
     let cellIdentifier3 = "ArtistCell"
@@ -46,6 +47,20 @@ class ArtistsVc: UIViewController {
         self.navigationController?.navigationBar.isHidden = false
     }
     
+    
+    override func viewDidLayoutSubviews() {
+        
+        artistsView.addSubview(artistsCollectionView)
+        artistsCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            artistsCollectionView.leadingAnchor.constraint(equalTo: artistsView.leadingAnchor),
+            artistsCollectionView.trailingAnchor.constraint(equalTo: artistsView.trailingAnchor),
+            artistsCollectionView.topAnchor.constraint(equalTo: artistsView.topAnchor),
+            artistsCollectionView.bottomAnchor.constraint(equalTo: artistsView.bottomAnchor)
+        ])
+    }
+    
+    
     func setupeNib() {
         topActiveCollectionView.delegate = self
         topActiveCollectionView.dataSource = self
@@ -60,6 +75,18 @@ class ArtistsVc: UIViewController {
         self.suggestedCollectionView.register(UINib(nibName: cellIdentifier2, bundle: nil), forCellWithReuseIdentifier: cellIdentifier2)
         self.artistsCollectionView.register(UINib(nibName: cellIdentifier3, bundle: nil), forCellWithReuseIdentifier: cellIdentifier3)
     }
+    
+    
+    private let artistsCollectionView: UICollectionView = {
+        let collectionView = UICollectionView(
+            frame: .zero,
+            collectionViewLayout: StagLayout(widthHeightRatios: [(0.5, 0.5), (0.5, 1.5), (0.5, 1.0),(1.0, 1.0)], itemSpacing: 4)
+        )
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.backgroundColor = .clear
+        return collectionView
+    }()
+    
 }
 
 extension ArtistsVc : UICollectionViewDelegate ,UICollectionViewDataSource , UICollectionViewDataSourcePrefetching{

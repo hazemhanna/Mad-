@@ -32,10 +32,10 @@ class SplashVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSplashCollectionView()
-        data.append(SplashModel(images: #imageLiteral(resourceName: "Component 5 – 1"), title: "JOIN AS A MADER", title2: "Discover artists & their projects"))
-        data.append(SplashModel(images: #imageLiteral(resourceName: "Component 4 – 1"), title: "SHOP", title2: "Artist creations"))
-        data.append(SplashModel(images: #imageLiteral(resourceName: "Layer 0"), title: "Or JOIN AS AN ARTIST", title2: "Get visibility & sell your creations"))
-        data.append(SplashModel(images: #imageLiteral(resourceName: "Component 63 – 1"), title: "APPLY & REGISTER", title2: "To Competitions and events "))
+        data.append(SplashModel(images: #imageLiteral(resourceName: "Component 5 – 1"), title: "JOIN.MADER".localized, title2: "Discover".localized))
+        data.append(SplashModel(images: #imageLiteral(resourceName: "Component 4 – 1"), title: "SHOP".localized, title2: "Artist.creations".localized))
+        data.append(SplashModel(images: #imageLiteral(resourceName: "Layer 0"), title: "Or.ARTIST".localized, title2: "Get.visibility".localized))
+        data.append(SplashModel(images: #imageLiteral(resourceName: "Component 63 – 1"), title: "APPLY.REGISTER".localized, title2: "Competitions.events".localized))
         firstView.clipsToBounds = true
         firstView.layer.cornerRadius = 3
         firstView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMinXMinYCorner]

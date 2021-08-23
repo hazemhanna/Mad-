@@ -25,6 +25,7 @@ class MyProfileVc: UIViewController {
 
     
     var active = Helper.getIsActive() ?? false
+    var tokent = Helper.getAPIToken() ?? ""
     var artistVM = ArtistViewModel()
     var disposeBag = DisposeBag()
 
@@ -43,8 +44,12 @@ class MyProfileVc: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        if tokent != "" {
         artistVM.showIndicator()
         getProfile()
+        }else{
+            self.showMessage(text: "please login first")
+        }
         self.navigationController?.navigationBar.isHidden = true
     }
     

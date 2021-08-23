@@ -187,6 +187,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="JAy-Qo-vS0"/>
+                    <connections>
+                        <outlet property="JoinArtistleLbl" destination="OCo-zP-bcp" id="Fkl-ZK-znX"/>
+                        <outlet property="JoinMaderleLbl" destination="ZWl-FI-bvy" id="kdn-yY-tcG"/>
+                        <outlet property="Login" destination="wc4-sB-thn" id="vx6-vM-1ok"/>
+                        <outlet property="SKIPleLbl" destination="5vL-nS-ckE" id="5bv-j5-NCo"/>
+                        <outlet property="goBtn" destination="o0h-K4-tvL" id="yYz-Fk-EsZ"/>
+                        <outlet property="registerBtn" destination="8f2-2P-GWV" id="NAh-T9-EBr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FQt-3p-qoM" sceneMemberID="firstResponder"/>
             </objects>
@@ -211,14 +219,6 @@
             <point key="canvasLocation" x="-4188" y="-899"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="8f2-2P-GWV">
-            <size key="intrinsicContentSize" width="198" height="28"/>
-        </designable>
-        <designable name="o0h-K4-tvL">
-            <size key="intrinsicContentSize" width="30" height="30"/>
-        </designable>
-    </designables>
     <resources>
         <image name="Component 6 – 1" width="458" height="947"/>
         <image name="Component 61 – 2" width="26.5" height="19.5"/>

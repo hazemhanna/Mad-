@@ -8,14 +8,16 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import StagLayout
+
 
 class ProductsVC : UIViewController {
    
     @IBOutlet weak var addproductCollectionView: UICollectionView!
     @IBOutlet weak var  topPrpductCollectionView: UICollectionView!
     @IBOutlet weak var forYouCollectionView: UICollectionView!
-    @IBOutlet weak var productCollectionView: UICollectionView!
-    
+    @IBOutlet weak var  productView: UIView!
+
     var disposeBag = DisposeBag()
     var productVM = ProductViewModel()
     var parentVC : HomeVC?
@@ -58,6 +60,19 @@ class ProductsVC : UIViewController {
         self.navigationController?.navigationBar.isHidden = false
     }
     
+    override func viewDidLayoutSubviews() {
+        
+        productView.addSubview(productCollectionView)
+        productCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            productCollectionView.leadingAnchor.constraint(equalTo: productView.leadingAnchor),
+            productCollectionView.trailingAnchor.constraint(equalTo: productView.trailingAnchor),
+            productCollectionView.topAnchor.constraint(equalTo: productView.topAnchor),
+            productCollectionView.bottomAnchor.constraint(equalTo: productView.bottomAnchor)
+        ])
+    }
+    
+    
    func setupNib(){
     self.addproductCollectionView.register(UINib(nibName: cellIdentifier1, bundle: nil), forCellWithReuseIdentifier: cellIdentifier1)
     addproductCollectionView.delegate = self
@@ -73,9 +88,18 @@ class ProductsVC : UIViewController {
     productCollectionView.dataSource = self
     productCollectionView.prefetchDataSource = self
     productCollectionView.isPrefetchingEnabled = true
-
-    
    }
+    
+    private let productCollectionView: UICollectionView = {
+        let collectionView = UICollectionView(
+            frame: .zero,
+            collectionViewLayout: StagLayout(widthHeightRatios: [(0.5, 0.5), (0.5, 1.5), (0.5, 1.0),(1.0, 1.0)], itemSpacing: 4)
+        )
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.backgroundColor = .clear
+        return collectionView
+    }()
+    
 }
 extension ProductsVC: UICollectionViewDelegate,UICollectionViewDataSource ,UICollectionViewDataSourcePrefetching{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

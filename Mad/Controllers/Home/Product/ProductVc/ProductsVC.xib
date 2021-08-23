@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -143,26 +144,19 @@
                                                         <color key="textColor" red="0.1333333333" green="0.2156862745" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Cj9-us-fb6" customClass="CustomCollectionView" customModule="Mad" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PaW-VM-YLy">
                                                         <rect key="frame" x="32" y="56" width="350" height="816"/>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="UIj-TY-SRb">
-                                                            <size key="itemSize" width="50" height="50"/>
-                                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                        </collectionViewFlowLayout>
-                                                        <cells/>
-                                                    </collectionView>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    </view>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="grr-zy-jNA" firstAttribute="leading" secondItem="fBc-Oc-e6n" secondAttribute="leading" constant="32" id="7QK-l9-Ujw"/>
-                                                    <constraint firstItem="Cj9-us-fb6" firstAttribute="leading" secondItem="fBc-Oc-e6n" secondAttribute="leading" constant="32" id="BF5-kc-MKV"/>
                                                     <constraint firstItem="grr-zy-jNA" firstAttribute="top" secondItem="fBc-Oc-e6n" secondAttribute="top" constant="8" id="MQ4-kD-bJD"/>
-                                                    <constraint firstAttribute="bottom" secondItem="Cj9-us-fb6" secondAttribute="bottom" id="mPd-oy-dP5"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Cj9-us-fb6" secondAttribute="trailing" constant="32" id="nnh-HI-aAj"/>
-                                                    <constraint firstItem="Cj9-us-fb6" firstAttribute="top" secondItem="grr-zy-jNA" secondAttribute="bottom" constant="32" id="uud-Lf-5Sc"/>
+                                                    <constraint firstItem="PaW-VM-YLy" firstAttribute="top" secondItem="grr-zy-jNA" secondAttribute="bottom" constant="32" id="Ruu-fe-wKF"/>
+                                                    <constraint firstAttribute="trailing" secondItem="PaW-VM-YLy" secondAttribute="trailing" constant="32" id="SaM-Mo-yqc"/>
+                                                    <constraint firstItem="PaW-VM-YLy" firstAttribute="leading" secondItem="fBc-Oc-e6n" secondAttribute="leading" constant="32" id="fqb-Xj-CHT"/>
+                                                    <constraint firstAttribute="bottom" secondItem="PaW-VM-YLy" secondAttribute="bottom" id="lWo-gF-BdO"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -205,10 +199,15 @@
             <connections>
                 <outlet property="addproductCollectionView" destination="ZLz-ma-Sal" id="KoH-kf-bLs"/>
                 <outlet property="forYouCollectionView" destination="Jmp-p4-ECf" id="TiA-tw-GaR"/>
-                <outlet property="productCollectionView" destination="Cj9-us-fb6" id="yT0-xj-P3E"/>
+                <outlet property="productView" destination="PaW-VM-YLy" id="3sI-Q9-ckL"/>
                 <outlet property="topPrpductCollectionView" destination="ofb-u9-dtJ" id="m5Z-8i-hix"/>
             </connections>
             <point key="canvasLocation" x="-6999" y="2462"/>
         </viewController>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
