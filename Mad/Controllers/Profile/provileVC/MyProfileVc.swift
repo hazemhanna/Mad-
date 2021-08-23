@@ -53,6 +53,7 @@ class MyProfileVc: UIViewController {
                 appDelegate.window??.rootViewController = sb
             }
             return
+
         }
         self.navigationController?.navigationBar.isHidden = true
     }

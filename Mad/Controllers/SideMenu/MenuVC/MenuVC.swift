@@ -17,7 +17,8 @@ class MenuVC: UIViewController {
     @IBOutlet weak var artistView: UIView!
     @IBOutlet weak var titleLble: UILabel!
     @IBOutlet weak var cartCount: UILabel!
-
+        
+    var active = Helper.getIsActive() ?? false
     var disposeBag = DisposeBag()
     var cartVM = CartViewModel()
     
@@ -29,17 +30,15 @@ class MenuVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if type {
+        if active {
             userView.isHidden = true
             artistView.isHidden = false
-           // titleLble.text = "User menu"
         }else{
             userView.isHidden = false
             artistView.isHidden = true
-          //  titleLble.text = "Artist menu"
         }
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         if let ptcTBC = tabBarController as? PTCardTabBarController{
             ptcTBC.customTabBar.isHidden = false
@@ -56,6 +55,12 @@ class MenuVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
 
+    }
+    
+    @IBAction func upgradeButton(sender: UIButton) {
+        let vc = EditMyProfileVc.instantiateFromNib()
+        vc?.upgrad = true
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
     
     @IBAction func myCartAction(sender: UIButton) {

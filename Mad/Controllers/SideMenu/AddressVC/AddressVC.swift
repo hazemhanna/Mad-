@@ -68,6 +68,23 @@ class AddressVC: UIViewController {
         streetTF.delegate = self
         stateTF.delegate = self
         postCodeTf.delegate = self
+        
+        titleLbL.text = "Contact.Address.details".localized
+        contactTitleLbL.text = "Contact.details".localized
+        addressTitleLbL.text = "Address.details".localized
+        firstNameLbL.text = "first.Name".localized
+        lastNameLbL.text = "last.Name".localized
+        phoneNumberLbL.text = "Phone".localized
+        CompanyameLbL.text = "Company".localized
+        emailLbL.text = "Email.Address".localized
+        countryLbL.text = "Country".localized
+        streetLbL.text = "Street".localized
+        cityLbL.text = "Town".localized
+        stateLbL.text = "State".localized
+        postCodeLbL.text = "Postcode".localized
+        noteLbL.text = "Other.notes".localized
+        savBtn.setTitle( "Save".localized, for: .normal)
+
     }
     
     
