@@ -14,6 +14,7 @@ import SwiftyJSON
 class Authentication {
     
     static let shared = Authentication()
+   
         //MARK:- POST Register
         func postRegister(params: [String: Any]) -> Observable<AuthModel> {
             return Observable.create { (observer) -> Disposable in

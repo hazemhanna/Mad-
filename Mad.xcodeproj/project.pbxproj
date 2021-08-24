@@ -141,6 +141,7 @@
 		04534B1E2691E44C00B15C9C /* MyCartVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04534B1C2691E44C00B15C9C /* MyCartVc.xib */; };
 		04534B222691E46300B15C9C /* MyCartDetailsVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04534B202691E46300B15C9C /* MyCartDetailsVc.swift */; };
 		04534B232691E46300B15C9C /* MyCartDetailsVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04534B212691E46300B15C9C /* MyCartDetailsVc.xib */; };
+		0453CEB126D530DA00D404C1 /* LanguageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0453CEB026D530DA00D404C1 /* LanguageHelper.swift */; };
 		0458B3142667CC0B00382E77 /* PreviewProjectVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458B3122667CC0B00382E77 /* PreviewProjectVc.swift */; };
 		0458B3152667CC0B00382E77 /* PreviewProjectVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0458B3132667CC0B00382E77 /* PreviewProjectVc.xib */; };
 		045A66E12667134300ED03CB /* AboutProjectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045A66DF2667134300ED03CB /* AboutProjectVC.swift */; };
@@ -421,6 +422,7 @@
 		04534B1C2691E44C00B15C9C /* MyCartVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCartVc.xib; sourceTree = "<group>"; };
 		04534B202691E46300B15C9C /* MyCartDetailsVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCartDetailsVc.swift; sourceTree = "<group>"; };
 		04534B212691E46300B15C9C /* MyCartDetailsVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCartDetailsVc.xib; sourceTree = "<group>"; };
+		0453CEB026D530DA00D404C1 /* LanguageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageHelper.swift; sourceTree = "<group>"; };
 		0458B3122667CC0B00382E77 /* PreviewProjectVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProjectVc.swift; sourceTree = "<group>"; };
 		0458B3132667CC0B00382E77 /* PreviewProjectVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreviewProjectVc.xib; sourceTree = "<group>"; };
 		045A66DF2667134300ED03CB /* AboutProjectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutProjectVC.swift; sourceTree = "<group>"; };
@@ -1696,6 +1698,7 @@
 			children = (
 				04528E2B26149443009868EA /* ConfigUrls.swift */,
 				04528E2E26149496009868EA /* Helper.swift */,
+				0453CEB026D530DA00D404C1 /* LanguageHelper.swift */,
 				04DEA9D52620947100F843A6 /* Authentication.swift */,
 				04DEA9CF262093E500F843A6 /* GetServices.swift */,
 				04DEA9D22620941C00F843A6 /* AddServices.swift */,
@@ -2369,6 +2372,7 @@
 				0439BD182672645E00AC5C59 /* PrizesCometitionsVc.swift in Sources */,
 				0439BD222672823900AC5C59 /* CompetitionModel.swift in Sources */,
 				04C782A8263977B400C90851 /* InventoryPricingVC.swift in Sources */,
+				0453CEB126D530DA00D404C1 /* LanguageHelper.swift in Sources */,
 				046CD68926829EBD004FE6C6 /* SearchCompetitionsVC.swift in Sources */,
 				04528E2F26149496009868EA /* Helper.swift in Sources */,
 				0414286526176BCD000394CA /* HomeViewModel.swift in Sources */,

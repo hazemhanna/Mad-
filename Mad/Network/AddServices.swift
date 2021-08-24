@@ -11,10 +11,11 @@ import RxSwift
 import SwiftyJSON
 
 struct AddServices {
+    
     static let shared = AddServices()
-
-    
-    
+    static var languageKey :String {
+        return LanguageHelper.sharedDelegate().getLanguage().apiKey()
+    }
     
     //MARK:- POSt  favourit
     func addToFavourite(param : [String :Any]) -> Observable<FavouriteModel> {
@@ -23,7 +24,9 @@ struct AddServices {
             
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : AddServices.languageKey
+
             ]
                Alamofire.request(url, method: .post, parameters: param, encoding: URLEncoding.default, headers: headers)
                    .validate(statusCode: 200..<300)
@@ -47,7 +50,9 @@ struct AddServices {
             
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : AddServices.languageKey
+
             ]
                Alamofire.request(url, method: .post, parameters: param, encoding: URLEncoding.default, headers: headers)
                    .validate(statusCode: 200..<300)
@@ -70,7 +75,10 @@ struct AddServices {
             
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : AddServices.languageKey
+
+                
             ]
                Alamofire.request(url, method: .post, parameters: param, encoding: URLEncoding.default, headers: headers)
                    .validate(statusCode: 200..<300)
@@ -94,7 +102,9 @@ struct AddServices {
             
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : AddServices.languageKey
+
             ]
                Alamofire.request(url, method: .post, parameters: param, encoding: URLEncoding.default, headers: headers)
                    .validate(statusCode: 200..<300)
@@ -120,7 +130,9 @@ struct AddServices {
             
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : AddServices.languageKey
+
             ]
                Alamofire.request(url, method: .post, parameters: param, encoding: URLEncoding.default, headers: headers)
                    .validate(statusCode: 200..<300)
@@ -144,7 +156,9 @@ struct AddServices {
             
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : AddServices.languageKey
+
             ]
                Alamofire.request(url, method: .post, parameters: param, encoding: URLEncoding.default, headers: headers)
                    .validate(statusCode: 200..<300)
@@ -167,7 +181,9 @@ struct AddServices {
             
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : AddServices.languageKey
+
             ]
                Alamofire.request(url, method: .post, parameters: param, encoding: URLEncoding.default, headers: headers)
                    .validate(statusCode: 200..<300)
@@ -192,7 +208,9 @@ struct AddServices {
             
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : AddServices.languageKey
+
             ]
                Alamofire.request(url, method: .post, parameters: param, encoding: URLEncoding.default, headers: headers)
                    .validate(statusCode: 200..<300)
@@ -214,7 +232,9 @@ struct AddServices {
             let url = ConfigURLS.createProduct
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : AddServices.languageKey
+
             ]
             
               Alamofire.upload(multipartFormData: { (form: MultipartFormData) in
@@ -276,7 +296,9 @@ struct AddServices {
             let url = ConfigURLS.createProject
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : AddServices.languageKey
+
             ]
             
               Alamofire.upload(multipartFormData: { (form: MultipartFormData) in
@@ -339,7 +361,9 @@ struct AddServices {
             let url = ConfigURLS.addCompetition
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : AddServices.languageKey
+
             ]
             
               Alamofire.upload(multipartFormData: { (form: MultipartFormData) in
@@ -386,7 +410,9 @@ struct AddServices {
             
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : AddServices.languageKey
+
             ]
                Alamofire.request(url, method: .post, parameters: param, encoding: URLEncoding.default, headers: headers)
                    .validate(statusCode: 200..<300)
@@ -410,7 +436,9 @@ struct AddServices {
             
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : AddServices.languageKey
+
             ]
                Alamofire.request(url, method: .post, parameters: param, encoding: URLEncoding.default, headers: headers)
                    .validate(statusCode: 200..<300)
@@ -434,7 +462,9 @@ struct AddServices {
             
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : AddServices.languageKey
+
             ]
                Alamofire.request(url, method: .post, parameters: param, encoding: URLEncoding.default, headers: headers)
                    .validate(statusCode: 200..<300)
@@ -458,7 +488,9 @@ struct AddServices {
             
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : AddServices.languageKey
+
             ]
                Alamofire.request(url, method: .post, parameters: param, encoding: URLEncoding.default, headers: headers)
                    .validate(statusCode: 200..<300)
@@ -482,7 +514,9 @@ struct AddServices {
             
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : AddServices.languageKey
+
             ]
                Alamofire.request(url, method: .post, parameters: param, encoding: URLEncoding.default, headers: headers)
                    .validate(statusCode: 200..<300)
@@ -506,7 +540,9 @@ struct AddServices {
             
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : AddServices.languageKey
+
             ]
                Alamofire.request(url, method: .post, parameters: param, encoding: URLEncoding.default, headers: headers)
                    .validate(statusCode: 200..<300)
@@ -528,7 +564,9 @@ struct AddServices {
                let url = ConfigURLS.addComment
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : AddServices.languageKey
+
             ]
                Alamofire.request(url, method: .post, parameters: param, encoding: URLEncoding.default, headers: headers)
                    .validate(statusCode: 200..<300)
@@ -552,7 +590,9 @@ struct AddServices {
             let url = ConfigURLS.updateBanner
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : AddServices.languageKey
+
             ]
             
               Alamofire.upload(multipartFormData: { (form: MultipartFormData) in
@@ -590,7 +630,9 @@ struct AddServices {
             let url = ConfigURLS.updateProfile
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : AddServices.languageKey
+
             ]
             
               Alamofire.upload(multipartFormData: { (form: MultipartFormData) in

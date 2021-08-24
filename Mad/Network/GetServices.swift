@@ -14,6 +14,10 @@ class GetServices {
     
     static let shared = GetServices()
     
+    static var languageKey :String {
+        return LanguageHelper.sharedDelegate().getLanguage().apiKey()
+    }
+    
     func getAllCategories() -> Observable<CategoryModel> {
         return Observable.create { (observer) -> Disposable in
             let url = ConfigURLS.getCategeory
@@ -107,7 +111,8 @@ class GetServices {
                let url = ConfigURLS.getProject
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : GetServices.languageKey
             ]
             
                Alamofire.request(url, method: .get, parameters: param, encoding: URLEncoding.default, headers: headers)
@@ -130,7 +135,9 @@ class GetServices {
                let url = ConfigURLS.getProjectDetails
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : GetServices.languageKey
+
             ]
             
                Alamofire.request(url, method: .get, parameters: param, encoding: URLEncoding.default, headers: headers)
@@ -153,7 +160,9 @@ class GetServices {
                let url = ConfigURLS.getAllArtist
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : GetServices.languageKey
+
             ]
             
                Alamofire.request(url, method: .get, parameters: param, encoding: URLEncoding.default, headers: headers)
@@ -176,7 +185,9 @@ class GetServices {
                let url = ConfigURLS.getSuggested
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : GetServices.languageKey
+
             ]
             
                Alamofire.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers)
@@ -199,7 +210,9 @@ class GetServices {
                let url = ConfigURLS.getAllArtist + "?category_id=\(catId)"
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : GetServices.languageKey
+
             ]
             
                Alamofire.request(url, method: .get, parameters: param, encoding: URLEncoding.default, headers: headers)
@@ -223,7 +236,9 @@ class GetServices {
                let url = ConfigURLS.getArtistProfile
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : GetServices.languageKey
+
             ]
             
                Alamofire.request(url, method: .get, parameters: param, encoding: URLEncoding.default, headers: headers)
@@ -246,7 +261,9 @@ class GetServices {
                let url = ConfigURLS.getAllProduct
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : GetServices.languageKey
+
             ]
             
                Alamofire.request(url, method: .get, parameters: param, encoding: URLEncoding.default, headers: headers)
@@ -269,7 +286,9 @@ class GetServices {
                let url = ConfigURLS.getAllProduct
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : GetServices.languageKey
+
             ]
             
                Alamofire.request(url, method: .get, parameters: param, encoding: URLEncoding.default, headers: headers)
@@ -292,7 +311,9 @@ class GetServices {
                let url = ConfigURLS.getSuggestedProduct
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : GetServices.languageKey
+
             ]
             
                Alamofire.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers)
@@ -315,7 +336,9 @@ class GetServices {
                let url = ConfigURLS.getProductDetails
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : GetServices.languageKey
+
             ]
             
                Alamofire.request(url, method: .get, parameters: param, encoding: URLEncoding.default, headers: headers)
@@ -338,7 +361,9 @@ class GetServices {
                let url = ConfigURLS.getAllvideos
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : GetServices.languageKey
+
             ]
             
                Alamofire.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers)
@@ -361,7 +386,9 @@ class GetServices {
                let url = ConfigURLS.getVideoDetails
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : GetServices.languageKey
+
             ]
             
                Alamofire.request(url, method: .get, parameters: param, encoding: URLEncoding.default, headers: headers)
@@ -406,7 +433,9 @@ class GetServices {
                let url = ConfigURLS.artistProduct
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : GetServices.languageKey
+
             ]
             
                Alamofire.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers)
@@ -432,7 +461,9 @@ class GetServices {
                let url = ConfigURLS.getAllCompetition
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : GetServices.languageKey
+
             ]
             
                Alamofire.request(url, method: .get, parameters: param, encoding: URLEncoding.default, headers: headers)
@@ -458,7 +489,9 @@ class GetServices {
                let url = ConfigURLS.getCompetitionDetails
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : GetServices.languageKey
+
             ]
             
                Alamofire.request(url, method: .get, parameters: param, encoding: URLEncoding.default, headers: headers)
@@ -484,7 +517,9 @@ class GetServices {
                let url = ConfigURLS.aboutCompetition
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : GetServices.languageKey
+
             ]
             
                Alamofire.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers)
@@ -511,7 +546,9 @@ class GetServices {
                let url = ConfigURLS.popularSearch
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : GetServices.languageKey
+
             ]
             
                Alamofire.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers)
@@ -535,7 +572,9 @@ class GetServices {
                let url = ConfigURLS.search
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : GetServices.languageKey
+
             ]
             
                Alamofire.request(url, method: .get, parameters: param, encoding: URLEncoding.default, headers: headers)
@@ -558,7 +597,9 @@ class GetServices {
                let url = ConfigURLS.search
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : GetServices.languageKey
+
             ]
             
                Alamofire.request(url, method: .get, parameters: param, encoding: URLEncoding.default, headers: headers)
@@ -583,7 +624,9 @@ class GetServices {
                let url = ConfigURLS.search
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : GetServices.languageKey
+
             ]
             
                Alamofire.request(url, method: .get, parameters: param, encoding: URLEncoding.default, headers: headers)
@@ -607,7 +650,9 @@ class GetServices {
                let url = ConfigURLS.search
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : GetServices.languageKey
+
             ]
             
                Alamofire.request(url, method: .get, parameters: param, encoding: URLEncoding.default, headers: headers)
@@ -633,7 +678,9 @@ class GetServices {
                let url = ConfigURLS.getCart
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : GetServices.languageKey
+
             ]
             
                Alamofire.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers)
@@ -657,7 +704,9 @@ class GetServices {
                let url = ConfigURLS.getCartDetails
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : GetServices.languageKey
+
             ]
             
                Alamofire.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers)
@@ -681,7 +730,9 @@ class GetServices {
                let url = ConfigURLS.getOrders
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : GetServices.languageKey
+
             ]
             
                Alamofire.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers)
@@ -705,7 +756,9 @@ class GetServices {
                let url = ConfigURLS.getOrdersDetails
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : GetServices.languageKey
+
             ]
             
                Alamofire.request(url, method: .get, parameters: param, encoding: URLEncoding.default, headers: headers)
@@ -729,7 +782,9 @@ class GetServices {
                let url = ConfigURLS.allBlogs
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : GetServices.languageKey
+
             ]
             
                Alamofire.request(url, method: .get, parameters: param, encoding: URLEncoding.default, headers: headers)
@@ -752,7 +807,9 @@ class GetServices {
                let url = ConfigURLS.blogDetails
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : GetServices.languageKey
+
             ]
             
                Alamofire.request(url, method: .get, parameters: param, encoding: URLEncoding.default, headers: headers)
@@ -777,7 +834,9 @@ class GetServices {
                let url = ConfigURLS.notitfication
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : GetServices.languageKey
+
             ]
             
                Alamofire.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers)
@@ -800,7 +859,9 @@ class GetServices {
                let url = ConfigURLS.getFavourite
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : GetServices.languageKey
+
             ]
             
                Alamofire.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers)
@@ -826,7 +887,9 @@ class GetServices {
                let url = ConfigURLS.getMyProfile
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : GetServices.languageKey
+
             ]
             
                Alamofire.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers)

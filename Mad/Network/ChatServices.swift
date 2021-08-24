@@ -15,12 +15,18 @@ class ChatServices {
     
     static let shared = ChatServices()
 
+    static var languageKey :String {
+        return LanguageHelper.sharedDelegate().getLanguage().apiKey()
+    }
+    
     func creatConverstion(param : [String :Any]) -> Observable<CreatConversationModelJSON> {
            return Observable.create { (observer) -> Disposable in
                let url = ConfigURLS.creatConverstion
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : ChatServices.languageKey
+
             ]
             
                Alamofire.request(url, method: .post, parameters: param, encoding: URLEncoding.default, headers: headers)
@@ -43,7 +49,9 @@ class ChatServices {
                let url = ConfigURLS.getAllConverstion
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : ChatServices.languageKey
+
             ]
             
                Alamofire.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers)
@@ -66,7 +74,9 @@ class ChatServices {
                let url = ConfigURLS.getAllMessages
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : ChatServices.languageKey
+
             ]
                Alamofire.request(url, method: .get, parameters: param, encoding: URLEncoding.default, headers: headers)
                    .validate(statusCode: 200..<300)
@@ -88,7 +98,9 @@ class ChatServices {
                let url = ConfigURLS.sendMessages
             let token = Helper.getAPIToken() ?? ""
             let headers = [
-                "Authorization": "Bearer \(token)"
+                "Authorization": "Bearer \(token)",
+                "lang" : ChatServices.languageKey
+
             ]
             
                Alamofire.request(url, method: .post, parameters: param, encoding: URLEncoding.default, headers: headers)

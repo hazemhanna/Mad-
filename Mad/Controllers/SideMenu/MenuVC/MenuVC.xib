@@ -358,6 +358,9 @@
                                                 <state key="normal" title="Language">
                                                     <color key="titleColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="languageBtnWithSender:" destination="gH6-x4-vCf" eventType="touchUpInside" id="UQc-oW-R2C"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cFm-kf-Z7h">
                                                 <rect key="frame" x="0.0" y="781" width="350" height="30"/>

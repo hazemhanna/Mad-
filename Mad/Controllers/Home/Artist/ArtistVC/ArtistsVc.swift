@@ -17,6 +17,11 @@ class ArtistsVc: UIViewController {
     @IBOutlet weak var artistsView: UIView!
     @IBOutlet weak var suggestedView: UIView!
 
+    @IBOutlet weak var suggestedTitle: UILabel!
+    @IBOutlet weak var artistsTitle: UILabel!
+    @IBOutlet weak var topActiveTitle: UILabel!
+
+    
     var token = Helper.getAPIToken() ?? ""
     let cellIdentifier1 = "ProjectCell"
     let cellIdentifier2 = "SuggestedCell"
@@ -44,8 +49,10 @@ class ArtistsVc: UIViewController {
             self.suggestedView.isHidden = true
         }
         getSuggested()
-
-    
+        
+        suggestedTitle.text = "sugessted".localized
+        artistsTitle.text = "artist".localized
+        topActiveTitle.text = "topActive".localized
     }
     
     override func viewWillAppear(_ animated: Bool) {

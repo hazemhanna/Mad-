@@ -134,6 +134,13 @@ class MenuVC: UIViewController {
     }
     
     
+    @IBAction func languageBtn(sender: UIButton) {
+        if #available(iOS 13.0, *) {
+            UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+            return
+        }
+    }
+    
     @IBAction func logOutAction(sender: UIButton) {
         
         let alert = UIAlertController(title: "LogOut", message: "Are you sure", preferredStyle: .alert)

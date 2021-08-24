@@ -166,10 +166,13 @@
             </view>
             <navigationItem key="navigationItem" id="WHr-Hy-Re9"/>
             <connections>
+                <outlet property="artistsTitle" destination="L8J-Sg-UjO" id="qQT-9T-rwy"/>
                 <outlet property="artistsView" destination="6cT-IN-II7" id="pey-6m-z82"/>
                 <outlet property="suggestedCollectionView" destination="ZQa-x8-oI4" id="3od-OY-veb"/>
+                <outlet property="suggestedTitle" destination="gQs-pX-qV4" id="PcW-S1-ubM"/>
                 <outlet property="suggestedView" destination="d3K-z1-4XO" id="5Zc-wB-9lf"/>
                 <outlet property="topActiveCollectionView" destination="dXi-bZ-eKE" id="ehc-kw-rRJ"/>
+                <outlet property="topActiveTitle" destination="aVc-ND-dau" id="HpQ-MG-AtO"/>
             </connections>
             <point key="canvasLocation" x="-6297" y="2462"/>
         </viewController>
