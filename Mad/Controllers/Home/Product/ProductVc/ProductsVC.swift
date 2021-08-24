@@ -19,6 +19,11 @@ class ProductsVC : UIViewController {
     @IBOutlet weak var  productView: UIView!
     @IBOutlet weak var  forYouView: UIView!
 
+    @IBOutlet weak var suggestedTitle: UILabel!
+    @IBOutlet weak var productTitle: UILabel!
+    @IBOutlet weak var topProductTitle: UILabel!
+
+    
     
     
     var disposeBag = DisposeBag()
@@ -53,6 +58,11 @@ class ProductsVC : UIViewController {
         }else{
             self.forYouView.isHidden = true
         }
+        
+        suggestedTitle.text = "sugessted".localized
+        productTitle.text = "Product".localized
+        topProductTitle.text = "topProduct".localized
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,7 +78,6 @@ class ProductsVC : UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
-        
         productView.addSubview(productCollectionView)
         productCollectionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -132,7 +141,7 @@ extension ProductsVC: UICollectionViewDelegate,UICollectionViewDataSource ,UICol
                if indexPath.row == 0 {
                     cell.catImage.isHidden = true
                     cell.addProjectBtn.isHidden = false
-                    cell.projectNameLabel.text = "Add Product"
+                cell.projectNameLabel.text = "Add.Product".localized
                  }else{
                      cell.catImage.isHidden = false
                     cell.addProjectBtn.isHidden = true
