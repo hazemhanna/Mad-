@@ -66,6 +66,9 @@ extension ArtistProjectsVc: UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let main = ProjectDetailsVC.instantiateFromNib()
+        main!.projectId =  self.projects[indexPath.row].id!
+        self.navigationController?.pushViewController(main!, animated: true)
     }
     
 }

@@ -88,9 +88,7 @@ class AddProjectdetailsVc : UIViewController {
         tagsField.textColor = #colorLiteral(red: 0.1749513745, green: 0.2857730389, blue: 0.4644193649, alpha: 1)
         tagsField.textDelegate = self
         textFieldEvents()
-        
-      
-        
+
         artistField.frame = artistView.bounds
         artistView.addSubview(artistField)
         artistField.cornerRadius = 3.0

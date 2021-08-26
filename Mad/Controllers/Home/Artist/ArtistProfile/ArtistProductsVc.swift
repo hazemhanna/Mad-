@@ -56,7 +56,9 @@ extension ArtistProductsVc :  UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    
+        let vc = ProductDetailsVC.instantiateFromNib()
+        vc!.productId = self.products[indexPath.row].id ?? 0
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
 }
 extension ArtistProductsVc : UICollectionViewDelegateFlowLayout{

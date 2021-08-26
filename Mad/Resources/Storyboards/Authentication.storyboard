@@ -52,6 +52,9 @@
                                 <state key="normal" title="SKIP &amp; EXPLORE">
                                     <color key="titleColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="goButtonWithSender:" destination="tHU-JW-jVx" eventType="touchUpInside" id="Yyd-f3-VEM"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gYx-Y1-ZPf">
                                 <rect key="frame" x="62" y="320" width="290" height="60"/>
@@ -219,6 +222,14 @@
             <point key="canvasLocation" x="-4188" y="-899"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="8f2-2P-GWV">
+            <size key="intrinsicContentSize" width="193" height="28"/>
+        </designable>
+        <designable name="o0h-K4-tvL">
+            <size key="intrinsicContentSize" width="30" height="33"/>
+        </designable>
+    </designables>
     <resources>
         <image name="Component 6 – 1" width="458" height="947"/>
         <image name="Component 61 – 2" width="26.5" height="19.5"/>

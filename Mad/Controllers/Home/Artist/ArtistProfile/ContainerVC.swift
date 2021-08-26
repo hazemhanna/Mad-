@@ -13,11 +13,11 @@ import Pageboy
 
 class ContainerVC: TabmanViewController {
 
-    let vc1 = UIStoryboard(name: "Artist", bundle: nil).instantiateViewController(withIdentifier: "ArtistProjectsVc") as! ArtistProjectsVc
+    let vc1 = UIStoryboard(name: "Artist", bundle: nil).instantiateViewController(withIdentifier: "AboutVc") as!  AboutVc
     
     let vc2 = UIStoryboard(name: "Artist", bundle: nil).instantiateViewController(withIdentifier: "ArtistProductsVc") as! ArtistProductsVc
 
-    let vc3 = UIStoryboard(name: "Artist", bundle: nil).instantiateViewController(withIdentifier: "AboutVc") as! AboutVc
+    let vc3 = UIStoryboard(name: "Artist", bundle: nil).instantiateViewController(withIdentifier: "ArtistProjectsVc") as! ArtistProjectsVc
 
     private lazy var viewControllers: [UIViewController] = [
         vc1,
@@ -69,11 +69,12 @@ func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyVie
 
 func barItem(for bar: TMBar, at index: Int) -> TMBarItemable {
         if index == 0 {
-            return TMBarItem(title:  "Projects")
+            return TMBarItem(title:  "About".localized)
         }else if index == 1  {
-            return TMBarItem(title:  "Products")
+            return TMBarItem(title:  "Shop.Home".localized)
         }else{
-            return TMBarItem(title:  "About")
+            return TMBarItem(title:  "Projects".localized)
+
         }
     }
 }

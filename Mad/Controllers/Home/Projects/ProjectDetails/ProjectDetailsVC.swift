@@ -27,6 +27,8 @@ class ProjectDetailsVC: UIViewController {
     @IBOutlet weak var reviewsBtn: UIButton!
     @IBOutlet weak var reviewsStack : UIStackView!
 
+    @IBOutlet weak var mainTitleLbl: UILabel!
+
     
     var homeVM = HomeViewModel()
     var disposeBag = DisposeBag()
@@ -49,6 +51,10 @@ class ProjectDetailsVC: UIViewController {
         productCollectionView.delegate = self
         productCollectionView.dataSource = self
         self.homeVM.showIndicator()
+        
+        mainTitleLbl.text = "Project.title".localized
+        descriptionBtn.setTitle("About".localized, for: .normal)
+        reviewsBtn.setTitle("Comment".localized, for: .normal)
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -364,6 +364,7 @@
                 <outlet property="contentSizeHieght" destination="Ko9-nv-4Sx" id="Qum-yy-Lvt"/>
                 <outlet property="descriptionBtn" destination="97i-Yv-87x" id="BgT-9Q-gJ0"/>
                 <outlet property="favouriteBtn" destination="Ce9-cZ-HOg" id="7vT-a9-4fB"/>
+                <outlet property="mainTitleLbl" destination="NOe-Uc-pHz" id="HsP-Tz-9JB"/>
                 <outlet property="productCollectionView" destination="JAU-Nb-XoQ" id="Np3-Dz-MOz"/>
                 <outlet property="projectImage" destination="mhg-b0-AUp" id="uF1-JD-k0j"/>
                 <outlet property="reviewsBtn" destination="cnn-7I-voq" id="xE7-eF-TKS"/>
