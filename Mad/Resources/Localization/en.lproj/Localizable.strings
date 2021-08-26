@@ -30,11 +30,13 @@
 "Sign.up" = "Sign up";
 "Continue" = "Continue";
 "Forgot.PASSWORD" = "Forgot PASSWORD? Reset Now";
+"Reset.Now"= "Reset Now";
 //  signUp
 "CREATE.PASSWORD" = "CREATE A PASSWORD";
 "Your.Password" = "Your Password";
+"SIGNUP" = "SIGNUP";
 // welcome
-"Hello.Mad.artist!" = "Hello Mad artist!";
+"Hello.Mad.artist" = "Hello Mad artist!";
 "Create.Artist.Profile" = "Create Artist Profile";
 "Compete" = "Compete to win it all";
 "Apply.to" = "Apply to competitions, get visibility & win cool prizes";
@@ -48,6 +50,8 @@
 "Create.your.projects" = "Create your projects, promote them and get them sponsored";
 // verification
 "Verification.code" = "Verification code has been sent to your email address";
+
+"type.code"="Type Code Here";
 // name
 "YOUR.NAME" = "YOUR NAME";
 "first.Name" = "first Name";
@@ -55,6 +59,7 @@
 // age
 "How.old" = "How old are you?";
 "Age" = "Age";
+"HI"="HI";
 // country
 "Your.Country" = "Your Country";
 // categeory
@@ -69,15 +74,6 @@
 //  address
 "Contact.Address.details" = "Contact & Address details";
 "Contact.details" = "Contact details";
-"Enter.first.Name" = "Please Enter first Name";
-"Enter.last.Name" = "Please Enter last Name";
-"Enter.phone" = "Please Enter phone Number";
-"Enter.email" = "Please Enter email";
-"Enter.country" = "Please Enter country Name";
-"Enter.street" = "Please Enter street";
-"Enter.city" = "Please Enter city";
-"Enter.state" = "Please Enter state";
-"Enter.postcode" = "Please Enter postcode";
 "Company" = "Company name (Optional)";
 "Phone" = "Phone number";
 "Email.Address" = "Email Address";
@@ -120,5 +116,18 @@
 "Product" = "Product";
 "Add.Product" = "Add Product";
 "Creat.project" = "Creat project";
-
-
+// mesages
+"Enter.Password" = "Please Enter Your Password";
+"Enter.first.Name" = "Please Enter first Name";
+"Enter.last.Name" = "Please Enter last Name";
+"Enter.phone" = "Please Enter phone Number";
+"Enter.email" = "Please Enter Your email";
+"Enter.country" = "Please Enter country Name";
+"Enter.street" = "Please Enter street";
+"Enter.city" = "Please Enter city";
+"Enter.state" = "Please Enter state";
+"Enter.postcode" = "Please Enter postcode";
+"Enter.Code" = "Please Enter Your Code First";
+"Password.Hint" = "Your Password Should be 8 characters. at least one special characters and one capital letter";
+"Enter.age"="Please Enter Your age";
+"not.match" = "password not match";

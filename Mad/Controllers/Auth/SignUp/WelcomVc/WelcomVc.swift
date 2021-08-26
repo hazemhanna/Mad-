@@ -14,7 +14,9 @@ class WelcomVc: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var nextBtn: UIButton!
-    
+    @IBOutlet weak var creatBtn: UIButton!
+    @IBOutlet weak var titleLbl: UILabel!
+
     var disposeBag = DisposeBag()
     private let AdsVM = AdsViewModel()
     
@@ -27,16 +29,21 @@ class WelcomVc: UIViewController {
         }
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.isPagingEnabled = true
         setupCollectionView()
         
-        data.append(SplashModel(images: #imageLiteral(resourceName: "Mask Group 27"), title: "Compete to win it all".localized, title2: "Apply to competitions, get visibility & win cool prizes"))
-        data.append(SplashModel(images: #imageLiteral(resourceName: "Mask Group 34"), title: "Sell your creations & art", title2: "We love everything you do. Sell your work now."))
-        data.append(SplashModel(images: #imageLiteral(resourceName: "pawel-szvmanski-i73F7ma3Q9k-unsplash"), title: "Artfluencer?", title2: "Create content for brands by being part of their campaigns"))
-        data.append(SplashModel(images: #imageLiteral(resourceName: "mohsen-shenavari-0WkVr4IINKQ-unsplash"), title: "Get featured in MAD Content", title2: "Shows, interviews, events,  showcases & so much more"))
-        data.append(SplashModel(images: #imageLiteral(resourceName: "Mask Group 32"), title: " What are you working on?", title2: "Create your projects, promote them and get them sponsored"))
+        titleLbl.text = "Hello.Mad.artist".localized
+        nextBtn.setTitle( "Next".localized, for: .normal)
+        creatBtn.setTitle( "Create.Artist.Profile".localized, for: .normal)
+        
+        data.append(SplashModel(images: #imageLiteral(resourceName: "Mask Group 27"), title: "Compete".localized, title2: "Apply.to".localized))
+        data.append(SplashModel(images: #imageLiteral(resourceName: "Mask Group 34"), title: "Sell".localized, title2: "We.love".localized))
+        data.append(SplashModel(images: #imageLiteral(resourceName: "pawel-szvmanski-i73F7ma3Q9k-unsplash"), title: "Artfluencer".localized, title2: "Create.content".localized))
+        data.append(SplashModel(images: #imageLiteral(resourceName: "mohsen-shenavari-0WkVr4IINKQ-unsplash"), title: "Get.featured".localized, title2: "Shows.interviews".localized))
+        data.append(SplashModel(images: #imageLiteral(resourceName: "Mask Group 32"), title: "What.are".localized, title2: "Create.your.projects".localized))
         
     }
     

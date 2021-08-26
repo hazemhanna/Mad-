@@ -11,9 +11,21 @@ class CreatPasswordVc: UIViewController {
 
     @IBOutlet weak var iconImage : UIImageView!
     @IBOutlet weak var passwordTF : CustomTextField!
+    
+    @IBOutlet weak var mainTitleLbl: UILabel!
+    @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet weak var nextBtn: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         passwordTF.delegate = self
+        
+        mainTitleLbl.text = "CREATE.PASSWORD".localized
+        titleLbl.text = "Your.Password".localized
+        nextBtn.setTitle( "Next".localized, for: .normal)
+
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -27,10 +39,10 @@ class CreatPasswordVc: UIViewController {
     func validateInput() -> Bool {
         let password =  self.passwordTF.text ?? ""
         if password.isEmpty {
-          self.showMessage(text: "Please Enter Your Password")
+            self.showMessage(text: "Enter.Password".localized)
           return false
         }else if password.isPasswordValid() != true {
-            self.showMessage(text: "Your Password Should be 8 characters. at least one special characters and one capital letter")
+            self.showMessage(text: "Password.Hint".localized)
             return false
           }else{
             return true

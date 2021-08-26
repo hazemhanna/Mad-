@@ -9,16 +9,24 @@ import UIKit
 
 class AgeVc: UIViewController {
 
-    @IBOutlet weak var nameLbl : UILabel!
     @IBOutlet weak var ageTF : CustomTextField!
-
+    @IBOutlet weak var nameLbl : UILabel!
+    @IBOutlet weak var questionLbl: UILabel!
+    @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet weak var nextBtn: UIButton!
+    
+    
+    
     var name  = (Helper.getUserFirstName() ?? "") + " " + (Helper.getUserLastName() ?? "")
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        nameLbl.text = "HI \(name)"
+        nameLbl.text = "HI".localized + " " + (name)
         ageTF.delegate = self
+        questionLbl.text = "How.old".localized
+        titleLbl.text = "Age".localized
+        nextBtn.setTitle( "Next".localized, for: .normal)
     
     }
 
@@ -34,7 +42,7 @@ class AgeVc: UIViewController {
     func validateInput() -> Bool {
         let age =  self.ageTF.text ?? ""
         if age.isEmpty {
-          self.showMessage(text: "Please Enter Your age")
+            self.showMessage(text: "Enter.age".localized)
           return false
         }else{
             return true

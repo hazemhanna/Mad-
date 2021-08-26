@@ -12,7 +12,9 @@ import RxCocoa
 class VerificationVc: UIViewController {
     
     @IBOutlet weak var codeTF: UITextField!
-    
+    @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet weak var nextBtn: UIButton!
+
     private let AuthViewModel = AuthenticationViewModel()
     var disposeBag = DisposeBag()
     var email = Helper.getUserEmail()
@@ -21,6 +23,10 @@ class VerificationVc: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         codeTF.delegate = self
+        
+        codeTF.placeholder = "type.code".localized
+        titleLbl.text = "Verification.code".localized
+        nextBtn.setTitle( "Next".localized, for: .normal)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,7 +45,7 @@ class VerificationVc: UIViewController {
     func validateInput() -> Bool {
         let code =  self.codeTF.text ?? ""
         if code.isEmpty {
-          self.showMessage(text: "Please Enter Your Code First")
+            self.showMessage(text: "Enter.Code".localized)
           return false
         }else{
             return true

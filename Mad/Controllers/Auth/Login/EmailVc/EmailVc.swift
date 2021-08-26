@@ -39,10 +39,10 @@ class EmailVc: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         if register {
-            titleLbl.text = "SIGNUP"
+            titleLbl.text = "SIGNUP".localized
             self.sigenLbl.isHidden = true
         }else{
-            titleLbl.text = "LOGIN"
+            titleLbl.text = "LOGIN".localized
             self.sigenLbl.isHidden = false
         }
     }
@@ -55,8 +55,8 @@ class EmailVc: UIViewController {
     }
     
     func setupMultiColorRegisterLabel() {
-        let main_string = "Don't have an account? Sign up"
-        let coloredString = "Sign up"
+        let main_string = "Don't".localized
+        let coloredString = "Sign.up".localized
         let Range = (main_string as NSString).range(of: coloredString)
         let attribute = NSMutableAttributedString.init(string: main_string)
         attribute.addAttribute(NSAttributedString.Key.foregroundColor, value: #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1) , range: Range)
@@ -66,7 +66,7 @@ class EmailVc: UIViewController {
     func validateInput() -> Bool {
         let email =  self.emailTF.text ?? ""
         if email.isEmpty {
-          self.showMessage(text: "Please Enter Your Email First")
+            self.showMessage(text: "Enter.email".localized)
           return false
         }else{
             return true

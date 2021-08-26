@@ -58,7 +58,7 @@ enum Language :String{
             case .English:
                 return "en-US"
             case .French :
-                return "fr-US"
+                return "fr"
             }
         }
 
@@ -67,7 +67,7 @@ enum Language :String{
             case .English:
                 return "en-US"
             case .French :
-                return "fr-US"
+                return "fr"
             }
         }
     

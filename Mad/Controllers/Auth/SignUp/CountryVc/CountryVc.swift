@@ -11,6 +11,9 @@ import RxCocoa
 
 class CountryVc: UIViewController {
     
+    @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet weak var nextBtn: UIButton!
+    
     @IBOutlet weak var selectCateDropDown: TextFieldDropDown!
     private let AuthViewModel = AuthenticationViewModel()
     var disposeBag = DisposeBag()
@@ -28,6 +31,8 @@ class CountryVc: UIViewController {
         super.viewDidLoad()
         self.AuthViewModel.showIndicator()
         getCountry()
+        titleLbl.text = "Your.Country".localized
+        nextBtn.setTitle( "Next".localized, for: .normal)
     }
 
     func setupCatDropDown(){
@@ -49,7 +54,7 @@ class CountryVc: UIViewController {
     func validateInput() -> Bool {
         let age =  self.selectCateDropDown.text ?? ""
         if age.isEmpty {
-          self.showMessage(text: "Please select Your Country")
+            self.showMessage(text: "Enter.country".localized)
           return false
         }else{
             return true

@@ -212,8 +212,12 @@
                 </constraints>
             </view>
             <connections>
+                <outlet property="firstNameLbl" destination="0ns-cu-CZw" id="WtN-mw-TCT"/>
                 <outlet property="firstNameTF" destination="fwF-CP-kpn" id="nxV-rv-XhF"/>
+                <outlet property="lastNameLbl" destination="GqV-Zz-xJw" id="Slb-sF-OdG"/>
                 <outlet property="lastNameTF" destination="uQj-Gz-2vV" id="9Uf-A3-o4B"/>
+                <outlet property="nextBtn" destination="vg3-2i-Af6" id="FLx-0c-lA5"/>
+                <outlet property="titleLbl" destination="bpC-h1-Pe6" id="X20-75-CFp"/>
             </connections>
             <point key="canvasLocation" x="-467" y="114"/>
         </viewController>

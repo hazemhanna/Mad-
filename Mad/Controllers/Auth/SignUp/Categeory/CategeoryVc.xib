@@ -126,7 +126,10 @@
             <connections>
                 <outlet property="CategoryCollectionView" destination="t6S-Uk-Ges" id="cd6-Ba-j7Y"/>
                 <outlet property="artistBtn" destination="jK4-Uj-xtz" id="cyb-Kk-URY"/>
+                <outlet property="intrestedLbl" destination="Pcd-kC-6bG" id="dV0-Gb-EUL"/>
+                <outlet property="madArtistLbl" destination="6ob-2v-4CU" id="WRg-nQ-PdT"/>
                 <outlet property="nextBtn" destination="fVe-2S-oOj" id="2xT-Px-8BI"/>
+                <outlet property="pickLbl" destination="CXL-eW-Soa" id="bGB-Ov-d9y"/>
             </connections>
             <point key="canvasLocation" x="-468.11594202898556" y="113.83928571428571"/>
         </viewController>

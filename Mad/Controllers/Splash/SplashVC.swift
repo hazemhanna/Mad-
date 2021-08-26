@@ -18,6 +18,8 @@ class SplashVC: UIViewController {
     @IBOutlet weak var thirdView : UIView!
     @IBOutlet weak var lastView : UIView!
     
+
+    
     private let splashVM = SplashViewModel()
     var disposeBag = DisposeBag()
 
@@ -32,6 +34,8 @@ class SplashVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSplashCollectionView()
+        
+        nextBtn.setTitle( "Next".localized, for: .normal)
         data.append(SplashModel(images: #imageLiteral(resourceName: "Component 5 – 1"), title: "JOIN.MADER".localized, title2: "Discover".localized))
         data.append(SplashModel(images: #imageLiteral(resourceName: "Component 4 – 1"), title: "SHOP".localized, title2: "Artist.creations".localized))
         data.append(SplashModel(images: #imageLiteral(resourceName: "Layer 0"), title: "Or.ARTIST".localized, title2: "Get.visibility".localized))

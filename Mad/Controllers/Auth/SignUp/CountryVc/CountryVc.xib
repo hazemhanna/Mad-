@@ -150,7 +150,9 @@
                 </constraints>
             </view>
             <connections>
+                <outlet property="nextBtn" destination="6Om-Jh-9oU" id="oq9-V1-1cq"/>
                 <outlet property="selectCateDropDown" destination="FM3-so-eyC" id="qbK-Al-lrk"/>
+                <outlet property="titleLbl" destination="3kd-4j-fal" id="bq2-Me-9MF"/>
             </connections>
             <point key="canvasLocation" x="-468.11594202898556" y="113.83928571428571"/>
         </viewController>

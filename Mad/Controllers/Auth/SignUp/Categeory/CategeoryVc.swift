@@ -16,6 +16,11 @@ class CategeoryVc: UIViewController {
     @IBOutlet weak var nextBtn: UIButton!
     @IBOutlet weak var artistBtn: UIButton!
 
+    @IBOutlet weak var intrestedLbl: UILabel!
+    @IBOutlet weak var pickLbl: UILabel!
+    @IBOutlet weak var madArtistLbl: UILabel!
+
+    
     let cellIdentifier = "CategeoryCell"
     var disposeBag = DisposeBag()
     
@@ -33,6 +38,13 @@ class CategeoryVc: UIViewController {
         getCategory()
         nextBtn.backgroundColor = #colorLiteral(red: 0.9098039216, green: 0.5764705882, blue: 0.6745098039, alpha: 1)
         self.nextBtn.isEnabled = false
+        
+     
+        intrestedLbl.text = "interested".localized
+        pickLbl.text = "Pick".localized
+        madArtistLbl.text = "Mad.artist".localized
+        nextBtn.setTitle( "Next".localized, for: .normal)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

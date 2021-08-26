@@ -13,10 +13,11 @@ class ResetPasswordVC: UIViewController {
    
     @IBOutlet weak var passwordTF: CustomTextField!
     @IBOutlet weak var confirmTF: CustomTextField!
-    
     @IBOutlet weak var lineImage: UIImageView!
     @IBOutlet weak var lineImage2: UIImageView!
-
+    @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet weak var ResetBtn: UIButton!
+    
     
     private let AuthViewModel = AuthenticationViewModel()
     var disposeBag = DisposeBag()
@@ -25,6 +26,11 @@ class ResetPasswordVC: UIViewController {
         super.viewDidLoad()
         passwordTF.delegate = self
         confirmTF.delegate = self
+        
+        titleLbl.text = "Reset.password".localized
+        passwordTF.placeholder = "New.password".localized
+        confirmTF.placeholder = "confirm.password".localized
+        ResetBtn.setTitle("Reset".localized, for: .normal)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -74,13 +80,13 @@ class ResetPasswordVC: UIViewController {
         let confirmPassword =  self.confirmTF.text ?? ""
 
         if password.isEmpty {
-          self.showMessage(text: "Please Enter Your Password")
+            self.showMessage(text: "Enter.Password".localized)
           return false
         }else if confirmPassword.isEmpty {
-            self.showMessage(text: "Please Enter Your Password")
+            self.showMessage(text: "Enter.Password".localized)
             return false
         }else if confirmPassword != password {
-            self.showMessage(text: "password not match")
+            self.showMessage(text: "not.match".localized)
             return false
           }else{
             return true

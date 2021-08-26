@@ -63,8 +63,8 @@ class PasswordVc: UIViewController {
     }
     
     func setupMultiColorRegisterLabel() {
-        let main_string = "Forgot PASSWORD? Reset Now"
-        let coloredString = "Reset Now"
+        let main_string = "Forgot.PASSWORD".localized
+        let coloredString = "Reset.Now".localized
         let Range = (main_string as NSString).range(of: coloredString)
         let attribute = NSMutableAttributedString.init(string: main_string)
         attribute.addAttribute(NSAttributedString.Key.foregroundColor, value: #colorLiteral(red: 0.1176470588, green: 0.2156862745, blue: 0.4, alpha: 1) , range: Range)
@@ -74,7 +74,7 @@ class PasswordVc: UIViewController {
     func validateInput() -> Bool {
         let email =  self.passwordTF.text ?? ""
         if email.isEmpty {
-          self.showMessage(text: "Please Enter Your Password")
+            self.showMessage(text: "Enter.Password".localized)
           return false
         }else{
             return true

@@ -11,13 +11,22 @@ class NameVc: UIViewController {
     
     @IBOutlet weak var firstNameTF : CustomTextField!
     @IBOutlet weak var lastNameTF : CustomTextField!
-
+    @IBOutlet weak var firstNameLbl: UILabel!
+    @IBOutlet weak var lastNameLbl: UILabel!
+    @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet weak var nextBtn: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         firstNameTF.delegate = self
         lastNameTF.delegate = self
 
+        firstNameLbl.text = "first.Name".localized
+        lastNameLbl.text = "last.Name".localized
+        titleLbl.text = "YOUR.NAME".localized
+        nextBtn.setTitle( "Next".localized, for: .normal)
+        
     }
 
 
@@ -35,10 +44,10 @@ class NameVc: UIViewController {
         let lasName =  self.lastNameTF.text ?? ""
         
         if firstName.isEmpty {
-          self.showMessage(text: "Please Enter Your First Name")
+            self.showMessage(text: "Enter.first.Name".localized)
           return false
         }else if lasName.isEmpty {
-          self.showMessage(text: "Please Enter Your Last Name")
+            self.showMessage(text: "Enter.last.Name".localized)
           return false
         }else{
             return true

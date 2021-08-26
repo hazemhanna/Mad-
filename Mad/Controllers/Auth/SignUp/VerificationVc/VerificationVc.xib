@@ -132,6 +132,8 @@
             </view>
             <connections>
                 <outlet property="codeTF" destination="YJM-Bo-le9" id="75y-CG-NUR"/>
+                <outlet property="nextBtn" destination="PMk-UF-Nr7" id="yhn-r2-5AJ"/>
+                <outlet property="titleLbl" destination="bJU-fH-jLZ" id="B7v-CC-cha"/>
             </connections>
             <point key="canvasLocation" x="-467" y="114"/>
         </viewController>
