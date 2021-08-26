@@ -50,7 +50,7 @@
             <objects>
                 <viewController storyboardIdentifier="SearchVc" id="RtP-bx-FAR" customClass="SearchVc" customModule="Mad" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WMS-a8-fbK">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tth-a5-bVa" customClass="CustomView" customModule="Mad" customModuleProvider="target">
@@ -94,13 +94,13 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mca-vO-KSu">
-                                <rect key="frame" x="0.0" y="126" width="414" height="791"/>
+                                <rect key="frame" x="0.0" y="126" width="414" height="625"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qkh-GE-Ini">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="800"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="znC-xh-qfd" customClass="CustomView" customModule="Mad" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="800"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Popular search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HdA-J4-QW9">
                                                         <rect key="frame" x="32" y="8" width="114" height="16"/>
@@ -109,7 +109,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="I62-JX-ihV" customClass="CustomCollectionView" customModule="Mad" customModuleProvider="target">
-                                                        <rect key="frame" x="32" y="56" width="350" height="944"/>
+                                                        <rect key="frame" x="32" y="56" width="350" height="744"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BaK-GW-6OY">
                                                             <size key="itemSize" width="50" height="50"/>
@@ -141,7 +141,7 @@
                                             <constraint firstItem="znC-xh-qfd" firstAttribute="leading" secondItem="Qkh-GE-Ini" secondAttribute="leading" id="3aV-QM-PAs"/>
                                             <constraint firstAttribute="bottom" secondItem="znC-xh-qfd" secondAttribute="bottom" id="3l4-CM-z4M"/>
                                             <constraint firstAttribute="trailing" secondItem="znC-xh-qfd" secondAttribute="trailing" id="8gQ-t6-oWs"/>
-                                            <constraint firstAttribute="height" constant="1000" id="Fld-aS-Lms"/>
+                                            <constraint firstAttribute="height" constant="800" id="Fld-aS-Lms"/>
                                             <constraint firstItem="znC-xh-qfd" firstAttribute="top" secondItem="Qkh-GE-Ini" secondAttribute="top" id="PUK-RI-dFt"/>
                                         </constraints>
                                     </view>
@@ -168,7 +168,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8Yf-pl-lDQ"/>
-                    <size key="freeformSize" width="414" height="1000"/>
+                    <size key="freeformSize" width="414" height="800"/>
                     <connections>
                         <outlet property="popularCollectionView" destination="I62-JX-ihV" id="snm-WK-h66"/>
                     </connections>
@@ -182,7 +182,7 @@
             <objects>
                 <viewController storyboardIdentifier="NotificationVc" id="GBK-ql-4f9" customClass="NotificationVc" customModule="Mad" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Pgj-rq-fNC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Rft-jU-fWp">
@@ -232,13 +232,13 @@
                                 </subviews>
                             </stackView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6W6-mC-781">
-                                <rect key="frame" x="0.0" y="94" width="414" height="1023"/>
+                                <rect key="frame" x="0.0" y="94" width="414" height="657"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GiC-zs-aBX">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1250"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="800"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="pHP-XD-vc4">
-                                                <rect key="frame" x="32" y="8" width="350" height="1234"/>
+                                                <rect key="frame" x="32" y="8" width="350" height="784"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GZz-2S-czP" customClass="CustomView" customModule="Mad" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="350" height="60"/>
@@ -295,12 +295,12 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WKu-0h-ocb">
-                                                        <rect key="frame" x="0.0" y="76" width="350" height="1158"/>
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WKu-0h-ocb">
+                                                        <rect key="frame" x="0.0" y="76" width="350" height="708"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </tableView>
-                                                    <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="D0e-7W-x1e">
-                                                        <rect key="frame" x="0.0" y="1234" width="350" height="0.0"/>
+                                                    <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="D0e-7W-x1e">
+                                                        <rect key="frame" x="0.0" y="784" width="350" height="0.0"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </tableView>
                                                 </subviews>
@@ -313,7 +313,7 @@
                                             <constraint firstItem="pHP-XD-vc4" firstAttribute="leading" secondItem="GiC-zs-aBX" secondAttribute="leading" constant="32" id="gbI-t6-vGF"/>
                                             <constraint firstAttribute="bottom" secondItem="pHP-XD-vc4" secondAttribute="bottom" constant="8" id="jOE-bU-Iyx"/>
                                             <constraint firstAttribute="trailing" secondItem="pHP-XD-vc4" secondAttribute="trailing" constant="32" id="rjY-Ou-kqA"/>
-                                            <constraint firstAttribute="height" constant="1250" id="vkc-pP-9dA"/>
+                                            <constraint firstAttribute="height" constant="800" id="vkc-pP-9dA"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -340,7 +340,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="7Ob-vi-Ais"/>
-                    <size key="freeformSize" width="414" height="1200"/>
+                    <size key="freeformSize" width="414" height="800"/>
                     <connections>
                         <outlet property="inboxTableView" destination="D0e-7W-x1e" id="6ed-Nt-pdF"/>
                         <outlet property="indexBtn" destination="aEu-kr-QwC" id="o6K-4o-IMu"/>
