@@ -56,18 +56,18 @@ enum Language :String{
         func apiKey()->String {
             switch self {
             case .English:
-                return "en"
+                return "en-US"
             case .French :
-                return "fr"
+                return "fr-US"
             }
         }
 
         func key()->String {
             switch self {
             case .English:
-                return "en"
+                return "en-US"
             case .French :
-                return "fr"
+                return "fr-US"
             }
         }
     

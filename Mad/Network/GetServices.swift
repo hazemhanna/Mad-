@@ -23,7 +23,7 @@ class GetServices {
             let token = Helper.getAPIToken() ?? ""
             let headers = [
                 "Authorization": "Bearer \(token)",
-                "x-localization" : GetServices.languageKey
+                "X-localization" : GetServices.languageKey
             ]
             
             let url = ConfigURLS.getCategeory
@@ -50,7 +50,7 @@ class GetServices {
             let token = Helper.getAPIToken() ?? ""
             let headers = [
                 "Authorization": "Bearer \(token)",
-                "x-localization" : GetServices.languageKey
+                "X-localization" : GetServices.languageKey
             ]
             
             Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers)
@@ -70,7 +70,13 @@ class GetServices {
     func getProjectCategories() -> Observable<CategoryModel> {
         return Observable.create { (observer) -> Disposable in
             let url = ConfigURLS.getProjectCategeory
-            Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil)
+            let token = Helper.getAPIToken() ?? ""
+            let headers = [
+                "Authorization": "Bearer \(token)",
+                "X-localization" : GetServices.languageKey
+            ]
+            
+            Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers)
                 .validate(statusCode: 200..<300)
                 .responseJSON { (response: DataResponse<Any>) in
                     do {
@@ -90,7 +96,7 @@ class GetServices {
             let token = Helper.getAPIToken() ?? ""
             let headers = [
                 "Authorization": "Bearer \(token)",
-                "x-localization" : GetServices.languageKey
+                "X-localization" : GetServices.languageKey
             ]
             
             Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers)
@@ -131,7 +137,7 @@ class GetServices {
             let token = Helper.getAPIToken() ?? ""
             let headers = [
                 "Authorization": "Bearer \(token)",
-                "x-localization" : GetServices.languageKey
+                "X-localization" : GetServices.languageKey
             ]
             
                Alamofire.request(url, method: .get, parameters: param, encoding: URLEncoding.default, headers: headers)
@@ -155,7 +161,7 @@ class GetServices {
             let token = Helper.getAPIToken() ?? ""
             let headers = [
                 "Authorization": "Bearer \(token)",
-                "x-localization" : GetServices.languageKey
+                "X-localization" : GetServices.languageKey
 
             ]
             
@@ -180,7 +186,7 @@ class GetServices {
             let token = Helper.getAPIToken() ?? ""
             let headers = [
                 "Authorization": "Bearer \(token)",
-                "x-localization" : GetServices.languageKey
+                "X-localization" : GetServices.languageKey
 
             ]
             
@@ -205,7 +211,7 @@ class GetServices {
             let token = Helper.getAPIToken() ?? ""
             let headers = [
                 "Authorization": "Bearer \(token)",
-                "x-localization" : GetServices.languageKey
+                "X-localization" : GetServices.languageKey
 
             ]
             
@@ -230,7 +236,7 @@ class GetServices {
             let token = Helper.getAPIToken() ?? ""
             let headers = [
                 "Authorization": "Bearer \(token)",
-                "x-localization" : GetServices.languageKey
+                "X-localization" : GetServices.languageKey
 
             ]
             
@@ -256,7 +262,7 @@ class GetServices {
             let token = Helper.getAPIToken() ?? ""
             let headers = [
                 "Authorization": "Bearer \(token)",
-                "x-localization" : GetServices.languageKey
+                "X-localization" : GetServices.languageKey
 
             ]
             
@@ -281,7 +287,7 @@ class GetServices {
             let token = Helper.getAPIToken() ?? ""
             let headers = [
                 "Authorization": "Bearer \(token)",
-                "x-localization" : GetServices.languageKey
+                "X-localization" : GetServices.languageKey
 
             ]
             
@@ -306,7 +312,7 @@ class GetServices {
             let token = Helper.getAPIToken() ?? ""
             let headers = [
                 "Authorization": "Bearer \(token)",
-                "x-localization" : GetServices.languageKey
+                "X-localization" : GetServices.languageKey
 
             ]
             
@@ -331,7 +337,7 @@ class GetServices {
             let token = Helper.getAPIToken() ?? ""
             let headers = [
                 "Authorization": "Bearer \(token)",
-                "x-localization" : GetServices.languageKey
+                "X-localization" : GetServices.languageKey
 
             ]
             
@@ -356,7 +362,7 @@ class GetServices {
             let token = Helper.getAPIToken() ?? ""
             let headers = [
                 "Authorization": "Bearer \(token)",
-                "x-localization" : GetServices.languageKey
+                "X-localization" : GetServices.languageKey
 
             ]
             
@@ -381,7 +387,7 @@ class GetServices {
             let token = Helper.getAPIToken() ?? ""
             let headers = [
                 "Authorization": "Bearer \(token)",
-                "x-localization" : GetServices.languageKey
+                "X-localization" : GetServices.languageKey
 
             ]
             
@@ -406,7 +412,7 @@ class GetServices {
             let token = Helper.getAPIToken() ?? ""
             let headers = [
                 "Authorization": "Bearer \(token)",
-                "x-localization" : GetServices.languageKey
+                "X-localization" : GetServices.languageKey
 
             ]
             
@@ -453,7 +459,7 @@ class GetServices {
             let token = Helper.getAPIToken() ?? ""
             let headers = [
                 "Authorization": "Bearer \(token)",
-                "x-localization" : GetServices.languageKey
+                "X-localization" : GetServices.languageKey
 
             ]
             
@@ -481,7 +487,7 @@ class GetServices {
             let token = Helper.getAPIToken() ?? ""
             let headers = [
                 "Authorization": "Bearer \(token)",
-                "x-localization" : GetServices.languageKey
+                "X-localization" : GetServices.languageKey
 
             ]
             
@@ -509,7 +515,7 @@ class GetServices {
             let token = Helper.getAPIToken() ?? ""
             let headers = [
                 "Authorization": "Bearer \(token)",
-                "x-localization" : GetServices.languageKey
+                "X-localization" : GetServices.languageKey
 
             ]
             
@@ -537,7 +543,7 @@ class GetServices {
             let token = Helper.getAPIToken() ?? ""
             let headers = [
                 "Authorization": "Bearer \(token)",
-                "x-localization" : GetServices.languageKey
+                "X-localization" : GetServices.languageKey
 
             ]
             
@@ -566,7 +572,7 @@ class GetServices {
             let token = Helper.getAPIToken() ?? ""
             let headers = [
                 "Authorization": "Bearer \(token)",
-                "x-localization" : GetServices.languageKey
+                "X-localization" : GetServices.languageKey
 
             ]
             
@@ -592,7 +598,7 @@ class GetServices {
             let token = Helper.getAPIToken() ?? ""
             let headers = [
                 "Authorization": "Bearer \(token)",
-                "x-localization" : GetServices.languageKey
+                "X-localization" : GetServices.languageKey
 
             ]
             
@@ -617,7 +623,7 @@ class GetServices {
             let token = Helper.getAPIToken() ?? ""
             let headers = [
                 "Authorization": "Bearer \(token)",
-                "x-localization" : GetServices.languageKey
+                "X-localization" : GetServices.languageKey
 
             ]
             
@@ -644,7 +650,7 @@ class GetServices {
             let token = Helper.getAPIToken() ?? ""
             let headers = [
                 "Authorization": "Bearer \(token)",
-                "x-localization" : GetServices.languageKey
+                "X-localization" : GetServices.languageKey
 
             ]
             
@@ -670,7 +676,7 @@ class GetServices {
             let token = Helper.getAPIToken() ?? ""
             let headers = [
                 "Authorization": "Bearer \(token)",
-                "x-localization" : GetServices.languageKey
+                "X-localization" : GetServices.languageKey
 
             ]
             
@@ -698,7 +704,7 @@ class GetServices {
             let token = Helper.getAPIToken() ?? ""
             let headers = [
                 "Authorization": "Bearer \(token)",
-                "x-localization" : GetServices.languageKey
+                "X-localization" : GetServices.languageKey
 
             ]
             
@@ -724,7 +730,7 @@ class GetServices {
             let token = Helper.getAPIToken() ?? ""
             let headers = [
                 "Authorization": "Bearer \(token)",
-                "x-localization" : GetServices.languageKey
+                "X-localization" : GetServices.languageKey
 
             ]
             
@@ -750,7 +756,7 @@ class GetServices {
             let token = Helper.getAPIToken() ?? ""
             let headers = [
                 "Authorization": "Bearer \(token)",
-                "x-localization" : GetServices.languageKey
+                "X-localization" : GetServices.languageKey
 
             ]
             
@@ -776,7 +782,7 @@ class GetServices {
             let token = Helper.getAPIToken() ?? ""
             let headers = [
                 "Authorization": "Bearer \(token)",
-                "x-localization" : GetServices.languageKey
+                "X-localization" : GetServices.languageKey
 
             ]
             
@@ -802,7 +808,7 @@ class GetServices {
             let token = Helper.getAPIToken() ?? ""
             let headers = [
                 "Authorization": "Bearer \(token)",
-                "x-localization" : GetServices.languageKey
+                "X-localization" : GetServices.languageKey
 
             ]
             
@@ -827,7 +833,7 @@ class GetServices {
             let token = Helper.getAPIToken() ?? ""
             let headers = [
                 "Authorization": "Bearer \(token)",
-                "x-localization" : GetServices.languageKey
+                "X-localization" : GetServices.languageKey
 
             ]
             
@@ -854,7 +860,7 @@ class GetServices {
             let token = Helper.getAPIToken() ?? ""
             let headers = [
                 "Authorization": "Bearer \(token)",
-                "x-localization" : GetServices.languageKey
+                "X-localization" : GetServices.languageKey
 
             ]
             
@@ -879,7 +885,7 @@ class GetServices {
             let token = Helper.getAPIToken() ?? ""
             let headers = [
                 "Authorization": "Bearer \(token)",
-                "x-localization" : GetServices.languageKey
+                "X-localization" : GetServices.languageKey
 
             ]
             
@@ -907,7 +913,7 @@ class GetServices {
             let token = Helper.getAPIToken() ?? ""
             let headers = [
                 "Authorization": "Bearer \(token)",
-                "x-localization" : GetServices.languageKey
+                "X-localization" : GetServices.languageKey
 
             ]
             

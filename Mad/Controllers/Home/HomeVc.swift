@@ -98,7 +98,7 @@ class HomeVC: UIViewController {
 //MARK:- Data Binding
 extension HomeVC: UICollectionViewDelegate {
     func setuptitleCollectionView() {
-        self.titles = ["artist".localized,"Shop".localized,"Competitions".localized,"Projects".localized,"Blog".localized]
+        self.titles = ["artist".localized,"Shop.Home".localized,"Competitions".localized,"Projects".localized,"Blog".localized]
         let cellIdentifier = "TitleCell"
         self.titleCollectionView.rx.setDelegate(self).disposed(by: disposeBag)
         self.titleCollectionView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier)

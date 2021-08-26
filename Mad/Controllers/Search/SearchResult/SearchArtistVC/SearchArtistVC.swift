@@ -49,7 +49,7 @@ extension SearchArtistVC : UITableViewDelegate,UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier) as! SearchArtistCell
             cell.titleLabel.text = self.artists[indexPath.row].name ?? ""
             cell.subTitleLabel.text = self.artists[indexPath.row].headline ?? ""
-            if let bannerUrl = URL(string:   self.artists[indexPath.row].bannerImg ?? ""){
+            if let bannerUrl = URL(string:   self.artists[indexPath.row].profilPicture ?? ""){
             cell.bannermage.kf.setImage(with: bannerUrl, placeholder: #imageLiteral(resourceName: "WhatsApp Image 2021-04-21 at 1.25.47 PM"))
            }
         
