@@ -14,6 +14,8 @@ class PasswordVc: UIViewController {
     @IBOutlet weak var passwordTF: CustomTextField!
     @IBOutlet weak var lineImage: UIImageView!
     @IBOutlet weak var resetLbl: UILabel!
+    @IBOutlet weak var passwordLbl: UILabel!
+
     
     private let AuthViewModel = AuthenticationViewModel()
     var disposeBag = DisposeBag()
@@ -67,7 +69,7 @@ class PasswordVc: UIViewController {
         let coloredString = "Reset.Now".localized
         let Range = (main_string as NSString).range(of: coloredString)
         let attribute = NSMutableAttributedString.init(string: main_string)
-        attribute.addAttribute(NSAttributedString.Key.foregroundColor, value: #colorLiteral(red: 0.1176470588, green: 0.2156862745, blue: 0.4, alpha: 1) , range: Range)
+        attribute.addAttribute(NSAttributedString.Key.foregroundColor, value: #colorLiteral(red: 1, green: 0.1647058824, blue: 0.1490196078, alpha: 1) , range: Range)
         resetLbl.attributedText = attribute
     }
     

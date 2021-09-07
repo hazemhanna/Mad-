@@ -19,7 +19,7 @@ class HomeCompetitionsVc : UIViewController {
 
     let cellIdentifier = "CompetitionCell"
     var parentVC : HomeVC?
-    var comp = ["all","ongoing","complete"]
+    var comp = ["All","Ongoing","Complete"]
     var compValue = "all"
     var competitionVm = CometitionsViewModel()
     var disposeBag = DisposeBag()

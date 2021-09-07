@@ -74,7 +74,6 @@ class ResetPasswordVC: UIViewController {
               }
       }
     
-    
     func validateInput() -> Bool {
         let password =  self.passwordTF.text ?? ""
         let confirmPassword =  self.confirmTF.text ?? ""
@@ -82,6 +81,9 @@ class ResetPasswordVC: UIViewController {
         if password.isEmpty {
             self.showMessage(text: "Enter.Password".localized)
           return false
+        }else if password.isPasswordValid() != true {
+            self.showMessage(text: "Password.Hint".localized)
+            return false
         }else if confirmPassword.isEmpty {
             self.showMessage(text: "Enter.Password".localized)
             return false

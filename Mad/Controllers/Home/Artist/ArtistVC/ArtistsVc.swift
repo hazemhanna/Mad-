@@ -123,7 +123,7 @@ extension ArtistsVc : UICollectionViewDelegate ,UICollectionViewDataSource , UIC
         if !self.showShimmer1 {
                 cell.catImage.isHidden = false
                 cell.addProjectBtn.isHidden = true
-                cell.projectNameLabel.text = self.topActive[indexPath.row].headline ?? ""
+                cell.projectNameLabel.text = self.topActive[indexPath.row].name ?? ""
                 cell.ProjectView.layer.cornerRadius = 14
                 if let url = URL(string:   self.topActive[indexPath.row].profilPicture ?? ""){
                 cell.catImage.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4"))

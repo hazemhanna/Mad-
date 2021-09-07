@@ -20,12 +20,9 @@ class CreatPasswordVc: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         passwordTF.delegate = self
-        
         mainTitleLbl.text = "CREATE.PASSWORD".localized
         titleLbl.text = "Your.Password".localized
         nextBtn.setTitle( "Next".localized, for: .normal)
-
-        
     }
 
     override func viewWillAppear(_ animated: Bool) {

@@ -41,6 +41,9 @@ class EmailVc: UIViewController {
         if register {
             titleLbl.text = "SIGNUP".localized
             self.sigenLbl.isHidden = true
+        }else if reset {
+            titleLbl.text = "Forgot".localized
+            self.sigenLbl.isHidden = false
         }else{
             titleLbl.text = "LOGIN".localized
             self.sigenLbl.isHidden = false
