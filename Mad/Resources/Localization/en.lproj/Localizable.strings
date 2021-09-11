@@ -55,8 +55,8 @@
 "type.code"="Type Code Here";
 // name
 "YOUR.NAME" = "YOUR NAME";
-"first.Name" = "first Name";
-"last.Name" = "last Name";
+"first.Name" = "First Name";
+"last.Name" = "Last Name";
 // age
 "How.old" = "How old are you?";
 "Age" = "Age";
@@ -122,6 +122,20 @@
 "Project.title" = "Project Details";
 "Submit" = "Submit";
 
+"follow"="Follow";
+"message"="Message";
+"level"="Level";
+"point"="Point";
+"Bio"="Bio";
+"SocialMedia"="Social Media";
+"Physical" = "Physical";
+"review"="Reviews";
+"description"="Description";
+"WriteReview"="Write review";
+"View.cart" = "View cart";
+
+"blogDetails" = "blog Details";
+
 // mesages
 "Enter.Password" = "Please Enter Your Password";
 "Enter.first.Name" = "Please Enter first Name";
@@ -137,3 +151,5 @@
 "Password.Hint" = "Your Password Should be 8 characters. at least one special characters and one capital letter";
 "Enter.age"="Please Enter Your age";
 "not.match" = "password not match";
+"please login first" = "please login first";
+"addedToCart" = "This product has been added to cart";

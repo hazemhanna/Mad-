@@ -36,7 +36,11 @@ class ProductDetailsVC: UIViewController {
     @IBOutlet weak var reviewsStackSizeHieght : NSLayoutConstraint!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var blackView: UIView!
-
+    @IBOutlet weak var viewCartBtn: UIButton!
+    @IBOutlet weak var writeReviewBtn: UIButton!
+    @IBOutlet weak var phsicalLbl: UILabel!
+    @IBOutlet weak var addToCartLbl: UILabel!
+ 
     
     var token = Helper.getAPIToken() ?? ""
     var productId = Int()
@@ -47,17 +51,16 @@ class ProductDetailsVC: UIViewController {
     var artistId  = Int()
     var disposeBag = DisposeBag()
     var productVM = ProductViewModel()
-    
     var photos = [String]()
     var reviews = [Review]()
-
+    
     open lazy var customTabBar: PTCardTabBar = {
         return PTCardTabBar()
     }()
     
    private let CellIdentifier = "LiveCellCVC"
    private let cellIdentifier = "AddsCell"
-    private let cellIdentifier2 = "ReviewCell"
+   private let cellIdentifier2 = "ReviewCell"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,6 +76,15 @@ class ProductDetailsVC: UIViewController {
         setupContentTableView()
         contentView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
 
+        descriptionBtn.setTitle("description".localized, for: .normal)
+        reviewsBtn.setTitle("review".localized, for: .normal)
+        writeReviewBtn.setTitle("WriteReview".localized, for: .normal)
+        viewCartBtn.setTitle("View.cart".localized, for: .normal)
+        phsicalLbl.text = "Physical".localized
+        addToCartLbl.text = "addedToCart".localized
+
+   
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

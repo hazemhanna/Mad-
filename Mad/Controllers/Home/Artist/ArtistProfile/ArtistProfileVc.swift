@@ -19,14 +19,18 @@ class ArtistProfileVc: UIViewController {
     @IBOutlet weak var followersCount: UILabel!
     @IBOutlet weak var artistName: UILabel!
     @IBOutlet weak var followBtn: UIButton!
-
-
+    @IBOutlet weak var messageBtn: UIButton!
+    
     var artistVM = ArtistViewModel()
     var disposeBag = DisposeBag()
     var artistId = Int()
     var isFavorite = Bool()
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        followBtn.setTitle("follow".localized, for: .normal)
+        messageBtn.setTitle("message".localized, for: .normal)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,7 +60,7 @@ class ArtistProfileVc: UIViewController {
             followBtn.backgroundColor = #colorLiteral(red: 0.5764705882, green: 0.6235294118, blue: 0.7137254902, alpha: 1)
        }
        }else {
-        self.showMessage(text: "please login first")
+        self.showMessage(text: "please login first".localized)
       }
     }
     

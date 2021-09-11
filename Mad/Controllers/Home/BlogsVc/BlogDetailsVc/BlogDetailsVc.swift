@@ -15,6 +15,7 @@ class BlogDetailsVc : UIViewController {
     @IBOutlet weak var productCollectionView: UICollectionView!
     @IBOutlet weak var aboutView: UIView!
     @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet weak var screenTitleLbl: UILabel!
     @IBOutlet weak var shareLbl: UILabel!
     @IBOutlet weak var projectImage: UIImageView!
     @IBOutlet weak var shareBtn: UIButton!
@@ -40,7 +41,7 @@ class BlogDetailsVc : UIViewController {
         productCollectionView.delegate = self
         productCollectionView.dataSource = self
         self.blogsVM.showIndicator()
-        
+        screenTitleLbl.text = "blogDetails".localized
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,7 +69,7 @@ class BlogDetailsVc : UIViewController {
             self.blogsVM.showIndicator()
             self.shareBlog(blogId : self.blogId)
         }else{
-            self.showMessage(text: "please login first")
+            self.showMessage(text: "please login first".localized)
         }
     }
 }

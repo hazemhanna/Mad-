@@ -251,6 +251,7 @@
                 <outlet property="contentSizeHieght" destination="9Eh-8U-Hrf" id="otw-HE-nHI"/>
                 <outlet property="productCollectionView" destination="dHP-am-HYd" id="htr-FL-tHA"/>
                 <outlet property="projectImage" destination="lJ9-k2-7B9" id="dES-sa-YLu"/>
+                <outlet property="screenTitleLbl" destination="yQB-Af-JLV" id="FgM-3f-Pd2"/>
                 <outlet property="shareBtn" destination="tkr-FO-sWU" id="uCP-2U-cf6"/>
                 <outlet property="shareLbl" destination="Mep-QW-cbu" id="lpI-F3-axP"/>
                 <outlet property="titleLbl" destination="d3R-lZ-XPm" id="nDD-Hm-sK1"/>

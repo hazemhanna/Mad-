@@ -266,6 +266,7 @@
                         <outlet property="favouriteCount" destination="OSe-V8-9V5" id="29y-SW-dQg"/>
                         <outlet property="followBtn" destination="A4a-nq-vOB" id="K9u-Tk-oF9"/>
                         <outlet property="followersCount" destination="FYw-fH-JyD" id="DKl-0W-h6p"/>
+                        <outlet property="messageBtn" destination="4YJ-0Z-SrJ" id="8tr-47-OtB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M1I-sJ-eoz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -464,8 +465,12 @@
                     </view>
                     <connections>
                         <outlet property="bioLbL" destination="WXj-u7-GoD" id="sEK-N7-o2q"/>
+                        <outlet property="bioLbLLoc" destination="xmg-4j-Ocd" id="4Ur-Fd-5gx"/>
                         <outlet property="levelLbl" destination="OoF-Zp-TJc" id="yHg-uX-QJe"/>
+                        <outlet property="levelLoc" destination="uRJ-ul-Nf3" id="9by-cn-xjn"/>
                         <outlet property="pointLbl" destination="34C-4L-t9F" id="fYL-X7-0J7"/>
+                        <outlet property="pointLblLoc" destination="mfE-KZ-0yy" id="1Fm-er-mGe"/>
+                        <outlet property="socialLoc" destination="TMn-dw-2IF" id="x10-fr-qNR"/>
                         <outlet property="socialTableview" destination="2Cy-8m-Mdy" id="KkM-d6-jGf"/>
                     </connections>
                 </viewController>

@@ -16,8 +16,14 @@ class AboutVc: UIViewController {
     @IBOutlet weak var  bioLbL : UILabel!
     @IBOutlet weak var  socialTableview : UITableView!
     
+    
+    @IBOutlet weak var  levelLoc: UILabel!
+    @IBOutlet weak var  pointLblLoc: UILabel!
+    @IBOutlet weak var  bioLbLLoc : UILabel!
+    @IBOutlet weak var  socialLoc : UILabel!
+    
+    
     let cellIdentifier = "SocialCell"
-
     var artistVM = ArtistViewModel()
     var disposeBag = DisposeBag()
     var artistId = Helper.getArtistId() ?? 0
@@ -27,6 +33,11 @@ class AboutVc: UIViewController {
         super.viewDidLoad()
         setupContentTableView()
         getArtistProfile(artistId : artistId)
+        
+        levelLoc.text = "level".localized
+        pointLblLoc.text = "point".localized
+        bioLbLLoc.text = "Bio".localized
+        socialLoc.text = "SocialMedia".localized
     }
     
     override func viewWillAppear(_ animated: Bool) {

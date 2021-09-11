@@ -576,6 +576,7 @@ added to cart</string>
             <size key="freeformSize" width="414" height="1000"/>
             <connections>
                 <outlet property="CounterLbl" destination="dCg-uN-P2h" id="tar-BA-Tws"/>
+                <outlet property="addToCartLbl" destination="x6O-Wv-FLB" id="bSw-ui-xRd"/>
                 <outlet property="addsCollectionView" destination="SSj-CR-XwL" id="mTL-tL-qMK"/>
                 <outlet property="artistName" destination="x4B-fQ-hOV" id="0jf-zP-QXG"/>
                 <outlet property="artistPhoto" destination="gHu-wr-eny" id="vAG-gK-EWm"/>
@@ -590,6 +591,7 @@ added to cart</string>
                 <outlet property="hideCartBtn" destination="NlC-tQ-mSz" id="nOD-Mx-2ek"/>
                 <outlet property="photoCount" destination="Wsu-xp-WPo" id="ul1-A8-07l"/>
                 <outlet property="photoIndex" destination="pmE-Sf-HOP" id="EzD-ex-YoD"/>
+                <outlet property="phsicalLbl" destination="APC-VL-wfh" id="c0E-q5-2vs"/>
                 <outlet property="productMatrial" destination="aZY-uS-r7g" id="N4c-T9-fqY"/>
                 <outlet property="productName" destination="Y9z-Yc-ECl" id="UoF-am-eBB"/>
                 <outlet property="productPrice" destination="udp-sG-bdB" id="8iG-LM-w9w"/>
@@ -599,6 +601,8 @@ added to cart</string>
                 <outlet property="reviewsBtn" destination="AqR-4Z-Vpc" id="Mo6-La-KH9"/>
                 <outlet property="reviewsStack" destination="3ID-mV-Gmd" id="Mfw-bH-1Dl"/>
                 <outlet property="reviewsStackSizeHieght" destination="bKc-ZI-SUv" id="eNo-la-qA0"/>
+                <outlet property="viewCartBtn" destination="80F-5Y-oRH" id="Wln-NV-arN"/>
+                <outlet property="writeReviewBtn" destination="cUB-It-TwO" id="0QI-4f-nWq"/>
             </connections>
             <point key="canvasLocation" x="-1791.304347826087" y="1717.6339285714284"/>
         </viewController>

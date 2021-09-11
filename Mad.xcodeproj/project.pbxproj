@@ -498,7 +498,6 @@
 		0488CCEF261213E000E05BEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0488CCF1261213E400E05BEB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0488CCF4261213E400E05BEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		0488CCF6261213E400E05BEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04911C67261C9A2900705A58 /* SuggestedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedCell.swift; sourceTree = "<group>"; };
 		04911C68261C9A2900705A58 /* SuggestedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuggestedCell.xib; sourceTree = "<group>"; };
 		049302452690276B00086C58 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
@@ -581,6 +580,7 @@
 		04F06AF42614E0D600B08606 /* CategeoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategeoryCell.swift; sourceTree = "<group>"; };
 		04F06AF52614E0D600B08606 /* CategeoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategeoryCell.xib; sourceTree = "<group>"; };
 		04F06AF92614E18D00B08606 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
+		04F4B00926EB0556005311E6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04F63023269F09AC00BA4C08 /* BlogsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogsModel.swift; sourceTree = "<group>"; };
 		04F63026269F0BAF00BA4C08 /* BlogsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogsViewModel.swift; sourceTree = "<group>"; };
 		2DB430330E0AB5843CC86F37 /* Pods-Mad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mad.debug.xcconfig"; path = "Target Support Files/Pods-Mad/Pods-Mad.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1761,7 +1761,7 @@
 			isa = PBXGroup;
 			children = (
 				0488CCE8261213E000E05BEB /* AppDelegate.swift */,
-				0488CCF6261213E400E05BEB /* Info.plist */,
+				04F4B00926EB0556005311E6 /* Info.plist */,
 				0475B31926BD735A003A4F14 /* GoogleService-Info.plist */,
 			);
 			name = AppFiles;
@@ -2549,7 +2549,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Mad/Mad.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = UK3S3D6VYH;
 				INFOPLIST_FILE = Mad/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -2572,7 +2572,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Mad/Mad.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = UK3S3D6VYH;
 				INFOPLIST_FILE = Mad/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
