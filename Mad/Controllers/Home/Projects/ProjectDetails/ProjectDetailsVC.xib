@@ -6,6 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -159,18 +160,34 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uEb-Rh-xYr">
                                                         <rect key="frame" x="32" y="48" width="350" height="420"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ocq-Tu-oqA">
-                                                                <rect key="frame" x="0.0" y="0.0" width="350" height="16"/>
-                                                                <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="16"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qHX-i4-aaq">
+                                                                <rect key="frame" x="0.0" y="0.0" width="350" height="20.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
+                                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="SAb-k5-7xA">
+                                                                <rect key="frame" x="0.0" y="28.5" width="350" height="300"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="300" id="ha3-Ug-JCq"/>
+                                                                </constraints>
+                                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="e9p-Bw-bKA">
+                                                                    <size key="itemSize" width="128" height="128"/>
+                                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                                </collectionViewFlowLayout>
+                                                            </collectionView>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="trailing" secondItem="Ocq-Tu-oqA" secondAttribute="trailing" id="61P-w0-e5Y"/>
-                                                            <constraint firstItem="Ocq-Tu-oqA" firstAttribute="leading" secondItem="uEb-Rh-xYr" secondAttribute="leading" id="Jjf-qy-Eb5"/>
-                                                            <constraint firstItem="Ocq-Tu-oqA" firstAttribute="top" secondItem="uEb-Rh-xYr" secondAttribute="top" id="faZ-we-fVa"/>
+                                                            <constraint firstItem="SAb-k5-7xA" firstAttribute="leading" secondItem="uEb-Rh-xYr" secondAttribute="leading" id="MQK-AX-E9e"/>
+                                                            <constraint firstAttribute="trailing" secondItem="qHX-i4-aaq" secondAttribute="trailing" id="SwI-f9-x1L"/>
+                                                            <constraint firstItem="qHX-i4-aaq" firstAttribute="leading" secondItem="uEb-Rh-xYr" secondAttribute="leading" id="ZeH-sK-Nnb"/>
+                                                            <constraint firstItem="SAb-k5-7xA" firstAttribute="top" secondItem="qHX-i4-aaq" secondAttribute="bottom" constant="8" id="j54-bL-l5q"/>
+                                                            <constraint firstAttribute="trailing" secondItem="SAb-k5-7xA" secondAttribute="trailing" id="swU-Vh-JUo"/>
+                                                            <constraint firstItem="qHX-i4-aaq" firstAttribute="top" secondItem="uEb-Rh-xYr" secondAttribute="top" id="wc6-nW-9uN"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
@@ -359,11 +376,12 @@
             <navigationItem key="navigationItem" id="Mf3-yG-jq5"/>
             <connections>
                 <outlet property="LikeLbl" destination="BV0-ZH-utI" id="50k-U6-ui3"/>
-                <outlet property="aboutTV" destination="Ocq-Tu-oqA" id="TK9-pY-lwd"/>
+                <outlet property="aboutTV" destination="qHX-i4-aaq" id="FGX-Vz-5YV"/>
                 <outlet property="aboutView" destination="2Jt-JW-aDY" id="c96-qv-Kcb"/>
                 <outlet property="contentSizeHieght" destination="Ko9-nv-4Sx" id="Qum-yy-Lvt"/>
                 <outlet property="descriptionBtn" destination="97i-Yv-87x" id="BgT-9Q-gJ0"/>
                 <outlet property="favouriteBtn" destination="Ce9-cZ-HOg" id="7vT-a9-4fB"/>
+                <outlet property="imageCollectionView" destination="SAb-k5-7xA" id="TQL-ij-9j2"/>
                 <outlet property="mainTitleLbl" destination="NOe-Uc-pHz" id="HsP-Tz-9JB"/>
                 <outlet property="productCollectionView" destination="JAU-Nb-XoQ" id="Np3-Dz-MOz"/>
                 <outlet property="projectImage" destination="mhg-b0-AUp" id="uF1-JD-k0j"/>
@@ -379,7 +397,7 @@
     </objects>
     <designables>
         <designable name="RYI-7T-5AE">
-            <size key="intrinsicContentSize" width="123.5" height="34"/>
+            <size key="intrinsicContentSize" width="129.5" height="42.5"/>
         </designable>
     </designables>
     <resources>
@@ -387,5 +405,8 @@
         <image name="Group 140" width="20" height="18"/>
         <image name="Group 370" width="20.5" height="20.5"/>
         <image name="Path 327" width="17" height="18.5"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

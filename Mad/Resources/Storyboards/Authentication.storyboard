@@ -28,11 +28,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Component 6 – 1" translatesAutoresizingMaskIntoConstraints="NO" id="i0M-F5-eNq">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Component 87 – 1" translatesAutoresizingMaskIntoConstraints="NO" id="i0M-F5-eNq">
+                                <rect key="frame" x="0.0" y="-40" width="414" height="224"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZWl-FI-bvy">
-                                <rect key="frame" x="144.5" y="288" width="125" height="16"/>
+                                <rect key="frame" x="144.5" y="244" width="125" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="125" id="d2E-ed-41q"/>
                                     <constraint firstAttribute="height" constant="16" id="r4Y-NN-XdV"/>
@@ -43,7 +43,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5vL-nS-ckE">
-                                <rect key="frame" x="132" y="584" width="150" height="16"/>
+                                <rect key="frame" x="132" y="540" width="150" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="QAt-4p-G3D"/>
                                     <constraint firstAttribute="width" constant="150" id="z3d-aT-jvI"/>
@@ -57,7 +57,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gYx-Y1-ZPf">
-                                <rect key="frame" x="62" y="320" width="290" height="60"/>
+                                <rect key="frame" x="62" y="276" width="290" height="60"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle 63" translatesAutoresizingMaskIntoConstraints="NO" id="D9c-mq-IvC">
                                         <rect key="frame" x="0.0" y="0.0" width="290" height="60"/>
@@ -89,7 +89,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HSr-ID-gmg">
-                                <rect key="frame" x="62" y="460" width="290" height="60"/>
+                                <rect key="frame" x="62" y="416" width="290" height="60"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle 16" translatesAutoresizingMaskIntoConstraints="NO" id="xVP-H2-PRg">
                                         <rect key="frame" x="0.0" y="0.0" width="280" height="60"/>
@@ -135,7 +135,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OCo-zP-bcp">
-                                <rect key="frame" x="148" y="412" width="118" height="16"/>
+                                <rect key="frame" x="148" y="368" width="118" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="Tko-Yt-CaK"/>
                                     <constraint firstAttribute="width" constant="118" id="Wn9-MA-JoB"/>
@@ -145,8 +145,11 @@
                                     <color key="titleColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Component 88 – 1" translatesAutoresizingMaskIntoConstraints="NO" id="fLt-Df-7fY">
+                                <rect key="frame" x="-22" y="728" width="458" height="224"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o0h-K4-tvL" customClass="CustomButtons" customModule="Mad" customModuleProvider="target">
-                                <rect key="frame" x="163" y="616" width="88" height="54"/>
+                                <rect key="frame" x="163" y="572" width="88" height="54"/>
                                 <color key="backgroundColor" red="0.8980392157" green="0.12549019610000001" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="88" id="33O-CA-5b7"/>
@@ -170,10 +173,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="OCo-zP-bcp" firstAttribute="centerX" secondItem="K1N-8u-w7u" secondAttribute="centerX" id="2rG-9Q-5UW"/>
+                            <constraint firstItem="fLt-Df-7fY" firstAttribute="width" secondItem="K1N-8u-w7u" secondAttribute="width" multiplier="1.10628" id="6Sv-81-5xN"/>
                             <constraint firstItem="OCo-zP-bcp" firstAttribute="top" secondItem="gYx-Y1-ZPf" secondAttribute="bottom" constant="32" id="DRe-uV-gLd"/>
-                            <constraint firstItem="i0M-F5-eNq" firstAttribute="height" secondItem="K1N-8u-w7u" secondAttribute="height" id="Fs4-3A-XI9"/>
+                            <constraint firstItem="36J-dJ-ggL" firstAttribute="bottom" secondItem="fLt-Df-7fY" secondAttribute="bottom" constant="-90" id="KBN-h7-Yvy"/>
                             <constraint firstItem="5vL-nS-ckE" firstAttribute="centerX" secondItem="K1N-8u-w7u" secondAttribute="centerX" id="MWO-hP-SFB"/>
-                            <constraint firstItem="i0M-F5-eNq" firstAttribute="centerY" secondItem="K1N-8u-w7u" secondAttribute="centerY" id="NPM-Gc-hnv"/>
                             <constraint firstItem="o0h-K4-tvL" firstAttribute="top" secondItem="5vL-nS-ckE" secondAttribute="bottom" constant="16" id="QyH-qK-uAv"/>
                             <constraint firstItem="i0M-F5-eNq" firstAttribute="width" secondItem="K1N-8u-w7u" secondAttribute="width" id="SlM-Oc-Gbv"/>
                             <constraint firstItem="gYx-Y1-ZPf" firstAttribute="width" secondItem="K1N-8u-w7u" secondAttribute="width" multiplier="0.7" id="ZoA-bO-srb"/>
@@ -181,7 +184,9 @@
                             <constraint firstItem="gYx-Y1-ZPf" firstAttribute="top" secondItem="ZWl-FI-bvy" secondAttribute="bottom" constant="16" id="huL-vH-eN5"/>
                             <constraint firstItem="HSr-ID-gmg" firstAttribute="width" secondItem="K1N-8u-w7u" secondAttribute="width" multiplier="0.7" id="iSn-hs-Q4j"/>
                             <constraint firstItem="5vL-nS-ckE" firstAttribute="top" secondItem="HSr-ID-gmg" secondAttribute="bottom" constant="64" id="jCs-N5-VvH"/>
+                            <constraint firstItem="i0M-F5-eNq" firstAttribute="top" secondItem="K1N-8u-w7u" secondAttribute="top" constant="-40" id="le9-1d-FSa"/>
                             <constraint firstItem="ZWl-FI-bvy" firstAttribute="centerX" secondItem="K1N-8u-w7u" secondAttribute="centerX" id="lo7-xD-poD"/>
+                            <constraint firstItem="fLt-Df-7fY" firstAttribute="centerX" secondItem="K1N-8u-w7u" secondAttribute="centerX" id="r3G-ri-hMQ"/>
                             <constraint firstItem="o0h-K4-tvL" firstAttribute="centerX" secondItem="K1N-8u-w7u" secondAttribute="centerX" id="rLF-Py-aoW"/>
                             <constraint firstItem="ZWl-FI-bvy" firstAttribute="top" secondItem="36J-dJ-ggL" secondAttribute="top" constant="200" id="rcX-Sd-L9c"/>
                             <constraint firstItem="HSr-ID-gmg" firstAttribute="centerX" secondItem="K1N-8u-w7u" secondAttribute="centerX" id="uZr-AV-1vO"/>
@@ -206,10 +211,9 @@
         <!--Navigation Controller-->
         <scene sceneID="aCH-1u-1JF">
             <objects>
-                <navigationController storyboardIdentifier="LoadingLoginVc" automaticallyAdjustsScrollViewInsets="NO" id="qT8-1Q-1tw" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="LoadingLoginVc" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="qT8-1Q-1tw" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8jM-gf-PTO">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -231,8 +235,9 @@
         </designable>
     </designables>
     <resources>
-        <image name="Component 6 – 1" width="458" height="947"/>
         <image name="Component 61 – 2" width="26.5" height="19.5"/>
+        <image name="Component 87 – 1" width="458" height="224"/>
+        <image name="Component 88 – 1" width="458" height="224"/>
         <image name="Group 336" width="83.5" height="85.5"/>
         <image name="Mask Group 124-1" width="53" height="28"/>
         <image name="Rectangle 16" width="286" height="68"/>

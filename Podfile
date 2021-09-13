@@ -34,6 +34,5 @@ target 'Mad' do
   pod 'Firebase'
   pod 'Firebase/Auth'
   pod 'StagLayout'
-
   
 end

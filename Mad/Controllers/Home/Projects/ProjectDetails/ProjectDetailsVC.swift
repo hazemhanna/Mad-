@@ -9,10 +9,14 @@ import UIKit
 import RxSwift
 import RxCocoa
 import PTCardTabBar
+import SwiftSoup
+
 
 class ProjectDetailsVC: UIViewController {
 
     @IBOutlet weak var productCollectionView: UICollectionView!
+    @IBOutlet weak var imageCollectionView: UICollectionView!
+
     @IBOutlet weak var aboutView: UIView!
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var LikeLbl: UILabel!
@@ -37,9 +41,11 @@ class ProjectDetailsVC: UIViewController {
     var isFavourite: Bool = false
     var token = Helper.getAPIToken() ?? ""
     var reviews = [Review]()
+    var imagesHtml = [String?]()
+    private let cellIdentifier = "LiveCellCVC"
     private let cellIdentifier2 = "ReviewCell"
+    private let cellIdentifier3 = "AddsCell"
 
-    let cellIdentifier = "LiveCellCVC"
     open lazy var customTabBar: PTCardTabBar = {
         return PTCardTabBar()
     }()
@@ -50,14 +56,22 @@ class ProjectDetailsVC: UIViewController {
         self.productCollectionView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
         productCollectionView.delegate = self
         productCollectionView.dataSource = self
-        self.homeVM.showIndicator()
         
+        
+        self.imageCollectionView.register(UINib(nibName: cellIdentifier3, bundle: nil), forCellWithReuseIdentifier: cellIdentifier3)
+        imageCollectionView.delegate = self
+        imageCollectionView.dataSource = self
+        
+        
+        
+        self.homeVM.showIndicator()
         mainTitleLbl.text = "Project.title".localized
         descriptionBtn.setTitle("About".localized, for: .normal)
         reviewsBtn.setTitle("Comment".localized, for: .normal)
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.imageCollectionView.isHidden = true
         self.navigationController?.navigationBar.isHidden = true       
     }
 
@@ -130,22 +144,45 @@ class ProjectDetailsVC: UIViewController {
 extension ProjectDetailsVC :  UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.showShimmer ? 2 : 3
+    
+        if collectionView == imageCollectionView{
+        return 4
+    }else{
+    return self.showShimmer ? 2 : 3
     }
+
+}
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! LiveCellCVC
-        cell.showShimmer = showShimmer
-        return cell
+        if collectionView == imageCollectionView{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier3, for: indexPath) as! AddsCell
+            
+            if imagesHtml.count > 0 {
+            if let url = URL(string: imagesHtml[indexPath.row] ?? ""){
+               cell.photo.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "Mask Group 32"))
+            }
+            }
+            return cell
+        }else{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! LiveCellCVC
+            cell.showShimmer = showShimmer
+            return cell
+        }
+    
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            let flowayout = collectionViewLayout as? UICollectionViewFlowLayout
-            let space: CGFloat = (flowayout?.minimumInteritemSpacing ?? 0.0) + (flowayout?.sectionInset.left ?? 0.0) + (flowayout?.sectionInset.right ?? 0.0)
-    
+        let flowayout = collectionViewLayout as? UICollectionViewFlowLayout
+        let space: CGFloat = (flowayout?.minimumInteritemSpacing ?? 0.0) + (flowayout?.sectionInset.left ?? 0.0) + (flowayout?.sectionInset.right ?? 0.0)
+
+        if collectionView == imageCollectionView {
+            let size:CGFloat = (collectionView.frame.size.width - space) / 2
+            return CGSize(width: size, height: (collectionView.frame.size.height) / 2)
+        }else{
         let size:CGFloat = (collectionView.frame.size.width - space) / 1.4
             return CGSize(width: size, height: (collectionView.frame.size.height))
         }
+     }
 }
 
 extension ProjectDetailsVC {
@@ -157,6 +194,25 @@ func getProjectDetails(productID : Int) {
         self.LikeLbl.text = "\(data.data?.favoriteCount ?? 0)"
         self.shareLbl.text = "\(data.data?.shareCount ?? 0)"
         self.aboutTV.text = data.data?.content?.html2String ?? ""
+  
+        
+        do {
+            let doc: Document = try SwiftSoup.parse(data.data?.content ?? "")
+            let srcs: Elements = try doc.select("img[src]")
+            let srcsStringArray: [String?] = srcs.array().map { try? $0.attr("src").description }
+            print(srcsStringArray)
+            if srcsStringArray.count > 0 {
+                self.imageCollectionView.isHidden = false
+                self.imagesHtml = srcsStringArray
+                self.imageCollectionView.reloadData()
+        }
+        } catch Exception.Error(_, let message) {
+            print(message)
+        } catch {
+            print("error")
+        }
+        
+    
         self.titleLbl.text = data.data?.title ?? ""
         var projectCat = [String]()
         for cat in data.data?.categories ?? []{
@@ -165,7 +221,7 @@ func getProjectDetails(productID : Int) {
         self.typeLbl.text =   projectCat.joined(separator: ",")
         self.isFavourite = data.data?.isFavorite ?? false
         let height = self.aboutTV.intrinsicContentSize.height
-        self.contentSizeHieght.constant = 450 + height
+        self.contentSizeHieght.constant = 600 + height
         if  let projectUrl = URL(string: data.data?.imageURL ?? ""){
         self.projectImage.kf.setImage(with: projectUrl, placeholder: #imageLiteral(resourceName: "Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4"))
         }
