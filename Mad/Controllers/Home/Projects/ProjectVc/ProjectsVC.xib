@@ -112,8 +112,81 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FSd-PN-b2A" customClass="CustomView" customModule="Mad" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="202" width="414" height="20"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To Projects" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EbA-tz-TdL">
+                                                        <rect key="frame" x="16" y="0.5" width="82.5" height="19.5"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                                        <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="ARq-RT-bR6"/>
+                                                    <constraint firstItem="EbA-tz-TdL" firstAttribute="leading" secondItem="FSd-PN-b2A" secondAttribute="leading" constant="16" id="ZGP-ue-uwy"/>
+                                                    <constraint firstItem="EbA-tz-TdL" firstAttribute="centerY" secondItem="FSd-PN-b2A" secondAttribute="centerY" id="ii5-vP-tF1"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ha3-cA-eX9" customClass="CustomView" customModule="Mad" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="238" width="414" height="180"/>
+                                                <subviews>
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yd0-Z2-KKv" customClass="CustomCollectionView" customModule="Mad" customModuleProvider="target">
+                                                        <rect key="frame" x="32" y="8" width="382" height="180"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="PoH-A0-xWH">
+                                                            <size key="itemSize" width="50" height="50"/>
+                                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        </collectionViewFlowLayout>
+                                                        <cells/>
+                                                    </collectionView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="yd0-Z2-KKv" firstAttribute="height" secondItem="Ha3-cA-eX9" secondAttribute="height" id="F1E-GZ-MbH"/>
+                                                    <constraint firstAttribute="height" constant="180" id="Ifu-B8-CtJ"/>
+                                                    <constraint firstItem="yd0-Z2-KKv" firstAttribute="top" secondItem="Ha3-cA-eX9" secondAttribute="top" constant="8" id="Ucr-c3-7io"/>
+                                                    <constraint firstItem="yd0-Z2-KKv" firstAttribute="leading" secondItem="Ha3-cA-eX9" secondAttribute="leading" constant="32" id="V29-bj-3bg"/>
+                                                    <constraint firstAttribute="trailing" secondItem="yd0-Z2-KKv" secondAttribute="trailing" id="u9X-Il-k8U"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aj2-qp-n7l" customClass="CustomView" customModule="Mad" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="434" width="414" height="20"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All Projects" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TgA-bx-oht">
+                                                        <rect key="frame" x="16" y="0.5" width="84" height="19.5"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                                        <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="5eO-hE-ES0"/>
+                                                    <constraint firstItem="TgA-bx-oht" firstAttribute="leading" secondItem="aj2-qp-n7l" secondAttribute="leading" constant="16" id="bgB-YJ-iKf"/>
+                                                    <constraint firstItem="TgA-bx-oht" firstAttribute="centerY" secondItem="aj2-qp-n7l" secondAttribute="centerY" id="xsY-aa-CaJ"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Hwq-P2-hjB" customClass="CustomTableView" customModule="Mad" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="202" width="414" height="1398"/>
+                                                <rect key="frame" x="0.0" y="470" width="414" height="1130"/>
                                                 <color key="backgroundColor" red="0.92941176469999998" green="0.95294117649999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -156,6 +229,7 @@
             <connections>
                 <outlet property="mainTableView" destination="Hwq-P2-hjB" id="W9p-Tz-flS"/>
                 <outlet property="projectCollectionView" destination="ltD-iK-Bgf" id="2Ut-6n-ALB"/>
+                <outlet property="topProjectCollectionView" destination="yd0-Z2-KKv" id="IC4-sY-OJY"/>
             </connections>
             <point key="canvasLocation" x="-5610" y="2462"/>
         </viewController>

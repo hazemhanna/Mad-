@@ -16,7 +16,10 @@ class ProjectDetailsVC: UIViewController {
 
     @IBOutlet weak var productCollectionView: UICollectionView!
     @IBOutlet weak var imageCollectionView: UICollectionView!
-
+    @IBOutlet weak var artistCollectionView: UICollectionView!
+    
+    @IBOutlet weak var productView: UIView!
+    @IBOutlet weak var artistView: UIView!
     @IBOutlet weak var aboutView: UIView!
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var LikeLbl: UILabel!
@@ -29,10 +32,15 @@ class ProjectDetailsVC: UIViewController {
     @IBOutlet weak var contentSizeHieght : NSLayoutConstraint!
     @IBOutlet weak var descriptionBtn: UIButton!
     @IBOutlet weak var reviewsBtn: UIButton!
+    @IBOutlet weak var taggedBtn: UIButton!
     @IBOutlet weak var reviewsStack : UIStackView!
-
     @IBOutlet weak var mainTitleLbl: UILabel!
+    
+    private let cellIdentifier = "LiveCellCVC"
+    private let cellIdentifier2 = "ProjectCell"
+    private let cellIdentifier3 = "AddsCell"
 
+    
     
     var homeVM = HomeViewModel()
     var disposeBag = DisposeBag()
@@ -42,10 +50,10 @@ class ProjectDetailsVC: UIViewController {
     var token = Helper.getAPIToken() ?? ""
     var reviews = [Review]()
     var imagesHtml = [String?]()
-    private let cellIdentifier = "LiveCellCVC"
-    private let cellIdentifier2 = "ReviewCell"
-    private let cellIdentifier3 = "AddsCell"
+    var product  = [Product]()
+    var artists   = [Artist]()
 
+  
     open lazy var customTabBar: PTCardTabBar = {
         return PTCardTabBar()
     }()
@@ -56,6 +64,12 @@ class ProjectDetailsVC: UIViewController {
         self.productCollectionView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
         productCollectionView.delegate = self
         productCollectionView.dataSource = self
+        
+        
+        self.artistCollectionView.register(UINib(nibName: cellIdentifier2, bundle: nil), forCellWithReuseIdentifier: cellIdentifier2)
+
+        artistCollectionView.delegate = self
+        artistCollectionView.dataSource = self
         
         
         self.imageCollectionView.register(UINib(nibName: cellIdentifier3, bundle: nil), forCellWithReuseIdentifier: cellIdentifier3)
@@ -88,15 +102,36 @@ class ProjectDetailsVC: UIViewController {
     
     @IBAction func descriptionBtn(sender: UIButton) {
         if sender.tag == 1 {
-            reviewsBtn.setTitleColor(#colorLiteral(red: 0.1176470588, green: 0.2156862745, blue: 0.4, alpha: 1), for: .normal)
             descriptionBtn.setTitleColor(#colorLiteral(red: 0.8980392157, green: 0.1254901961, blue: 0.3529411765, alpha: 1), for: .normal)
+            reviewsBtn.setTitleColor(#colorLiteral(red: 0.1176470588, green: 0.2156862745, blue: 0.4, alpha: 1), for: .normal)
+            taggedBtn.setTitleColor(#colorLiteral(red: 0.1176470588, green: 0.2156862745, blue: 0.4, alpha: 1), for: .normal)
             aboutView.isHidden = false
             reviewsStack.isHidden = true
+            artistView.isHidden = true
+            let height = self.aboutTV.intrinsicContentSize.height
+            self.contentSizeHieght.constant = 800 + height
+          //  self.productView.isHidden = false
+
+        }else if sender.tag == 2{
+            descriptionBtn.setTitleColor(#colorLiteral(red: 0.1176470588, green: 0.2156862745, blue: 0.4, alpha: 1), for: .normal)
+            taggedBtn.setTitleColor(#colorLiteral(red: 0.8980392157, green: 0.1254901961, blue: 0.3529411765, alpha: 1), for: .normal)
+            reviewsBtn.setTitleColor(#colorLiteral(red: 0.1176470588, green: 0.2156862745, blue: 0.4, alpha: 1), for: .normal)
+            aboutView.isHidden = true
+            reviewsStack.isHidden = true
+            artistView.isHidden = false
+            self.contentSizeHieght.constant = 800
+           // self.productView.isHidden = true
+
         }else{
             descriptionBtn.setTitleColor(#colorLiteral(red: 0.1176470588, green: 0.2156862745, blue: 0.4, alpha: 1), for: .normal)
+            taggedBtn.setTitleColor(#colorLiteral(red: 0.1176470588, green: 0.2156862745, blue: 0.4, alpha: 1), for: .normal)
             reviewsBtn.setTitleColor(#colorLiteral(red: 0.8980392157, green: 0.1254901961, blue: 0.3529411765, alpha: 1), for: .normal)
             aboutView.isHidden = true
             reviewsStack.isHidden = false
+            artistView.isHidden = true
+            self.contentSizeHieght.constant = 800
+//            self.productView.isHidden = true
+
         }
     }
     
@@ -142,13 +177,13 @@ class ProjectDetailsVC: UIViewController {
 
 
 extension ProjectDetailsVC :  UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    
-        if collectionView == imageCollectionView{
-        return 4
+       if collectionView == imageCollectionView{
+        return imagesHtml.count
+       }else if collectionView ==  artistCollectionView{
+        return artists.count
     }else{
-    return self.showShimmer ? 2 : 3
+        return self.showShimmer ? 2 : product.count
     }
 
 }
@@ -163,13 +198,50 @@ extension ProjectDetailsVC :  UICollectionViewDelegate, UICollectionViewDataSour
             }
             }
             return cell
-        }else{
+        }else if collectionView ==  artistCollectionView{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier2, for: indexPath) as! ProjectCell
+
+            if !self.showShimmer {
+                    cell.catImage.isHidden = false
+                    cell.addProjectBtn.isHidden = true
+                    cell.projectNameLabel.text = self.artists[indexPath.row].name ?? ""
+                    cell.ProjectView.layer.cornerRadius = 14
+                    if let url = URL(string:   self.artists[indexPath.row].profilPicture ?? ""){
+                    cell.catImage.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4"))
+                }
+            
+            }
+             cell.showShimmer = showShimmer
+            return cell
+        
+    }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! LiveCellCVC
+            if !self.showShimmer {
+                cell.priceLbl.text = "USD \(self.product[indexPath.row].price ?? 0.0)"
+                cell.titleLabel.text = self.product[indexPath.row].title ?? ""
+
+                if let bannerUrl = URL(string:   self.product[indexPath.row].imageURL ?? ""){
+                cell.bannerImage.kf.setImage(with: bannerUrl, placeholder: #imageLiteral(resourceName: "WhatsApp Image 2021-04-21 at 1.25.47 PM"))
+               }
+                cell.editBtn.isHidden = true
+            }
+            
             cell.showShimmer = showShimmer
             return cell
         }
     
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if showShimmer {return}
+        if collectionView == artistCollectionView {
+        let vc = UIStoryboard(name: "Artist", bundle: nil).instantiateViewController(withIdentifier: "ArtistProfileVc")  as! ArtistProfileVc
+            vc.artistId = self.artists[indexPath.row].id ?? 0
+            Helper.saveArtistId(id: self.artists[indexPath.row].id ?? 0)
+        self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let flowayout = collectionViewLayout as? UICollectionViewFlowLayout
@@ -178,7 +250,11 @@ extension ProjectDetailsVC :  UICollectionViewDelegate, UICollectionViewDataSour
         if collectionView == imageCollectionView {
             let size:CGFloat = (collectionView.frame.size.width - space) / 2
             return CGSize(width: size, height: (collectionView.frame.size.height) / 2)
-        }else{
+        }else if collectionView == artistCollectionView{
+            let size:CGFloat = (collectionView.frame.size.width - space) / 3.1
+            return CGSize(width: size, height: 100)
+            
+      }else {
         let size:CGFloat = (collectionView.frame.size.width - space) / 1.4
             return CGSize(width: size, height: (collectionView.frame.size.height))
         }
@@ -194,7 +270,42 @@ func getProjectDetails(productID : Int) {
         self.LikeLbl.text = "\(data.data?.favoriteCount ?? 0)"
         self.shareLbl.text = "\(data.data?.shareCount ?? 0)"
         self.aboutTV.text = data.data?.content?.html2String ?? ""
-  
+        self.product = data.data?.products ?? []
+        self.artists = data.data?.tagged ?? []
+        self.showShimmer = false
+//        if data.data?.products?.count ?? 0 > 0 {
+//            //self.productView.isHidden = false
+//            self.productCollectionView.reloadData()
+//            let height = self.aboutTV.intrinsicContentSize.height
+//            self.contentSizeHieght.constant = 900 + height
+//        }else{
+//           // self.productView.isHidden = true
+//            let height = self.aboutTV.intrinsicContentSize.height
+//            self.contentSizeHieght.constant = 600 + height
+//        }
+        
+        let height = self.aboutTV.intrinsicContentSize.height
+        self.contentSizeHieght.constant = 600 + height
+        if data.data?.tagged?.count ?? 0 > 0 {
+            self.artistCollectionView.isHidden = false
+            self.artistCollectionView.reloadData()
+        }
+        
+        self.titleLbl.text = data.data?.title ?? ""
+        var projectCat = [String]()
+        for cat in data.data?.categories ?? []{
+            projectCat.append(cat.name ?? "")
+        }
+        self.typeLbl.text =   projectCat.joined(separator: ",")
+        self.isFavourite = data.data?.isFavorite ?? false
+        if  let projectUrl = URL(string: data.data?.imageURL ?? ""){
+        self.projectImage.kf.setImage(with: projectUrl, placeholder: #imageLiteral(resourceName: "Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4"))
+        }
+        if data.data?.isFavorite ?? false {
+            self.favouriteBtn.setImage(#imageLiteral(resourceName: "Group 155"), for: .normal)
+        }else{
+            self.favouriteBtn.setImage(#imageLiteral(resourceName: "Group 140"), for: .normal)
+          }
         
         do {
             let doc: Document = try SwiftSoup.parse(data.data?.content ?? "")
@@ -212,24 +323,7 @@ func getProjectDetails(productID : Int) {
             print("error")
         }
         
-    
-        self.titleLbl.text = data.data?.title ?? ""
-        var projectCat = [String]()
-        for cat in data.data?.categories ?? []{
-            projectCat.append(cat.name ?? "")
-        }
-        self.typeLbl.text =   projectCat.joined(separator: ",")
-        self.isFavourite = data.data?.isFavorite ?? false
-        let height = self.aboutTV.intrinsicContentSize.height
-        self.contentSizeHieght.constant = 600 + height
-        if  let projectUrl = URL(string: data.data?.imageURL ?? ""){
-        self.projectImage.kf.setImage(with: projectUrl, placeholder: #imageLiteral(resourceName: "Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4"))
-        }
-        if data.data?.isFavorite ?? false {
-            self.favouriteBtn.setImage(#imageLiteral(resourceName: "Group 155"), for: .normal)
-        }else{
-            self.favouriteBtn.setImage(#imageLiteral(resourceName: "Group 140"), for: .normal)
-          }
+        
        }
    }, onError: { (error) in
     self.homeVM.dismissIndicator()

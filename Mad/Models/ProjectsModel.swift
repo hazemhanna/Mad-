@@ -72,7 +72,9 @@ struct ProjectDetails: Codable {
     let categories: [Category]?
     let comments: [Comments]?
     let content: String?
-
+    let products: [Product]?
+    let tagged : [Artist]?
+    
     enum CodingKeys: String, CodingKey {
         case id, artist, title, name, type, status
         case imageURL = "image_url"
@@ -80,6 +82,8 @@ struct ProjectDetails: Codable {
         case shareCount = "share_count"
         case createdAt = "created_at"
         case isFavorite = "is_favorite"
+        case products = "relate_products"
+        case tagged = "associated_artists"
         case categories, comments, content
     }
 }

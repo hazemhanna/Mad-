@@ -17,6 +17,8 @@ class ProjectsVC : UIViewController {
    
     @IBOutlet weak var mainTableView: UITableView!
     @IBOutlet weak var projectCollectionView: UICollectionView!
+    @IBOutlet weak var topProjectCollectionView: UICollectionView!
+
     
     var homeVM = HomeViewModel()
     var disposeBag = DisposeBag()
@@ -46,6 +48,16 @@ class ProjectsVC : UIViewController {
         }
     }
     
+    
+    var topProjects = [Project]() {
+        didSet {
+            DispatchQueue.main.async {
+                self.topProjectCollectionView?.reloadData()
+            }
+        }
+    }
+    
+    
     open lazy var customTabBar: PTCardTabBar = {
         return PTCardTabBar()
     }()
@@ -53,17 +65,28 @@ class ProjectsVC : UIViewController {
     
     var showShimmer: Bool = true
     var showProjectShimmer: Bool = true
+    var topShowShimmer: Bool = true
+
     private let CellIdentifier = "HomeCell"
-    let cellIdentifier = "ProjectCell"
-    
+    private  let cellIdentifier = "ProjectCell"
+    private let cell = "TopProjectCell"
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupContentTableView()
         self.projectCollectionView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
         projectCollectionView.delegate = self
         projectCollectionView.dataSource = self
+        
+        
+//        self.topProjectCollectionView.register(UINib(nibName: cell, bundle: nil), forCellWithReuseIdentifier: cell)
+//        topProjectCollectionView.delegate = self
+//        topProjectCollectionView.dataSource = self
+//        
         getCategory()
         getProject(catId: self.catId, page: page)
+        getTopProject(page: 1, top: 1)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -172,16 +195,20 @@ extension ProjectsVC: UITableViewDelegate,UITableViewDataSource ,UITableViewData
 
 extension ProjectsVC : UICollectionViewDelegate ,UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if collectionView == projectCollectionView {
         if active {
             return  self.showShimmer ? 5 : Categories.count + 1
         }else{
             return  self.showShimmer ? 5 : Categories.count
         }
+        }else{
+            return  self.topShowShimmer ? 2 : topProjects.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! ProjectCell
-
+        if collectionView == projectCollectionView {
         if !self.showShimmer {
         if active {
            if indexPath.row == 0 {
@@ -217,6 +244,7 @@ extension ProjectsVC : UICollectionViewDelegate ,UICollectionViewDataSource{
                     }
                     return
                 }
+                
             }
            
             if self.selectedIndex == indexPath.row{
@@ -235,10 +263,29 @@ extension ProjectsVC : UICollectionViewDelegate ,UICollectionViewDataSource{
         }
         cell.showShimmer = showShimmer
         return cell
+        }else{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.cell, for: indexPath) as! TopProjectCell
+            if !self.topShowShimmer {
+                cell.priceLbl.text = "USD \(self.topProjects[indexPath.row].favoriteCount ?? 0)"
+                cell.titleLabel.text = self.topProjects[indexPath.row].title ?? ""
+
+                if let bannerUrl = URL(string:   self.topProjects[indexPath.row].imageURL ?? ""){
+                cell.bannerImage.kf.setImage(with: bannerUrl, placeholder: #imageLiteral(resourceName: "WhatsApp Image 2021-04-21 at 1.25.47 PM"))
+               }
+                cell.editBtn.isHidden = true
+            }
+            
+            cell.showShimmer = topShowShimmer
+            return cell
+            
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
         if showShimmer {return}
+        if collectionView == projectCollectionView {
+
         if active {
         if indexPath.row != 0 {
             if  self.selectedIndex == indexPath.row {
@@ -285,6 +332,15 @@ extension ProjectsVC : UICollectionViewDelegate ,UICollectionViewDataSource{
                 getProject(catId:self.Categories[indexPath.row].id ?? 0, page: page)
             }
         }
+        }else{
+            if topShowShimmer {
+                return
+            }
+            let main = ProjectDetailsVC.instantiateFromNib()
+            main!.projectId =  self.topProjects[indexPath.row].id ?? 0
+            self.navigationController?.pushViewController(main!, animated: true)
+        }
+        
     }
     
 }
@@ -294,8 +350,14 @@ extension ProjectsVC : UICollectionViewDelegateFlowLayout {
         let flowayout = collectionViewLayout as? UICollectionViewFlowLayout
         let space: CGFloat = (flowayout?.minimumInteritemSpacing ?? 0.0) + (flowayout?.sectionInset.left ?? 0.0) + (flowayout?.sectionInset.right ?? 0.0)
         
+        if collectionView == projectCollectionView{
         let size:CGFloat = (collectionView.frame.size.width - space) / 5
         return CGSize(width: size, height: collectionView.frame.size.height)
+       }else {
+      let size:CGFloat = (collectionView.frame.size.width - space) / 1.4
+          return CGSize(width: size, height: (collectionView.frame.size.height))
+    }
+    
     }
 }
 
@@ -326,6 +388,21 @@ extension ProjectsVC {
 
        }).disposed(by: disposeBag)
    }
+    
+    
+    
+    func getTopProject(page:Int,top : Int) {
+        homeVM.getTopProject(page: page,top: top).subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+            self.topShowShimmer = false
+            self.topProjects = dataModel.data?.data ?? []
+           }
+       }, onError: { (error) in
+
+       }).disposed(by: disposeBag)
+   }
+    
+    
     
     func editFavourite(productID : Int,Type : Bool) {
         homeVM.addToFavourite(productID: productID, Type: Type).subscribe(onNext: { (dataModel) in

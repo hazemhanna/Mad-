@@ -155,6 +155,32 @@ class GetServices {
            }
        }
     
+    
+    
+    func getTopProject(param : [String :Any]) -> Observable<ProjectMainModel> {
+           return Observable.create { (observer) -> Disposable in
+               let url = ConfigURLS.getProject
+            let token = Helper.getAPIToken() ?? ""
+            let headers = [
+                "Authorization": "Bearer \(token)",
+                "X-localization" : GetServices.languageKey
+            ]
+            
+               Alamofire.request(url, method: .get, parameters: param, encoding: URLEncoding.default, headers: headers)
+                   .validate(statusCode: 200..<300)
+                   .responseJSON { (response: DataResponse<Any>) in
+                       do {
+                           let data = try JSONDecoder().decode(ProjectMainModel.self, from: response.data!)
+                           observer.onNext(data)
+                       } catch {
+                           print(error.localizedDescription)
+                           observer.onError(error)
+                       }
+               }
+               return Disposables.create()
+           }
+       }
+    
     func getProjectDetails(param : [String :Any]) -> Observable<ProjectDetailsModel> {
            return Observable.create { (observer) -> Disposable in
                let url = ConfigURLS.getProjectDetails

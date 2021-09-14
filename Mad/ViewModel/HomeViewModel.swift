@@ -56,6 +56,21 @@ struct HomeViewModel {
          return observer
      }
     
+    
+    
+    func getTopProject(page : Int,top : Int) -> Observable<ProjectMainModel> {
+        var params: [String: Any] = [:]
+       
+            params = [
+                "page_number": page,
+                "is_top":top
+                ]
+        
+        let observer = GetServices.shared.getTopProject(param : params)
+         return observer
+     }
+    
+    
     func getCategories() -> Observable<CategoryModel> {
          let observer = GetServices.shared.getProjectCategories()
          return observer

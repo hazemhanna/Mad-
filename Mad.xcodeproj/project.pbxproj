@@ -272,6 +272,8 @@
 		04DEAA412620B4A900F843A6 /* SplashCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DEAA3F2620B4A900F843A6 /* SplashCell.swift */; };
 		04DEAA422620B4A900F843A6 /* SplashCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04DEAA402620B4A900F843A6 /* SplashCell.xib */; };
 		04DEAA462620BC9500F843A6 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DEAA452620BC9500F843A6 /* SplashViewModel.swift */; };
+		04E06AFC26F0DB690082C7D2 /* TopProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E06AFA26F0DB690082C7D2 /* TopProjectCell.swift */; };
+		04E06AFD26F0DB690082C7D2 /* TopProjectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04E06AFB26F0DB690082C7D2 /* TopProjectCell.xib */; };
 		04E186F5261360F400824E37 /* StoryBoardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E186F4261360F400824E37 /* StoryBoardExtension.swift */; };
 		04E1871726136B1600824E37 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E1871626136B1600824E37 /* CustomView.swift */; };
 		04F06AC52614C37200B08606 /* AgeVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F06AC32614C37200B08606 /* AgeVc.swift */; };
@@ -553,6 +555,8 @@
 		04DEAA3F2620B4A900F843A6 /* SplashCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashCell.swift; sourceTree = "<group>"; };
 		04DEAA402620B4A900F843A6 /* SplashCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashCell.xib; sourceTree = "<group>"; };
 		04DEAA452620BC9500F843A6 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
+		04E06AFA26F0DB690082C7D2 /* TopProjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopProjectCell.swift; sourceTree = "<group>"; };
+		04E06AFB26F0DB690082C7D2 /* TopProjectCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopProjectCell.xib; sourceTree = "<group>"; };
 		04E186F4261360F400824E37 /* StoryBoardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryBoardExtension.swift; sourceTree = "<group>"; };
 		04E18703261364A900824E37 /* Graphik-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Graphik-SemiboldItalic.ttf"; sourceTree = "<group>"; };
 		04E18704261364A900824E37 /* Graphik-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Graphik-Light.ttf"; sourceTree = "<group>"; };
@@ -715,6 +719,7 @@
 		0413E4522630A37B00F5977D /* CollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				04E06ACB26F0DB380082C7D2 /* TopProjectCell */,
 				04242ABF26555E46003C8B44 /* videoPartenerCell */,
 				0427A21426405B0B0029A10C /* AddsCell */,
 				04B6740F26383DA600AFF9C3 /* AddProductPhotoCell */,
@@ -1943,6 +1948,15 @@
 			path = SplashCell;
 			sourceTree = "<group>";
 		};
+		04E06ACB26F0DB380082C7D2 /* TopProjectCell */ = {
+			isa = PBXGroup;
+			children = (
+				04E06AFA26F0DB690082C7D2 /* TopProjectCell.swift */,
+				04E06AFB26F0DB690082C7D2 /* TopProjectCell.xib */,
+			);
+			path = TopProjectCell;
+			sourceTree = "<group>";
+		};
 		04E186F72613616100824E37 /* Splash */ = {
 			isa = PBXGroup;
 			children = (
@@ -2064,6 +2078,7 @@
 				047DD03F267C4F7F00C78C49 /* CompetitionResultslistsVC.xib in Resources */,
 				04C4D15626925F0B0086B393 /* MyCartCell.xib in Resources */,
 				04D23EEE2633127800290488 /* Graphik-Medium.ttf in Resources */,
+				04E06AFD26F0DB690082C7D2 /* TopProjectCell.xib in Resources */,
 				04D23EEF2633127800290488 /* Graphik-Regular.ttf in Resources */,
 				04D23EF02633127800290488 /* Graphik-Semibold.ttf in Resources */,
 				04D23EEA2633121300290488 /* Graphik-Black.ttf in Resources */,
@@ -2361,6 +2376,7 @@
 				04F06AF62614E0D600B08606 /* CategeoryCell.swift in Sources */,
 				0439BD09267263C900AC5C59 /* AboutCompetitionsVc.swift in Sources */,
 				0460CF6E261D04DD006685B6 /* SplashModel.swift in Sources */,
+				04E06AFC26F0DB690082C7D2 /* TopProjectCell.swift in Sources */,
 				04AD60B3262866E500ADF0DF /* ProjectDetailsVC.swift in Sources */,
 				04534B222691E46300B15C9C /* MyCartDetailsVc.swift in Sources */,
 				04242AB426554089003C8B44 /* VideoArtistCell.swift in Sources */,
