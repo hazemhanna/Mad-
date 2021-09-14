@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -115,8 +116,8 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FSd-PN-b2A" customClass="CustomView" customModule="Mad" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="202" width="414" height="20"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To Projects" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EbA-tz-TdL">
-                                                        <rect key="frame" x="16" y="0.5" width="82.5" height="19.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top Projects" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EbA-tz-TdL">
+                                                        <rect key="frame" x="16" y="0.5" width="92.5" height="19.5"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                                                         <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -135,36 +136,58 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ha3-cA-eX9" customClass="CustomView" customModule="Mad" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="238" width="414" height="180"/>
+                                                <rect key="frame" x="0.0" y="238" width="414" height="228"/>
                                                 <subviews>
-                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yd0-Z2-KKv" customClass="CustomCollectionView" customModule="Mad" customModuleProvider="target">
-                                                        <rect key="frame" x="32" y="8" width="382" height="180"/>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="PoH-A0-xWH">
-                                                            <size key="itemSize" width="50" height="50"/>
-                                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                        </collectionViewFlowLayout>
-                                                        <cells/>
-                                                    </collectionView>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CO9-Nk-dg3">
+                                                        <rect key="frame" x="4" y="4" width="406" height="220"/>
+                                                        <subviews>
+                                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="zHg-S7-FXF" customClass="CustomCollectionView" customModule="Mad" customModuleProvider="target">
+                                                                <rect key="frame" x="20" y="20" width="366" height="180"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="G1z-bL-uiM">
+                                                                    <size key="itemSize" width="50" height="50"/>
+                                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                                </collectionViewFlowLayout>
+                                                                <cells/>
+                                                            </collectionView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstItem="zHg-S7-FXF" firstAttribute="leading" secondItem="CO9-Nk-dg3" secondAttribute="leading" constant="20" id="2X3-pW-S5M"/>
+                                                            <constraint firstAttribute="trailing" secondItem="zHg-S7-FXF" secondAttribute="trailing" constant="20" id="E87-uY-EoJ"/>
+                                                            <constraint firstAttribute="bottom" secondItem="zHg-S7-FXF" secondAttribute="bottom" constant="20" id="RNr-kI-skT"/>
+                                                            <constraint firstItem="zHg-S7-FXF" firstAttribute="top" secondItem="CO9-Nk-dg3" secondAttribute="top" constant="20" id="SOm-ik-Sa3"/>
+                                                        </constraints>
+                                                    </view>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstItem="yd0-Z2-KKv" firstAttribute="height" secondItem="Ha3-cA-eX9" secondAttribute="height" id="F1E-GZ-MbH"/>
-                                                    <constraint firstAttribute="height" constant="180" id="Ifu-B8-CtJ"/>
-                                                    <constraint firstItem="yd0-Z2-KKv" firstAttribute="top" secondItem="Ha3-cA-eX9" secondAttribute="top" constant="8" id="Ucr-c3-7io"/>
-                                                    <constraint firstItem="yd0-Z2-KKv" firstAttribute="leading" secondItem="Ha3-cA-eX9" secondAttribute="leading" constant="32" id="V29-bj-3bg"/>
-                                                    <constraint firstAttribute="trailing" secondItem="yd0-Z2-KKv" secondAttribute="trailing" id="u9X-Il-k8U"/>
+                                                    <constraint firstAttribute="trailing" secondItem="CO9-Nk-dg3" secondAttribute="trailing" constant="4" id="Vev-fn-JIe"/>
+                                                    <constraint firstAttribute="height" constant="228" id="WSa-Cb-Qec"/>
+                                                    <constraint firstAttribute="bottom" secondItem="CO9-Nk-dg3" secondAttribute="bottom" constant="4" id="bm6-cH-ZdX"/>
+                                                    <constraint firstItem="CO9-Nk-dg3" firstAttribute="leading" secondItem="Ha3-cA-eX9" secondAttribute="leading" constant="4" id="iwP-Ij-3qd"/>
+                                                    <constraint firstItem="CO9-Nk-dg3" firstAttribute="top" secondItem="Ha3-cA-eX9" secondAttribute="top" constant="4" id="rMu-fe-9wP"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="10"/>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="NO"/>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                        <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.16" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                        <real key="value" value="0.69999999999999996"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                        <real key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                        <size key="value" width="0.0" height="3"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aj2-qp-n7l" customClass="CustomView" customModule="Mad" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="434" width="414" height="20"/>
+                                                <rect key="frame" x="0.0" y="482" width="414" height="20"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All Projects" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TgA-bx-oht">
                                                         <rect key="frame" x="16" y="0.5" width="84" height="19.5"/>
@@ -186,7 +209,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Hwq-P2-hjB" customClass="CustomTableView" customModule="Mad" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="470" width="414" height="1130"/>
+                                                <rect key="frame" x="0.0" y="518" width="414" height="1082"/>
                                                 <color key="backgroundColor" red="0.92941176469999998" green="0.95294117649999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -229,12 +252,15 @@
             <connections>
                 <outlet property="mainTableView" destination="Hwq-P2-hjB" id="W9p-Tz-flS"/>
                 <outlet property="projectCollectionView" destination="ltD-iK-Bgf" id="2Ut-6n-ALB"/>
-                <outlet property="topProjectCollectionView" destination="yd0-Z2-KKv" id="IC4-sY-OJY"/>
+                <outlet property="topCollectionView" destination="zHg-S7-FXF" id="pYT-t9-Vr9"/>
             </connections>
             <point key="canvasLocation" x="-5610" y="2462"/>
         </viewController>
     </objects>
     <resources>
         <image name="Group 463" width="12" height="16.5"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

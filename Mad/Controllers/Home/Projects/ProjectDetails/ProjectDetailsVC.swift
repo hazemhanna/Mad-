@@ -205,7 +205,7 @@ extension ProjectDetailsVC :  UICollectionViewDelegate, UICollectionViewDataSour
                     cell.catImage.isHidden = false
                     cell.addProjectBtn.isHidden = true
                     cell.projectNameLabel.text = self.artists[indexPath.row].name ?? ""
-                    cell.ProjectView.layer.cornerRadius = 14
+                    cell.ProjectView.layer.cornerRadius = 20
                     if let url = URL(string:   self.artists[indexPath.row].profilPicture ?? ""){
                     cell.catImage.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4"))
                 }
@@ -251,7 +251,7 @@ extension ProjectDetailsVC :  UICollectionViewDelegate, UICollectionViewDataSour
             let size:CGFloat = (collectionView.frame.size.width - space) / 2
             return CGSize(width: size, height: (collectionView.frame.size.height) / 2)
         }else if collectionView == artistCollectionView{
-            let size:CGFloat = (collectionView.frame.size.width - space) / 3.1
+            let size:CGFloat = (collectionView.frame.size.width - space) / 3.3
             return CGSize(width: size, height: 100)
             
       }else {

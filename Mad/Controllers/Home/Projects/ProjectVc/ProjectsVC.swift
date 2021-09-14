@@ -1,4 +1,12 @@
 //
+//  File.swift
+//  Mad
+//
+//  Created by MAC on 14/09/2021.
+//
+
+import Foundation
+//
 //  ProjectsVC.swift
 //  Mad
 //
@@ -14,12 +22,12 @@ import Gallery
 
 
 class ProjectsVC : UIViewController {
-   
+
     @IBOutlet weak var mainTableView: UITableView!
     @IBOutlet weak var projectCollectionView: UICollectionView!
-    @IBOutlet weak var topProjectCollectionView: UICollectionView!
+    @IBOutlet weak var topCollectionView: UICollectionView!
 
-    
+
     var homeVM = HomeViewModel()
     var disposeBag = DisposeBag()
     var parentVC : HomeVC?
@@ -39,7 +47,7 @@ class ProjectsVC : UIViewController {
             }
         }
     }
-    
+
     var projects = [Project]() {
         didSet {
             DispatchQueue.main.async {
@@ -47,48 +55,48 @@ class ProjectsVC : UIViewController {
             }
         }
     }
-    
-    
+
     var topProjects = [Project]() {
         didSet {
             DispatchQueue.main.async {
-                self.topProjectCollectionView?.reloadData()
+                self.topCollectionView?.reloadData()
             }
         }
     }
-    
-    
+
+
     open lazy var customTabBar: PTCardTabBar = {
         return PTCardTabBar()
     }()
-    
-    
+
+
     var showShimmer: Bool = true
     var showProjectShimmer: Bool = true
     var topShowShimmer: Bool = true
 
     private let CellIdentifier = "HomeCell"
     private  let cellIdentifier = "ProjectCell"
-    private let cell = "TopProjectCell"
+    private let cellId = "TopProjectCell"
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupContentTableView()
+
         self.projectCollectionView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
         projectCollectionView.delegate = self
         projectCollectionView.dataSource = self
-        
-        
-//        self.topProjectCollectionView.register(UINib(nibName: cell, bundle: nil), forCellWithReuseIdentifier: cell)
-//        topProjectCollectionView.delegate = self
-//        topProjectCollectionView.dataSource = self
-//        
+
+        self.topCollectionView.register(UINib(nibName: cellId, bundle: nil), forCellWithReuseIdentifier: cellId)
+        topCollectionView.delegate = self
+        topCollectionView.dataSource = self
+
         getCategory()
         getProject(catId: self.catId, page: page)
         getTopProject(page: 1, top: 1)
-        
+
+
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
         if let ptcTBC = tabBarController as? PTCardTabBarController {
@@ -100,8 +108,177 @@ class ProjectsVC : UIViewController {
     }
 }
 
+
+extension ProjectsVC : UICollectionViewDelegate ,UICollectionViewDataSource{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if collectionView == projectCollectionView {
+        if active {
+            return  self.showShimmer ? 5 : Categories.count + 1
+        }else{
+            return  self.showShimmer ? 5 : Categories.count
+        }
+        }else{
+            return  self.topShowShimmer ? 2 : topProjects.count
+        }
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if collectionView == projectCollectionView {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! ProjectCell
+        if !self.showShimmer {
+        if active {
+           if indexPath.row == 0 {
+                cell.catImage.isHidden = true
+                cell.addProjectBtn.isHidden = false
+            cell.projectNameLabel.text = "Creat.project".localized
+             }else{
+                 cell.catImage.isHidden = false
+                cell.addProjectBtn.isHidden = true
+                cell.projectNameLabel.text = self.Categories[indexPath.row-1].name ?? ""
+                if let url = URL(string:   self.Categories[indexPath.row-1].imageURL ?? ""){
+                cell.catImage.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "Icon - Checkbox - Off"))
+                }
+            }
+            }else{
+                cell.catImage.isHidden = false
+                cell.addProjectBtn.isHidden = true
+                cell.projectNameLabel.text = self.Categories[indexPath.row].name ?? ""
+                if let url = URL(string:   self.Categories[indexPath.row].imageURL ?? ""){
+                cell.catImage.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "Icon - Checkbox - Off"))
+                }
+            }
+            cell.add = {
+                if self.token != "" {
+                    let vc = AddProjectdetailsVc.instantiateFromNib()
+                    self.navigationController?.pushViewController(vc!, animated: true)
+                }
+                else{
+                    self.showMessage(text: "please login first")
+                    let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
+                    if let appDelegate = UIApplication.shared.delegate {
+                        appDelegate.window??.rootViewController = sb
+                    }
+                    return
+                }
+
+            }
+
+            if self.selectedIndex == indexPath.row{
+                if self.selectTwice {
+                    cell.ProjectView.layer.borderColor = #colorLiteral(red: 0.9725490196, green: 0.9725490196, blue: 0.9725490196, alpha: 1).cgColor
+                    cell.ProjectView.layer.borderWidth = 0
+                }else{
+                    cell.ProjectView.layer.borderColor = #colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1).cgColor
+                    cell.ProjectView.layer.borderWidth = 2
+                }
+            }else {
+                cell.ProjectView.layer.borderColor = #colorLiteral(red: 0.9725490196, green: 0.9725490196, blue: 0.9725490196, alpha: 1).cgColor
+                cell.ProjectView.layer.borderWidth = 0
+               }
+
+        }
+        cell.showShimmer = showShimmer
+        return cell
+        }else{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! TopProjectCell
+            if !self.topShowShimmer {
+                
+                
+                let date: String = topProjects[indexPath.row].createdAt ?? ""
+                let time = date.components(separatedBy: " ")
+
+                cell.confic(name: topProjects[indexPath.row].artist?.name ?? "MAD"
+                            , date: time[0]
+                            , title:  topProjects[indexPath.row].title ?? ""
+                            , projectUrl: topProjects[indexPath.row].imageURL ?? ""
+                            , profile: topProjects[indexPath.row].artist?.profilPicture ?? "")
+                
+            }
+            
+            cell.showShimmer = topShowShimmer
+            return cell
+        }
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
+        if showShimmer {return}
+        if collectionView == projectCollectionView {
+
+        if active {
+        if indexPath.row != 0 {
+            if  self.selectedIndex == indexPath.row {
+                self.selectedIndex = indexPath.row
+                self.projectCollectionView.reloadData()
+                self.projects.removeAll()
+                self.page = 1
+                self.showProjectShimmer = true
+                self.mainTableView.reloadData()
+                self.selectTwice = true
+                getProject(catId : 0, page: page)
+
+                }else{
+                self.selectedIndex = indexPath.row
+                self.projectCollectionView.reloadData()
+                self.showProjectShimmer = true
+                self.projects.removeAll()
+                self.page = 1
+                self.mainTableView.reloadData()
+                self.selectTwice = false
+                self.catId  = self.Categories[indexPath.row-1].id ?? 0
+                getProject(catId:self.Categories[indexPath.row-1].id ?? 0, page: page)
+            }
+        }
+        }else{
+            if self.selectedIndex == indexPath.row {
+                self.selectedIndex = indexPath.row
+                self.projectCollectionView.reloadData()
+                self.projects.removeAll()
+                self.page = 1
+                self.showProjectShimmer = true
+                self.mainTableView.reloadData()
+                self.selectTwice = true
+                getProject(catId : 0, page: page)
+            }else{
+                self.selectedIndex = indexPath.row
+                self.projectCollectionView.reloadData()
+                self.projects.removeAll()
+                self.page = 1
+                self.showProjectShimmer = true
+                self.mainTableView.reloadData()
+                self.selectTwice = false
+                self.catId  = self.Categories[indexPath.row].id ?? 0
+                getProject(catId:self.Categories[indexPath.row].id ?? 0, page: page)
+            }
+        }
+        }else{
+            if topShowShimmer {return}
+            let main = ProjectDetailsVC.instantiateFromNib()
+            main!.projectId =  self.topProjects[indexPath.row].id ?? 0
+            self.navigationController?.pushViewController(main!, animated: true)
+        }
+
+    }
+
+}
+
+extension ProjectsVC : UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let flowayout = collectionViewLayout as? UICollectionViewFlowLayout
+        let space: CGFloat = (flowayout?.minimumInteritemSpacing ?? 0.0) + (flowayout?.sectionInset.left ?? 0.0) + (flowayout?.sectionInset.right ?? 0.0)
+
+        if collectionView == projectCollectionView{
+        let size:CGFloat = (collectionView.frame.size.width - space) / 5
+        return CGSize(width: size, height: collectionView.frame.size.height)
+       }else {
+      let size:CGFloat = (collectionView.frame.size.width - space) / 1.4
+          return CGSize(width: size, height: (collectionView.frame.size.height))
+       }
+    }
+}
+
 extension ProjectsVC: UITableViewDelegate,UITableViewDataSource ,UITableViewDataSourcePrefetching{
-    
+
     func setupContentTableView() {
         mainTableView.delegate = self
         mainTableView.dataSource = self
@@ -110,11 +287,11 @@ extension ProjectsVC: UITableViewDelegate,UITableViewDataSource ,UITableViewData
         self.mainTableView.rowHeight = UITableView.automaticDimension
         self.mainTableView.estimatedRowHeight = UITableView.automaticDimension
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.showShimmer ? 1 : projects.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.CellIdentifier) as! HomeCell
         if !self.showShimmer {
@@ -126,8 +303,8 @@ extension ProjectsVC: UITableViewDelegate,UITableViewDataSource ,UITableViewData
                         , profileUrl : projects[indexPath.row].artist?.profilPicture ?? ""
                         , projectUrl :projects[indexPath.row].imageURL ?? ""
                         , trustUrl : "", isFavourite: projects[indexPath.row].isFavorite ?? false,relatedProduct: projects[indexPath.row].relateProducts ?? [])
-               
-            
+
+
             // edit favourite
               cell.favourite = {
                 if self.token == "" {
@@ -165,13 +342,13 @@ extension ProjectsVC: UITableViewDelegate,UITableViewDataSource ,UITableViewData
                 activityViewController.popoverPresentationController?.sourceView = self.view
               activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.postToFacebook ]
                 self.present(activityViewController, animated: true, completion: nil)
-                
+
             }
         }
         cell.showShimmer = showProjectShimmer
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if showProjectShimmer {
             return
@@ -180,7 +357,7 @@ extension ProjectsVC: UITableViewDelegate,UITableViewDataSource ,UITableViewData
         main!.projectId =  self.projects[indexPath.row].id!
         self.navigationController?.pushViewController(main!, animated: true)
     }
-    
+
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         for index in indexPaths {
             if index.row >= (projects.count) - 2  && isFatching{
@@ -190,179 +367,13 @@ extension ProjectsVC: UITableViewDelegate,UITableViewDataSource ,UITableViewData
             }
         }
     }
-    
+
 }
 
-extension ProjectsVC : UICollectionViewDelegate ,UICollectionViewDataSource{
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == projectCollectionView {
-        if active {
-            return  self.showShimmer ? 5 : Categories.count + 1
-        }else{
-            return  self.showShimmer ? 5 : Categories.count
-        }
-        }else{
-            return  self.topShowShimmer ? 2 : topProjects.count
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! ProjectCell
-        if collectionView == projectCollectionView {
-        if !self.showShimmer {
-        if active {
-           if indexPath.row == 0 {
-                cell.catImage.isHidden = true
-                cell.addProjectBtn.isHidden = false
-            cell.projectNameLabel.text = "Creat.project".localized
-             }else{
-                 cell.catImage.isHidden = false
-                cell.addProjectBtn.isHidden = true
-                cell.projectNameLabel.text = self.Categories[indexPath.row-1].name ?? ""
-                if let url = URL(string:   self.Categories[indexPath.row-1].imageURL ?? ""){
-                cell.catImage.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "Icon - Checkbox - Off"))
-                }
-            }
-            }else{
-                cell.catImage.isHidden = false
-                cell.addProjectBtn.isHidden = true
-                cell.projectNameLabel.text = self.Categories[indexPath.row].name ?? ""
-                if let url = URL(string:   self.Categories[indexPath.row].imageURL ?? ""){
-                cell.catImage.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "Icon - Checkbox - Off"))
-                }
-            }
-            cell.add = {
-                if self.token != "" {
-                    let vc = AddProjectdetailsVc.instantiateFromNib()
-                    self.navigationController?.pushViewController(vc!, animated: true)
-                }
-                else{
-                    self.showMessage(text: "please login first")
-                    let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
-                    if let appDelegate = UIApplication.shared.delegate {
-                        appDelegate.window??.rootViewController = sb
-                    }
-                    return
-                }
-                
-            }
-           
-            if self.selectedIndex == indexPath.row{
-                if self.selectTwice {
-                    cell.ProjectView.layer.borderColor = #colorLiteral(red: 0.9725490196, green: 0.9725490196, blue: 0.9725490196, alpha: 1).cgColor
-                    cell.ProjectView.layer.borderWidth = 0
-                }else{
-                    cell.ProjectView.layer.borderColor = #colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1).cgColor
-                    cell.ProjectView.layer.borderWidth = 2
-                }
-            }else {
-                cell.ProjectView.layer.borderColor = #colorLiteral(red: 0.9725490196, green: 0.9725490196, blue: 0.9725490196, alpha: 1).cgColor
-                cell.ProjectView.layer.borderWidth = 0
-               }
-            
-        }
-        cell.showShimmer = showShimmer
-        return cell
-        }else{
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.cell, for: indexPath) as! TopProjectCell
-            if !self.topShowShimmer {
-                cell.priceLbl.text = "USD \(self.topProjects[indexPath.row].favoriteCount ?? 0)"
-                cell.titleLabel.text = self.topProjects[indexPath.row].title ?? ""
 
-                if let bannerUrl = URL(string:   self.topProjects[indexPath.row].imageURL ?? ""){
-                cell.bannerImage.kf.setImage(with: bannerUrl, placeholder: #imageLiteral(resourceName: "WhatsApp Image 2021-04-21 at 1.25.47 PM"))
-               }
-                cell.editBtn.isHidden = true
-            }
-            
-            cell.showShimmer = topShowShimmer
-            return cell
-            
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        if showShimmer {return}
-        if collectionView == projectCollectionView {
-
-        if active {
-        if indexPath.row != 0 {
-            if  self.selectedIndex == indexPath.row {
-                self.selectedIndex = indexPath.row
-                self.projectCollectionView.reloadData()
-                self.projects.removeAll()
-                self.page = 1
-                self.showProjectShimmer = true
-                self.mainTableView.reloadData()
-                self.selectTwice = true
-                getProject(catId : 0, page: page)
-                
-                }else{
-                self.selectedIndex = indexPath.row
-                self.projectCollectionView.reloadData()
-                self.showProjectShimmer = true
-                self.projects.removeAll()
-                self.page = 1
-                self.mainTableView.reloadData()
-                self.selectTwice = false
-                self.catId  = self.Categories[indexPath.row-1].id ?? 0
-                getProject(catId:self.Categories[indexPath.row-1].id ?? 0, page: page)
-            }
-        }
-        }else{
-            if self.selectedIndex == indexPath.row {
-                self.selectedIndex = indexPath.row
-                self.projectCollectionView.reloadData()
-                self.projects.removeAll()
-                self.page = 1
-                self.showProjectShimmer = true
-                self.mainTableView.reloadData()
-                self.selectTwice = true
-                getProject(catId : 0, page: page)
-            }else{
-                self.selectedIndex = indexPath.row
-                self.projectCollectionView.reloadData()
-                self.projects.removeAll()
-                self.page = 1
-                self.showProjectShimmer = true
-                self.mainTableView.reloadData()
-                self.selectTwice = false
-                self.catId  = self.Categories[indexPath.row].id ?? 0
-                getProject(catId:self.Categories[indexPath.row].id ?? 0, page: page)
-            }
-        }
-        }else{
-            if topShowShimmer {
-                return
-            }
-            let main = ProjectDetailsVC.instantiateFromNib()
-            main!.projectId =  self.topProjects[indexPath.row].id ?? 0
-            self.navigationController?.pushViewController(main!, animated: true)
-        }
-        
-    }
-    
-}
-
-extension ProjectsVC : UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let flowayout = collectionViewLayout as? UICollectionViewFlowLayout
-        let space: CGFloat = (flowayout?.minimumInteritemSpacing ?? 0.0) + (flowayout?.sectionInset.left ?? 0.0) + (flowayout?.sectionInset.right ?? 0.0)
-        
-        if collectionView == projectCollectionView{
-        let size:CGFloat = (collectionView.frame.size.width - space) / 5
-        return CGSize(width: size, height: collectionView.frame.size.height)
-       }else {
-      let size:CGFloat = (collectionView.frame.size.width - space) / 1.4
-          return CGSize(width: size, height: (collectionView.frame.size.height))
-    }
-    
-    }
-}
 
 extension ProjectsVC {
-    
+
     func getCategory() {
         homeVM.getCategories().subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
@@ -373,7 +384,7 @@ extension ProjectsVC {
 
        }).disposed(by: disposeBag)
    }
-    
+
     func getProject(catId : Int,page:Int) {
         homeVM.getProject(page: page,catId: catId).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
@@ -388,9 +399,9 @@ extension ProjectsVC {
 
        }).disposed(by: disposeBag)
    }
-    
-    
-    
+
+
+
     func getTopProject(page:Int,top : Int) {
         homeVM.getTopProject(page: page,top: top).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
@@ -401,9 +412,9 @@ extension ProjectsVC {
 
        }).disposed(by: disposeBag)
    }
-    
-    
-    
+
+
+
     func editFavourite(productID : Int,Type : Bool) {
         homeVM.addToFavourite(productID: productID, Type: Type).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
@@ -415,7 +426,7 @@ extension ProjectsVC {
         self.homeVM.dismissIndicator()
        }).disposed(by: disposeBag)
    }
-    
+
     func shareProject(productID : Int) {
         homeVM.shareProject(productID: productID).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {

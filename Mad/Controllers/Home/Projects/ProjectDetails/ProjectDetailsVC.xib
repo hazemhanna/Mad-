@@ -177,14 +177,14 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uEb-Rh-xYr">
                                                         <rect key="frame" x="32" y="8" width="350" height="646"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qHX-i4-aaq">
-                                                                <rect key="frame" x="0.0" y="0.0" width="350" height="20.5"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qHX-i4-aaq">
+                                                                <rect key="frame" x="0.0" y="0.0" width="350" height="0.0"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="SAb-k5-7xA">
-                                                                <rect key="frame" x="0.0" y="28.5" width="350" height="300"/>
+                                                                <rect key="frame" x="0.0" y="8" width="350" height="300"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="300" id="ha3-Ug-JCq"/>
@@ -262,7 +262,7 @@
                                                 <rect key="frame" x="0.0" y="1000" width="414" height="0.0"/>
                                                 <subviews>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="s5a-je-7Tp" customClass="CustomCollectionView" customModule="Mad" customModuleProvider="target">
-                                                        <rect key="frame" x="32" y="8" width="382" height="0.0"/>
+                                                        <rect key="frame" x="32" y="8" width="350" height="0.0"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hvn-mH-XlH">
                                                             <size key="itemSize" width="50" height="50"/>
@@ -278,7 +278,7 @@
                                                     <constraint firstItem="s5a-je-7Tp" firstAttribute="leading" secondItem="4b8-24-Ru4" secondAttribute="leading" constant="32" id="5eE-mM-WLj"/>
                                                     <constraint firstItem="s5a-je-7Tp" firstAttribute="top" secondItem="4b8-24-Ru4" secondAttribute="top" constant="8" id="P4W-fB-GpX"/>
                                                     <constraint firstItem="s5a-je-7Tp" firstAttribute="height" secondItem="4b8-24-Ru4" secondAttribute="height" id="dCO-ee-qSq"/>
-                                                    <constraint firstAttribute="trailing" secondItem="s5a-je-7Tp" secondAttribute="trailing" id="zPL-tv-O57"/>
+                                                    <constraint firstAttribute="trailing" secondItem="s5a-je-7Tp" secondAttribute="trailing" constant="32" id="zPL-tv-O57"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -287,10 +287,10 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="AjM-Es-dbh">
-                                                <rect key="frame" x="0.0" y="1000" width="414" height="230"/>
+                                                <rect key="frame" x="0.0" y="1000" width="414" height="0.0"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2kI-i7-8fv" customClass="CustomView" customModule="Mad" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="230"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7dh-vP-IiD">
                                                                 <rect key="frame" x="132" y="190" width="150" height="46"/>
@@ -349,9 +349,6 @@
                                                     </view>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="230" id="nBs-pC-ymR"/>
-                                                </constraints>
                                             </stackView>
                                         </subviews>
                                     </stackView>
@@ -446,7 +443,7 @@
     </objects>
     <designables>
         <designable name="RYI-7T-5AE">
-            <size key="intrinsicContentSize" width="129.5" height="42.5"/>
+            <size key="intrinsicContentSize" width="123.5" height="34"/>
         </designable>
     </designables>
     <resources>

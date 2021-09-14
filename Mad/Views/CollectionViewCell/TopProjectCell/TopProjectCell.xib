@@ -9,11 +9,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Graphik-Bold.ttf">
-            <string>Graphik-Bold</string>
-        </array>
         <array key="Graphik-Light.ttf">
             <string>Graphik-Light</string>
+        </array>
+        <array key="Graphik-Medium.ttf">
+            <string>Graphik-Medium</string>
         </array>
     </customFonts>
     <objects>
@@ -26,104 +26,146 @@
                 <rect key="frame" x="0.0" y="0.0" width="291" height="120"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3kc-Es-Xq7" customClass="CustomView" customModule="Mad" customModuleProvider="target">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wvs-af-BaU">
                         <rect key="frame" x="0.0" y="0.0" width="291" height="120"/>
                         <subviews>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="neq-jZ-vJO">
-                                <rect key="frame" x="260" y="16" width="15" height="22"/>
-                                <state key="normal" image="Group 262"/>
-                            </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="koY-Er-oxL">
-                                <rect key="frame" x="8" y="8" width="275" height="104"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3kc-Es-Xq7" customClass="CustomView" customModule="Mad" customModuleProvider="target">
+                                <rect key="frame" x="8" y="8" width="275" height="72"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4" translatesAutoresizingMaskIntoConstraints="NO" id="byK-5H-cjr" customClass="CustomImageView" customModule="Mad" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="10.5" width="82.5" height="83"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4" translatesAutoresizingMaskIntoConstraints="NO" id="byK-5H-cjr" customClass="CustomImageView" customModule="Mad" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="275" height="24"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="8"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="efd-n1-qe3">
-                                        <rect key="frame" x="98.5" y="15" width="176.5" height="74"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dH3-sF-UgP">
+                                        <rect key="frame" x="8" y="32" width="259" height="32"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Live from your Art Workshop" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QBp-vy-dsU">
-                                                <rect key="frame" x="0.0" y="0.0" width="176.5" height="28"/>
-                                                <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="14"/>
-                                                <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD 40" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p4e-78-HF7">
-                                                <rect key="frame" x="0.0" y="60" width="176.5" height="14"/>
-                                                <fontDescription key="fontDescription" name="Graphik-Bold" family="Graphik" pointSize="14"/>
-                                                <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4" translatesAutoresizingMaskIntoConstraints="NO" id="WNj-a3-1J4" customClass="CustomImageView" customModule="Mad" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="32" id="NRk-kB-Uzc"/>
+                                                    <constraint firstAttribute="width" constant="32" id="iqC-gx-m4d"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="16"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </imageView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="knu-mC-o6A">
+                                                <rect key="frame" x="40" y="0.0" width="219" height="32"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="Gcd-b8-PU2">
+                                                        <rect key="frame" x="0.0" y="0.0" width="89.5" height="32"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MAD " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dRx-CP-dYu">
+                                                                <rect key="frame" x="0.0" y="8" width="41" height="16"/>
+                                                                <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="16"/>
+                                                                <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 min ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GcH-b3-wuR">
+                                                                <rect key="frame" x="44" y="11" width="45.5" height="10"/>
+                                                                <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="10"/>
+                                                                <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                     </stackView>
                                 </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="byK-5H-cjr" firstAttribute="width" secondItem="koY-Er-oxL" secondAttribute="width" multiplier="0.3" id="HDe-kA-Y3b"/>
-                                    <constraint firstItem="byK-5H-cjr" firstAttribute="height" secondItem="koY-Er-oxL" secondAttribute="height" multiplier="0.8" id="s6I-Z4-bmK"/>
+                                    <constraint firstItem="dH3-sF-UgP" firstAttribute="leading" secondItem="3kc-Es-Xq7" secondAttribute="leading" constant="8" id="ZhK-Gp-lTN"/>
+                                    <constraint firstAttribute="bottom" secondItem="dH3-sF-UgP" secondAttribute="bottom" constant="8" id="fTJ-9c-DxB"/>
+                                    <constraint firstAttribute="trailing" secondItem="dH3-sF-UgP" secondAttribute="trailing" constant="8" id="qj3-St-ncj"/>
+                                    <constraint firstItem="byK-5H-cjr" firstAttribute="top" secondItem="3kc-Es-Xq7" secondAttribute="top" id="rKP-xd-jLf"/>
+                                    <constraint firstItem="dH3-sF-UgP" firstAttribute="top" secondItem="byK-5H-cjr" secondAttribute="bottom" constant="8" id="xbA-8Y-ypa"/>
+                                    <constraint firstItem="byK-5H-cjr" firstAttribute="leading" secondItem="3kc-Es-Xq7" secondAttribute="leading" id="y40-38-TZA"/>
+                                    <constraint firstAttribute="trailing" secondItem="byK-5H-cjr" secondAttribute="trailing" id="zFb-eH-AOT"/>
                                 </constraints>
-                            </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wge-dB-3gV" customClass="ShimmerView" customModule="Mad" customModuleProvider="target">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.16" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.69999999999999996"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="0.0" height="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Live from your Art Workshop" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QBp-vy-dsU">
+                                <rect key="frame" x="8" y="96" width="275" height="16"/>
+                                <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="14"/>
+                                <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gRZ-B8-biB" customClass="ShimmerView" customModule="Mad" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="291" height="120"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="koY-Er-oxL" secondAttribute="bottom" constant="8" id="4tn-ql-snT"/>
-                            <constraint firstItem="neq-jZ-vJO" firstAttribute="top" secondItem="3kc-Es-Xq7" secondAttribute="top" constant="16" id="5Tq-of-14y"/>
-                            <constraint firstAttribute="trailing" secondItem="Wge-dB-3gV" secondAttribute="trailing" id="GGE-6O-X76"/>
-                            <constraint firstAttribute="trailing" secondItem="neq-jZ-vJO" secondAttribute="trailing" constant="16" id="HTu-Br-hw3"/>
-                            <constraint firstAttribute="bottom" secondItem="Wge-dB-3gV" secondAttribute="bottom" id="ITh-bJ-cjc"/>
-                            <constraint firstItem="koY-Er-oxL" firstAttribute="top" secondItem="3kc-Es-Xq7" secondAttribute="top" constant="8" id="LtT-Ip-8sP"/>
-                            <constraint firstAttribute="trailing" secondItem="koY-Er-oxL" secondAttribute="trailing" constant="8" id="NRl-dC-a74"/>
-                            <constraint firstItem="Wge-dB-3gV" firstAttribute="top" secondItem="3kc-Es-Xq7" secondAttribute="top" id="Ow6-Yl-gVg"/>
-                            <constraint firstItem="Wge-dB-3gV" firstAttribute="leading" secondItem="3kc-Es-Xq7" secondAttribute="leading" id="PUc-MU-344"/>
-                            <constraint firstItem="koY-Er-oxL" firstAttribute="leading" secondItem="3kc-Es-Xq7" secondAttribute="leading" constant="8" id="pvi-TX-ba2"/>
+                            <constraint firstAttribute="bottom" secondItem="QBp-vy-dsU" secondAttribute="bottom" constant="8" id="FUU-yj-QjE"/>
+                            <constraint firstItem="3kc-Es-Xq7" firstAttribute="top" secondItem="Wvs-af-BaU" secondAttribute="top" constant="8" id="M8a-49-MmR"/>
+                            <constraint firstItem="QBp-vy-dsU" firstAttribute="leading" secondItem="Wvs-af-BaU" secondAttribute="leading" constant="8" id="SVQ-gk-RUH"/>
+                            <constraint firstItem="gRZ-B8-biB" firstAttribute="leading" secondItem="Wvs-af-BaU" secondAttribute="leading" id="Tkn-tv-FM7"/>
+                            <constraint firstAttribute="trailing" secondItem="gRZ-B8-biB" secondAttribute="trailing" id="irY-HR-Ugf"/>
+                            <constraint firstAttribute="bottom" secondItem="gRZ-B8-biB" secondAttribute="bottom" id="kGO-JF-kx3"/>
+                            <constraint firstItem="3kc-Es-Xq7" firstAttribute="leading" secondItem="Wvs-af-BaU" secondAttribute="leading" constant="8" id="kLj-uV-ZKA"/>
+                            <constraint firstAttribute="trailing" secondItem="QBp-vy-dsU" secondAttribute="trailing" constant="8" id="lth-1h-BXY"/>
+                            <constraint firstItem="gRZ-B8-biB" firstAttribute="top" secondItem="Wvs-af-BaU" secondAttribute="top" id="mHP-Ti-pF1"/>
+                            <constraint firstAttribute="trailing" secondItem="3kc-Es-Xq7" secondAttribute="trailing" constant="8" id="rBh-WF-f79"/>
+                            <constraint firstItem="QBp-vy-dsU" firstAttribute="top" secondItem="3kc-Es-Xq7" secondAttribute="bottom" constant="16" id="yHB-7M-7JC"/>
+                            <constraint firstAttribute="bottom" secondItem="3kc-Es-Xq7" secondAttribute="bottom" constant="40" id="zoZ-9m-rr3"/>
                         </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="NO"/>
-                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.16" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                <real key="value" value="0.69999999999999996"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                <real key="value" value="2"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                <size key="value" width="0.0" height="3"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                <real key="value" value="16"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="3kc-Es-Xq7" secondAttribute="trailing" id="3Zy-NE-EJm"/>
-                <constraint firstItem="3kc-Es-Xq7" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="8Hg-Ry-Ypz"/>
-                <constraint firstAttribute="bottom" secondItem="3kc-Es-Xq7" secondAttribute="bottom" id="mT9-9z-gNT"/>
-                <constraint firstItem="3kc-Es-Xq7" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="yeS-tf-IhU"/>
+                <constraint firstItem="Wvs-af-BaU" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="XPx-Oe-rW7"/>
+                <constraint firstAttribute="trailing" secondItem="Wvs-af-BaU" secondAttribute="trailing" id="hcZ-a6-yyN"/>
+                <constraint firstAttribute="bottom" secondItem="Wvs-af-BaU" secondAttribute="bottom" id="qd9-vJ-4jp"/>
+                <constraint firstItem="Wvs-af-BaU" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="vFq-S8-a9E"/>
             </constraints>
             <size key="customSize" width="291" height="120"/>
-            <point key="canvasLocation" x="244.20289855072465" y="79.017857142857139"/>
+            <connections>
+                <outlet property="NameLbl" destination="dRx-CP-dYu" id="5dl-F2-CZG"/>
+                <outlet property="dateLbl" destination="GcH-b3-wuR" id="V3a-dw-EPU"/>
+                <outlet property="profileImage" destination="WNj-a3-1J4" id="XjY-gO-KGo"/>
+                <outlet property="projectImage" destination="byK-5H-cjr" id="wHt-fK-0fM"/>
+                <outlet property="shimmerView" destination="gRZ-B8-biB" id="pjS-Ng-5Pq"/>
+                <outlet property="titleLbl" destination="QBp-vy-dsU" id="Htf-Sa-9qU"/>
+            </connections>
+            <point key="canvasLocation" x="175" y="64"/>
         </collectionViewCell>
     </objects>
     <designables>
+        <designable name="WNj-a3-1J4">
+            <size key="intrinsicContentSize" width="320" height="320"/>
+        </designable>
         <designable name="byK-5H-cjr">
             <size key="intrinsicContentSize" width="320" height="320"/>
         </designable>
     </designables>
     <resources>
-        <image name="Group 262" width="15" height="3"/>
         <image name="Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4" width="320" height="320"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
