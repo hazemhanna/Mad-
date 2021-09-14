@@ -162,14 +162,22 @@ class ProjectDetailsVC: UIViewController {
     @IBAction func shareAction(_ sender: UIButton) {
         if Helper.getAPIToken() != nil {
             self.shareProject(productID : self.projectId)
-
+            let text = self.aboutTV.text ?? ""
+            let image = self.projectImage.image ?? #imageLiteral(resourceName: "Component 63 – 1")
+            let textToShare = [ text ,image] as [Any]
+            let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+            activityViewController.popoverPresentationController?.sourceView = self.view
+          activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.postToFacebook ]
+            self.present(activityViewController, animated: true, completion: nil)
+            
         }else{
-            self.showMessage(text: "please login first")
             self.showMessage(text: "please login first")
                 let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
                 if let appDelegate = UIApplication.shared.delegate {
                     appDelegate.window??.rootViewController = sb
                 }
+            
+            
         }
     }
 }
