@@ -182,19 +182,20 @@ extension ProjectsVC : UICollectionViewDelegate ,UICollectionViewDataSource{
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! TopProjectCell
             if !self.topShowShimmer {
+                let isoDate = topProjects[indexPath.row].createdAt ?? ""
+                let dateFormatter = DateFormatter()
+                dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+                dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                let date = dateFormatter.date(from:isoDate)!
+                let time = date.getElapsedInterval()
                 
-                
-                let date: String = topProjects[indexPath.row].createdAt ?? ""
-                let time = date.components(separatedBy: " ")
-
                 cell.confic(name: topProjects[indexPath.row].artist?.name ?? "MAD"
-                            , date: time[0]
+                            , date: time 
                             , title:  topProjects[indexPath.row].title ?? ""
                             , projectUrl: topProjects[indexPath.row].imageURL ?? ""
                             , profile: topProjects[indexPath.row].artist?.profilPicture ?? "")
                 
             }
-            
             cell.showShimmer = topShowShimmer
             return cell
         }
