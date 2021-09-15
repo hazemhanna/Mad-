@@ -109,6 +109,7 @@ class ProjectDetailsVC: UIViewController {
         if commentTF.text != " "{
          self.homeVM.showIndicator()
          addComment(productID: self.projectId, comment: commentTF.text ?? "")
+            self.commentTF.text = " "
         }else{
             self.showMessage(text: "addedComment".localized)
         }
@@ -217,7 +218,7 @@ extension ProjectDetailsVC : UITableViewDelegate,UITableViewDataSource{
         cell.confic(name: (comments[indexPath.row].author?.firstName ?? "") + " " + (comments[indexPath.row].author?.lastName ?? "")
             , imageUrl: comments[indexPath.row].author?.profilePicture ?? ""
             , date:time
-            , comment: comments[indexPath.row].content ?? "" )
+                    , comment: comments[indexPath.row].content?.html2String ?? "" )
         
         return cell
     }
