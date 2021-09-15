@@ -27,12 +27,10 @@ class ProjectCommentCell: UITableViewCell {
         if  let productUrl = URL(string: imageUrl){
             self.imageUrl.kf.setImage(with: productUrl, placeholder: #imageLiteral(resourceName: "WhatsApp Image 2021-04-21 at 1.25.47 PM"))
         }
-        
     }
-    
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
     }
+    
 }

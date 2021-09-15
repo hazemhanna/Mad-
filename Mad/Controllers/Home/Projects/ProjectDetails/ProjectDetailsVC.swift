@@ -208,10 +208,15 @@ extension ProjectDetailsVC : UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier4) as! ProjectCommentCell        
+        let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier4) as! ProjectCommentCell
+        
+        let date: String = comments[indexPath.row].createdAt ?? ""
+        let dateArr = date.components(separatedBy: " ")
+        let time: String = dateArr[0]
+        
         cell.confic(name: (comments[indexPath.row].author?.firstName ?? "") + " " + (comments[indexPath.row].author?.lastName ?? "")
             , imageUrl: comments[indexPath.row].author?.profilePicture ?? ""
-            , date: comments[indexPath.row].createdAt ?? ""
+            , date:time
             , comment: comments[indexPath.row].content ?? "" )
         
         return cell
