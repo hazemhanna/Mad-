@@ -103,4 +103,13 @@ struct HomeViewModel {
          return observer
      }
     
+    
+    func addProjectComment(productID : Int,comment:String) -> Observable<ProjectDetailsModel> {
+        let params: [String: Any] = [
+            "project_id": productID,
+            "comment": comment]
+        let observer = AddServices.shared.addProjectComment(param : params)
+         return observer
+     }
+    
 }

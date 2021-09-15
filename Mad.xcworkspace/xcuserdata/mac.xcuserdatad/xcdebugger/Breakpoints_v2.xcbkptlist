@@ -646,63 +646,63 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "BEB83248-64F8-4EFA-B8F4-EDE5205550AA"
+            uuid = "C4F13DC8-0E17-44A9-A8DA-E4091232A690"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Mad/Network/GetServices.swift"
+            filePath = "Mad/Controllers/Home/Projects/ProjectDetails/ProjectDetailsVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "223"
-            endingLineNumber = "223"
-            landmarkName = "getAllArtist(param:)"
+            startingLineNumber = "325"
+            endingLineNumber = "325"
+            landmarkName = "getProjectDetails(productID:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "300D83E4-C12E-4439-BFBB-55CAC8121074"
+            uuid = "591CCBBA-B0E1-488B-9D24-5E6CF4B12B43"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Mad/Network/GetServices.swift"
+            filePath = "Mad/Network/AddServices.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "224"
-            endingLineNumber = "224"
-            landmarkName = "getAllArtist(param:)"
+            startingLineNumber = "683"
+            endingLineNumber = "683"
+            landmarkName = "addProjectComment(param:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6C5DD05A-0493-43EA-8802-1A19EDB59A46"
+            uuid = "8D4418FA-4D4D-4694-A942-1709B0CE712A"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Mad/Network/GetServices.swift"
+            filePath = "Mad/Network/AddServices.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "226"
-            endingLineNumber = "226"
-            landmarkName = "getAllArtist(param:)"
+            startingLineNumber = "682"
+            endingLineNumber = "682"
+            landmarkName = "addProjectComment(param:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B499BDD6-F20D-40F2-A48B-895DC98FBC18"
+            uuid = "08B4878B-0BB0-4375-98B0-6CC872DFFEFE"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Mad/ViewModel/HomeViewModel.swift"
+            filePath = "Mad/Controllers/Home/Projects/ProjectDetails/ProjectDetailsVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
+            startingLineNumber = "324"
+            endingLineNumber = "324"
             landmarkName = "getProjectDetails(productID:)"
             landmarkType = "7">
          </BreakpointContent>

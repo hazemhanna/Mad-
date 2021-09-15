@@ -42,7 +42,10 @@ struct ConfigURLS {
     static var shareProject = BASE_URL  + "project/share"
     static var getProjectDetails = BASE_URL  + "project/get"
     static var createProject = BASE_URL  + "project/create"
+    static var addProjectComment = BASE_URL  + "project/add_comment"
 
+    
+    
     // artist
     static var addArtistToFavourite = BASE_URL  + "artist/edit_favorite"
     static var getAllArtist = BASE_URL  + "artist/all"

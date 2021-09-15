@@ -663,4 +663,32 @@ struct AddServices {
               return Disposables.create()
           }
       }
+    
+    
+    
+    func addProjectComment(param : [String :Any]) -> Observable<ProjectDetailsModel> {
+           return Observable.create { (observer) -> Disposable in
+               let url = ConfigURLS.addProjectComment
+            
+            let token = Helper.getAPIToken() ?? ""
+            let headers = [
+                "Authorization": "Bearer \(token)",
+                "lang" : AddServices.languageKey
+
+            ]
+               Alamofire.request(url, method: .post, parameters: param, encoding: URLEncoding.default, headers: headers)
+                   .validate(statusCode: 200..<300)
+                   .responseJSON { (response: DataResponse<Any>) in
+                       do {
+                           let data = try JSONDecoder().decode(ProjectDetailsModel.self, from: response.data!)
+                           observer.onNext(data)
+                       } catch {
+                           print(error.localizedDescription)
+                           observer.onError(error)
+                       }
+               }
+               return Disposables.create()
+           }
+       }
+    
 }

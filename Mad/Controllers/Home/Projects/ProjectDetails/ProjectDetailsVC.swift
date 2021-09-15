@@ -17,7 +17,7 @@ class ProjectDetailsVC: UIViewController {
     @IBOutlet weak var productCollectionView: UICollectionView!
     @IBOutlet weak var imageCollectionView: UICollectionView!
     @IBOutlet weak var artistCollectionView: UICollectionView!
-    
+    @IBOutlet weak var reviewTableView: UITableView!
     @IBOutlet weak var productView: UIView!
     @IBOutlet weak var artistView: UIView!
     @IBOutlet weak var aboutView: UIView!
@@ -35,24 +35,28 @@ class ProjectDetailsVC: UIViewController {
     @IBOutlet weak var taggedBtn: UIButton!
     @IBOutlet weak var reviewsStack : UIStackView!
     @IBOutlet weak var mainTitleLbl: UILabel!
+    @IBOutlet weak var commentTF: CustomTextField!
+
     
     private let cellIdentifier = "LiveCellCVC"
     private let cellIdentifier2 = "ProjectCell"
     private let cellIdentifier3 = "AddsCell"
-
-    
-    
+    private let cellIdentifier4 = "ProjectCommentCell"
+ 
     var homeVM = HomeViewModel()
     var disposeBag = DisposeBag()
-    var showShimmer: Bool = true
-    var projectId = 0
+
+    var projectId = Int()
+
     var isFavourite: Bool = false
+    var showShimmer: Bool = true
+
     var token = Helper.getAPIToken() ?? ""
-    var reviews = [Review]()
+   
     var imagesHtml = [String?]()
     var product  = [Product]()
     var artists   = [Artist]()
-
+    var comments = [Comments]()
   
     open lazy var customTabBar: PTCardTabBar = {
         return PTCardTabBar()
@@ -77,11 +81,12 @@ class ProjectDetailsVC: UIViewController {
         imageCollectionView.dataSource = self
         
         
-        
+        setupContentTableView()
         self.homeVM.showIndicator()
         mainTitleLbl.text = "Project.title".localized
         descriptionBtn.setTitle("About".localized, for: .normal)
         reviewsBtn.setTitle("Comment".localized, for: .normal)
+        commentTF.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -97,6 +102,15 @@ class ProjectDetailsVC: UIViewController {
         getProjectDetails(productID : self.projectId)
         if let ptcTBC = tabBarController as? PTCardTabBarController {
             ptcTBC.customTabBar.isHidden = true
+        }
+    }
+    
+    @IBAction func submitBtn(sender: UIButton) {
+        if commentTF.text != " "{
+         self.homeVM.showIndicator()
+         addComment(productID: self.projectId, comment: commentTF.text ?? "")
+        }else{
+            self.showMessage(text: "addedComment".localized)
         }
     }
     
@@ -176,12 +190,39 @@ class ProjectDetailsVC: UIViewController {
                 if let appDelegate = UIApplication.shared.delegate {
                     appDelegate.window??.rootViewController = sb
                 }
-            
-            
         }
     }
 }
 
+
+extension ProjectDetailsVC : UITableViewDelegate,UITableViewDataSource{
+    
+    func setupContentTableView() {
+        reviewTableView.delegate = self
+        reviewTableView.dataSource = self
+        self.reviewTableView.register(UINib(nibName: self.cellIdentifier4, bundle: nil), forCellReuseIdentifier: self.cellIdentifier4)
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return comments.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier4) as! ProjectCommentCell        
+        cell.confic(name: (comments[indexPath.row].author?.firstName ?? "") + " " + (comments[indexPath.row].author?.lastName ?? "")
+            , imageUrl: comments[indexPath.row].author?.profilePicture ?? ""
+            , date: comments[indexPath.row].createdAt ?? ""
+            , comment: comments[indexPath.row].content ?? "" )
+        
+        return cell
+    }
+    
+    
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
+    }
+
+}
 
 
 extension ProjectDetailsVC :  UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
@@ -280,6 +321,9 @@ func getProjectDetails(productID : Int) {
         self.aboutTV.text = data.data?.content?.html2String ?? ""
         self.product = data.data?.products ?? []
         self.artists = data.data?.tagged ?? []
+        self.comments = data.data?.comments ?? []
+        self.reviewTableView.reloadData()
+        
         self.showShimmer = false
 //        if data.data?.products?.count ?? 0 > 0 {
 //            //self.productView.isHidden = false
@@ -365,5 +409,21 @@ func getProjectDetails(productID : Int) {
        }).disposed(by: disposeBag)
    }
     
+    func addComment(productID : Int,comment:String) {
+        homeVM.addProjectComment(productID: productID,comment: comment).subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+            self.getProjectDetails(productID : productID)
+           }
+       }, onError: { (error) in
+        self.homeVM.dismissIndicator()
+       }).disposed(by: disposeBag)
+   }
 }
 
+
+extension ProjectDetailsVC :UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+           self.view.endEditing(true)
+           return false
+       }
+}
