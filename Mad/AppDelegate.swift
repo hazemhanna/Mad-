@@ -24,10 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var token = Helper.getAPIToken() ?? ""
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         if token !=  "" {
-        let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CardTabBarController")
-        window?.rootViewController = sb
+         let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CardTabBarController")
+         window?.rootViewController = sb
         }else {
-        let sb = SplashVC.instantiateFromNib()
+         let sb = SplashVC.instantiateFromNib()
          window?.rootViewController = sb
         }
         

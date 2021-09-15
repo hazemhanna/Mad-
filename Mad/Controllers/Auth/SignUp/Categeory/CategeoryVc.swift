@@ -14,12 +14,13 @@ class CategeoryVc: UIViewController {
 
     @IBOutlet weak var CategoryCollectionView: UICollectionView!
     @IBOutlet weak var nextBtn: UIButton!
-    @IBOutlet weak var artistBtn: UIButton!
-
     @IBOutlet weak var intrestedLbl: UILabel!
     @IBOutlet weak var pickLbl: UILabel!
-    @IBOutlet weak var madArtistLbl: UILabel!
 
+    var selectedIndex = -1
+    var selectTwice = false
+    
+    
     
     let cellIdentifier = "CategeoryCell"
     var disposeBag = DisposeBag()
@@ -28,7 +29,7 @@ class CategeoryVc: UIViewController {
     
     var SelectedCategories = [Int]()
     var Categories = [Category]()
-    var type = true
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.CategoryCollectionView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
@@ -38,11 +39,8 @@ class CategeoryVc: UIViewController {
         getCategory()
         nextBtn.backgroundColor = #colorLiteral(red: 0.9098039216, green: 0.5764705882, blue: 0.6745098039, alpha: 1)
         self.nextBtn.isEnabled = false
-        
-     
         intrestedLbl.text = "interested".localized
         pickLbl.text = "Pick".localized
-        madArtistLbl.text = "Mad.artist".localized
         nextBtn.setTitle( "Next".localized, for: .normal)
         
     }
@@ -62,18 +60,6 @@ class CategeoryVc: UIViewController {
     @IBAction func nextButton(sender: UIButton) {
         completeProfile()
     }
-
-    
-    @IBAction func madArtistAction(sender: UIButton) {
-        if self.type == true {
-            self.artistBtn.setImage(nil, for: .normal)
-            type = false
-        } else {
-            self.artistBtn.setImage(#imageLiteral(resourceName: "icon - check (1)"), for: .normal)
-            type = true
-        }
-    }
-    
 }
 
 extension CategeoryVc: UICollectionViewDelegate , UICollectionViewDataSource {
@@ -84,35 +70,35 @@ extension CategeoryVc: UICollectionViewDelegate , UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! CategeoryCell
         
-        cell.catLbl.text = self.Categories[indexPath.row].name ?? ""
-
-        if let url = URL(string:  self.Categories[indexPath.row].imageURL ?? ""){
-        cell.catImage.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4"))
-        }
-         cell.selectAction = {
-            if cell.iconImage.isHidden {
-            cell.iconImage.isHidden = false
-                self.SelectedCategories.append(self.Categories[indexPath.row].id ?? 0 )
-            }else{
-                cell.iconImage.isHidden = true
-                self.SelectedCategories.removeAll{$0 == self.Categories[indexPath.row].id ?? 0}
-            }
-    
-            if self.SelectedCategories.count >= 3 {
-                self.nextBtn.backgroundColor = #colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1)
-                self.nextBtn.isEnabled = true
-            }else{
-                self.nextBtn.backgroundColor = #colorLiteral(red: 0.9098039216, green: 0.5764705882, blue: 0.6745098039, alpha: 1)
-                self.nextBtn.isEnabled = false
-            }
-        }
+        cell.confic(icon: self.Categories[indexPath.row].imageURL ?? "", name: self.Categories[indexPath.row].name ?? "")
         
+        cell.selectAction = {
+                 if  cell.show{
+                    cell.show = false
+                     self.SelectedCategories.removeAll{$0 == self.Categories[indexPath.row].id ?? 0}
+                 }else{
+                    if self.SelectedCategories.count < 3{
+                    cell.show = true
+                     self.SelectedCategories.append(self.Categories[indexPath.row].id ?? 0 )
+                 }else{
+                     self.showMessage(text: "you can choose only 3 categories")
+                 }
+              }
+                 if self.SelectedCategories.count == 3 {
+                     self.nextBtn.backgroundColor = #colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1)
+                     self.nextBtn.isEnabled = true
+                 }else{
+                     self.nextBtn.backgroundColor = #colorLiteral(red: 0.9098039216, green: 0.5764705882, blue: 0.6745098039, alpha: 1)
+                     self.nextBtn.isEnabled = false
+                 }
+         }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
- 
+    
     }
+    
     
 }
 
@@ -146,15 +132,22 @@ extension CategeoryVc {
 
 extension CategeoryVc {
      func completeProfile() {
-        AuthViewModel.attemptToCompleteProfile(categories: self.SelectedCategories,type: type).subscribe(onNext: { (registerData) in
+        AuthViewModel.attemptToCompleteProfile(categories: self.SelectedCategories,type: true).subscribe(onNext: { (registerData) in
             if registerData.success ?? false {
                 self.AuthViewModel.dismissIndicator()
+                Helper.saveAlogin(token: registerData.data?.accessToken ?? ""
+                                  ,email: registerData.data?.user?.userEmail ?? ""
+                                  , fName: registerData.data?.user?.firstName ?? ""
+                                  ,lName : registerData.data?.user?.lastName ?? ""
+                                  , type:  registerData.data?.user?.madArtist ?? false
+                                  , id: registerData.data?.user?.artistID ?? 0
+                                  , isActive: registerData.data?.user?.activatedArtist ?? false)
+
                 let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CardTabBarController")
                 if let appDelegate = UIApplication.shared.delegate {
                     appDelegate.window??.rootViewController = sb
                 }
                 self.showMessage(text: registerData.message ?? "")
-
             }else{
                 self.AuthViewModel.dismissIndicator()
                 self.showMessage(text: registerData.message ?? "")

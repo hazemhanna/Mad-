@@ -17,6 +17,7 @@ class WelcomVc: UIViewController {
     @IBOutlet weak var creatBtn: UIButton!
     @IBOutlet weak var titleLbl: UILabel!
 
+  
     var disposeBag = DisposeBag()
     private let AdsVM = AdsViewModel()
     
@@ -59,6 +60,7 @@ class WelcomVc: UIViewController {
         let main = EmailVc.instantiateFromNib()
         main?.register = true
         self.navigationController?.pushViewController(main!, animated: true)
+
     }
     
     @IBAction func nexButton(sender: UIButton) {
@@ -68,7 +70,7 @@ class WelcomVc: UIViewController {
             let nextIndex = visibleIndices[0].row + 1
             let nextIndexPath: IndexPath = IndexPath.init(item: nextIndex, section: 0)
             if nextIndex > lastIndex {
-        
+                
             } else {
                 self.collectionView.scrollToItem(at: nextIndexPath, at: .centeredHorizontally, animated: true)
           }
