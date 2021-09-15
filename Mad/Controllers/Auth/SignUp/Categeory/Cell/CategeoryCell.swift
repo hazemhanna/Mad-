@@ -29,7 +29,7 @@ class CategeoryCell: UICollectionViewCell {
     func confic (icon : String , name : String ){
         catLbl.text = name
         if let url = URL(string: icon){
-            catImage.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "1024"))
+            catImage.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4"))
         }
     }
     
