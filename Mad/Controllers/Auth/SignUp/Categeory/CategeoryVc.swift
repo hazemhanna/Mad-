@@ -72,15 +72,21 @@ extension CategeoryVc: UICollectionViewDelegate , UICollectionViewDataSource {
         
         cell.confic(icon: self.Categories[indexPath.row].imageURL ?? "", name: self.Categories[indexPath.row].name ?? "")
        
+        if self.Categories[indexPath.row].show {
+            cell.iconImage.isHidden = false
+        }else{
+            cell.iconImage.isHidden = true
+        }
+        
         cell.selectAction = {
             if  self.Categories[indexPath.row].show {
                  cell.iconImage.isHidden = true
                  self.Categories[indexPath.row].show = false
                  self.SelectedCategories.removeAll{$0 == self.Categories[indexPath.row].id ?? 0}
                  }else{
-                        cell.iconImage.isHidden = false
-                        self.Categories[indexPath.row].show = true
-                        self.SelectedCategories.append(self.Categories[indexPath.row].id ?? 0 )
+                    cell.iconImage.isHidden = false
+                    self.Categories[indexPath.row].show = true
+                    self.SelectedCategories.append(self.Categories[indexPath.row].id ?? 0 )
               }
                  if self.SelectedCategories.count >= 3 {
                      self.nextBtn.backgroundColor = #colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1)

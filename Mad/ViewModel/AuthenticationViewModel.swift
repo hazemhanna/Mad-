@@ -76,7 +76,6 @@ struct AuthenticationViewModel {
             "verification_code": code,
             "categories": categories,
            ]
-        
         let observer = Authentication.shared.postCompleteProfile(params: params)
         return observer
     }
