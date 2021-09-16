@@ -36,10 +36,11 @@ class CreatPasswordVc: UIViewController {
     func validateInput() -> Bool {
         let password =  self.passwordTF.text ?? ""
         if password.isEmpty {
-            self.showMessage(text: "Enter.Password".localized)
+            displayMessage(title: "",message: "Enter.Password".localized, status: .error, forController: self)
+
           return false
         }else if password.isPasswordValid() != true {
-            self.showMessage(text: "Password.Hint".localized)
+            displayMessage(title: "",message: "Password.Hint".localized, status: .error, forController: self)
             return false
           }else{
             return true

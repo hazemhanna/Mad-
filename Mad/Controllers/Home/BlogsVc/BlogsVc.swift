@@ -251,7 +251,8 @@ extension BlogsVc  {
            if dataModel.success ?? false {
             self.blogsVM.dismissIndicator()
             self.getBlogs(catId: self.catId, page: self.page)
-            self.showMessage(text: dataModel.message ?? "")
+            displayMessage(title: "",message: dataModel.message ?? "", status: .success, forController: self)
+
            }else{
             self.blogsVM.dismissIndicator()
 

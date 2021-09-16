@@ -54,7 +54,7 @@ class CountryVc: UIViewController {
     func validateInput() -> Bool {
         let age =  self.selectCateDropDown.text ?? ""
         if age.isEmpty {
-            self.showMessage(text: "Enter.country".localized)
+            displayMessage(title: "",message: "Enter.country".localized, status: .error, forController: self)
           return false
         }else{
             return true

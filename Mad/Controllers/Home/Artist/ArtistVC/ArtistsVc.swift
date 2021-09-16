@@ -295,7 +295,8 @@ extension ArtistsVc {
         artistVM.addToFavourite(artistId: artistId, Type: Type).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
             self.artistVM.dismissIndicator()
-            self.showMessage(text: dataModel.message ?? "")
+            displayMessage(title: "",message: dataModel.message ?? "", status: .success, forController: self)
+
             self.getSuggested()
             self.suggestedCollectionView.reloadData()
            }

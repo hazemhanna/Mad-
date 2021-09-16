@@ -17,10 +17,11 @@ struct CategoryModel: Codable {
 }
 
 // MARK: - Datum
-struct Category: Codable {
+class Category: Codable {
     let id: Int?
     let imageURL: String?
     let name: String?
+    var show = false
 
     enum CodingKeys: String, CodingKey {
         case id

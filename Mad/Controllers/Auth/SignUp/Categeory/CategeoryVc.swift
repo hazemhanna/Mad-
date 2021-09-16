@@ -71,20 +71,18 @@ extension CategeoryVc: UICollectionViewDelegate , UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! CategeoryCell
         
         cell.confic(icon: self.Categories[indexPath.row].imageURL ?? "", name: self.Categories[indexPath.row].name ?? "")
-        
+       
         cell.selectAction = {
-                 if  cell.show{
-                    cell.show = false
-                     self.SelectedCategories.removeAll{$0 == self.Categories[indexPath.row].id ?? 0}
+            if  self.Categories[indexPath.row].show {
+                 cell.iconImage.isHidden = true
+                 self.Categories[indexPath.row].show = false
+                 self.SelectedCategories.removeAll{$0 == self.Categories[indexPath.row].id ?? 0}
                  }else{
-                    if self.SelectedCategories.count < 3{
-                    cell.show = true
-                     self.SelectedCategories.append(self.Categories[indexPath.row].id ?? 0 )
-                 }else{
-                     self.showMessage(text: "you can choose only 3 categories")
-                 }
+                        cell.iconImage.isHidden = false
+                        self.Categories[indexPath.row].show = true
+                        self.SelectedCategories.append(self.Categories[indexPath.row].id ?? 0 )
               }
-                 if self.SelectedCategories.count == 3 {
+                 if self.SelectedCategories.count >= 3 {
                      self.nextBtn.backgroundColor = #colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1)
                      self.nextBtn.isEnabled = true
                  }else{
@@ -147,10 +145,11 @@ extension CategeoryVc {
                 if let appDelegate = UIApplication.shared.delegate {
                     appDelegate.window??.rootViewController = sb
                 }
-                self.showMessage(text: registerData.message ?? "")
+                displayMessage(title: "",message: registerData.message ?? "", status: .success, forController: self)
+
             }else{
                 self.AuthViewModel.dismissIndicator()
-                self.showMessage(text: registerData.message ?? "")
+                displayMessage(title: "",message: registerData.message ?? "", status: .error, forController: self)
             }
         }, onError: { (error) in
             self.AuthViewModel.dismissIndicator()

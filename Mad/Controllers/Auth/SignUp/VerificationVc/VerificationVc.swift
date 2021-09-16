@@ -45,7 +45,8 @@ class VerificationVc: UIViewController {
     func validateInput() -> Bool {
         let code =  self.codeTF.text ?? ""
         if code.isEmpty {
-            self.showMessage(text: "Enter.Code".localized)
+            displayMessage(title: "",message: "Enter.Code".localized, status: .error, forController: self)
+
           return false
         }else{
             return true
@@ -74,7 +75,7 @@ extension VerificationVc {
                 self.navigationController?.pushViewController(main!, animated: true)
             }else{
                 self.AuthViewModel.dismissIndicator()
-                self.showMessage(text: registerData.message ?? "")
+                displayMessage(title: "",message: registerData.message ?? "", status: .error, forController: self)
             }
         }, onError: { (error) in
             self.AuthViewModel.dismissIndicator()

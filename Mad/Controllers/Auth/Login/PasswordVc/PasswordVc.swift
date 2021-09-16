@@ -76,7 +76,8 @@ class PasswordVc: UIViewController {
     func validateInput() -> Bool {
         let email =  self.passwordTF.text ?? ""
         if email.isEmpty {
-            self.showMessage(text: "Enter.Password".localized)
+            displayMessage(title: "", message: "Enter.Password".localized, status: .error, forController: self)
+
           return false
         }else{
             return true
@@ -99,7 +100,7 @@ extension PasswordVc {
                     appDelegate.window??.rootViewController = sb
                 }
             }else{
-                self.showMessage(text: registerData.message ?? "")
+                displayMessage(title: "",message: registerData.message ?? "", status: .error, forController: self)
             }
 
         }, onError: { (error) in

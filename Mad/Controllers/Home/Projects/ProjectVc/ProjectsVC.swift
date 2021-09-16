@@ -153,7 +153,8 @@ extension ProjectsVC : UICollectionViewDelegate ,UICollectionViewDataSource{
                     self.navigationController?.pushViewController(vc!, animated: true)
                 }
                 else{
-                    self.showMessage(text: "please login first")
+                    displayMessage(title: "",message: "please login first".localized, status: .success, forController: self)
+
                     let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
                     if let appDelegate = UIApplication.shared.delegate {
                         appDelegate.window??.rootViewController = sb
@@ -419,7 +420,8 @@ extension ProjectsVC {
            if dataModel.success ?? false {
             self.homeVM.dismissIndicator()
             self.getProject(catId: self.catId, page: self.page)
-            self.showMessage(text: dataModel.message ?? "")
+            displayMessage(title: "",message: dataModel.message ?? "", status: .success, forController: self)
+
            }
        }, onError: { (error) in
         self.homeVM.dismissIndicator()
@@ -431,7 +433,8 @@ extension ProjectsVC {
            if dataModel.success ?? false {
             self.homeVM.dismissIndicator()
             self.getProject(catId: self.catId, page: self.page)
-            self.showMessage(text: dataModel.message ?? "")
+            displayMessage(title: "",message: dataModel.message ?? "", status: .success, forController: self)
+
            }
        }, onError: { (error) in
         self.homeVM.dismissIndicator()

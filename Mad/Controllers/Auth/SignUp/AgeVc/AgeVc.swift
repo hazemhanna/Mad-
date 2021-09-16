@@ -42,7 +42,8 @@ class AgeVc: UIViewController {
     func validateInput() -> Bool {
         let age =  self.ageTF.text ?? ""
         if age.isEmpty {
-            self.showMessage(text: "Enter.age".localized)
+            displayMessage(title: "",message: "Enter.age".localized, status: .error, forController: self)
+
           return false
         }else{
             return true

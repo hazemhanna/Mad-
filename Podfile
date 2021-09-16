@@ -34,5 +34,6 @@ target 'Mad' do
   pod 'Firebase'
   pod 'Firebase/Auth'
   pod 'StagLayout'
-  
+  pod 'SwiftMessages', '~> 6.0.2'
+
 end

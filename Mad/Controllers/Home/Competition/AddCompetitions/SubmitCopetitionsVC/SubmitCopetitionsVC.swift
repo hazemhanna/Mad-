@@ -125,7 +125,7 @@ extension SubmitCopetitionsVC{
         competitionVm.CreateCompete(competitionId: competitionId, fName: fName, lName: lName, phone: phone, email: email, personal: personal, artist_name: artist_name,video_link: video_link, project_description: project_description, know_about: know_about, submit: submit, file: file).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
             self.competitionVm.dismissIndicator()
-            self.showMessage(text: dataModel.message ?? "")
+            displayMessage(title: "",message: dataModel.message ?? "", status: .success, forController: self)
             let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
             self.navigationController!.popToViewController(viewControllers[viewControllers.count - 5], animated: true)
            }else{

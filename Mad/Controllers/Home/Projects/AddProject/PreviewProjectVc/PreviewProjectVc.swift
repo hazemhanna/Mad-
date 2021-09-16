@@ -161,11 +161,12 @@ extension PreviewProjectVc{
         prjectVM.CreatProject(title: title, content: content, short_description: short_description, summary: summery, image: photos, categories: categories, products: products, artists: artists, startDate: startDate, endDate: endDate, location: location, submit: submit, packages: packages).subscribe(onNext: { (dataModel) in
             if dataModel.success ?? false {
                 self.prjectVM.dismissIndicator()
-                self.showMessage(text: dataModel.message ?? "")
+                displayMessage(title: "",message: dataModel.message ?? "", status: .success, forController: self)
+
                 let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
                 self.navigationController!.popToViewController(viewControllers[viewControllers.count - 5], animated: true)
             }else{
-                self.showMessage(text: dataModel.message ?? "")
+                displayMessage(title: "",message: dataModel.message ?? "", status: .error, forController: self)
             }
         }, onError: { (error) in
 

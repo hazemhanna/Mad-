@@ -44,10 +44,11 @@ class NameVc: UIViewController {
         let lasName =  self.lastNameTF.text ?? ""
         
         if firstName.isEmpty {
-            self.showMessage(text: "Enter.first.Name".localized)
+            displayMessage(title: "",message: "Enter.first.Name".localized, status: .error, forController: self)
+
           return false
         }else if lasName.isEmpty {
-            self.showMessage(text: "Enter.last.Name".localized)
+            displayMessage(title: "",message: "Enter.last.Name".localized, status: .error, forController: self)
           return false
         }else{
             return true

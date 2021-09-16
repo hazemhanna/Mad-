@@ -354,7 +354,8 @@ extension ProductDetailsVC {
         productVM.addToFavourite(productId: productId, Type: Type).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
             self.productVM.dismissIndicator()
-            self.showMessage(text: dataModel.message ?? "")
+            displayMessage(title: "",message: dataModel.message ?? "", status: .success, forController: self)
+
            }
        }, onError: { (error) in
         self.productVM.dismissIndicator()
@@ -367,7 +368,7 @@ extension ProductDetailsVC {
         productVM.shareProduct(productId:  productId).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
             self.productVM.dismissIndicator()
-            self.showMessage(text: dataModel.message ?? "")
+            displayMessage(title: "",message: dataModel.message ?? "", status: .success, forController: self)
            }
        }, onError: { (error) in
         self.productVM.dismissIndicator()
@@ -383,7 +384,7 @@ extension ProductDetailsVC {
             self.blackView.isHidden = false
            }else{
             self.productVM.dismissIndicator()
-            self.showMessage(text: dataModel.message ?? "")
+            displayMessage(title: "",message: dataModel.message ?? "", status: .error, forController: self)
            }
        }, onError: { (error) in
         self.productVM.dismissIndicator()

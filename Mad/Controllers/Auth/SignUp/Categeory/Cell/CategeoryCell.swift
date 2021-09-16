@@ -16,11 +16,7 @@ class CategeoryCell: UICollectionViewCell {
 
     var selectAction: (() -> Void)? = nil
     
-    var show = false{
-        didSet{
-            iconImage.isHidden = !show
-        }
-    }
+ 
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -79,16 +79,19 @@ class ResetPasswordVC: UIViewController {
         let confirmPassword =  self.confirmTF.text ?? ""
 
         if password.isEmpty {
-            self.showMessage(text: "Enter.Password".localized)
+            displayMessage(title: "",message: "Enter.Password".localized, status: .error, forController: self)
+
           return false
         }else if password.isPasswordValid() != true {
-            self.showMessage(text: "Password.Hint".localized)
+            displayMessage(title: "",message: "Password.Hint".localized, status: .error, forController: self)
+
             return false
         }else if confirmPassword.isEmpty {
-            self.showMessage(text: "Enter.Password".localized)
+            displayMessage(title: "",message: "Enter.Password".localized, status: .error, forController: self)
+
             return false
         }else if confirmPassword != password {
-            self.showMessage(text: "not.match".localized)
+            displayMessage(title: "",message: "not.match".localized, status: .error, forController: self)
             return false
           }else{
             return true
@@ -111,7 +114,7 @@ extension ResetPasswordVC {
                 let main = EmailVc.instantiateFromNib()
                 self.navigationController?.pushViewController(main!, animated: true)
             }else{
-                self.showMessage(text: registerData.message ?? "")
+                displayMessage(title: "",message: registerData.message ?? "", status: .error, forController: self)
             }
 
         }, onError: { (error) in

@@ -69,7 +69,7 @@ class BlogDetailsVc : UIViewController {
             self.blogsVM.showIndicator()
             self.shareBlog(blogId : self.blogId)
         }else{
-            self.showMessage(text: "please login first".localized)
+            displayMessage(title: "",message: "please login first".localized, status: .error, forController: self)
         }
     }
 }
@@ -126,7 +126,7 @@ func getBlogsDetails(blogId : Int) {
            if dataModel.success ?? false {
             self.blogsVM.dismissIndicator()
             self.getBlogsDetails(blogId : blogId)
-            self.showMessage(text: dataModel.message ?? "")
+            displayMessage(title: "",message: dataModel.message ?? "", status: .success, forController: self)
             let text = self.titleLbl.text ?? ""
             let image = self.projectImage.image
             let textToShare = [text ,image] as [Any]
