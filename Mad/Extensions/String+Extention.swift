@@ -90,7 +90,10 @@ extension String {
         return emailTest.evaluate(with: self)
     }
     func isPasswordValid() -> Bool {
-        let passwordRegex = "(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&*!]).{8,}"
+       // let passwordRegex = "(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&*!]).{8,}"
+       // let passwordRegex =  "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])[A-Za-z\\d$@$!%*?&]{8,}"
+        
+        let passwordRegex =   "^(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&^])[A-Za-z\\d$@$!%*?&^]{8,10}"
         let predicate = NSPredicate(format: "SELF MATCHES %@", passwordRegex)
         return  predicate.evaluate(with: self)
     }

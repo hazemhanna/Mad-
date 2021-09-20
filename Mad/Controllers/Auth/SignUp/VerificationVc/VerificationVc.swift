@@ -46,7 +46,6 @@ class VerificationVc: UIViewController {
         let code =  self.codeTF.text ?? ""
         if code.isEmpty {
             displayMessage(title: "",message: "Enter.Code".localized, status: .error, forController: self)
-
           return false
         }else{
             return true

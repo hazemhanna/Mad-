@@ -30,14 +30,16 @@ class ProjectDetailsVC: UIViewController {
     @IBOutlet weak var aboutTV: UILabel!
     @IBOutlet weak var typeLbl: UILabel!
     @IBOutlet weak var contentSizeHieght : NSLayoutConstraint!
+    @IBOutlet weak var imageCollectionViewHieht : NSLayoutConstraint!
+    @IBOutlet weak var AddcommentView: UIView!
+    @IBOutlet weak var AddcommentViewHeight: NSLayoutConstraint!
+
     @IBOutlet weak var descriptionBtn: UIButton!
     @IBOutlet weak var reviewsBtn: UIButton!
     @IBOutlet weak var taggedBtn: UIButton!
     @IBOutlet weak var reviewsStack : UIStackView!
     @IBOutlet weak var mainTitleLbl: UILabel!
     @IBOutlet weak var commentTF: CustomTextField!
-
-    
     private let cellIdentifier = "LiveCellCVC"
     private let cellIdentifier2 = "ProjectCell"
     private let cellIdentifier3 = "AddsCell"
@@ -106,10 +108,17 @@ class ProjectDetailsVC: UIViewController {
     }
     
     @IBAction func submitBtn(sender: UIButton) {
-        if commentTF.text != " "{
+        if self.token == "" {
+            let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
+            if let appDelegate = UIApplication.shared.delegate {
+                appDelegate.window??.rootViewController = sb
+            }
+            return
+        }
+        if commentTF.text != ""{
          self.homeVM.showIndicator()
          addComment(productID: self.projectId, comment: commentTF.text ?? "")
-            self.commentTF.text = " "
+         self.commentTF.text = " "
         }else{
             self.showMessage(text: "addedComment".localized)
         }
@@ -125,7 +134,7 @@ class ProjectDetailsVC: UIViewController {
             artistView.isHidden = true
             let height = self.aboutTV.intrinsicContentSize.height
             self.contentSizeHieght.constant = 800 + height
-          //  self.productView.isHidden = false
+            self.productView.isHidden = false
 
         }else if sender.tag == 2{
             descriptionBtn.setTitleColor(#colorLiteral(red: 0.1176470588, green: 0.2156862745, blue: 0.4, alpha: 1), for: .normal)
@@ -135,7 +144,7 @@ class ProjectDetailsVC: UIViewController {
             reviewsStack.isHidden = true
             artistView.isHidden = false
             self.contentSizeHieght.constant = 800
-           // self.productView.isHidden = true
+            self.productView.isHidden = true
 
         }else{
             descriptionBtn.setTitleColor(#colorLiteral(red: 0.1176470588, green: 0.2156862745, blue: 0.4, alpha: 1), for: .normal)
@@ -145,8 +154,7 @@ class ProjectDetailsVC: UIViewController {
             reviewsStack.isHidden = false
             artistView.isHidden = true
             self.contentSizeHieght.constant = 800
-//            self.productView.isHidden = true
-
+            self.productView.isHidden = true
         }
     }
     
@@ -165,12 +173,12 @@ class ProjectDetailsVC: UIViewController {
             self.favouriteBtn.setImage(#imageLiteral(resourceName: "Group 155"), for: .normal)
           }
         }else{
-            self.showMessage(text: "please login first")
-                let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
-                if let appDelegate = UIApplication.shared.delegate {
-                    appDelegate.window??.rootViewController = sb
-                }
-           
+            displayMessage(title: "",message: "please login first".localized, status: .success, forController: self)
+            let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
+            if let appDelegate = UIApplication.shared.delegate {
+                appDelegate.window??.rootViewController = sb
+            }
+            return
         }
     }
     
@@ -186,8 +194,8 @@ class ProjectDetailsVC: UIViewController {
             self.present(activityViewController, animated: true, completion: nil)
             
         }else{
-            self.showMessage(text: "please login first")
-                let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
+            displayMessage(title: "",message: "please login first".localized, status: .success, forController: self)
+           let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
                 if let appDelegate = UIApplication.shared.delegate {
                     appDelegate.window??.rootViewController = sb
                 }
@@ -294,6 +302,10 @@ extension ProjectDetailsVC :  UICollectionViewDelegate, UICollectionViewDataSour
             vc.artistId = self.artists[indexPath.row].id ?? 0
             Helper.saveArtistId(id: self.artists[indexPath.row].id ?? 0)
         self.navigationController?.pushViewController(vc, animated: true)
+        }else if collectionView == productCollectionView{
+            let vc = ProductDetailsVC.instantiateFromNib()
+            vc!.productId = self.product[indexPath.row].id ?? 0
+            self.navigationController?.pushViewController(vc!, animated: true)
         }
     }
     
@@ -322,6 +334,9 @@ func getProjectDetails(productID : Int) {
        if data.success ?? false {
         self.homeVM.dismissIndicator()
         
+  
+
+        
         self.LikeLbl.text = "\(data.data?.favoriteCount ?? 0)"
         self.shareLbl.text = "\(data.data?.shareCount ?? 0)"
         self.aboutTV.text = data.data?.content?.html2String ?? ""
@@ -329,26 +344,18 @@ func getProjectDetails(productID : Int) {
         self.artists = data.data?.tagged ?? []
         self.comments = data.data?.comments ?? []
         self.reviewTableView.reloadData()
-        
-        self.showShimmer = false
-//        if data.data?.products?.count ?? 0 > 0 {
-//            //self.productView.isHidden = false
-//            self.productCollectionView.reloadData()
-//            let height = self.aboutTV.intrinsicContentSize.height
-//            self.contentSizeHieght.constant = 900 + height
-//        }else{
-//           // self.productView.isHidden = true
-//            let height = self.aboutTV.intrinsicContentSize.height
-//            self.contentSizeHieght.constant = 600 + height
-//        }
-        
-        let height = self.aboutTV.intrinsicContentSize.height
-        self.contentSizeHieght.constant = 600 + height
         if data.data?.tagged?.count ?? 0 > 0 {
             self.artistCollectionView.isHidden = false
             self.artistCollectionView.reloadData()
         }
         
+        self.showShimmer = false
+        if data.data?.products?.count ?? 0 > 0 {
+            self.productView.isHidden = false
+            self.productCollectionView.reloadData()
+        }else{
+            self.productView.isHidden = true
+        }
         self.titleLbl.text = data.data?.title ?? ""
         var projectCat = [String]()
         for cat in data.data?.categories ?? []{
@@ -365,6 +372,7 @@ func getProjectDetails(productID : Int) {
             self.favouriteBtn.setImage(#imageLiteral(resourceName: "Group 140"), for: .normal)
           }
         
+        
         do {
             let doc: Document = try SwiftSoup.parse(data.data?.content ?? "")
             let srcs: Elements = try doc.select("img[src]")
@@ -374,13 +382,20 @@ func getProjectDetails(productID : Int) {
                 self.imageCollectionView.isHidden = false
                 self.imagesHtml = srcsStringArray
                 self.imageCollectionView.reloadData()
-        }
+                self.imageCollectionViewHieht.constant = 300
+                let height = self.aboutTV.intrinsicContentSize.height
+                self.contentSizeHieght.constant = 900 + height
+            }else{
+                self.imageCollectionViewHieht.constant = 0
+                let height = self.aboutTV.intrinsicContentSize.height
+                self.contentSizeHieght.constant = 600 + height
+                
+            }
         } catch Exception.Error(_, let message) {
             print(message)
         } catch {
             print("error")
         }
-        
         
        }
    }, onError: { (error) in

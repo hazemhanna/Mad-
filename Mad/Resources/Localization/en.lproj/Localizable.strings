@@ -1,9 +1,7 @@
 /* 
   Localizable.strings
   Mad
-
   Created by MAC on 17/08/2021.
-  
 */
 
 //  splash
@@ -51,7 +49,6 @@
 "Create.your.projects" = "Create your projects, promote them and get them sponsored";
 // verification
 "Verification.code" = "Verification code has been sent to your email address";
-
 "type.code"="Type Code Here";
 // name
 "YOUR.NAME" = "YOUR NAME";
@@ -60,7 +57,7 @@
 // age
 "How.old" = "How old are you?";
 "Age" = "Age";
-"HI"="HI";
+"HI"="Hi";
 // country
 "Your.Country" = "Your Country";
 // categeory
@@ -135,7 +132,7 @@
 "View.cart" = "View cart";
 
 "blogDetails" = "blog Details";
-
+"Done" = "Done";
 // mesages
 "Enter.Password" = "Please Enter Your Password";
 "Enter.first.Name" = "Please Enter first Name";
@@ -148,7 +145,7 @@
 "Enter.state" = "Please Enter state";
 "Enter.postcode" = "Please Enter postcode";
 "Enter.Code" = "Please Enter Your Code First";
-"Password.Hint" = "Your Password Should be 8 characters. at least one special characters and one capital letter";
+"Password.Hint" = "Your Password must be between  8  and 10 characters, contain at least one uppercase, one number digit and one special characters (ex: $,#,@,!,%,^,&,*)";
 "Enter.age"="Please Enter Your age";
 "not.match" = "password not match";
 "please login first" = "please login first";

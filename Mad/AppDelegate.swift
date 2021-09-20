@@ -12,6 +12,8 @@ import UserNotifications
 import FirebaseMessaging
 import RxSwift
 import RxCocoa
+import IQKeyboardManagerSwift
+
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -48,7 +50,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.registerForRemoteNotifications()
         UNUserNotificationCenter.current().delegate = self
         FirebaseApp.configure()
-        
+        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.enableAutoToolbar = true
+        IQKeyboardManager.shared.toolbarDoneBarButtonItemText = "Done".localized
         return true
     }
     

@@ -225,7 +225,7 @@
                                                 <rect key="frame" x="0.0" y="1000" width="414" height="180"/>
                                                 <subviews>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="JAU-Nb-XoQ" customClass="CustomCollectionView" customModule="Mad" customModuleProvider="target">
-                                                        <rect key="frame" x="32" y="8" width="382" height="108"/>
+                                                        <rect key="frame" x="32" y="8" width="382" height="126"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="k2A-po-yKY">
                                                             <size key="itemSize" width="50" height="50"/>
@@ -235,8 +235,8 @@
                                                         </collectionViewFlowLayout>
                                                         <cells/>
                                                     </collectionView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W6b-g9-V5l">
-                                                        <rect key="frame" x="329" y="124" width="53" height="30"/>
+                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W6b-g9-V5l">
+                                                        <rect key="frame" x="329" y="142" width="53" height="30"/>
                                                         <state key="normal" title="View all">
                                                             <color key="titleColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
@@ -248,7 +248,7 @@
                                                     <constraint firstItem="JAU-Nb-XoQ" firstAttribute="top" secondItem="Ohd-MP-30A" secondAttribute="top" constant="8" id="PIY-oY-Kms"/>
                                                     <constraint firstAttribute="trailing" secondItem="JAU-Nb-XoQ" secondAttribute="trailing" id="UM4-ax-Wae"/>
                                                     <constraint firstAttribute="height" constant="180" id="X92-9b-vJc"/>
-                                                    <constraint firstItem="JAU-Nb-XoQ" firstAttribute="height" secondItem="Ohd-MP-30A" secondAttribute="height" multiplier="0.6" id="pXh-dq-OSd"/>
+                                                    <constraint firstItem="JAU-Nb-XoQ" firstAttribute="height" secondItem="Ohd-MP-30A" secondAttribute="height" multiplier="0.7" id="pXh-dq-OSd"/>
                                                     <constraint firstAttribute="trailing" secondItem="W6b-g9-V5l" secondAttribute="trailing" constant="32" id="xEX-Hr-xlq"/>
                                                     <constraint firstItem="JAU-Nb-XoQ" firstAttribute="leading" secondItem="Ohd-MP-30A" secondAttribute="leading" constant="32" id="yPq-4U-eAq"/>
                                                 </constraints>
@@ -438,6 +438,7 @@
                 <outlet property="descriptionBtn" destination="97i-Yv-87x" id="BgT-9Q-gJ0"/>
                 <outlet property="favouriteBtn" destination="Ce9-cZ-HOg" id="7vT-a9-4fB"/>
                 <outlet property="imageCollectionView" destination="SAb-k5-7xA" id="TQL-ij-9j2"/>
+                <outlet property="imageCollectionViewHieht" destination="ha3-Ug-JCq" id="0qu-ys-YRk"/>
                 <outlet property="mainTitleLbl" destination="NOe-Uc-pHz" id="HsP-Tz-9JB"/>
                 <outlet property="productCollectionView" destination="JAU-Nb-XoQ" id="Np3-Dz-MOz"/>
                 <outlet property="productView" destination="Ohd-MP-30A" id="t8V-PA-HQO"/>
@@ -456,7 +457,7 @@
     </objects>
     <designables>
         <designable name="RYI-7T-5AE">
-            <size key="intrinsicContentSize" width="123.5" height="34"/>
+            <size key="intrinsicContentSize" width="129.5" height="42.5"/>
         </designable>
     </designables>
     <resources>

@@ -154,7 +154,6 @@ extension ProjectsVC : UICollectionViewDelegate ,UICollectionViewDataSource{
                 }
                 else{
                     displayMessage(title: "",message: "please login first".localized, status: .success, forController: self)
-
                     let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
                     if let appDelegate = UIApplication.shared.delegate {
                         appDelegate.window??.rootViewController = sb
@@ -347,6 +346,7 @@ extension ProjectsVC: UITableViewDelegate,UITableViewDataSource ,UITableViewData
 
             }
         }
+        cell.deleget = self
         cell.showShimmer = showProjectShimmer
         return cell
     }

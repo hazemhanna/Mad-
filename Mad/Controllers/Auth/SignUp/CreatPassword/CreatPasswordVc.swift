@@ -37,7 +37,6 @@ class CreatPasswordVc: UIViewController {
         let password =  self.passwordTF.text ?? ""
         if password.isEmpty {
             displayMessage(title: "",message: "Enter.Password".localized, status: .error, forController: self)
-
           return false
         }else if password.isPasswordValid() != true {
             displayMessage(title: "",message: "Password.Hint".localized, status: .error, forController: self)

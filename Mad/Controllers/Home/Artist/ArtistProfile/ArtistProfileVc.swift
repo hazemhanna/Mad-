@@ -60,7 +60,14 @@ class ArtistProfileVc: UIViewController {
             followBtn.backgroundColor = #colorLiteral(red: 0.5764705882, green: 0.6235294118, blue: 0.7137254902, alpha: 1)
        }
        }else {
-        displayMessage(title: "",message: "please login first".localized, status: .error, forController: self)
+        
+        displayMessage(title: "",message: "please login first".localized, status: .success, forController: self)
+
+        let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
+        if let appDelegate = UIApplication.shared.delegate {
+            appDelegate.window??.rootViewController = sb
+        }
+        return
       }
     }
     

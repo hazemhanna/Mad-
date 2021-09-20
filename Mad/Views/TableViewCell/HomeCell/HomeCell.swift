@@ -26,7 +26,7 @@ class HomeCell: UITableViewCell {
     @IBOutlet weak var shimmerView : ShimmerView!
     @IBOutlet weak var artistStack : UIStackView!
 
-    
+    var deleget : ProjectsVC?
     var favourite: (() -> Void)? = nil
     var share: (() -> Void)? = nil
     
@@ -154,6 +154,9 @@ extension HomeCell:  UICollectionViewDelegate, UICollectionViewDataSource, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = ProductDetailsVC.instantiateFromNib()
+        vc!.productId = self.product[indexPath.row].id ?? 0
+        self.deleget?.navigationController?.pushViewController(vc!, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
