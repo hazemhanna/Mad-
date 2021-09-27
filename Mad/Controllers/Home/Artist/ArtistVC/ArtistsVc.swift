@@ -149,6 +149,7 @@ extension ArtistsVc : UICollectionViewDelegate ,UICollectionViewDataSource , UIC
                         self.suggestedCollectionView.reloadData()
                    }
                    }else {
+                    displayMessage(title: "",message: "please login first".localized, status: .success, forController: self)
                     let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
                     if let appDelegate = UIApplication.shared.delegate {
                         appDelegate.window??.rootViewController = sb

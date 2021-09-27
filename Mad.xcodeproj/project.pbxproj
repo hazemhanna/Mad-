@@ -206,6 +206,10 @@
 		047DD03F267C4F7F00C78C49 /* CompetitionResultslistsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047DD03D267C4F7F00C78C49 /* CompetitionResultslistsVC.xib */; };
 		0484B27226F2052D005EF209 /* ProjectCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0484B27026F2052D005EF209 /* ProjectCommentCell.swift */; };
 		0484B27326F2052D005EF209 /* ProjectCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0484B27126F2052D005EF209 /* ProjectCommentCell.xib */; };
+		0486B9702701C45F00CA51A7 /* ArtistNameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0486B96E2701C45F00CA51A7 /* ArtistNameVC.swift */; };
+		0486B9712701C45F00CA51A7 /* ArtistNameVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0486B96F2701C45F00CA51A7 /* ArtistNameVC.xib */; };
+		0486B9772701C65900CA51A7 /* ArtistNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0486B9752701C65900CA51A7 /* ArtistNameCell.swift */; };
+		0486B9782701C65900CA51A7 /* ArtistNameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0486B9762701C65900CA51A7 /* ArtistNameCell.xib */; };
 		0486DE9F26936635001DA69E /* AddressVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0486DE9D26936635001DA69E /* AddressVC.swift */; };
 		0486DEA026936635001DA69E /* AddressVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0486DE9E26936635001DA69E /* AddressVC.xib */; };
 		0486DEC126939848001DA69E /* MyOrderDetailsVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0486DEBF26939848001DA69E /* MyOrderDetailsVc.swift */; };
@@ -495,6 +499,10 @@
 		047DD03D267C4F7F00C78C49 /* CompetitionResultslistsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompetitionResultslistsVC.xib; sourceTree = "<group>"; };
 		0484B27026F2052D005EF209 /* ProjectCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCommentCell.swift; sourceTree = "<group>"; };
 		0484B27126F2052D005EF209 /* ProjectCommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectCommentCell.xib; sourceTree = "<group>"; };
+		0486B96E2701C45F00CA51A7 /* ArtistNameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistNameVC.swift; sourceTree = "<group>"; };
+		0486B96F2701C45F00CA51A7 /* ArtistNameVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArtistNameVC.xib; sourceTree = "<group>"; };
+		0486B9752701C65900CA51A7 /* ArtistNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistNameCell.swift; sourceTree = "<group>"; };
+		0486B9762701C65900CA51A7 /* ArtistNameCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArtistNameCell.xib; sourceTree = "<group>"; };
 		0486DE9D26936635001DA69E /* AddressVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressVC.swift; sourceTree = "<group>"; };
 		0486DE9E26936635001DA69E /* AddressVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressVC.xib; sourceTree = "<group>"; };
 		0486DEBF26939848001DA69E /* MyOrderDetailsVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderDetailsVc.swift; sourceTree = "<group>"; };
@@ -1509,6 +1517,7 @@
 		0482EEAC26164D3F00CB4A24 /* Notification */ = {
 			isa = PBXGroup;
 			children = (
+				0486B96D2701C44400CA51A7 /* ArtistNameVC */,
 				04A05D0026B05B200066522A /* ChatVc */,
 				0437FA6D269EA93800CD594D /* SendMessageVc */,
 				041427FE26174D76000394CA /* NotificationVc.swift */,
@@ -1541,6 +1550,25 @@
 				0484B27126F2052D005EF209 /* ProjectCommentCell.xib */,
 			);
 			path = ProjectCommentCell;
+			sourceTree = "<group>";
+		};
+		0486B96D2701C44400CA51A7 /* ArtistNameVC */ = {
+			isa = PBXGroup;
+			children = (
+				0486B9732701C5B100CA51A7 /* Cell */,
+				0486B96E2701C45F00CA51A7 /* ArtistNameVC.swift */,
+				0486B96F2701C45F00CA51A7 /* ArtistNameVC.xib */,
+			);
+			path = ArtistNameVC;
+			sourceTree = "<group>";
+		};
+		0486B9732701C5B100CA51A7 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0486B9752701C65900CA51A7 /* ArtistNameCell.swift */,
+				0486B9762701C65900CA51A7 /* ArtistNameCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		0486DE9B269365FA001DA69E /* SideMenu */ = {
@@ -2142,6 +2170,7 @@
 				0414282E26176074000394CA /* HomeCell.xib in Resources */,
 				0447A8FE26712E4200F523CC /* CompetitionsDetailsVc.xib in Resources */,
 				04242AB526554089003C8B44 /* VideoArtistCell.xib in Resources */,
+				0486B9782701C65900CA51A7 /* ArtistNameCell.xib in Resources */,
 				04528E562614B586009868EA /* NameVc.xib in Resources */,
 				04F06AF12614DD5100B08606 /* CategeoryVc.xib in Resources */,
 				040EBE6026C1999C000E20FA /* EditMyProfileVc.xib in Resources */,
@@ -2193,6 +2222,7 @@
 				0439BD0F2672640600AC5C59 /* GuidlinesCompetitionsVC.xib in Resources */,
 				04660D4E26CB2163000D7883 /* Localizable.strings in Resources */,
 				046CD6962682A87A004FE6C6 /* SearchItemsCell.xib in Resources */,
+				0486B9712701C45F00CA51A7 /* ArtistNameVC.xib in Resources */,
 				04B6741326383DC600AFF9C3 /* AddProductPhotoCell.xib in Resources */,
 				0439BD1E2672648900AC5C59 /* JudgesCompetitionsVC.xib in Resources */,
 				04688789261E0E170056AC92 /* VerificationVc.xib in Resources */,
@@ -2305,6 +2335,7 @@
 				0451FD642617A5B600AEE546 /* TitleCell.swift in Sources */,
 				040339D92638D0CD00CEDBD3 /* AlertService.swift in Sources */,
 				046CD69B2682B383004FE6C6 /* TagsCell.swift in Sources */,
+				0486B9772701C65900CA51A7 /* ArtistNameCell.swift in Sources */,
 				045039972693DCFD002151F0 /* MyOrderVc.swift in Sources */,
 				0439BD132672642B00AC5C59 /* DeadlinesCompetitionsVc.swift in Sources */,
 				0458B3142667CC0B00382E77 /* PreviewProjectVc.swift in Sources */,
@@ -2406,6 +2437,7 @@
 				0453CEB126D530DA00D404C1 /* LanguageHelper.swift in Sources */,
 				046CD68926829EBD004FE6C6 /* SearchCompetitionsVC.swift in Sources */,
 				04528E2F26149496009868EA /* Helper.swift in Sources */,
+				0486B9702701C45F00CA51A7 /* ArtistNameVC.swift in Sources */,
 				0414286526176BCD000394CA /* HomeViewModel.swift in Sources */,
 				04DEAA412620B4A900F843A6 /* SplashCell.swift in Sources */,
 				047991AF2694FFDB00859254 /* CartModel.swift in Sources */,

@@ -88,4 +88,10 @@ struct ChatViewModel {
          return observer
      }
     
+    
+    func getCategories() -> Observable<CategoryModel> {
+         let observer = GetServices.shared.getAllCategories()
+         return observer
+     }
+    
 }

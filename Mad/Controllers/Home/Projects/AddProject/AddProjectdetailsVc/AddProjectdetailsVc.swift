@@ -18,7 +18,6 @@ class AddProjectdetailsVc : UIViewController {
 
     @IBOutlet fileprivate weak var tagsViewHeight: NSLayoutConstraint!
     @IBOutlet fileprivate weak var artistViewHeight: NSLayoutConstraint!
-
     @IBOutlet fileprivate weak var tagsView: UIView!
     @IBOutlet fileprivate weak var artistView: UIView!
     @IBOutlet weak var short_description: CustomTextField!
@@ -27,16 +26,13 @@ class AddProjectdetailsVc : UIViewController {
     @IBOutlet weak var startDateTf: CustomTextField!
     @IBOutlet weak var endDateTf: CustomTextField!
     @IBOutlet weak var locationTF: TextFieldDropDown!
-
-    
-    var cats = [String]()
-    var countries = [String]() 
-    
-    
     @IBOutlet weak var liveCollectionView: UICollectionView!
     @IBOutlet weak var projectImage : UIImageView!
-    var selectedIndex = -1
+    
 
+    var disposeBag = DisposeBag()
+    var prjectVM = ProjectViewModel()
+    
     open lazy var customTabBar: PTCardTabBar = {
         return PTCardTabBar()
     }()
@@ -44,19 +40,12 @@ class AddProjectdetailsVc : UIViewController {
     let cellIdentifier = "LiveCellCVC"
     var showShimmer: Bool = true
 
-    var disposeBag = DisposeBag()
-    var prjectVM = ProjectViewModel()
-    var categeory = [Category]()
-    var artist = [Artist]()
-
+    var countries = [String]()
+    var selectedIndex = -1
     var selectedCat = [Int]()
     var selectedArtist = [Int]()
     var selectedProducts = [Int]()
     var products = [Product]()
-
-    var catArray = [String]()
-    var artistArray = [String]()
-    var categeoryStrings = [String]()
     
     var uploadedPhoto :UIImage?
     var start  = true
@@ -64,13 +53,11 @@ class AddProjectdetailsVc : UIViewController {
     
     fileprivate let tagsField = WSTagsField()
     fileprivate let artistField = WSTagsField()
-    var typePickerView: UIPickerView = UIPickerView()
-    var artistPickerView: UIPickerView = UIPickerView()
-
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         tagsField.frame = tagsView.bounds
         tagsView.addSubview(tagsField)
         tagsField.cornerRadius = 3.0
@@ -112,7 +99,6 @@ class AddProjectdetailsVc : UIViewController {
         liveCollectionView.dataSource = self
         
         prjectVM.showIndicator()
-        getCategory()
         getProduct()
         getCountry()
         startDateTf.delegate = self
@@ -156,18 +142,13 @@ class AddProjectdetailsVc : UIViewController {
         tagsField.frame = tagsView.bounds
     }
     
-
-    
     @IBAction func backButton(sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
     
-    
     @IBAction func uploadImageButton(sender: UIButton) {
         showImageActionSheet()
     }
-    
-    
     
     @IBAction func calender1Button(sender: UIButton) {
         let vc = CalenderVc.instantiateFromNib()
@@ -184,28 +165,6 @@ class AddProjectdetailsVc : UIViewController {
     
     
     @IBAction func nextButton(sender: UIButton) {
-        self.selectedCat.removeAll()
-        let tags = tagsField.tags.map({$0.text})
-        let uniqTags = tags.uniqued()
-        for index in uniqTags{
-                for cat in self.categeory{
-                    if index == cat.name{
-                        self.selectedCat.append(cat.id ?? 0)
-                    }
-                }
-            }
-        
-        self.selectedArtist.removeAll()
-        let tags2 = artistField.tags.map({$0.text})
-        let uniqTags2 = tags2.uniqued()
-        for index in uniqTags2{
-                for i in self.artist{
-                    if index == i.name{
-                        self.selectedArtist.append(i.id ?? 0)
-                }
-            }
-        }
-        
         guard self.validateInput() else {return}
         let vc = AboutProjectVC.instantiateFromNib()
         vc!.selectedCat = selectedCat
@@ -221,7 +180,6 @@ class AddProjectdetailsVc : UIViewController {
         vc!.products = products
         self.navigationController?.pushViewController(vc!, animated: true)
     }
-
     
     func validateInput() -> Bool {
         let tags =  self.selectedCat
@@ -266,13 +224,6 @@ class AddProjectdetailsVc : UIViewController {
 }
 
 extension AddProjectdetailsVc: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-     self.typePickerView.isHidden = true
-        self.artistPickerView.isHidden = true
-        self.view.endEditing(true)
-        return true
-    }
-    
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField == startDateTf{
             if start {
@@ -307,12 +258,15 @@ extension AddProjectdetailsVc {
         tagsField.onDidChangeText = { _, text in
             print("onDidChangeText")
 
-            self.categeoryStrings = self.catArray.filter({return $0.contains(text ?? "")})
-            self.view.addSubview(self.typePickerView)
-            self.typePickerView.frame = CGRect(x: 200, y: 320, width: 150, height: 160)
-            self.typePickerView.delegate = self
-            self.typePickerView.dataSource = self
-            self.typePickerView.isHidden = false
+            let vc = ArtistNameVC.instantiateFromNib()
+            vc?.showArtist = false
+            vc!.onClickCat = { cats in
+             self.selectedCat.append(cats.id ?? 0 )
+                self.tagsField.addTag(cats.name ?? "")
+             self.presentingViewController?.dismiss(animated: true)
+           }
+           self.present(vc!, animated: true, completion: nil)
+            
         }
 
         tagsField.onDidChangeHeightTo = { _, height in
@@ -344,13 +298,15 @@ extension AddProjectdetailsVc {
 
         artistField.onDidChangeText = { _, text in
             print("onDidChangeText")
-            self.getAllArtist(section : "artists",search:text ?? "",pageNum :1)
-           // self.filterArtistArray = self.artistArray.filter({return $0.contains(text ?? "")})
-            self.view.addSubview(self.artistPickerView)
-            self.artistPickerView.frame = CGRect(x: 200, y: 400, width: 150, height: 160)
-            self.artistPickerView.delegate = self
-            self.artistPickerView.dataSource = self
-            self.artistPickerView.isHidden = false
+            let vc = ArtistNameVC.instantiateFromNib()
+            vc?.showArtist = true
+            vc!.onClickClose = { artist in
+            self.selectedArtist.append(artist.id ?? 0)
+            self.artistField.addTag(artist.name ?? "")
+             self.presentingViewController?.dismiss(animated: true)
+           }
+           self.present(vc!, animated: true, completion: nil)
+            
         }
 
         artistField.onDidChangeHeightTo = { _, height in
@@ -372,60 +328,8 @@ extension AddProjectdetailsVc {
 
 
 // Number of columns
-extension AddProjectdetailsVc : UIPickerViewDelegate, UIPickerViewDataSource {
-
-func numberOfComponents(in pickerView: UIPickerView) -> Int {
-    return 1
-}
-// Number of rows
-
-func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-    if pickerView ==  artistPickerView{
-    return artistArray.count
-    }else {
-        return categeoryStrings.count
-    }
-}
-    
-func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-    if pickerView ==  artistPickerView{
-        return artistArray[row]
-    }else {
-        return categeoryStrings[row]
-    }
-}
-
-func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-    if pickerView ==  artistPickerView{
-        artistField.addTag(artistArray[row])
-        self.artistPickerView.isHidden = true
-        view.endEditing(true)
-
-    }else {
-        tagsField.addTag(categeoryStrings[row])
-        self.typePickerView.isHidden = true
-        view.endEditing(true)
-
-     }
-   }
-}
 
 extension AddProjectdetailsVc {
-     func getCategory() {
-        prjectVM.getCategories().subscribe(onNext: { (dataModel) in
-            if dataModel.success ?? false {
-                self.prjectVM.dismissIndicator()
-                self.categeory = dataModel.data ?? []
-                for cat in self.categeory{
-                    self.catArray.append(cat.name ?? "")
-                }
-            }
-        }, onError: { (error) in
-            self.prjectVM.dismissIndicator()
-
-        }).disposed(by: disposeBag)
-    }
-    
     
     func getProduct(){
        prjectVM.getArtistProduct().subscribe(onNext: { (dataModel) in
@@ -439,32 +343,18 @@ extension AddProjectdetailsVc {
        }).disposed(by: disposeBag)
    }
     
-    func getAllArtist(section : String,search:String,pageNum :Int) {
-        prjectVM.getSearchArtist(section : section,search:search,pageNum :pageNum).subscribe(onNext: { (dataModel) in
-           if dataModel.success ?? false {
-            self.artist = dataModel.data ?? []
-            for index in self.artist {
-                self.artistArray.append(index.name ?? "")
-            }
-           }
-       }, onError: { (error) in
-
-       }).disposed(by: disposeBag)
-   }
-    
      func getCountry() {
             prjectVM.getAllCountries().subscribe(onNext: { (dataModel) in
                 if dataModel.success ?? false {
+                    self.prjectVM.dismissIndicator()
                     self.countries = dataModel.data ?? []
                     self.setupCountryDropDown()
                 }
             }, onError: { (error) in
+                self.prjectVM.dismissIndicator()
 
             }).disposed(by: disposeBag)
         }
-    
-
-    
 }
 
 extension AddProjectdetailsVc :  UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{

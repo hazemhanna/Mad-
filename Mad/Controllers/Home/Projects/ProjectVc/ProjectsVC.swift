@@ -309,6 +309,7 @@ extension ProjectsVC: UITableViewDelegate,UITableViewDataSource ,UITableViewData
             // edit favourite
               cell.favourite = {
                 if self.token == "" {
+                    displayMessage(title: "",message: "please login first".localized, status: .success, forController: self)
                     let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
                     if let appDelegate = UIApplication.shared.delegate {
                         appDelegate.window??.rootViewController = sb
@@ -326,6 +327,7 @@ extension ProjectsVC: UITableViewDelegate,UITableViewDataSource ,UITableViewData
              // share project
             cell.share = {
                 if self.token == "" {
+                    displayMessage(title: "",message: "please login first".localized, status: .success, forController: self)
                     let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
                     if let appDelegate = UIApplication.shared.delegate {
                         appDelegate.window??.rootViewController = sb

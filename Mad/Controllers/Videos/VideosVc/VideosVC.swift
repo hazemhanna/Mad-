@@ -120,6 +120,7 @@ extension VideosVC: UICollectionViewDelegate , UICollectionViewDataSource {
                              isFavourite :shows[indexPath.row].isFavorite ?? false)
                 cell.favourite = {
                     if self.token == "" {
+                        displayMessage(title: "",message: "please login first".localized, status: .success, forController: self)
                         let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
                         if let appDelegate = UIApplication.shared.delegate {
                             appDelegate.window??.rootViewController = sb
@@ -137,6 +138,7 @@ extension VideosVC: UICollectionViewDelegate , UICollectionViewDataSource {
                 
                 cell.share = {
                     if self.token == "" {
+                        displayMessage(title: "",message: "please login first".localized, status: .success, forController: self)
                         let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
                         if let appDelegate = UIApplication.shared.delegate {
                             appDelegate.window??.rootViewController = sb
@@ -174,6 +176,7 @@ extension VideosVC: UICollectionViewDelegate , UICollectionViewDataSource {
  
                 cell.favourite = {
                     if self.token == "" {
+                        displayMessage(title: "",message: "please login first".localized, status: .success, forController: self)
                         let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
                         if let appDelegate = UIApplication.shared.delegate {
                             appDelegate.window??.rootViewController = sb
@@ -191,6 +194,7 @@ extension VideosVC: UICollectionViewDelegate , UICollectionViewDataSource {
                 
                 cell.share = {
                     if self.token == "" {
+                        displayMessage(title: "",message: "please login first".localized, status: .success, forController: self)
                         let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
                         if let appDelegate = UIApplication.shared.delegate {
                             appDelegate.window??.rootViewController = sb
@@ -229,6 +233,7 @@ extension VideosVC: UICollectionViewDelegate , UICollectionViewDataSource {
                 
                 cell.favourite = {
                     if self.token == ""{
+                        displayMessage(title: "",message: "please login first".localized, status: .success, forController: self)
                         let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
                         if let appDelegate = UIApplication.shared.delegate {
                             appDelegate.window??.rootViewController = sb
@@ -245,6 +250,8 @@ extension VideosVC: UICollectionViewDelegate , UICollectionViewDataSource {
                 
                 cell.share = {
                     if self.token == "" {
+                        displayMessage(title: "",message: "please login first".localized, status: .success, forController: self)
+
                         let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
                         if let appDelegate = UIApplication.shared.delegate {
                             appDelegate.window??.rootViewController = sb
@@ -283,6 +290,8 @@ extension VideosVC: UICollectionViewDelegate , UICollectionViewDataSource {
                              isFavourite :afterMoviews[indexPath.row].isFavorite ?? false)
                   cell.favourite = {
                     if self.token == "" {
+                        displayMessage(title: "",message: "please login first".localized, status: .success, forController: self)
+
                         let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
                         if let appDelegate = UIApplication.shared.delegate {
                             appDelegate.window??.rootViewController = sb
@@ -300,6 +309,8 @@ extension VideosVC: UICollectionViewDelegate , UICollectionViewDataSource {
                 
                 cell.share = {
                     if self.token == "" {
+                        displayMessage(title: "",message: "please login first".localized, status: .success, forController: self)
+
                         let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
                         if let appDelegate = UIApplication.shared.delegate {
                             appDelegate.window??.rootViewController = sb
