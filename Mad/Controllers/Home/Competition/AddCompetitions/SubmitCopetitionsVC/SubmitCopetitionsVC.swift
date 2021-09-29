@@ -29,6 +29,7 @@ class SubmitCopetitionsVC: UIViewController {
     var social = [String]()
     var socialLinks = [SocialModel]()
     var selectedSocial = String()
+    var candidate:Candidate?
 
     open lazy var customTabBar: PTCardTabBar = {
         return PTCardTabBar()
@@ -50,6 +51,11 @@ class SubmitCopetitionsVC: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.presentTf.text = candidate?.introductionFile ?? ""
+        self.socialTF.text = candidate?.knowAbout ?? ""
     }
     
     func setupsocialDropDown(){
@@ -82,7 +88,13 @@ class SubmitCopetitionsVC: UIViewController {
     @IBAction func saveButton(sender: UIButton) {
         guard self.validateInput() else {return}
         self.competitionVm.showIndicator()
+        
+        if let id = candidate?.id {
+            saveCompete(candidat_id: id, competitionId: compId, fName: firstName, lName: lastName, phone: phoneNumber, email: email, personal: personal, artist_name: artistName, video_link: linke, project_description: self.presentTf.text  ?? "", know_about: self.selectedSocial, submit: "draft", file: uploadImage)
+        }else{
         addCompete(competitionId: compId, fName: firstName, lName: lastName, phone: phoneNumber, email: email, personal: personal, artist_name: artistName, video_link: linke, project_description: self.presentTf.text  ?? "", know_about: self.selectedSocial, submit: "draft", file: uploadImage)
+            
+        }
     }
 
     @IBAction func submitButton(sender: UIButton) {
@@ -137,6 +149,39 @@ extension SubmitCopetitionsVC{
 
        }).disposed(by: disposeBag)
    }
+    
+    
+    func saveCompete(candidat_id : Int,
+                    competitionId :Int,
+                    fName :String,
+                    lName :String,
+                    phone:String,
+                    email:String,
+                    personal:String,
+                    artist_name:String,
+                    video_link:String,
+                    project_description:String,
+                    know_about:String,
+                    submit:String,
+                    file :UIImage) {
+        competitionVm.saveCompete(candidat_id: candidat_id, competitionId: competitionId, fName: fName, lName: lName, phone: phone, email: email, personal: personal, artist_name: artist_name,video_link: video_link, project_description: project_description, know_about: know_about, submit: submit, file: file).subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+            self.competitionVm.dismissIndicator()
+            displayMessage(title: "",message: dataModel.message ?? "", status: .success, forController: self)
+            let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
+            self.navigationController!.popToViewController(viewControllers[viewControllers.count - 5], animated: true)
+           }else{
+            self.competitionVm.dismissIndicator()
+            self.showMessage(text: dataModel.message ?? "")
+           }
+       }, onError: { (error) in
+        self.competitionVm.dismissIndicator()
+
+       }).disposed(by: disposeBag)
+   }
+    
+    
+    
     
 }
 

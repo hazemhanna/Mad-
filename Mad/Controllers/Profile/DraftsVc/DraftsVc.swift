@@ -192,7 +192,8 @@ extension DraftsVc: UITableViewDelegate,UITableViewDataSource{
         displayMessage(title: "", message: "project not published", status: .error, forController: self)
         }else{
             let main = CompetitionsDetailsVc.instantiateFromNib()
-            main!.compId = self.competitions[indexPath.row].id ?? 0
+            main?.compId = self.competitions[indexPath.row].id ?? 0
+            main?.candidate = self.competitions[indexPath.row].candidate
             self.navigationController?.pushViewController(main!, animated: true)
         }
     }

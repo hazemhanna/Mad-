@@ -17,8 +17,9 @@ class AddCompetitionsUploadFileVC: UIViewController {
     @IBOutlet weak var bannerImage : UIImageView!
     @IBOutlet weak var linkeTF : CustomTextField!
     @IBOutlet weak var uploadBtn : UIButton!
-
     var compId = Int()
+    var candidate:Candidate?
+
     var uploadImage = UIImage()
     var firstName = String()
     var lastName = String()
@@ -48,6 +49,13 @@ class AddCompetitionsUploadFileVC: UIViewController {
         self.navigationController?.navigationBar.isHidden = false
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        self.linkeTF.text = candidate?.videoLink ?? ""
+        if let profileImageUrl = URL(string: candidate?.bannerImg ?? ""){
+        self.bannerImage.kf.setImage(with: profileImageUrl, placeholder: #imageLiteral(resourceName: "Path 412"))
+        }
+    
+    }
     
     @IBAction func backButton(sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
@@ -75,6 +83,7 @@ class AddCompetitionsUploadFileVC: UIViewController {
         vc!.linke = self.linkeTF.text ?? ""
         vc!.uploadImage = uploadImage
         vc!.compId = compId
+        vc?.candidate = candidate
         self.navigationController?.pushViewController(vc!, animated: true)
     }
     

@@ -34,7 +34,7 @@ class CompetitionsDetailsVc  : UIViewController {
     var winner : Winner?
     var titleCompetitions = String()
     var totalVote = Int()
-
+    var candidate:Candidate?
     var titles = [String](){
           didSet {
               DispatchQueue.main.async {
@@ -148,7 +148,8 @@ class CompetitionsDetailsVc  : UIViewController {
     @IBAction func competeButton(sender: UIButton) {
         if compete {
         let vc = AddCompetitionsDetailsVc.instantiateFromNib()
-        vc!.compId = compId
+        vc?.compId = compId
+        vc?.candidate = candidate
         self.navigationController?.pushViewController(vc!, animated: true)
         }else if vote {
             let vc = CompetitionResultslistsVC.instantiateFromNib()
