@@ -423,7 +423,7 @@
                                                                 <rect key="frame" x="0.0" y="40" width="350" height="50"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g1p-Jm-vrL" customClass="TextFieldDropDown" customModule="Mad" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="350" height="50"/>
+                                                                        <rect key="frame" x="16" y="0.0" width="318" height="50"/>
                                                                         <color key="textColor" red="0.1333333333" green="0.2156862745" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="16"/>
                                                                         <textInputTraits key="textInputTraits"/>
@@ -439,9 +439,9 @@
                                                                 </subviews>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="trailing" secondItem="g1p-Jm-vrL" secondAttribute="trailing" id="0D3-QA-WjX"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="g1p-Jm-vrL" secondAttribute="trailing" constant="16" id="0D3-QA-WjX"/>
                                                                     <constraint firstItem="g1p-Jm-vrL" firstAttribute="top" secondItem="BUc-ya-YXK" secondAttribute="top" id="GtA-wI-MP5"/>
-                                                                    <constraint firstItem="g1p-Jm-vrL" firstAttribute="leading" secondItem="BUc-ya-YXK" secondAttribute="leading" id="ZFx-oC-hUf"/>
+                                                                    <constraint firstItem="g1p-Jm-vrL" firstAttribute="leading" secondItem="BUc-ya-YXK" secondAttribute="leading" constant="16" id="ZFx-oC-hUf"/>
                                                                     <constraint firstAttribute="bottom" secondItem="g1p-Jm-vrL" secondAttribute="bottom" id="aYw-K6-kXg"/>
                                                                     <constraint firstAttribute="height" constant="50" id="fCD-IX-jhi"/>
                                                                 </constraints>

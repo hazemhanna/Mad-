@@ -188,12 +188,14 @@ extension DraftsVc: UITableViewDelegate,UITableViewDataSource{
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let main = ProjectDetailsVC.instantiateFromNib()
-        main!.projectId =  self.projects[indexPath.row].id ?? 0
-        self.navigationController?.pushViewController(main!, animated: true)
+        if draftType == "project" {
+        displayMessage(title: "", message: "project not published", status: .error, forController: self)
+        }else{
+            let main = CompetitionsDetailsVc.instantiateFromNib()
+            main!.compId = self.competitions[indexPath.row].id ?? 0
+            self.navigationController?.pushViewController(main!, animated: true)
+        }
     }
-   
-   
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if draftType == "project" {
@@ -226,7 +228,9 @@ extension DraftsVc :  UICollectionViewDelegate, UICollectionViewDataSource{
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    
+        let vc = ProductDetailsVC.instantiateFromNib()
+        vc?.productId = self.products[indexPath.row].id ?? 0
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
 }
 extension DraftsVc : UICollectionViewDelegateFlowLayout{

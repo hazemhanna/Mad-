@@ -75,6 +75,13 @@ extension MyProfileCompetitions : UITableViewDelegate,UITableViewDataSource{
         return 130
     }
     
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let main = CompetitionsDetailsVc.instantiateFromNib()
+        main!.compId = self.competitions[indexPath.row].id ?? 0
+        self.navigationController?.pushViewController(main!, animated: true)
+    }
+    
 }
 
 extension MyProfileCompetitions{

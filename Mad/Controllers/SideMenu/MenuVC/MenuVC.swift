@@ -38,6 +38,9 @@ class MenuVC: UIViewController {
     var disposeBag = DisposeBag()
     var cartVM = CartViewModel()
     
+    var draftCompetitions = [Competitions]()
+
+    
     open lazy var customTabBar: PTCardTabBar = {
         return PTCardTabBar()
     }()
@@ -80,6 +83,7 @@ class MenuVC: UIViewController {
         
         self.cartVM.showIndicator()
         getCart()
+        getProfile()
         self.navigationController?.navigationBar.isHidden = true
     }
     
@@ -105,7 +109,16 @@ class MenuVC: UIViewController {
     
     @IBAction func addressAction(sender: UIButton) {
         let main = AddressVC.instantiateFromNib()
+        main?.fromMenu = true
         self.navigationController?.pushViewController(main!, animated: true)
+    }
+    
+    
+    @IBAction func savedCompetions(sender: UIButton) {
+     let main = DraftsVc.instantiateFromNib()
+     main?.competitions = draftCompetitions
+     main?.draftType = "competition"
+     self.navigationController?.pushViewController(main!, animated: true)
     }
     
     @IBAction func myOrderAction(sender: UIButton) {
@@ -179,4 +192,19 @@ func getCart() {
     self.cartVM.dismissIndicator()
    }).disposed(by: disposeBag)
   }
+    
+    
+    func getProfile() {
+        cartVM.getMyProfile().subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+            self.cartVM.dismissIndicator()
+            self.draftCompetitions = dataModel.data?.draftCompetitions ?? []
+
+           }
+       }, onError: { (error) in
+        self.cartVM.dismissIndicator()
+
+       }).disposed(by: disposeBag)
+   }
+    
 }

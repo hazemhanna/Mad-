@@ -50,9 +50,10 @@ class AddressVC: UIViewController {
     }()
     
     var countries = [String]()
-    
     var disposeBag = DisposeBag()
     var cartVM = CartViewModel()
+    
+    var fromMenu = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,6 +86,8 @@ class AddressVC: UIViewController {
         noteLbL.text = "Other.notes".localized
         savBtn.setTitle( "Save".localized, for: .normal)
 
+    
+        
     }
     
     
@@ -95,6 +98,9 @@ class AddressVC: UIViewController {
         }
         self.cartVM.showIndicator()
         getCountry()
+        if fromMenu{
+            getCartDetails()
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -225,5 +231,22 @@ func updateCartDetails(fName :String,
 
        }).disposed(by: disposeBag)
    }
+    
+    
+    func getCartDetails() {
+        cartVM.getCartDetials().subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+            self.cartVM.dismissIndicator()
+            self.countryTF.text  = dataModel.data?.country ?? ""
+            self.cityTF.text  = dataModel.data?.city ?? ""
+            self.streetTF.text  = dataModel.data?.address ?? ""
+            self.emailTf.text  = dataModel.data?.email ?? ""
+            self.phoneNumberTF.text  = dataModel.data?.phone ?? ""
+           }
+       }, onError: { (error) in
+        self.cartVM.dismissIndicator()
+       }).disposed(by: disposeBag)
+      }
+    
     
 }

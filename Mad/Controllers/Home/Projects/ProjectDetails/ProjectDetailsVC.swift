@@ -334,9 +334,6 @@ func getProjectDetails(productID : Int) {
        if data.success ?? false {
         self.homeVM.dismissIndicator()
         
-  
-
-        
         self.LikeLbl.text = "\(data.data?.favoriteCount ?? 0)"
         self.shareLbl.text = "\(data.data?.shareCount ?? 0)"
         self.aboutTV.text = data.data?.content?.html2String ?? ""

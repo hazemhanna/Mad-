@@ -23,7 +23,7 @@ class MyProfileProjects : UIViewController {
   
     var artistVM = ArtistViewModel()
     var disposeBag = DisposeBag()
-    
+    var navigate = false
     var showShimmer: Bool = true
     var projects = [Project]()
     var publishProjects = [Project]()
@@ -39,6 +39,8 @@ class MyProfileProjects : UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         getProfile()
         self.navigationController?.navigationBar.isHidden = true
+        pendingBtn.setTitleColor(#colorLiteral(red: 0.1176470588, green: 0.2156862745, blue: 0.4, alpha: 1), for: .normal)
+        publishBtn.setTitleColor(#colorLiteral(red: 0.8980392157, green: 0.1254901961, blue: 0.3529411765, alpha: 1), for: .normal)
     }
     
     @IBAction func addProjectButton(sender: UIButton) {
@@ -55,12 +57,13 @@ class MyProfileProjects : UIViewController {
             publishBtn.setTitleColor(#colorLiteral(red: 0.8980392157, green: 0.1254901961, blue: 0.3529411765, alpha: 1), for: .normal)
             self.projects = publishProjects
             self.mainTableView.reloadData()
-
+            navigate = true
         }else{
             publishBtn.setTitleColor(#colorLiteral(red: 0.1176470588, green: 0.2156862745, blue: 0.4, alpha: 1), for: .normal)
             pendingBtn.setTitleColor(#colorLiteral(red: 0.8980392157, green: 0.1254901961, blue: 0.3529411765, alpha: 1), for: .normal)
             self.projects = pendingProjects
             self.mainTableView.reloadData()
+            navigate = false
 
         }
     }
@@ -114,6 +117,13 @@ extension MyProfileProjects: UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if navigate {
+        let main = ProjectDetailsVC.instantiateFromNib()
+        main!.projectId =  self.projects[indexPath.row].id ?? 0
+        self.navigationController?.pushViewController(main!, animated: true)
+        }else{
+            displayMessage(title: "", message: "project not published", status: .error, forController: self)
+        }
     }
 }
 extension MyProfileProjects  {

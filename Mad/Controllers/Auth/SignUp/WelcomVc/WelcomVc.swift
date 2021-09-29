@@ -60,7 +60,6 @@ class WelcomVc: UIViewController {
         let main = EmailVc.instantiateFromNib()
         main?.register = true
         self.navigationController?.pushViewController(main!, animated: true)
-
     }
     
     @IBAction func nexButton(sender: UIButton) {

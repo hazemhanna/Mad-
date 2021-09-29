@@ -238,18 +238,16 @@ extension CompetitionsDetailsVc {
             self.instantVC3.deadlinesTV.text = dataModel.data?.deadlines?.html2String ?? ""
             self.instantVC4.prizersTV.text = dataModel.data?.prizes?.html2String ?? ""
             self.instantVC5.judges =  dataModel.data?.judges ?? []
-            
             self.finalList = dataModel.data?.finalists ?? []
             self.shortList = dataModel.data?.shortlisted ?? []
             self.winner = dataModel.data?.winner
-            
-            
             self.titleCompetitions = dataModel.data?.title ?? ""
             self.totalVote = dataModel.data?.countAllVotes ?? 0
-            
             self.result  = dataModel.data?.end_competition ?? false
             self.vote  = dataModel.data?.can_vote ?? false
             self.compete  = dataModel.data?.can_compete ?? false
+            
+            
             if self.compete{
                 self.competeBtn.backgroundColor = #colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1)
                 self.competeBtn.setTitle("Compete Now", for: .normal)

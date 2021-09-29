@@ -38,6 +38,8 @@ class MyprofileProducts : UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         getProfile()
         self.navigationController?.navigationBar.isHidden = true
+        pendingBtn.setTitleColor(#colorLiteral(red: 0.1176470588, green: 0.2156862745, blue: 0.4, alpha: 1), for: .normal)
+        publishBtn.setTitleColor(#colorLiteral(red: 0.8980392157, green: 0.1254901961, blue: 0.3529411765, alpha: 1), for: .normal)
     }
     
     
@@ -92,7 +94,9 @@ extension MyprofileProducts :  UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    
+        let vc = ProductDetailsVC.instantiateFromNib()
+        vc?.productId = self.products[indexPath.row].id ?? 0
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
 }
 extension MyprofileProducts : UICollectionViewDelegateFlowLayout{
