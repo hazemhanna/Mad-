@@ -185,6 +185,7 @@ extension SendMessageVc {
             let vc = ArtistNameVC.instantiateFromNib()
             vc?.showArtist = true
             vc!.onClickClose = { artist in
+            self.tagsField.addTag(artist.name ?? "")
              self.getArtistProfile(id : artist.id ?? 0)
              self.presentingViewController?.dismiss(animated: true)
            }
@@ -218,7 +219,7 @@ extension SendMessageVc {
             self.ChatVM.dismissIndicator()
             self.Product = dataModel.data?.products ?? []
             self.project = dataModel.data?.projects ?? []
-            self.tagsField.addTag(dataModel.data?.name ?? "")
+            //self.tagsField.addTag(dataModel.data?.name ?? "")
          }
        }, onError: { (error) in
         self.ChatVM.dismissIndicator()

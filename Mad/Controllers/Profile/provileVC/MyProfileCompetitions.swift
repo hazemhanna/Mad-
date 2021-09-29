@@ -12,6 +12,8 @@ import RxCocoa
 class MyProfileCompetitions : UIViewController {
    
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var draftLbl: UILabel!
+
     let cellIdentifier = "CompetitionCell"
     var showShimmer = true
 
@@ -67,6 +69,8 @@ extension MyProfileCompetitions{
            if dataModel.success ?? false {
             self.showShimmer = false
             self.competitions = dataModel.data?.ongoingCompetitions ?? []
+            self.draftLbl.text = "All Drafts [\(dataModel.data?.draftCompetitions?.count ?? 0)]"
+
             self.tableView.reloadData()
          }
        }, onError: { (error) in

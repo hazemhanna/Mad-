@@ -14,6 +14,11 @@ import RxCocoa
 class MyProfileProjects : UIViewController {
     
     @IBOutlet weak var mainTableView: UITableView!
+    @IBOutlet weak var pendingBtn: UIButton!
+    @IBOutlet weak var publishBtn: UIButton!
+    @IBOutlet weak var draftLbl: UILabel!
+
+    
     private let CellIdentifier = "HomeCell"
   
     var artistVM = ArtistViewModel()
@@ -21,7 +26,10 @@ class MyProfileProjects : UIViewController {
     
     var showShimmer: Bool = true
     var projects = [Project]()
-    
+    var publishProjects = [Project]()
+
+    var pendingProjects = [Project]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupContentTableView()
@@ -37,6 +45,24 @@ class MyProfileProjects : UIViewController {
         self.navigationController?.pushViewController(vc!, animated: true)
     }
 
+    
+    
+    
+    @IBAction func pendingBtn(sender: UIButton) {
+        if sender.tag == 0 {
+            pendingBtn.setTitleColor(#colorLiteral(red: 0.1176470588, green: 0.2156862745, blue: 0.4, alpha: 1), for: .normal)
+            publishBtn.setTitleColor(#colorLiteral(red: 0.8980392157, green: 0.1254901961, blue: 0.3529411765, alpha: 1), for: .normal)
+            self.projects = publishProjects
+            self.mainTableView.reloadData()
+
+        }else{
+            publishBtn.setTitleColor(#colorLiteral(red: 0.1176470588, green: 0.2156862745, blue: 0.4, alpha: 1), for: .normal)
+            pendingBtn.setTitleColor(#colorLiteral(red: 0.8980392157, green: 0.1254901961, blue: 0.3529411765, alpha: 1), for: .normal)
+            self.projects = pendingProjects
+            self.mainTableView.reloadData()
+
+        }
+    }
 }
 
 extension MyProfileProjects: UITableViewDelegate,UITableViewDataSource{
@@ -76,7 +102,6 @@ extension MyProfileProjects: UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     }
-    
 }
 extension MyProfileProjects  {
     func getProfile() {
@@ -84,6 +109,11 @@ extension MyProfileProjects  {
            if dataModel.success ?? false {
             self.showShimmer  = false
             self.projects = dataModel.data?.projects ?? []
+            self.publishProjects = dataModel.data?.projects ?? []
+            self.pendingProjects = dataModel.data?.pendingProjects ?? []
+            self.pendingBtn.setTitle("Pending [\(self.pendingProjects.count)]", for: .normal)
+            self.draftLbl.text = "All Drafts [\(dataModel.data?.draftProjects?.count ?? 0)]"
+            
             self.mainTableView.reloadData()
          }
        }, onError: { (error) in

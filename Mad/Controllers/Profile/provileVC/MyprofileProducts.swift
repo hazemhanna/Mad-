@@ -13,12 +13,19 @@ import RxCocoa
 class MyprofileProducts : UIViewController {
 
     @IBOutlet weak var productCollectionView: UICollectionView!
+    @IBOutlet weak var pendingBtn: UIButton!
+    @IBOutlet weak var publishBtn: UIButton!
+    @IBOutlet weak var draftLbl: UILabel!
+    @IBOutlet weak var ordertLbl: UILabel!
 
     var artistVM = ArtistViewModel()
     var disposeBag = DisposeBag()
     let cellIdentifier = "LiveCellCVC"
 
     var products = [Product]()
+    var publishProducts = [Product]()
+    var pendingProducts = [Product]()
+
      var showShimmer = true
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +44,19 @@ class MyprofileProducts : UIViewController {
         let vc = AddProductImageVc.instantiateFromNib()
         self.navigationController?.pushViewController(vc!, animated: true)
     }
-
+    @IBAction func pendingBtn(sender: UIButton) {
+        if sender.tag == 0 {
+            pendingBtn.setTitleColor(#colorLiteral(red: 0.1176470588, green: 0.2156862745, blue: 0.4, alpha: 1), for: .normal)
+            publishBtn.setTitleColor(#colorLiteral(red: 0.8980392157, green: 0.1254901961, blue: 0.3529411765, alpha: 1), for: .normal)
+            self.products = publishProducts
+            self.productCollectionView.reloadData()
+        }else{
+            publishBtn.setTitleColor(#colorLiteral(red: 0.1176470588, green: 0.2156862745, blue: 0.4, alpha: 1), for: .normal)
+            pendingBtn.setTitleColor(#colorLiteral(red: 0.8980392157, green: 0.1254901961, blue: 0.3529411765, alpha: 1), for: .normal)
+            self.products = pendingProducts
+            self.productCollectionView.reloadData()
+        }
+    }
     
 }
 
@@ -88,6 +107,11 @@ extension MyprofileProducts  {
            if dataModel.success ?? false {
             self.showShimmer  = false
             self.products = dataModel.data?.products ?? []
+            self.publishProducts = dataModel.data?.products ?? []
+            self.pendingProducts = dataModel.data?.pendingProducts ?? []
+            self.pendingBtn.setTitle("Pending [\(self.pendingProducts.count)]", for: .normal)
+            self.draftLbl.text = "All Drafts [\(dataModel.data?.draftProducts?.count ?? 0)]"
+            //self.ordertLbl.text = "All Drafts [\(dataModel.data?.?.count ?? 0)]"
             self.productCollectionView.reloadData()
          }
        }, onError: { (error) in

@@ -23,8 +23,7 @@ class MyProfileContainerVC : TabmanViewController {
     private lazy var viewControllers : [UIViewController] = [vc1,
                                                               vc2,
                                                               vc3,
-                                                              vc4,
-                                                              vc5]
+                                                              vc4]
     
     private lazy var viewControllers2 : [UIViewController] = [vc3,
                                                              vc4]
@@ -88,10 +87,8 @@ func barItem(for bar: TMBar, at index: Int) -> TMBarItemable {
             return TMBarItem(title:  "Products")
         }else if index == 2 {
             return TMBarItem(title:  "About")
-        }else if index == 3{
+        }else{
             return TMBarItem(title:  "Competitions")
-        }else  {
-            return TMBarItem(title:  "Videos")
         }
     }else{
          if index == 0{

@@ -150,6 +150,8 @@
 		045A66E82667136A00ED03CB /* CreatePackageVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045A66E62667136A00ED03CB /* CreatePackageVc.xib */; };
 		045AD32B264CA49A00E42D4C /* VideosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045AD32A264CA49A00E42D4C /* VideosViewModel.swift */; };
 		045AD32E264CA72800E42D4C /* VideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045AD32D264CA72800E42D4C /* VideoModel.swift */; };
+		045F9CEA27046C53007BBA4A /* DraftsVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045F9CE827046C53007BBA4A /* DraftsVc.swift */; };
+		045F9CEB27046C53007BBA4A /* DraftsVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045F9CE927046C53007BBA4A /* DraftsVc.xib */; };
 		0460CF45261CEC27006685B6 /* ArtistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0460CF43261CEC27006685B6 /* ArtistCell.swift */; };
 		0460CF46261CEC27006685B6 /* ArtistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0460CF44261CEC27006685B6 /* ArtistCell.xib */; };
 		0460CF6E261D04DD006685B6 /* SplashModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0460CF6D261D04DD006685B6 /* SplashModel.swift */; };
@@ -439,6 +441,8 @@
 		045A66E62667136A00ED03CB /* CreatePackageVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreatePackageVc.xib; sourceTree = "<group>"; };
 		045AD32A264CA49A00E42D4C /* VideosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosViewModel.swift; sourceTree = "<group>"; };
 		045AD32D264CA72800E42D4C /* VideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoModel.swift; sourceTree = "<group>"; };
+		045F9CE827046C53007BBA4A /* DraftsVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftsVc.swift; sourceTree = "<group>"; };
+		045F9CE927046C53007BBA4A /* DraftsVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DraftsVc.xib; sourceTree = "<group>"; };
 		0460CF43261CEC27006685B6 /* ArtistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistCell.swift; sourceTree = "<group>"; };
 		0460CF44261CEC27006685B6 /* ArtistCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArtistCell.xib; sourceTree = "<group>"; };
 		0460CF6D261D04DD006685B6 /* SplashModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashModel.swift; sourceTree = "<group>"; };
@@ -1243,6 +1247,15 @@
 			path = CreatePackageVc;
 			sourceTree = "<group>";
 		};
+		045F9CE727046C2C007BBA4A /* DraftsVc */ = {
+			isa = PBXGroup;
+			children = (
+				045F9CE827046C53007BBA4A /* DraftsVc.swift */,
+				045F9CE927046C53007BBA4A /* DraftsVc.xib */,
+			);
+			path = DraftsVc;
+			sourceTree = "<group>";
+		};
 		0460CF41261CEBDF006685B6 /* ArtistCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1537,6 +1550,7 @@
 		0482EEAE26164D6100CB4A24 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				045F9CE727046C2C007BBA4A /* DraftsVc */,
 				040EBE5C26C1997E000E20FA /* EditProfileVc */,
 				04534AF02691E2CE00B15C9C /* provileVC */,
 			);
@@ -2125,6 +2139,7 @@
 				04D23EF02633127800290488 /* Graphik-Semibold.ttf in Resources */,
 				04D23EEA2633121300290488 /* Graphik-Black.ttf in Resources */,
 				047992932698771C008314D4 /* FavouriteVc.xib in Resources */,
+				045F9CEB27046C53007BBA4A /* DraftsVc.xib in Resources */,
 				0437FA62269E99F800CD594D /* PaymentDetailsVC.xib in Resources */,
 				046E2E4926693A3300BFCDCC /* CalenderVc.xib in Resources */,
 				04534B232691E46300B15C9C /* MyCartDetailsVc.xib in Resources */,
@@ -2324,6 +2339,7 @@
 				04DEAA462620BC9500F843A6 /* SplashViewModel.swift in Sources */,
 				0486DE9F26936635001DA69E /* AddressVC.swift in Sources */,
 				042C082A2613943900BE1806 /* LoadingLoginVc.swift in Sources */,
+				045F9CEA27046C53007BBA4A /* DraftsVc.swift in Sources */,
 				042C081126136B9700BE1806 /* CustomDropDown.swift in Sources */,
 				0413E3AD2630536E00F5977D /* ArtistViewModel.swift in Sources */,
 				047DD026267C36EC00C78C49 /* AddCompetitionsDetailsVc.swift in Sources */,

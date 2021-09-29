@@ -16,10 +16,13 @@ class MyProfileAbout : UIViewController {
     @IBOutlet weak var  levelLbl: UILabel!
     @IBOutlet weak var  pointLbl: UILabel!
     @IBOutlet weak var  bioLbL : UILabel!
+    @IBOutlet weak var  socilaLbL : UILabel!
     @IBOutlet weak var  socialTableview : UITableView!
+    
     let cellIdentifier = "SocialCell"
     var artistVM = ArtistViewModel()
     var disposeBag = DisposeBag()
+    var active = Helper.getIsActive() ?? false
 
     var social  = [Social]()
     override func viewDidLoad() {
@@ -28,6 +31,13 @@ class MyProfileAbout : UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        if active{
+            socilaLbL.isHidden = false
+            socialTableview.isHidden = false
+        }else{
+            socilaLbL.isHidden = true
+            socialTableview.isHidden = true
+        }
         getProfile()
         self.navigationController?.navigationBar.isHidden = true
     }
