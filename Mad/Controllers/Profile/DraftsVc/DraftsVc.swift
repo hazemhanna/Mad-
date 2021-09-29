@@ -17,7 +17,8 @@ import Gallery
 class DraftsVc  : UIViewController {
 
     @IBOutlet weak var mainTableView: UITableView!
-    
+    @IBOutlet weak var productCollectionView: UICollectionView!
+
     var homeVM = HomeViewModel()
     var disposeBag = DisposeBag()
     var token = Helper.getAPIToken() ?? ""
@@ -53,11 +54,17 @@ class DraftsVc  : UIViewController {
     
     private let CellIdentifier = "HomeCell"
     let cellIdentifier = "CompetitionCell"
-    private let cellId = "TopProjectCell"
+
+    let cellId = "LiveCellCVC"
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupContentTableView()
+        
+        
+        productCollectionView.delegate = self
+        productCollectionView.dataSource = self
+        self.productCollectionView.register(UINib(nibName: cellId, bundle: nil), forCellWithReuseIdentifier: cellId)
         
     }
 
@@ -74,6 +81,17 @@ class DraftsVc  : UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         self.mainTableView.reloadData()
+        productCollectionView.reloadData()
+        if draftType == "project" {
+            productCollectionView.isHidden = true
+            mainTableView.isHidden = false
+        }else if draftType == "product" {
+            productCollectionView.isHidden = false
+            mainTableView.isHidden = true
+        }else if draftType == "competition" {
+            productCollectionView.isHidden = true
+            mainTableView.isHidden = false
+        }
     }
     
     @IBAction func backButton(sender: UIButton) {
@@ -95,10 +113,8 @@ extension DraftsVc: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if draftType == "project" {
             return projects.count
-        }else if draftType == "competition"{
-            return 3
-        }else{
-            return products.count
+        }else {
+            return competitions.count
         }
 
     }
@@ -160,22 +176,14 @@ extension DraftsVc: UITableViewDelegate,UITableViewDataSource{
             }
         cell.showShimmer = false
         return cell
-        }else if draftType == "competition"{
-            let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier) as! CompetitionCell
-                //cell.confic(imageUrl: self.competitions[indexPath.row].bannerImg ?? "", title: self.competitions[indexPath.row].title ?? "", date: ("End Date: ") + (self.competitions[indexPath.row].resultDate ?? ""))
-
-            
-            cell.showShimmer = false
-
-            return cell
-        }else{
+        }else {
             let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier) as! CompetitionCell
                 cell.confic(imageUrl: self.competitions[indexPath.row].bannerImg ?? "", title: self.competitions[indexPath.row].title ?? "", date: ("End Date: ") + (self.competitions[indexPath.row].resultDate ?? ""))
 
             
             cell.showShimmer = false
-            return cell
 
+            return cell
         }
     }
 
@@ -188,11 +196,51 @@ extension DraftsVc: UITableViewDelegate,UITableViewDataSource{
    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 130
+        if draftType == "project" {
+            return 350
+        }else{
+            return 130
+        }
+    }
+}
+
+
+extension DraftsVc :  UICollectionViewDelegate, UICollectionViewDataSource{
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return products.count
     }
     
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! LiveCellCVC
+           cell.priceLbl.text = "USD \(self.products[indexPath.row].price ?? 0.0)"
+            cell.titleLabel.text = self.products[indexPath.row].title ?? ""
+
+            if let bannerUrl = URL(string:   self.products[indexPath.row].imageURL ?? ""){
+            cell.bannerImage.kf.setImage(with: bannerUrl, placeholder: #imageLiteral(resourceName: "WhatsApp Image 2021-04-21 at 1.25.47 PM"))
+           }
+            cell.editBtn.isHidden = false
+        
+         cell.showShimmer = false
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    
+    }
+}
+extension DraftsVc : UICollectionViewDelegateFlowLayout{
+   
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+            let flowayout = collectionViewLayout as? UICollectionViewFlowLayout
+            let space: CGFloat = (flowayout?.minimumInteritemSpacing ?? 0.0) + (flowayout?.sectionInset.left ?? 0.0) + (flowayout?.sectionInset.right ?? 0.0)
+    
+        let size:CGFloat = (collectionView.frame.size.width - space) - 32
+            return CGSize(width: size, height: 140)
+        }
     
 }
+
 
 extension DraftsVc {
     

@@ -83,13 +83,8 @@ extension MyProfileCompetitions{
            if dataModel.success ?? false {
             self.showShimmer = false
             self.competitions = dataModel.data?.ongoingCompetitions ?? []
-            
             self.draftCompetitions = dataModel.data?.draftCompetitions ?? []
-
-            
-            
             self.draftLbl.text = "All Drafts [\(dataModel.data?.draftCompetitions?.count ?? 0)]"
-
             self.tableView.reloadData()
          }
        }, onError: { (error) in

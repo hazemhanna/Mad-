@@ -52,10 +52,20 @@
                             <constraint firstItem="PrV-IH-QqT" firstAttribute="centerY" secondItem="8IL-f3-dNG" secondAttribute="centerY" id="uaR-0H-onN"/>
                         </constraints>
                     </view>
-                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uwV-vV-X3O">
+                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uwV-vV-X3O">
                         <rect key="frame" x="0.0" y="119" width="414" height="743"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </tableView>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="0kR-xq-2CJ">
+                        <rect key="frame" x="0.0" y="119" width="414" height="743"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4H5-c3-NIJ">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                    </collectionView>
                 </subviews>
                 <viewLayoutGuide key="safeArea" id="oGn-lb-JKX"/>
                 <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -63,15 +73,20 @@
                     <constraint firstItem="oGn-lb-JKX" firstAttribute="trailing" secondItem="uwV-vV-X3O" secondAttribute="trailing" id="05Q-5F-jGk"/>
                     <constraint firstItem="8IL-f3-dNG" firstAttribute="top" secondItem="oGn-lb-JKX" secondAttribute="top" id="0uO-9B-muj"/>
                     <constraint firstItem="oGn-lb-JKX" firstAttribute="bottom" secondItem="uwV-vV-X3O" secondAttribute="bottom" id="BIk-QR-n04"/>
+                    <constraint firstItem="oGn-lb-JKX" firstAttribute="trailing" secondItem="0kR-xq-2CJ" secondAttribute="trailing" id="DbW-3d-lUt"/>
+                    <constraint firstItem="0kR-xq-2CJ" firstAttribute="leading" secondItem="oGn-lb-JKX" secondAttribute="leading" id="Odu-XL-mb9"/>
                     <constraint firstItem="8IL-f3-dNG" firstAttribute="leading" secondItem="oGn-lb-JKX" secondAttribute="leading" id="VU4-AU-l8N"/>
                     <constraint firstItem="8IL-f3-dNG" firstAttribute="trailing" secondItem="oGn-lb-JKX" secondAttribute="trailing" id="ebU-Df-Xkk"/>
                     <constraint firstItem="uwV-vV-X3O" firstAttribute="top" secondItem="8IL-f3-dNG" secondAttribute="bottom" id="hpo-p4-JZ2"/>
+                    <constraint firstItem="oGn-lb-JKX" firstAttribute="bottom" secondItem="0kR-xq-2CJ" secondAttribute="bottom" id="mGY-YT-fdZ"/>
                     <constraint firstItem="uwV-vV-X3O" firstAttribute="leading" secondItem="oGn-lb-JKX" secondAttribute="leading" id="tq8-41-hZb"/>
+                    <constraint firstItem="0kR-xq-2CJ" firstAttribute="top" secondItem="8IL-f3-dNG" secondAttribute="bottom" id="zvH-Uh-UJ9"/>
                 </constraints>
             </view>
             <navigationItem key="navigationItem" id="eoI-X1-qCz"/>
             <connections>
                 <outlet property="mainTableView" destination="uwV-vV-X3O" id="Ta7-j3-iba"/>
+                <outlet property="productCollectionView" destination="0kR-xq-2CJ" id="DXG-gq-R2x"/>
             </connections>
             <point key="canvasLocation" x="-8062" y="1653"/>
         </viewController>

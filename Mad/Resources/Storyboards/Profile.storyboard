@@ -430,6 +430,7 @@
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rdl-Sg-Gvg">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="331" height="46"/>
                                                                                 <connections>
+                                                                                    <action selector="draftBtnWithSender:" destination="vGq-y4-G0q" eventType="touchUpInside" id="3Zb-49-DQV"/>
                                                                                     <action selector="draftBtnWithSender:" destination="AWL-2W-ZPr" eventType="touchUpInside" id="Nyg-7e-bCf"/>
                                                                                 </connections>
                                                                             </button>
