@@ -32,6 +32,7 @@ struct Competitions: Codable {
     let id: Int?
     let title, bannerImg, step1Start, step1End: String?
     let step2Start, step2End, resultDate: String?
+    let candidate: Candidate?
 
     enum CodingKeys: String, CodingKey {
         case id, title
@@ -41,6 +42,51 @@ struct Competitions: Codable {
         case step2Start = "step2_start"
         case step2End = "step2_end"
         case resultDate = "result_date"
+        case candidate
+    }
+}
+
+// MARK: - Candidate
+struct Candidate: Codable {
+    let id: Int?
+    let isArtist: Bool?
+    let name: String?
+    let imageURL, bannerImg: String?
+    let firstName: String?
+    let lastName: String?
+    let phone: String?
+    let selectedForStep2, isVoted: Bool?
+    let publishedStatus: String?
+    let artistName: String?
+    let town: String?
+    let birthday: String?
+    let email: String?
+    let introduction: String?
+    let introductionFile: String?
+    let videoLink: String?
+    let projectDescription: String?
+    let projectDescriptionFile: String?
+    let knowAbout: String?
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case isArtist = "is_artist"
+        case name
+        case imageURL = "image_url"
+        case bannerImg = "banner_img"
+        case firstName = "first_name"
+        case lastName = "last_name"
+        case phone
+        case selectedForStep2 = "selected_for_step2"
+        case isVoted = "is_voted"
+        case publishedStatus = "published_status"
+        case artistName = "artist_name"
+        case town, birthday, email, introduction
+        case introductionFile = "introduction_file"
+        case videoLink = "video_link"
+        case projectDescription = "project_description"
+        case projectDescriptionFile = "project_description_file"
+        case knowAbout = "know_about"
     }
 }
 
