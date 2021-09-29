@@ -25,6 +25,7 @@ class MyprofileProducts : UIViewController {
     var products = [Product]()
     var publishProducts = [Product]()
     var pendingProducts = [Product]()
+    var draftProducts = [Product]()
 
      var showShimmer = true
     override func viewDidLoad() {
@@ -56,6 +57,13 @@ class MyprofileProducts : UIViewController {
             self.products = pendingProducts
             self.productCollectionView.reloadData()
         }
+    }
+    
+    @IBAction func draftBtn(sender: UIButton) {
+    let main = DraftsVc.instantiateFromNib()
+    main?.products = draftProducts
+    main?.draftType = "product"
+    self.navigationController?.pushViewController(main!, animated: true)
     }
     
 }
@@ -109,6 +117,7 @@ extension MyprofileProducts  {
             self.products = dataModel.data?.products ?? []
             self.publishProducts = dataModel.data?.products ?? []
             self.pendingProducts = dataModel.data?.pendingProducts ?? []
+            self.draftProducts = dataModel.data?.draftProducts ?? []
             self.pendingBtn.setTitle("Pending [\(self.pendingProducts.count)]", for: .normal)
             self.draftLbl.text = "All Drafts [\(dataModel.data?.draftProducts?.count ?? 0)]"
             //self.ordertLbl.text = "All Drafts [\(dataModel.data?.?.count ?? 0)]"

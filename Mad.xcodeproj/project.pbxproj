@@ -713,6 +713,7 @@
 		0413E4512630A37800F5977D /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				045F9CED2704783D007BBA4A /* DraftProductCell */,
 				0484B26F26F2050A005EF209 /* ProjectCommentCell */,
 				04A05D3826B0BC6F0066522A /* ChatCell */,
 				0479929626987F1A008314D4 /* Favourite */,
@@ -1254,6 +1255,13 @@
 				045F9CE927046C53007BBA4A /* DraftsVc.xib */,
 			);
 			path = DraftsVc;
+			sourceTree = "<group>";
+		};
+		045F9CED2704783D007BBA4A /* DraftProductCell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DraftProductCell;
 			sourceTree = "<group>";
 		};
 		0460CF41261CEBDF006685B6 /* ArtistCell */ = {

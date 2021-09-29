@@ -27,9 +27,10 @@ class MyProfileProjects : UIViewController {
     var showShimmer: Bool = true
     var projects = [Project]()
     var publishProjects = [Project]()
-
     var pendingProjects = [Project]()
+    var draftProjects = [Project]()
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupContentTableView()
@@ -63,6 +64,18 @@ class MyProfileProjects : UIViewController {
 
         }
     }
+    
+    
+    
+    
+    @IBAction func draftBtn(sender: UIButton) {
+    let main = DraftsVc.instantiateFromNib()
+    main?.projects = draftProjects
+    main?.draftType = "project"
+    self.navigationController?.pushViewController(main!, animated: true)
+
+    }
+    
 }
 
 extension MyProfileProjects: UITableViewDelegate,UITableViewDataSource{
@@ -111,6 +124,8 @@ extension MyProfileProjects  {
             self.projects = dataModel.data?.projects ?? []
             self.publishProjects = dataModel.data?.projects ?? []
             self.pendingProjects = dataModel.data?.pendingProjects ?? []
+            self.draftProjects = dataModel.data?.pendingProjects ?? []
+            
             self.pendingBtn.setTitle("Pending [\(self.pendingProjects.count)]", for: .normal)
             self.draftLbl.text = "All Drafts [\(dataModel.data?.draftProjects?.count ?? 0)]"
             

@@ -20,6 +20,9 @@ class MyProfileCompetitions : UIViewController {
     var artistVM = ArtistViewModel()
     var disposeBag = DisposeBag()
     var competitions = [Competitions]()
+    
+    var draftCompetitions = [Competitions]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupContentTableView()
@@ -30,6 +33,17 @@ class MyProfileCompetitions : UIViewController {
         getProfile()
         self.navigationController?.navigationBar.isHidden = true
     }
+    
+    
+    
+    @IBAction func draftBtn(sender: UIButton) {
+    let main = DraftsVc.instantiateFromNib()
+    main?.competitions = draftCompetitions
+    main?.draftType = "competition"
+    self.navigationController?.pushViewController(main!, animated: true)
+    }
+    
+    
 }
 
 extension MyProfileCompetitions : UITableViewDelegate,UITableViewDataSource{
@@ -69,6 +83,11 @@ extension MyProfileCompetitions{
            if dataModel.success ?? false {
             self.showShimmer = false
             self.competitions = dataModel.data?.ongoingCompetitions ?? []
+            
+            self.draftCompetitions = dataModel.data?.draftCompetitions ?? []
+
+            
+            
             self.draftLbl.text = "All Drafts [\(dataModel.data?.draftCompetitions?.count ?? 0)]"
 
             self.tableView.reloadData()
