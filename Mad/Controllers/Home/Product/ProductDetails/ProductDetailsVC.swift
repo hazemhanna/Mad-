@@ -59,7 +59,7 @@ class ProductDetailsVC: UIViewController {
     var photos = [String]()
     var reviews = [Review]()
     var add = true
-    var projects = [Project]() {
+    var Products = [Product]() {
         didSet {
             DispatchQueue.main.async {
                 self.relatedProductCollectionView?.reloadData()
@@ -276,7 +276,7 @@ extension ProductDetailsVC : UICollectionViewDelegate ,UICollectionViewDataSourc
         if collectionView == addsCollectionView{
         return  self.showShimmer ? 5 : self.photos.count
         }else{
-            return  self.showShimmer ? 5 : 4
+            return  self.showShimmer ? 5 : Products.count
         }
     }
     
@@ -293,8 +293,16 @@ extension ProductDetailsVC : UICollectionViewDelegate ,UICollectionViewDataSourc
         return cell
         }else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier, for: indexPath) as! LiveCellCVC
-            
-            cell.showShimmer = showShimmer2
+            if !self.showShimmer {
+                cell.priceLbl.text = "USD \(self.Products[indexPath.row].price ?? 0.0)"
+                cell.titleLabel.text = self.Products[indexPath.row].title ?? ""
+
+                if let bannerUrl = URL(string:   self.Products[indexPath.row].imageURL ?? ""){
+                cell.bannerImage.kf.setImage(with: bannerUrl, placeholder: #imageLiteral(resourceName: "WhatsApp Image 2021-04-21 at 1.25.47 PM"))
+               }
+                cell.editBtn.isHidden = true
+            }
+            cell.showShimmer = showShimmer
             return cell
         }
     }
@@ -302,6 +310,11 @@ extension ProductDetailsVC : UICollectionViewDelegate ,UICollectionViewDataSourc
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if showShimmer {return}
     
+        if collectionView == relatedProductCollectionView{
+            let vc = ProductDetailsVC.instantiateFromNib()
+            vc!.productId = self.Products[indexPath.row].id ?? 0
+            self.navigationController?.pushViewController(vc!, animated: true)
+        }
     }
 }
 
@@ -365,16 +378,29 @@ extension ProductDetailsVC {
             self.producttitle.text = data.shortDescription?.html2String ?? ""
             self.productdescription.text = data.dataDescription?.html2String ?? ""
             self.typeLbl.text = "Type: " + (data.type ?? "")
-            self.tagseLbl.text = "Tags: " + "WorkShop"
+                
+                var projectCat = [String]()
+                for cat in data.categories ?? []{
+                    projectCat.append(cat.name ?? "")
+                }
+                
+            self.tagseLbl.text = "Tags: " + (projectCat.joined(separator: ","))
+                
             self.deliveryLbl.text = "Delivery: " +  String(data.delivery ?? 0) + " " + "days"
             self.productName.text = data.title ?? ""
             self.isFavourite = data.isFavorite ?? false
             let height = self.producttitle.intrinsicContentSize.height
             self.contentSizeHieght.constant = 900 + height
             self.photoCount.text = String(data.photos?.count ?? 0)
+            self.Products = data.product ?? []
+            
+                if data.product.count > 0 {
+                    self.relatedProductCollectionView.isHidden = false
+                }else{
+                    self.relatedProductCollectionView.isHidden = true
+                }
                 
-                //self.projects = data.
-                if data.photos?.count ?? 0 > 0 {
+            if data.photos?.count ?? 0 > 0 {
                     self.photoIndex.text =  "1"
                 }else{
                     self.photoIndex.text =  "0"
