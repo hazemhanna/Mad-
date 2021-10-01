@@ -31,8 +31,7 @@ class ProjectDetailsVC: UIViewController {
     @IBOutlet weak var typeLbl: UILabel!
     @IBOutlet weak var contentSizeHieght : NSLayoutConstraint!
     @IBOutlet weak var imageCollectionViewHieht : NSLayoutConstraint!
-    @IBOutlet weak var AddcommentView: UIView!
-    @IBOutlet weak var AddcommentViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var commentTableViewHeight : NSLayoutConstraint!
     @IBOutlet weak var descriptionBtn: UIButton!
     @IBOutlet weak var reviewsBtn: UIButton!
     @IBOutlet weak var taggedBtn: UIButton!
@@ -54,11 +53,17 @@ class ProjectDetailsVC: UIViewController {
     var artistId  = Int()
     var isFavourite: Bool = false
     var showShimmer: Bool = true
+    var tableViewheight = Int()
     var token = Helper.getAPIToken() ?? ""
     var imagesHtml = [String?]()
     var product  = [Product]()
     var artists   = [Artist]()
-    var comments = [Comments]()
+    var comments = [Comments](){
+        didSet{
+            self.commentTableViewHeight.constant = CGFloat(comments.count * 120)
+        }
+        
+    }
   
     open lazy var customTabBar: PTCardTabBar = {
         return PTCardTabBar()
@@ -145,7 +150,6 @@ class ProjectDetailsVC: UIViewController {
             artistView.isHidden = false
             self.contentSizeHieght.constant = 800
             self.productView.isHidden = true
-
         }else{
             descriptionBtn.setTitleColor(#colorLiteral(red: 0.1176470588, green: 0.2156862745, blue: 0.4, alpha: 1), for: .normal)
             taggedBtn.setTitleColor(#colorLiteral(red: 0.1176470588, green: 0.2156862745, blue: 0.4, alpha: 1), for: .normal)
@@ -153,8 +157,8 @@ class ProjectDetailsVC: UIViewController {
             aboutView.isHidden = true
             reviewsStack.isHidden = false
             artistView.isHidden = true
-            self.contentSizeHieght.constant = 800
             self.productView.isHidden = true
+            self.contentSizeHieght.constant = CGFloat(self.tableViewheight + 500)
         }
     }
     
@@ -385,6 +389,9 @@ func getProjectDetails(productID : Int) {
         if  let projectUrl = URL(string: data.data?.imageURL ?? ""){
         self.projectImage.kf.setImage(with: projectUrl, placeholder: #imageLiteral(resourceName: "Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4"))
         }
+        
+        self.tableViewheight = (self.comments.count * 120)
+
         if data.data?.isFavorite ?? false {
             self.favouriteBtn.setImage(#imageLiteral(resourceName: "Group 155"), for: .normal)
         }else{

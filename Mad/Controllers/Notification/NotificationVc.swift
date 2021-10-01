@@ -149,8 +149,9 @@ extension NotificationVc{
         chatVM.getConversation().subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
             self.showShimmer = false
-            self.inbox = dataModel.data?.inbox ?? []
+            self.inbox = dataModel.data?.inbox.reversed() ?? []
             self.inboxTableView.reloadData()
+            
            }
        }, onError: { (error) in
 

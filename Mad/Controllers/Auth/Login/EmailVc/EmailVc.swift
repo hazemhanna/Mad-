@@ -71,6 +71,9 @@ class EmailVc: UIViewController {
         if email.isEmpty {
             displayMessage(title: "", message: "Enter.email".localized, status: .error, forController: self)
           return false
+        } else if email.isValidEmail() != true{
+            displayMessage(title: "", message: "valid.email".localized, status: .error, forController: self)
+          return false
         }else{
             return true
         }

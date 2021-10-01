@@ -153,7 +153,7 @@ extension ProjectsVC : UICollectionViewDelegate ,UICollectionViewDataSource{
                     self.navigationController?.pushViewController(vc!, animated: true)
                 }
                 else{
-                    displayMessage(title: "",message: "please login first".localized, status: .success, forController: self)
+                    displayMessage(title: "",message: "please login first".localized, status: .error, forController: self)
                     let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
                     if let appDelegate = UIApplication.shared.delegate {
                         appDelegate.window??.rootViewController = sb

@@ -28,13 +28,11 @@ class SendMessageVc: UIViewController {
     var Product :[Product] = []
     
     var subject = ["Product","Project","Order","Collaboration"]
-    var selectedSubject = String()
+    var selectedSubject = "Project"
     var objectId = Int()
     var artistId = Int()
     var fromArtistPage = false
-    fileprivate let tagsField = WSTagsField()
-
-    
+    var tagsField = WSTagsField()
     open lazy var customTabBar: PTCardTabBar = {
         return PTCardTabBar()
     }()
@@ -110,12 +108,10 @@ class SendMessageVc: UIViewController {
                 self.object.removeAll()
                 self.titleLbl.text = "Choose Order"
                 self.selectedSubject  = ""
-
             }else if index == 3 {
                 self.object.removeAll()
                 self.titleLbl.text = "Choose Collaboration"
                 self.selectedSubject  = ""
-
             }
             self.setupObjectDropDown()
         }
@@ -125,7 +121,6 @@ class SendMessageVc: UIViewController {
         selectProjectDropDown.optionArray = self.object
         selectProjectDropDown.didSelect { (selectedText, index, id) in
             self.selectProjectDropDown.text = selectedText
-            
             if self.selectedSubject == "Product"{
                 self.objectId = self.Product[index].id ?? 0
             }else if self.selectedSubject == "Project"{
@@ -186,8 +181,9 @@ extension SendMessageVc {
             vc?.showArtist = true
             vc!.onClickClose = { artist in
             self.tagsField.addTag(artist.name ?? "")
-             self.getArtistProfile(id : artist.id ?? 0)
-             self.presentingViewController?.dismiss(animated: true)
+            self.getArtistProfile(id : artist.id ?? 0)
+            self.artistId = artist.id ?? 0
+            self.presentingViewController?.dismiss(animated: true)
            }
            self.present(vc!, animated: true, completion: nil)
             
@@ -218,8 +214,12 @@ extension SendMessageVc {
            if dataModel.success ?? false {
             self.ChatVM.dismissIndicator()
             self.Product = dataModel.data?.products ?? []
-            self.project = dataModel.data?.projects ?? []
-            //self.tagsField.addTag(dataModel.data?.name ?? "")
+            self.project = dataModel.data?.projects ?? []            
+            self.object.removeAll()
+            for index in self.project {
+                self.object.append(index.title ?? "")
+            }
+            self.setupObjectDropDown()
          }
        }, onError: { (error) in
         self.ChatVM.dismissIndicator()

@@ -75,6 +75,7 @@ class ArtistProfileVc: UIViewController {
         let vc = SendMessageVc.instantiateFromNib()
         vc?.artistId = self.artistId
         vc?.fromArtistPage = true
+        vc?.tagsField.addTag(self.artistName.text ?? "")
         self.navigationController?.pushViewController(vc!, animated: true)
     }
 }

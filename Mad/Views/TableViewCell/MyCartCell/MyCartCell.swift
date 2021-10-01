@@ -32,21 +32,17 @@ class MyCartCell: UITableViewCell {
 
     
     func confic(name : String , productUrl : String , price : Int , count : String){
-       
         NameLbl.text = name
         countLbl.text = count
-        priceLbl.text = String(price)
-        
+        priceLbl.text = String(price) +  " " + "USD".localized
         if  let productUrl = URL(string: productUrl){
             self.productmage.kf.setImage(with: productUrl, placeholder: #imageLiteral(resourceName: "WhatsApp Image 2021-04-21 at 1.25.47 PM"))
         }
-        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-    
     
     @IBAction func plusAction(_ sender: UIButton) {
         self.plus?()

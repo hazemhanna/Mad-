@@ -88,7 +88,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-40" translatesAutoresizingMaskIntoConstraints="NO" id="iLR-Gd-hCr">
                                                                 <rect key="frame" x="0.0" y="64" width="382" height="181"/>
                                                                 <subviews>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mhg-b0-AUp" customClass="CustomImageView" customModule="Mad" customModuleProvider="target">
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mhg-b0-AUp" customClass="CustomImageView" customModule="Mad" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="382" height="175"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="175" id="kmS-OL-hqy"/>
@@ -356,10 +356,10 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="AjM-Es-dbh">
-                                                <rect key="frame" x="0.0" y="1000" width="414" height="186"/>
+                                                <rect key="frame" x="0.0" y="1000" width="414" height="0.0"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2kI-i7-8fv" customClass="CustomView" customModule="Mad" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="186"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="roundedRect" placeholder="Comment here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RYI-7T-5AE" customClass="CustomTextField" customModule="Mad" customModuleProvider="target">
                                                                 <rect key="frame" x="32" y="8" width="350" height="100"/>
@@ -405,8 +405,11 @@
                                                                 </connections>
                                                             </button>
                                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Mxq-v2-1qe">
-                                                                <rect key="frame" x="0.0" y="186" width="414" height="0.0"/>
+                                                                <rect key="frame" x="0.0" y="186" width="414" height="120"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="120" id="RkJ-3F-p4Z"/>
+                                                                </constraints>
                                                             </tableView>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -419,7 +422,6 @@
                                                             <constraint firstItem="RYI-7T-5AE" firstAttribute="top" secondItem="2kI-i7-8fv" secondAttribute="top" constant="8" id="mIT-kr-cqS"/>
                                                             <constraint firstItem="Mxq-v2-1qe" firstAttribute="top" secondItem="7dh-vP-IiD" secondAttribute="bottom" constant="16" id="oev-0e-9cK"/>
                                                             <constraint firstAttribute="trailing" secondItem="7dh-vP-IiD" secondAttribute="trailing" constant="32" id="uz7-8k-qzk"/>
-                                                            <constraint firstAttribute="bottom" secondItem="Mxq-v2-1qe" secondAttribute="bottom" id="z6Z-m7-Adh"/>
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -505,6 +507,7 @@
                 <outlet property="artistName" destination="Rr5-fk-Yge" id="zOW-sf-90F"/>
                 <outlet property="artistView" destination="4b8-24-Ru4" id="oRp-mY-Ntx"/>
                 <outlet property="commentTF" destination="RYI-7T-5AE" id="eem-nC-6sr"/>
+                <outlet property="commentTableViewHeight" destination="RkJ-3F-p4Z" id="v6b-EL-tYv"/>
                 <outlet property="contentSizeHieght" destination="Ko9-nv-4Sx" id="Qum-yy-Lvt"/>
                 <outlet property="dateLbl" destination="S92-ah-0LS" id="VQY-kq-nk4"/>
                 <outlet property="descriptionBtn" destination="97i-Yv-87x" id="BgT-9Q-gJ0"/>

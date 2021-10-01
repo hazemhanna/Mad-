@@ -196,6 +196,7 @@ class ProductDetailsVC: UIViewController {
     
     @IBAction func addToCartAction(_ sender: UIButton) {
         if self.token == "" {
+            displayMessage(title: "",message: "please login first".localized, status: .error, forController: self)
             let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
             if let appDelegate = UIApplication.shared.delegate {
                 appDelegate.window??.rootViewController = sb
@@ -205,19 +206,9 @@ class ProductDetailsVC: UIViewController {
             if add {
                 self.productVM.showIndicator()
                 self.addToCart(productId : self.productId,quantity: self.counter)
-                self.add = false
-                self.addToCartBtn.setTitle("Remove from cart", for: .normal)
-                self.addToCartBtn.setImage(#imageLiteral(resourceName: "Component 36 – 1"), for: .normal)
-                self.addToCartBtn.backgroundColor = #colorLiteral(red: 0.8666666667, green: 0.9058823529, blue: 0.9568627451, alpha: 1)
-                self.addToCartBtn.setTitleColor(#colorLiteral(red: 0.1176470588, green: 0.2156862745, blue: 0.4, alpha: 1), for: .normal)
             }else{
                 self.productVM.showIndicator()
                 self.removeCart(productId : self.productId,quantity: 0)
-                self.add = true
-                self.addToCartBtn.setTitle("add to cart", for: .normal)
-                self.addToCartBtn.setImage(#imageLiteral(resourceName: "Path 331"), for: .normal)
-                self.addToCartBtn.backgroundColor = #colorLiteral(red: 0.8980392157, green: 0.1254901961, blue: 0.3529411765, alpha: 1)
-                self.addToCartBtn.setTitleColor(#colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1), for: .normal)
             }
         }
     }
@@ -455,6 +446,11 @@ extension ProductDetailsVC {
             self.getCart()
             self.productVM.dismissIndicator()
             self.blackView.isHidden = false
+                self.add = false
+                self.addToCartBtn.setTitle("Remove from cart", for: .normal)
+                self.addToCartBtn.setImage(#imageLiteral(resourceName: "Component 36 – 1"), for: .normal)
+                self.addToCartBtn.backgroundColor = #colorLiteral(red: 0.8666666667, green: 0.9058823529, blue: 0.9568627451, alpha: 1)
+                self.addToCartBtn.setTitleColor(#colorLiteral(red: 0.1176470588, green: 0.2156862745, blue: 0.4, alpha: 1), for: .normal)
            }else{
             self.productVM.dismissIndicator()
             displayMessage(title: "",message: dataModel.message ?? "", status: .error, forController: self)
@@ -481,6 +477,11 @@ func removeCart(productId : Int,quantity :Int) {
            if dataModel.success ?? false {
             self.getCart()
             self.productVM.dismissIndicator()
+            self.add = true
+            self.addToCartBtn.setTitle("add to cart", for: .normal)
+            self.addToCartBtn.setImage(#imageLiteral(resourceName: "Path 331"), for: .normal)
+            self.addToCartBtn.backgroundColor = #colorLiteral(red: 0.8980392157, green: 0.1254901961, blue: 0.3529411765, alpha: 1)
+            self.addToCartBtn.setTitleColor(#colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1), for: .normal)
            }
        }, onError: { (error) in
         self.productVM.dismissIndicator()
