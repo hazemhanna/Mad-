@@ -54,8 +54,13 @@ class MyCartDetailsVc: UIViewController {
     
     
     @IBAction func nextAction(sender: UIButton) {
+        
+        if  self.countrylbl.text != "" {
         let main =  CheckoutViewController()
         self.navigationController?.pushViewController(main, animated: true)
+        }else{
+            displayMessage(title: "", message: "edit.address".localized, status: .error, forController: self)
+        }
     }
     
 }
