@@ -33,19 +33,16 @@ class ProjectDetailsVC: UIViewController {
     @IBOutlet weak var imageCollectionViewHieht : NSLayoutConstraint!
     @IBOutlet weak var AddcommentView: UIView!
     @IBOutlet weak var AddcommentViewHeight: NSLayoutConstraint!
-
     @IBOutlet weak var descriptionBtn: UIButton!
     @IBOutlet weak var reviewsBtn: UIButton!
     @IBOutlet weak var taggedBtn: UIButton!
     @IBOutlet weak var reviewsStack : UIStackView!
     @IBOutlet weak var mainTitleLbl: UILabel!
-    
     @IBOutlet weak var artistName : UILabel!
     @IBOutlet weak var artistImage : UIImageView!
     @IBOutlet weak var dateLbl : UILabel!
-    
-    
     @IBOutlet weak var commentTF: CustomTextField!
+    
     private let cellIdentifier = "LiveCellCVC"
     private let cellIdentifier2 = "ProjectCell"
     private let cellIdentifier3 = "AddsCell"
@@ -53,14 +50,11 @@ class ProjectDetailsVC: UIViewController {
  
     var homeVM = HomeViewModel()
     var disposeBag = DisposeBag()
-
     var projectId = Int()
-
+    var artistId  = Int()
     var isFavourite: Bool = false
     var showShimmer: Bool = true
-
     var token = Helper.getAPIToken() ?? ""
-   
     var imagesHtml = [String?]()
     var product  = [Product]()
     var artists   = [Artist]()
@@ -207,6 +201,21 @@ class ProjectDetailsVC: UIViewController {
                 }
         }
     }
+    
+    
+    @IBAction func chatButton(sender: UIButton) {
+        if self.token == "" {
+            let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
+            if let appDelegate = UIApplication.shared.delegate {
+                appDelegate.window??.rootViewController = sb
+            }
+            return
+      }else{
+          self.homeVM.showIndicator()
+          self.creatConversation(subject: "Project", artistId: self.artistId, subjectId: self.projectId)
+     }
+    }
+    
 }
 
 
@@ -346,7 +355,7 @@ func getProjectDetails(productID : Int) {
         self.product = data.data?.products ?? []
         self.artists = data.data?.tagged ?? []
         self.comments = data.data?.comments ?? []
-        
+        self.artistId = data.data?.artist?.id ?? 0
         self.artistName.text = data.data?.artist?.name ?? ""
         self.dateLbl.text = data.data?.createdAt ?? ""
         if  let artist = URL(string: data.data?.artist?.profilPicture ?? ""){
@@ -426,8 +435,6 @@ func getProjectDetails(productID : Int) {
        }).disposed(by: disposeBag)
    }
     
-    
-    
     func shareProject(productID : Int) {
         homeVM.shareProject(productID: productID).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
@@ -449,8 +456,23 @@ func getProjectDetails(productID : Int) {
         self.homeVM.dismissIndicator()
        }).disposed(by: disposeBag)
    }
-}
+    
+    func creatConversation(subject:String,artistId : Int,subjectId:Int) {
+        homeVM.creatConversation(subject: subject, artistId: artistId, subjectId: subjectId).subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+            self.homeVM.dismissIndicator()
+            let main = ChatVc.instantiateFromNib()
+            main?.convId = dataModel.data?.id ?? 0
+            self.navigationController?.pushViewController(main!, animated: true)
+           }else{
+            self.homeVM.dismissIndicator()
+           }
+       }, onError: { (error) in
+        self.homeVM.dismissIndicator()
 
+       }).disposed(by: disposeBag)
+   }
+}
 
 extension ProjectDetailsVC :UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

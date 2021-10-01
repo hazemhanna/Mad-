@@ -53,7 +53,6 @@ class ProductDetailsVC: UIViewController {
     var showShimmer2: Bool = true
     var isFavourite: Bool = false
     var counter = 1
-    var artistId  = Int()
     var disposeBag = DisposeBag()
     var productVM = ProductViewModel()
     var photos = [String]()
@@ -212,20 +211,7 @@ class ProductDetailsVC: UIViewController {
         self.hideCartBtn.isHidden = true
     }
     
-    @IBAction func chatButton(sender: UIButton) {
-        if self.token == "" {
-            let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
-            if let appDelegate = UIApplication.shared.delegate {
-                appDelegate.window??.rootViewController = sb
-            }
-            return
-      }else{
-          self.productVM.showIndicator()
-          self.creatConversation(subject: "Product", artistId: self.artistId, subjectId: self.productId)
-     }
-        
-    }
-    
+
     
     @IBAction func plusAction(_ sender: UIButton) {
         if self.token == "" {
@@ -360,14 +346,11 @@ extension ProductDetailsVC {
             self.reviewTableView.reloadData()
             self.addsCollectionView.reloadData()
             self.artistName.text = data.artist?.name ?? ""
-            self.artistId = data.artist?.id ?? 0
             self.productPrice.text = "USD " + String(data.price ?? 0)
             self.producttitle.text = data.dataDescription?.html2String ?? ""
-            
             self.typeLbl.text = "Type: " + (data.type ?? "")
             self.tagseLbl.text = "Tags: " + "WorkShop"
             self.deliveryLbl.text = "Delivery: " +  String(data.delivery ?? 0) + " " + "days"
-            
             self.productName.text = data.title ?? ""
             self.isFavourite = data.isFavorite ?? false
             let height = self.producttitle.intrinsicContentSize.height
@@ -448,26 +431,7 @@ extension ProductDetailsVC {
        }).disposed(by: disposeBag)
    }
     
-    func creatConversation(subject:String,artistId : Int,subjectId:Int) {
-        productVM.creatConversation(subject: subject, artistId: artistId, subjectId: subjectId).subscribe(onNext: { (dataModel) in
-           if dataModel.success ?? false {
-            self.productVM.dismissIndicator()
-            let main = ChatVc.instantiateFromNib()
-            main?.convId = dataModel.data?.id ?? 0
-            self.navigationController?.pushViewController(main!, animated: true)
-           }else{
-            self.productVM.dismissIndicator()
-
-           }
-       }, onError: { (error) in
-        self.productVM.dismissIndicator()
-
-       }).disposed(by: disposeBag)
-   }
-    
-    
-    
-    func removeCart(productId : Int,quantity :Int) {
+func removeCart(productId : Int,quantity :Int) {
         productVM.updateCart(id:  productId,quantity:quantity).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
             self.getCart()
