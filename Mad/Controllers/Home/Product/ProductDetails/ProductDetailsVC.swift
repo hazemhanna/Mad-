@@ -29,6 +29,7 @@ class ProductDetailsVC: UIViewController {
     @IBOutlet weak var cartView: UIView!
     @IBOutlet weak var hideCartBtn: UIButton!
     @IBOutlet weak var reviewTableView: UITableView!
+    @IBOutlet weak var productdescription: UILabel!
     @IBOutlet weak var descriptionBtn: UIButton!
     @IBOutlet weak var reviewsBtn: UIButton!
     @IBOutlet weak var descriptionStack: UIStackView!
@@ -139,7 +140,8 @@ class ProductDetailsVC: UIViewController {
             reviewsStack.isHidden = true
             descriptionStack.isHidden = true
             contentView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-            
+            let height = self.producttitle.intrinsicContentSize.height
+            self.contentSizeHieght.constant = 900 + height
     }else if sender.tag == 1 {
             reviewsBtn.setTitleColor(#colorLiteral(red: 0.1176470588, green: 0.2156862745, blue: 0.4, alpha: 1), for: .normal)
             detailsBtn.setTitleColor(#colorLiteral(red: 0.1176470588, green: 0.2156862745, blue: 0.4, alpha: 1), for: .normal)
@@ -148,6 +150,10 @@ class ProductDetailsVC: UIViewController {
             detailsStack.isHidden = true
             reviewsStack.isHidden = true
             contentView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        
+        let height = self.productdescription.intrinsicContentSize.height
+        self.contentSizeHieght.constant = 500 + height
+        
         }else{
             descriptionBtn.setTitleColor(#colorLiteral(red: 0.1176470588, green: 0.2156862745, blue: 0.4, alpha: 1), for: .normal)
             detailsBtn.setTitleColor(#colorLiteral(red: 0.1176470588, green: 0.2156862745, blue: 0.4, alpha: 1), for: .normal)
@@ -156,6 +162,9 @@ class ProductDetailsVC: UIViewController {
             detailsStack.isHidden = true
             reviewsStack.isHidden = false
             contentView.backgroundColor = #colorLiteral(red: 0.9725490196, green: 0.9725490196, blue: 0.9725490196, alpha: 1)
+            self.reviewsStackSizeHieght.constant = 500
+            self.contentSizeHieght.constant = 900
+
         }
     }
     
@@ -353,17 +362,18 @@ extension ProductDetailsVC {
             self.addsCollectionView.reloadData()
             self.artistName.text = data.artist?.name ?? ""
             self.productPrice.text = "USD " + String(data.price ?? 0)
-            self.producttitle.text = data.dataDescription?.html2String ?? ""
+            self.producttitle.text = data.shortDescription?.html2String ?? ""
+            self.productdescription.text = data.dataDescription?.html2String ?? ""
             self.typeLbl.text = "Type: " + (data.type ?? "")
             self.tagseLbl.text = "Tags: " + "WorkShop"
             self.deliveryLbl.text = "Delivery: " +  String(data.delivery ?? 0) + " " + "days"
             self.productName.text = data.title ?? ""
             self.isFavourite = data.isFavorite ?? false
             let height = self.producttitle.intrinsicContentSize.height
-            self.contentSizeHieght.constant = 1000 + height
-            self.reviewsStackSizeHieght.constant = 400 + height
+            self.contentSizeHieght.constant = 900 + height
             self.photoCount.text = String(data.photos?.count ?? 0)
-            //self.projects = data.
+                
+                //self.projects = data.
                 if data.photos?.count ?? 0 > 0 {
                     self.photoIndex.text =  "1"
                 }else{
