@@ -39,6 +39,12 @@ class ProjectDetailsVC: UIViewController {
     @IBOutlet weak var taggedBtn: UIButton!
     @IBOutlet weak var reviewsStack : UIStackView!
     @IBOutlet weak var mainTitleLbl: UILabel!
+    
+    @IBOutlet weak var artistName : UILabel!
+    @IBOutlet weak var artistImage : UIImageView!
+    @IBOutlet weak var dateLbl : UILabel!
+    
+    
     @IBOutlet weak var commentTF: CustomTextField!
     private let cellIdentifier = "LiveCellCVC"
     private let cellIdentifier2 = "ProjectCell"
@@ -340,6 +346,13 @@ func getProjectDetails(productID : Int) {
         self.product = data.data?.products ?? []
         self.artists = data.data?.tagged ?? []
         self.comments = data.data?.comments ?? []
+        
+        self.artistName.text = data.data?.artist?.name ?? ""
+        self.dateLbl.text = data.data?.createdAt ?? ""
+        if  let artist = URL(string: data.data?.artist?.profilPicture ?? ""){
+        self.artistImage.kf.setImage(with: artist, placeholder: #imageLiteral(resourceName: "Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4"))
+        }
+        
         self.reviewTableView.reloadData()
         if data.data?.tagged?.count ?? 0 > 0 {
             self.artistCollectionView.isHidden = false

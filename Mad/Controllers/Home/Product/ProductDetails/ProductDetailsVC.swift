@@ -17,7 +17,7 @@ class ProductDetailsVC: UIViewController {
     @IBOutlet weak var photoCount: UILabel!
     @IBOutlet weak var photoIndex: UILabel!
     @IBOutlet weak var productName: UILabel!
-    @IBOutlet weak var producttitle: UITextView!
+    @IBOutlet weak var producttitle: UILabel!
     @IBOutlet weak var productPrice: UILabel!
     @IBOutlet weak var favouritBtn: UIButton!
     @IBOutlet weak var artistName: UILabel!
@@ -33,14 +33,19 @@ class ProductDetailsVC: UIViewController {
     @IBOutlet weak var reviewsBtn: UIButton!
     @IBOutlet weak var descriptionStack: UIStackView!
     @IBOutlet weak var reviewsStack : UIStackView!
+    @IBOutlet weak var detailsBtn: UIButton!
+    @IBOutlet weak var detailsStack: UIStackView!
     @IBOutlet weak var reviewsStackSizeHieght : NSLayoutConstraint!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var blackView: UIView!
     @IBOutlet weak var viewCartBtn: UIButton!
     @IBOutlet weak var writeReviewBtn: UIButton!
-    @IBOutlet weak var phsicalLbl: UILabel!
+    @IBOutlet weak var typeLbl: UILabel!
+    @IBOutlet weak var tagseLbl: UILabel!
+    @IBOutlet weak var deliveryLbl: UILabel!
     @IBOutlet weak var addToCartLbl: UILabel!
- 
+    @IBOutlet weak var addToCartBtn : UIButton!
+
     
     var token = Helper.getAPIToken() ?? ""
     var productId = Int()
@@ -53,7 +58,8 @@ class ProductDetailsVC: UIViewController {
     var productVM = ProductViewModel()
     var photos = [String]()
     var reviews = [Review]()
-    
+    var add = true
+
     open lazy var customTabBar: PTCardTabBar = {
         return PTCardTabBar()
     }()
@@ -80,7 +86,7 @@ class ProductDetailsVC: UIViewController {
         reviewsBtn.setTitle("review".localized, for: .normal)
         writeReviewBtn.setTitle("WriteReview".localized, for: .normal)
         viewCartBtn.setTitle("View.cart".localized, for: .normal)
-        phsicalLbl.text = "Physical".localized
+       // phsicalLbl.text = "Physical".localized
         addToCartLbl.text = "addedToCart".localized
 
    
@@ -93,6 +99,13 @@ class ProductDetailsVC: UIViewController {
             ptcTBC.customTabBar.isHidden = true
         }
         blackView.isHidden = true
+        reviewsBtn.setTitleColor(#colorLiteral(red: 0.1176470588, green: 0.2156862745, blue: 0.4, alpha: 1), for: .normal)
+        descriptionBtn.setTitleColor(#colorLiteral(red: 0.1176470588, green: 0.2156862745, blue: 0.4, alpha: 1), for: .normal)
+        detailsBtn.setTitleColor(#colorLiteral(red: 0.8980392157, green: 0.1254901961, blue: 0.3529411765, alpha: 1), for: .normal)
+        detailsStack.isHidden = false
+        reviewsStack.isHidden = true
+        descriptionStack.isHidden = true
+        
     }
     override func viewDidAppear(_ animated: Bool) {
         productVM.showIndicator()
@@ -112,16 +125,29 @@ class ProductDetailsVC: UIViewController {
     }
     
     @IBAction func descriptionBtn(sender: UIButton) {
-        if sender.tag == 1 {
+        if sender.tag == 0 {
             reviewsBtn.setTitleColor(#colorLiteral(red: 0.1176470588, green: 0.2156862745, blue: 0.4, alpha: 1), for: .normal)
+            descriptionBtn.setTitleColor(#colorLiteral(red: 0.1176470588, green: 0.2156862745, blue: 0.4, alpha: 1), for: .normal)
+            detailsBtn.setTitleColor(#colorLiteral(red: 0.8980392157, green: 0.1254901961, blue: 0.3529411765, alpha: 1), for: .normal)
+            detailsStack.isHidden = false
+            reviewsStack.isHidden = true
+            descriptionStack.isHidden = true
+            contentView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            
+    }else if sender.tag == 1 {
+            reviewsBtn.setTitleColor(#colorLiteral(red: 0.1176470588, green: 0.2156862745, blue: 0.4, alpha: 1), for: .normal)
+            detailsBtn.setTitleColor(#colorLiteral(red: 0.1176470588, green: 0.2156862745, blue: 0.4, alpha: 1), for: .normal)
             descriptionBtn.setTitleColor(#colorLiteral(red: 0.8980392157, green: 0.1254901961, blue: 0.3529411765, alpha: 1), for: .normal)
             descriptionStack.isHidden = false
+            detailsStack.isHidden = true
             reviewsStack.isHidden = true
             contentView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         }else{
             descriptionBtn.setTitleColor(#colorLiteral(red: 0.1176470588, green: 0.2156862745, blue: 0.4, alpha: 1), for: .normal)
+            detailsBtn.setTitleColor(#colorLiteral(red: 0.1176470588, green: 0.2156862745, blue: 0.4, alpha: 1), for: .normal)
             reviewsBtn.setTitleColor(#colorLiteral(red: 0.8980392157, green: 0.1254901961, blue: 0.3529411765, alpha: 1), for: .normal)
             descriptionStack.isHidden = true
+            detailsStack.isHidden = true
             reviewsStack.isHidden = false
             contentView.backgroundColor = #colorLiteral(red: 0.9725490196, green: 0.9725490196, blue: 0.9725490196, alpha: 1)
         }
@@ -161,8 +187,23 @@ class ProductDetailsVC: UIViewController {
             }
             return
         }else{
-            self.productVM.showIndicator()
-            self.addToCart(productId : self.productId,quantity: self.counter)
+            if add {
+                self.productVM.showIndicator()
+                self.addToCart(productId : self.productId,quantity: self.counter)
+                self.add = false
+                self.addToCartBtn.setTitle("Remove from cart", for: .normal)
+                self.addToCartBtn.setImage(#imageLiteral(resourceName: "Component 36 – 1"), for: .normal)
+                self.addToCartBtn.backgroundColor = #colorLiteral(red: 0.8666666667, green: 0.9058823529, blue: 0.9568627451, alpha: 1)
+                self.addToCartBtn.setTitleColor(#colorLiteral(red: 0.1176470588, green: 0.2156862745, blue: 0.4, alpha: 1), for: .normal)
+            }else{
+                self.productVM.showIndicator()
+                self.removeCart(productId : self.productId,quantity: 0)
+                self.add = true
+                self.addToCartBtn.setTitle("add to cart", for: .normal)
+                self.addToCartBtn.setImage(#imageLiteral(resourceName: "Path 331"), for: .normal)
+                self.addToCartBtn.backgroundColor = #colorLiteral(red: 0.8980392157, green: 0.1254901961, blue: 0.3529411765, alpha: 1)
+                self.addToCartBtn.setTitleColor(#colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1), for: .normal)
+            }
         }
     }
     
@@ -322,11 +363,15 @@ extension ProductDetailsVC {
             self.artistId = data.artist?.id ?? 0
             self.productPrice.text = "USD " + String(data.price ?? 0)
             self.producttitle.text = data.dataDescription?.html2String ?? ""
-            self.productMatrial.text = data.materials ?? ""
+            
+            self.typeLbl.text = "Type: " + (data.type ?? "")
+            self.tagseLbl.text = "Tags: " + "WorkShop"
+            self.deliveryLbl.text = "Delivery: " +  String(data.delivery ?? 0) + " " + "days"
+            
             self.productName.text = data.title ?? ""
             self.isFavourite = data.isFavorite ?? false
             let height = self.producttitle.intrinsicContentSize.height
-            self.contentSizeHieght.constant = 800 + height
+            self.contentSizeHieght.constant = 1000 + height
             self.reviewsStackSizeHieght.constant = 400 + height
             self.photoCount.text = String(data.photos?.count ?? 0)
                 if data.photos?.count ?? 0 > 0 {
@@ -419,6 +464,20 @@ extension ProductDetailsVC {
 
        }).disposed(by: disposeBag)
    }
+    
+    
+    
+    func removeCart(productId : Int,quantity :Int) {
+        productVM.updateCart(id:  productId,quantity:quantity).subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+            self.getCart()
+            self.productVM.dismissIndicator()
+           }
+       }, onError: { (error) in
+        self.productVM.dismissIndicator()
+       }).disposed(by: disposeBag)
+   }
+    
     
 }
 

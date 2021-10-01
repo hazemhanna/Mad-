@@ -66,7 +66,6 @@ class SubmitCopetitionsVC: UIViewController {
         }
     }
     
-    
     @IBAction func backButton(sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }

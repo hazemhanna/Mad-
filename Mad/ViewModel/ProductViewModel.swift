@@ -161,4 +161,16 @@ struct ProductViewModel {
          return observer
      }
     
+    
+    
+      func updateCart(id :Int,quantity : Int) -> Observable<CartModelJSON> {
+          let params: [String: Any] = [
+              "id": id,
+              "quantity": quantity
+          ]
+           let observer = AddServices.shared.updateCartProduct(param: params)
+           return observer
+       }
+      
+    
 }
