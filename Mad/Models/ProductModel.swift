@@ -82,7 +82,7 @@ struct ProductDetailsModel: Codable {
     let photos: [String]?
     let categories: [Category]?
     let reviews: [Review]?
-    let product : [Product]
+    let product : [Product]?
     enum CodingKeys: String, CodingKey {
         case id, artist, title
         case imageURL = "image_url"

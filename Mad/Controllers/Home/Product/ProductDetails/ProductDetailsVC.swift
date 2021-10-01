@@ -23,7 +23,6 @@ class ProductDetailsVC: UIViewController {
     @IBOutlet weak var artistName: UILabel!
     @IBOutlet weak var artistPhoto: UIImageView!
     @IBOutlet weak var contentSizeHieght : NSLayoutConstraint!
-    @IBOutlet weak var productMatrial: UILabel!
     @IBOutlet weak var cartCount: UILabel!
     @IBOutlet weak var CounterLbl: UILabel!
     @IBOutlet weak var cartView: UIView!
@@ -46,6 +45,7 @@ class ProductDetailsVC: UIViewController {
     @IBOutlet weak var deliveryLbl: UILabel!
     @IBOutlet weak var addToCartLbl: UILabel!
     @IBOutlet weak var addToCartBtn : UIButton!
+    @IBOutlet weak var typeIcon : UIImageView!
 
     
     var token = Helper.getAPIToken() ?? ""
@@ -141,7 +141,7 @@ class ProductDetailsVC: UIViewController {
             descriptionStack.isHidden = true
             contentView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
             let height = self.producttitle.intrinsicContentSize.height
-            self.contentSizeHieght.constant = 900 + height
+            self.contentSizeHieght.constant = 1000 + height
     }else if sender.tag == 1 {
             reviewsBtn.setTitleColor(#colorLiteral(red: 0.1176470588, green: 0.2156862745, blue: 0.4, alpha: 1), for: .normal)
             detailsBtn.setTitleColor(#colorLiteral(red: 0.1176470588, green: 0.2156862745, blue: 0.4, alpha: 1), for: .normal)
@@ -385,16 +385,20 @@ extension ProductDetailsVC {
                 }
                 
             self.tagseLbl.text = "Tags: " + (projectCat.joined(separator: ","))
-                
+                if data.type ?? "" == "digital"{
+                    self.typeIcon.image = #imageLiteral(resourceName: "Group 546")
+                }else{
+                    self.typeIcon.image = #imageLiteral(resourceName: "Path 518")
+                }
             self.deliveryLbl.text = "Delivery: " +  String(data.delivery ?? 0) + " " + "days"
             self.productName.text = data.title ?? ""
             self.isFavourite = data.isFavorite ?? false
             let height = self.producttitle.intrinsicContentSize.height
-            self.contentSizeHieght.constant = 900 + height
+            self.contentSizeHieght.constant = 1000 + height
             self.photoCount.text = String(data.photos?.count ?? 0)
             self.Products = data.product ?? []
             
-                if data.product.count > 0 {
+                if data.product?.count ?? 0 > 0 {
                     self.relatedProductCollectionView.isHidden = false
                 }else{
                     self.relatedProductCollectionView.isHidden = true

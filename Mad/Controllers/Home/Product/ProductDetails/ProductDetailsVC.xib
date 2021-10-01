@@ -732,6 +732,7 @@ added to cart</string>
                 <outlet property="reviewsStack" destination="3ID-mV-Gmd" id="Mfw-bH-1Dl"/>
                 <outlet property="reviewsStackSizeHieght" destination="bKc-ZI-SUv" id="eNo-la-qA0"/>
                 <outlet property="tagseLbl" destination="9T4-ci-GLC" id="mJc-Xk-t7X"/>
+                <outlet property="typeIcon" destination="dxj-7f-I8k" id="xju-0L-vM5"/>
                 <outlet property="typeLbl" destination="3MB-aC-Wre" id="36D-EU-2OY"/>
                 <outlet property="viewCartBtn" destination="80F-5Y-oRH" id="Wln-NV-arN"/>
                 <outlet property="writeReviewBtn" destination="cUB-It-TwO" id="0QI-4f-nWq"/>
