@@ -377,12 +377,11 @@ extension ProductDetailsVC {
             self.productPrice.text = "USD " + String(data.price ?? 0)
             self.producttitle.text = data.shortDescription?.html2String ?? ""
             self.productdescription.text = data.dataDescription?.html2String ?? ""
-            self.typeLbl.text = "Type: " + (data.type ?? "")
-                
-                var projectCat = [String]()
-                for cat in data.categories ?? []{
-                    projectCat.append(cat.name ?? "")
-                }
+            self.typeLbl.text = "Type: " + (data.type ?? "") + " " + "product"
+            var projectCat = [String]()
+            for cat in data.categories ?? []{
+                projectCat.append(cat.name ?? "")
+            }
                 
             self.tagseLbl.text = "Tags: " + (projectCat.joined(separator: ","))
                 if data.type ?? "" == "digital"{
@@ -397,12 +396,11 @@ extension ProductDetailsVC {
             self.contentSizeHieght.constant = 1000 + height
             self.photoCount.text = String(data.photos?.count ?? 0)
             self.Products = data.product ?? []
-            
-                if data.product?.count ?? 0 > 0 {
-                    self.relatedProductCollectionView.isHidden = false
-                }else{
-                    self.relatedProductCollectionView.isHidden = true
-                }
+            if data.product?.count ?? 0 > 0 {
+                self.relatedProductCollectionView.isHidden = false
+            }else{
+                self.relatedProductCollectionView.isHidden = true
+            }
                 
             if data.photos?.count ?? 0 > 0 {
                     self.photoIndex.text =  "1"
