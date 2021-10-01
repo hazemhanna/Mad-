@@ -58,7 +58,14 @@ class ProductDetailsVC: UIViewController {
     var photos = [String]()
     var reviews = [Review]()
     var add = true
-
+    var projects = [Project]() {
+        didSet {
+            DispatchQueue.main.async {
+                self.relatedProductCollectionView?.reloadData()
+            }
+        }
+    }
+    
     open lazy var customTabBar: PTCardTabBar = {
         return PTCardTabBar()
     }()
@@ -284,9 +291,8 @@ extension ProductDetailsVC : UICollectionViewDelegate ,UICollectionViewDataSourc
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if showShimmer {
-            return
-        }
+        if showShimmer {return}
+    
     }
 }
 
@@ -357,6 +363,7 @@ extension ProductDetailsVC {
             self.contentSizeHieght.constant = 1000 + height
             self.reviewsStackSizeHieght.constant = 400 + height
             self.photoCount.text = String(data.photos?.count ?? 0)
+            //self.projects = data.
                 if data.photos?.count ?? 0 > 0 {
                     self.photoIndex.text =  "1"
                 }else{
