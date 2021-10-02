@@ -67,7 +67,7 @@ class Authentication {
                 .responseJSON { (response: DataResponse<Any>) in
                     do {
                         let loginData = try JSONDecoder().decode(AuthRegisterModel.self, from: response.data!)
-                        Helper.saveAlogin(token: loginData.data?.accessToken ?? "",email: loginData.data?.user?.userEmail ?? "", fName: loginData.data?.user?.firstName ?? "" ,lName : loginData.data?.user?.lastName ?? "",type:  loginData.data?.user?.madArtist ?? false, id: loginData.data?.user?.artistID ?? 0, isActive: loginData.data?.user?.activatedArtist ?? false)
+                        Helper.saveAlogin(token: loginData.data?.accessToken ?? "",email: loginData.data?.user?.userEmail ?? "", fName: loginData.data?.user?.firstName ?? "" ,lName : loginData.data?.user?.lastName ?? "",type:  loginData.data?.user?.madArtist ?? false, id: loginData.data?.user?.artistID ?? 0, isActive: loginData.data?.user?.activatedArtist ?? false, profile: loginData.data?.user?.profilPicture ?? "" )
                         observer.onNext(loginData)
                     } catch {
                         print(error.localizedDescription)

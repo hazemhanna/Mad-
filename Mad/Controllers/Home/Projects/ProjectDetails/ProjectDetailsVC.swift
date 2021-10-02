@@ -58,6 +58,9 @@ class ProjectDetailsVC: UIViewController {
     var imagesHtml = [String?]()
     var product  = [Product]()
     var artists   = [Artist]()
+    var objectName = String()
+    var objectImage = String()
+    
     var comments = [Comments](){
         didSet{
             self.commentTableViewHeight.constant = CGFloat(comments.count * 120)
@@ -390,6 +393,11 @@ func getProjectDetails(productID : Int) {
         self.projectImage.kf.setImage(with: projectUrl, placeholder: #imageLiteral(resourceName: "Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4"))
         }
         
+        
+        self.objectName = data.data?.title ?? ""
+        self.objectImage = data.data?.imageURL ?? ""
+
+        
         self.tableViewheight = (self.comments.count * 120)
 
         if data.data?.isFavorite ?? false {
@@ -470,6 +478,8 @@ func getProjectDetails(productID : Int) {
             self.homeVM.dismissIndicator()
             let main = ChatVc.instantiateFromNib()
             main?.convId = dataModel.data?.id ?? 0
+            main?.objectName = self.objectName
+            main?.objectImage = self.objectImage
             self.navigationController?.pushViewController(main!, animated: true)
            }else{
             self.homeVM.dismissIndicator()

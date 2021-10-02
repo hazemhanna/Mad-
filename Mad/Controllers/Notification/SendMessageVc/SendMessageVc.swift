@@ -26,7 +26,9 @@ class SendMessageVc: UIViewController {
     var object :[String] = []
     var project :[Project] = []
     var Product :[Product] = []
-    
+    var objectName = String()
+    var objectImage = String()
+    var objectPrice = String()
     var subject = ["Product","Project","Order","Collaboration"]
     var selectedSubject = "Project"
     var objectId = Int()
@@ -123,8 +125,13 @@ class SendMessageVc: UIViewController {
             self.selectProjectDropDown.text = selectedText
             if self.selectedSubject == "Product"{
                 self.objectId = self.Product[index].id ?? 0
+                self.objectName = self.Product[index].title ?? ""
+                self.objectImage = self.Product[index].imageURL ?? ""
+                self.objectPrice = String(self.Product[index].price ?? 0)
             }else if self.selectedSubject == "Project"{
                 self.objectId = self.project[index].id ?? 0
+                self.objectName = self.project[index].title ?? ""
+                self.objectImage = self.project[index].imageURL ?? ""
             }
         }
     }
@@ -232,6 +239,9 @@ extension SendMessageVc {
             self.ChatVM.dismissIndicator()
             let main = ChatVc.instantiateFromNib()
             main?.convId = dataModel.data?.id ?? 0
+            main?.objectName = self.objectName
+            main?.objectImage = self.objectImage
+            main?.objectPrice = self.objectPrice
             self.navigationController?.pushViewController(main!, animated: true)
            }
        }, onError: { (error) in
@@ -239,7 +249,4 @@ extension SendMessageVc {
 
        }).disposed(by: disposeBag)
    }
-    
-    
 }
-

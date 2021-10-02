@@ -27,8 +27,16 @@ class ChatVc: UIViewController {
     var ChatVM = ChatViewModel()
     private let cellIdentifier = "ChatCell"
     var userId = Helper.getId() ?? 0
+    var fName = Helper.getFName() ?? ""
+    var lName = Helper.getLName() ?? ""
+    var profile = Helper.getprofile() ?? ""
     var messages : [Messages] = []
     var convId = Int()
+    
+    var objectName = String()
+    var objectImage = String()
+    var objectPrice = String()
+
     
     open lazy var customTabBar: PTCardTabBar = {
         return PTCardTabBar()
@@ -140,6 +148,23 @@ extension ChatVc : UITableViewDelegate,UITableViewDataSource{
         var image = String()
         name = messages[indexPath.row].user?.name ?? ""
         image = messages[indexPath.row].user?.profilPicture ?? ""
+        
+        if indexPath.row == 0 {
+            cell.productContentView.isHidden = false
+            if  let projectUrl = URL(string: objectImage){
+            cell.productImage.kf.setImage(with: projectUrl, placeholder: #imageLiteral(resourceName: "Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4"))
+            }
+            cell.productNameLbl.text = objectName
+            if self.objectPrice != "" {
+                cell.priceLbl.text = self.objectPrice
+                cell.priceLbl.isHidden = false
+            }else{
+                cell.priceLbl.isHidden = true
+            }
+            
+        }else{
+            cell.productContentView.isHidden = true
+        }
         if self.userId == messages[indexPath.row].user?.id ?? 0 {
             ReceiverFlag = false
         }else{
@@ -156,13 +181,14 @@ extension ChatVc {
            if dataModel.success ?? false {
             self.ChatVM.dismissIndicator()
             self.messages = dataModel.data ?? []
+            self.messages.insert(Messages(id: 0, user: (Artist(id: self.userId, name: self.fName + " " + self.lName , headline: "", profilPicture: self.profile, bannerImg: "", allFollowers: 0, allFollowing: 0, isFavorite: false, music: false, art: false, design: false, isMadProfile: false)), destinataire: nil, content: nil, attachement: nil, date: nil, seen: nil) , at : 0)
             self.chatTableView.reloadData()
+
             if self.messages.count > 0 {
             let end = IndexPath(row: self.messages.count - 1, section: 0)
             self.chatTableView.scrollToRow(at: end, at: .bottom, animated: true)
             }
-            
-           }
+         }
        }, onError: { (error) in
         self.ChatVM.dismissIndicator()
 

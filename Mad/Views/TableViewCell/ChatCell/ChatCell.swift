@@ -19,17 +19,20 @@ class ChatCell: UITableViewCell {
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nameLbl: UILabel!
     
+    @IBOutlet weak var productContentView: UIStackView!
+    @IBOutlet weak var productNameLbl: UILabel!
+    @IBOutlet weak var productImage: UIImageView!
+    @IBOutlet weak var priceLbl: UILabel!
+
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         MessageContentTV.textContainerInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         MessageContentTV.isScrollEnabled = false
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     func config(Message: String, ReceiverFlag: Bool,name:String,image : String) {
