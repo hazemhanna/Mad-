@@ -155,8 +155,8 @@ extension ChatVc : UITableViewDelegate,UITableViewDataSource{
             cell.productImage.kf.setImage(with: projectUrl, placeholder: #imageLiteral(resourceName: "Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4"))
             }
             cell.productNameLbl.text = objectName
-            if self.objectPrice != "" {
-                cell.priceLbl.text = self.objectPrice
+            if self.objectPrice != "0.0" {
+                cell.priceLbl.text = self.objectPrice + " " + "USD".localized
                 cell.priceLbl.isHidden = false
             }else{
                 cell.priceLbl.isHidden = true

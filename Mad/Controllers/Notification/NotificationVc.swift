@@ -131,6 +131,9 @@ extension NotificationVc : UITableViewDelegate,UITableViewDataSource{
         }else{
             let main = ChatVc.instantiateFromNib()
             main?.convId = self.inbox[indexPath.row].id ?? 0
+            main?.objectName =  self.inbox[indexPath.row].object?.title ?? ""
+            main?.objectImage =  self.inbox[indexPath.row].object?.imageURL ?? ""
+            main?.objectPrice = String(self.inbox[indexPath.row].object?.price ?? 0)
             self.navigationController?.pushViewController(main!, animated: true)
         }
     }
