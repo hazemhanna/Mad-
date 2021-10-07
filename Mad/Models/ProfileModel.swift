@@ -35,6 +35,7 @@ struct ProfileModel: Codable {
     let allFollowers, allFollowing: Int?
     let isFavorite, isOwner: Bool?
     let categories: [Category]?
+    let videos : [Videos]?
     let products, pendingProducts, draftProducts : [Product]?
     let pendingProjects, draftProjects, projects: [Project]?
     let draftCompetitions, favoriteCompetitions,ongoingCompetitions, completedCompetitions: [Competitions]?
@@ -54,7 +55,7 @@ struct ProfileModel: Codable {
         case profilPicture = "profil_picture"
         case age
         case madArtist = "mad_artist"
-        case activate, country, music, art, design, facebook, instagram, twitter, youtube
+        case activate, country, music, art, design, facebook, instagram, twitter, youtube,videos
         case socialLinks = "social_links"
         case allFollowers = "all_followers"
         case allFollowing = "all_following"

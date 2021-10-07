@@ -119,10 +119,10 @@ struct ArtistViewModel {
      }
     
     
-    func uploadVideo(name : String,agree : Bool,videoUrl: URL) -> Observable<AddProductModelJson> {
+    func uploadVideo(name : String,agree : Bool,videoUrl: Data) -> Observable<AddProductModelJson> {
         let params: [String: Any] = [
             "name": name,
-            "agree_with_terms": false,
+            "agree_with_terms": 1,
             ]
         let observer = AddServices.shared.uploadVideo(videoUrl:videoUrl,parameters: params)
         return observer

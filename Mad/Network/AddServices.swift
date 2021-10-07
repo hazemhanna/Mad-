@@ -695,7 +695,7 @@ struct AddServices {
     
     
     
-    func uploadVideo(videoUrl: URL,parameters: [String : Any]) -> Observable<AddProductModelJson> {
+    func uploadVideo(videoUrl: Data,parameters: [String : Any]) -> Observable<AddProductModelJson> {
           return Observable.create { (observer) -> Disposable in
             let url = ConfigURLS.uploadVieo
             let token = Helper.getAPIToken() ?? ""
@@ -707,7 +707,7 @@ struct AddServices {
             
               Alamofire.upload(multipartFormData: { (form: MultipartFormData) in
                 form.append(videoUrl, withName: "video", fileName: "video.mp4", mimeType: "video/mp4")
-                //form.append("true".data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName :"location")
+
                 for (key,value) in parameters {
                     form.append(("\(value)").data(using: .utf8)!, withName: key)
                     }

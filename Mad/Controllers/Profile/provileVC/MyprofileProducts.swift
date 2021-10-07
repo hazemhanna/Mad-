@@ -46,7 +46,6 @@ class MyprofileProducts : UIViewController {
     
     @IBAction func addProductButton(sender: UIButton) {
         let vc = AddProductImageVc.instantiateFromNib()
-        vc?.productId = 0
         self.navigationController?.pushViewController(vc!, animated: true)
     }
     @IBAction func pendingBtn(sender: UIButton) {
@@ -100,9 +99,7 @@ extension MyprofileProducts :  UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if pendding {
-            let vc = AddProductImageVc.instantiateFromNib()
-            vc?.productId = self.pendingProducts[indexPath.row].id ?? 0
-            self.navigationController?.pushViewController(vc!, animated: true)
+            displayMessage(title: "", message: "This Product Not Published", status: .error, forController: self)
         }else{
             let vc = ProductDetailsVC.instantiateFromNib()
             vc?.productId = self.products[indexPath.row].id ?? 0

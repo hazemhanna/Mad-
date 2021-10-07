@@ -22,7 +22,7 @@ class AddProductImageVc: UIViewController {
     var productPhoto = [AddPhotoModel]()
     var photo = [String]()
     let cellIdentifier = "AddProductPhotoCell"
-    var productId = Int()
+
     open lazy var customTabBar: PTCardTabBar = {
         return PTCardTabBar()
     }()
@@ -61,9 +61,7 @@ class AddProductImageVc: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if productId != 0 {
-        getproductDetails(id: productId)
-      }
+        
     }
     
     @IBAction func backButton(sender: UIButton) {
@@ -167,28 +165,6 @@ extension AddProductImageVc: UIImagePickerControllerDelegate, UINavigationContro
         dismiss(animated: true, completion: nil)
     }
     
-}
-
-extension AddProductImageVc {
-    func getproductDetails(id : Int) {
-        productVM.getTopProductDetails(id: id).subscribe(onNext: { (dataModel) in
-            if dataModel.success ?? false {
-                self.photo = dataModel.data?.photos ?? []
-                
-                for image in dataModel.data?.photos ?? []{
-                    if let imageUrl = URL(string: image){
-                        let imageData = try! Data(contentsOf: imageUrl)
-                        let image = UIImage(data: imageData)
-                        self.productPhoto.append(AddPhotoModel(staticPhoto: nil, uploadedPhoto: image, uploaded: true))
-                    }
-                }
-                
-                self.photoCollectionView.reloadData()
-            }
-       }, onError: { (error) in
-        self.productVM.dismissIndicator()
-       }).disposed(by: disposeBag)
-    }
 }
 
 extension UIImage {
