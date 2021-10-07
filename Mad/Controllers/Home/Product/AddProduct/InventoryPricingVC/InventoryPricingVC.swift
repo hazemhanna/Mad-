@@ -9,6 +9,7 @@ import UIKit
 import DLRadioButton
 import RxSwift
 import RxCocoa
+import PTCardTabBar
 
 class InventoryPricingVC: UIViewController {
 
@@ -19,6 +20,10 @@ class InventoryPricingVC: UIViewController {
     @IBOutlet weak var quantity: UITextField!
     @IBOutlet weak var delivery: UITextField!
     @IBOutlet weak var deliveryIndex: TextFieldDropDown!
+    
+    open lazy var customTabBar: PTCardTabBar = {
+        return PTCardTabBar()
+    }()
     
     var titles = ["days", "weeks"]
     var  short_description = String()
@@ -61,10 +66,18 @@ class InventoryPricingVC: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
+        
+        if let ptcTBC = tabBarController as? PTCardTabBarController {
+            ptcTBC.customTabBar.isHidden = true
+        }
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
+        if let ptcTBC = tabBarController as? PTCardTabBarController {
+            ptcTBC.customTabBar.isHidden = false
+        }
     }
     
     @IBAction func selectTypeAction(_ sender: DLRadioButton) {

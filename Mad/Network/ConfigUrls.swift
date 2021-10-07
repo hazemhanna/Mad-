@@ -102,5 +102,8 @@ struct ConfigURLS {
     // general
     static var notitfication  = BASE_URL  + "notification"
 
-    
+    // profile
+    static var uploadVieo  = BASE_URL  + "video/submit"
+
+   
 }

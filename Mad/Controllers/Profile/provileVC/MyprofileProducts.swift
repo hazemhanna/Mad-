@@ -21,12 +21,13 @@ class MyprofileProducts : UIViewController {
     var artistVM = ArtistViewModel()
     var disposeBag = DisposeBag()
     let cellIdentifier = "LiveCellCVC"
-
     var products = [Product]()
     var publishProducts = [Product]()
     var pendingProducts = [Product]()
     var draftProducts = [Product]()
-
+    
+    var pendding = false
+    
      var showShimmer = true
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +46,7 @@ class MyprofileProducts : UIViewController {
     
     @IBAction func addProductButton(sender: UIButton) {
         let vc = AddProductImageVc.instantiateFromNib()
+        vc?.productId = 0
         self.navigationController?.pushViewController(vc!, animated: true)
     }
     @IBAction func pendingBtn(sender: UIButton) {
@@ -53,11 +55,14 @@ class MyprofileProducts : UIViewController {
             publishBtn.setTitleColor(#colorLiteral(red: 0.8980392157, green: 0.1254901961, blue: 0.3529411765, alpha: 1), for: .normal)
             self.products = publishProducts
             self.productCollectionView.reloadData()
+            self.pendding = false
+
         }else{
             publishBtn.setTitleColor(#colorLiteral(red: 0.1176470588, green: 0.2156862745, blue: 0.4, alpha: 1), for: .normal)
             pendingBtn.setTitleColor(#colorLiteral(red: 0.8980392157, green: 0.1254901961, blue: 0.3529411765, alpha: 1), for: .normal)
             self.products = pendingProducts
             self.productCollectionView.reloadData()
+            self.pendding = true
         }
     }
     
@@ -94,9 +99,15 @@ extension MyprofileProducts :  UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = ProductDetailsVC.instantiateFromNib()
-        vc?.productId = self.products[indexPath.row].id ?? 0
-        self.navigationController?.pushViewController(vc!, animated: true)
+        if pendding {
+            let vc = AddProductImageVc.instantiateFromNib()
+            vc?.productId = self.pendingProducts[indexPath.row].id ?? 0
+            self.navigationController?.pushViewController(vc!, animated: true)
+        }else{
+            let vc = ProductDetailsVC.instantiateFromNib()
+            vc?.productId = self.products[indexPath.row].id ?? 0
+            self.navigationController?.pushViewController(vc!, animated: true)
+        }
     }
 }
 extension MyprofileProducts : UICollectionViewDelegateFlowLayout{

@@ -48,7 +48,7 @@ struct ChatViewModel {
      }
     
     
-    func creatConversation(subject:String,artistId : Int,subjectId : Int) -> Observable<CreatConversationModelJSON> {
+    func creatConversation(subject:String,artistId : Int,subjectId : String) -> Observable<CreatConversationModelJSON> {
         let params: [String: Any] = [
             "subject": subject,
             "contact_artist": artistId,

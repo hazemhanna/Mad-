@@ -61,7 +61,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="800"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="6cT-yg-eXR">
-                                        <rect key="frame" x="32" y="32" width="350" height="563"/>
+                                        <rect key="frame" x="32" y="32" width="350" height="513"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="efZ-Qg-aXb">
                                                 <rect key="frame" x="0.0" y="0.0" width="350" height="80"/>
@@ -207,11 +207,20 @@
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </textField>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B3N-Cz-WAA">
+                                                                        <rect key="frame" x="16" y="0.0" width="318" height="62"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                        <textInputTraits key="textInputTraits"/>
+                                                                    </textField>
                                                                 </subviews>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
+                                                                    <constraint firstItem="B3N-Cz-WAA" firstAttribute="top" secondItem="rUU-h5-iVW" secondAttribute="top" id="2TK-yG-8lW"/>
+                                                                    <constraint firstItem="B3N-Cz-WAA" firstAttribute="leading" secondItem="rUU-h5-iVW" secondAttribute="leading" constant="16" id="4FJ-12-Pi0"/>
                                                                     <constraint firstAttribute="bottom" secondItem="yQt-1M-Tjl" secondAttribute="bottom" id="4iA-ib-fH9"/>
                                                                     <constraint firstItem="yQt-1M-Tjl" firstAttribute="leading" secondItem="rUU-h5-iVW" secondAttribute="leading" constant="32" id="4wA-uM-h1v"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="B3N-Cz-WAA" secondAttribute="trailing" constant="16" id="Mn1-FY-T9j"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="B3N-Cz-WAA" secondAttribute="bottom" id="XBI-GF-xSx"/>
                                                                     <constraint firstAttribute="trailing" secondItem="yQt-1M-Tjl" secondAttribute="trailing" id="aTo-zW-3C1"/>
                                                                     <constraint firstItem="yQt-1M-Tjl" firstAttribute="top" secondItem="rUU-h5-iVW" secondAttribute="top" id="fHU-dn-eOB"/>
                                                                     <constraint firstAttribute="height" constant="62" id="uDQ-Ba-oMf"/>
@@ -248,14 +257,14 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kQc-vs-5pb">
-                                                <rect key="frame" x="0.0" y="376" width="350" height="100"/>
+                                                <rect key="frame" x="0.0" y="376" width="350" height="50"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="100" id="HR6-oU-hWh"/>
+                                                    <constraint firstAttribute="height" constant="50" id="HR6-oU-hWh"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NqK-aH-e9d">
-                                                <rect key="frame" x="0.0" y="508" width="350" height="55"/>
+                                                <rect key="frame" x="0.0" y="458" width="350" height="55"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UnH-Lh-YSD" customClass="CustomButtons" customModule="Mad" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.5" width="350" height="54"/>
@@ -322,6 +331,7 @@
             <navigationItem key="navigationItem" id="yAM-bg-u4V"/>
             <size key="freeformSize" width="414" height="900"/>
             <connections>
+                <outlet property="orderTitleTf" destination="B3N-Cz-WAA" id="5jz-RJ-phx"/>
                 <outlet property="selectProjectDropDown" destination="yQt-1M-Tjl" id="KUT-FI-Xs8"/>
                 <outlet property="selectSubjectDropDown" destination="WFR-Z8-1tB" id="Che-JN-WCq"/>
                 <outlet property="tagsView" destination="sgx-Bt-rph" id="Zff-8O-lvo"/>

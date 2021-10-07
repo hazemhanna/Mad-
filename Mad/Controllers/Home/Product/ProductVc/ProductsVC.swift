@@ -161,6 +161,7 @@ extension ProductsVC: UICollectionViewDelegate,UICollectionViewDataSource ,UICol
             cell.add = {
                 if self.token != "" {
                 let vc = AddProductImageVc.instantiateFromNib()
+                vc?.productId = 0
                 self.navigationController?.pushViewController(vc!, animated: true)
                 }
                 else{

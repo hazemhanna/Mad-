@@ -19,6 +19,7 @@ class SendMessageVc: UIViewController {
     @IBOutlet weak var selectSubjectDropDown: TextFieldDropDown!
     @IBOutlet weak var selectProjectDropDown: TextFieldDropDown!
     @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet weak var orderTitleTf : UITextField!
 
     var disposeBag = DisposeBag()
     var ChatVM = ChatViewModel()
@@ -31,7 +32,7 @@ class SendMessageVc: UIViewController {
     var objectPrice = String()
     var subject = ["Product","Project","Order","Collaboration"]
     var selectedSubject = "Project"
-    var objectId = Int()
+    var objectId = String()
     var artistId = Int()
     var fromArtistPage = false
     var tagsField = WSTagsField()
@@ -77,7 +78,6 @@ class SendMessageVc: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
         if fromArtistPage{
             self.getArtistProfile(id: artistId)
         }
@@ -99,6 +99,9 @@ class SendMessageVc: UIViewController {
                 for index in self.Product {
                     self.object.append(index.title ?? "")
                 }
+                self.selectProjectDropDown.isHidden = false
+                self.orderTitleTf.isHidden = true
+                
             }else if index == 1 {
                 self.object.removeAll()
                 self.titleLbl.text = "Choose Project"
@@ -106,14 +109,22 @@ class SendMessageVc: UIViewController {
                 for index in self.project {
                     self.object.append(index.title ?? "")
                 }
+                
+                self.selectProjectDropDown.isHidden = false
+                self.orderTitleTf.isHidden = true
+                
             }else if index == 2 {
                 self.object.removeAll()
-                self.titleLbl.text = "Choose Order"
-                self.selectedSubject  = ""
+                self.titleLbl.text = "Type your chat Title here"
+                self.selectedSubject  = "Order"
+                self.selectProjectDropDown.isHidden = true
+                self.orderTitleTf.isHidden = false
             }else if index == 3 {
                 self.object.removeAll()
-                self.titleLbl.text = "Choose Collaboration"
-                self.selectedSubject  = ""
+                self.titleLbl.text = "Type your chat Title here"
+                self.selectedSubject  = "Collaboration"
+                self.selectProjectDropDown.isHidden = true
+                self.orderTitleTf.isHidden = false
             }
             self.setupObjectDropDown()
         }
@@ -124,12 +135,12 @@ class SendMessageVc: UIViewController {
         selectProjectDropDown.didSelect { (selectedText, index, id) in
             self.selectProjectDropDown.text = selectedText
             if self.selectedSubject == "Product"{
-                self.objectId = self.Product[index].id ?? 0
+                self.objectId = String(self.Product[index].id ?? 0)
                 self.objectName = self.Product[index].title ?? ""
                 self.objectImage = self.Product[index].imageURL ?? ""
                 self.objectPrice = String(self.Product[index].price ?? 0)
             }else if self.selectedSubject == "Project"{
-                self.objectId = self.project[index].id ?? 0
+                self.objectId = String(self.project[index].id ?? 0)
                 self.objectName = self.project[index].title ?? ""
                 self.objectImage = self.project[index].imageURL ?? ""
             }
@@ -143,13 +154,23 @@ class SendMessageVc: UIViewController {
     func validateInput() -> Bool {
         let subject =  self.selectSubjectDropDown.text ?? ""
         let object =  self.selectProjectDropDown.text ?? ""
+        let title =  self.orderTitleTf.text ?? ""
+        
         if subject.isEmpty {
           self.showMessage(text: "Please select subject")
           return false
-        }else if object.isEmpty {
-          self.showMessage(text: "Please select object")
-          return false
         }else{
+        if selectedSubject == "Project" || selectedSubject == "Product"{
+            if object.isEmpty{
+              self.showMessage(text: "Please select object")
+                return false
+            }
+        }else if selectedSubject == "Order" || selectedSubject == "Collaboration"{
+            if title.isEmpty{
+              self.showMessage(text: "Please Enter Title")
+                return false
+            }
+        }
             return true
         }
         
@@ -158,7 +179,13 @@ class SendMessageVc: UIViewController {
     @IBAction func sendButton(sender: UIButton) {
       guard self.validateInput() else { return }
         self.ChatVM.showIndicator()
-        creatConversation(subject: self.selectedSubject, artistId: self.artistId, subjectId: self.objectId)
+        if selectedSubject == "Order" ||  selectedSubject == "Collaboration" {
+            creatConversation(subject: self.selectedSubject, artistId: self.artistId, subjectId: self.orderTitleTf.text ?? "")
+        }else{
+            creatConversation(subject: self.selectedSubject, artistId: self.artistId, subjectId: self.objectId)
+
+        }
+    
     }
 }
 
@@ -193,7 +220,6 @@ extension SendMessageVc {
             self.presentingViewController?.dismiss(animated: true)
            }
            self.present(vc!, animated: true, completion: nil)
-            
         }
 
         tagsField.onDidChangeHeightTo = { _, height in
@@ -233,7 +259,7 @@ extension SendMessageVc {
 
        }).disposed(by: disposeBag)
    }
-    func creatConversation(subject:String,artistId : Int,subjectId:Int) {
+    func creatConversation(subject:String,artistId : Int,subjectId:String) {
         ChatVM.creatConversation(subject: subject, artistId: artistId, subjectId: subjectId).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
             self.ChatVM.dismissIndicator()
@@ -242,6 +268,7 @@ extension SendMessageVc {
             main?.objectName = self.objectName
             main?.objectImage = self.objectImage
             main?.objectPrice = self.objectPrice
+            main?.selectedSubject = self.selectedSubject
             self.navigationController?.pushViewController(main!, animated: true)
            }
        }, onError: { (error) in

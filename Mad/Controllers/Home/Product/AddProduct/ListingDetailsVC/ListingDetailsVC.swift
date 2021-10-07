@@ -10,6 +10,7 @@ import DLRadioButton
 import WSTagsField
 import RxSwift
 import RxCocoa
+import PTCardTabBar
 
 class ListingDetailsVC: UIViewController {
 
@@ -26,6 +27,10 @@ class ListingDetailsVC: UIViewController {
     @IBOutlet weak var weight: UITextField!
     @IBOutlet weak var height: UITextField!
 
+    open lazy var customTabBar: PTCardTabBar = {
+        return PTCardTabBar()
+    }()
+    
     var type = "physical"
     var disposeBag = DisposeBag()
     var productVM = ProductViewModel()
@@ -71,10 +76,19 @@ class ListingDetailsVC: UIViewController {
         getCategory()
         productVM.showIndicator()
         self.navigationController?.navigationBar.isHidden = true
+        
+        if let ptcTBC = tabBarController as? PTCardTabBarController {
+            ptcTBC.customTabBar.isHidden = true
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
+        
+        if let ptcTBC = tabBarController as? PTCardTabBarController {
+            ptcTBC.customTabBar.isHidden = false
+        }
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {

@@ -30,7 +30,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="326" height="94"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="OS9-O2-oqI">
-                                <rect key="frame" x="0.0" y="17" width="293.5" height="60"/>
+                                <rect key="frame" x="0.0" y="17" width="310" height="60"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4" translatesAutoresizingMaskIntoConstraints="NO" id="mB6-zS-pA7" customClass="CustomImageView" customModule="Mad" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
@@ -51,16 +51,16 @@
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="tf5-Am-5jM">
-                                        <rect key="frame" x="68" y="0.0" width="225.5" height="60"/>
+                                        <rect key="frame" x="68" y="0.0" width="242" height="60"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Vote for your Madly creative artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m2K-Gk-dyG">
-                                                <rect key="frame" x="0.0" y="0.0" width="225.5" height="39"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="242" height="39"/>
                                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="14"/>
                                                 <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12/2/2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iGl-6e-bEx">
-                                                <rect key="frame" x="0.0" y="47" width="225.5" height="13"/>
+                                                <rect key="frame" x="0.0" y="47" width="242" height="13"/>
                                                 <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="13"/>
                                                 <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -73,6 +73,7 @@
                         <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="OS9-O2-oqI" firstAttribute="centerY" secondItem="wwV-Ap-y93" secondAttribute="centerY" id="HRY-Py-0Tk"/>
+                            <constraint firstAttribute="trailing" secondItem="OS9-O2-oqI" secondAttribute="trailing" constant="16" id="Rcm-XV-pMl"/>
                             <constraint firstItem="OS9-O2-oqI" firstAttribute="leading" secondItem="wwV-Ap-y93" secondAttribute="leading" id="z3s-dx-Iod"/>
                         </constraints>
                     </view>

@@ -43,7 +43,6 @@ class Helper {
         def.set(id, forKey: "id")
         def.set(isActive, forKey: "isActive")
         def.set(profile, forKey: "profile")
-
         def.synchronize()
     }
     

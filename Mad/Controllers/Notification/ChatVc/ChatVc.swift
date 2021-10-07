@@ -37,6 +37,8 @@ class ChatVc: UIViewController {
     var objectImage = String()
     var objectPrice = String()
 
+    var selectedSubject = String()
+
     
     open lazy var customTabBar: PTCardTabBar = {
         return PTCardTabBar()
@@ -150,18 +152,22 @@ extension ChatVc : UITableViewDelegate,UITableViewDataSource{
         image = messages[indexPath.row].user?.profilPicture ?? ""
         
         if indexPath.row == 0 {
-            cell.productContentView.isHidden = false
-            if  let projectUrl = URL(string: objectImage){
-            cell.productImage.kf.setImage(with: projectUrl, placeholder: #imageLiteral(resourceName: "Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4"))
-            }
-            cell.productNameLbl.text = objectName
-            if self.objectPrice != "0.0" {
-                cell.priceLbl.text = self.objectPrice + " " + "USD".localized
-                cell.priceLbl.isHidden = false
+            if self.selectedSubject == "Order" ||  self.selectedSubject == "Collaboration" ||  self.selectedSubject == ""{
+                cell.productContentView.isHidden = true
             }else{
-                cell.priceLbl.isHidden = true
+                cell.productContentView.isHidden = false
+                if  let projectUrl = URL(string: objectImage){
+                cell.productImage.kf.setImage(with: projectUrl, placeholder: #imageLiteral(resourceName: "Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4"))
+                }
+                cell.productNameLbl.text = objectName
+                if self.objectPrice != "0.0" {
+                    cell.priceLbl.text = self.objectPrice + " " + "USD".localized
+                    cell.priceLbl.isHidden = false
+                }else{
+                    cell.priceLbl.isHidden = true
+                }
+                
             }
-            
         }else{
             cell.productContentView.isHidden = true
         }
@@ -181,7 +187,14 @@ extension ChatVc {
            if dataModel.success ?? false {
             self.ChatVM.dismissIndicator()
             self.messages = dataModel.data ?? []
-            self.messages.insert(Messages(id: 0, user: (Artist(id: self.userId, name: self.fName + " " + self.lName , headline: "", profilPicture: self.profile, bannerImg: "", allFollowers: 0, allFollowing: 0, isFavorite: false, music: false, art: false, design: false, isMadProfile: false)), destinataire: nil, content: nil, attachement: nil, date: nil, seen: nil) , at : 0)
+            
+            if self.selectedSubject == "Order" ||  self.selectedSubject == "Collaboration"  ||  self.selectedSubject == "" {
+               // self.messages.insert(Messages(id: 0, user: (Artist(id: self.userId, name: self.fName + " " + self.lName , headline: "", profilPicture: self.profile, bannerImg: "", allFollowers: 0, allFollowing: 0, isFavorite: false, music: false, art: false, design: false, isMadProfile: false)), destinataire: nil, content: nil, attachement: nil, date: nil, seen: nil) , at : 0)
+
+            }else{
+                self.messages.insert(Messages(id: 0, user: (Artist(id: self.userId, name: self.fName + " " + self.lName , headline: "", profilPicture: self.profile, bannerImg: "", allFollowers: 0, allFollowing: 0, isFavorite: false, music: false, art: false, design: false, isMadProfile: false)), destinataire: nil, content: nil, attachement: nil, date: nil, seen: nil) , at : 0)
+
+            }
             self.chatTableView.reloadData()
 
             if self.messages.count > 0 {

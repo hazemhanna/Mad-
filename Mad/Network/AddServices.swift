@@ -691,4 +691,49 @@ struct AddServices {
            }
        }
     
+    
+    
+    
+    
+    func uploadVideo(videoUrl: URL,parameters: [String : Any]) -> Observable<AddProductModelJson> {
+          return Observable.create { (observer) -> Disposable in
+            let url = ConfigURLS.uploadVieo
+            let token = Helper.getAPIToken() ?? ""
+            let headers = [
+                "Authorization": "Bearer \(token)",
+                "lang" : AddServices.languageKey
+
+            ]
+            
+              Alamofire.upload(multipartFormData: { (form: MultipartFormData) in
+                form.append(videoUrl, withName: "video", fileName: "video.mp4", mimeType: "video/mp4")
+                //form.append("true".data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName :"location")
+                for (key,value) in parameters {
+                    form.append(("\(value)").data(using: .utf8)!, withName: key)
+                    }
+                
+              }, usingThreshold: UInt64.init(), to: url, method: .post, headers: headers) { (result: SessionManager.MultipartFormDataEncodingResult) in
+                      switch result {
+                  case .failure(let error):
+                      print(error.localizedDescription)
+                      observer.onError(error)
+                  case .success(request: let upload, streamingFromDisk: _, streamFileURL: _):
+                      upload.uploadProgress { (progress) in
+                        print("Image Uploading Progress: \(progress.fractionCompleted)")
+                    }.responseJSON { (response: DataResponse<Any>) in
+               do {
+                      let data = try JSONDecoder().decode(AddProductModelJson.self, from: response.data!)
+                        print(data)
+                        observer.onNext(data)
+                       } catch {
+                           print(error.localizedDescription)
+                          observer.onError(error)
+                      }
+                    }
+                  }
+               }
+              return Disposables.create()
+          }
+      }//
+    
 }
