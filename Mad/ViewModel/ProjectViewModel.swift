@@ -11,6 +11,29 @@ import Foundation
 import RxSwift
 import SVProgressHUD
 
+struct createPro : Encodable{
+    let title : String?
+    let categories : [Int]?
+    let associated_artists : [Int]?
+    let content : String?
+    let short_description : String?
+    let summary : String?
+    let start_date : String?
+    let end_date : String?
+    let products :  [Int]??
+    let location : String?
+    let submit : String?
+    let packages : [packagesss]?
+}
+
+struct packagesss :Encodable{
+    let title : String?
+    let description : String?
+    let price : Int?
+    let price_eur : Int?
+
+}
+
 struct ProjectViewModel {
     
     func showIndicator() {
@@ -29,7 +52,7 @@ struct ProjectViewModel {
                       image:UIImage,
                       categories :[Int],
                       products :[Int],
-                      artists :[Int],
+                      artists :[String],
                       startDate :String,
                       endDate :String,
                       location :String,
@@ -53,7 +76,6 @@ struct ProjectViewModel {
             return observer
      }
     
-    
     func updateProject(id : Int,
                       title :String,
                       content :String,
@@ -62,7 +84,7 @@ struct ProjectViewModel {
                       image:UIImage,
                       categories :[Int],
                       products :[Int],
-                      artists :[Int],
+                      artists :[String],
                       startDate :String,
                       endDate :String,
                       location :String,
@@ -82,7 +104,8 @@ struct ProjectViewModel {
             "associated_artists":artists,
             "submit":submit
         ]
-        let observer = AddServices.shared.createProject(image: image,params : params)
+        
+        let observer = AddServices.shared.createProjectWithParam(param : params)
             return observer
      }
     

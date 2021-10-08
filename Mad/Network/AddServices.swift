@@ -10,6 +10,8 @@ import Alamofire
 import RxSwift
 import SwiftyJSON
 
+
+
 struct AddServices {
     
     static let shared = AddServices()
@@ -291,6 +293,8 @@ struct AddServices {
 
     
     
+
+    
     func createProject(image: UIImage,params: [String : Any]) -> Observable<AddProductModelJson> {
           return Observable.create { (observer) -> Disposable in
             let url = ConfigURLS.createProject
@@ -307,31 +311,11 @@ struct AddServices {
                 }
                 
                 for (key, value) in params {
-                    if let temp = value as? String {
-                        form.append(temp.data(using: .utf8)!, withName: key)
-                     }
-                
-                    if let temp = value as? Int {
-                        form.append("\(temp)".data(using: .utf8)!, withName: key)
-                    }
-                    if let temp = value as? NSArray {
-                                  temp.forEach({ element in
-                                      let keyObj = key + "[]"
-                                          if let num = element as? Int {
-                                              let value = "\(num)"
-                                            form.append(value.data(using: .utf8)!, withName: keyObj)
-                                      }
-                                     
-                                  })
-                        }
-                    
-                    if let temp = value as? NSDictionary {
-                      for (key, value) in temp {
-                      form.append("\(value)".data(using: .utf8)!, withName: key as! String)
-                      }
-                  }
+                 
+                    form.append("\(value)".data(using: .utf8)!, withName: key)
                 }
-              }, usingThreshold: SessionManager.multipartFormDataEncodingMemoryThreshold, to: url, method: .post, headers: headers) { (result: SessionManager.MultipartFormDataEncodingResult) in
+                
+              }, usingThreshold: SessionManager.multipartFormDataEncodingMemoryThreshold, to: url, method: .post,headers: headers) { (result: SessionManager.MultipartFormDataEncodingResult) in
                       switch result {
                   case .failure(let error):
                       print(error.localizedDescription)
@@ -354,6 +338,36 @@ struct AddServices {
               return Disposables.create()
           }
       }//END of POST Register
+    
+    
+    
+    
+    //MARK:- POSt  favourit
+    func createProjectWithParam(param : [String :Any]) -> Observable<AddProductModelJson> {
+           return Observable.create { (observer) -> Disposable in
+               let url = ConfigURLS.createProject
+            
+            let token = Helper.getAPIToken() ?? ""
+            let headers = [
+                "Authorization": "Bearer \(token)",
+                "lang" : AddServices.languageKey
+
+            ]
+               Alamofire.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: headers)
+                   .validate(statusCode: 200..<300)
+                   .responseJSON { (response: DataResponse<Any>) in
+                       do {
+                           let data = try JSONDecoder().decode(AddProductModelJson.self, from: response.data!)
+                           observer.onNext(data)
+                       } catch {
+                           print(error.localizedDescription)
+                           observer.onError(error)
+                       }
+               }
+               return Disposables.create()
+           }
+       }
+    
     
     
     func addCompete(file: UIImage,params: [String : Any]) -> Observable<AddProductModelJson> {

@@ -23,7 +23,7 @@ class PreviewProjectVc : UIViewController {
     @IBOutlet weak var draftBtn : UIButton!
 
     var selectedCat = [Int]()
-    var selectedArtist = [Int]()
+    var selectedArtist = [String]()
     var locationTF = String()
     var short_description = String()
     var titleTF = String()
@@ -36,6 +36,7 @@ class PreviewProjectVc : UIViewController {
     var selectedProducts = [Int]()
     var products = [Product]()
     var artistProducts = [Product]()
+    var projectDetails : ProjectDetails?
 
     var disposeBag = DisposeBag()
     var prjectVM = ProjectViewModel()
@@ -114,7 +115,7 @@ class PreviewProjectVc : UIViewController {
     @IBAction func draftButton(sender: UIButton) {
         self.prjectVM.showIndicator()
         if projectId != 0 {
-            updateProject(id : projectId , categories: selectedCat, title: titleTF, short_description: short_description, summery: summeryTf, content: contentHtml, startDate: startDateTf, endDate: endDateTf, location: locationTF, submit: "submit", packages: packages, products: selectedProducts, artists: selectedArtist, photos: uploadedPhoto ?? #imageLiteral(resourceName: "Mask Group 12111"))
+            updateProject(id : projectId , categories: selectedCat, title: titleTF, short_description: short_description, summery: summeryTf, content: contentHtml, startDate: startDateTf, endDate: endDateTf, location: locationTF, submit: "draft", packages: packages, products: selectedProducts, artists: selectedArtist, photos: uploadedPhoto ?? #imageLiteral(resourceName: "Mask Group 12111"))
 
         }else{
         AddProject(categories: selectedCat, title: titleTF, short_description: short_description, summery: summeryTf, content: contentHtml, startDate: startDateTf, endDate: endDateTf, location: locationTF, submit: "draft", packages: packages, products: selectedProducts, artists: selectedArtist, photos: uploadedPhoto ?? #imageLiteral(resourceName: "Mask Group 12111"))
@@ -168,7 +169,7 @@ extension PreviewProjectVc{
                     submit:String,
                     packages:[[String:String]],
                     products:[Int],
-                    artists:[Int],
+                    artists:[String],
                     photos:UIImage){
         
         prjectVM.CreatProject(title: title, content: content, short_description: short_description, summary: summery, image: photos, categories: categories, products: products, artists: artists, startDate: startDate, endDate: endDate, location: location, submit: submit, packages: packages).subscribe(onNext: { (dataModel) in
@@ -202,7 +203,7 @@ extension PreviewProjectVc{
                     submit:String,
                     packages:[[String:String]],
                     products:[Int],
-                    artists:[Int],
+                    artists:[String],
                     photos:UIImage){
         
         prjectVM.updateProject(id: id,title: title, content: content, short_description: short_description, summary: summery, image: photos, categories: categories, products: products, artists: artists, startDate: startDate, endDate: endDate, location: location, submit: submit, packages: packages).subscribe(onNext: { (dataModel) in

@@ -11,7 +11,7 @@ class AboutProjectVC: UIViewController {
 
     @IBOutlet var editorTF: UITextField!
     var selectedCat = [Int]()
-    var selectedArtist = [Int]()
+    var selectedArtist = [String]()
     var locationTF = String()
     var short_description = String()
     var titleTF = String()
@@ -22,7 +22,8 @@ class AboutProjectVC: UIViewController {
     var uploadedPhoto :UIImage?
     var selectedProducts = [Int]()
     var products = [Product]()
-    
+    var projectDetails : ProjectDetails?
+
     var projectId = Int()
 
     override func viewDidLoad() {
@@ -46,6 +47,7 @@ class AboutProjectVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        editorTF.text = projectDetails?.content ?? ""
     }
     
     override func viewDidLayoutSubviews() {
@@ -81,6 +83,7 @@ class AboutProjectVC: UIViewController {
         vc!.selectedProducts = selectedProducts
         vc!.products = products
         vc?.projectId = projectId
+        vc?.projectDetails = projectDetails
         self.navigationController?.pushViewController(vc!, animated: true)
     }
 }

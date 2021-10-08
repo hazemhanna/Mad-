@@ -60,34 +60,50 @@ struct ProjectDetailsModel: Codable {
     let errors: Errors?
 }
 
-// MARK: - DataClass
 struct ProjectDetails: Codable {
     let id: Int?
     let artist: Artist?
     let title, name, type, status: String?
     let imageURL: String?
     let favoriteCount, shareCount: Int?
-    let createdAt: String?
+    let createdAt, summary, shortDescription, startDate: String?
+    let endDate, location: String?
     let isFavorite: Bool?
     let categories: [Category]?
     let comments: [Comments]?
+    let relateProducts: [Product]?
+    let tagged: [Artist]?
     let content: String?
-    let products: [Product]?
-    let tagged : [Artist]?
-    
+    let package1, package2, package3: Packages?
+
     enum CodingKeys: String, CodingKey {
         case id, artist, title, name, type, status
         case imageURL = "image_url"
         case favoriteCount = "favorite_count"
         case shareCount = "share_count"
         case createdAt = "created_at"
+        case summary
+        case shortDescription = "short_description"
+        case startDate = "start_date"
+        case endDate = "end_date"
+        case location
         case isFavorite = "is_favorite"
-        case products = "relate_products"
+        case categories, comments
+        case relateProducts = "relate_products"
         case tagged = "associated_artists"
-        case categories, comments, content
+        case content, package1, package2, package3
     }
 }
 
+struct Packages : Codable {
+    let price ,price_eur: Int?
+    let title, descriptionss: String?
+    enum CodingKeys: String, CodingKey {
+        case price, price_eur, title
+        case descriptionss = "description"
+        
+    }
+}
 
 // MARK: - Comments
 struct Comments: Codable {

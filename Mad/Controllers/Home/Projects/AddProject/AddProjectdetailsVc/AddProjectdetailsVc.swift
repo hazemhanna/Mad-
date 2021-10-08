@@ -28,7 +28,8 @@ class AddProjectdetailsVc : UIViewController {
     @IBOutlet weak var locationTF: TextFieldDropDown!
     @IBOutlet weak var liveCollectionView: UICollectionView!
     @IBOutlet weak var projectImage : UIImageView!
-    
+    @IBOutlet weak var productView: UIView!
+
 
     var disposeBag = DisposeBag()
     var prjectVM = ProjectViewModel()
@@ -37,23 +38,25 @@ class AddProjectdetailsVc : UIViewController {
         return PTCardTabBar()
     }()
     
+    fileprivate let tagsField = WSTagsField()
+    fileprivate let artistField = WSTagsField()
+ 
     let cellIdentifier = "LiveCellCVC"
     var showShimmer: Bool = true
 
     var countries = [String]()
     var selectedIndex = -1
     var selectedCat = [Int]()
-    var selectedArtist = [Int]()
+    var selectedArtist = [String]()
     var selectedProducts = [Int]()
     var products = [Product]()
     var projectId = Int()
     var uploadedPhoto :UIImage?
     var start  = true
     var end = true
+    var projectDetails : ProjectDetails?
+    
 
-    fileprivate let tagsField = WSTagsField()
-    fileprivate let artistField = WSTagsField()
- 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -109,8 +112,6 @@ class AddProjectdetailsVc : UIViewController {
         locationTF.delegate = self
     }
     
-
-    
     func setupCountryDropDown(){
         locationTF.optionArray = self.countries
         locationTF.didSelect { (selectedText, index, id) in
@@ -139,6 +140,13 @@ class AddProjectdetailsVc : UIViewController {
         prjectVM.showIndicator()
         getProjectDetails(projectId: projectId)
       }
+        
+        if products.count > 0 {
+            self.productView.isHidden = false
+        }else{
+            self.productView.isHidden = true
+        }
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -183,6 +191,7 @@ class AddProjectdetailsVc : UIViewController {
         vc!.selectedProducts = selectedProducts
         vc!.products = products
         vc?.projectId = projectId
+        vc?.projectDetails = projectDetails
         self.navigationController?.pushViewController(vc!, animated: true)
     }
     
@@ -306,7 +315,7 @@ extension AddProjectdetailsVc {
             let vc = ArtistNameVC.instantiateFromNib()
             vc?.showArtist = true
             vc!.onClickClose = { artist in
-            self.selectedArtist.append(artist.id ?? 0)
+            self.selectedArtist.append(String(artist.id ?? 0))
             self.artistField.addTag(artist.name ?? "")
              self.presentingViewController?.dismiss(animated: true)
            }
@@ -366,8 +375,13 @@ extension AddProjectdetailsVc {
            if data.success ?? false {
             self.prjectVM.dismissIndicator()
             
-            self.short_description.text = data.data?.content ?? ""
+            self.projectDetails = data.data
+            self.short_description.text = data.data?.shortDescription ?? ""
             self.titleTF.text = data.data?.title ?? ""
+            self.summeryTf.text = data.data?.summary ?? ""
+            self.startDateTf.text = data.data?.startDate ?? ""
+            self.endDateTf.text = data.data?.endDate ?? ""
+            self.locationTF.text = data.data?.location ?? ""
             
             if let url = URL(string: data.data?.imageURL ?? ""){
                 self.projectImage.isHidden = false
@@ -377,14 +391,14 @@ extension AddProjectdetailsVc {
             
             if data.data?.tagged?.count ?? 0 > 0 {
             for artist in data.data?.tagged ?? []{
-               // self.artistField.addTag(artist.name ?? "" )
-                self.self.selectedArtist.append(artist.id ?? 0 )
+                self.artistField.addTag(artist.name ?? "" )
+                self.self.selectedArtist.append(String(artist.id ?? 0 ))
              }
          }
             
             if data.data?.categories?.count ?? 0 > 0 {
             for cat in data.data?.categories ?? [] {
-             //   self.tagsField.addTag(cat.name ?? "" )
+                self.tagsField.addTag(cat.name ?? "" )
                 self.selectedCat.append(cat.id ?? 0 )
              }
             }

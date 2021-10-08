@@ -36,9 +36,11 @@ class CreatePackageVc: UIViewController {
     @IBOutlet weak var price_eur2: UITextField!
     @IBOutlet weak var price_eur3: UITextField!
     
+    var projectDetails : ProjectDetails?
+
     
     var selectedCat = [Int]()
-    var selectedArtist = [Int]()
+    var selectedArtist = [String]()
     var locationTF = String()
     var short_description = String()
     var titleTF = String()
@@ -70,6 +72,7 @@ class CreatePackageVc: UIViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
+        packages.removeAll()
         Package1Btn.textColor = #colorLiteral(red: 0.2196078431, green: 0.5137254902, blue: 0.8588235294, alpha: 1)
         plus1Btn.setTitle( "-", for: .normal)
         plus1Btn.setTitleColor(#colorLiteral(red: 0.2196078431, green: 0.5137254902, blue: 0.8588235294, alpha: 1), for: .normal)
@@ -83,6 +86,23 @@ class CreatePackageVc: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        title1TF.text = projectDetails?.package1?.title ?? ""
+        title2TF.text = projectDetails?.package2?.title ?? ""
+        title3TF.text = projectDetails?.package3?.title ?? ""
+
+        description1TF.text = projectDetails?.package1?.descriptionss ?? ""
+        description2TF.text = projectDetails?.package2?.descriptionss ?? ""
+        description3TF.text = projectDetails?.package3?.descriptionss ?? ""
+
+        price1.text = String(projectDetails?.package1?.price ?? 0)
+        price2.text =  String(projectDetails?.package2?.price ?? 0)
+        price3.text =  String(projectDetails?.package3?.price ?? 0)
+        
+        price_eur1.text = String(projectDetails?.package1?.price_eur ?? 0)
+        price_eur2.text =  String(projectDetails?.package2?.price_eur ?? 0)
+        price_eur3.text =  String(projectDetails?.package3?.price_eur ?? 0)
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -121,10 +141,19 @@ class CreatePackageVc: UIViewController {
         package2["price_eur"] = price_eur2.text ?? ""
         package3["price_eur"] = price_eur3.text ?? ""
         
-        packages.append(package1)
-        packages.append(package2)
-        packages.append(package3)
+        
+        if title1TF.text  != "" || description1TF.text != ""  || price1.text != ""  || price_eur1.text != ""  {
+            packages.append(package1)
+        }
 
+        if title2TF.text  != "" || description2TF.text != ""  || price2.text != ""  || price_eur2.text != ""  {
+            packages.append(package2)
+        }
+        
+        if title3TF.text  != "" || description3TF.text != ""  || price3.text != ""  || price_eur3.text != ""  {
+            packages.append(package3)
+        }
+        
         let vc = PreviewProjectVc.instantiateFromNib()
         vc!.selectedCat = selectedCat
         vc!.selectedArtist = selectedArtist
@@ -140,6 +169,7 @@ class CreatePackageVc: UIViewController {
         vc!.selectedProducts = selectedProducts
         vc!.products = products
         vc?.projectId = projectId
+        vc?.projectDetails = projectDetails
         self.navigationController?.pushViewController(vc!, animated: true)
     }
     
@@ -195,8 +225,5 @@ class CreatePackageVc: UIViewController {
             
         }
     }
-
-    
-    
-
 }
+
