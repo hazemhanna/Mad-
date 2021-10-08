@@ -274,10 +274,12 @@
             <connections>
                 <outlet property="NameLbl" destination="tps-6g-0Fe" id="lBq-Db-P2s"/>
                 <outlet property="dateLbl" destination="Zcx-hR-v6m" id="HFt-RS-ywk"/>
+                <outlet property="draftBtn" destination="uEm-nY-peR" id="azV-jw-J8e"/>
                 <outlet property="liveCollectionView" destination="4WF-UU-8uz" id="DIg-rE-ihk"/>
                 <outlet property="liveView" destination="A2v-vP-Hqa" id="KtA-Vf-8BG"/>
                 <outlet property="profileImage" destination="7hR-M0-pAb" id="8bZ-ac-Mpu"/>
                 <outlet property="projectImage" destination="Hm2-Zw-aZV" id="S1j-KU-InH"/>
+                <outlet property="saveBtn" destination="G75-hJ-zVn" id="vA3-g3-VhQ"/>
                 <outlet property="titleLbl" destination="0GD-wm-7zT" id="ndu-Hc-X4E"/>
             </connections>
             <point key="canvasLocation" x="-1791.304347826087" y="1717.6339285714284"/>

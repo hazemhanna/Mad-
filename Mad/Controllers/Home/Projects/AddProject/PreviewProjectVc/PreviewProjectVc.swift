@@ -13,19 +13,14 @@ import RxCocoa
 class PreviewProjectVc : UIViewController {
     
     @IBOutlet weak var liveCollectionView: UICollectionView!
-    @IBOutlet weak var liveCollectionViewHieht: NSLayoutConstraint!
     @IBOutlet weak var liveView: UIView!
     @IBOutlet weak var NameLbl: UILabel!
     @IBOutlet weak var dateLbl: UILabel!
     @IBOutlet weak var titleLbl: UILabel!
-    @IBOutlet weak var LikeLbl: UILabel!
-    @IBOutlet weak var shareLbl: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var projectImage: UIImageView!
-    @IBOutlet weak var favouriteBtn: UIButton!
-    @IBOutlet weak var shareBtn: UIButton!
-    @IBOutlet weak var favouriteStack : UIStackView!
-
+    @IBOutlet weak var saveBtn : UIButton!
+    @IBOutlet weak var draftBtn : UIButton!
 
     var selectedCat = [Int]()
     var selectedArtist = [Int]()
@@ -45,10 +40,10 @@ class PreviewProjectVc : UIViewController {
     var disposeBag = DisposeBag()
     var prjectVM = ProjectViewModel()
     let cellIdentifier = "LiveCellCVC"
-    
     let fName = Helper.getFName() ?? ""
     let lName = Helper.getLName() ?? ""
-
+    
+    var projectId = Int()
     
     var isFavourite  = false
     override func viewDidLoad() {
@@ -86,6 +81,16 @@ class PreviewProjectVc : UIViewController {
         }else{
             liveView.isHidden = true
         }
+        
+        
+ 
+        if selectedCat.count < 0 || selectedArtist.count < 0 || locationTF == "" || short_description == "" || titleTF == "" || summeryTf == "" || startDateTf == "" || endDateTf == "" || contentHtml == ""  || uploadedPhoto == nil || packages.count < 0 {
+            
+            self.saveBtn.isHidden = true
+        }else{
+            self.saveBtn.isHidden = false
+        }
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -98,14 +103,22 @@ class PreviewProjectVc : UIViewController {
     @IBAction func saveButton(sender: UIButton) {
         self.prjectVM.showIndicator()
 
-        AddProject(categories: selectedCat, title: titleTF, short_description: short_description, summery: summeryTf, content: contentHtml, startDate: startDateTf, endDate: endDateTf, location: locationTF, submit: "submit", packages: packages, products: selectedProducts, artists: selectedArtist, photos: uploadedPhoto ?? #imageLiteral(resourceName: "Mask Group 12111"))
-        
+        if projectId != 0 {
+            updateProject(id : projectId , categories: selectedCat, title: titleTF, short_description: short_description, summery: summeryTf, content: contentHtml, startDate: startDateTf, endDate: endDateTf, location: locationTF, submit: "submit", packages: packages, products: selectedProducts, artists: selectedArtist, photos: uploadedPhoto ?? #imageLiteral(resourceName: "Mask Group 12111"))
+
+        }else{
+            AddProject(categories: selectedCat, title: titleTF, short_description: short_description, summery: summeryTf, content: contentHtml, startDate: startDateTf, endDate: endDateTf, location: locationTF, submit: "submit", packages: packages, products: selectedProducts, artists: selectedArtist, photos: uploadedPhoto ?? #imageLiteral(resourceName: "Mask Group 12111"))
+        }
     }
     
     @IBAction func draftButton(sender: UIButton) {
         self.prjectVM.showIndicator()
+        if projectId != 0 {
+            updateProject(id : projectId , categories: selectedCat, title: titleTF, short_description: short_description, summery: summeryTf, content: contentHtml, startDate: startDateTf, endDate: endDateTf, location: locationTF, submit: "submit", packages: packages, products: selectedProducts, artists: selectedArtist, photos: uploadedPhoto ?? #imageLiteral(resourceName: "Mask Group 12111"))
+
+        }else{
         AddProject(categories: selectedCat, title: titleTF, short_description: short_description, summery: summeryTf, content: contentHtml, startDate: startDateTf, endDate: endDateTf, location: locationTF, submit: "draft", packages: packages, products: selectedProducts, artists: selectedArtist, photos: uploadedPhoto ?? #imageLiteral(resourceName: "Mask Group 12111"))
-        
+        }
     }
     
 }
@@ -174,5 +187,41 @@ extension PreviewProjectVc{
 
         }).disposed(by: disposeBag)
     }
+    
+    
+    
+    func updateProject(id : Int,
+                    categories :[Int],
+                    title :String,
+                    short_description:String,
+                    summery:String,
+                    content: String,
+                    startDate: String,
+                    endDate: String,
+                    location: String,
+                    submit:String,
+                    packages:[[String:String]],
+                    products:[Int],
+                    artists:[Int],
+                    photos:UIImage){
+        
+        prjectVM.updateProject(id: id,title: title, content: content, short_description: short_description, summary: summery, image: photos, categories: categories, products: products, artists: artists, startDate: startDate, endDate: endDate, location: location, submit: submit, packages: packages).subscribe(onNext: { (dataModel) in
+            if dataModel.success ?? false {
+                self.prjectVM.dismissIndicator()
+                displayMessage(title: "",message: dataModel.message ?? "", status: .success, forController: self)
+
+                let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
+                self.navigationController!.popToViewController(viewControllers[viewControllers.count - 5], animated: true)
+            }else{
+                displayMessage(title: "",message: dataModel.message ?? "", status: .error, forController: self)
+            }
+        }, onError: { (error) in
+
+            self.prjectVM.dismissIndicator()
+
+        }).disposed(by: disposeBag)
+    }
+    
+    
     
 }

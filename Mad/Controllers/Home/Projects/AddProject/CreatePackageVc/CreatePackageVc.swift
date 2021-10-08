@@ -53,7 +53,8 @@ class CreatePackageVc: UIViewController {
     var packages = [[String:String]]()
     var selectedProducts = [Int]()
     var products = [Product]()
-    
+    var projectId = Int()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         Package1Stack.isHidden = false
@@ -102,7 +103,7 @@ class CreatePackageVc: UIViewController {
     }
     
     @IBAction func nextButton(sender: UIButton) {
-        guard self.validateInput() else {return}
+       // guard self.validateInput() else {return}
 
         package1["title"] = title1TF.text ?? ""
         package2["title"] = title2TF.text ?? ""
@@ -138,6 +139,7 @@ class CreatePackageVc: UIViewController {
         vc!.packages = packages
         vc!.selectedProducts = selectedProducts
         vc!.products = products
+        vc?.projectId = projectId
         self.navigationController?.pushViewController(vc!, animated: true)
     }
     

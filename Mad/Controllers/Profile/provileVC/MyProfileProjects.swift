@@ -109,8 +109,6 @@ extension MyProfileProjects: UITableViewDelegate,UITableViewDataSource{
                     , isFavourite: projects[indexPath.row].isFavorite ?? false
                     ,relatedProduct: projects[indexPath.row].relateProducts ?? [])
             
-            
-            
         }
         cell.showShimmer = false
         return cell
@@ -122,7 +120,9 @@ extension MyProfileProjects: UITableViewDelegate,UITableViewDataSource{
         main!.projectId =  self.projects[indexPath.row].id ?? 0
         self.navigationController?.pushViewController(main!, animated: true)
         }else{
-            displayMessage(title: "", message: "project not published", status: .error, forController: self)
+//            let vc = AddProjectdetailsVc.instantiateFromNib()
+//            vc?.projectId = pendingProjects[indexPath.row].id ?? 0
+//            self.navigationController?.pushViewController(vc!, animated: true)
         }
     }
 }

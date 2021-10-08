@@ -83,14 +83,24 @@
                                                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4" translatesAutoresizingMaskIntoConstraints="NO" id="EtQ-UM-9HE">
                                                                 <rect key="frame" x="0.0" y="0.0" width="170" height="170"/>
                                                             </imageView>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6vM-hK-A2r">
+                                                                <rect key="frame" x="0.0" y="0.0" width="170" height="170"/>
+                                                                <connections>
+                                                                    <action selector="uploadImageButtonWithSender:" destination="Wy3-9T-0Yo" eventType="touchUpInside" id="aeB-F6-nAD"/>
+                                                                </connections>
+                                                            </button>
                                                         </subviews>
                                                         <color key="backgroundColor" red="0.81960784310000001" green="0.8862745098" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="trailing" secondItem="EtQ-UM-9HE" secondAttribute="trailing" id="1rp-Pq-kYU"/>
                                                             <constraint firstItem="g68-VU-UFV" firstAttribute="centerY" secondItem="2Ox-fr-YW7" secondAttribute="centerY" id="54x-Mg-rMw"/>
+                                                            <constraint firstAttribute="bottom" secondItem="6vM-hK-A2r" secondAttribute="bottom" id="6ig-W5-7kK"/>
                                                             <constraint firstAttribute="width" constant="170" id="FD9-7P-CgM"/>
                                                             <constraint firstItem="g68-VU-UFV" firstAttribute="centerX" secondItem="2Ox-fr-YW7" secondAttribute="centerX" id="Sd4-rn-pmj"/>
                                                             <constraint firstItem="EtQ-UM-9HE" firstAttribute="leading" secondItem="2Ox-fr-YW7" secondAttribute="leading" id="hKC-6Y-SIB"/>
+                                                            <constraint firstItem="6vM-hK-A2r" firstAttribute="top" secondItem="2Ox-fr-YW7" secondAttribute="top" id="hN9-2D-HpO"/>
+                                                            <constraint firstAttribute="trailing" secondItem="6vM-hK-A2r" secondAttribute="trailing" id="lCs-46-ytp"/>
+                                                            <constraint firstItem="6vM-hK-A2r" firstAttribute="leading" secondItem="2Ox-fr-YW7" secondAttribute="leading" id="sGm-7U-9u7"/>
                                                             <constraint firstAttribute="bottom" secondItem="EtQ-UM-9HE" secondAttribute="bottom" id="w75-Az-erV"/>
                                                             <constraint firstItem="EtQ-UM-9HE" firstAttribute="top" secondItem="2Ox-fr-YW7" secondAttribute="top" id="zoA-y0-OWH"/>
                                                         </constraints>
@@ -752,22 +762,22 @@
     </objects>
     <designables>
         <designable name="1oe-8x-ZbC">
-            <size key="intrinsicContentSize" width="101" height="20.5"/>
+            <size key="intrinsicContentSize" width="121" height="40.5"/>
         </designable>
         <designable name="N5k-uY-wgu">
-            <size key="intrinsicContentSize" width="84" height="20.5"/>
+            <size key="intrinsicContentSize" width="104" height="40.5"/>
         </designable>
         <designable name="VZd-4K-rG0">
-            <size key="intrinsicContentSize" width="198" height="20.5"/>
+            <size key="intrinsicContentSize" width="218" height="40.5"/>
         </designable>
         <designable name="euz-mB-CRX">
             <size key="intrinsicContentSize" width="52" height="21"/>
         </designable>
         <designable name="gna-xW-dSu">
-            <size key="intrinsicContentSize" width="198.5" height="20.5"/>
+            <size key="intrinsicContentSize" width="218.5" height="40.5"/>
         </designable>
         <designable name="u4m-4b-BKe">
-            <size key="intrinsicContentSize" width="84" height="20.5"/>
+            <size key="intrinsicContentSize" width="104" height="40.5"/>
         </designable>
     </designables>
     <resources>

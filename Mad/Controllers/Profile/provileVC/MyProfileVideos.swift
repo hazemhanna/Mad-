@@ -116,10 +116,8 @@ extension MyProfileVideos: UICollectionViewDelegate , UICollectionViewDataSource
             return cell
         }
     
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if self.showShimmer {return}
-        
         if let url = self.videos[indexPath.row].videoURL{
         guard let videoURL = URL(string:  url) else { return }
         let video = AVPlayer(url: videoURL)
@@ -130,8 +128,7 @@ extension MyProfileVideos: UICollectionViewDelegate , UICollectionViewDataSource
             self.present(videoPlayer, animated: true, completion: {
                 video.play()
             })
-    }
-     
+       }
     }
 }
     

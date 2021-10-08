@@ -23,7 +23,8 @@ class AboutProjectVC: UIViewController {
     var selectedProducts = [Int]()
     var products = [Product]()
     
-  
+    var projectId = Int()
+
     override func viewDidLoad() {
         
             super.viewDidLoad()
@@ -65,7 +66,7 @@ class AboutProjectVC: UIViewController {
     }
     
     @IBAction func nextButton(sender: UIButton) {
-        guard self.validateInput() else {return}
+        //guard self.validateInput() else {return}
         let vc = CreatePackageVc.instantiateFromNib()
         vc!.selectedCat = selectedCat
         vc!.selectedArtist = selectedArtist
@@ -79,6 +80,7 @@ class AboutProjectVC: UIViewController {
         vc!.uploadedPhoto = uploadedPhoto
         vc!.selectedProducts = selectedProducts
         vc!.products = products
+        vc?.projectId = projectId
         self.navigationController?.pushViewController(vc!, animated: true)
     }
 }

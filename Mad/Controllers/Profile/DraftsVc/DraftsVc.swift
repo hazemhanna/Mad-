@@ -189,7 +189,9 @@ extension DraftsVc: UITableViewDelegate,UITableViewDataSource{
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if draftType == "project" {
-        displayMessage(title: "", message: "project not published", status: .error, forController: self)
+            let vc = AddProjectdetailsVc.instantiateFromNib()
+            vc?.projectId = projects[indexPath.row].id ?? 0
+            self.navigationController?.pushViewController(vc!, animated: true)
         }else{
             let main = CompetitionsDetailsVc.instantiateFromNib()
             main?.compId = self.competitions[indexPath.row].id ?? 0

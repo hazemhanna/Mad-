@@ -46,11 +46,11 @@ class AddProjectdetailsVc : UIViewController {
     var selectedArtist = [Int]()
     var selectedProducts = [Int]()
     var products = [Product]()
-    
+    var projectId = Int()
     var uploadedPhoto :UIImage?
     var start  = true
     var end = true
-    
+
     fileprivate let tagsField = WSTagsField()
     fileprivate let artistField = WSTagsField()
  
@@ -134,7 +134,11 @@ class AddProjectdetailsVc : UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+      super.viewDidAppear(animated)
+     if projectId != 0 {
+        prjectVM.showIndicator()
+        getProjectDetails(projectId: projectId)
+      }
     }
     
     override func viewDidLayoutSubviews() {
@@ -165,7 +169,7 @@ class AddProjectdetailsVc : UIViewController {
     
     
     @IBAction func nextButton(sender: UIButton) {
-        guard self.validateInput() else {return}
+       // guard self.validateInput() else {return}
         let vc = AboutProjectVC.instantiateFromNib()
         vc!.selectedCat = selectedCat
         vc!.selectedArtist = selectedArtist
@@ -178,6 +182,7 @@ class AddProjectdetailsVc : UIViewController {
         vc!.uploadedPhoto = uploadedPhoto
         vc!.selectedProducts = selectedProducts
         vc!.products = products
+        vc?.projectId = projectId
         self.navigationController?.pushViewController(vc!, animated: true)
     }
     
@@ -355,6 +360,39 @@ extension AddProjectdetailsVc {
 
             }).disposed(by: disposeBag)
         }
+    
+    func getProjectDetails(projectId : Int) {
+        prjectVM.getProjectDetails(productID: projectId).subscribe(onNext: { (data) in
+           if data.success ?? false {
+            self.prjectVM.dismissIndicator()
+            
+            self.short_description.text = data.data?.content ?? ""
+            self.titleTF.text = data.data?.title ?? ""
+            
+            if let url = URL(string: data.data?.imageURL ?? ""){
+                self.projectImage.isHidden = false
+                self.projectImage.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4"))
+                self.uploadedPhoto = self.projectImage.image
+            }
+            
+            if data.data?.tagged?.count ?? 0 > 0 {
+            for artist in data.data?.tagged ?? []{
+                self.tagsField.addTag(artist.name ?? "" )
+                self.self.selectedArtist.append(artist.id ?? 0 )
+             }
+         }
+            
+            if data.data?.categories?.count ?? 0 > 0 {
+            for cat in data.data?.categories ?? [] {
+                self.tagsField.addTag(cat.name ?? "" )
+                self.selectedCat.append(cat.id ?? 0 )
+             }
+            }
+         }
+       }, onError: { (error) in
+        self.prjectVM.dismissIndicator()
+       }).disposed(by: disposeBag)
+      }
 }
 
 extension AddProjectdetailsVc :  UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
