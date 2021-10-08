@@ -24,8 +24,6 @@ class AboutProjectVC: UIViewController {
     var products = [Product]()
     var projectDetails : ProjectDetails?
 
-    var projectId = Int()
-
     override func viewDidLoad() {
         
             super.viewDidLoad()
@@ -73,7 +71,7 @@ class AboutProjectVC: UIViewController {
         vc!.selectedCat = selectedCat
         vc!.selectedArtist = selectedArtist
         vc!.locationTF = locationTF
-        vc!.short_description = locationTF
+        vc!.short_description = short_description
         vc!.titleTF = titleTF
         vc!.summeryTf = summeryTf
         vc!.startDateTf = startDateTf
@@ -82,7 +80,6 @@ class AboutProjectVC: UIViewController {
         vc!.uploadedPhoto = uploadedPhoto
         vc!.selectedProducts = selectedProducts
         vc!.products = products
-        vc?.projectId = projectId
         vc?.projectDetails = projectDetails
         self.navigationController?.pushViewController(vc!, animated: true)
     }

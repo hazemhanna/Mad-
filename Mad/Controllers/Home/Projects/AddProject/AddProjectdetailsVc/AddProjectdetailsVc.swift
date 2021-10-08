@@ -79,6 +79,8 @@ class AddProjectdetailsVc : UIViewController {
         tagsField.textDelegate = self
         textFieldEvents()
 
+
+        
         artistField.frame = artistView.bounds
         artistView.addSubview(artistField)
         artistField.cornerRadius = 3.0
@@ -111,6 +113,8 @@ class AddProjectdetailsVc : UIViewController {
         summeryTf.delegate = self
         locationTF.delegate = self
     }
+    
+
     
     func setupCountryDropDown(){
         locationTF.optionArray = self.countries
@@ -146,7 +150,6 @@ class AddProjectdetailsVc : UIViewController {
         }else{
             self.productView.isHidden = true
         }
-        
     }
     
     override func viewDidLayoutSubviews() {
@@ -182,7 +185,7 @@ class AddProjectdetailsVc : UIViewController {
         vc!.selectedCat = selectedCat
         vc!.selectedArtist = selectedArtist
         vc!.locationTF = locationTF.text ?? ""
-        vc!.short_description = locationTF.text ?? ""
+        vc!.short_description = short_description.text ?? ""
         vc!.titleTF = titleTF.text ?? ""
         vc!.summeryTf = summeryTf.text ?? ""
         vc!.startDateTf = startDateTf.text ?? ""
@@ -190,7 +193,6 @@ class AddProjectdetailsVc : UIViewController {
         vc!.uploadedPhoto = uploadedPhoto
         vc!.selectedProducts = selectedProducts
         vc!.products = products
-        vc?.projectId = projectId
         vc?.projectDetails = projectDetails
         self.navigationController?.pushViewController(vc!, animated: true)
     }
@@ -261,14 +263,6 @@ extension AddProjectdetailsVc {
     
     fileprivate func textFieldEvents() {
         
-        tagsField.onDidAddTag = { field, tag in
-            print("onDidAddTag", tag.text)
-        }
-        
-        tagsField.onDidRemoveTag = { field, tag in
-            print("onDidRemoveTag", tag.text)
-        }
-
         tagsField.onDidChangeText = { _, text in
             print("onDidChangeText")
 
@@ -279,9 +273,20 @@ extension AddProjectdetailsVc {
                 self.tagsField.addTag(cats.name ?? "")
              self.presentingViewController?.dismiss(animated: true)
            }
-           self.present(vc!, animated: true, completion: nil)
-            
+            if self.projectId == 0 {
+                self.present(vc!, animated: true, completion: nil)
+            }
         }
+        
+        tagsField.onDidAddTag = { field, tag in
+            print("onDidAddTag", tag.text)
+       
+        }
+        
+        tagsField.onDidRemoveTag = { field, tag in
+            print("onDidRemoveTag", tag.text)
+        }
+
 
         tagsField.onDidChangeHeightTo = { _, height in
             print("HeightTo \(height)")
@@ -300,16 +305,12 @@ extension AddProjectdetailsVc {
         }
     }
     
+    
+    
+    
+    
     fileprivate func artistTextFieldEvents() {
         
-        artistField.onDidAddTag = { field, tag in
-            print("onDidAddTag", tag.text)
-        }
-        
-        artistField.onDidRemoveTag = { field, tag in
-            print("onDidRemoveTag", tag.text)
-        }
-
         artistField.onDidChangeText = { _, text in
             print("onDidChangeText")
             let vc = ArtistNameVC.instantiateFromNib()
@@ -318,11 +319,24 @@ extension AddProjectdetailsVc {
             self.selectedArtist.append(String(artist.id ?? 0))
             self.artistField.addTag(artist.name ?? "")
              self.presentingViewController?.dismiss(animated: true)
+                
            }
-           self.present(vc!, animated: true, completion: nil)
-            
+            if self.projectId == 0{
+                self.present(vc!, animated: true, completion: nil)
+            }
+
         }
 
+        artistField.onDidAddTag = { field, tag in
+            print("onDidAddTag", tag.text)
+         
+        }
+        
+        artistField.onDidRemoveTag = { field, tag in
+            print("onDidRemoveTag", tag.text)
+        }
+
+        
         artistField.onDidChangeHeightTo = { _, height in
             print("HeightTo \(height)")
             self.artistViewHeight.constant = height + 100
@@ -382,27 +396,30 @@ extension AddProjectdetailsVc {
             self.startDateTf.text = data.data?.startDate ?? ""
             self.endDateTf.text = data.data?.endDate ?? ""
             self.locationTF.text = data.data?.location ?? ""
-            
+            self.products = data.data?.relateProducts ?? []
             if let url = URL(string: data.data?.imageURL ?? ""){
                 self.projectImage.isHidden = false
                 self.projectImage.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4"))
                 self.uploadedPhoto = self.projectImage.image
             }
             
-            if data.data?.tagged?.count ?? 0 > 0 {
+        if data.data?.tagged?.count ?? 0 > 0 {
             for artist in data.data?.tagged ?? []{
                 self.artistField.addTag(artist.name ?? "" )
                 self.self.selectedArtist.append(String(artist.id ?? 0 ))
+               
              }
          }
             
-            if data.data?.categories?.count ?? 0 > 0 {
+        if data.data?.categories?.count ?? 0 > 0 {
             for cat in data.data?.categories ?? [] {
                 self.tagsField.addTag(cat.name ?? "" )
                 self.selectedCat.append(cat.id ?? 0 )
              }
             }
-         }
+            
+            self.projectId = 0
+        }
        }, onError: { (error) in
         self.prjectVM.dismissIndicator()
        }).disposed(by: disposeBag)

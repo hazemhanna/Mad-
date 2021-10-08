@@ -43,9 +43,7 @@ class PreviewProjectVc : UIViewController {
     let cellIdentifier = "LiveCellCVC"
     let fName = Helper.getFName() ?? ""
     let lName = Helper.getLName() ?? ""
-    
-    var projectId = Int()
-    
+        
     var isFavourite  = false
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -105,7 +103,7 @@ class PreviewProjectVc : UIViewController {
         self.prjectVM.showIndicator()
 
         if projectId != 0 {
-            updateProject(id : projectId , categories: selectedCat, title: titleTF, short_description: short_description, summery: summeryTf, content: contentHtml, startDate: startDateTf, endDate: endDateTf, location: locationTF, submit: "submit", packages: packages, products: selectedProducts, artists: selectedArtist, photos: uploadedPhoto ?? #imageLiteral(resourceName: "Mask Group 12111"))
+            updateProject(id : projectDetails?.id ?? 0 , categories: selectedCat, title: titleTF, short_description: short_description, summery: summeryTf, content: contentHtml, startDate: startDateTf, endDate: endDateTf, location: locationTF, submit: "submit", packages: packages, products: selectedProducts, artists: selectedArtist, photos: uploadedPhoto ?? #imageLiteral(resourceName: "Mask Group 12111"))
 
         }else{
             AddProject(categories: selectedCat, title: titleTF, short_description: short_description, summery: summeryTf, content: contentHtml, startDate: startDateTf, endDate: endDateTf, location: locationTF, submit: "submit", packages: packages, products: selectedProducts, artists: selectedArtist, photos: uploadedPhoto ?? #imageLiteral(resourceName: "Mask Group 12111"))
@@ -115,7 +113,7 @@ class PreviewProjectVc : UIViewController {
     @IBAction func draftButton(sender: UIButton) {
         self.prjectVM.showIndicator()
         if projectId != 0 {
-            updateProject(id : projectId , categories: selectedCat, title: titleTF, short_description: short_description, summery: summeryTf, content: contentHtml, startDate: startDateTf, endDate: endDateTf, location: locationTF, submit: "draft", packages: packages, products: selectedProducts, artists: selectedArtist, photos: uploadedPhoto ?? #imageLiteral(resourceName: "Mask Group 12111"))
+            updateProject(id : projectDetails?.id ?? 0 , categories: selectedCat, title: titleTF, short_description: short_description, summery: summeryTf, content: contentHtml, startDate: startDateTf, endDate: endDateTf, location: locationTF, submit: "draft", packages: packages, products: selectedProducts, artists: selectedArtist, photos: uploadedPhoto ?? #imageLiteral(resourceName: "Mask Group 12111"))
 
         }else{
         AddProject(categories: selectedCat, title: titleTF, short_description: short_description, summery: summeryTf, content: contentHtml, startDate: startDateTf, endDate: endDateTf, location: locationTF, submit: "draft", packages: packages, products: selectedProducts, artists: selectedArtist, photos: uploadedPhoto ?? #imageLiteral(resourceName: "Mask Group 12111"))
@@ -180,6 +178,7 @@ extension PreviewProjectVc{
                 let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
                 self.navigationController!.popToViewController(viewControllers[viewControllers.count - 5], animated: true)
             }else{
+                self.prjectVM.dismissIndicator()
                 displayMessage(title: "",message: dataModel.message ?? "", status: .error, forController: self)
             }
         }, onError: { (error) in
@@ -214,6 +213,7 @@ extension PreviewProjectVc{
                 let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
                 self.navigationController!.popToViewController(viewControllers[viewControllers.count - 5], animated: true)
             }else{
+                self.prjectVM.dismissIndicator()
                 displayMessage(title: "",message: dataModel.message ?? "", status: .error, forController: self)
             }
         }, onError: { (error) in

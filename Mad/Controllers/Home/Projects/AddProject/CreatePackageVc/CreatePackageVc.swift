@@ -55,7 +55,6 @@ class CreatePackageVc: UIViewController {
     var packages = [[String:String]]()
     var selectedProducts = [Int]()
     var products = [Product]()
-    var projectId = Int()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -142,15 +141,15 @@ class CreatePackageVc: UIViewController {
         package3["price_eur"] = price_eur3.text ?? ""
         
         
-        if title1TF.text  != "" || description1TF.text != ""  || price1.text != ""  || price_eur1.text != ""  {
+        if title1TF.text  != "" || description1TF.text != ""  || price1.text != "0"  || price_eur1.text != "0"  {
             packages.append(package1)
         }
 
-        if title2TF.text  != "" || description2TF.text != ""  || price2.text != ""  || price_eur2.text != ""  {
+        if title2TF.text  != "" || description2TF.text != ""  || price2.text != "0"  || price_eur2.text != "0"  {
             packages.append(package2)
         }
         
-        if title3TF.text  != "" || description3TF.text != ""  || price3.text != ""  || price_eur3.text != ""  {
+        if title3TF.text  != "" || description3TF.text != ""  || price3.text != "0"  || price_eur3.text != "0"  {
             packages.append(package3)
         }
         
@@ -158,7 +157,7 @@ class CreatePackageVc: UIViewController {
         vc!.selectedCat = selectedCat
         vc!.selectedArtist = selectedArtist
         vc!.locationTF = locationTF
-        vc!.short_description = locationTF
+        vc!.short_description = short_description
         vc!.titleTF = titleTF
         vc!.summeryTf = summeryTf
         vc!.startDateTf = startDateTf
@@ -168,7 +167,6 @@ class CreatePackageVc: UIViewController {
         vc!.packages = packages
         vc!.selectedProducts = selectedProducts
         vc!.products = products
-        vc?.projectId = projectId
         vc?.projectDetails = projectDetails
         self.navigationController?.pushViewController(vc!, animated: true)
     }

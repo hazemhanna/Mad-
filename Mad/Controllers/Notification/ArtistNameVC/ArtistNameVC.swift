@@ -17,7 +17,7 @@ class ArtistNameVC: UIViewController {
     var artist :[Artist] = []
     var categeory = [Category]()
     var cats = [String]()
-
+    
     var onClickClose: ((_ artist: Artist)->())?
     var onClickCat: ((_ cat: Category)->())?
 
@@ -31,6 +31,7 @@ class ArtistNameVC: UIViewController {
         mainTableView.dataSource = self
         self.mainTableView.register(UINib(nibName: self.CellIdentifier, bundle: nil), forCellReuseIdentifier: self.CellIdentifier)
         searchTF.addTarget(self, action: #selector(ArtistNameVC.textFieldDidChange(_:)), for: .editingChanged)
+       
     }
     
     override func viewWillAppear(_ animated: Bool) {
