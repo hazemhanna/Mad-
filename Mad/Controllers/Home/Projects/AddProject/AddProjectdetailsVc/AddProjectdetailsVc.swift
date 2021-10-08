@@ -377,14 +377,14 @@ extension AddProjectdetailsVc {
             
             if data.data?.tagged?.count ?? 0 > 0 {
             for artist in data.data?.tagged ?? []{
-                self.tagsField.addTag(artist.name ?? "" )
+               // self.artistField.addTag(artist.name ?? "" )
                 self.self.selectedArtist.append(artist.id ?? 0 )
              }
          }
             
             if data.data?.categories?.count ?? 0 > 0 {
             for cat in data.data?.categories ?? [] {
-                self.tagsField.addTag(cat.name ?? "" )
+             //   self.tagsField.addTag(cat.name ?? "" )
                 self.selectedCat.append(cat.id ?? 0 )
              }
             }
