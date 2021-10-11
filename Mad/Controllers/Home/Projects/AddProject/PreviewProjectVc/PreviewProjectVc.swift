@@ -102,7 +102,7 @@ class PreviewProjectVc : UIViewController {
     @IBAction func saveButton(sender: UIButton) {
         self.prjectVM.showIndicator()
 
-        if projectId != 0 {
+        if projectDetails?.id ?? 0 != 0 {
             updateProject(id : projectDetails?.id ?? 0 , categories: selectedCat, title: titleTF, short_description: short_description, summery: summeryTf, content: contentHtml, startDate: startDateTf, endDate: endDateTf, location: locationTF, submit: "submit", packages: packages, products: selectedProducts, artists: selectedArtist, photos: uploadedPhoto ?? #imageLiteral(resourceName: "Mask Group 12111"))
 
         }else{
@@ -112,7 +112,7 @@ class PreviewProjectVc : UIViewController {
     
     @IBAction func draftButton(sender: UIButton) {
         self.prjectVM.showIndicator()
-        if projectId != 0 {
+        if projectDetails?.id ?? 0 != 0 {
             updateProject(id : projectDetails?.id ?? 0 , categories: selectedCat, title: titleTF, short_description: short_description, summery: summeryTf, content: contentHtml, startDate: startDateTf, endDate: endDateTf, location: locationTF, submit: "draft", packages: packages, products: selectedProducts, artists: selectedArtist, photos: uploadedPhoto ?? #imageLiteral(resourceName: "Mask Group 12111"))
 
         }else{

@@ -156,7 +156,7 @@ class MenuVC: UIViewController {
     
     @IBAction func logOutAction(sender: UIButton) {
         
-        let alert = UIAlertController(title: "LogOut", message: "Are you sure", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Log Out", message: "Are you sure", preferredStyle: .alert)
         let yesAction = UIAlertAction(title: "YES", style: .default) { (action) in
             alert.dismiss(animated: true, completion: nil)
             Helper.LogOut()
