@@ -56,12 +56,11 @@ class PasswordVc: UIViewController {
               }
       }
     
-    //MARK:- Register Label Action Configurations
+
     @objc func ResetTapAction(_ sender: UITapGestureRecognizer) {
         let main = EmailVc.instantiateFromNib()
         main?.reset = true
         self.navigationController?.pushViewController(main!, animated: true)
-        
     }
     
     func setupMultiColorRegisterLabel() {

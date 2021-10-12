@@ -16,7 +16,6 @@ class EditMyProfileVc: UIViewController {
     @IBOutlet weak var  socialTableview : UITableView!
     @IBOutlet weak var  socialTableviewHieght : NSLayoutConstraint!
     @IBOutlet weak var selectCateDropDown: TextFieldDropDown!
-
     @IBOutlet weak var  firstNameTF : UITextField!
     @IBOutlet weak var  lastNameTF : UITextField!
     @IBOutlet weak var  ageTf : UITextField!
@@ -35,15 +34,12 @@ class EditMyProfileVc: UIViewController {
     @IBOutlet weak var  PointLbl : UILabel!
     @IBOutlet weak var  flowersLbl : UILabel!
     @IBOutlet weak var  flowingLbl : UILabel!
-    
     @IBOutlet weak var  headLineStack : UIStackView!
     @IBOutlet weak var  BiosStack : UIStackView!
     @IBOutlet weak var  lineView1 : UIView!
     @IBOutlet weak var  lineView2 : UIView!
-
-    
     let cellIdentifier = "SocialCell"
-    var upgrad = false
+    
     var active = Helper.getIsActive() ?? false
     var artistVM = ArtistViewModel()
     var disposeBag = DisposeBag()
@@ -85,26 +81,6 @@ class EditMyProfileVc: UIViewController {
         self.artistVM.showIndicator()
         getProfile()
         getCountry()
-     
-        if active {
-            BiosStack.isHidden = false
-            headLineStack.isHidden = false
-            lineView1.isHidden = false
-            lineView2.isHidden = false
-        }else{
-            if upgrad{
-                BiosStack.isHidden = false
-                headLineStack.isHidden = false
-                lineView1.isHidden = false
-                lineView2.isHidden = false
-            }else{
-                BiosStack.isHidden = true
-                headLineStack.isHidden = true
-                lineView1.isHidden = true
-                lineView2.isHidden = true
-            }
-        }
-        
         self.navigationController?.navigationBar.isHidden = true
         if let ptcTBC = tabBarController as? PTCardTabBarController {
             ptcTBC.customTabBar.isHidden = false
@@ -141,36 +117,6 @@ class EditMyProfileVc: UIViewController {
         let selectCountry =  self.selectCateDropDown.text ?? ""
         let BiosTf =  self.BiosTf.text ?? ""
         let headLine =  self.headLineTf.text ?? ""
-        if active{
-            if email.isEmpty {
-              self.showMessage(text: "Please Enter Your email")
-              return false
-            }else if phone.isEmpty {
-                self.showMessage(text: "Please Enter Your phone")
-                return false
-              }else if firstName.isEmpty {
-                self.showMessage(text: "Please Enter Your first Name")
-                return false
-              }else if lastName.isEmpty {
-                self.showMessage(text: "Please Enter Your last Name")
-                return false
-              }else if age.isEmpty {
-                self.showMessage(text: "Please Enter Your age")
-                return false
-              }else if selectCountry.isEmpty {
-                self.showMessage(text: "Please Enter Your Country")
-                return false
-              }else if BiosTf.isEmpty {
-                self.showMessage(text: "Please Enter Bios")
-                return false
-              }else if headLine.isEmpty {
-                self.showMessage(text: "Please Enter Your headLine")
-                return false
-             }else{
-                return true
-             }
-        }else{
-            if upgrad{
                 if email.isEmpty {
                   self.showMessage(text: "Please Enter Your email")
                   return false
@@ -198,42 +144,15 @@ class EditMyProfileVc: UIViewController {
                  }else{
                     return true
                  }
-
-            }else{
-                if email.isEmpty {
-                  self.showMessage(text: "Please Enter Your email")
-                  return false
-                }else if phone.isEmpty {
-                    self.showMessage(text: "Please Enter Your phone")
-                    return false
-                  }else if firstName.isEmpty {
-                    self.showMessage(text: "Please Enter Your first Name")
-                    return false
-                  }else if lastName.isEmpty {
-                    self.showMessage(text: "Please Enter Your last Name")
-                    return false
-                  }else if age.isEmpty {
-                    self.showMessage(text: "Please Enter Your age")
-                    return false
-                  }else if selectCountry.isEmpty {
-                    self.showMessage(text: "Please Enter Your Country")
-                    return false
-                  }else{
-                    return true
-                 }
-            }
-          }
+          
     }
     
     
     @IBAction func saveButton(sender: UIButton) {
         guard self.validateInput() else { return }
         self.artistVM.showIndicator()
-        if upgrad {
             self.upgradeProfile(email: self.emailTf.text ?? "", phone: self.phoneTf.text ?? "", firstName: self.firstNameTF.text ?? "", lastName: self.lastNameTF.text ?? "", age: self.ageTf.text ?? "", country: self.selectCateDropDown.text ?? "", about: self.BiosTf.text ?? "", headLine: self.headLineTf.text ?? "", instgram: self.instgramLink.text ?? "", faceBook: self.facebookLink.text ?? "", twitter: self.twitterLink.text ?? "")
-        }else{
-            self.updateProfile(email: self.emailTf.text ?? "", phone: self.phoneTf.text ?? "", firstName: self.firstNameTF.text ?? "", lastName: self.lastNameTF.text ?? "", age: self.ageTf.text ?? "", country: self.selectCateDropDown.text ?? "", about: self.BiosTf.text ?? "", headLine: self.headLineTf.text ?? "", instgram: self.instgramLink.text ?? "", faceBook: self.facebookLink.text ?? "", twitter: self.twitterLink.text ?? "", active: self.active)
-        }
+       
     }
     
     
@@ -349,31 +268,6 @@ func getProfile() {
 
    }).disposed(by: disposeBag)
 }
-    
-func updateProfile(email : String,phone : String,firstName : String,lastName : String,age : String,country : String,about : String,headLine : String,instgram : String,faceBook : String,twitter : String,active:Bool) {
-        artistVM.updateProfile(email: email, phone: phone, firstName: firstName, lastName: lastName, age: age, country: country, about: about, headLine: headLine, instgram: instgram, faceBook: faceBook, twitter: twitter,active:active).subscribe(onNext: { (dataModel) in
-           if dataModel.success ?? false {
-            self.artistVM.dismissIndicator()
-            self.firstNameTF.text = dataModel.data?.firstName ??  ""
-            self.lastNameTF.text = dataModel.data?.lastName ?? ""
-            self.emailTf.text = dataModel.data?.userEmail ?? ""
-            self.phoneTf.text = dataModel.data?.phone ?? ""
-            self.selectCateDropDown.text = dataModel.data?.country ?? ""
-            self.BiosTf.text = dataModel.data?.about ?? ""
-            self.headLineTf.text = dataModel.data?.headline ?? ""
-            self.social = dataModel.data?.socialLinks ?? []
-            self.socialTableview.reloadData()
-            self.showMessage(text: dataModel.message ?? "")
-            self.navigationController?.popViewController(animated: true)
-
-         }else{
-            self.artistVM.dismissIndicator()
-            self.showMessage(text: dataModel.message ?? "")
-         }
-       }, onError: { (error) in
-        self.artistVM.dismissIndicator()
-       }).disposed(by: disposeBag)
-    }
     
     func upgradeProfile(email : String,phone : String,firstName : String,lastName : String,age : String,country : String,about : String,headLine : String,instgram : String,faceBook : String,twitter : String) {
         artistVM.upgradeMyProfile(email: email, phone: phone, firstName: firstName, lastName: lastName, age: age, country: country, about: about, headLine: headLine, instgram: instgram, faceBook: faceBook, twitter: twitter).subscribe(onNext: { (dataModel) in

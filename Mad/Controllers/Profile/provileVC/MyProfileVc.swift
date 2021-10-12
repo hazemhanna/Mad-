@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import RxSwift
 import RxCocoa
+import PTCardTabBar
 
 class MyProfileVc: UIViewController {
     
@@ -20,9 +21,14 @@ class MyProfileVc: UIViewController {
     @IBOutlet weak var artistName: UILabel!
     @IBOutlet weak var  upgradeView : UIView!
     
+    @IBOutlet weak var  profileviewHeight : NSLayoutConstraint!
+
     @IBOutlet weak var  logoBanner : UIImageView!
     @IBOutlet weak var  bannerBtn : UIButton!
 
+    open lazy var customTabBar: PTCardTabBar = {
+        return PTCardTabBar()
+    }()
     
     var active = Helper.getIsActive() ?? false
     var tokent = Helper.getAPIToken() ?? ""
@@ -34,21 +40,25 @@ class MyProfileVc: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         if active{
             upgradeView.isHidden = true
+            profileviewHeight.constant = 300
         }else{
             upgradeView.isHidden = false
-
+            profileviewHeight.constant = 400
         }
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = true
+        if let ptcTBC = tabBarController as? PTCardTabBarController {
+            ptcTBC.customTabBar.isHidden = false
+        }
         if tokent != "" {
         artistVM.showIndicator()
         getProfile()
         }else{
-            let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
+        let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
             if let appDelegate = UIApplication.shared.delegate {
                 appDelegate.window??.rootViewController = sb
             }
@@ -73,7 +83,6 @@ class MyProfileVc: UIViewController {
     
     @IBAction func upgradeButton(sender: UIButton) {
         let vc = EditMyProfileVc.instantiateFromNib()
-        vc?.upgrad = true
         self.navigationController?.pushViewController(vc!, animated: true)
     }
    

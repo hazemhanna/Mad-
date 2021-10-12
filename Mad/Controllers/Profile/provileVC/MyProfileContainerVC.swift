@@ -20,9 +20,9 @@ class MyProfileContainerVC : TabmanViewController {
     let vc4 = UIStoryboard(name: "Profile", bundle: nil).instantiateViewController(withIdentifier: "MyProfileCompetitions") as! MyProfileCompetitions
     let vc5 = UIStoryboard(name: "Profile", bundle: nil).instantiateViewController(withIdentifier: "MyProfileVideos") as! MyProfileVideos
 
-    private lazy var viewControllers : [UIViewController] = [vc1,
-                                                              vc2,
-                                                              vc3,
+    private lazy var viewControllers : [UIViewController] = [vc3,
+                                                             vc2,
+                                                             vc1,
                                                               vc4,
                                                               vc5]
     
@@ -83,11 +83,11 @@ func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyVie
 func barItem(for bar: TMBar, at index: Int) -> TMBarItemable {
     if active {
         if index == 0 {
-            return TMBarItem(title:  "Projects")
+            return TMBarItem(title:  "About")
         }else if index == 1  {
             return TMBarItem(title:  "Products")
         }else if index == 2 {
-            return TMBarItem(title:  "About")
+            return TMBarItem(title:  "Projects")
         }else if index == 3{
             return TMBarItem(title:  "Competitions")
         }else{

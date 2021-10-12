@@ -72,22 +72,14 @@ struct ArtistViewModel {
          return observer
      }
     
-    func updateProfile(email : String,phone : String,firstName : String,lastName : String,age : String,country : String,about : String,headLine : String,instgram : String,faceBook : String,twitter : String,active :Bool) -> Observable<ProfileModelJSON> {
-        var  params: [String: Any] = [
+    func updateProfile(email : String,phone : String,firstName : String,lastName : String) -> Observable<ProfileModelJSON> {
+        let  params: [String: Any] = [
             "email": email,
             "first_name": firstName,
             "last_name": lastName,
-            "phone": phone,
-            "age": age,
-            "country": country,
-            "facebook": faceBook,
-            "instagram": instgram,
-            "twitter":twitter
-           ]
-        if active{
-            params["headline"] = headLine
-            params["about"] = about
-        }
+            "phone": phone
+        ]
+        
         let observer = Authentication.shared.updateProfile(params: params)
         return observer
     }
