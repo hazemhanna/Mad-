@@ -94,6 +94,7 @@ class EditUSerProfileVc: UIViewController {
     }
     
     @IBAction func ResetTapAction(sender: UIButton) {
+        artistVM.showIndicator()
         forgetPassword()
     }
     
