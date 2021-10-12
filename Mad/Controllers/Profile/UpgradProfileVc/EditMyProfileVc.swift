@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import PTCardTabBar
+import WSTagsField
 
 class EditMyProfileVc: UIViewController {
     
@@ -38,12 +39,28 @@ class EditMyProfileVc: UIViewController {
     @IBOutlet weak var  BiosStack : UIStackView!
     @IBOutlet weak var  lineView1 : UIView!
     @IBOutlet weak var  lineView2 : UIView!
+    @IBOutlet fileprivate weak var tagsView: UIView!
+    @IBOutlet fileprivate weak var tagsViewHeight: NSLayoutConstraint!
+
+    @IBOutlet weak var  joinLbl : UILabel!
+    fileprivate let tagsField = WSTagsField()
+
+    
+    @IBOutlet weak var bannerImage: UIImageView!
+    @IBOutlet weak var ProfileImage: UIImageView!
+    var selectedCat = [Int]()
+
     let cellIdentifier = "SocialCell"
     
     var active = Helper.getIsActive() ?? false
     var artistVM = ArtistViewModel()
     var disposeBag = DisposeBag()
     var countries = [String]()
+    var banner = false
+    var profile = false
+    
+    var showCat = false
+
     open lazy var customTabBar: PTCardTabBar = {
         return PTCardTabBar()
     }()
@@ -74,8 +91,25 @@ class EditMyProfileVc: UIViewController {
         lastNameTF.delegate = self
         firstNameTF.delegate = self
         
-     
+        tagsField.frame = tagsView.bounds
+        tagsView.addSubview(tagsField)
+        tagsField.cornerRadius = 3.0
+        tagsField.spaceBetweenLines = 10
+        tagsField.spaceBetweenTags = 10
+        tagsField.layoutMargins = UIEdgeInsets(top: 2, left: 6, bottom: 2, right: 6)
+        tagsField.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10) //old padding
+        tagsField.placeholder = ""
+        tagsField.placeholderColor = .red
+        tagsField.placeholderAlwaysVisible = true
+        tagsField.backgroundColor = .clear
+        tagsField.textField.returnKeyType = .continue
+        tagsField.delimiter = ""
+        tagsField.tintColor = #colorLiteral(red: 0.9058823529, green: 0.9176470588, blue: 0.937254902, alpha: 1)
+        tagsField.textColor = #colorLiteral(red: 0.1749513745, green: 0.2857730389, blue: 0.4644193649, alpha: 1)
+        tagsField.textDelegate = self
+        textFieldEvents()
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         self.artistVM.showIndicator()
@@ -83,7 +117,7 @@ class EditMyProfileVc: UIViewController {
         getCountry()
         self.navigationController?.navigationBar.isHidden = true
         if let ptcTBC = tabBarController as? PTCardTabBarController {
-            ptcTBC.customTabBar.isHidden = false
+            ptcTBC.customTabBar.isHidden = true
         }
     }
 
@@ -203,8 +237,69 @@ class EditMyProfileVc: UIViewController {
             BiosTf.becomeFirstResponder()
         }
     }
+    
+    
+    @IBAction func profileButton(sender: UIButton) {
+        self.profile = true
+        showImageActionSheet()
+    }
+    
+    @IBAction func bannerButton(sender: UIButton) {
+        self.banner = true
+        showImageActionSheet()
+    }
+    
 }
 
+
+
+extension EditMyProfileVc {
+    
+    fileprivate func textFieldEvents() {
+        
+        tagsField.onDidChangeText = { _, text in
+            print("onDidChangeText")
+
+            let vc = ArtistNameVC.instantiateFromNib()
+            vc?.showArtist = false
+            vc!.onClickCat = { cats in
+             self.selectedCat.append(cats.id ?? 0 )
+                self.tagsField.addTag(cats.name ?? "")
+             self.presentingViewController?.dismiss(animated: true)
+           }
+            if self.showCat{
+           self.present(vc!, animated: true, completion: nil)
+            }
+        }
+        
+        tagsField.onDidAddTag = { field, tag in
+            print("onDidAddTag", tag.text)
+       
+        }
+        
+        tagsField.onDidRemoveTag = { field, tag in
+            print("onDidRemoveTag", tag.text)
+        }
+
+
+        tagsField.onDidChangeHeightTo = { _, height in
+            print("HeightTo \(height)")
+            self.tagsViewHeight.constant = height + 40
+
+        }
+
+        tagsField.onDidSelectTagView = { _, tagView in
+            print("Select \(tagView)")
+        }
+        tagsField.onDidUnselectTagView = { _, tagView in
+            print("Unselect \(tagView)")
+        }
+        tagsField.onShouldAcceptTag = { field in
+            return field.text != "OMG"
+        }
+    }
+
+}
 
 
 extension EditMyProfileVc : UITableViewDelegate,UITableViewDataSource{
@@ -261,6 +356,28 @@ func getProfile() {
         self.flowersLbl.text = String(dataModel.data?.allFollowers ?? 0)
         self.flowingLbl.text = String(dataModel.data?.allFollowing ?? 0)
         self.social = dataModel.data?.socialLinks ?? []
+        
+        if dataModel.data?.categories?.count ?? 0 > 0 {
+            for cat in dataModel.data?.categories ?? [] {
+                self.tagsField.addTag(cat.name ?? "" )
+                self.selectedCat.append(cat.id ?? 0 )
+             }
+        }
+        self.showCat = true
+
+        if let profile = URL(string:   dataModel.data?.profilPicture ??  "" ){
+        self.ProfileImage.kf.setImage(with: profile, placeholder: #imageLiteral(resourceName: "Group 172"))
+       }
+       
+        if let bannerUrl = URL(string:   dataModel.data?.bannerImg ??  "" ){
+            self.bannerImage.kf.setImage(with: bannerUrl, placeholder: #imageLiteral(resourceName: "Mask Group 121"))
+           }
+        let inputFormatter = DateFormatter()
+        inputFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let showDate = inputFormatter.date(from: dataModel.data?.userRegistered ?? "" )
+        inputFormatter.dateFormat = "dd,MMMM,yyyy"
+        let resultString = inputFormatter.string(from: showDate!)
+        self.joinLbl.text = "joined" + " " + resultString
         self.socialTableview.reloadData()
      }
    }, onError: { (error) in
@@ -287,7 +404,29 @@ func getProfile() {
        }).disposed(by: disposeBag)
     }
    
+    func updateBanner(banner : UIImage) {
+        artistVM.updateBanner(image: banner).subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+            self.artistVM.dismissIndicator()
+
+           }
+       }, onError: { (error) in
+        self.artistVM.dismissIndicator()
+
+       }).disposed(by: disposeBag)
+   }
     
+    func updateProfile(profile : UIImage) {
+        artistVM.updateProfile(image: profile).subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+            self.artistVM.dismissIndicator()
+            
+           }
+       }, onError: { (error) in
+        self.artistVM.dismissIndicator()
+
+       }).disposed(by: disposeBag)
+   }
 
 }
 
@@ -296,4 +435,60 @@ extension EditMyProfileVc: UITextFieldDelegate {
         self.view.endEditing(true)
         return true
     }
+}
+
+extension EditMyProfileVc : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func showImageActionSheet() {
+
+        let chooseFromLibraryAction = UIAlertAction(title: "Choose from Library", style: .default) { (action) in
+                self.showImagePicker(sourceType: .photoLibrary)
+            }
+            let cameraAction = UIAlertAction(title: "Take a Picture from Camera", style: .default) { (action) in
+                self.showImagePicker(sourceType: .camera)
+            }
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            AlertService.showAlert(style: .actionSheet, title: "Pick Your Picture", message: nil, actions: [chooseFromLibraryAction, cameraAction, cancelAction], completion: nil)
+    }
+    
+    func showImagePicker(sourceType: UIImagePickerController.SourceType) {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.allowsEditing = true
+        imagePickerController.sourceType = sourceType
+        imagePickerController.mediaTypes = ["public.image"]
+        imagePickerController.view.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        self.present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            if profile == true{
+                self.profile = false
+                self.updateProfile(profile: editedImage)
+                self.ProfileImage.image = editedImage
+            }else if banner == true{
+                self.banner = false
+                self.updateBanner(banner: editedImage)
+                self.bannerImage.image = editedImage
+                self.bannerImage.isHidden = false
+            }
+            
+        } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            if profile == true{
+                self.profile = false
+                self.updateProfile(profile: originalImage)
+                self.ProfileImage.image = originalImage
+            }else if banner == true{
+                self.banner = false
+                self.updateBanner(banner: originalImage)
+                self.bannerImage.image = originalImage
+                self.bannerImage.isHidden = false
+
+            }
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    
 }

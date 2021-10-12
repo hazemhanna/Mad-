@@ -153,7 +153,6 @@ func updateProfile(email : String,phone : String,firstName : String,lastName : S
        }).disposed(by: disposeBag)
     }
     
-    
     func forgetPassword() {
         artistVM.forgetPassword().subscribe(onNext: { (registerData) in
            if registerData.success ?? false {
