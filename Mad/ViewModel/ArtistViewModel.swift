@@ -119,4 +119,17 @@ struct ArtistViewModel {
         let observer = AddServices.shared.uploadVideo(videoUrl:videoUrl,parameters: params)
         return observer
     }
+
+
+    func forgetPassword() -> Observable<AddProductModelJson> {
+        let bindedEmail = Helper.getUserEmail() ?? ""
+         let params: [String: Any] = [
+            "email": bindedEmail,
+           ]
+        let observer = Authentication.shared.forgetPassword(params: params)
+        return observer
+    }
+    
+    
+
 }

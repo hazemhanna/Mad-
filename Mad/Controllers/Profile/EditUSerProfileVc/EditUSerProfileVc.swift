@@ -94,11 +94,8 @@ class EditUSerProfileVc: UIViewController {
     }
     
     @IBAction func ResetTapAction(sender: UIButton) {
-        let main = EmailVc.instantiateFromNib()
-        main?.reset = true
-        self.navigationController?.pushViewController(main!, animated: true)
+        forgetPassword()
     }
-    
     
     @IBAction func editAction(sender: UIButton) {
         if sender.tag == 0 {
@@ -154,6 +151,26 @@ func updateProfile(email : String,phone : String,firstName : String,lastName : S
         self.artistVM.dismissIndicator()
        }).disposed(by: disposeBag)
     }
+    
+    
+    func forgetPassword() {
+        artistVM.forgetPassword().subscribe(onNext: { (registerData) in
+           if registerData.success ?? false {
+               self.artistVM.dismissIndicator()
+            displayMessage(title: "", message: registerData.message ?? "", status: .success, forController: self)
+
+            let main = VerificationVc.instantiateFromNib()
+            main?.reset = true
+            self.navigationController?.pushViewController(main!, animated: true)
+           }else{
+               self.artistVM.dismissIndicator()
+            displayMessage(title: "", message: registerData.message ?? "", status: .error, forController: self)
+           }
+       }, onError: { (error) in
+           self.artistVM.dismissIndicator()
+
+       }).disposed(by: disposeBag)
+   }
     
 
 }
