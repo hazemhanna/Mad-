@@ -30,26 +30,21 @@ class EditMyProfileVc: UIViewController {
     @IBOutlet weak var  instgramName : UITextField!
     @IBOutlet weak var  twitterLink : UITextField!
     @IBOutlet weak var  twittweName : UITextField!
+    @IBOutlet weak var  artistName : UITextField!
     @IBOutlet weak var  socialView : UIView!
-    @IBOutlet weak var  levelLbL : UILabel!
-    @IBOutlet weak var  PointLbl : UILabel!
-    @IBOutlet weak var  flowersLbl : UILabel!
-    @IBOutlet weak var  flowingLbl : UILabel!
     @IBOutlet weak var  headLineStack : UIStackView!
     @IBOutlet weak var  BiosStack : UIStackView!
     @IBOutlet weak var  lineView1 : UIView!
     @IBOutlet weak var  lineView2 : UIView!
     @IBOutlet fileprivate weak var tagsView: UIView!
     @IBOutlet fileprivate weak var tagsViewHeight: NSLayoutConstraint!
-
     @IBOutlet weak var  joinLbl : UILabel!
-    fileprivate let tagsField = WSTagsField()
-
-    
     @IBOutlet weak var bannerImage: UIImageView!
     @IBOutlet weak var ProfileImage: UIImageView!
-    var selectedCat = [Int]()
+    
+    fileprivate let tagsField = WSTagsField()
 
+    var selectedCat = [Int]()
     let cellIdentifier = "SocialCell"
     
     var active = Helper.getIsActive() ?? false
@@ -149,7 +144,9 @@ class EditMyProfileVc: UIViewController {
         let lastName =  self.lastNameTF.text ?? ""
         let age =  self.ageTf.text ?? ""
         let selectCountry =  self.selectCateDropDown.text ?? ""
-        let BiosTf =  self.BiosTf.text ?? ""
+        let BiosTf = self.BiosTf.text ?? ""
+        let name = self.artistName.text ?? ""
+
         let headLine =  self.headLineTf.text ?? ""
                 if email.isEmpty {
                   self.showMessage(text: "Please Enter Your email")
@@ -175,7 +172,10 @@ class EditMyProfileVc: UIViewController {
                   }else if headLine.isEmpty {
                     self.showMessage(text: "Please Enter Your headLine")
                     return false
-                 }else{
+                 }  else if name.isEmpty {
+                    self.showMessage(text: "Please Enter Your Name")
+                    return false
+                 } else{
                     return true
                  }
           
@@ -232,8 +232,9 @@ class EditMyProfileVc: UIViewController {
             selectCateDropDown.becomeFirstResponder()
         }else if sender.tag == 6 {
             headLineTf.becomeFirstResponder()
-
-        }else if sender.tag == 6 {
+        }else if sender.tag == 7 {
+            BiosTf.becomeFirstResponder()
+        }else if sender.tag == 8 {
             BiosTf.becomeFirstResponder()
         }
     }
@@ -351,12 +352,8 @@ func getProfile() {
         self.selectCateDropDown.text = dataModel.data?.country ?? ""
         self.BiosTf.text = dataModel.data?.about ?? ""
         self.headLineTf.text = dataModel.data?.headline ?? ""
-        self.levelLbL.text = dataModel.data?.level ?? ""
-        self.PointLbl.text = String(dataModel.data?.points ?? 0)
-        self.flowersLbl.text = String(dataModel.data?.allFollowers ?? 0)
-        self.flowingLbl.text = String(dataModel.data?.allFollowing ?? 0)
         self.social = dataModel.data?.socialLinks ?? []
-        
+        self.artistName.text = dataModel.data?.name ?? ""
         if dataModel.data?.categories?.count ?? 0 > 0 {
             for cat in dataModel.data?.categories ?? [] {
                 self.tagsField.addTag(cat.name ?? "" )

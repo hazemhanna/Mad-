@@ -41,11 +41,11 @@ class MyProfileVc: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if active{
-            upgradeView.isHidden = false
-            profileviewHeight.constant = 400
-        }else{
             upgradeView.isHidden = true
             profileviewHeight.constant = 300
+        }else{
+            upgradeView.isHidden = false
+            profileviewHeight.constant = 400
         }
     }
     
