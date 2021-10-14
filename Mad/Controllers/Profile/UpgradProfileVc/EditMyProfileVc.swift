@@ -10,7 +10,6 @@ import UIKit
 import RxSwift
 import RxCocoa
 import PTCardTabBar
-import WSTagsField
 
 class EditMyProfileVc: UIViewController {
     
@@ -36,25 +35,29 @@ class EditMyProfileVc: UIViewController {
     @IBOutlet weak var  BiosStack : UIStackView!
     @IBOutlet weak var  lineView1 : UIView!
     @IBOutlet weak var  lineView2 : UIView!
-    @IBOutlet fileprivate weak var tagsView: UIView!
     @IBOutlet fileprivate weak var tagsViewHeight: NSLayoutConstraint!
     @IBOutlet weak var  joinLbl : UILabel!
     @IBOutlet weak var bannerImage: UIImageView!
     @IBOutlet weak var ProfileImage: UIImageView!
-    
-    fileprivate let tagsField = WSTagsField()
+        
+    @IBOutlet weak var musicBtn : UIButton!
+    @IBOutlet weak var artBtn : UIButton!
+    @IBOutlet weak var desigenBtn : UIButton!
 
+    
     var selectedCat = [Int]()
     let cellIdentifier = "SocialCell"
-    
     var active = Helper.getIsActive() ?? false
     var artistVM = ArtistViewModel()
     var disposeBag = DisposeBag()
     var countries = [String]()
     var banner = false
     var profile = false
-    
     var showCat = false
+    
+    var music = false
+    var art = false
+    var desigen = false
 
     open lazy var customTabBar: PTCardTabBar = {
         return PTCardTabBar()
@@ -70,9 +73,9 @@ class EditMyProfileVc: UIViewController {
  
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         setupContentTableView()
-        
         twittweName.delegate = self
         instgramName.delegate = self
         instgramLink.delegate = self
@@ -85,26 +88,8 @@ class EditMyProfileVc: UIViewController {
         ageTf.delegate = self
         lastNameTF.delegate = self
         firstNameTF.delegate = self
-        
-        tagsField.frame = tagsView.bounds
-        tagsView.addSubview(tagsField)
-        tagsField.cornerRadius = 3.0
-        tagsField.spaceBetweenLines = 10
-        tagsField.spaceBetweenTags = 10
-        tagsField.layoutMargins = UIEdgeInsets(top: 2, left: 6, bottom: 2, right: 6)
-        tagsField.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10) //old padding
-        tagsField.placeholder = ""
-        tagsField.placeholderColor = .red
-        tagsField.placeholderAlwaysVisible = true
-        tagsField.backgroundColor = .clear
-        tagsField.textField.returnKeyType = .continue
-        tagsField.delimiter = ""
-        tagsField.tintColor = #colorLiteral(red: 0.9058823529, green: 0.9176470588, blue: 0.937254902, alpha: 1)
-        tagsField.textColor = #colorLiteral(red: 0.1749513745, green: 0.2857730389, blue: 0.4644193649, alpha: 1)
-        tagsField.textDelegate = self
-        textFieldEvents()
-    }
     
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         self.artistVM.showIndicator()
@@ -219,13 +204,10 @@ class EditMyProfileVc: UIViewController {
             firstNameTF.becomeFirstResponder()
         }else if sender.tag == 1 {
             lastNameTF.becomeFirstResponder()
-
         }else if sender.tag == 2 {
             emailTf.becomeFirstResponder()
-
         }else if sender.tag == 3 {
             phoneTf.becomeFirstResponder()
-
         }else if sender.tag == 4 {
             ageTf.becomeFirstResponder()
         }else if sender.tag == 5 {
@@ -250,61 +232,43 @@ class EditMyProfileVc: UIViewController {
         showImageActionSheet()
     }
     
-}
-
-
-
-extension EditMyProfileVc {
     
-    fileprivate func textFieldEvents() {
-        
-        tagsField.onDidChangeText = { _, text in
-            print("onDidChangeText")
-
-            let vc = ArtistNameVC.instantiateFromNib()
-            vc?.showArtist = false
-            vc!.onClickCat = { cats in
-             self.selectedCat.append(cats.id ?? 0 )
-                self.tagsField.addTag(cats.name ?? "")
-             self.presentingViewController?.dismiss(animated: true)
-           }
-            if self.showCat{
-           self.present(vc!, animated: true, completion: nil)
-            }
-        }
-        
-        tagsField.onDidAddTag = { field, tag in
-            print("onDidAddTag", tag.text)
-       
-        }
-        
-        tagsField.onDidRemoveTag = { field, tag in
-            print("onDidRemoveTag", tag.text)
-        }
-
-
-        tagsField.onDidChangeHeightTo = { _, height in
-            print("HeightTo \(height)")
-            self.tagsViewHeight.constant = height + 40
-
-        }
-
-        tagsField.onDidSelectTagView = { _, tagView in
-            print("Select \(tagView)")
-        }
-        tagsField.onDidUnselectTagView = { _, tagView in
-            print("Unselect \(tagView)")
-        }
-        tagsField.onShouldAcceptTag = { field in
-            return field.text != "OMG"
+    @IBAction func musicButton(sender: UIButton) {
+        if self.music {
+            self.musicBtn.setImage(nil, for: .normal)
+            self.music = false
+        }else{
+            self.musicBtn.setImage(#imageLiteral(resourceName: "icon - check (1)"), for: .normal)
+            self.music = true
         }
     }
+    
+    @IBAction func artButton(sender: UIButton) {
+        if self.art {
+            self.artBtn.setImage(nil, for: .normal)
+            self.art = false
+        }else{
+            self.artBtn.setImage(#imageLiteral(resourceName: "icon - check (1)"), for: .normal)
+            self.art = true
 
+        }
+    }
+    
+    @IBAction func desigenButton(sender: UIButton) {
+    if self.desigen  {
+        self.desigenBtn.setImage(nil, for: .normal)
+        self.desigen = false
+    }else{
+        self.desigenBtn.setImage(#imageLiteral(resourceName: "icon - check (1)"), for: .normal)
+        self.desigen = true
+      }
+    }
+    
 }
-
 
 extension EditMyProfileVc : UITableViewDelegate,UITableViewDataSource{
     func setupContentTableView() {
+        
         socialTableview.delegate = self
         socialTableview.dataSource = self
         self.socialTableview.register(UINib(nibName: self.cellIdentifier, bundle: nil), forCellReuseIdentifier: self.cellIdentifier)
@@ -342,6 +306,7 @@ extension EditMyProfileVc {
    }
     
 func getProfile() {
+    
     artistVM.getMyProfile().subscribe(onNext: { (dataModel) in
        if dataModel.success ?? false {
         self.artistVM.dismissIndicator()
@@ -354,21 +319,42 @@ func getProfile() {
         self.headLineTf.text = dataModel.data?.headline ?? ""
         self.social = dataModel.data?.socialLinks ?? []
         self.artistName.text = dataModel.data?.name ?? ""
-        if dataModel.data?.categories?.count ?? 0 > 0 {
-            for cat in dataModel.data?.categories ?? [] {
-                self.tagsField.addTag(cat.name ?? "" )
-                self.selectedCat.append(cat.id ?? 0 )
-             }
-        }
         self.showCat = true
-
         if let profile = URL(string:   dataModel.data?.profilPicture ??  "" ){
         self.ProfileImage.kf.setImage(with: profile, placeholder: #imageLiteral(resourceName: "Group 172"))
-       }
-       
+        }
+        
         if let bannerUrl = URL(string:   dataModel.data?.bannerImg ??  "" ){
             self.bannerImage.kf.setImage(with: bannerUrl, placeholder: #imageLiteral(resourceName: "Mask Group 121"))
-           }
+        }
+        
+        self.music = dataModel.data?.music ?? false
+        self.art = dataModel.data?.art ?? false
+        self.desigen = dataModel.data?.design ?? false
+        if dataModel.data?.music ?? false {
+            self.musicBtn.setImage(#imageLiteral(resourceName: "icon - check (1)"), for: .normal)
+
+        }else{
+            self.musicBtn.setImage(nil, for: .normal)
+
+        }
+        
+        if  dataModel.data?.art ?? false {
+            self.artBtn.setImage(#imageLiteral(resourceName: "icon - check (1)"), for: .normal)
+
+        }else{
+            self.artBtn.setImage(nil, for: .normal)
+
+        }
+        
+        if dataModel.data?.design ?? false  {
+            self.desigenBtn.setImage(#imageLiteral(resourceName: "icon - check (1)"), for: .normal)
+
+        }else{
+            self.desigenBtn.setImage(nil, for: .normal)
+
+        }
+        
         let inputFormatter = DateFormatter()
         inputFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let showDate = inputFormatter.date(from: dataModel.data?.userRegistered ?? "" )

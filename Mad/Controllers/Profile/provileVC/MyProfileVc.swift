@@ -46,6 +46,7 @@ class MyProfileVc: UIViewController {
         }else{
             upgradeView.isHidden = false
             profileviewHeight.constant = 400
+            
         }
     }
     
