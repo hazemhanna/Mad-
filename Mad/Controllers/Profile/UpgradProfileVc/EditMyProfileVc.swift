@@ -170,8 +170,7 @@ class EditMyProfileVc: UIViewController {
     @IBAction func saveButton(sender: UIButton) {
         guard self.validateInput() else { return }
         self.artistVM.showIndicator()
-            self.upgradeProfile(email: self.emailTf.text ?? "", phone: self.phoneTf.text ?? "", firstName: self.firstNameTF.text ?? "", lastName: self.lastNameTF.text ?? "", age: self.ageTf.text ?? "", country: self.selectCateDropDown.text ?? "", about: self.BiosTf.text ?? "", headLine: self.headLineTf.text ?? "", instgram: self.instgramLink.text ?? "", faceBook: self.facebookLink.text ?? "", twitter: self.twitterLink.text ?? "")
-       
+        self.upgradeProfile(email: self.emailTf.text ?? "", phone: self.phoneTf.text ?? "", firstName: self.firstNameTF.text ?? "", lastName: self.lastNameTF.text ?? "", age: self.ageTf.text ?? "", country: self.selectCateDropDown.text ?? "", about: self.BiosTf.text ?? "", headLine: self.headLineTf.text ?? "", instgram: self.instgramLink.text ?? "", faceBook: self.facebookLink.text ?? "", twitter: self.twitterLink.text ?? "",name:self.artistName.text ?? "" ,music:self.music,art:self.art,design:self.desigen)
     }
     
     
@@ -369,8 +368,8 @@ func getProfile() {
    }).disposed(by: disposeBag)
 }
     
-    func upgradeProfile(email : String,phone : String,firstName : String,lastName : String,age : String,country : String,about : String,headLine : String,instgram : String,faceBook : String,twitter : String) {
-        artistVM.upgradeMyProfile(email: email, phone: phone, firstName: firstName, lastName: lastName, age: age, country: country, about: about, headLine: headLine, instgram: instgram, faceBook: faceBook, twitter: twitter).subscribe(onNext: { (dataModel) in
+    func upgradeProfile(email : String,phone : String,firstName : String,lastName : String,age : String,country : String,about : String,headLine : String,instgram : String,faceBook : String,twitter : String,name:String,music:Bool,art:Bool,design:Bool) {
+        artistVM.upgradeMyProfile(email: email, phone: phone, firstName: firstName, lastName: lastName, age: age, country: country, about: about, headLine: headLine, instgram: instgram, faceBook: faceBook, twitter: twitter,name:name,music:music,art:art,design:design).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
             self.artistVM.dismissIndicator()
             self.showMessage(text: dataModel.message ?? "")

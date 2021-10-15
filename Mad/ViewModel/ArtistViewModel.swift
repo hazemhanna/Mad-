@@ -84,7 +84,7 @@ struct ArtistViewModel {
         return observer
     }
     
-    func upgradeMyProfile(email : String,phone : String,firstName : String,lastName : String,age : String,country : String,about : String,headLine : String,instgram : String,faceBook : String,twitter : String) -> Observable<AddProductModelJson> {
+    func upgradeMyProfile(email : String,phone : String,firstName : String,lastName : String,age : String,country : String,about : String,headLine : String,instgram : String,faceBook : String,twitter : String,name:String,music:Bool,art:Bool,design:Bool) -> Observable<AddProductModelJson> {
         let params: [String: Any] = [
             "email": email,
             "first_name": firstName,
@@ -96,7 +96,11 @@ struct ArtistViewModel {
             "country": country,
             "facebook": faceBook,
             "instagram": instgram,
-            "twitter":twitter
+            "twitter":twitter,
+            "public_name":name,
+            "category_music":music,
+            "category_art":art,
+            "category_design":design
            ]
        
         

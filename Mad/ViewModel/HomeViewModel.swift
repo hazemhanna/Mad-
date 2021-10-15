@@ -122,6 +122,9 @@ struct HomeViewModel {
          return observer
      }
     
-    
+    func getMyProfile() -> Observable<ProfileModelJSON> {
+         let observer = GetServices.shared.getMyProfile()
+         return observer
+     }
     
 }

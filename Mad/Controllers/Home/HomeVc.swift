@@ -14,10 +14,15 @@ class HomeVC: UIViewController {
     @IBOutlet weak var titleCollectionView: UICollectionView!
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var titleView : UIView!
+    @IBOutlet weak var blackView : UIView!
+    @IBOutlet weak var nameLbl : UILabel!
 
+    var token = Helper.getAPIToken() ?? ""
     var homeVM = HomeViewModel()
     var disposeBag = DisposeBag()
     var selectedIndex = 0
+    var completed = Helper.getIsCompleted() ?? false
+    
     var titles = [String](){
           didSet {
               DispatchQueue.main.async {
@@ -26,6 +31,30 @@ class HomeVC: UIViewController {
           }
       }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setuptitleCollectionView()
+        selectView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if self.token == "" {
+            blackView.isHidden = true
+        }else{
+          if completed {
+            blackView.isHidden = true
+          }else{
+            homeVM.showIndicator()
+            getProfile()
+            blackView.isHidden = false
+        }
+    }
+    self.navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = false
+    }
     lazy var instantVC1: ArtistsVc = {
         var vc = ArtistsVc.instantiateFromNib()
         self.add(asChildViewController: vc!)
@@ -60,21 +89,6 @@ class HomeVC: UIViewController {
         return vc!
     }()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setuptitleCollectionView()
-        selectView()
-    }
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.isHidden = true
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        self.navigationController?.navigationBar.isHidden = false
-    }
-    
     func selectView(){
         self.remove(asChildViewController: self.instantVC1)
         self.remove(asChildViewController: self.instantVC2)
@@ -93,6 +107,18 @@ class HomeVC: UIViewController {
         }
         
     }
+    
+    @IBAction func completeAction(_ sender: UIButton) {
+        self.blackView.isHidden = true
+        let main = EditMyProfileVc.instantiateFromNib()
+        self.navigationController?.pushViewController(main!, animated: true)
+    }
+    
+    @IBAction func dismisAction(_ sender: UIButton) {
+        self.blackView.isHidden = true
+    }
+    
+    
 }
 
 //MARK:- Data Binding
@@ -161,6 +187,19 @@ extension HomeVC: UICollectionViewDelegateFlowLayout {
                 // Notify Child View Controller
                 viewController.removeFromParent()
             }
+        
+        func getProfile() {
+            homeVM.getMyProfile().subscribe(onNext: { (dataModel) in
+               if dataModel.success ?? false {
+                self.homeVM.dismissIndicator()
+                self.nameLbl.text = "HI".localized + " " + (dataModel.data?.name ?? "")
+               }
+           }, onError: { (error) in
+            self.homeVM.dismissIndicator()
+
+           }).disposed(by: disposeBag)
+        }
+        
     }
 
 

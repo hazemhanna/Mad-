@@ -27,7 +27,7 @@
                         <rect key="frame" x="0.0" y="44" width="414" height="75"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User menu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e4n-Ue-ZGW">
-                                <rect key="frame" x="166" y="29.5" width="82.5" height="16"/>
+                                <rect key="frame" x="168" y="28" width="78" height="19"/>
                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="16"/>
                                 <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -76,13 +76,13 @@
                                                 <rect key="frame" x="0.0" y="-110" width="350" height="110"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upgrade to artist account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uX5-qC-BUA">
-                                                        <rect key="frame" x="65.5" y="16" width="219.5" height="18"/>
+                                                        <rect key="frame" x="72" y="16" width="206.5" height="21"/>
                                                         <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="18"/>
                                                         <color key="textColor" red="0.11764705882352941" green="0.21568627450980393" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R4l-cH-JbD">
-                                                        <rect key="frame" x="30" y="50" width="290" height="60"/>
+                                                        <rect key="frame" x="30" y="53" width="290" height="60"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle 16" translatesAutoresizingMaskIntoConstraints="NO" id="i1f-rs-wSM">
                                                                 <rect key="frame" x="0.0" y="0.0" width="280" height="60"/>
@@ -141,26 +141,54 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vvo-HW-CeK">
                                                 <rect key="frame" x="0.0" y="0.0" width="350" height="150"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Isq-Vw-wg8" customClass="CustomButtons" customModule="Mad" customModuleProvider="target">
-                                                        <rect key="frame" x="75" y="16" width="200" height="45"/>
-                                                        <color key="backgroundColor" red="0.8980392157" green="0.12549019610000001" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CPc-Y5-epu">
+                                                        <rect key="frame" x="35" y="32" width="280" height="60"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle 16" translatesAutoresizingMaskIntoConstraints="NO" id="PA1-Gk-YQj">
+                                                                <rect key="frame" x="0.0" y="0.0" width="280" height="60"/>
+                                                            </imageView>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group 336" translatesAutoresizingMaskIntoConstraints="NO" id="3pV-lX-whA">
+                                                                <rect key="frame" x="0.0" y="-9" width="80" height="68"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="68" id="vse-JW-dXt"/>
+                                                                    <constraint firstAttribute="width" constant="80" id="w3B-TQ-4Zg"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pDg-HM-vOQ" customClass="CustomButtons" customModule="Mad" customModuleProvider="target">
+                                                                <rect key="frame" x="1" y="1.5" width="266" height="45"/>
+                                                                <color key="backgroundColor" red="0.28235294119999998" green="0.51372549020000002" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="20"/>
+                                                                <inset key="imageEdgeInsets" minX="-32" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                                <state key="normal" title="Edit artist profile" image="Group 453">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="20"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="upgradeButtonWithSender:" destination="gH6-x4-vCf" eventType="touchUpInside" id="Ytn-wn-Vcg"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="200" id="mGp-Hl-Rd8"/>
-                                                            <constraint firstAttribute="height" constant="45" id="pfK-sG-cA4"/>
+                                                            <constraint firstItem="pDg-HM-vOQ" firstAttribute="leading" secondItem="CPc-Y5-epu" secondAttribute="leading" constant="1" id="Fub-Rp-rBH"/>
+                                                            <constraint firstAttribute="height" constant="60" id="Fxe-Do-Uk6"/>
+                                                            <constraint firstItem="3pV-lX-whA" firstAttribute="leading" secondItem="CPc-Y5-epu" secondAttribute="leading" id="H5v-Hh-Oab"/>
+                                                            <constraint firstItem="pDg-HM-vOQ" firstAttribute="height" secondItem="PA1-Gk-YQj" secondAttribute="height" multiplier="0.75" id="LnJ-9f-nX1"/>
+                                                            <constraint firstItem="pDg-HM-vOQ" firstAttribute="width" secondItem="PA1-Gk-YQj" secondAttribute="width" multiplier="0.95" id="Mxv-iy-dJQ"/>
+                                                            <constraint firstItem="pDg-HM-vOQ" firstAttribute="centerY" secondItem="PA1-Gk-YQj" secondAttribute="centerY" constant="-6" id="TUS-OH-2pb"/>
+                                                            <constraint firstItem="PA1-Gk-YQj" firstAttribute="top" secondItem="CPc-Y5-epu" secondAttribute="top" id="WNK-Dn-thH"/>
+                                                            <constraint firstAttribute="bottom" secondItem="PA1-Gk-YQj" secondAttribute="bottom" id="enA-Ln-1f1"/>
+                                                            <constraint firstItem="pDg-HM-vOQ" firstAttribute="centerX" secondItem="PA1-Gk-YQj" secondAttribute="centerX" constant="-6" id="pcB-Ro-vBc"/>
+                                                            <constraint firstItem="3pV-lX-whA" firstAttribute="centerY" secondItem="PA1-Gk-YQj" secondAttribute="centerY" constant="-5" id="sOB-jb-kxA"/>
+                                                            <constraint firstItem="PA1-Gk-YQj" firstAttribute="leading" secondItem="3pV-lX-whA" secondAttribute="leading" id="tle-QN-aUS"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="20"/>
-                                                        <inset key="imageEdgeInsets" minX="-32" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                        <state key="normal" title="Shout Out" image="Component 61 – 3">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="20"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </button>
+                                                    </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fai-vp-x3E">
-                                                        <rect key="frame" x="0.0" y="93" width="350" height="1"/>
+                                                        <rect key="frame" x="0.0" y="100" width="350" height="1"/>
                                                         <color key="backgroundColor" red="0.87843137250000003" green="0.89019607840000003" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="33s-ug-l5u"/>
@@ -189,14 +217,15 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
+                                                    <constraint firstItem="CPc-Y5-epu" firstAttribute="width" secondItem="Vvo-HW-CeK" secondAttribute="width" multiplier="0.8" id="7C2-Lx-nDV"/>
+                                                    <constraint firstItem="fai-vp-x3E" firstAttribute="top" secondItem="CPc-Y5-epu" secondAttribute="bottom" constant="8" id="7af-Ou-2De"/>
+                                                    <constraint firstItem="CPc-Y5-epu" firstAttribute="centerX" secondItem="Vvo-HW-CeK" secondAttribute="centerX" id="9Xk-a4-uRj"/>
                                                     <constraint firstAttribute="height" constant="150" id="C5K-LJ-iqk"/>
                                                     <constraint firstAttribute="trailing" secondItem="fai-vp-x3E" secondAttribute="trailing" id="IZZ-vs-RGn"/>
-                                                    <constraint firstItem="fai-vp-x3E" firstAttribute="top" secondItem="Isq-Vw-wg8" secondAttribute="bottom" constant="32" id="OgX-HH-09R"/>
                                                     <constraint firstItem="fai-vp-x3E" firstAttribute="leading" secondItem="Vvo-HW-CeK" secondAttribute="leading" id="aoX-Nq-Kkx"/>
                                                     <constraint firstAttribute="trailing" secondItem="ncV-tE-YQH" secondAttribute="trailing" id="br9-Xz-3MI"/>
-                                                    <constraint firstItem="Isq-Vw-wg8" firstAttribute="centerX" secondItem="Vvo-HW-CeK" secondAttribute="centerX" id="dQA-iX-hpd"/>
                                                     <constraint firstAttribute="bottom" secondItem="ncV-tE-YQH" secondAttribute="bottom" id="iBs-16-Jj4"/>
-                                                    <constraint firstItem="Isq-Vw-wg8" firstAttribute="top" secondItem="Vvo-HW-CeK" secondAttribute="top" constant="16" id="qt4-Q4-ZOf"/>
+                                                    <constraint firstItem="CPc-Y5-epu" firstAttribute="top" secondItem="Vvo-HW-CeK" secondAttribute="top" constant="32" id="wOU-Sv-VwG"/>
                                                     <constraint firstItem="ncV-tE-YQH" firstAttribute="leading" secondItem="Vvo-HW-CeK" secondAttribute="leading" id="yXc-SV-fID"/>
                                                 </constraints>
                                             </view>
@@ -261,13 +290,13 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Purchase menu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sWl-qz-PSc">
-                                                <rect key="frame" x="0.0" y="352" width="350" height="16"/>
+                                                <rect key="frame" x="0.0" y="352" width="350" height="19"/>
                                                 <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="16"/>
                                                 <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Qv1-er-ijs">
-                                                <rect key="frame" x="0.0" y="400" width="350" height="20"/>
+                                                <rect key="frame" x="0.0" y="403" width="350" height="20"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HOe-lL-5wq">
                                                         <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -313,7 +342,7 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ILZ-8x-K5r">
-                                                <rect key="frame" x="0.0" y="452" width="350" height="30"/>
+                                                <rect key="frame" x="0.0" y="455" width="350" height="33"/>
                                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="18"/>
                                                 <state key="normal" title="My orders">
                                                     <color key="titleColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -323,7 +352,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QwQ-Rp-fCo">
-                                                <rect key="frame" x="0.0" y="514" width="350" height="30"/>
+                                                <rect key="frame" x="0.0" y="520" width="350" height="33"/>
                                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="18"/>
                                                 <state key="normal" title="Contact &amp; address details">
                                                     <color key="titleColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -333,7 +362,7 @@
                                                 </connections>
                                             </button>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AcZ-mn-1qW">
-                                                <rect key="frame" x="0.0" y="560" width="350" height="0.0"/>
+                                                <rect key="frame" x="0.0" y="569" width="350" height="0.0"/>
                                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="18"/>
                                                 <state key="normal" title="Payment details">
                                                     <color key="titleColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -343,20 +372,20 @@
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D7g-Gb-S8Y">
-                                                <rect key="frame" x="0.0" y="576" width="350" height="1"/>
+                                                <rect key="frame" x="0.0" y="585" width="350" height="1"/>
                                                 <color key="backgroundColor" red="0.87843137250000003" green="0.89019607840000003" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="hfm-ie-Qpx"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Application Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wIX-2e-3iU">
-                                                <rect key="frame" x="0.0" y="609" width="350" height="16"/>
+                                                <rect key="frame" x="0.0" y="618" width="350" height="19"/>
                                                 <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="16"/>
                                                 <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vmv-lE-BF4">
-                                                <rect key="frame" x="0.0" y="657" width="350" height="30"/>
+                                                <rect key="frame" x="0.0" y="669" width="350" height="33"/>
                                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="18"/>
                                                 <state key="normal" title="Language">
                                                     <color key="titleColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -366,14 +395,14 @@
                                                 </connections>
                                             </button>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cFm-kf-Z7h">
-                                                <rect key="frame" x="0.0" y="703" width="350" height="0.0"/>
+                                                <rect key="frame" x="0.0" y="718" width="350" height="0.0"/>
                                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="18"/>
                                                 <state key="normal" title="Notifications">
                                                     <color key="titleColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zCU-Kb-gP4">
-                                                <rect key="frame" x="0.0" y="719" width="350" height="30"/>
+                                                <rect key="frame" x="0.0" y="734" width="350" height="33"/>
                                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="18"/>
                                                 <state key="normal" title="Terms of Use">
                                                     <color key="titleColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -383,7 +412,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ryX-oN-aVk">
-                                                <rect key="frame" x="0.0" y="781" width="350" height="30"/>
+                                                <rect key="frame" x="0.0" y="799" width="350" height="33"/>
                                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="18"/>
                                                 <state key="normal" title=" privacy and Policies ">
                                                     <color key="titleColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -393,14 +422,14 @@
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3hW-dv-D7p">
-                                                <rect key="frame" x="0.0" y="843" width="350" height="1"/>
+                                                <rect key="frame" x="0.0" y="864" width="350" height="1"/>
                                                 <color key="backgroundColor" red="0.87843137250000003" green="0.89019607840000003" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="DL8-Aa-nti"/>
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="b0O-Em-Sdb">
-                                                <rect key="frame" x="0.0" y="876" width="350" height="20"/>
+                                                <rect key="frame" x="0.0" y="897" width="350" height="20"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8xL-wA-2yR">
                                                         <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -423,7 +452,7 @@
                                                 </subviews>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7pZ-GA-8wJ">
-                                                <rect key="frame" x="0.0" y="928" width="350" height="172"/>
+                                                <rect key="frame" x="0.0" y="949" width="350" height="151"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                         </subviews>
@@ -477,7 +506,6 @@
                 <outlet property="paurchesedLbl" destination="sWl-qz-PSc" id="HOx-3j-mH3"/>
                 <outlet property="paymentBtn" destination="AcZ-mn-1qW" id="QGU-bp-ubl"/>
                 <outlet property="savedBtn" destination="fB5-Oi-V1D" id="Xhb-rJ-ygE"/>
-                <outlet property="shoutOutBtn" destination="Isq-Vw-wg8" id="9we-UW-YyI"/>
                 <outlet property="termsCondetionsBtn" destination="ryX-oN-aVk" id="8et-nT-3dC"/>
                 <outlet property="termsUsebtn" destination="zCU-Kb-gP4" id="e6x-Ub-nd6"/>
                 <outlet property="titleLble" destination="e4n-Ue-ZGW" id="PD0-qT-r9a"/>
@@ -489,14 +517,13 @@
     </objects>
     <designables>
         <designable name="9OD-cN-C4v">
-            <size key="intrinsicContentSize" width="165" height="32"/>
+            <size key="intrinsicContentSize" width="159" height="32"/>
         </designable>
-        <designable name="Isq-Vw-wg8">
-            <size key="intrinsicContentSize" width="117" height="20"/>
+        <designable name="pDg-HM-vOQ">
+            <size key="intrinsicContentSize" width="183" height="32"/>
         </designable>
     </designables>
     <resources>
-        <image name="Component 61 – 3" width="19" height="19.5"/>
         <image name="Group 119" width="36" height="17"/>
         <image name="Group 140" width="20" height="18"/>
         <image name="Group 271" width="13.5" height="13.5"/>

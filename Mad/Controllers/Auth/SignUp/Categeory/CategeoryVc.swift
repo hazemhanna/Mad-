@@ -145,7 +145,9 @@ extension CategeoryVc {
                                   ,lName : registerData.data?.user?.lastName ?? ""
                                   , type:  registerData.data?.user?.madArtist ?? false
                                   , id: registerData.data?.user?.artistID ?? 0
-                                  , isActive: registerData.data?.user?.activatedArtist ?? false, profile: registerData.data?.user?.profilPicture ?? "" )
+                                  , isActive: registerData.data?.user?.activatedArtist ?? false
+                                  , profile: registerData.data?.user?.profilPicture ?? ""
+                                  ,completed : registerData.data?.user?.completed_profile ?? false)
 
                 let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CardTabBarController")
                 if let appDelegate = UIApplication.shared.delegate {

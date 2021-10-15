@@ -17,9 +17,7 @@ class MenuVC: UIViewController {
     @IBOutlet weak var artistView: UIView!
     @IBOutlet weak var titleLble: UILabel!
     @IBOutlet weak var cartCount: UILabel!
-        
     @IBOutlet weak var upgradeBtn: UIButton!
-    @IBOutlet weak var shoutOutBtn: UIButton!
     @IBOutlet weak var savedBtn : UIButton!
     @IBOutlet weak var favouriteBtn: UIButton!
     @IBOutlet weak var cartBtn: UIButton!
@@ -33,14 +31,11 @@ class MenuVC: UIViewController {
     @IBOutlet weak var  logoutBtn  : UIButton!
     @IBOutlet weak var aplicationSettingLbl : UILabel!
     @IBOutlet weak var paurchesedLbl : UILabel!
-
+    
     var active = Helper.getIsActive() ?? false
     var disposeBag = DisposeBag()
     var cartVM = CartViewModel()
-    
     var draftCompetitions = [Competitions]()
-
-    
     open lazy var customTabBar: PTCardTabBar = {
         return PTCardTabBar()
     }()
@@ -61,7 +56,6 @@ class MenuVC: UIViewController {
         paurchesedLbl.text = "Purchase.menu".localized
         aplicationSettingLbl.text = "Application.Settings".localized
         upgradeBtn.setTitle("Upgrade.now".localized, for: .normal)
-        shoutOutBtn.setTitle("Shout.Out".localized, for: .normal)
         savedBtn.setTitle("Saved.competitions".localized, for: .normal)
         favouriteBtn.setTitle("Favorites".localized, for: .normal)
         cartBtn.setTitle("MyCard".localized, for: .normal)

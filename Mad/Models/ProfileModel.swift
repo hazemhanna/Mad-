@@ -23,6 +23,7 @@ struct ProfileModel: Codable {
     let headline, about, level: String?
     let points: Int?
     let activatedArtist: Bool?
+    let completed_profile: Bool?
     let userEmail, phone: String?
     let bannerImg: String?
     let profilPicture: String?
@@ -55,7 +56,7 @@ struct ProfileModel: Codable {
         case profilPicture = "profil_picture"
         case age
         case madArtist = "mad_artist"
-        case activate, country, music, art, design, facebook, instagram, twitter, youtube,videos
+        case activate, country, music, art, design, facebook, instagram, twitter, youtube,videos,completed_profile
         case socialLinks = "social_links"
         case allFollowers = "all_followers"
         case allFollowing = "all_following"
