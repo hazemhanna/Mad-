@@ -27,8 +27,14 @@ class NameVc: UIViewController {
         titleLbl.text = "YOUR.NAME".localized
         nextBtn.setTitle( "Next".localized, for: .normal)
         
+        let tap = UITapGestureRecognizer(target: self, action: #selector(NameVc.dismissKeyboard))
+         view.addGestureRecognizer(tap)
     }
-
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
 
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true

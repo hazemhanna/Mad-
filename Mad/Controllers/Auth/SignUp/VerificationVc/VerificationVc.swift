@@ -27,7 +27,15 @@ class VerificationVc: UIViewController {
         codeTF.placeholder = "type.code".localized
         titleLbl.text = "Verification.code".localized
         nextBtn.setTitle( "Next".localized, for: .normal)
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(VerificationVc.dismissKeyboard))
+         view.addGestureRecognizer(tap)
     }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true

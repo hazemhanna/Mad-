@@ -23,7 +23,15 @@ class CreatPasswordVc: UIViewController {
         mainTitleLbl.text = "CREATE.PASSWORD".localized
         titleLbl.text = "Your.Password".localized
         nextBtn.setTitle( "Next".localized, for: .normal)
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(CreatPasswordVc.dismissKeyboard))
+         view.addGestureRecognizer(tap)
     }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
 
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true

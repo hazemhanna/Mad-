@@ -27,6 +27,15 @@ class EmailVc: UIViewController {
         sigenLbl.isUserInteractionEnabled = true
         sigenLbl.addGestureRecognizer(gestureRecognizer)
         setupMultiColorRegisterLabel()
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(EmailVc.dismissKeyboard))
+         view.addGestureRecognizer(tap)
+        
+    }
+    
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     override func viewWillAppear(_ animated: Bool) {

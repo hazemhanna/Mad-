@@ -26,8 +26,14 @@ class PasswordVc: UIViewController {
         resetLbl.isUserInteractionEnabled = true
         resetLbl.addGestureRecognizer(gestureRecognizer)
         setupMultiColorRegisterLabel()
-        
         passwordTF.delegate = self
+        let tap = UITapGestureRecognizer(target: self, action: #selector(PasswordVc.dismissKeyboard))
+         view.addGestureRecognizer(tap)
+    
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,7 +48,6 @@ class PasswordVc: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    
     var showOld  = false
     @IBAction func showOldActions(_ sender: UIButton) {
               if showOld ==  false  {
@@ -56,7 +61,6 @@ class PasswordVc: UIViewController {
               }
       }
     
-
     @objc func ResetTapAction(_ sender: UITapGestureRecognizer) {
         let main = EmailVc.instantiateFromNib()
         main?.reset = true

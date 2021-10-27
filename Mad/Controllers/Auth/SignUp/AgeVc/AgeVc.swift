@@ -27,9 +27,15 @@ class AgeVc: UIViewController {
         questionLbl.text = "How.old".localized
         titleLbl.text = "Age".localized
         nextBtn.setTitle( "Next".localized, for: .normal)
-    
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(AgeVc.dismissKeyboard))
+         view.addGestureRecognizer(tap)
     }
-
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
 
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
