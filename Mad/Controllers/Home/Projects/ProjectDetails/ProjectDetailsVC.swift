@@ -10,12 +10,12 @@ import RxSwift
 import RxCocoa
 import PTCardTabBar
 import SwiftSoup
+import WebKit
 
 
-class ProjectDetailsVC: UIViewController {
+class ProjectDetailsVC: UIViewController,WKNavigationDelegate {
 
     @IBOutlet weak var productCollectionView: UICollectionView!
-    @IBOutlet weak var imageCollectionView: UICollectionView!
     @IBOutlet weak var artistCollectionView: UICollectionView!
     @IBOutlet weak var reviewTableView: UITableView!
     @IBOutlet weak var productView: UIView!
@@ -27,10 +27,8 @@ class ProjectDetailsVC: UIViewController {
     @IBOutlet weak var projectImage: UIImageView!
     @IBOutlet weak var favouriteBtn: UIButton!
     @IBOutlet weak var shareBtn: UIButton!
-    @IBOutlet weak var aboutTV: UILabel!
     @IBOutlet weak var typeLbl: UILabel!
     @IBOutlet weak var contentSizeHieght : NSLayoutConstraint!
-    @IBOutlet weak var imageCollectionViewHieht : NSLayoutConstraint!
     @IBOutlet weak var commentTableViewHeight : NSLayoutConstraint!
     @IBOutlet weak var descriptionBtn: UIButton!
     @IBOutlet weak var reviewsBtn: UIButton!
@@ -47,6 +45,10 @@ class ProjectDetailsVC: UIViewController {
     private let cellIdentifier3 = "AddsCell"
     private let cellIdentifier4 = "ProjectCommentCell"
  
+    @IBOutlet var webView: WKWebView!
+
+    
+    
     var homeVM = HomeViewModel()
     var disposeBag = DisposeBag()
     var projectId = Int()
@@ -74,34 +76,26 @@ class ProjectDetailsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.productCollectionView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
+        self.artistCollectionView.register(UINib(nibName: cellIdentifier2, bundle: nil), forCellWithReuseIdentifier: cellIdentifier2)
         productCollectionView.delegate = self
         productCollectionView.dataSource = self
-        
-        
-        self.artistCollectionView.register(UINib(nibName: cellIdentifier2, bundle: nil), forCellWithReuseIdentifier: cellIdentifier2)
-
         artistCollectionView.delegate = self
         artistCollectionView.dataSource = self
-        
-        
-        self.imageCollectionView.register(UINib(nibName: cellIdentifier3, bundle: nil), forCellWithReuseIdentifier: cellIdentifier3)
-        imageCollectionView.delegate = self
-        imageCollectionView.dataSource = self
-        
-        
         setupContentTableView()
         self.homeVM.showIndicator()
         mainTitleLbl.text = "Project.title".localized
         descriptionBtn.setTitle("About".localized, for: .normal)
         reviewsBtn.setTitle("Comment".localized, for: .normal)
         commentTF.delegate = self
+        webView.scrollView.showsHorizontalScrollIndicator = false
+        webView.scrollView.showsVerticalScrollIndicator = false
+        webView.isOpaque = false
+        webView.navigationDelegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.imageCollectionView.isHidden = true
-        self.navigationController?.navigationBar.isHidden = true       
+        self.navigationController?.navigationBar.isHidden = true
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -140,8 +134,8 @@ class ProjectDetailsVC: UIViewController {
             aboutView.isHidden = false
             reviewsStack.isHidden = true
             artistView.isHidden = true
-            let height = self.aboutTV.intrinsicContentSize.height
-            self.contentSizeHieght.constant = 800 + height
+            let height = webView.scrollView.contentSize.height
+            self.contentSizeHieght.constant =  height + 500
             self.productView.isHidden = false
 
         }else if sender.tag == 2{
@@ -160,10 +154,16 @@ class ProjectDetailsVC: UIViewController {
             aboutView.isHidden = true
             reviewsStack.isHidden = false
             artistView.isHidden = true
-            self.productView.isHidden = true
+           self.productView.isHidden = true
             self.contentSizeHieght.constant = CGFloat(self.tableViewheight + 500)
         }
     }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        let height = webView.scrollView.contentSize.height
+        self.contentSizeHieght.constant =  height + 500
+    }
+    
     
     @IBAction func backButton(sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
@@ -192,7 +192,7 @@ class ProjectDetailsVC: UIViewController {
     @IBAction func shareAction(_ sender: UIButton) {
         if Helper.getAPIToken() != nil {
             self.shareProject(productID : self.projectId)
-            let text = self.aboutTV.text ?? ""
+            let text =  ""
             let image = self.projectImage.image ?? #imageLiteral(resourceName: "Component 63 – 1")
             let textToShare = [ text ,image] as [Any]
             let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
@@ -232,10 +232,11 @@ extension ProjectDetailsVC : UITableViewDelegate,UITableViewDataSource{
         reviewTableView.delegate = self
         reviewTableView.dataSource = self
         self.reviewTableView.register(UINib(nibName: self.cellIdentifier4, bundle: nil), forCellReuseIdentifier: self.cellIdentifier4)
-    }
+      }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return comments.count
+     
+        return comments.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -248,7 +249,7 @@ extension ProjectDetailsVC : UITableViewDelegate,UITableViewDataSource{
         cell.confic(name: (comments[indexPath.row].author?.firstName ?? "") + " " + (comments[indexPath.row].author?.lastName ?? "")
             , imageUrl: comments[indexPath.row].author?.profilePicture ?? ""
             , date:time
-                    , comment: comments[indexPath.row].content?.html2String ?? "" )
+            , comment: comments[indexPath.row].content?.html2String ?? "" )
         
         return cell
     }
@@ -263,9 +264,7 @@ extension ProjectDetailsVC : UITableViewDelegate,UITableViewDataSource{
 
 extension ProjectDetailsVC :  UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-       if collectionView == imageCollectionView{
-        return imagesHtml.count
-       }else if collectionView ==  artistCollectionView{
+      if collectionView ==  artistCollectionView{
         return artists.count
     }else{
         return self.showShimmer ? 2 : product.count
@@ -274,16 +273,7 @@ extension ProjectDetailsVC :  UICollectionViewDelegate, UICollectionViewDataSour
 }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == imageCollectionView{
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier3, for: indexPath) as! AddsCell
-            
-            if imagesHtml.count > 0 {
-            if let url = URL(string: imagesHtml[indexPath.row] ?? ""){
-               cell.photo.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "Mask Group 32"))
-            }
-            }
-            return cell
-        }else if collectionView ==  artistCollectionView{
+       if collectionView ==  artistCollectionView{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier2, for: indexPath) as! ProjectCell
 
             if !self.showShimmer {
@@ -336,10 +326,7 @@ extension ProjectDetailsVC :  UICollectionViewDelegate, UICollectionViewDataSour
         let flowayout = collectionViewLayout as? UICollectionViewFlowLayout
         let space: CGFloat = (flowayout?.minimumInteritemSpacing ?? 0.0) + (flowayout?.sectionInset.left ?? 0.0) + (flowayout?.sectionInset.right ?? 0.0)
 
-        if collectionView == imageCollectionView {
-            let size:CGFloat = (collectionView.frame.size.width - space) / 2
-            return CGSize(width: size, height: (collectionView.frame.size.height) / 2)
-        }else if collectionView == artistCollectionView{
+     if collectionView == artistCollectionView{
             let size:CGFloat = (collectionView.frame.size.width - space) / 3.3
             return CGSize(width: size, height: 100)
             
@@ -358,7 +345,20 @@ func getProjectDetails(productID : Int) {
         
         self.LikeLbl.text = "\(data.data?.favoriteCount ?? 0)"
         self.shareLbl.text = "\(data.data?.shareCount ?? 0)"
-        self.aboutTV.text = data.data?.content?.html2String ?? ""
+        //self.webView.loadHTMLString(data.data?.content  ?? "" , baseURL: nil)
+        
+//        Graphik-Regular
+//        Graphik-Light
+//        Graphik-Medium
+//        Graphik-Semibold
+//        Graphik-Bold
+//        Graphik-Black
+        let color = UIColor(red: 30/255, green: 55/255, blue: 102/255, alpha: 1)
+        
+        let  myVariable = "<font face='Graphik-Regular' size='16' color= '\(color)'>%@"
+        let varr = String(format: myVariable, (data.data?.content ?? ""))
+
+        self.webView.loadHTMLString(varr, baseURL: nil)
         self.product = data.data?.relateProducts ?? []
         self.artists = data.data?.tagged ?? []
         self.comments = data.data?.comments ?? []
@@ -393,43 +393,15 @@ func getProjectDetails(productID : Int) {
         self.projectImage.kf.setImage(with: projectUrl, placeholder: #imageLiteral(resourceName: "Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4"))
         }
         
-        
         self.objectName = data.data?.title ?? ""
         self.objectImage = data.data?.imageURL ?? ""
-
-        
         self.tableViewheight = (self.comments.count * 120)
-
         if data.data?.isFavorite ?? false {
             self.favouriteBtn.setImage(#imageLiteral(resourceName: "Group 155"), for: .normal)
         }else{
             self.favouriteBtn.setImage(#imageLiteral(resourceName: "Group 140"), for: .normal)
           }
         
-        
-        do {
-            let doc: Document = try SwiftSoup.parse(data.data?.content ?? "")
-            let srcs: Elements = try doc.select("img[src]")
-            let srcsStringArray: [String?] = srcs.array().map { try? $0.attr("src").description }
-            print(srcsStringArray)
-            if srcsStringArray.count > 0 {
-                self.imageCollectionView.isHidden = false
-                self.imagesHtml = srcsStringArray
-                self.imageCollectionView.reloadData()
-                self.imageCollectionViewHieht.constant = 300
-                let height = self.aboutTV.intrinsicContentSize.height
-                self.contentSizeHieght.constant = 900 + height
-            }else{
-                self.imageCollectionViewHieht.constant = 0
-                let height = self.aboutTV.intrinsicContentSize.height
-                self.contentSizeHieght.constant = 600 + height
-                
-            }
-        } catch Exception.Error(_, let message) {
-            print(message)
-        } catch {
-            print("error")
-        }
         
        }
    }, onError: { (error) in

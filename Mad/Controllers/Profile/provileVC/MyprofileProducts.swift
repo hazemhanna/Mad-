@@ -18,6 +18,9 @@ class MyprofileProducts : UIViewController {
     @IBOutlet weak var draftLbl: UILabel!
     @IBOutlet weak var ordertLbl: UILabel!
 
+    @IBOutlet weak var availabeLbl : UILabel!
+
+    
     var artistVM = ArtistViewModel()
     var disposeBag = DisposeBag()
     let cellIdentifier = "LiveCellCVC"
@@ -56,12 +59,25 @@ class MyprofileProducts : UIViewController {
             self.productCollectionView.reloadData()
             self.pendding = false
 
+            if products.count > 0 {
+                self.availabeLbl.isHidden = true
+            }else{
+                self.availabeLbl.isHidden = false
+            }
+            
         }else{
             publishBtn.setTitleColor(#colorLiteral(red: 0.1176470588, green: 0.2156862745, blue: 0.4, alpha: 1), for: .normal)
             pendingBtn.setTitleColor(#colorLiteral(red: 0.8980392157, green: 0.1254901961, blue: 0.3529411765, alpha: 1), for: .normal)
             self.products = pendingProducts
             self.productCollectionView.reloadData()
             self.pendding = true
+            
+            if products.count > 0 {
+                self.availabeLbl.isHidden = true
+            }else{
+                self.availabeLbl.isHidden = false
+            }
+            
         }
     }
     
@@ -130,10 +146,18 @@ extension MyprofileProducts  {
             self.publishProducts = dataModel.data?.products ?? []
             self.pendingProducts = dataModel.data?.pendingProducts ?? []
             self.draftProducts = dataModel.data?.draftProducts ?? []
+        
             self.pendingBtn.setTitle("Pending [\(self.pendingProducts.count)]", for: .normal)
             self.draftLbl.text = "All Drafts [\(dataModel.data?.draftProducts?.count ?? 0)]"
-            //self.ordertLbl.text = "All Drafts [\(dataModel.data?.?.count ?? 0)]"
+
             self.productCollectionView.reloadData()
+            
+            if dataModel.data?.products?.count ?? 0  > 0 {
+                self.availabeLbl.isHidden = true
+            }else{
+                self.availabeLbl.isHidden = false
+            }
+            
          }
        }, onError: { (error) in
         self.artistVM.dismissIndicator()

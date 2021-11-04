@@ -19,7 +19,6 @@ class SocialCell: UITableViewCell {
     }
 
     func confic(name : String,icon : String){
-        
         nameLbl.text = name
         if let iconURl = URL(string: icon){
         self.iconImage.kf.setImage(with: iconURl, placeholder: #imageLiteral(resourceName: "Group 350"))

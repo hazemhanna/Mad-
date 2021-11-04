@@ -72,7 +72,7 @@ class PasswordVc: UIViewController {
         let coloredString = "Reset.Now".localized
         let Range = (main_string as NSString).range(of: coloredString)
         let attribute = NSMutableAttributedString.init(string: main_string)
-        attribute.addAttribute(NSAttributedString.Key.foregroundColor, value: #colorLiteral(red: 1, green: 0.1647058824, blue: 0.1490196078, alpha: 1) , range: Range)
+        attribute.addAttribute(NSAttributedString.Key.foregroundColor, value: #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1) , range: Range)
         resetLbl.attributedText = attribute
     }
     

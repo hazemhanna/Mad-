@@ -16,6 +16,9 @@
         <array key="Graphik-Medium.ttf">
             <string>Graphik-Medium</string>
         </array>
+        <array key="Graphik-Semibold.ttf">
+            <string>Graphik-Semibold</string>
+        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProjectDetailsVC" customModule="Mad" customModuleProvider="target"/>
@@ -42,7 +45,7 @@
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PTH-zH-1O3">
                                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="0.0"/>
-                                                                <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="14"/>
+                                                                <fontDescription key="fontDescription" name="Graphik-Semibold" family="Graphik" pointSize="16"/>
                                                                 <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -246,34 +249,21 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uEb-Rh-xYr">
                                                         <rect key="frame" x="32" y="8" width="350" height="626"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qHX-i4-aaq">
-                                                                <rect key="frame" x="0.0" y="0.0" width="350" height="0.0"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="SAb-k5-7xA">
-                                                                <rect key="frame" x="0.0" y="8" width="350" height="300"/>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="300" id="ha3-Ug-JCq"/>
-                                                                </constraints>
-                                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="e9p-Bw-bKA">
-                                                                    <size key="itemSize" width="128" height="128"/>
-                                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                                </collectionViewFlowLayout>
-                                                            </collectionView>
+                                                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qsY-c6-OuW">
+                                                                <rect key="frame" x="0.0" y="0.0" width="350" height="626"/>
+                                                                <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                                <wkWebViewConfiguration key="configuration">
+                                                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                                                    <wkPreferences key="preferences"/>
+                                                                </wkWebViewConfiguration>
+                                                            </wkWebView>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstItem="SAb-k5-7xA" firstAttribute="leading" secondItem="uEb-Rh-xYr" secondAttribute="leading" id="MQK-AX-E9e"/>
-                                                            <constraint firstAttribute="trailing" secondItem="qHX-i4-aaq" secondAttribute="trailing" id="SwI-f9-x1L"/>
-                                                            <constraint firstItem="qHX-i4-aaq" firstAttribute="leading" secondItem="uEb-Rh-xYr" secondAttribute="leading" id="ZeH-sK-Nnb"/>
-                                                            <constraint firstItem="SAb-k5-7xA" firstAttribute="top" secondItem="qHX-i4-aaq" secondAttribute="bottom" constant="8" id="j54-bL-l5q"/>
-                                                            <constraint firstAttribute="trailing" secondItem="SAb-k5-7xA" secondAttribute="trailing" id="swU-Vh-JUo"/>
-                                                            <constraint firstItem="qHX-i4-aaq" firstAttribute="top" secondItem="uEb-Rh-xYr" secondAttribute="top" id="wc6-nW-9uN"/>
+                                                            <constraint firstItem="qsY-c6-OuW" firstAttribute="top" secondItem="uEb-Rh-xYr" secondAttribute="top" id="3Os-w7-AuQ"/>
+                                                            <constraint firstAttribute="bottom" secondItem="qsY-c6-OuW" secondAttribute="bottom" id="JDw-Io-5d1"/>
+                                                            <constraint firstAttribute="trailing" secondItem="qsY-c6-OuW" secondAttribute="trailing" id="j3x-4N-hn3"/>
+                                                            <constraint firstItem="qsY-c6-OuW" firstAttribute="leading" secondItem="uEb-Rh-xYr" secondAttribute="leading" id="nor-wV-Hzk"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
@@ -500,7 +490,6 @@
             <navigationItem key="navigationItem" id="Mf3-yG-jq5"/>
             <connections>
                 <outlet property="LikeLbl" destination="BV0-ZH-utI" id="50k-U6-ui3"/>
-                <outlet property="aboutTV" destination="qHX-i4-aaq" id="FGX-Vz-5YV"/>
                 <outlet property="aboutView" destination="2Jt-JW-aDY" id="c96-qv-Kcb"/>
                 <outlet property="artistCollectionView" destination="s5a-je-7Tp" id="e87-LM-GAw"/>
                 <outlet property="artistImage" destination="5Hh-AP-fY4" id="6TT-Ay-nE7"/>
@@ -512,8 +501,6 @@
                 <outlet property="dateLbl" destination="S92-ah-0LS" id="VQY-kq-nk4"/>
                 <outlet property="descriptionBtn" destination="97i-Yv-87x" id="BgT-9Q-gJ0"/>
                 <outlet property="favouriteBtn" destination="Ce9-cZ-HOg" id="7vT-a9-4fB"/>
-                <outlet property="imageCollectionView" destination="SAb-k5-7xA" id="TQL-ij-9j2"/>
-                <outlet property="imageCollectionViewHieht" destination="ha3-Ug-JCq" id="0qu-ys-YRk"/>
                 <outlet property="mainTitleLbl" destination="NOe-Uc-pHz" id="HsP-Tz-9JB"/>
                 <outlet property="productCollectionView" destination="JAU-Nb-XoQ" id="Np3-Dz-MOz"/>
                 <outlet property="productView" destination="Ohd-MP-30A" id="t8V-PA-HQO"/>
@@ -526,6 +513,7 @@
                 <outlet property="taggedBtn" destination="uE2-B2-0zT" id="GoR-ke-0BN"/>
                 <outlet property="titleLbl" destination="PTH-zH-1O3" id="2fD-v4-AEF"/>
                 <outlet property="typeLbl" destination="P5P-tn-joV" id="8Fw-sO-sbe"/>
+                <outlet property="webView" destination="qsY-c6-OuW" id="UrB-u3-q6z"/>
             </connections>
             <point key="canvasLocation" x="-5436.231884057971" y="2366.5178571428569"/>
         </viewController>
@@ -535,7 +523,7 @@
             <size key="intrinsicContentSize" width="320" height="320"/>
         </designable>
         <designable name="RYI-7T-5AE">
-            <size key="intrinsicContentSize" width="129.5" height="42.5"/>
+            <size key="intrinsicContentSize" width="123.5" height="34"/>
         </designable>
     </designables>
     <resources>
