@@ -135,7 +135,7 @@ class ProjectDetailsVC: UIViewController,WKNavigationDelegate {
             reviewsStack.isHidden = true
             artistView.isHidden = true
             let height = webView.scrollView.contentSize.height
-            self.contentSizeHieght.constant =  height + 500
+            self.contentSizeHieght.constant =  height + 700
             self.productView.isHidden = false
 
         }else if sender.tag == 2{
@@ -161,7 +161,7 @@ class ProjectDetailsVC: UIViewController,WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         let height = webView.scrollView.contentSize.height
-        self.contentSizeHieght.constant =  height + 500
+        self.contentSizeHieght.constant =  height + 700
     }
     
     
@@ -345,7 +345,6 @@ func getProjectDetails(productID : Int) {
         
         self.LikeLbl.text = "\(data.data?.favoriteCount ?? 0)"
         self.shareLbl.text = "\(data.data?.shareCount ?? 0)"
-        //self.webView.loadHTMLString(data.data?.content  ?? "" , baseURL: nil)
         
 //        Graphik-Regular
 //        Graphik-Light
@@ -353,11 +352,9 @@ func getProjectDetails(productID : Int) {
 //        Graphik-Semibold
 //        Graphik-Bold
 //        Graphik-Black
-        let color = UIColor(red: 30/255, green: 55/255, blue: 102/255, alpha: 1)
         
-        let  myVariable = "<font face='Graphik-Regular' size='16' color= '\(color)'>%@"
+        let  myVariable = "<font face='Graphik-Regular' size='16' color= 'black'>%@"
         let varr = String(format: myVariable, (data.data?.content ?? ""))
-
         self.webView.loadHTMLString(varr, baseURL: nil)
         self.product = data.data?.relateProducts ?? []
         self.artists = data.data?.tagged ?? []
