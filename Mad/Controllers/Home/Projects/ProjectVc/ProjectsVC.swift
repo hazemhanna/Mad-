@@ -175,7 +175,7 @@ extension ProjectsVC : UICollectionViewDelegate ,UICollectionViewDataSource{
                 cell.ProjectView.layer.borderColor = #colorLiteral(red: 0.9725490196, green: 0.9725490196, blue: 0.9725490196, alpha: 1).cgColor
                 cell.ProjectView.layer.borderWidth = 0
                }
-
+            
         }
         cell.showShimmer = showShimmer
         return cell

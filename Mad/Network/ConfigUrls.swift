@@ -101,9 +101,11 @@ struct ConfigURLS {
     static var sendMessages  = BASE_URL  + "conversation/send_message"
     // general
     static var notitfication  = BASE_URL  + "notification"
-
     // profile
     static var uploadVieo  = BASE_URL  + "video/submit"
+    static var checkPassword  = BASE_URL  + "check_validate_password"
 
-   
+    
+    
+    
 }

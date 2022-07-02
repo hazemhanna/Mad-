@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import PTCardTabBar
 
 class HomeVC: UIViewController {
     
@@ -21,7 +22,11 @@ class HomeVC: UIViewController {
     var homeVM = HomeViewModel()
     var disposeBag = DisposeBag()
     var selectedIndex = 0
-    var completed = Helper.getIsCompleted() ?? false
+    var isActive = Helper.getIsActive() ?? false
+    var madArtist = Helper.getType() ?? false
+    open lazy var customTabBar: PTCardTabBar = {
+        return PTCardTabBar()
+    }()
     
     var titles = [String](){
           didSet {
@@ -35,21 +40,29 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
         setuptitleCollectionView()
         selectView()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
+        
         if self.token == "" {
             blackView.isHidden = true
         }else{
-          if completed {
-            blackView.isHidden = true
-          }else{
-            homeVM.showIndicator()
-            getProfile()
-            blackView.isHidden = false
+         if madArtist{
+             if isActive{
+                blackView.isHidden = true
+            }else{
+                  homeVM.showIndicator()
+                  getProfile()
+                  blackView.isHidden = false
+            }
+            }else{
+                blackView.isHidden = true
+            }
         }
     }
-    self.navigationController?.navigationBar.isHidden = true
+    
+    override func viewWillAppear(_ animated: Bool) {
+     self.navigationController?.navigationBar.isHidden = true
+        if let ptcTBC = tabBarController as? PTCardTabBarController {
+            ptcTBC.customTabBar.isHidden = false
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -102,23 +115,17 @@ class HomeVC: UIViewController {
         case 2: self.add(asChildViewController: self.instantVC3)
         case 3: self.add(asChildViewController: self.instantVC4)
         case 4: self.add(asChildViewController: self.instantVC5)
-
         default:  break
         }
-        
     }
-    
     @IBAction func completeAction(_ sender: UIButton) {
         self.blackView.isHidden = true
         let main = EditMyProfileVc.instantiateFromNib()
         self.navigationController?.pushViewController(main!, animated: true)
     }
-    
     @IBAction func dismisAction(_ sender: UIButton) {
         self.blackView.isHidden = true
     }
-    
-    
 }
 
 //MARK:- Data Binding
@@ -128,10 +135,8 @@ extension HomeVC: UICollectionViewDelegate {
         let cellIdentifier = "TitleCell"
         self.titleCollectionView.rx.setDelegate(self).disposed(by: disposeBag)
         self.titleCollectionView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
-        self.homeVM.title.bind(to: self.titleCollectionView.rx.items(cellIdentifier: cellIdentifier, cellType: TitleCell.self)) { index, element, cell in
-            
+        self.homeVM.title.bind(to: self.titleCollectionView.rx.items(cellIdentifier: cellIdentifier, cellType: TitleCell.self)) { index, element, cell in            
              cell.titleBtn.text = self.titles[index]
-
             if self.selectedIndex == index{
                 cell.backView.layer.borderColor = #colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1).cgColor
                 cell.backView.layer.borderWidth = 2
@@ -154,7 +159,6 @@ extension HomeVC: UICollectionViewDelegate {
     }
 }
 
-
 extension HomeVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
             let flowayout = collectionViewLayout as? UICollectionViewFlowLayout
@@ -165,11 +169,10 @@ extension HomeVC: UICollectionViewDelegateFlowLayout {
     }
 }
 
-     extension HomeVC {
+extension HomeVC {
             private func add(asChildViewController viewController: UIViewController) {
                 // Add Child View Controller
                 addChild(viewController)
-                
                 // Add Child View as Subview
                 container.addSubview(viewController.view)
                 // Configure Child View
@@ -178,7 +181,6 @@ extension HomeVC: UICollectionViewDelegateFlowLayout {
                 // Notify Child View Controller
                 viewController.didMove(toParent: self)
             }
-
             private func remove(asChildViewController viewController: UIViewController) {
                 // Notify Child View Controller
                 viewController.willMove(toParent: nil)
@@ -199,7 +201,4 @@ extension HomeVC: UICollectionViewDelegateFlowLayout {
 
            }).disposed(by: disposeBag)
         }
-        
     }
-
-

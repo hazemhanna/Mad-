@@ -44,12 +44,15 @@ class LoadingLoginVc : UIViewController {
     
     @IBAction func loginButton(sender: UIButton) {
         let main = EmailVc.instantiateFromNib()
+        Helper.saveType(type: false)
         self.navigationController?.pushViewController(main!, animated: true)
     }
     
     @IBAction func joinArtistButton(sender: UIButton) {
-        let main = WelcomVc.instantiateFromNib()
+        let main = EmailVc.instantiateFromNib()
+         Helper.saveType(type: true)
         self.navigationController?.pushViewController(main!, animated: true)
+        
     }
     
     @IBAction func goButton(sender: UIButton) {

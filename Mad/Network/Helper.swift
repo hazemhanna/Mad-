@@ -29,6 +29,7 @@ class Helper {
                         UIApplication.shared.openURL(url)
                     }
                 }
+                
             }
         }
     }
@@ -130,9 +131,7 @@ class Helper {
         let def = UserDefaults.standard
         return def.object(forKey: "deviceToken") as? String
     }
-    
-    
-    
+
     class func savePAssword(pass: String) {
         let def = UserDefaults.standard
         def.set(pass, forKey: "password")
@@ -241,4 +240,11 @@ class Helper {
         let def = UserDefaults.standard
         return def.object(forKey: "date2") as? String
     }
+    
+    class func saveType(type: Bool) {
+        let def = UserDefaults.standard
+        def.set(type, forKey: "type")
+        def.synchronize()
+    }
+        
 }

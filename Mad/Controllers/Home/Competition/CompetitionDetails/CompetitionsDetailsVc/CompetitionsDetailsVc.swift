@@ -31,10 +31,12 @@ class CompetitionsDetailsVc  : UIViewController {
     var compete  = false
     var finalList = [Winner]()
     var shortList = [Winner]()
+    var candidate = [Winner]()
+
     var winner : Winner?
     var titleCompetitions = String()
     var totalVote = Int()
-    var candidate:Candidate?
+   // var candidate:Candidate?
     var titles = [String](){
           didSet {
               DispatchQueue.main.async {
@@ -92,29 +94,24 @@ class CompetitionsDetailsVc  : UIViewController {
         super.viewDidLoad()
         setuptitleCollectionView()
         selectView()
-    }
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
+        competitionVm.showIndicator()
         self.competeBtn.layer.borderColor = #colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1)
         self.competeBtn.layer.borderWidth = 1
-        competitionVm.showIndicator()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
-        if let ptcTBC = tabBarController as? PTCardTabBarController {
+        if let ptcTBC = tabBarController as? PTCardTabBarController{
             ptcTBC.customTabBar.isHidden = true
         }
-    
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = false
         if let ptcTBC = tabBarController as? PTCardTabBarController{
             ptcTBC.customTabBar.isHidden = false
         }
-        
-        self.navigationController?.navigationBar.isHidden = false
     }
-    
     
     override func viewDidAppear(_ animated: Bool) {
         getCompetitions(compId :self.compId)
@@ -149,15 +146,12 @@ class CompetitionsDetailsVc  : UIViewController {
         if compete {
         let vc = AddCompetitionsDetailsVc.instantiateFromNib()
         vc?.compId = compId
-        vc?.candidate = candidate
         self.navigationController?.pushViewController(vc!, animated: true)
         }else if vote {
             let vc = CompetitionResultslistsVC.instantiateFromNib()
-            vc!.result = self.result
-            vc!.finalList =  self.finalList
-            vc!.shortList  =  self.shortList
-            vc!.winner  =  self.winner
+            vc!.result = false
             vc!.titleCompetitions = titleCompetitions
+            vc!.candidate =  self.candidate
             vc!.totalVote =  totalVote
             vc!.compId = compId
             self.navigationController?.pushViewController(vc!, animated: true)
@@ -225,8 +219,8 @@ extension CompetitionsDetailsVc : UICollectionViewDelegateFlowLayout {
                 viewController.view.removeFromSuperview()
                 viewController.removeFromParent()
             }
-    }
-
+      
+  }
 
 extension CompetitionsDetailsVc {
     
@@ -241,15 +235,15 @@ extension CompetitionsDetailsVc {
             self.instantVC5.judges =  dataModel.data?.judges ?? []
             self.finalList = dataModel.data?.finalists ?? []
             self.shortList = dataModel.data?.shortlisted ?? []
+            self.candidate = dataModel.data?.candidate ?? []
             self.winner = dataModel.data?.winner
             self.titleCompetitions = dataModel.data?.title ?? ""
             self.totalVote = dataModel.data?.countAllVotes ?? 0
             self.result  = dataModel.data?.end_competition ?? false
             self.vote  = dataModel.data?.can_vote ?? false
             self.compete  = dataModel.data?.can_compete ?? false
-            
-            
-            if self.compete{
+
+               if self.compete{
                 self.competeBtn.backgroundColor = #colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1)
                 self.competeBtn.setTitle("Compete Now", for: .normal)
                 self.competeBtn.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
@@ -261,9 +255,7 @@ extension CompetitionsDetailsVc {
                 self.competeBtn.backgroundColor = .white
                 self.competeBtn.setTitle("Result", for: .normal)
                 self.competeBtn.setTitleColor(#colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1), for: .normal)
-
             }
-            
             do {
                 let doc: Document = try SwiftSoup.parse(dataModel.data?.partner ?? "")
                 let srcs: Elements = try doc.select("img[src]")

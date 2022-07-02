@@ -11,6 +11,14 @@ import SVProgressHUD
 
 struct BlogsViewModel {
     
+    
+    var title = PublishSubject<[String]>()
+
+    func fetchtitle(data: [String]) {
+        self.title.onNext(data)
+       }
+    
+    
     func showIndicator() {
         SVProgressHUD.show()
     }
@@ -51,6 +59,16 @@ struct BlogsViewModel {
      }
     
     
+    func addToFavourite(artistId : Int,Type : Bool) -> Observable<ArtistFavouriteModel> {
+        let params: [String: Any] = [
+            "artist_id": artistId,
+            "is_favorite": Type
+            ]
+        let observer = AddServices.shared.addArtistToFavourite(param : params)
+         return observer
+     }
+    
+
     
     func shareBlogs(blogsId : Int) -> Observable<ShareModel> {
         let params: [String: Any] = [
@@ -59,5 +77,17 @@ struct BlogsViewModel {
         let observer = AddServices.shared.blogShare(param : params)
          return observer
      }
+    
+    
+    func addProjectToFavourite(projectID : Int,Type : Bool) -> Observable<FavouriteModel> {
+        let params: [String: Any] = [
+            "project_id": projectID,
+            "is_favorite": Type
+            ]
+        let observer = AddServices.shared.addToFavourite(param : params)
+         return observer
+     }
+    
+
     
 }

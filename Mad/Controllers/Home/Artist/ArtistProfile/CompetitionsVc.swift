@@ -13,16 +13,20 @@ class CompetitionsVc: UIViewController {
    
     @IBOutlet weak var tableView: UITableView!
     let cellIdentifier = "CompetitionCell"
-    
-    
+    var artistId = Helper.getArtistId() ?? 0
     var artistVM = ArtistViewModel()
     var disposeBag = DisposeBag()
-    var artistId = Int()
+    var showShimmer: Bool = true
+    var competitions = [Competitions](){
+        didSet{
+            tableView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupContentTableView()
-        getArtistProfile(artistId : 8825)
+        getArtistProfile(artistId : artistId)
 
     }
     
@@ -42,11 +46,17 @@ extension CompetitionsVc : UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return self.showShimmer ? 3 : competitions.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier) as! CompetitionCell
+        
+        if !self.showShimmer {
+            cell.confic(imageUrl: self.competitions[indexPath.row].bannerImg ?? "", title: self.competitions[indexPath.row].title ?? "", date: ("End Date: ") + (self.competitions[indexPath.row].resultDate ?? ""))
+        }
+        cell.showShimmer = showShimmer
+
         return cell
     }
     
@@ -58,9 +68,10 @@ extension CompetitionsVc : UITableViewDelegate,UITableViewDataSource{
 
 extension CompetitionsVc{
     func getArtistProfile(artistId : Int) {
-        artistVM.getArtistProfile(artistId: artistId).subscribe(onNext: { (dataModel) in
+        artistVM.getArtistProfile(artistId: artistId).subscribe(onNext: { [self] (dataModel) in
            if dataModel.success ?? false {
-            //self.social = dataModel.data?.socialLinks ?? []
+               self.showShimmer = false
+               self.competitions = dataModel.data?.completedCompetitions ?? []
            }
        }, onError: { (error) in
         self.artistVM.dismissIndicator()

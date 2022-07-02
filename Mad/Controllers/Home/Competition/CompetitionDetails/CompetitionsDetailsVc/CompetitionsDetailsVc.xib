@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -52,7 +52,7 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="68a-lv-LHc" customClass="CustomView" customModule="Mad" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="802" width="414" height="80"/>
+                        <rect key="frame" x="0.0" y="796" width="414" height="80"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B6f-xd-UYl" customClass="CustomButtons" customModule="Mad" customModuleProvider="target">
                                 <rect key="frame" x="107" y="13" width="200" height="54"/>
@@ -102,7 +102,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sOo-8I-m38">
-                        <rect key="frame" x="0.0" y="114" width="414" height="684"/>
+                        <rect key="frame" x="0.0" y="114" width="414" height="682"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wrJ-1V-ToI">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="900"/>
@@ -113,7 +113,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q1G-vj-Ele" customClass="CustomView" customModule="Mad" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mask Group 121" translatesAutoresizingMaskIntoConstraints="NO" id="VW4-wJ-gV7" customClass="CustomImageView" customModule="Mad" customModuleProvider="target">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VW4-wJ-gV7" customClass="CustomImageView" customModule="Mad" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="178"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -213,9 +213,9 @@
                     <constraint firstItem="J9r-gD-Muw" firstAttribute="leading" secondItem="qLA-Ox-h1C" secondAttribute="leading" id="6jh-m2-qSI"/>
                     <constraint firstItem="68a-lv-LHc" firstAttribute="width" secondItem="qLA-Ox-h1C" secondAttribute="width" id="JgP-PA-Vxx"/>
                     <constraint firstItem="J9r-gD-Muw" firstAttribute="trailing" secondItem="qLA-Ox-h1C" secondAttribute="trailing" id="Vci-mW-rBU"/>
-                    <constraint firstItem="qLA-Ox-h1C" firstAttribute="bottom" secondItem="68a-lv-LHc" secondAttribute="bottom" constant="-20" id="cfk-9o-KZ5"/>
+                    <constraint firstAttribute="bottom" secondItem="68a-lv-LHc" secondAttribute="bottom" constant="20" id="cfk-9o-KZ5"/>
                     <constraint firstItem="68a-lv-LHc" firstAttribute="centerX" secondItem="uBj-HX-42N" secondAttribute="centerX" id="fYl-4m-wlG"/>
-                    <constraint firstItem="68a-lv-LHc" firstAttribute="top" secondItem="sOo-8I-m38" secondAttribute="bottom" constant="4" id="ip6-ga-crv"/>
+                    <constraint firstItem="68a-lv-LHc" firstAttribute="top" secondItem="sOo-8I-m38" secondAttribute="bottom" id="ip6-ga-crv"/>
                     <constraint firstItem="sOo-8I-m38" firstAttribute="top" secondItem="J9r-gD-Muw" secondAttribute="bottom" id="keT-Tc-48m"/>
                     <constraint firstItem="sOo-8I-m38" firstAttribute="trailing" secondItem="qLA-Ox-h1C" secondAttribute="trailing" id="q7m-1v-z92"/>
                     <constraint firstItem="sOo-8I-m38" firstAttribute="leading" secondItem="qLA-Ox-h1C" secondAttribute="leading" id="qWW-jv-UKN"/>
@@ -235,9 +235,6 @@
         <designable name="B6f-xd-UYl">
             <size key="intrinsicContentSize" width="121" height="33"/>
         </designable>
-        <designable name="VW4-wJ-gV7">
-            <size key="intrinsicContentSize" width="375" height="174"/>
-        </designable>
         <designable name="kQk-3i-eb2">
             <size key="intrinsicContentSize" width="53.5" height="20"/>
         </designable>
@@ -245,7 +242,6 @@
     <resources>
         <image name="Group 119" width="36" height="17"/>
         <image name="Group 271" width="13.5" height="13.5"/>
-        <image name="Mask Group 121" width="375" height="174"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

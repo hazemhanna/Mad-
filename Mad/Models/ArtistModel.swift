@@ -89,8 +89,10 @@ struct ArtistProfileModel: Codable {
     let projects: [Project]?
     let products: [Product]?
     let socialLinks : [Social]?
-    let ongoingCompetitions: [OngoingCompetition]?
-    let completedCompetitions: [OngoingCompetition]?
+    let ongoingCompetitions: [Competitions]?
+    let completedCompetitions: [Competitions]?
+    let videos : [Videos]?
+    let featured  : [Videos]?
 
     enum CodingKeys: String, CodingKey {
         case id, name
@@ -113,27 +115,12 @@ struct ArtistProfileModel: Codable {
         case ongoingCompetitions = "ongoing_competitions"
         case completedCompetitions = "completed_competitions"
         case  socialLinks  = "social_links"
+        case  videos  = "videos"
+        case  featured  = "featured videos"
+        
     }
 }
 
 struct Social: Codable {
     let name, url, icon: String?
 }
-
-// MARK: - OngoingCompetition
-struct OngoingCompetition: Codable {
-    let id: Int?
-    let title, bannerImg, step1Start, step1End: String?
-    let step2Start, step2End, resultDate: String?
-
-    enum CodingKeys: String, CodingKey {
-        case id, title
-        case bannerImg = "banner_img"
-        case step1Start = "step1_start"
-        case step1End = "step1_end"
-        case step2Start = "step2_start"
-        case step2End = "step2_end"
-        case resultDate = "result_date"
-    }
-}
-

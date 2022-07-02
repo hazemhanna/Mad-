@@ -19,10 +19,21 @@ class ContainerVC: TabmanViewController {
 
     let vc3 = UIStoryboard(name: "Artist", bundle: nil).instantiateViewController(withIdentifier: "ArtistProjectsVc") as! ArtistProjectsVc
 
+    let vc4 = UIStoryboard(name: "Artist", bundle: nil).instantiateViewController(withIdentifier: "CompetitionsVc") as! CompetitionsVc
+
+    let vc5 = UIStoryboard(name: "Artist", bundle: nil).instantiateViewController(withIdentifier: "ArtistVideoVC") as! ArtistVideoVC
+
+    
+    let vc6 = UIStoryboard(name: "Artist", bundle: nil).instantiateViewController(withIdentifier: "ArtistFeatureVideoVC") as! ArtistFeatureVideoVC
+
+    
     private lazy var viewControllers: [UIViewController] = [
         vc1,
         vc2,
         vc3,
+        vc4,
+        vc5,
+        vc6,
     ]
     
     override func viewDidLoad() {
@@ -72,9 +83,14 @@ func barItem(for bar: TMBar, at index: Int) -> TMBarItemable {
             return TMBarItem(title:  "About".localized)
         }else if index == 1  {
             return TMBarItem(title:  "Shop.Home".localized)
-        }else{
+        }else if index == 2{
             return TMBarItem(title:  "Projects".localized)
-
+        }else if index == 3{
+            return TMBarItem(title:  "Competitions".localized)
+        }else if index == 4{
+            return TMBarItem(title:  "Videos".localized)
+        }else {
+            return TMBarItem(title:  "Featured Videos".localized)
         }
     }
 }

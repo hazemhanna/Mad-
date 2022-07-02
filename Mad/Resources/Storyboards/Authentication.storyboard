@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qT8-1Q-1tw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qT8-1Q-1tw">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -28,8 +28,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Component 87 – 1" translatesAutoresizingMaskIntoConstraints="NO" id="i0M-F5-eNq">
-                                <rect key="frame" x="0.0" y="-40" width="414" height="224"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Component 6 – 1" translatesAutoresizingMaskIntoConstraints="NO" id="i0M-F5-eNq">
+                                <rect key="frame" x="0.0" y="-30" width="414" height="926"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZWl-FI-bvy">
                                 <rect key="frame" x="144.5" y="244" width="125" height="16"/>
@@ -67,7 +67,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="20"/>
                                         <inset key="imageEdgeInsets" minX="-64" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <state key="normal" title="login" image="Component 61 – 2">
+                                        <state key="normal" title="I'm a Mader" image="Component 61 – 2">
                                             <color key="titleColor" red="0.8980392157" green="0.12549019610000001" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
@@ -145,9 +145,6 @@
                                     <color key="titleColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Component 88 – 1" translatesAutoresizingMaskIntoConstraints="NO" id="fLt-Df-7fY">
-                                <rect key="frame" x="-22" y="728" width="458" height="224"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o0h-K4-tvL" customClass="CustomButtons" customModule="Mad" customModuleProvider="target">
                                 <rect key="frame" x="163" y="572" width="88" height="54"/>
                                 <color key="backgroundColor" red="0.8980392157" green="0.12549019610000001" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -173,9 +170,8 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="OCo-zP-bcp" firstAttribute="centerX" secondItem="K1N-8u-w7u" secondAttribute="centerX" id="2rG-9Q-5UW"/>
-                            <constraint firstItem="fLt-Df-7fY" firstAttribute="width" secondItem="K1N-8u-w7u" secondAttribute="width" multiplier="1.10628" id="6Sv-81-5xN"/>
                             <constraint firstItem="OCo-zP-bcp" firstAttribute="top" secondItem="gYx-Y1-ZPf" secondAttribute="bottom" constant="32" id="DRe-uV-gLd"/>
-                            <constraint firstItem="36J-dJ-ggL" firstAttribute="bottom" secondItem="fLt-Df-7fY" secondAttribute="bottom" constant="-90" id="KBN-h7-Yvy"/>
+                            <constraint firstAttribute="bottom" secondItem="i0M-F5-eNq" secondAttribute="bottom" id="EjZ-xP-Wbh"/>
                             <constraint firstItem="5vL-nS-ckE" firstAttribute="centerX" secondItem="K1N-8u-w7u" secondAttribute="centerX" id="MWO-hP-SFB"/>
                             <constraint firstItem="o0h-K4-tvL" firstAttribute="top" secondItem="5vL-nS-ckE" secondAttribute="bottom" constant="16" id="QyH-qK-uAv"/>
                             <constraint firstItem="i0M-F5-eNq" firstAttribute="width" secondItem="K1N-8u-w7u" secondAttribute="width" id="SlM-Oc-Gbv"/>
@@ -184,9 +180,8 @@
                             <constraint firstItem="gYx-Y1-ZPf" firstAttribute="top" secondItem="ZWl-FI-bvy" secondAttribute="bottom" constant="16" id="huL-vH-eN5"/>
                             <constraint firstItem="HSr-ID-gmg" firstAttribute="width" secondItem="K1N-8u-w7u" secondAttribute="width" multiplier="0.7" id="iSn-hs-Q4j"/>
                             <constraint firstItem="5vL-nS-ckE" firstAttribute="top" secondItem="HSr-ID-gmg" secondAttribute="bottom" constant="64" id="jCs-N5-VvH"/>
-                            <constraint firstItem="i0M-F5-eNq" firstAttribute="top" secondItem="K1N-8u-w7u" secondAttribute="top" constant="-40" id="le9-1d-FSa"/>
+                            <constraint firstItem="i0M-F5-eNq" firstAttribute="top" secondItem="K1N-8u-w7u" secondAttribute="top" constant="-30" id="le9-1d-FSa"/>
                             <constraint firstItem="ZWl-FI-bvy" firstAttribute="centerX" secondItem="K1N-8u-w7u" secondAttribute="centerX" id="lo7-xD-poD"/>
-                            <constraint firstItem="fLt-Df-7fY" firstAttribute="centerX" secondItem="K1N-8u-w7u" secondAttribute="centerX" id="r3G-ri-hMQ"/>
                             <constraint firstItem="o0h-K4-tvL" firstAttribute="centerX" secondItem="K1N-8u-w7u" secondAttribute="centerX" id="rLF-Py-aoW"/>
                             <constraint firstItem="ZWl-FI-bvy" firstAttribute="top" secondItem="36J-dJ-ggL" secondAttribute="top" constant="200" id="rcX-Sd-L9c"/>
                             <constraint firstItem="HSr-ID-gmg" firstAttribute="centerX" secondItem="K1N-8u-w7u" secondAttribute="centerX" id="uZr-AV-1vO"/>
@@ -226,10 +221,17 @@
             <point key="canvasLocation" x="-4188" y="-899"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="8f2-2P-GWV">
+            <size key="intrinsicContentSize" width="198" height="28"/>
+        </designable>
+        <designable name="o0h-K4-tvL">
+            <size key="intrinsicContentSize" width="30" height="30"/>
+        </designable>
+    </designables>
     <resources>
+        <image name="Component 6 – 1" width="458" height="947"/>
         <image name="Component 61 – 2" width="26.5" height="19.5"/>
-        <image name="Component 87 – 1" width="458" height="224"/>
-        <image name="Component 88 – 1" width="458" height="224"/>
         <image name="Group 336" width="83.5" height="85.5"/>
         <image name="Mask Group 124-1" width="53" height="28"/>
         <image name="Rectangle 16" width="286" height="68"/>

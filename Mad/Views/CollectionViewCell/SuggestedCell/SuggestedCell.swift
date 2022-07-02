@@ -39,13 +39,10 @@ class SuggestedCell: UICollectionViewCell {
             self.bannerImage.kf.setImage(with: bannerUrl, placeholder: #imageLiteral(resourceName: "WhatsApp Image 2021-04-21 at 1.25.47 PM"))
         }
         if isFavourite{
-            self.favouriteBtn.backgroundColor = #colorLiteral(red: 0.5764705882, green: 0.6235294118, blue: 0.7137254902, alpha: 1)
+            self.favouriteBtn.setImage(#imageLiteral(resourceName: "Group 155"), for: .normal)
         }else{
-            self.favouriteBtn.backgroundColor = #colorLiteral(red: 0.9282042384, green: 0.2310142517, blue: 0.4267850518, alpha: 1)
-
+            self.favouriteBtn.setImage(#imageLiteral(resourceName: "Path 326-1"), for: .normal)
         }
-        
-        
     }
     
     var showShimmer: Bool = false {

@@ -61,7 +61,6 @@ class Authentication {
     func postLogin(params: [String: Any]) -> Observable<AuthRegisterModel> {
         return Observable.create { (observer) -> Disposable in
             let url = ConfigURLS.login
-            
             Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil)
                 .validate(statusCode: 200..<300)
                 .responseJSON { (response: DataResponse<Any>) in
@@ -211,4 +210,23 @@ class Authentication {
     }//END of POST CompleteProfile
     
 
+    func checkPassword(params: [String: Any]) -> Observable<CheckPasswordModelJson> {
+        return Observable.create { (observer) -> Disposable in
+            let url = ConfigURLS.checkPassword
+            Alamofire.request(url, method: .get, parameters: params, encoding: URLEncoding.default, headers: nil)
+                .validate(statusCode: 200..<300)
+                .responseJSON { (response: DataResponse<Any>) in
+                    do {
+                        let data = try JSONDecoder().decode(CheckPasswordModelJson.self, from: response.data!)
+                        observer.onNext(data)
+                    } catch {
+                        print(error.localizedDescription)
+                        observer.onError(error)
+                    }
+            }
+            return Disposables.create()
+        }
+    }//END of POST CompleteProfile
+    
+    
 }

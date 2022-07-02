@@ -19,7 +19,6 @@ class BlogsVc  : UIViewController {
     var disposeBag = DisposeBag()
     var parentVC : HomeVC?
     var token = Helper.getAPIToken() ?? ""
-    var active = Helper.getIsActive() ?? false
 
     var selectedIndex = -1
     var page = 1

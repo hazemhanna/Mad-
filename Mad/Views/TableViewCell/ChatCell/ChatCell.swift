@@ -18,12 +18,10 @@ class ChatCell: UITableViewCell {
     @IBOutlet weak var dateContentView: UIStackView!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nameLbl: UILabel!
-    
     @IBOutlet weak var productContentView: UIStackView!
     @IBOutlet weak var productNameLbl: UILabel!
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var priceLbl: UILabel!
-
     
     override func awakeFromNib() {
         super.awakeFromNib()

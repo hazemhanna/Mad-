@@ -67,6 +67,8 @@ struct BlogDetailsModel: Codable {
     let categories: [Category]?
     let content: String?
     let relateProducts: [Product]?
+    let relate_artists : [Artist]?
+    let relate_projects : [Project]?
 
     enum CodingKeys: String, CodingKey {
         case id, title, type, status
@@ -75,5 +77,8 @@ struct BlogDetailsModel: Codable {
         case createdAt = "created_at"
         case music, art, design, categories, content
         case relateProducts = "relate_products"
+        case relate_artists = "relate_artists"
+        case relate_projects = "relate_projects"
+
     }
 }

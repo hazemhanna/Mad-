@@ -147,6 +147,17 @@ class MenuVC: UIViewController {
         }
     }
     
+    
+    @IBAction func currencyBtn(sender: UIButton) {
+        let main = CurrencyViewController.instantiateFromNib()
+        self.navigationController?.pushViewController(main!, animated: true)
+    }
+    
+    @IBAction func changePassBtn(sender: UIButton) {
+        let main = ChangePssswordVc.instantiateFromNib()
+        self.navigationController?.pushViewController(main!, animated: true)
+    }
+    
     @IBAction func logOutAction(sender: UIButton) {
         
         let alert = UIAlertController(title: "Log Out", message: "Are you sure", preferredStyle: .alert)

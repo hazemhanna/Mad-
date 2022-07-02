@@ -17,8 +17,8 @@ class EditUSerProfileVc: UIViewController {
     @IBOutlet weak var  lastNameTF : UITextField!
     @IBOutlet weak var  emailTf : UITextField!
     @IBOutlet weak var  phoneTf : UITextField!
-    @IBOutlet weak var  levelLbL : UILabel!
-  
+    @IBOutlet weak var  editBtn : UILabel!
+
     
     var active = Helper.getIsActive() ?? false
     var artistVM = ArtistViewModel()
@@ -32,7 +32,6 @@ class EditUSerProfileVc: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         phoneTf.delegate = self
         emailTf.delegate = self
         lastNameTF.delegate = self
@@ -46,6 +45,12 @@ class EditUSerProfileVc: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
         if let ptcTBC = tabBarController as? PTCardTabBarController {
             ptcTBC.customTabBar.isHidden = true
+        }
+        
+        if active{
+            editBtn.text = "Edit Artist Profile"
+        }else{
+            editBtn.text = "Edit Account Information"
         }
     }
 

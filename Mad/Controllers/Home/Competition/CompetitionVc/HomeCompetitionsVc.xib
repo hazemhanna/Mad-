@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Graphik-Bold.ttf">
+            <string>Graphik-Bold</string>
+        </array>
         <array key="Graphik-Medium.ttf">
             <string>Graphik-Medium</string>
         </array>
@@ -23,27 +26,41 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l5d-Am-CJL" customClass="CustomView" customModule="Mad" customModuleProvider="target">
                         <rect key="frame" x="32" y="44" width="350" height="100"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="All" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cED-Vg-aX6" customClass="TextFieldDropDown" customModule="Mad" customModuleProvider="target">
-                                <rect key="frame" x="64" y="0.0" width="222" height="50"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Nhh-o7-PFM"/>
-                                </constraints>
-                                <color key="textColor" red="0.1333333333" green="0.2156862745" blue="0.38823529410000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="25"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedRowColor">
-                                        <color key="value" red="0.1333333333" green="0.2156862745" blue="0.38823529410000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="arrowColor">
-                                        <color key="value" red="0.1333333333" green="0.2156862745" blue="0.38823529410000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="80D-xY-syJ">
+                                <rect key="frame" x="0.0" y="0.0" width="350" height="28"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F4k-Tt-oqa">
+                                        <rect key="frame" x="0.0" y="0.0" width="116.5" height="28"/>
+                                        <fontDescription key="fontDescription" name="Graphik-Bold" family="Graphik" pointSize="16"/>
+                                        <state key="normal" title="All">
+                                            <color key="titleColor" red="1" green="0.12549019610000001" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="fillterBtnWithSender:" destination="ZaF-ua-IWc" eventType="touchUpInside" id="CcZ-ZB-56I"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bbc-Rt-14a">
+                                        <rect key="frame" x="116.5" y="0.0" width="117" height="28"/>
+                                        <fontDescription key="fontDescription" name="Graphik-Bold" family="Graphik" pointSize="16"/>
+                                        <state key="normal" title="Ongoing">
+                                            <color key="titleColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="fillterBtnWithSender:" destination="ZaF-ua-IWc" eventType="touchUpInside" id="Fn7-8j-XfI"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="35m-7m-3Vz">
+                                        <rect key="frame" x="233.5" y="0.0" width="116.5" height="28"/>
+                                        <fontDescription key="fontDescription" name="Graphik-Bold" family="Graphik" pointSize="16"/>
+                                        <state key="normal" title="Completed">
+                                            <color key="titleColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="fillterBtnWithSender:" destination="ZaF-ua-IWc" eventType="touchUpInside" id="juI-W7-LTw"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ONn-3a-y2l" customClass="CustomView" customModule="Mad" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="50" width="330" height="50"/>
                                 <subviews>
@@ -77,13 +94,13 @@
                         </subviews>
                         <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="cED-Vg-aX6" firstAttribute="leading" secondItem="l5d-Am-CJL" secondAttribute="leading" constant="64" id="5Sz-br-NoL"/>
+                            <constraint firstAttribute="trailing" secondItem="80D-xY-syJ" secondAttribute="trailing" id="2yL-ah-9MO"/>
                             <constraint firstAttribute="bottom" secondItem="ONn-3a-y2l" secondAttribute="bottom" id="DkA-wR-n7i"/>
                             <constraint firstAttribute="height" constant="100" id="Fta-lK-a6g"/>
-                            <constraint firstAttribute="trailing" secondItem="cED-Vg-aX6" secondAttribute="trailing" constant="64" id="bZM-3T-wfY"/>
+                            <constraint firstItem="80D-xY-syJ" firstAttribute="top" secondItem="l5d-Am-CJL" secondAttribute="top" id="JNR-Uu-oLH"/>
                             <constraint firstItem="ONn-3a-y2l" firstAttribute="leading" secondItem="l5d-Am-CJL" secondAttribute="leading" id="bfI-ei-UrS"/>
                             <constraint firstAttribute="trailing" secondItem="ONn-3a-y2l" secondAttribute="trailing" constant="20" symbolic="YES" id="cM7-Us-Xom"/>
-                            <constraint firstItem="cED-Vg-aX6" firstAttribute="top" secondItem="l5d-Am-CJL" secondAttribute="top" id="hzD-OJ-tFa"/>
+                            <constraint firstItem="80D-xY-syJ" firstAttribute="leading" secondItem="l5d-Am-CJL" secondAttribute="leading" id="dd0-TY-wwe"/>
                         </constraints>
                     </view>
                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Yuv-pD-R1n">
@@ -104,8 +121,10 @@
                 </constraints>
             </view>
             <connections>
+                <outlet property="allBtn" destination="F4k-Tt-oqa" id="37i-YC-riq"/>
+                <outlet property="completeBtn" destination="35m-7m-3Vz" id="XqQ-vS-GgJ"/>
+                <outlet property="ongoingBtn" destination="Bbc-Rt-14a" id="XkL-eO-oGl"/>
                 <outlet property="searchBar" destination="uya-Wn-WdN" id="uYd-VC-zIk"/>
-                <outlet property="selectCompDropDown" destination="cED-Vg-aX6" id="WuE-wR-uOj"/>
                 <outlet property="tableView" destination="Yuv-pD-R1n" id="Oux-Kc-QB5"/>
             </connections>
             <point key="canvasLocation" x="-8054" y="1744"/>

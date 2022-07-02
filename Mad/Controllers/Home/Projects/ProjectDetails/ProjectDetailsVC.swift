@@ -33,7 +33,7 @@ class ProjectDetailsVC: UIViewController,WKNavigationDelegate {
     @IBOutlet weak var descriptionBtn: UIButton!
     @IBOutlet weak var reviewsBtn: UIButton!
     @IBOutlet weak var taggedBtn: UIButton!
-    @IBOutlet weak var reviewsStack : UIStackView!
+    @IBOutlet weak var reviewsStack : UIView!
     @IBOutlet weak var mainTitleLbl: UILabel!
     @IBOutlet weak var artistName : UILabel!
     @IBOutlet weak var artistImage : UIImageView!
@@ -121,6 +121,8 @@ class ProjectDetailsVC: UIViewController,WKNavigationDelegate {
          self.homeVM.showIndicator()
          addComment(productID: self.projectId, comment: commentTF.text ?? "")
          self.commentTF.text = " "
+      
+
         }else{
             self.showMessage(text: "addedComment".localized)
         }
@@ -135,7 +137,7 @@ class ProjectDetailsVC: UIViewController,WKNavigationDelegate {
             reviewsStack.isHidden = true
             artistView.isHidden = true
             let height = webView.scrollView.contentSize.height
-            self.contentSizeHieght.constant =  height + 700
+            //self.contentSizeHieght.constant =  height + 700
             self.productView.isHidden = false
 
         }else if sender.tag == 2{
@@ -145,7 +147,7 @@ class ProjectDetailsVC: UIViewController,WKNavigationDelegate {
             aboutView.isHidden = true
             reviewsStack.isHidden = true
             artistView.isHidden = false
-            self.contentSizeHieght.constant = 800
+            //self.contentSizeHieght.constant = 800
             self.productView.isHidden = true
         }else{
             descriptionBtn.setTitleColor(#colorLiteral(red: 0.1176470588, green: 0.2156862745, blue: 0.4, alpha: 1), for: .normal)
@@ -155,13 +157,13 @@ class ProjectDetailsVC: UIViewController,WKNavigationDelegate {
             reviewsStack.isHidden = false
             artistView.isHidden = true
            self.productView.isHidden = true
-            self.contentSizeHieght.constant = CGFloat(self.tableViewheight + 500)
+            //self.contentSizeHieght.constant = CGFloat(self.tableViewheight + 500)
         }
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         let height = webView.scrollView.contentSize.height
-        self.contentSizeHieght.constant =  height + 700
+       // self.contentSizeHieght.constant =  height + 700
     }
     
     
@@ -345,14 +347,6 @@ func getProjectDetails(productID : Int) {
         
         self.LikeLbl.text = "\(data.data?.favoriteCount ?? 0)"
         self.shareLbl.text = "\(data.data?.shareCount ?? 0)"
-        
-//        Graphik-Regular
-//        Graphik-Light
-//        Graphik-Medium
-//        Graphik-Semibold
-//        Graphik-Bold
-//        Graphik-Black
-        
         let  myVariable = "<font face='Graphik-Regular' size='16' color= 'black'>%@"
         let varr = String(format: myVariable, (data.data?.content ?? ""))
         self.webView.loadHTMLString(varr, baseURL: nil)
@@ -434,7 +428,9 @@ func getProjectDetails(productID : Int) {
     func addComment(productID : Int,comment:String) {
         homeVM.addProjectComment(productID: productID,comment: comment).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
-            self.getProjectDetails(productID : productID)
+               self.getProjectDetails(productID : productID)
+               self.artistView.isHidden = true
+               self.productView.isHidden = true
            }
        }, onError: { (error) in
         self.homeVM.dismissIndicator()

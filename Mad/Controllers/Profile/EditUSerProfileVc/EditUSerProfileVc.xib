@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -236,7 +236,7 @@
                                                         <rect key="frame" x="16" y="0.0" width="341" height="50"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nmw-wG-toM" customClass="CustomButtons" customModule="Mad" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="162.5" height="50"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="341" height="50"/>
                                                                 <color key="backgroundColor" red="0.8980392157" green="0.12549019610000001" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="50" id="gUZ-mA-DhI"/>
@@ -252,31 +252,6 @@
                                                                 </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <action selector="saveButtonWithSender:" destination="rvo-oI-FM7" eventType="touchUpInside" id="9XX-ge-1Eo"/>
-                                                                </connections>
-                                                            </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WzL-uv-2cn" customClass="CustomButtons" customModule="Mad" customModuleProvider="target">
-                                                                <rect key="frame" x="178.5" y="0.0" width="162.5" height="50"/>
-                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="50" id="7yJ-nF-g8V"/>
-                                                                </constraints>
-                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
-                                                                <state key="normal" title="Resst Password ">
-                                                                    <color key="titleColor" red="0.8980392157" green="0.12549019610000001" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                                                </state>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                        <real key="value" value="16"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                        <color key="value" red="0.8980392157" green="0.12549019610000001" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                                        <real key="value" value="1"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                </userDefinedRuntimeAttributes>
-                                                                <connections>
-                                                                    <action selector="ResetTapActionWithSender:" destination="rvo-oI-FM7" eventType="touchUpInside" id="nXo-0I-wwh"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -331,6 +306,7 @@
             </view>
             <navigationItem key="navigationItem" id="cI2-Oz-sg7"/>
             <connections>
+                <outlet property="editBtn" destination="EbZ-rT-RgY" id="rgl-Gp-O0l"/>
                 <outlet property="emailTf" destination="p3m-JG-YJF" id="P76-xo-TJB"/>
                 <outlet property="firstNameTF" destination="gIm-8H-aM1" id="bOn-Gb-95b"/>
                 <outlet property="lastNameTF" destination="S97-Lg-hOj" id="4FN-nE-x5w"/>
@@ -345,9 +321,6 @@
         </designable>
         <designable name="S97-Lg-hOj">
             <size key="intrinsicContentSize" width="31" height="20.5"/>
-        </designable>
-        <designable name="WzL-uv-2cn">
-            <size key="intrinsicContentSize" width="125" height="32"/>
         </designable>
         <designable name="gIm-8H-aM1">
             <size key="intrinsicContentSize" width="31" height="20.5"/>

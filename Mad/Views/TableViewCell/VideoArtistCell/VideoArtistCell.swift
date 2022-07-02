@@ -15,9 +15,8 @@ class VideoArtistCell: UITableViewCell {
     @IBOutlet weak var favouriteBtn: UIButton!
     @IBOutlet weak var shimmerView : ShimmerView!
 
-
     var editFavourite: (() -> Void)? = nil
-
+    var isFavourite = false
     override func awakeFromNib() {
         super.awakeFromNib()
         self.showShimmer = false
@@ -29,8 +28,8 @@ class VideoArtistCell: UITableViewCell {
     }
     
     
-    func confic(title : String ,profilPicture: String,isFavourite: Bool,art: Bool,music: Bool,design: Bool){
-        titleLbl.text = title
+    func confic(titleL : String ,profilPicture: String,isFavourite: Bool,art: Bool,music: Bool,design: Bool){
+        titleLbl.text = titleL
          if art{
            self.typeLbl.text =  "Art"
          }else if music {
@@ -41,11 +40,11 @@ class VideoArtistCell: UITableViewCell {
          if let url = URL(string:   profilPicture){
             self.artistImage.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4"))
          }
-        
+        self.isFavourite = isFavourite
         if isFavourite{
-            self.favouriteBtn.backgroundColor = #colorLiteral(red: 0.5764705882, green: 0.6235294118, blue: 0.7137254902, alpha: 1)
+            self.favouriteBtn.setImage(UIImage(named: "Group 155"), for: .normal)
         }else{
-            self.favouriteBtn.backgroundColor = #colorLiteral(red: 0.9282042384, green: 0.2310142517, blue: 0.4267850518, alpha: 1)
+            self.favouriteBtn.setImage(UIImage(named: "Group 140"), for: .normal)
 
         }
     }
@@ -58,5 +57,12 @@ class VideoArtistCell: UITableViewCell {
     
     @IBAction func editFavouriteAction(_ sender: UIButton) {
         self.editFavourite?()
+        if isFavourite{
+            isFavourite = false
+            self.favouriteBtn.setImage(UIImage(named: "Group 140"), for: .normal)
+        }else{
+            isFavourite = true
+            self.favouriteBtn.setImage(UIImage(named: "Group 155"), for: .normal)
+        }
     }
 }

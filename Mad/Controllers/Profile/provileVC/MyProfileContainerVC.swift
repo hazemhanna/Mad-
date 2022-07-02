@@ -12,7 +12,7 @@ import Pageboy
 
 class MyProfileContainerVC : TabmanViewController {
 
-    var active = Helper.getIsActive() ?? false
+    var active = Helper.getType() ?? false
     
     let vc1 = UIStoryboard(name: "Profile", bundle: nil).instantiateViewController(withIdentifier: "MyProfileProjects") as! MyProfileProjects
     let vc2 = UIStoryboard(name: "Profile", bundle: nil).instantiateViewController(withIdentifier: "MyprofileProducts") as! MyprofileProducts
@@ -26,8 +26,7 @@ class MyProfileContainerVC : TabmanViewController {
                                                               vc4,
                                                               vc5]
     
-    private lazy var viewControllers2 : [UIViewController] = [vc3,
-                                                             vc4]
+    private lazy var viewControllers2 : [UIViewController] = [vc3]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,11 +93,7 @@ func barItem(for bar: TMBar, at index: Int) -> TMBarItemable {
             return TMBarItem(title:  "Video")
         }
     }else{
-         if index == 0{
             return TMBarItem(title:  "About")
-        }else{
-            return TMBarItem(title:  "Competitions")
-        }
       }
     }
 }

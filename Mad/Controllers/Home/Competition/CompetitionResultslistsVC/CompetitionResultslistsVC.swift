@@ -14,6 +14,9 @@ class CompetitionResultslistsVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var resultView : UIView!
+    @IBOutlet weak var resultView2 : UIView!
+
+    
     @IBOutlet weak var finalListBtn : UIButton!
     @IBOutlet weak var shortListBtn : UIButton!
     @IBOutlet weak var totalLbl : UILabel!
@@ -29,6 +32,7 @@ class CompetitionResultslistsVC: UIViewController {
     var result = false
     var finalList = [Winner]()
     var shortList = [Winner]()
+    var candidate = [Winner]()
     var winner : Winner?
     var final = true
     var titleCompetitions = String()
@@ -62,11 +66,12 @@ class CompetitionResultslistsVC: UIViewController {
         if  let winnerImage = URL(string: winner?.imageURL ?? ""){
         self.winnerImage.kf.setImage(with: winnerImage, placeholder: #imageLiteral(resourceName: "WhatsApp Image 2021-04-21 at 1.25.47 PM"))
         }
-        
         if result{
             resultView.isHidden = false
+            resultView2.isHidden = false
         }else{
             resultView.isHidden = true
+            resultView2.isHidden = true
         }
     }
     
@@ -109,29 +114,33 @@ class CompetitionResultslistsVC: UIViewController {
 extension CompetitionResultslistsVC : UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if result{
         if self.final {
             return self.showShimmer ? 1 : finalList.count
         }else{
             return self.showShimmer ? 1 : shortList.count
+        }
+        }else{
+            return self.showShimmer ? 1 : candidate.count
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier) as! CompetitionsResultCell
         if !self.showShimmer {
+            if result{
             if self.final {
                 cell.confic (name : self.finalList[indexPath.row].name ?? "",profileUrl : self.finalList[indexPath.row].imageURL ?? "" , bannerUrl :self.finalList[indexPath.row].imageURL ?? "" ,isVote : self.finalList[indexPath.row].isVoted ?? false)
-                cell.vote = {
-                self.competitionVm.showIndicator()
-                self.voteCompetitions(competitionId: self.compId, candidateId:self.finalList[indexPath.row].id ?? 0)
-                }
-
             }else{
                 cell.confic (name : self.shortList[indexPath.row].name ?? "",profileUrl : self.shortList[indexPath.row].imageURL ?? "" , bannerUrl :self.shortList[indexPath.row].imageURL ?? "" ,isVote : self.shortList[indexPath.row].isVoted ?? false)
-            
+            }
+            cell.voteBtn.isHidden = true
+
+            }else{
+                cell.confic (name : self.candidate[indexPath.row].name ?? "",profileUrl : self.candidate[indexPath.row].imageURL ?? "" , bannerUrl :self.candidate[indexPath.row].imageURL ?? "" ,isVote : self.candidate[indexPath.row].isVoted ?? false)
                 cell.vote = {
                 self.competitionVm.showIndicator()
-                    self.voteCompetitions(competitionId: self.compId, candidateId:self.shortList[indexPath.row].id ?? 0)
+                    self.voteCompetitions(competitionId: self.compId, candidateId:self.candidate[indexPath.row].id ?? 0)
                 }
             }
         }

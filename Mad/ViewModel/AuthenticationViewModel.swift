@@ -137,7 +137,12 @@ struct AuthenticationViewModel {
     }
     
     
-    
-    
+    func checkPassword(password : String) -> Observable<CheckPasswordModelJson> {
+         let params: [String: Any] = [
+            "password": password
+           ]
+        let observer = Authentication.shared.checkPassword(params: params)
+        return observer
+    }
     
 }

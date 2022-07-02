@@ -141,11 +141,11 @@ extension ArtistsVc : UICollectionViewDelegate ,UICollectionViewDataSource , UIC
                     self.artistVM.showIndicator()
                  if self.suggested[indexPath.row].isFavorite ?? false{
                     self.editFavourite(artistId:  self.suggested[indexPath.row].id ?? 0, Type: false)
-                    cell.favouriteBtn.backgroundColor = #colorLiteral(red: 0.9282042384, green: 0.2310142517, blue: 0.4267850518, alpha: 1)
                     self.suggestedCollectionView.reloadData()
+                     cell.favouriteBtn.setImage(#imageLiteral(resourceName: "Group 155"), for: .normal)
                     }else{
                         self.editFavourite(artistId:  self.suggested[indexPath.row].id ?? 0, Type: true)
-                        cell.favouriteBtn.backgroundColor = #colorLiteral(red: 0.5764705882, green: 0.6235294118, blue: 0.7137254902, alpha: 1)
+                        cell.favouriteBtn.setImage(#imageLiteral(resourceName: "Path 326-1"), for: .normal)
                         self.suggestedCollectionView.reloadData()
                    }
                    }else {

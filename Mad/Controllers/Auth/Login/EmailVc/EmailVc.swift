@@ -61,9 +61,14 @@ class EmailVc: UIViewController {
     
     //MARK:- Register Label Action Configurations
     @objc func ResetTapAction(_ sender: UITapGestureRecognizer) {
-        let main = EmailVc.instantiateFromNib()
-        main?.register = true
+    if Helper.getType() ?? false{
+        let main = WelcomVc.instantiateFromNib()
         self.navigationController?.pushViewController(main!, animated: true)
+     }else{
+            let main = EmailVc.instantiateFromNib()
+             main?.register = true
+             self.navigationController?.pushViewController(main!, animated: true)
+        }
     }
     
     func setupMultiColorRegisterLabel() {
@@ -105,7 +110,6 @@ class EmailVc: UIViewController {
     
     @IBAction func backButton(sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
-
     }
     
 }

@@ -169,3 +169,10 @@ struct ReviewModelJson: Codable {
     let message: String?
     let errors: Errors?
 }
+
+struct CheckPasswordModelJson: Codable {
+    let success: Bool?
+    let data: Bool?
+    let message: String?
+    let errors: Errors?
+}

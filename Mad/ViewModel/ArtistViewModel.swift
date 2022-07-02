@@ -44,6 +44,33 @@ struct ArtistViewModel {
          return observer
      }
     
+    func addToFavouriteProduct(productId : Int,Type : Bool) -> Observable<ProductFavouriteModel> {
+        let params: [String: Any] = [
+            "product_id": productId,
+            "is_favorite": Type
+            ]
+        let observer = AddServices.shared.addProductToFavourite(param : params)
+         return observer
+     }
+
+    
+    func addToFavouriteProject(productID : Int,Type : Bool) -> Observable<FavouriteModel> {
+        let params: [String: Any] = [
+            "project_id": productID,
+            "is_favorite": Type
+            ]
+        let observer = AddServices.shared.addToFavourite(param : params)
+         return observer
+     }
+    
+    func shareProject(productID : Int) -> Observable<ShareModel> {
+        let params: [String: Any] = [
+            "project_id": productID,
+            ]
+        let observer = AddServices.shared.shareProject(param : params)
+         return observer
+     }
+    
     func getSuggested() -> Observable<SuggestedModel> {
          let observer = GetServices.shared.getSuggested()
          return observer
@@ -84,26 +111,24 @@ struct ArtistViewModel {
         return observer
     }
     
-    func upgradeMyProfile(email : String,phone : String,firstName : String,lastName : String,age : String,country : String,about : String,headLine : String,instgram : String,faceBook : String,twitter : String,name:String,music:Bool,art:Bool,design:Bool) -> Observable<AddProductModelJson> {
+    func upgradeMyProfile(firstName: String,lastName: String,age: String,about: String,instgram: String,faceBook: String,twitter: String, phone : String,headLine : String) -> Observable<AddProductModelJson> {
         let params: [String: Any] = [
-            "email": email,
-            "first_name": firstName,
-            "last_name": lastName,
-            "headline": headLine,
-            "about":about ,
-            "phone": phone,
-            "age": age,
-            "country": country,
-            "facebook": faceBook,
-            "instagram": instgram,
-            "twitter":twitter,
-            "public_name":name,
-            "category_music":music,
-            "category_art":art,
-            "category_design":design
+             "email": Helper.getUserEmail() ?? "" ,
+             "first_name": firstName,
+             "last_name": lastName,
+             "headline": headLine,
+             "about":about ,
+             "phone": phone,
+             "age": age,
+             "country": "lebnan",
+             "facebook": faceBook,
+             "instagram": instgram,
+             "twitter":twitter,
+              "public_name":firstName + lastName,
+             //"category_music":music,
+             //"category_art":art,
+             //"category_design":design
            ]
-       
-        
         let observer = Authentication.shared.upgradeMyProfile(params: params)
         return observer
     }
@@ -111,6 +136,24 @@ struct ArtistViewModel {
     
     func getAllCountries() -> Observable<CountryModel> {
          let observer = GetServices.shared.getAllCountry()
+         return observer
+     }
+    
+    func addToFavourite(videoId : Int,Type : Bool) -> Observable<VideoFavouriteMdel> {
+        let params: [String: Any] = [
+            "video_id": videoId,
+            "is_favorite": Type
+            ]
+        let observer = AddServices.shared.addVideoToFavourite(param : params)
+         return observer
+     }
+    
+    
+    func shareVideo(videoId : Int) -> Observable<ShareModel> {
+        let params: [String: Any] = [
+            "video_id": videoId,
+            ]
+        let observer = AddServices.shared.shareVideo(param : params)
          return observer
      }
     

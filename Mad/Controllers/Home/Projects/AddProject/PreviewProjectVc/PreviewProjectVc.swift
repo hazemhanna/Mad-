@@ -9,7 +9,6 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-
 class PreviewProjectVc : UIViewController {
     
     @IBOutlet weak var liveCollectionView: UICollectionView!
@@ -81,15 +80,11 @@ class PreviewProjectVc : UIViewController {
             liveView.isHidden = true
         }
         
-        
- 
-        if selectedCat.count < 0 || selectedArtist.count < 0 || locationTF == "" || short_description == "" || titleTF == "" || summeryTf == "" || startDateTf == "" || endDateTf == "" || contentHtml == ""  || uploadedPhoto == nil || packages.count < 0 {
-            
+    if selectedCat.count < 0 || selectedArtist.count < 0 || locationTF == "" || short_description == "" || titleTF == "" || summeryTf == "" || startDateTf == "" || endDateTf == "" || contentHtml == ""  || uploadedPhoto == nil || packages.count < 0 {
             self.saveBtn.isHidden = true
         }else{
             self.saveBtn.isHidden = false
         }
-        
     }
     
     override func viewDidLayoutSubviews() {
@@ -121,7 +116,6 @@ class PreviewProjectVc : UIViewController {
     }
     
 }
-
 
 extension PreviewProjectVc  :  UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
@@ -222,7 +216,4 @@ extension PreviewProjectVc{
 
         }).disposed(by: disposeBag)
     }
-    
-    
-    
 }

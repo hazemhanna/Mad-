@@ -13,12 +13,16 @@ import RxCocoa
 class ArtistProjectsVc : UIViewController {
     
     @IBOutlet weak var mainTableView: UITableView!
+    @IBOutlet weak var availableLbl : UILabel!
+
     
  
     private let CellIdentifier = "HomeCell"
     var artistVM = ArtistViewModel()
     var disposeBag = DisposeBag()
     var artistId = Helper.getArtistId() ?? 0
+    var token = Helper.getAPIToken() ?? ""
+
     var showShimmer: Bool = true
     var projects = [Project]()
     
@@ -60,6 +64,49 @@ extension ArtistProjectsVc: UITableViewDelegate,UITableViewDataSource{
                     , profileUrl : projects[indexPath.row].artist?.profilPicture ?? ""
                     , projectUrl :projects[indexPath.row].imageURL ?? ""
                     , trustUrl : "", isFavourite: projects[indexPath.row].isFavorite ?? false, relatedProduct:  projects[indexPath.row].relateProducts ?? [])
+            
+            
+            // edit favourite
+              cell.favourite = {
+                if self.token == "" {
+                    displayMessage(title: "",message: "please login first".localized, status: .success, forController: self)
+                    let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
+                    if let appDelegate = UIApplication.shared.delegate {
+                        appDelegate.window??.rootViewController = sb
+                    }
+                    return
+                }
+                self.artistVM.showIndicator()
+                if  self.projects[indexPath.row].isFavorite ?? false {
+                    self.editFavourite(productID:  self.projects[indexPath.row].id ?? 0, Type: false)
+                }else{
+                  self.editFavourite(productID:  self.projects[indexPath.row].id ?? 0, Type: true)
+                }
+             }
+            cell.favouriteStack.isHidden = false
+             // share project
+            cell.share = {
+                if self.token == "" {
+                    displayMessage(title: "",message: "please login first".localized, status: .success, forController: self)
+                    let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
+                    if let appDelegate = UIApplication.shared.delegate {
+                        appDelegate.window??.rootViewController = sb
+                    }
+                    return
+                }
+                self.artistVM.showIndicator()
+                self.shareProject(productID:  self.projects[indexPath.row].id ?? 0)
+
+                // text to share
+                let text = self.projects[indexPath.row].title ?? ""
+                let image = self.projects[indexPath.row].artist?.profilPicture ?? ""
+                let textToShare = [ text ,image]
+                let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+                activityViewController.popoverPresentationController?.sourceView = self.view
+              activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.postToFacebook ]
+                self.present(activityViewController, animated: true, completion: nil)
+
+            }
         }
         cell.showShimmer = showShimmer
         return cell
@@ -81,10 +128,41 @@ extension ArtistProjectsVc  {
             self.showShimmer = false
             self.projects = dataModel.data?.projects ?? []
             self.mainTableView.reloadData()
+
+            if dataModel.data?.projects?.count ?? 0  > 0 {
+                self.mainTableView.isHidden = false
+                self.availableLbl.isHidden = true
+
+            }else{
+                self.mainTableView.isHidden = true
+                self.availableLbl.isHidden = false
+            }
            }
        }, onError: { (error) in
         self.artistVM.dismissIndicator()
 
+       }).disposed(by: disposeBag)
+   }
+    
+    func editFavourite(productID : Int,Type : Bool) {
+        artistVM.addToFavouriteProject(productID: productID, Type: Type).subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+            self.artistVM.dismissIndicator()
+            self.getArtistProfile(artistId : self.artistId)
+           }
+       }, onError: { (error) in
+        self.artistVM.dismissIndicator()
+       }).disposed(by: disposeBag)
+   }
+
+    func shareProject(productID : Int) {
+        artistVM.shareProject(productID: productID).subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+            self.artistVM.dismissIndicator()
+            self.getArtistProfile(artistId : self.artistId)
+           }
+       }, onError: { (error) in
+        self.artistVM.dismissIndicator()
        }).disposed(by: disposeBag)
    }
 }

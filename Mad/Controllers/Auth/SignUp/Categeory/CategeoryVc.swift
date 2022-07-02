@@ -136,7 +136,7 @@ extension CategeoryVc {
 
 extension CategeoryVc {
      func completeProfile() {
-        AuthViewModel.attemptToCompleteProfile(categories: self.SelectedCategories,type: true).subscribe(onNext: { (registerData) in
+         AuthViewModel.attemptToCompleteProfile(categories: self.SelectedCategories,type: Helper.getType() ?? false).subscribe(onNext: { (registerData) in
             if registerData.success ?? false {
                 self.AuthViewModel.dismissIndicator()
                 Helper.saveAlogin(token: registerData.data?.accessToken ?? ""

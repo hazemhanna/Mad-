@@ -10,56 +10,52 @@ import RxSwift
 import RxCocoa
 
 class AboutVc: UIViewController {
+    
+    @IBOutlet weak var  headLineLbL: UILabel!
+    @IBOutlet weak var  aboutLbl: UILabel!
+    @IBOutlet weak var  socialcollection: UICollectionView!
+    @IBOutlet weak var  socialLoc: UILabel!
+    @IBOutlet weak var  musiccatLabl: UILabel!
+    @IBOutlet weak var  artcatLabl: UILabel!
+    @IBOutlet weak var  designcatLabl: UILabel!
 
-    @IBOutlet weak var  levelLbl: UILabel!
-    @IBOutlet weak var  pointLbl: UILabel!
-    @IBOutlet weak var  bioLbL : UILabel!
-    @IBOutlet weak var  socialTableview : UITableView!
-    
-    
-    @IBOutlet weak var  levelLoc: UILabel!
-    @IBOutlet weak var  pointLblLoc: UILabel!
-    @IBOutlet weak var  bioLbLLoc : UILabel!
-    @IBOutlet weak var  socialLoc : UILabel!
-    
-    
-    let cellIdentifier = "SocialCell"
+    let cellIdentifier = "SocialMediaCell"
     var artistVM = ArtistViewModel()
     var disposeBag = DisposeBag()
     var artistId = Helper.getArtistId() ?? 0
-
     var social  = [Social]()
+    var music  = String()
+    var art  = String()
+    var design  = String()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupContentTableView()
         getArtistProfile(artistId : artistId)
-        
-        levelLoc.text = "level".localized
-        pointLblLoc.text = "point".localized
-        bioLbLLoc.text = "Bio".localized
         socialLoc.text = "SocialMedia".localized
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
     }
-    
 }
 
-extension AboutVc : UITableViewDelegate,UITableViewDataSource{
+extension AboutVc : UICollectionViewDelegate ,UICollectionViewDataSource{
+
     func setupContentTableView() {
-        socialTableview.delegate = self
-        socialTableview.dataSource = self
-        self.socialTableview.register(UINib(nibName: self.cellIdentifier, bundle: nil), forCellReuseIdentifier: self.cellIdentifier)
+        socialcollection.delegate = self
+        socialcollection.dataSource = self
+        self.socialcollection.register(UINib(nibName: self.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: self.cellIdentifier)
     
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return social.count 
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return social.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier) as! SocialCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+            
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! SocialMediaCell
         cell.confic(name : self.social[indexPath.row].name ?? "" ,icon : self.social[indexPath.row].icon ?? "")
         cell.details = {
             if let url = self.social[indexPath.row].url {
@@ -69,21 +65,36 @@ extension AboutVc : UITableViewDelegate,UITableViewDataSource{
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 40
-    }    
+}
 
+extension AboutVc : UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let flowayout = collectionViewLayout as? UICollectionViewFlowLayout
+        let space: CGFloat = (flowayout?.minimumInteritemSpacing ?? 0.0) + (flowayout?.sectionInset.left ?? 0.0) + (flowayout?.sectionInset.right ?? 0.0)
+      let size:CGFloat = (collectionView.frame.size.width - space) / 9
+          return CGSize(width: size, height: (collectionView.frame.size.height))
+    }
 }
 
 extension AboutVc  {
     func getArtistProfile(artistId : Int) {
         artistVM.getArtistProfile(artistId: artistId).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
-            self.bioLbL.text = dataModel.data?.about ?? ""
-            self.pointLbl.text = "\(dataModel.data?.points ?? 0)"
-            self.levelLbl.text = dataModel.data?.level ?? ""
+            self.headLineLbL.text = dataModel.data?.headline ?? ""
+            self.aboutLbl.text = dataModel.data?.about ?? ""
+
+            if  dataModel.data?.music ?? false {
+                self.musiccatLabl.text = "  Music  "
+            }
+            if  dataModel.data?.art ?? false {
+                self.artcatLabl.text = "  Art  "
+            }
+            if  dataModel.data?.design ?? false {
+                self.designcatLabl.text = "  Design  "
+            }
             self.social = dataModel.data?.socialLinks ?? []
-            self.socialTableview.reloadData()
+            self.socialcollection.reloadData()
            }
        }, onError: { (error) in
         self.artistVM.dismissIndicator()

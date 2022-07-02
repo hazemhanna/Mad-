@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -57,44 +57,38 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Oxc-oS-szs">
-                                <rect key="frame" x="108" y="18.5" width="107" height="41"/>
+                                <rect key="frame" x="108" y="21" width="167" height="36"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eva pavaroaky" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OE4-aK-xoP">
-                                        <rect key="frame" x="0.0" y="0.0" width="107" height="17.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="167" height="15"/>
                                         <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="15"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Musician" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vq1-Js-ITl">
-                                        <rect key="frame" x="0.0" y="25.5" width="107" height="15.5"/>
+                                        <rect key="frame" x="0.0" y="23" width="167" height="13"/>
                                         <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="13"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dbj-OB-N2I" customClass="CustomButtons" customModule="Mad" customModuleProvider="target">
-                                <rect key="frame" x="223" y="24" width="80" height="30"/>
-                                <color key="backgroundColor" red="0.8980392157" green="0.12549019610000001" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dbj-OB-N2I" customClass="CustomButtons" customModule="Mad" customModuleProvider="target">
+                                <rect key="frame" x="283" y="29" width="20" height="20"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="bQO-QC-sHO"/>
-                                    <constraint firstAttribute="width" constant="80" id="zLV-MY-WpW"/>
+                                    <constraint firstAttribute="height" constant="20" id="bQO-QC-sHO"/>
+                                    <constraint firstAttribute="width" constant="20" id="zLV-MY-WpW"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="13"/>
-                                <state key="normal" title="Favorite">
+                                <state key="normal" image="Group 140">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="16"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="editFavouriteAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="4QQ-lB-fNK"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="MDu-VN-cfg" firstAttribute="leading" secondItem="ojd-P7-vue" secondAttribute="leading" constant="32" id="7M6-Fs-gI1"/>
                             <constraint firstAttribute="trailing" secondItem="Dbj-OB-N2I" secondAttribute="trailing" constant="16" id="8kM-Mm-aBX"/>
@@ -110,7 +104,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                 </subviews>
-                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="Ix0-AG-b3H" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="H0m-01-ccX"/>
                     <constraint firstItem="ojd-P7-vue" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="SJd-X9-pgi"/>
@@ -123,6 +117,7 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="artistImage" destination="AgK-Re-a4J" id="7nP-Of-9Ls"/>
                 <outlet property="favouriteBtn" destination="Dbj-OB-N2I" id="vWN-xs-HG6"/>
@@ -138,10 +133,11 @@
             <size key="intrinsicContentSize" width="320" height="320"/>
         </designable>
         <designable name="Dbj-OB-N2I">
-            <size key="intrinsicContentSize" width="47" height="28"/>
+            <size key="intrinsicContentSize" width="20" height="22"/>
         </designable>
     </designables>
     <resources>
+        <image name="Group 140" width="20" height="18"/>
         <image name="Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4" width="320" height="320"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

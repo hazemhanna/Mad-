@@ -20,17 +20,16 @@ class MyProfileVc: UIViewController {
     @IBOutlet weak var followersCount: UILabel!
     @IBOutlet weak var artistName: UILabel!
     @IBOutlet weak var  upgradeView : UIView!
-    
     @IBOutlet weak var  profileviewHeight : NSLayoutConstraint!
-
     @IBOutlet weak var  logoBanner : UIImageView!
     @IBOutlet weak var  bannerBtn : UIButton!
 
+    
     open lazy var customTabBar: PTCardTabBar = {
         return PTCardTabBar()
     }()
     
-    var active = Helper.getIsActive() ?? false
+    var active = Helper.getType() ?? false
     var tokent = Helper.getAPIToken() ?? ""
     var artistVM = ArtistViewModel()
     var disposeBag = DisposeBag()

@@ -19,14 +19,24 @@ class MyProfileAbout : UIViewController {
     @IBOutlet weak var  socilaLbL : UILabel!
     @IBOutlet weak var  typeLbl : UILabel!
     @IBOutlet weak var  joinLbl : UILabel!
-
-    @IBOutlet weak var  socialTableview : UITableView!
+    @IBOutlet weak var  socialcollection : UICollectionView!
     @IBOutlet weak var  bioStack : UIStackView!
 
-    let cellIdentifier = "SocialCell"
+    @IBOutlet weak var  catStack : UIStackView!
+    @IBOutlet weak var  catLbl : UILabel!
+    @IBOutlet weak var  headLineStack : UIStackView!
+    @IBOutlet weak var  headLineLbl : UILabel!
+    @IBOutlet weak var  editBtn : UILabel!
+    
+    var music = false
+    var art = false
+    var desigen = false
+    
+    
+    let cellIdentifier = "SocialMediaCell"
     var artistVM = ArtistViewModel()
     var disposeBag = DisposeBag()
-    var active = Helper.getIsActive() ?? false
+    var active = Helper.getType() ?? false
 
     var social  = [Social]()
     override func viewDidLoad() {
@@ -37,44 +47,51 @@ class MyProfileAbout : UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         if active{
             socilaLbL.isHidden = false
-            socialTableview.isHidden = false
+            socialcollection.isHidden = false
             bioStack.isHidden = false
+            headLineStack.isHidden = false
+            //catStack.isHidden = false
             typeLbl.text = "Mad Artist"
+            editBtn.text = "Edit Artist Profile"
         }else{
             socilaLbL.isHidden = true
-            socialTableview.isHidden = true
+            socialcollection.isHidden = true
             bioStack.isHidden = true
-            typeLbl.text = "Mad User"
-
+            headLineStack.isHidden = true
+           // catStack.isHidden = true
+            typeLbl.text = "Mader"
+            editBtn.text = "Edit Profile"
         }
-        
         getProfile()
         self.navigationController?.navigationBar.isHidden = true
     }
-    
-    
     @IBAction func editProfile(sender: UIButton) {
-        let vc = EditUSerProfileVc.instantiateFromNib()
-        self.navigationController?.pushViewController(vc!, animated: true)
+        if active{
+            let vc = EditMyProfileVc.instantiateFromNib()
+            self.navigationController?.pushViewController(vc!, animated: true)
+        }else{
+            let vc = EditUSerProfileVc.instantiateFromNib()
+            self.navigationController?.pushViewController(vc!, animated: true)
+        }
     }
-    
 }
 
+extension MyProfileAbout : UICollectionViewDelegate ,UICollectionViewDataSource{
 
-extension MyProfileAbout : UITableViewDelegate,UITableViewDataSource{
     func setupContentTableView() {
-        socialTableview.delegate = self
-        socialTableview.dataSource = self
-        self.socialTableview.register(UINib(nibName: self.cellIdentifier, bundle: nil), forCellReuseIdentifier: self.cellIdentifier)
+        socialcollection.delegate = self
+        socialcollection.dataSource = self
+        self.socialcollection.register(UINib(nibName: self.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: self.cellIdentifier)
     
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return social.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier) as! SocialCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+            
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! SocialMediaCell
         cell.confic(name : self.social[indexPath.row].name ?? "" ,icon : self.social[indexPath.row].icon ?? "")
         cell.details = {
             if let url = self.social[indexPath.row].url {
@@ -84,28 +101,49 @@ extension MyProfileAbout : UITableViewDelegate,UITableViewDataSource{
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 40
-    }
-
 }
 
+extension MyProfileAbout : UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+           // return CGSize(width: 30, height: 30)
+        
+        let flowayout = collectionViewLayout as? UICollectionViewFlowLayout
+        let space: CGFloat = (flowayout?.minimumInteritemSpacing ?? 0.0) + (flowayout?.sectionInset.left ?? 0.0) + (flowayout?.sectionInset.right ?? 0.0)
+      let size:CGFloat = (collectionView.frame.size.width - space) / 9
+          return CGSize(width: size, height: (collectionView.frame.size.height))
+    }
+}
+    
 extension MyProfileAbout  {
     func getProfile() {
         artistVM.getMyProfile().subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
-            self.bioLbL.text = dataModel.data?.about ?? ""
+
             self.pointLbl.text = "\(dataModel.data?.points ?? 0)"
             self.levelLbl.text = dataModel.data?.level ?? ""
             self.social = dataModel.data?.socialLinks ?? []
-            
+            self.headLineLbl.text = dataModel.data?.headline ?? ""
+            self.bioLbL.text = dataModel.data?.about ?? ""
+
+//            if dataModel.data?.music ?? false {
+//                self.catLbl.text = "Music"
+//            }
+//
+//            if  dataModel.data?.art ?? false {
+//                self.catLbl.text =  "art"
+//            }
+//
+//           if dataModel.data?.design ?? false  {
+//               self.catLbl.text = "design"
+//           }
+//
             let inputFormatter = DateFormatter()
             inputFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
             let showDate = inputFormatter.date(from: dataModel.data?.userRegistered ?? "" )
             inputFormatter.dateFormat = "dd,MMMM,yyyy"
             let resultString = inputFormatter.string(from: showDate!)
             self.joinLbl.text = resultString
-            self.socialTableview.reloadData()
+            self.socialcollection.reloadData()
          }
        }, onError: { (error) in
         self.artistVM.dismissIndicator()

@@ -110,6 +110,7 @@ struct CompetitionsDetails: Codable {
     let countAllVotes: Int?
     let winner: Winner?
     let finalists, shortlisted: [Winner]?
+    let candidate : [Winner]?
     let can_compete ,can_vote,end_competition :Bool?
     
     enum CodingKeys: String, CodingKey {
@@ -124,7 +125,7 @@ struct CompetitionsDetails: Codable {
         case step2Message = "step2_message"
         case status
         case countAllVotes = "count_all_votes"
-        case winner, finalists, shortlisted
+        case winner, finalists, shortlisted,candidate
         case can_compete, can_vote,end_competition
     }
 }

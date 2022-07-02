@@ -14,13 +14,17 @@ import RxCocoa
 class HomeCompetitionsVc : UIViewController {
    
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var selectCompDropDown: TextFieldDropDown!
+    @IBOutlet weak var allBtn: UIButton!
+    @IBOutlet weak var ongoingBtn: UIButton!
+    @IBOutlet weak var completeBtn: UIButton!
+
     @IBOutlet weak var searchBar: UITextField!
 
     let cellIdentifier = "CompetitionCell"
     var parentVC : HomeVC?
-    var comp = ["all","ongoing","complete"]
+    
     var compValue = "all"
+    
     var competitionVm = CometitionsViewModel()
     var disposeBag = DisposeBag()
     var artistId = Int()
@@ -29,7 +33,6 @@ class HomeCompetitionsVc : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupContentTableView()
-        setupCopDropDown()
         searchBar.addTarget(self, action: #selector(HomeCompetitionsVc.textFieldDidChange(_:)), for: .editingChanged)
         searchBar.delegate = self
     }
@@ -39,14 +42,32 @@ class HomeCompetitionsVc : UIViewController {
         self.navigationController?.navigationBar.isHidden = true
     }
     
-    func setupCopDropDown(){
-        selectCompDropDown.optionArray = self.comp
-        selectCompDropDown.didSelect { (selectedText, index, id) in
-            self.selectCompDropDown.text = selectedText
-            self.compValue = self.comp[index]
-            self.getCompetitions(search: "", step: self.compValue, pageNum: 1)
+
+    @IBAction func fillterBtn(sender: UIButton) {
+        if sender.tag == 0 {
+            allBtn.setTitleColor(#colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1), for: .normal)
+            ongoingBtn.setTitleColor(#colorLiteral(red: 0.1333333333, green: 0.2156862745, blue: 0.3882352941, alpha: 1), for: .normal)
+            completeBtn.setTitleColor(#colorLiteral(red: 0.1333333333, green: 0.2156862745, blue: 0.3882352941, alpha: 1), for: .normal)
+            self.getCompetitions(search: "", step: "all", pageNum: 1)
+             compValue = "all"
+
+        }else if sender.tag == 1 {
+            ongoingBtn.setTitleColor(#colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1), for: .normal)
+            allBtn.setTitleColor(#colorLiteral(red: 0.1333333333, green: 0.2156862745, blue: 0.3882352941, alpha: 1), for: .normal)
+            completeBtn.setTitleColor(#colorLiteral(red: 0.1333333333, green: 0.2156862745, blue: 0.3882352941, alpha: 1), for: .normal)
+            self.getCompetitions(search: "", step: "ongoing", pageNum: 1)
+             compValue = "ongoing"
+
+        }else{
+            completeBtn.setTitleColor(#colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1), for: .normal)
+            ongoingBtn.setTitleColor(#colorLiteral(red: 0.1333333333, green: 0.2156862745, blue: 0.3882352941, alpha: 1), for: .normal)
+            allBtn.setTitleColor(#colorLiteral(red: 0.1333333333, green: 0.2156862745, blue: 0.3882352941, alpha: 1), for: .normal)
+            self.getCompetitions(search: "", step: "complete", pageNum: 1)
+             compValue = "complete"
+
         }
     }
+    
 }
 
 

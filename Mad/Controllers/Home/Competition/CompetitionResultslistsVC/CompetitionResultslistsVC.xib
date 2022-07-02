@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -31,7 +31,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I want to participate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dV9-o5-W2b">
-                                <rect key="frame" x="84" y="42" width="298" height="16"/>
+                                <rect key="frame" x="84" y="40.5" width="298" height="19"/>
                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="16"/>
                                 <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -77,16 +77,16 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="350" height="50"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="KWQ-HB-yKi">
-                                                                        <rect key="frame" x="32" y="16.5" width="237" height="17"/>
+                                                                        <rect key="frame" x="32" y="15" width="236" height="20"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Nbr of votes: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ROj-ib-5cK">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="143.5" height="17"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="144" height="20"/>
                                                                                 <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="17"/>
                                                                                 <color key="textColor" red="0.1333333333" green="0.2156862745" blue="0.38823529410000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21724 votes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSc-BV-aQl">
-                                                                                <rect key="frame" x="147.5" y="0.0" width="89.5" height="17"/>
+                                                                                <rect key="frame" x="148" y="0.0" width="88" height="20"/>
                                                                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="16"/>
                                                                                 <color key="textColor" red="0.1333333333" green="0.2156862745" blue="0.38823529410000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <nil key="highlightedColor"/>
@@ -143,10 +143,10 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="350" height="200"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M2d-0i-4Nz" customClass="CustomView" customModule="Mad" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="350" height="163"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="350" height="157"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JXH-hR-EVs" customClass="CustomView" customModule="Mad" customModuleProvider="target">
-                                                                        <rect key="frame" x="111.5" y="18.5" width="127" height="126"/>
+                                                                        <rect key="frame" x="111.5" y="15.5" width="127" height="126"/>
                                                                         <subviews>
                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4" translatesAutoresizingMaskIntoConstraints="NO" id="Mp0-Vc-T6t" customClass="CustomImageView" customModule="Mad" customModuleProvider="target">
                                                                                 <rect key="frame" x="4" y="4" width="119" height="118"/>
@@ -210,16 +210,16 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="DHL-bR-GYO">
-                                                                <rect key="frame" x="114.5" y="163" width="121.5" height="37"/>
+                                                                <rect key="frame" x="116" y="157" width="118.5" height="43"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WINNER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n8J-v7-zo5">
-                                                                        <rect key="frame" x="28.5" y="0.0" width="64" height="16"/>
+                                                                        <rect key="frame" x="27.5" y="0.0" width="63" height="19"/>
                                                                         <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="16"/>
                                                                         <color key="textColor" red="0.2196078431372549" green="0.51372549019607838" blue="0.85882352941176465" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Emma Jonshon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uni-4V-drJ">
-                                                                        <rect key="frame" x="0.0" y="20" width="121.5" height="17"/>
+                                                                        <rect key="frame" x="0.0" y="23" width="118.5" height="20"/>
                                                                         <fontDescription key="fontDescription" name="Graphik-MediumItalic" family="Graphik" pointSize="17"/>
                                                                         <color key="textColor" red="0.1333333333" green="0.2156862745" blue="0.38823529410000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <nil key="highlightedColor"/>
@@ -351,6 +351,7 @@
             <connections>
                 <outlet property="finalListBtn" destination="eU1-zP-91L" id="7mZ-J9-AyE"/>
                 <outlet property="resultView" destination="p6Y-oJ-Q7W" id="Yro-gO-WaJ"/>
+                <outlet property="resultView2" destination="QNG-ob-VX9" id="Uqi-Ot-Mp6"/>
                 <outlet property="shortListBtn" destination="ptr-Vd-6U4" id="q85-VL-U16"/>
                 <outlet property="tableView" destination="mHL-Ft-21s" id="4L1-wZ-uSC"/>
                 <outlet property="titlelLbl" destination="dV9-o5-W2b" id="Pvn-6f-zoy"/>
@@ -366,10 +367,10 @@
             <size key="intrinsicContentSize" width="320" height="320"/>
         </designable>
         <designable name="eU1-zP-91L">
-            <size key="intrinsicContentSize" width="70" height="28"/>
+            <size key="intrinsicContentSize" width="72" height="31"/>
         </designable>
         <designable name="ptr-Vd-6U4">
-            <size key="intrinsicContentSize" width="69" height="28"/>
+            <size key="intrinsicContentSize" width="69" height="31"/>
         </designable>
     </designables>
     <resources>

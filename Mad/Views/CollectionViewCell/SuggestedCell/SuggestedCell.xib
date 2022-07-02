@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -44,19 +44,18 @@
                                         <rect key="frame" x="0.0" y="116.5" width="218" height="28.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#Music" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FR3-R3-bKx">
-                                                <rect key="frame" x="0.0" y="0.0" width="120" height="28.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="180" height="28.5"/>
                                                 <fontDescription key="fontDescription" name="Graphik-Bold" family="Graphik" pointSize="13"/>
                                                 <color key="textColor" red="0.1333333333" green="0.2156862745" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j9U-vF-UqZ" customClass="CustomButtons" customModule="Mad" customModuleProvider="target">
-                                                <rect key="frame" x="128" y="0.0" width="90" height="28.5"/>
-                                                <color key="backgroundColor" red="0.89803921568627454" green="0.12549019607843137" blue="0.3529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j9U-vF-UqZ" customClass="CustomButtons" customModule="Mad" customModuleProvider="target">
+                                                <rect key="frame" x="188" y="0.0" width="30" height="28.5"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="90" id="4Aq-2j-UPx"/>
+                                                    <constraint firstAttribute="width" constant="30" id="4Aq-2j-UPx"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="13"/>
-                                                <state key="normal" title="Favorite">
+                                                <state key="normal" image="Group 140">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
@@ -76,7 +75,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="tjP-Pp-O4g">
-                                <rect key="frame" x="43.5" y="16" width="116.5" height="30"/>
+                                <rect key="frame" x="43.5" y="16" width="120" height="30"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4" translatesAutoresizingMaskIntoConstraints="NO" id="wIM-4d-8Hv" customClass="CustomImageView" customModule="Mad" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -97,7 +96,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eva pavaroaky" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uhf-9w-sUH">
-                                        <rect key="frame" x="38" y="0.0" width="78.5" height="30"/>
+                                        <rect key="frame" x="38" y="0.0" width="82" height="30"/>
                                         <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -164,7 +163,7 @@
     </objects>
     <designables>
         <designable name="j9U-vF-UqZ">
-            <size key="intrinsicContentSize" width="47" height="28"/>
+            <size key="intrinsicContentSize" width="20" height="22"/>
         </designable>
         <designable name="oh8-Dr-yg0">
             <size key="intrinsicContentSize" width="375" height="174"/>
@@ -174,6 +173,7 @@
         </designable>
     </designables>
     <resources>
+        <image name="Group 140" width="20" height="18"/>
         <image name="Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4" width="320" height="320"/>
         <image name="Mask Group 121" width="375" height="174"/>
         <systemColor name="systemBackgroundColor">

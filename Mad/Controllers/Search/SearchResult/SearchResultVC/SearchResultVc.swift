@@ -119,7 +119,7 @@ class SearchResultVc  : UIViewController {
 //MARK:- Data Binding
 extension SearchResultVc: UICollectionViewDelegate {
     func setuptitleCollectionView() {
-        self.titles = ["Artists","Items","Tags","Competitions"]
+        self.titles = ["Artists","Products","Tags","Competitions"]
         let cellIdentifier = "TitleCell"
         self.titleCollectionView.rx.setDelegate(self).disposed(by: disposeBag)
         self.titleCollectionView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier)

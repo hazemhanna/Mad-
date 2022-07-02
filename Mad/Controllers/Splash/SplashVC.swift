@@ -36,10 +36,10 @@ class SplashVC: UIViewController {
         setupSplashCollectionView()
         
         nextBtn.setTitle( "Next".localized, for: .normal)
-        data.append(SplashModel(images: #imageLiteral(resourceName: "Component 83 – 12"), title: "JOIN.MADER".localized, title2: "Discover".localized))
-        data.append(SplashModel(images: #imageLiteral(resourceName: "Component 84 – 1"), title: "SHOP".localized, title2: "Artist.creations".localized))
+        data.append(SplashModel(images: #imageLiteral(resourceName: "Component 5 – 1"), title: "JOIN.MADER".localized, title2: "Discover".localized))
+        data.append(SplashModel(images: #imageLiteral(resourceName: "Component 4 – 1"), title: "SHOP".localized, title2: "Artist.creations".localized))
         data.append(SplashModel(images: #imageLiteral(resourceName: "Layer 0"), title: "Or.ARTIST".localized, title2: "Get.visibility".localized))
-        data.append(SplashModel(images: #imageLiteral(resourceName: "Posters Mix (4)"), title: "APPLY.REGISTER".localized, title2: "Competitions.events".localized))
+        data.append(SplashModel(images: #imageLiteral(resourceName: "Component 63 – 1"), title: "APPLY.REGISTER".localized, title2: "Competitions.events".localized))
         firstView.clipsToBounds = true
         firstView.layer.cornerRadius = 3
         firstView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMinXMinYCorner]

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -83,7 +82,7 @@
                                                         <rect key="frame" x="4" y="4" width="406" height="220"/>
                                                         <subviews>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="zHg-S7-FXF" customClass="CustomCollectionView" customModule="Mad" customModuleProvider="target">
-                                                                <rect key="frame" x="20" y="20" width="366" height="180"/>
+                                                                <rect key="frame" x="8" y="8" width="390" height="204"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="G1z-bL-uiM">
                                                                     <size key="itemSize" width="50" height="50"/>
@@ -94,16 +93,16 @@
                                                                 <cells/>
                                                             </collectionView>
                                                         </subviews>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstItem="zHg-S7-FXF" firstAttribute="leading" secondItem="CO9-Nk-dg3" secondAttribute="leading" constant="20" id="2X3-pW-S5M"/>
-                                                            <constraint firstAttribute="trailing" secondItem="zHg-S7-FXF" secondAttribute="trailing" constant="20" id="E87-uY-EoJ"/>
-                                                            <constraint firstAttribute="bottom" secondItem="zHg-S7-FXF" secondAttribute="bottom" constant="20" id="RNr-kI-skT"/>
-                                                            <constraint firstItem="zHg-S7-FXF" firstAttribute="top" secondItem="CO9-Nk-dg3" secondAttribute="top" constant="20" id="SOm-ik-Sa3"/>
+                                                            <constraint firstItem="zHg-S7-FXF" firstAttribute="leading" secondItem="CO9-Nk-dg3" secondAttribute="leading" constant="8" id="2X3-pW-S5M"/>
+                                                            <constraint firstAttribute="trailing" secondItem="zHg-S7-FXF" secondAttribute="trailing" constant="8" id="E87-uY-EoJ"/>
+                                                            <constraint firstAttribute="bottom" secondItem="zHg-S7-FXF" secondAttribute="bottom" constant="8" id="RNr-kI-skT"/>
+                                                            <constraint firstItem="zHg-S7-FXF" firstAttribute="top" secondItem="CO9-Nk-dg3" secondAttribute="top" constant="8" id="SOm-ik-Sa3"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="CO9-Nk-dg3" secondAttribute="trailing" constant="4" id="Vev-fn-JIe"/>
                                                     <constraint firstAttribute="height" constant="228" id="WSa-Cb-Qec"/>
@@ -198,9 +197,4 @@
             <point key="canvasLocation" x="-5610" y="2462"/>
         </viewController>
     </objects>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

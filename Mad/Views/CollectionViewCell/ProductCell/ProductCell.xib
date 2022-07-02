@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Graphik-Bold.ttf">
+            <string>Graphik-Bold</string>
+        </array>
+        <array key="Graphik-Light.ttf">
+            <string>Graphik-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProductCell" id="gTV-IL-0wX" customClass="ProductCell" customModule="Mad" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="157" height="218"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="157" height="218"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HLp-Qu-yA6" customClass="CustomView" customModule="Mad" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="8" width="157" height="202"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mask Group 85-1" translatesAutoresizingMaskIntoConstraints="NO" id="oPg-3c-IaF" customClass="CustomImageView" customModule="Mad" customModuleProvider="target">
+                                <rect key="frame" x="8" y="8" width="141" height="111"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="cmy-Dv-cei">
+                                <rect key="frame" x="16" y="135" width="125" height="51"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a3t-iq-ggt">
+                                        <rect key="frame" x="0.0" y="0.0" width="125" height="42"/>
+                                        <string key="text">Live from your Art
+Workshop</string>
+                                        <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="12"/>
+                                        <color key="textColor" red="0.1333333333" green="0.2156862745" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD 40" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uda-yx-cIj">
+                                        <rect key="frame" x="0.0" y="42" width="125" height="9"/>
+                                        <fontDescription key="fontDescription" name="Graphik-Bold" family="Graphik" pointSize="9"/>
+                                        <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M6k-Ah-0Fx">
+                                <rect key="frame" x="119" y="164" width="22" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="1N4-FM-3m7"/>
+                                    <constraint firstAttribute="width" constant="22" id="S7k-82-2J4"/>
+                                </constraints>
+                                <state key="normal" image="Group 140"/>
+                                <connections>
+                                    <action selector="favouriteAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="jLM-Gp-x1i"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="cmy-Dv-cei" secondAttribute="bottom" constant="16" id="5K9-9a-1nA"/>
+                            <constraint firstItem="oPg-3c-IaF" firstAttribute="leading" secondItem="HLp-Qu-yA6" secondAttribute="leading" constant="8" id="BCn-Pd-J6f"/>
+                            <constraint firstAttribute="bottom" secondItem="M6k-Ah-0Fx" secondAttribute="bottom" constant="16" id="LGU-fe-oLI"/>
+                            <constraint firstItem="cmy-Dv-cei" firstAttribute="leading" secondItem="HLp-Qu-yA6" secondAttribute="leading" constant="16" id="OUi-hI-SYx"/>
+                            <constraint firstItem="cmy-Dv-cei" firstAttribute="top" secondItem="oPg-3c-IaF" secondAttribute="bottom" constant="16" id="Yit-td-gzB"/>
+                            <constraint firstItem="oPg-3c-IaF" firstAttribute="height" secondItem="HLp-Qu-yA6" secondAttribute="height" multiplier="0.55" id="hRB-19-JSm"/>
+                            <constraint firstAttribute="trailing" secondItem="M6k-Ah-0Fx" secondAttribute="trailing" constant="16" id="hT4-RF-8D7"/>
+                            <constraint firstAttribute="trailing" secondItem="oPg-3c-IaF" secondAttribute="trailing" constant="8" id="jan-7X-2nU"/>
+                            <constraint firstAttribute="trailing" secondItem="cmy-Dv-cei" secondAttribute="trailing" constant="16" id="lkd-Ls-hN4"/>
+                            <constraint firstItem="oPg-3c-IaF" firstAttribute="top" secondItem="HLp-Qu-yA6" secondAttribute="top" constant="8" id="v9Y-1w-0Gm"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="NO"/>
+                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.16" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                <real key="value" value="0.69999999999999996"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                <real key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                <size key="value" width="3" height="3"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="16"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v4Q-il-Whe" customClass="ShimmerView" customModule="Mad" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="157" height="218"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="HLp-Qu-yA6" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="8mu-4x-3yV"/>
+                <constraint firstAttribute="trailing" secondItem="HLp-Qu-yA6" secondAttribute="trailing" id="Ldc-gV-FKp"/>
+                <constraint firstItem="v4Q-il-Whe" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="QPg-EY-LUP"/>
+                <constraint firstItem="v4Q-il-Whe" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="RbH-oa-ZHx"/>
+                <constraint firstAttribute="trailing" secondItem="v4Q-il-Whe" secondAttribute="trailing" id="Sa0-GE-Hck"/>
+                <constraint firstAttribute="bottom" secondItem="v4Q-il-Whe" secondAttribute="bottom" id="WVU-kP-2ov"/>
+                <constraint firstAttribute="bottom" secondItem="HLp-Qu-yA6" secondAttribute="bottom" constant="8" id="bHm-dv-7ry"/>
+                <constraint firstItem="HLp-Qu-yA6" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="pw3-w2-Q48"/>
+            </constraints>
+            <size key="customSize" width="157" height="218"/>
+            <connections>
+                <outlet property="bannerImage" destination="oPg-3c-IaF" id="4F8-DJ-xHZ"/>
+                <outlet property="favouriteBtn" destination="M6k-Ah-0Fx" id="1IY-YB-pGM"/>
+                <outlet property="mainView" destination="HLp-Qu-yA6" id="rL5-1I-lec"/>
+                <outlet property="priceLbl" destination="uda-yx-cIj" id="gl7-oN-xEf"/>
+                <outlet property="shimmerView" destination="v4Q-il-Whe" id="V4c-gU-ehY"/>
+                <outlet property="titleLabel" destination="a3t-iq-ggt" id="6SM-An-eo3"/>
+            </connections>
+            <point key="canvasLocation" x="215.21739130434784" y="123.21428571428571"/>
+        </collectionViewCell>
+    </objects>
+    <designables>
+        <designable name="oPg-3c-IaF">
+            <size key="intrinsicContentSize" width="119" height="96"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="Group 140" width="20" height="18"/>
+        <image name="Mask Group 85-1" width="119" height="96"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -6,16 +6,20 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+
 
 class CreatPasswordVc: UIViewController {
 
     @IBOutlet weak var iconImage : UIImageView!
     @IBOutlet weak var passwordTF : CustomTextField!
-    
     @IBOutlet weak var mainTitleLbl: UILabel!
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var nextBtn: UIButton!
     
+    var disposeBag = DisposeBag()
+    private let AuthViewModel = AuthenticationViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +36,6 @@ class CreatPasswordVc: UIViewController {
         view.endEditing(true)
     }
     
-
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
     }
@@ -46,21 +49,16 @@ class CreatPasswordVc: UIViewController {
         if password.isEmpty {
             displayMessage(title: "",message: "Enter.Password".localized, status: .error, forController: self)
           return false
-        }else if password.isPasswordValid() != true {
-            displayMessage(title: "",message: "Password.Hint".localized, status: .error, forController: self)
-            return false
-          }else{
+        }else{
             return true
         }
     }
 
     @IBAction func nextButton(sender: UIButton) {
         guard self.validateInput() else { return }
-        Helper.savePAssword(pass: passwordTF.text ?? "")
-        let main = NameVc.instantiateFromNib()
-        self.navigationController?.pushViewController(main!, animated: true)
+        self.AuthViewModel.showIndicator()
+        forgetPassword(password: passwordTF.text ?? "")
     }
-
     
     @IBAction func backButton(sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
@@ -75,10 +73,27 @@ extension CreatPasswordVc :UITextFieldDelegate{
             iconImage.isHidden = true
         }
     }
-
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-           self.view.endEditing(true)
-           return false
-       }
+        self.view.endEditing(true)
+        return false
+    }
+}
+
+extension CreatPasswordVc {
+    func forgetPassword(password : String) {
+        AuthViewModel.checkPassword(password: password).subscribe(onNext: { (dataModel) in
+            self.AuthViewModel.dismissIndicator()
+            if dataModel.success ?? false {
+                Helper.savePAssword(pass: self.passwordTF.text ?? "")
+                let main = NameVc.instantiateFromNib()
+                self.navigationController?.pushViewController(main!, animated: true)
+            }else{
+                displayMessage(title: "",message: "Password.Hint".localized, status: .error, forController: self)
+            }
+        }, onError: { (error) in
+            self.AuthViewModel.dismissIndicator()
+
+        }).disposed(by: disposeBag)
+    }
 }
