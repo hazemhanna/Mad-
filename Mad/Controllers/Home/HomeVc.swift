@@ -22,7 +22,7 @@ class HomeVC: UIViewController {
     var homeVM = HomeViewModel()
     var disposeBag = DisposeBag()
     var selectedIndex = 0
-    var isActive = Helper.getIsActive() ?? false
+    var isCompleted = Helper.getUpgrade() ?? false
     var madArtist = Helper.getType() ?? false
     open lazy var customTabBar: PTCardTabBar = {
         return PTCardTabBar()
@@ -40,12 +40,11 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
         setuptitleCollectionView()
         selectView()
-        
         if self.token == "" {
             blackView.isHidden = true
         }else{
          if madArtist{
-             if isActive{
+             if isCompleted{
                 blackView.isHidden = true
             }else{
                   homeVM.showIndicator()
@@ -68,12 +67,14 @@ class HomeVC: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
     }
+    
     lazy var instantVC1: ArtistsVc = {
         var vc = ArtistsVc.instantiateFromNib()
         self.add(asChildViewController: vc!)
         vc!.parentVC = self
         return vc!
     }()
+    
     lazy var instantVC2: ProductsVC = {
         var vc =  ProductsVC.instantiateFromNib()
         self.add(asChildViewController: vc!)

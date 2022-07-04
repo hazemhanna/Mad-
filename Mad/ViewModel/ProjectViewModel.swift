@@ -44,20 +44,8 @@ struct ProjectViewModel {
         SVProgressHUD.dismiss()
     }
     
-    func CreatProject(
-                      title :String,
-                      content :String,
-                      short_description:String,
-                      summary:String,
-                      image:UIImage,
-                      categories :[Int],
-                      products :[Int],
-                      artists :[String],
-                      startDate :String,
-                      endDate :String,
-                      location :String,
-                     submit :String,
-                     packages: [[String:String]]) -> Observable<AddProductModelJson> {
+    func CreatProject(title :String,content :String,short_description:String,summary:String,image:UIImage,categories :[Int],products :[Int],artists :[String],startDate :String,endDate :String,location :String,submit :String,packages: [[String:String]]) -> Observable<AddProductModelJson> {
+        
         let params: [String: Any] = [
             "title":title,
             "categories": categories,

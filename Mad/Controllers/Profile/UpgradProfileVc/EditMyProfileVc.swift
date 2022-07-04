@@ -239,7 +239,7 @@ extension EditMyProfileVc {
            if dataModel.success ?? false {
             self.artistVM.dismissIndicator()
             self.showMessage(text: dataModel.message ?? "")
-            //Helper.saveActive(isActive: true)
+            Helper.saveUpgrade(isActive: true)
             self.navigationController?.popViewController(animated: true)
            }else{
             self.artistVM.dismissIndicator()

@@ -246,5 +246,18 @@ class Helper {
         def.set(type, forKey: "type")
         def.synchronize()
     }
-        
+      
+    
+    
+    class func saveUpgrade(isActive: Bool) {
+        let def = UserDefaults.standard
+        def.set(isActive, forKey: "isUpgrade")
+        def.synchronize()
+    }
+    
+     class func getUpgrade() -> Bool? {
+           let def = UserDefaults.standard
+           return def.object(forKey: "isUpgrade") as? Bool
+     }
+    
 }

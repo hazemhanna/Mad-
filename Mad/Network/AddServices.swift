@@ -309,12 +309,26 @@ struct AddServices {
                 if let data = image.jpegData(compressionQuality: 0.5) {
                   form.append(data, withName: "image_url", fileName: "image.jpeg", mimeType: "image/jpeg")
                 }
-                
-                for (key, value) in params {
-                 
-                    form.append("\(value)".data(using: .utf8)!, withName: key)
-                }
-                
+                  
+                  for (key, value) in params {
+                      if let temp = value as? String {
+                          form.append(temp.data(using: .utf8)!, withName: key)
+                       }
+                  
+                      if let temp = value as? Int {
+                          form.append("\(temp)".data(using: .utf8)!, withName: key)
+                      }
+                      if let temp = value as? NSArray {
+                        temp.forEach({ element in
+                            let keyObj = key + "[]"
+                              if let num = element as? Int {
+                                let value = "\(num)"
+                                    form.append(value.data(using: .utf8)!, withName: keyObj)
+                                 }
+                            })
+                        }
+                  }
+                  
               }, usingThreshold: SessionManager.multipartFormDataEncodingMemoryThreshold, to: url, method: .post,headers: headers) { (result: SessionManager.MultipartFormDataEncodingResult) in
                       switch result {
                   case .failure(let error):
@@ -329,7 +343,7 @@ struct AddServices {
                         print(data)
                         observer.onNext(data)
                        } catch {
-                           print(error.localizedDescription)
+                           print(error)
                           observer.onError(error)
                       }
                     }
