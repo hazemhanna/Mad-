@@ -12,6 +12,9 @@ import RxCocoa
 class CompetitionsVc: UIViewController {
    
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var availableLbl : UILabel!
+
+    
     let cellIdentifier = "CompetitionCell"
     var artistId = Helper.getArtistId() ?? 0
     var artistVM = ArtistViewModel()
@@ -64,6 +67,14 @@ extension CompetitionsVc : UITableViewDelegate,UITableViewDataSource{
         return 130
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        DispatchQueue.main.async {
+            let main = CompetitionsDetailsVc.instantiateFromNib()
+            main!.compId = self.competitions[indexPath.row].id ?? 0
+            self.navigationController?.pushViewController(main!, animated: true)
+        }
+    }
+    
 }
 
 extension CompetitionsVc{
@@ -72,6 +83,17 @@ extension CompetitionsVc{
            if dataModel.success ?? false {
                self.showShimmer = false
                self.competitions = dataModel.data?.completedCompetitions ?? []
+               
+               if dataModel.data?.completedCompetitions?.count ?? 0  > 0 {
+                   self.tableView.isHidden = false
+                   self.availableLbl.isHidden = true
+
+               }else{
+                   self.tableView.isHidden = true
+                   self.availableLbl.isHidden = false
+               }
+
+               
            }
        }, onError: { (error) in
         self.artistVM.dismissIndicator()

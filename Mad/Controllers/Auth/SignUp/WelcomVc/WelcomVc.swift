@@ -25,17 +25,14 @@ class WelcomVc: UIViewController {
         didSet {
             DispatchQueue.main.async {
                 self.AdsVM.fetchAds(data: self.data)
-
             }
         }
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.isPagingEnabled = true
         setupCollectionView()
-        
         titleLbl.text = "Hello.Mad.artist".localized
         nextBtn.setTitle( "Next".localized, for: .normal)
         creatBtn.setTitle( "Create.Artist.Profile".localized, for: .normal)
@@ -45,7 +42,6 @@ class WelcomVc: UIViewController {
         data.append(SplashModel(images: #imageLiteral(resourceName: "pawel-szvmanski-i73F7ma3Q9k-unsplash"), title: "Artfluencer".localized, title2: "Create.content".localized))
         data.append(SplashModel(images: #imageLiteral(resourceName: "mohsen-shenavari-0WkVr4IINKQ-unsplash"), title: "Get.featured".localized, title2: "Shows.interviews".localized))
         data.append(SplashModel(images: #imageLiteral(resourceName: "Mask Group 32"), title: "What.are".localized, title2: "Create.your.projects".localized))
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,21 +65,23 @@ class WelcomVc: UIViewController {
             let nextIndex = visibleIndices[0].row + 1
             let nextIndexPath: IndexPath = IndexPath.init(item: nextIndex, section: 0)
             if nextIndex > lastIndex {
-                
+                self.nextBtn.isHidden = true
             } else {
                 self.collectionView.scrollToItem(at: nextIndexPath, at: .centeredHorizontally, animated: true)
+                self.nextBtn.isHidden = false
           }
         }
     }
     
     @IBAction func backButton(sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
-
     }
+    
 }
 
 
 extension WelcomVc: UICollectionViewDelegate {
+    
     func setupCollectionView() {
 
         let cellIdentifier = "WelcomeCell"
@@ -99,7 +97,12 @@ extension WelcomVc: UICollectionViewDelegate {
         self.collectionView.rx.itemSelected.bind { (indexPath) in
 
         }.disposed(by: disposeBag)
-
+        
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay c: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        self.nextBtn.isHidden = false
     }
     
 }

@@ -17,6 +17,8 @@ import AVFoundation
 class ArtistFeatureVideoVC  : UIViewController {
    
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var availableLbl : UILabel!
+
     
     let cellIdentifier = "ArtistFeaturedVideosCell"
     var artistVM = ArtistViewModel()
@@ -97,6 +99,14 @@ extension ArtistFeatureVideoVC{
         artistVM.getArtistProfile(artistId: artistId).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
                self.videos = dataModel.data?.featured ?? []
+               if dataModel.data?.featured?.count ?? 0  > 0 {
+                   self.tableView.isHidden = false
+                   self.availableLbl.isHidden = true
+
+               }else{
+                   self.tableView.isHidden = true
+                   self.availableLbl.isHidden = false
+               }
            }
        }, onError: { (error) in
         self.artistVM.dismissIndicator()

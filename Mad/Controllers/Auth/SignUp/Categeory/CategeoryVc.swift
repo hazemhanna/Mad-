@@ -153,7 +153,7 @@ extension CategeoryVc {
                 if let appDelegate = UIApplication.shared.delegate {
                     appDelegate.window??.rootViewController = sb
                 }
-                displayMessage(title: "",message: registerData.message ?? "", status: .success, forController: self)
+                displayMessage(title: "",message: "MADer account created", status: .success, forController: self)
 
             }else{
                 self.AuthViewModel.dismissIndicator()

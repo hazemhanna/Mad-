@@ -28,8 +28,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Component 6 – 1" translatesAutoresizingMaskIntoConstraints="NO" id="i0M-F5-eNq">
-                                <rect key="frame" x="0.0" y="-30" width="414" height="926"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Component 87 – 1" translatesAutoresizingMaskIntoConstraints="NO" id="i0M-F5-eNq">
+                                <rect key="frame" x="0.0" y="-30" width="414" height="269"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZWl-FI-bvy">
                                 <rect key="frame" x="144.5" y="244" width="125" height="16"/>
@@ -165,16 +165,21 @@
                                     <action selector="goButtonWithSender:" destination="tHU-JW-jVx" eventType="touchUpInside" id="Mzq-yJ-gAb"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Component 88 – 1" translatesAutoresizingMaskIntoConstraints="NO" id="pAX-aW-Nbg">
+                                <rect key="frame" x="0.0" y="638" width="414" height="224"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="36J-dJ-ggL"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="pAX-aW-Nbg" firstAttribute="leading" secondItem="36J-dJ-ggL" secondAttribute="leading" id="2TY-mF-ENn"/>
                             <constraint firstItem="OCo-zP-bcp" firstAttribute="centerX" secondItem="K1N-8u-w7u" secondAttribute="centerX" id="2rG-9Q-5UW"/>
+                            <constraint firstItem="i0M-F5-eNq" firstAttribute="height" secondItem="K1N-8u-w7u" secondAttribute="height" multiplier="0.3" id="Ay9-OB-Wnj"/>
                             <constraint firstItem="OCo-zP-bcp" firstAttribute="top" secondItem="gYx-Y1-ZPf" secondAttribute="bottom" constant="32" id="DRe-uV-gLd"/>
-                            <constraint firstAttribute="bottom" secondItem="i0M-F5-eNq" secondAttribute="bottom" id="EjZ-xP-Wbh"/>
                             <constraint firstItem="5vL-nS-ckE" firstAttribute="centerX" secondItem="K1N-8u-w7u" secondAttribute="centerX" id="MWO-hP-SFB"/>
                             <constraint firstItem="o0h-K4-tvL" firstAttribute="top" secondItem="5vL-nS-ckE" secondAttribute="bottom" constant="16" id="QyH-qK-uAv"/>
                             <constraint firstItem="i0M-F5-eNq" firstAttribute="width" secondItem="K1N-8u-w7u" secondAttribute="width" id="SlM-Oc-Gbv"/>
+                            <constraint firstItem="36J-dJ-ggL" firstAttribute="bottom" secondItem="pAX-aW-Nbg" secondAttribute="bottom" id="W6h-ni-Uzz"/>
                             <constraint firstItem="gYx-Y1-ZPf" firstAttribute="width" secondItem="K1N-8u-w7u" secondAttribute="width" multiplier="0.7" id="ZoA-bO-srb"/>
                             <constraint firstItem="gYx-Y1-ZPf" firstAttribute="centerX" secondItem="K1N-8u-w7u" secondAttribute="centerX" id="eh3-gT-sgh"/>
                             <constraint firstItem="gYx-Y1-ZPf" firstAttribute="top" secondItem="ZWl-FI-bvy" secondAttribute="bottom" constant="16" id="huL-vH-eN5"/>
@@ -182,9 +187,11 @@
                             <constraint firstItem="5vL-nS-ckE" firstAttribute="top" secondItem="HSr-ID-gmg" secondAttribute="bottom" constant="64" id="jCs-N5-VvH"/>
                             <constraint firstItem="i0M-F5-eNq" firstAttribute="top" secondItem="K1N-8u-w7u" secondAttribute="top" constant="-30" id="le9-1d-FSa"/>
                             <constraint firstItem="ZWl-FI-bvy" firstAttribute="centerX" secondItem="K1N-8u-w7u" secondAttribute="centerX" id="lo7-xD-poD"/>
+                            <constraint firstItem="pAX-aW-Nbg" firstAttribute="trailing" secondItem="36J-dJ-ggL" secondAttribute="trailing" id="qeO-vh-sIA"/>
                             <constraint firstItem="o0h-K4-tvL" firstAttribute="centerX" secondItem="K1N-8u-w7u" secondAttribute="centerX" id="rLF-Py-aoW"/>
                             <constraint firstItem="ZWl-FI-bvy" firstAttribute="top" secondItem="36J-dJ-ggL" secondAttribute="top" constant="200" id="rcX-Sd-L9c"/>
                             <constraint firstItem="HSr-ID-gmg" firstAttribute="centerX" secondItem="K1N-8u-w7u" secondAttribute="centerX" id="uZr-AV-1vO"/>
+                            <constraint firstItem="pAX-aW-Nbg" firstAttribute="height" secondItem="K1N-8u-w7u" secondAttribute="height" multiplier="0.25" id="v9W-gf-NOq"/>
                             <constraint firstItem="HSr-ID-gmg" firstAttribute="top" secondItem="OCo-zP-bcp" secondAttribute="bottom" constant="32" id="vaa-4H-oNg"/>
                             <constraint firstItem="i0M-F5-eNq" firstAttribute="centerX" secondItem="K1N-8u-w7u" secondAttribute="centerX" id="vtM-gb-pV3"/>
                         </constraints>
@@ -230,8 +237,9 @@
         </designable>
     </designables>
     <resources>
-        <image name="Component 6 – 1" width="458" height="947"/>
         <image name="Component 61 – 2" width="26.5" height="19.5"/>
+        <image name="Component 87 – 1" width="458" height="224"/>
+        <image name="Component 88 – 1" width="458" height="224"/>
         <image name="Group 336" width="83.5" height="85.5"/>
         <image name="Mask Group 124-1" width="53" height="28"/>
         <image name="Rectangle 16" width="286" height="68"/>

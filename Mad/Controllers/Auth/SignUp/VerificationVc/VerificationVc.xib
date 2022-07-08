@@ -107,8 +107,8 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Component 7 – 2" translatesAutoresizingMaskIntoConstraints="NO" id="76j-qv-naM">
-                        <rect key="frame" x="0.0" y="635" width="414" height="327"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Component 88 – 1" translatesAutoresizingMaskIntoConstraints="NO" id="76j-qv-naM">
+                        <rect key="frame" x="0.0" y="616.5" width="414" height="245.5"/>
                     </imageView>
                 </subviews>
                 <viewLayoutGuide key="safeArea" id="1SL-ku-CJa"/>
@@ -123,9 +123,9 @@
                     <constraint firstItem="qmx-VH-KKQ" firstAttribute="top" secondItem="bJU-fH-jLZ" secondAttribute="bottom" constant="64" id="bpU-YL-eb4"/>
                     <constraint firstItem="bJU-fH-jLZ" firstAttribute="width" secondItem="1SL-ku-CJa" secondAttribute="width" multiplier="0.8" id="ezi-SJ-Jmm"/>
                     <constraint firstItem="zRA-G4-Ofa" firstAttribute="leading" secondItem="1SL-ku-CJa" secondAttribute="leading" constant="26" id="kjX-hH-GIC"/>
-                    <constraint firstItem="76j-qv-naM" firstAttribute="height" secondItem="1SL-ku-CJa" secondAttribute="height" multiplier="0.4" id="mdN-Aw-hJ9"/>
+                    <constraint firstItem="76j-qv-naM" firstAttribute="height" secondItem="1SL-ku-CJa" secondAttribute="height" multiplier="0.3" id="mdN-Aw-hJ9"/>
                     <constraint firstItem="76j-qv-naM" firstAttribute="leading" secondItem="1SL-ku-CJa" secondAttribute="leading" id="q0E-Qg-LKS"/>
-                    <constraint firstItem="76j-qv-naM" firstAttribute="bottom" secondItem="1SL-ku-CJa" secondAttribute="bottom" constant="100" id="sc0-X9-1Xk"/>
+                    <constraint firstItem="76j-qv-naM" firstAttribute="bottom" secondItem="1SL-ku-CJa" secondAttribute="bottom" id="sc0-X9-1Xk"/>
                     <constraint firstItem="zRA-G4-Ofa" firstAttribute="top" secondItem="1SL-ku-CJa" secondAttribute="top" constant="30" id="tCz-47-sVu"/>
                     <constraint firstItem="bJU-fH-jLZ" firstAttribute="top" secondItem="1SL-ku-CJa" secondAttribute="top" constant="112" id="xHI-Fm-5Rv"/>
                 </constraints>
@@ -143,11 +143,11 @@
             <size key="intrinsicContentSize" width="52" height="21"/>
         </designable>
         <designable name="YJM-Bo-le9">
-            <size key="intrinsicContentSize" width="132.5" height="40.5"/>
+            <size key="intrinsicContentSize" width="112.5" height="20.5"/>
         </designable>
     </designables>
     <resources>
-        <image name="Component 7 – 2" width="494" height="401.5"/>
+        <image name="Component 88 – 1" width="458" height="224"/>
         <image name="Group 119" width="36" height="17"/>
         <image name="Group 58" width="12" height="16.5"/>
         <systemColor name="systemBackgroundColor">

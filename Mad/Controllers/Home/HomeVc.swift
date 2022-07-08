@@ -44,7 +44,7 @@ class HomeVC: UIViewController {
             blackView.isHidden = true
         }else{
          if madArtist{
-             if isCompleted{
+             if isCompleted || Helper.getIsActive() ?? false{
                 blackView.isHidden = true
             }else{
                   homeVM.showIndicator()

@@ -31,7 +31,6 @@ class LoadingLoginVc : UIViewController {
         self.navigationController?.navigationBar.isHidden = false
     }
     
-    
     func localized(){
         JoinMaderleLbl.setTitle("Join.MADer".localized, for: .normal)
         JoinArtistleLbl.setTitle("Join.artist".localized, for: .normal)
