@@ -6,14 +6,22 @@
 //
 
 import UIKit
+import WebKit
 
-class AboutBlogVc: UIViewController {
 
-    @IBOutlet weak var titleLble : UILabel!
+class AboutBlogVc: UIViewController,WKNavigationDelegate {
+
+    @IBOutlet var webView: WKWebView!
     var parentVC : BlogDetailsVc?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        webView.scrollView.showsHorizontalScrollIndicator = false
+        webView.scrollView.showsVerticalScrollIndicator = false
+        webView.isOpaque = false
+        webView.navigationDelegate = self
+        
     }
 
 

@@ -38,7 +38,6 @@ class LoadingLoginVc : UIViewController {
         Login.setTitle("Login".localized, for: .normal)
         registerBtn.setTitle("Mad.artist".localized, for: .normal)
         goBtn.setTitle("Go".localized, for: .normal)
-
     }
     
     @IBAction func loginButton(sender: UIButton) {

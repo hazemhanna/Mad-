@@ -202,7 +202,10 @@ func getBlogsDetails(blogId : Int) {
            if let projectUrl = URL(string: data.data?.imageURL ?? ""){
            self.projectImage.kf.setImage(with: projectUrl, placeholder: #imageLiteral(resourceName: "WhatsApp Image 2021-04-21 at 1.25.47 PM"))
            }
-           self.instantVC1.titleLble.text = data.data?.content?.html2String ?? ""
+           
+           let  myVariable = "<font face='Graphik-Regular' size='16' color= 'black'>%@"
+           let varr = String(format: myVariable, (data.data?.content ?? ""))
+           self.instantVC1.webView.loadHTMLString(varr, baseURL: nil)
            self.instantVC2.artist = data.data?.relate_artists ?? []
            self.instantVC3.product = data.data?.relateProducts ?? []
            self.instantVC4.project = data.data?.relate_projects ?? []

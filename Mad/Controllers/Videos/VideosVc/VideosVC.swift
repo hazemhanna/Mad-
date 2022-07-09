@@ -346,19 +346,19 @@ extension VideosVC: UICollectionViewDelegate , UICollectionViewDataSource {
             return
         }
         if collectionView == showsCollectionView{
-            let sb = UIStoryboard(name: "Video", bundle: nil).instantiateViewController(withIdentifier: "VideoDetailsVc") as! VideoDetailsVc
+            let sb = UIStoryboard(name: "Video", bundle: nil).instantiateViewController(withIdentifier: "EpisodViewController") as! EpisodViewController
             sb.videoId = self.shows[indexPath.row].id ?? 0
             self.navigationController?.pushViewController(sb, animated: true)
         }else if collectionView == showCasesCollectionView{
-            let sb = UIStoryboard(name: "Video", bundle: nil).instantiateViewController(withIdentifier: "VideoDetailsVc") as! VideoDetailsVc
+            let sb = UIStoryboard(name: "Video", bundle: nil).instantiateViewController(withIdentifier: "EpisodViewController") as! EpisodViewController
             sb.videoId = self.showsCases[indexPath.row].id ?? 0
             self.navigationController?.pushViewController(sb, animated: true)
         }else if collectionView == interviewsCollectionView{
-            let sb = UIStoryboard(name: "Video", bundle: nil).instantiateViewController(withIdentifier: "VideoDetailsVc") as! VideoDetailsVc
+            let sb = UIStoryboard(name: "Video", bundle: nil).instantiateViewController(withIdentifier: "EpisodViewController") as! EpisodViewController
             sb.videoId = self.interviews[indexPath.row].id ?? 0
             self.navigationController?.pushViewController(sb, animated: true)
         }else if collectionView == afterMovieCollectionView{
-            let sb = UIStoryboard(name: "Video", bundle: nil).instantiateViewController(withIdentifier: "VideoDetailsVc") as! VideoDetailsVc
+            let sb = UIStoryboard(name: "Video", bundle: nil).instantiateViewController(withIdentifier: "EpisodViewController") as! EpisodViewController
             sb.videoId = self.afterMoviews[indexPath.row].id ?? 0
             self.navigationController?.pushViewController(sb, animated: true)
       }

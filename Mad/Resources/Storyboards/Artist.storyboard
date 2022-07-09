@@ -325,8 +325,8 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No available Products" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yqa-1q-YLZ">
-                                <rect key="frame" x="124.5" y="52" width="165" height="20.5"/>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No available Competitions" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yqa-1q-YLZ">
+                                <rect key="frame" x="108" y="52" width="198" height="20.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20.5" id="4U0-33-3me"/>
                                 </constraints>
@@ -554,8 +554,8 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No available Products" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9pG-rR-d34">
-                                <rect key="frame" x="124.5" y="52" width="165" height="20.5"/>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No available Videos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9pG-rR-d34">
+                                <rect key="frame" x="133" y="52" width="148.5" height="20.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20.5" id="fhb-YT-AgT"/>
                                 </constraints>
@@ -596,8 +596,8 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No available Products" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QMC-bO-kM4">
-                                <rect key="frame" x="124.5" y="52" width="165" height="20.5"/>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No available Feature Videos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QMC-bO-kM4">
+                                <rect key="frame" x="101.5" y="52" width="211" height="20.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20.5" id="iXU-wd-WIC"/>
                                 </constraints>
@@ -629,10 +629,10 @@
     </scenes>
     <designables>
         <designable name="BIn-XT-YO3">
-            <size key="intrinsicContentSize" width="64" height="27"/>
+            <size key="intrinsicContentSize" width="61" height="30"/>
         </designable>
         <designable name="roi-mo-syI">
-            <size key="intrinsicContentSize" width="42" height="27"/>
+            <size key="intrinsicContentSize" width="39" height="30"/>
         </designable>
     </designables>
     <resources>

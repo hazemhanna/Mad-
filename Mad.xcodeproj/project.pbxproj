@@ -254,6 +254,9 @@
 		04A0EC3B2742C95200C298A1 /* SocialMediaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A0EC392742C95200C298A1 /* SocialMediaCell.swift */; };
 		04A0EC3C2742C95200C298A1 /* SocialMediaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04A0EC3A2742C95200C298A1 /* SocialMediaCell.xib */; };
 		04A41ECB268560DD00F9B730 /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A41ECA268560DC00F9B730 /* SearchModel.swift */; };
+		04AD54F0287A231100E22E82 /* EpisodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD54EF287A231100E22E82 /* EpisodViewController.swift */; };
+		04AD54F4287A31CF00E22E82 /* EpisodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD54F2287A31CF00E22E82 /* EpisodTableViewCell.swift */; };
+		04AD54F5287A31CF00E22E82 /* EpisodTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04AD54F3287A31CF00E22E82 /* EpisodTableViewCell.xib */; };
 		04AD60B3262866E500ADF0DF /* ProjectDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD60B1262866E500ADF0DF /* ProjectDetailsVC.swift */; };
 		04AD60B4262866E500ADF0DF /* ProjectDetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04AD60B2262866E500ADF0DF /* ProjectDetailsVC.xib */; };
 		04AD610C2628C52B00ADF0DF /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD610B2628C52B00ADF0DF /* ImageModel.swift */; };
@@ -575,6 +578,9 @@
 		04A0EC392742C95200C298A1 /* SocialMediaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaCell.swift; sourceTree = "<group>"; };
 		04A0EC3A2742C95200C298A1 /* SocialMediaCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SocialMediaCell.xib; sourceTree = "<group>"; };
 		04A41ECA268560DC00F9B730 /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
+		04AD54EF287A231100E22E82 /* EpisodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodViewController.swift; sourceTree = "<group>"; };
+		04AD54F2287A31CF00E22E82 /* EpisodTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodTableViewCell.swift; sourceTree = "<group>"; };
+		04AD54F3287A31CF00E22E82 /* EpisodTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodTableViewCell.xib; sourceTree = "<group>"; };
 		04AD60B1262866E500ADF0DF /* ProjectDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsVC.swift; sourceTree = "<group>"; };
 		04AD60B2262866E500ADF0DF /* ProjectDetailsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectDetailsVC.xib; sourceTree = "<group>"; };
 		04AD610B2628C52B00ADF0DF /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
@@ -761,6 +767,7 @@
 		0413E4512630A37800F5977D /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				04AD54F1287A318B00E22E82 /* EpisodCell */,
 				04FF02CD27CA369200112CDC /* ArtistFeaturedVideosCell */,
 				04FF02C827CA356A00112CDC /* ArtistVideosCell */,
 				045F9CED2704783D007BBA4A /* DraftProductCell */,
@@ -838,6 +845,7 @@
 			isa = PBXGroup;
 			children = (
 				040CA93026B405D0008FF173 /* VideosVC.swift */,
+				04AD54EF287A231100E22E82 /* EpisodViewController.swift */,
 			);
 			path = VideosVc;
 			sourceTree = "<group>";
@@ -2015,6 +2023,15 @@
 			path = SociallMediaCell;
 			sourceTree = "<group>";
 		};
+		04AD54F1287A318B00E22E82 /* EpisodCell */ = {
+			isa = PBXGroup;
+			children = (
+				04AD54F2287A31CF00E22E82 /* EpisodTableViewCell.swift */,
+				04AD54F3287A31CF00E22E82 /* EpisodTableViewCell.xib */,
+			);
+			path = EpisodCell;
+			sourceTree = "<group>";
+		};
 		04AD60AE262866B200ADF0DF /* ProjectDetails */ = {
 			isa = PBXGroup;
 			children = (
@@ -2304,6 +2321,7 @@
 				04D23EEE2633127800290488 /* Graphik-Medium.ttf in Resources */,
 				04E06AFD26F0DB690082C7D2 /* TopProjectCell.xib in Resources */,
 				04D23EEF2633127800290488 /* Graphik-Regular.ttf in Resources */,
+				04AD54F5287A31CF00E22E82 /* EpisodTableViewCell.xib in Resources */,
 				04D23EF02633127800290488 /* Graphik-Semibold.ttf in Resources */,
 				04D23EEA2633121300290488 /* Graphik-Black.ttf in Resources */,
 				047992932698771C008314D4 /* FavouriteVc.xib in Resources */,
@@ -2519,6 +2537,7 @@
 				04972E8F2830075D00968FAB /* CurrencyViewController.swift in Sources */,
 				0448E7922666D664009C4A6E /* AddProjectdetailsVc.swift in Sources */,
 				04DEAA462620BC9500F843A6 /* SplashViewModel.swift in Sources */,
+				04AD54F4287A31CF00E22E82 /* EpisodTableViewCell.swift in Sources */,
 				0486DE9F26936635001DA69E /* AddressVC.swift in Sources */,
 				042C082A2613943900BE1806 /* LoadingLoginVc.swift in Sources */,
 				045F9CEA27046C53007BBA4A /* DraftsVc.swift in Sources */,
@@ -2584,6 +2603,7 @@
 				0437FA69269E9A3000CD594D /* PaymentVC.swift in Sources */,
 				04242ABB26554B2C003C8B44 /* VideoProjectCell.swift in Sources */,
 				040EBE5F26C1999C000E20FA /* EditMyProfileVc.swift in Sources */,
+				04AD54F0287A231100E22E82 /* EpisodViewController.swift in Sources */,
 				04E186F5261360F400824E37 /* StoryBoardExtension.swift in Sources */,
 				0413E41326307F5E00F5977D /* HomeVc.swift in Sources */,
 				04DEA9D926209FA100F843A6 /* Errors.swift in Sources */,

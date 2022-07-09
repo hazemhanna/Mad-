@@ -16,23 +16,26 @@
                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="vv" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R2K-9S-5P9">
-                        <rect key="frame" x="32" y="60" width="350" height="19"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
-                        <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LdK-SJ-Hxi">
+                        <rect key="frame" x="32" y="60" width="350" height="836"/>
+                        <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <wkWebViewConfiguration key="configuration">
+                            <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                            <wkPreferences key="preferences"/>
+                        </wkWebViewConfiguration>
+                    </wkWebView>
                 </subviews>
                 <viewLayoutGuide key="safeArea" id="duf-Xc-nGv"/>
                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="R2K-9S-5P9" secondAttribute="trailing" constant="32" id="2EF-jf-vZL"/>
-                    <constraint firstItem="R2K-9S-5P9" firstAttribute="leading" secondItem="EVa-wT-FxP" secondAttribute="leading" constant="32" id="CNx-Zf-PCm"/>
-                    <constraint firstItem="R2K-9S-5P9" firstAttribute="top" secondItem="duf-Xc-nGv" secondAttribute="top" constant="16" id="me8-3E-DU3"/>
+                    <constraint firstAttribute="bottom" secondItem="LdK-SJ-Hxi" secondAttribute="bottom" id="OtF-ZU-3RK"/>
+                    <constraint firstItem="LdK-SJ-Hxi" firstAttribute="leading" secondItem="duf-Xc-nGv" secondAttribute="leading" constant="32" id="RSK-LA-R2Y"/>
+                    <constraint firstItem="LdK-SJ-Hxi" firstAttribute="top" secondItem="duf-Xc-nGv" secondAttribute="top" constant="16" id="wHw-4n-8VZ"/>
+                    <constraint firstItem="duf-Xc-nGv" firstAttribute="trailing" secondItem="LdK-SJ-Hxi" secondAttribute="trailing" constant="32" id="xjA-1m-JKv"/>
                 </constraints>
             </view>
             <connections>
-                <outlet property="titleLble" destination="R2K-9S-5P9" id="EwK-cJ-e55"/>
+                <outlet property="webView" destination="LdK-SJ-Hxi" id="dgG-31-hun"/>
             </connections>
             <point key="canvasLocation" x="108" y="48"/>
         </viewController>

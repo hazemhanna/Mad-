@@ -32,8 +32,6 @@ class NotificationCell: UITableViewCell {
         }
     }
     
- 
-    
     var showShimmer: Bool = false {
         didSet {
             self.shimmerView.isShimmering = showShimmer
