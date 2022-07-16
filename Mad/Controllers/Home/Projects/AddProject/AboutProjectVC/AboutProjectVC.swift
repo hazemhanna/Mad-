@@ -10,6 +10,7 @@ import UIKit
 class AboutProjectVC: UIViewController {
 
     @IBOutlet var editorTF: UITextField!
+
     var selectedCat = [Int]()
     var selectedArtist = [String]()
     var locationTF = String()
@@ -66,7 +67,7 @@ class AboutProjectVC: UIViewController {
     }
     
     @IBAction func nextButton(sender: UIButton) {
-        //guard self.validateInput() else {return}
+        guard self.validateInput() else {return}
         let vc = CreatePackageVc.instantiateFromNib()
         vc!.selectedCat = selectedCat
         vc!.selectedArtist = selectedArtist
@@ -83,7 +84,51 @@ class AboutProjectVC: UIViewController {
         vc?.projectDetails = projectDetails
         self.navigationController?.pushViewController(vc!, animated: true)
     }
+    
+    @IBAction func uploadPhoto(sender: UIButton) {
+        self.showImageActionSheet()
+    }
+    
+    @IBAction func uploadImages(sender: UIButton) {
+        self.showImageActionSheet()
+    }
+    
 }
 
+extension AboutProjectVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func showImageActionSheet() {
+
+        let chooseFromLibraryAction = UIAlertAction(title: "Choose from Library", style: .default) { (action) in
+                self.showImagePicker(sourceType: .photoLibrary)
+            }
+            let cameraAction = UIAlertAction(title: "Take a Picture from Camera", style: .default) { (action) in
+                self.showImagePicker(sourceType: .camera)
+            }
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            AlertService.showAlert(style: .actionSheet, title: "Pick Your Picture", message: nil, actions: [chooseFromLibraryAction, cameraAction, cancelAction], completion: nil)
+    }
+    
+    func showImagePicker(sourceType: UIImagePickerController.SourceType) {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.allowsEditing = true
+        imagePickerController.sourceType = sourceType
+        imagePickerController.mediaTypes = ["public.image"]
+        imagePickerController.view.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        self.present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            
+        }else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+           
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    
+}
 
 

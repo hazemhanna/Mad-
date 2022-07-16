@@ -56,8 +56,6 @@ class AddProjectdetailsVc : UIViewController {
     var end = true
     var projectDetails : ProjectDetails?
     
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         

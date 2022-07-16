@@ -101,7 +101,7 @@ extension AddProductImageVc: UICollectionViewDelegate ,UICollectionViewDataSourc
         self.showImageActionSheet()
         }
     }
-       if self.uploadedPhoto.count >= 2 {
+       if self.uploadedPhoto.count > 0  {
             self.nextBtn.backgroundColor = #colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1)
             self.nextBtn.isEnabled = true
         }

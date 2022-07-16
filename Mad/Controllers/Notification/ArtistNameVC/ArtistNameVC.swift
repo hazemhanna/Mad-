@@ -13,6 +13,7 @@ import PTCardTabBar
 class ArtistNameVC: UIViewController {
     @IBOutlet weak var mainTableView: UITableView!
     @IBOutlet weak var searchTF: UITextField!
+    
     private let CellIdentifier = "ArtistNameCell"
     var artist :[Artist] = []
     var categeory = [Category]()
@@ -24,7 +25,8 @@ class ArtistNameVC: UIViewController {
     var disposeBag = DisposeBag()
     var ChatVM = ChatViewModel()
     var showArtist = false
-    
+    var showProductCat = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
         mainTableView.delegate = self
@@ -38,7 +40,9 @@ class ArtistNameVC: UIViewController {
         ChatVM.showIndicator()
         if showArtist{
         self.getAllArtist(section : "artists",search: "A" ,pageNum :1)
-        }else{
+        }else if showProductCat{
+            getCategory2()
+        }else {
             getCategory()
         }
     }
@@ -121,5 +125,21 @@ func getAllArtist(section : String,search:String,pageNum :Int) {
        }).disposed(by: disposeBag)
    }
 
+    func getCategory2() {
+        ChatVM.getProductCategories().subscribe(onNext: { (dataModel) in
+            if dataModel.success ?? false {
+                self.ChatVM.dismissIndicator()
+                self.categeory = dataModel.data ?? []
+                for cat in self.categeory{
+                    self.cats.append(cat.name ?? "")
+                }
+             self.mainTableView.reloadData()
+
+            }
+        }, onError: { (error) in
+              self.ChatVM.dismissIndicator()
+
+          }).disposed(by: disposeBag)
+      }
     
 }

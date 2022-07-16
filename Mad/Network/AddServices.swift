@@ -382,8 +382,6 @@ struct AddServices {
            }
        }
     
-    
-    
     func addCompete(file: UIImage,params: [String : Any]) -> Observable<AddProductModelJson> {
           return Observable.create { (observer) -> Disposable in
             let url = ConfigURLS.addCompetition
@@ -508,8 +506,7 @@ struct AddServices {
                return Disposables.create()
            }
        }
-    
-    
+
     func addToCart(param : [String :Any]) -> Observable<AddProductModelJson> {
            return Observable.create { (observer) -> Disposable in
                let url = ConfigURLS.addToCart
@@ -535,8 +532,7 @@ struct AddServices {
            }
        }
     
-    
-    func updateCartProduct(param : [String :Any]) -> Observable<CartModelJSON> {
+func updateCartProduct(param : [String :Any]) -> Observable<CartModelJSON> {
            return Observable.create { (observer) -> Disposable in
                let url = ConfigURLS.updateCartProduct
             

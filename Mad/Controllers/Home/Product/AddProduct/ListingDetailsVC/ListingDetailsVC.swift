@@ -36,9 +36,8 @@ class ListingDetailsVC: UIViewController {
     var productVM = ProductViewModel()
     var categeory = [Category]()
     var selectedCat = [Int]()
-    var currencyArray = [String]()
     var uploadedPhoto = [UIImage]()
-    var filteredStrings = [String]()
+
     fileprivate let tagsField = WSTagsField()
     var typePickerView: UIPickerView = UIPickerView()
 
@@ -73,10 +72,7 @@ class ListingDetailsVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        getCategory()
-        productVM.showIndicator()
         self.navigationController?.navigationBar.isHidden = true
-        
         if let ptcTBC = tabBarController as? PTCardTabBarController {
             ptcTBC.customTabBar.isHidden = true
         }
@@ -115,16 +111,11 @@ class ListingDetailsVC: UIViewController {
     
     
     func validateInput() -> Bool {
-        let tags =  self.selectedCat
+        let tags =  tagsField.tags.map({$0.text})
         let titles = self.titleTV.text ?? ""
         let shortDescription = self.short_description.text ?? ""
         let description = self.descriptionTV.text ?? ""
-        let materials = self.materials.text ?? ""
-        let length = self.length.text ?? ""
-        let width = self.width.text ?? ""
-        let weight = self.weight.text ?? ""
-        let height = self.height.text ?? ""
-
+        
         if tags.count == 0  {
           self.showMessage(text: "Please Choose tags")
           return false
@@ -140,38 +131,13 @@ class ListingDetailsVC: UIViewController {
         }else if description.isEmpty {
             self.showMessage(text: "Please Enter Description")
             return false
-        }else if materials.isEmpty {
-            self.showMessage(text: "Please Enter material")
-            return false
-        }else if length.isEmpty {
-            self.showMessage(text: "Please Enter length")
-            return false
-        }else if width.isEmpty {
-            self.showMessage(text: "Please Enter width")
-            return false
-        }else if weight.isEmpty {
-            self.showMessage(text: "Please Enter weight")
-            return false
-        }else if height.isEmpty {
-            self.showMessage(text: "Please Enter height")
-            return false
         }else{
             return true
         }
     }
     
     @IBAction func nextButton(sender: UIButton) {
-        self.selectedCat.removeAll()
-        let tags = tagsField.tags.map({$0.text})
-        let uniqTags = tags.uniqued()
-        for index in uniqTags{
-            for cat in self.categeory{
-                if index == cat.name{
-                    self.selectedCat.append(cat.id ?? 0)
-                }
-            }
-        }
-        
+
         guard self.validateInput() else {return}
         let vc = InventoryPricingVC.instantiateFromNib()
         vc!.selectedCat =  self.selectedCat
@@ -210,18 +176,21 @@ extension ListingDetailsVC {
         
         tagsField.onDidRemoveTag = { field, tag in
             print("onDidRemoveTag", tag.text)
+            self.selectedCat.removeLast()
         }
 
         tagsField.onDidChangeText = { _, text in
             print("onDidChangeText")
-
-            self.filteredStrings = self.currencyArray.filter({return $0.contains(text ?? "")})
-            self.view.addSubview(self.typePickerView)
-            self.typePickerView.frame = CGRect(x: 200, y: 100, width: 150, height: 160)
-            self.typePickerView.delegate = self
-            self.typePickerView.dataSource = self
-            self.typePickerView.isHidden = true
-            self.typePickerView.isHidden = false
+            let vc = ArtistNameVC.instantiateFromNib()
+            vc?.showProductCat = true
+            vc!.onClickCat = { cats in
+            self.selectedCat.append(cats.id ?? 0 )
+            self.tagsField.addTag(cats.name ?? "")
+            self.presentingViewController?.dismiss(animated: true)
+           }
+            if self.selectedCat.count < 3{
+              self.present(vc!, animated: true, completion: nil)
+            }
         }
 
         tagsField.onDidChangeHeightTo = { _, height in
@@ -241,49 +210,6 @@ extension ListingDetailsVC {
         }
     }
 }
-
-
-// Number of columns
-extension ListingDetailsVC : UIPickerViewDelegate, UIPickerViewDataSource {
-
-func numberOfComponents(in pickerView: UIPickerView) -> Int {
-    return 1
-}
-// Number of rows
-
-func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-    return filteredStrings.count // Number of rows = the amount in currency array
-}
-
-// Row Title
-
-func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-   return filteredStrings[row]
-}
-
-func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-    tagsField.addTag(filteredStrings[row])
-    self.typePickerView.isHidden = true
-  }
-}
-
-extension ListingDetailsVC {
-     func getCategory() {
-        productVM.getProductCategories().subscribe(onNext: { (dataModel) in
-            if dataModel.success ?? false {
-                self.productVM.dismissIndicator()
-                self.categeory = dataModel.data ?? []
-                for cat in self.categeory{
-                    self.currencyArray.append(cat.name ?? "")
-                }
-            }
-        }, onError: { (error) in
-            self.productVM.dismissIndicator()
-
-        }).disposed(by: disposeBag)
-    }
-}
-
 
 extension Sequence where Element: Hashable {
     func uniqued() -> [Element] {

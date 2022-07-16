@@ -18,6 +18,10 @@ class AddCompetitionsDetailsVc: UIViewController {
     @IBOutlet weak var artistNameTF: CustomTextField!
     @IBOutlet weak var emailTf: CustomTextField!
     @IBOutlet weak var personalTf: CustomTextField!
+
+    var competitionVm = CometitionsViewModel()
+    var disposeBag = DisposeBag()
+
     var compId = Int()
     var candidate:Candidate?
 
@@ -35,6 +39,9 @@ class AddCompetitionsDetailsVc: UIViewController {
         artistNameTF.delegate = self
         emailTf.delegate = self
         personalTf.delegate = self
+        self.competitionVm.showIndicator()
+        getProfile()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {        
@@ -49,12 +56,7 @@ class AddCompetitionsDetailsVc: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.firstNameTF.text = candidate?.firstName ?? ""
-        self.lastNameTF.text = candidate?.lastName ?? ""
-        self.phoneNumberTF.text = candidate?.phone ?? ""
-        self.emailTf.text = candidate?.email ?? ""
-        self.artistNameTF.text  = candidate?.artistName ?? ""
-        self.personalTf.text  = candidate?.introduction ?? ""
+
     }
     
     @IBAction func backButton(sender: UIButton) {
@@ -102,8 +104,6 @@ class AddCompetitionsDetailsVc: UIViewController {
         vc!.artistName = self.artistNameTF.text ?? ""
         vc!.personal = self.personalTf.text ?? ""
         vc!.compId = compId
-        vc?.candidate = candidate
-
         self.navigationController?.pushViewController(vc!, animated: true)
     }
     
@@ -114,4 +114,22 @@ extension AddCompetitionsDetailsVc: UITextFieldDelegate {
         self.view.endEditing(true)
         return true
     }
+}
+
+extension AddCompetitionsDetailsVc {
+  func getProfile() {
+      competitionVm.getMyProfile().subscribe(onNext: { (dataModel) in
+       if dataModel.success ?? false {
+        self.competitionVm.dismissIndicator()
+        self.firstNameTF.text = dataModel.data?.firstName ??  ""
+        self.lastNameTF.text = dataModel.data?.lastName ?? ""
+        self.artistNameTF.text = dataModel.data?.name ?? ""
+        self.emailTf.text = dataModel.data?.userEmail ?? ""
+     }
+   }, onError: { (error) in
+    self.competitionVm.dismissIndicator()
+
+   }).disposed(by: disposeBag)
+      
+  }
 }

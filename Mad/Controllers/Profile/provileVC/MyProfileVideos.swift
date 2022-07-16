@@ -12,16 +12,31 @@ import RxSwift
 import RxCocoa
 import AVKit
 import AVFoundation
+import WSTagsField
 
 
-class MyProfileVideos : UIViewController{
+class MyProfileVideos : UIViewController,UITextFieldDelegate{
     
     @IBOutlet weak var uploadBtn : UIButton!
     @IBOutlet weak var videoCollectionView : UICollectionView!
     @IBOutlet weak var nameTf : UITextField!
     @IBOutlet weak var uploadStack : UIStackView!
     @IBOutlet weak var videoView : UIView!
+    @IBOutlet weak var uploadedImage : UIImageView!
 
+    
+    @IBOutlet weak var descTF: CustomTextField!
+    @IBOutlet fileprivate weak var artistView: UIView!
+    @IBOutlet fileprivate weak var productView: UIView!
+    @IBOutlet fileprivate weak var projectView: UIView!
+
+    
+    fileprivate let artistField = WSTagsField()
+    fileprivate let productField = WSTagsField()
+    fileprivate let projectField = WSTagsField()
+
+    
+    
     var artistVM = ArtistViewModel()
     var disposeBag = DisposeBag()
     
@@ -29,13 +44,36 @@ class MyProfileVideos : UIViewController{
     var showShimmer: Bool = true
     var videos = [Videos]()    
     var videoUrl :Data?
+    var image :UIImage?
 
+    var selectedArtist = [String]()
+    var selectedProducts = [Int]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.videoCollectionView.register(UINib(nibName: cellIdentifier2, bundle: nil), forCellWithReuseIdentifier: cellIdentifier2)
         videoCollectionView.delegate = self
         videoCollectionView.dataSource = self
+        
+        artistField.frame = artistView.bounds
+        artistView.addSubview(artistField)
+        artistField.cornerRadius = 3.0
+        artistField.spaceBetweenLines = 10
+        artistField.spaceBetweenTags = 10
+        artistField.layoutMargins = UIEdgeInsets(top: 2, left: 6, bottom: 2, right: 6)
+        artistField.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10) //old padding
+        artistField.placeholder = ""
+        artistField.placeholderColor = .red
+        artistField.placeholderAlwaysVisible = true
+        artistField.backgroundColor = .clear
+        artistField.textField.returnKeyType = .continue
+        artistField.delimiter = ""
+        artistField.tintColor = #colorLiteral(red: 0.9058823529, green: 0.9176470588, blue: 0.937254902, alpha: 1)
+        artistField.textColor = #colorLiteral(red: 0.1749513745, green: 0.2857730389, blue: 0.4644193649, alpha: 1)
+        artistField.textDelegate = self
+        artistTextFieldEvents()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,6 +86,12 @@ class MyProfileVideos : UIViewController{
     @IBAction func upload(sender: UIButton) {
         self.showImageActionSheet()
      }
+    
+    
+    @IBAction func uploadImage(sender: UIButton) {
+        self.showImageActionSheet2()
+     }
+    
     
     @IBAction func submit(sender: UIButton) {
         if nameTf.text == "" {
@@ -137,6 +181,47 @@ extension MyProfileVideos: UICollectionViewDelegateFlowLayout {
             let size:CGFloat = (collectionView.frame.size.width)
             return CGSize(width: size, height: 150)
     }
+    
+    fileprivate func artistTextFieldEvents() {
+        
+        artistField.onDidChangeText = { _, text in
+            print("onDidChangeText")
+            let vc = ArtistNameVC.instantiateFromNib()
+            vc?.showArtist = true
+            vc!.onClickClose = { artist in
+            self.selectedArtist.append(String(artist.id ?? 0))
+            self.artistField.addTag(artist.name ?? "")
+             self.presentingViewController?.dismiss(animated: true)
+           }
+            self.present(vc!, animated: true, completion: nil)
+        }
+
+        artistField.onDidAddTag = { field, tag in
+            print("onDidAddTag", tag.text)
+         
+        }
+        
+        artistField.onDidRemoveTag = { field, tag in
+            print("onDidRemoveTag", tag.text)
+        }
+
+        
+        artistField.onDidChangeHeightTo = { _, height in
+            print("HeightTo \(height)")
+
+        }
+
+        artistField.onDidSelectTagView = { _, tagView in
+            print("Select \(tagView)")
+        }
+        artistField.onDidUnselectTagView = { _, tagView in
+            print("Unselect \(tagView)")
+        }
+        artistField.onShouldAcceptTag = { field in
+            return field.text != "OMG"
+        }
+    }
+
 }
 
 
@@ -160,21 +245,58 @@ extension MyProfileVideos: UIImagePickerControllerDelegate, UINavigationControll
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
 
-        guard let videoUrl = info[UIImagePickerController.InfoKey(rawValue: UIImagePickerController.InfoKey.mediaURL.rawValue)] as? URL else {return}
+        
+        if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            self.image = editedImage
+            self.uploadedImage.image = editedImage
+        } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            self.image = originalImage
+            self.uploadedImage.image = originalImage
 
-             self.uploadBtn.setTitle(videoUrl.lastPathComponent, for: .normal)
-              do {
-                self.uploadBtn.setImage(nil, for: .normal)
-                let data = try Data(contentsOf: videoUrl, options: .mappedIfSafe)
-                self.videoUrl =  data
-                print(data)
-                } catch  {
-                    
-                }
-             dismiss(animated: true, completion: nil)
+
+        }else if let videoUrl = info[UIImagePickerController.InfoKey(rawValue: UIImagePickerController.InfoKey.mediaURL.rawValue)] as? URL  {
+            self.uploadBtn.setTitle(videoUrl.lastPathComponent, for: .normal)
+                 
+            do {
+                    self.uploadBtn.setImage(nil, for: .normal)
+                    let data = try Data(contentsOf: videoUrl, options: .mappedIfSafe)
+                    self.videoUrl =  data
+                    print(data)
+                    } catch  {
+                        
+             }
+        }
+      dismiss(animated: true, completion: nil)
     }
 }
 
+extension MyProfileVideos{
+    
+    func showImageActionSheet2() {
+        let chooseFromLibraryAction = UIAlertAction(title: "Choose from Library", style: .default) { (action) in
+                self.showImagePicker2(sourceType: .photoLibrary)
+            }
+            let cameraAction = UIAlertAction(title: "Take a Picture from Camera", style: .default) { (action) in
+                self.showImagePicker2(sourceType: .camera)
+            }
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            AlertService.showAlert(style: .actionSheet, title: "Pick Your Picture", message: nil, actions: [chooseFromLibraryAction, cameraAction, cancelAction], completion: nil)
+    }
+    
+    func showImagePicker2(sourceType: UIImagePickerController.SourceType) {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.allowsEditing = true
+        imagePickerController.sourceType = sourceType
+        imagePickerController.mediaTypes = ["public.image"]
+        imagePickerController.view.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        self.present(imagePickerController, animated: true, completion: nil)
+    }
+    
+
+    
+}
 
 extension MyProfileVideos{
     func uploadVideo(name : String,agree : Bool,videoUrl: Data) {

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -28,7 +28,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Listing Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zcV-m8-psg">
-                                <rect key="frame" x="153.5" y="42" width="107.5" height="16"/>
+                                <rect key="frame" x="157" y="40.5" width="100.5" height="19"/>
                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="16"/>
                                 <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -633,7 +633,7 @@
                                                                         </connections>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uTe-j5-k4T">
-                                                                        <rect key="frame" x="32" y="48" width="278.5" height="16"/>
+                                                                        <rect key="frame" x="32" y="48" width="276.5" height="19"/>
                                                                         <string key="text">A tangible item that will ship to buyers.
 </string>
                                                                         <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="16"/>
@@ -641,7 +641,7 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lAw-6Z-zlv" customClass="DLRadioButton">
-                                                                        <rect key="frame" x="0.0" y="96" width="120" height="32"/>
+                                                                        <rect key="frame" x="0.0" y="99" width="120" height="32"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="120" id="0UZ-QR-pNa"/>
                                                                         </constraints>
@@ -658,7 +658,7 @@
                                                                         </connections>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cH2-o9-QLq">
-                                                                        <rect key="frame" x="32" y="144" width="287" height="16"/>
+                                                                        <rect key="frame" x="32" y="147" width="284.5" height="19"/>
                                                                         <string key="text">A digital item that buyers will download.
 </string>
                                                                         <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="16"/>
@@ -780,28 +780,28 @@
             <size key="intrinsicContentSize" width="52" height="21"/>
         </designable>
         <designable name="EZQ-5g-6cl">
-            <size key="intrinsicContentSize" width="38" height="37.5"/>
+            <size key="intrinsicContentSize" width="38" height="40.5"/>
         </designable>
         <designable name="IoL-hQ-EQA">
-            <size key="intrinsicContentSize" width="46" height="37.5"/>
+            <size key="intrinsicContentSize" width="47" height="40.5"/>
         </designable>
         <designable name="NvN-TI-CHB">
-            <size key="intrinsicContentSize" width="169.5" height="37.5"/>
+            <size key="intrinsicContentSize" width="160.5" height="40.5"/>
         </designable>
         <designable name="Qjk-NL-HJJ">
-            <size key="intrinsicContentSize" width="35.5" height="37.5"/>
+            <size key="intrinsicContentSize" width="38" height="40.5"/>
         </designable>
         <designable name="Ufw-Kg-heV">
-            <size key="intrinsicContentSize" width="232.5" height="37.5"/>
+            <size key="intrinsicContentSize" width="218" height="40.5"/>
         </designable>
         <designable name="bDP-HL-TCf">
-            <size key="intrinsicContentSize" width="40.5" height="37.5"/>
+            <size key="intrinsicContentSize" width="38" height="40.5"/>
         </designable>
         <designable name="nB3-1g-J74">
-            <size key="intrinsicContentSize" width="137" height="37.5"/>
+            <size key="intrinsicContentSize" width="130" height="40.5"/>
         </designable>
         <designable name="sbZ-5s-ftl">
-            <size key="intrinsicContentSize" width="186.5" height="37.5"/>
+            <size key="intrinsicContentSize" width="175" height="40.5"/>
         </designable>
     </designables>
     <resources>

@@ -177,8 +177,7 @@ extension CompetitionsDetailsVc: UICollectionViewDelegate {
         self.titleCollectionView.rx.setDelegate(self).disposed(by: disposeBag)
         self.titleCollectionView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
         self.competitionVm.title.bind(to: self.titleCollectionView.rx.items(cellIdentifier: cellIdentifier, cellType: TitleCell.self)) { index, element, cell in
-            
-             cell.titleBtn.text = self.titles[index]
+            cell.titleBtn.text = self.titles[index]
             if self.selectedIndex == index{
                 cell.titleBtn.textColor = #colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1)
             }else {
@@ -223,7 +222,6 @@ extension CompetitionsDetailsVc : UICollectionViewDelegateFlowLayout {
   }
 
 extension CompetitionsDetailsVc {
-    
     func getCompetitions(compId :Int) {
         competitionVm.getCompetitionsDetails(id: compId).subscribe(onNext: { (dataModel) in
             self.competitionVm.dismissIndicator()
@@ -243,7 +241,7 @@ extension CompetitionsDetailsVc {
             self.vote  = dataModel.data?.can_vote ?? false
             self.compete  = dataModel.data?.can_compete ?? false
 
-               if self.compete{
+            if self.compete{
                 self.competeBtn.backgroundColor = #colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1)
                 self.competeBtn.setTitle("Compete Now", for: .normal)
                 self.competeBtn.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
@@ -255,6 +253,8 @@ extension CompetitionsDetailsVc {
                 self.competeBtn.backgroundColor = .white
                 self.competeBtn.setTitle("Result", for: .normal)
                 self.competeBtn.setTitleColor(#colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1), for: .normal)
+            }else{
+                self.competeBtn.isHidden = true
             }
             do {
                 let doc: Document = try SwiftSoup.parse(dataModel.data?.partner ?? "")

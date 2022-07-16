@@ -93,22 +93,22 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="WUf-t5-QBl">
-                                                                <rect key="frame" x="93.5" y="253" width="227.5" height="57"/>
+                                                                <rect key="frame" x="91" y="253" width="232" height="51"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="G3t-fc-VKo">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="227.5" height="57"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="232" height="51"/>
                                                                         <subviews>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="tSm-92-6hs">
-                                                                                <rect key="frame" x="101" y="0.0" width="25" height="19"/>
+                                                                                <rect key="frame" x="104" y="0.0" width="24" height="16"/>
                                                                                 <subviews>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZgV-bL-D5Q">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="9" height="19"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="8" height="16"/>
                                                                                         <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="16"/>
                                                                                         <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon - c-check (1)" translatesAutoresizingMaskIntoConstraints="NO" id="rlx-HL-vFM">
-                                                                                        <rect key="frame" x="12" y="3" width="13" height="13"/>
+                                                                                        <rect key="frame" x="11" y="1.5" width="13" height="13"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="height" constant="13" id="9QD-sl-Ptw"/>
                                                                                             <constraint firstAttribute="width" constant="13" id="iaI-cJ-pda"/>
@@ -117,17 +117,17 @@
                                                                                 </subviews>
                                                                             </stackView>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="arG-JM-Raq">
-                                                                                <rect key="frame" x="0.0" y="27" width="227.5" height="30"/>
+                                                                                <rect key="frame" x="0.0" y="24" width="232" height="27"/>
                                                                                 <subviews>
                                                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7fc-I1-WRe">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="41.5" height="30"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="40" height="27"/>
                                                                                         <subviews>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x4I-Zt-NtE">
-                                                                                                <rect key="frame" x="0.0" y="4" width="12.5" height="22"/>
+                                                                                                <rect key="frame" x="0.0" y="2.5" width="12.5" height="22"/>
                                                                                                 <state key="normal" image="Component 45 – 1"/>
                                                                                             </button>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.2K" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OSe-V8-9V5">
-                                                                                                <rect key="frame" x="20.5" y="9" width="21" height="12"/>
+                                                                                                <rect key="frame" x="20.5" y="8.5" width="19.5" height="10"/>
                                                                                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="10"/>
                                                                                                 <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                                                                 <nil key="highlightedColor"/>
@@ -135,17 +135,17 @@
                                                                                         </subviews>
                                                                                     </stackView>
                                                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="VWb-9D-1aJ">
-                                                                                        <rect key="frame" x="57.5" y="0.0" width="90" height="30"/>
+                                                                                        <rect key="frame" x="56" y="0.0" width="93" height="27"/>
                                                                                         <subviews>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tLX-mo-8SO">
-                                                                                                <rect key="frame" x="0.0" y="4" width="21" height="22"/>
+                                                                                                <rect key="frame" x="0.0" y="2.5" width="21" height="22"/>
                                                                                                 <state key="normal" image="Component 37 – 1"/>
                                                                                                 <connections>
                                                                                                     <action selector="messageButtonWithSender:" destination="fIz-da-uZr" eventType="touchUpInside" id="5km-gz-DXr"/>
                                                                                                 </connections>
                                                                                             </button>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BIn-XT-YO3" customClass="CustomButtons" customModule="Mad" customModuleProvider="target">
-                                                                                                <rect key="frame" x="29" y="0.0" width="61" height="30"/>
+                                                                                                <rect key="frame" x="29" y="0.0" width="64" height="27"/>
                                                                                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="15"/>
                                                                                                 <state key="normal" title="Message">
                                                                                                     <color key="titleColor" red="0.11764705882352941" green="0.21568627450980393" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -165,17 +165,17 @@
                                                                                         </subviews>
                                                                                     </stackView>
                                                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="81z-nB-Ans">
-                                                                                        <rect key="frame" x="163.5" y="0.0" width="64" height="30"/>
+                                                                                        <rect key="frame" x="165" y="0.0" width="67" height="27"/>
                                                                                         <subviews>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X9U-nv-ker">
-                                                                                                <rect key="frame" x="0.0" y="4" width="17" height="22"/>
+                                                                                                <rect key="frame" x="0.0" y="2.5" width="17" height="22"/>
                                                                                                 <state key="normal" image="Path 327"/>
                                                                                                 <connections>
                                                                                                     <action selector="shareBtnWithSender:" destination="fIz-da-uZr" eventType="touchUpInside" id="3RI-Jb-U3O"/>
                                                                                                 </connections>
                                                                                             </button>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="roi-mo-syI" customClass="CustomButtons" customModule="Mad" customModuleProvider="target">
-                                                                                                <rect key="frame" x="25" y="0.0" width="39" height="30"/>
+                                                                                                <rect key="frame" x="25" y="0.0" width="42" height="27"/>
                                                                                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="15"/>
                                                                                                 <state key="normal" title="Share">
                                                                                                     <color key="titleColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -629,10 +629,10 @@
     </scenes>
     <designables>
         <designable name="BIn-XT-YO3">
-            <size key="intrinsicContentSize" width="61" height="30"/>
+            <size key="intrinsicContentSize" width="64" height="27"/>
         </designable>
         <designable name="roi-mo-syI">
-            <size key="intrinsicContentSize" width="39" height="30"/>
+            <size key="intrinsicContentSize" width="42" height="27"/>
         </designable>
     </designables>
     <resources>

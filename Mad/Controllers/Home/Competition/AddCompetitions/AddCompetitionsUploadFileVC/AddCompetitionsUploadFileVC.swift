@@ -61,18 +61,18 @@ class AddCompetitionsUploadFileVC: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    func validateInput() -> Bool {
-        
-        let link = self.linkeTF.text ?? ""
-        if link.isEmpty {
-            self.showMessage(text: "Please Enter link")
-            return false
-        }else{
-            return true
-        }
-    }
+//    func validateInput() -> Bool {
+//
+//        let link = self.linkeTF.text ?? ""
+//        if link.isEmpty {
+//            self.showMessage(text: "Please Enter link")
+//            return false
+//        }else{
+//            return true
+//        }
+//    }
     @IBAction func nextButton(sender: UIButton) {
-        guard self.validateInput() else {return}
+        //guard self.validateInput() else {return}
         let vc = SubmitCopetitionsVC.instantiateFromNib()
         vc!.firstName = firstName
         vc!.lastName = lastName
@@ -83,7 +83,6 @@ class AddCompetitionsUploadFileVC: UIViewController {
         vc!.linke = self.linkeTF.text ?? ""
         vc!.uploadImage = uploadImage
         vc!.compId = compId
-        vc?.candidate = candidate
         self.navigationController?.pushViewController(vc!, animated: true)
     }
     
