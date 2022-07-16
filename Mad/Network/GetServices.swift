@@ -950,7 +950,7 @@ class GetServices {
                            let data = try JSONDecoder().decode(ProfileModelJSON.self, from: response.data!)
                            observer.onNext(data)
                        } catch {
-                           print(error.localizedDescription)
+                           print(error)
                            observer.onError(error)
                        }
                }

@@ -46,8 +46,10 @@ class MyProfileVideos : UIViewController,UITextFieldDelegate{
     var videoUrl :Data?
     var image :UIImage?
 
-    var selectedArtist = [String]()
+    var selectedArtist = [Int]()
     var selectedProducts = [Int]()
+    var selectedProjects = [Int]()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,16 +100,14 @@ class MyProfileVideos : UIViewController,UITextFieldDelegate{
             displayMessage(title: "", message:  "Enter Video Name" , status: .error, forController: self)
 
         }else{
-        if let url = self.videoUrl {
+        if let url = self.videoUrl ,let imag = image{
           artistVM.showIndicator()
-          uploadVideo(name: nameTf.text ?? "",agree: true, videoUrl: url )
+            uploadVideo(product: selectedProducts, project: selectedProjects, associated_artists: selectedArtist, description: descTF.text ?? "" , name: nameTf.text ?? "" , image_url: imag, videoUrl: url)
         }else{
             displayMessage(title: "", message:  "Upload Your Video " , status: .error, forController: self)
         }
       }
     }
-    
-    
     
     @IBAction func uploadVideo(sender: UIButton) {
         videoView.isHidden = true
@@ -118,16 +118,13 @@ class MyProfileVideos : UIViewController,UITextFieldDelegate{
         videoView.isHidden = false
         uploadStack.isHidden = true
     }
-    
 }
 
 //MARK:- Data Binding
 extension MyProfileVideos: UICollectionViewDelegate , UICollectionViewDataSource {
    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            
         return  self.showShimmer ? 5 : videos.count
-    
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -189,7 +186,7 @@ extension MyProfileVideos: UICollectionViewDelegateFlowLayout {
             let vc = ArtistNameVC.instantiateFromNib()
             vc?.showArtist = true
             vc!.onClickClose = { artist in
-            self.selectedArtist.append(String(artist.id ?? 0))
+            self.selectedArtist.append(artist.id ?? 0)
             self.artistField.addTag(artist.name ?? "")
              self.presentingViewController?.dismiss(animated: true)
            }
@@ -244,7 +241,6 @@ extension MyProfileVideos: UIImagePickerControllerDelegate, UINavigationControll
     
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-
         
         if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
             self.image = editedImage
@@ -252,11 +248,8 @@ extension MyProfileVideos: UIImagePickerControllerDelegate, UINavigationControll
         } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             self.image = originalImage
             self.uploadedImage.image = originalImage
-
-
         }else if let videoUrl = info[UIImagePickerController.InfoKey(rawValue: UIImagePickerController.InfoKey.mediaURL.rawValue)] as? URL  {
             self.uploadBtn.setTitle(videoUrl.lastPathComponent, for: .normal)
-                 
             do {
                     self.uploadBtn.setImage(nil, for: .normal)
                     let data = try Data(contentsOf: videoUrl, options: .mappedIfSafe)
@@ -293,14 +286,17 @@ extension MyProfileVideos{
         imagePickerController.view.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         self.present(imagePickerController, animated: true, completion: nil)
     }
-    
-
-    
 }
 
 extension MyProfileVideos{
-    func uploadVideo(name : String,agree : Bool,videoUrl: Data) {
-        artistVM.uploadVideo(name: name, agree: agree, videoUrl: videoUrl).subscribe(onNext: { (dataModel) in
+    func uploadVideo(product : [Int]
+                     ,project : [Int]
+                     ,associated_artists : [Int]
+                     ,description : String
+                     ,name : String
+                     ,image_url : UIImage
+                     ,videoUrl: Data) {
+        artistVM.uploadVideo(product: product, project: project, associated_artists: associated_artists, description: description, name: name, image_url: image_url, videoUrl: videoUrl).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
             self.artistVM.dismissIndicator()
             self.uploadBtn.setTitle("", for: .normal)
@@ -320,7 +316,7 @@ extension MyProfileVideos{
         artistVM.getMyProfile().subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
             self.showShimmer = false
-            self.videos = dataModel.data?.videos?.reversed() ?? []
+            self.videos = dataModel.data?.videos ?? []
             self.videoCollectionView.reloadData()
          }
        }, onError: { (error) in

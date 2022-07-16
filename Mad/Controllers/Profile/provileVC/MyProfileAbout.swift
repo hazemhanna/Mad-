@@ -124,25 +124,15 @@ extension MyProfileAbout  {
             self.social = dataModel.data?.socialLinks ?? []
             self.headLineLbl.text = dataModel.data?.headline ?? ""
             self.bioLbL.text = dataModel.data?.about ?? ""
-
-//            if dataModel.data?.music ?? false {
-//                self.catLbl.text = "Music"
-//            }
-//
-//            if  dataModel.data?.art ?? false {
-//                self.catLbl.text =  "art"
-//            }
-//
-//           if dataModel.data?.design ?? false  {
-//               self.catLbl.text = "design"
-//           }
-//
+               
             let inputFormatter = DateFormatter()
             inputFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
             let showDate = inputFormatter.date(from: dataModel.data?.userRegistered ?? "" )
             inputFormatter.dateFormat = "dd,MMMM,yyyy"
-            let resultString = inputFormatter.string(from: showDate!)
-            self.joinLbl.text = resultString
+             if let date = showDate {
+            let resultString = inputFormatter.string(from: date)
+                self.joinLbl.text = resultString
+            }
             self.socialcollection.reloadData()
          }
        }, onError: { (error) in

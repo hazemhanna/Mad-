@@ -8,6 +8,7 @@
 import Foundation
 import RxSwift
 import SVProgressHUD
+import UIKit
 
 struct ArtistViewModel {
     
@@ -158,12 +159,23 @@ struct ArtistViewModel {
      }
     
     
-    func uploadVideo(name : String,agree : Bool,videoUrl: Data) -> Observable<AddProductModelJson> {
+    func uploadVideo(product : [Int]
+                     ,project : [Int]
+                     ,associated_artists : [Int]
+                     ,description : String
+                     ,name : String
+                     ,image_url : UIImage
+                     ,videoUrl: Data) -> Observable<AddProductModelJson> {
+        
         let params: [String: Any] = [
             "name": name,
             "agree_with_terms": 1,
-            ]
-        let observer = AddServices.shared.uploadVideo(videoUrl:videoUrl,parameters: params)
+            "description" :description,
+            "associated_artists" :associated_artists,
+            "product" :product,
+            "project" :project]
+        
+        let observer = AddServices.shared.uploadVideo(image_url: image_url, videoUrl:videoUrl,parameters: params)
         return observer
     }
 

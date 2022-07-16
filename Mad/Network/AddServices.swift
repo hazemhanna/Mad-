@@ -9,6 +9,7 @@ import Foundation
 import Alamofire
 import RxSwift
 import SwiftyJSON
+import UIKit
 
 
 
@@ -233,20 +234,16 @@ struct AddServices {
           return Observable.create { (observer) -> Disposable in
             let url = ConfigURLS.createProduct
             let token = Helper.getAPIToken() ?? ""
-            let headers = [
-                "Authorization": "Bearer \(token)",
-                "lang" : AddServices.languageKey
-
-            ]
-            
+            let headers = ["Authorization": "Bearer \(token)",
+                "lang" : AddServices.languageKey]
+              
               Alamofire.upload(multipartFormData: { (form: MultipartFormData) in
-                
                 for photo in image{
                     if let data = photo.jpegData(compressionQuality: 0.5) {
                           form.append(data, withName: "photos[]", fileName: "image.jpeg", mimeType: "image/jpeg")
                       }
                 }
-                
+                  
                 for (key, value) in params {
                     if let temp = value as? String {
                         form.append(temp.data(using: .utf8)!, withName: key)
@@ -719,7 +716,7 @@ func updateCartProduct(param : [String :Any]) -> Observable<CartModelJSON> {
     
     
     
-    func uploadVideo(videoUrl: Data,parameters: [String : Any]) -> Observable<AddProductModelJson> {
+    func uploadVideo(image_url : UIImage,videoUrl: Data,parameters: [String : Any]) -> Observable<AddProductModelJson> {
           return Observable.create { (observer) -> Disposable in
             let url = ConfigURLS.uploadVieo
             let token = Helper.getAPIToken() ?? ""
@@ -729,13 +726,34 @@ func updateCartProduct(param : [String :Any]) -> Observable<CartModelJSON> {
 
             ]
             
+           
               Alamofire.upload(multipartFormData: { (form: MultipartFormData) in
                 form.append(videoUrl, withName: "video", fileName: "video.mp4", mimeType: "video/mp4")
-
-                for (key,value) in parameters {
-                    form.append(("\(value)").data(using: .utf8)!, withName: key)
-                    }
-                
+                  
+             if let data = image_url.jpegData(compressionQuality: 0.5) {
+                form.append(data, withName: "image_url", fileName: "image.jpeg", mimeType: "image/jpeg")
+                }
+                  
+                  for (key, value) in parameters {
+                      if let temp = value as? String {
+                          form.append(temp.data(using: .utf8)!, withName: key)
+                       }
+                  
+                      if let temp = value as? Int {
+                          form.append("\(temp)".data(using: .utf8)!, withName: key)
+                      }
+                      if let temp = value as? NSArray {
+                        temp.forEach({ element in
+                            let keyObj = key + "[]"
+                              if let num = element as? Int {
+                                let value = "\(num)"
+                                    form.append(value.data(using: .utf8)!, withName: keyObj)
+                                 }
+                            })
+                        }
+                  }
+                  
+                  
               }, usingThreshold: UInt64.init(), to: url, method: .post, headers: headers) { (result: SessionManager.MultipartFormDataEncodingResult) in
                       switch result {
                   case .failure(let error):
