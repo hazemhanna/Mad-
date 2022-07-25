@@ -180,13 +180,11 @@ struct AddServices {
     
     func addVideoToFavourite(param : [String :Any]) -> Observable<VideoFavouriteMdel> {
            return Observable.create { (observer) -> Disposable in
-               let url = ConfigURLS.addVideoToFavourite
-            
+            let url = ConfigURLS.addVideoToFavourite
             let token = Helper.getAPIToken() ?? ""
             let headers = [
                 "Authorization": "Bearer \(token)",
                 "lang" : AddServices.languageKey
-
             ]
                Alamofire.request(url, method: .post, parameters: param, encoding: URLEncoding.default, headers: headers)
                    .validate(statusCode: 200..<300)
@@ -243,27 +241,23 @@ struct AddServices {
                           form.append(data, withName: "photos[]", fileName: "image.jpeg", mimeType: "image/jpeg")
                       }
                 }
-                  
                 for (key, value) in params {
                     if let temp = value as? String {
                         form.append(temp.data(using: .utf8)!, withName: key)
                      }
-                
                     if let temp = value as? Int {
                         form.append("\(temp)".data(using: .utf8)!, withName: key)
                     }
                     if let temp = value as? NSArray {
-                                  temp.forEach({ element in
-                                      let keyObj = key + "[]"
-                                          if let num = element as? Int {
-                                              let value = "\(num)"
-                                            form.append(value.data(using: .utf8)!, withName: keyObj)
-                                      }
-                                  })
-                              }
-                    
+                                temp.forEach({ element in
+                                let keyObj = key + "[]"
+                                    if let num = element as? Int {
+                                    let value = "\(num)"
+                                    form.append(value.data(using: .utf8)!, withName: keyObj)
+                           }
+                        })
+                    }
                 }
-                
               }, usingThreshold: SessionManager.multipartFormDataEncodingMemoryThreshold, to: url, method: .post, headers: headers) { (result: SessionManager.MultipartFormDataEncodingResult) in
                       switch result {
                   case .failure(let error):
@@ -776,6 +770,5 @@ func updateCartProduct(param : [String :Any]) -> Observable<CartModelJSON> {
                }
               return Disposables.create()
           }
-      }//
-    
+      }
 }

@@ -18,14 +18,18 @@ class ArtistNameVC: UIViewController {
     var artist :[Artist] = []
     var categeory = [Category]()
     var cats = [String]()
+    var products = [Product]()
     
     var onClickClose: ((_ artist: Artist)->())?
     var onClickCat: ((_ cat: Category)->())?
-
+    var onClickProduct: ((_ cat: Product)->())?
+    
     var disposeBag = DisposeBag()
     var ChatVM = ChatViewModel()
     var showArtist = false
     var showProductCat = false
+    var showProduct = false
+    var showProject = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,10 +43,14 @@ class ArtistNameVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         ChatVM.showIndicator()
         if showArtist{
-        self.getAllArtist(section : "artists",search: "A" ,pageNum :1)
+             self.getAllArtist(section : "artists",search: "" ,pageNum :1)
         }else if showProductCat{
             getCategory2()
-        }else {
+        }else if showProduct{
+            getProduct()
+        }else if showProject{
+            self.ChatVM.dismissIndicator()
+        }else{
             getCategory()
         }
     }
@@ -50,16 +58,16 @@ class ArtistNameVC: UIViewController {
     @objc func textFieldDidChange(_ textField: UITextField) {
         if showArtist{
         self.getAllArtist(section : "artists",search: textField.text ?? "" ,pageNum :1)
-        }else{
-           // self.cats = self.cats.filter { $0.contains(textField.text ?? "") }
         }
     }
     
 }
 extension ArtistNameVC : UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if showArtist {
+        if showArtist{
              return artist.count
+        }else if showProduct{
+            return products.count
         }else{
             return cats.count
         }
@@ -68,9 +76,11 @@ extension ArtistNameVC : UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.CellIdentifier) as! ArtistNameCell
         if showArtist {
-        cell.NameLbl.text = self.artist[indexPath.row].name ?? ""
-        }else{
-        cell.NameLbl.text = self.cats[indexPath.row]
+           cell.NameLbl.text = self.artist[indexPath.row].name ?? ""
+        }else if showProduct{
+           cell.NameLbl.text = self.products[indexPath.row].title ?? ""
+        }else {
+          cell.NameLbl.text = self.cats[indexPath.row]
         }
          return cell
     }
@@ -80,18 +90,19 @@ extension ArtistNameVC : UITableViewDelegate,UITableViewDataSource{
         if showArtist {
         let item = self.artist[indexPath.row]
         self.onClickClose?(item)
+        }else if showProduct{
+        let item = self.products[indexPath.row]
+        self.onClickProduct?(item)
         }else{
-        let item = self.categeory[indexPath.row]
-        self.onClickCat?(item)
-        }
+            let item = self.categeory[indexPath.row]
+            self.onClickCat?(item)
+         }
         self.presentingViewController?.dismiss(animated: true)
     }
-    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
     }
-    
 }
 
 extension ArtistNameVC {
@@ -104,24 +115,21 @@ func getAllArtist(section : String,search:String,pageNum :Int) {
        }
    }, onError: { (error) in
     self.ChatVM.dismissIndicator()
-
    }).disposed(by: disposeBag)
   }
-    
+
     func getCategory() {
         ChatVM.getCategories().subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
                self.ChatVM.dismissIndicator()
                self.categeory = dataModel.data ?? []
                for cat in self.categeory{
-                   self.cats.append(cat.name ?? "")
+              self.cats.append(cat.name ?? "")
                }
             self.mainTableView.reloadData()
-
            }
        }, onError: { (error) in
            self.ChatVM.dismissIndicator()
-
        }).disposed(by: disposeBag)
    }
 
@@ -134,12 +142,21 @@ func getAllArtist(section : String,search:String,pageNum :Int) {
                     self.cats.append(cat.name ?? "")
                 }
              self.mainTableView.reloadData()
-
             }
         }, onError: { (error) in
-              self.ChatVM.dismissIndicator()
-
+            self.ChatVM.dismissIndicator()
           }).disposed(by: disposeBag)
-      }
+     }
     
+    func getProduct(){
+        ChatVM.getArtistProduct().subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+            self.ChatVM.dismissIndicator()
+            self.products = dataModel.data ?? []
+            self.mainTableView.reloadData()
+           }
+       }, onError: { (error) in
+           self.ChatVM.dismissIndicator()
+       }).disposed(by: disposeBag)
+   }
 }

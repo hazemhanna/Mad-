@@ -14,7 +14,6 @@ import AVKit
 import AVFoundation
 import WSTagsField
 
-
 class MyProfileVideos : UIViewController,UITextFieldDelegate{
     
     @IBOutlet weak var uploadBtn : UIButton!
@@ -23,29 +22,22 @@ class MyProfileVideos : UIViewController,UITextFieldDelegate{
     @IBOutlet weak var uploadStack : UIStackView!
     @IBOutlet weak var videoView : UIView!
     @IBOutlet weak var uploadedImage : UIImageView!
-
-    
     @IBOutlet weak var descTF: CustomTextField!
     @IBOutlet fileprivate weak var artistView: UIView!
     @IBOutlet fileprivate weak var productView: UIView!
     @IBOutlet fileprivate weak var projectView: UIView!
-
-    
     fileprivate let artistField = WSTagsField()
     fileprivate let productField = WSTagsField()
     fileprivate let projectField = WSTagsField()
-
-    
     
     var artistVM = ArtistViewModel()
     var disposeBag = DisposeBag()
-    
     let cellIdentifier2 = "ShowesCell"
     var showShimmer: Bool = true
     var videos = [Videos]()    
     var videoUrl :Data?
     var image :UIImage?
-
+    
     var selectedArtist = [Int]()
     var selectedProducts = [Int]()
     var selectedProjects = [Int]()
@@ -53,7 +45,6 @@ class MyProfileVideos : UIViewController,UITextFieldDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.videoCollectionView.register(UINib(nibName: cellIdentifier2, bundle: nil), forCellWithReuseIdentifier: cellIdentifier2)
         videoCollectionView.delegate = self
         videoCollectionView.dataSource = self
@@ -74,8 +65,43 @@ class MyProfileVideos : UIViewController,UITextFieldDelegate{
         artistField.tintColor = #colorLiteral(red: 0.9058823529, green: 0.9176470588, blue: 0.937254902, alpha: 1)
         artistField.textColor = #colorLiteral(red: 0.1749513745, green: 0.2857730389, blue: 0.4644193649, alpha: 1)
         artistField.textDelegate = self
-        artistTextFieldEvents()
         
+        productField.frame = productView.bounds
+        productView.addSubview(productField)
+        productField.cornerRadius = 3.0
+        productField.spaceBetweenLines = 10
+        productField.spaceBetweenTags = 10
+        productField.layoutMargins = UIEdgeInsets(top: 2, left: 6, bottom: 2, right: 6)
+        productField.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10) //old padding
+        productField.placeholder = ""
+        productField.placeholderColor = .red
+        productField.placeholderAlwaysVisible = true
+        productField.backgroundColor = .clear
+        productField.textField.returnKeyType = .continue
+        productField.delimiter = ""
+        productField.tintColor = #colorLiteral(red: 0.9058823529, green: 0.9176470588, blue: 0.937254902, alpha: 1)
+        productField.textColor = #colorLiteral(red: 0.1749513745, green: 0.2857730389, blue: 0.4644193649, alpha: 1)
+        productField.textDelegate = self
+        
+        projectField.frame = projectView.bounds
+        projectView.addSubview(projectField)
+        projectField.cornerRadius = 3.0
+        projectField.spaceBetweenLines = 10
+        projectField.spaceBetweenTags = 10
+        projectField.layoutMargins = UIEdgeInsets(top: 2, left: 6, bottom: 2, right: 6)
+        projectField.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10) //old padding
+        projectField.placeholder = ""
+        projectField.placeholderColor = .red
+        projectField.placeholderAlwaysVisible = true
+        projectField.backgroundColor = .clear
+        projectField.textField.returnKeyType = .continue
+        projectField.delimiter = ""
+        projectField.tintColor = #colorLiteral(red: 0.9058823529, green: 0.9176470588, blue: 0.937254902, alpha: 1)
+        projectField.textColor = #colorLiteral(red: 0.1749513745, green: 0.2857730389, blue: 0.4644193649, alpha: 1)
+        projectField.textDelegate = self
+        artistTextFieldEvents()
+        productTextFieldEvents()
+        projectTextFieldEvents()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -89,16 +115,13 @@ class MyProfileVideos : UIViewController,UITextFieldDelegate{
         self.showImageActionSheet()
      }
     
-    
     @IBAction func uploadImage(sender: UIButton) {
         self.showImageActionSheet2()
      }
     
-    
     @IBAction func submit(sender: UIButton) {
         if nameTf.text == "" {
             displayMessage(title: "", message:  "Enter Video Name" , status: .error, forController: self)
-
         }else{
         if let url = self.videoUrl ,let imag = image{
           artistVM.showIndicator()
@@ -136,8 +159,6 @@ extension MyProfileVideos: UICollectionViewDelegate , UICollectionViewDataSource
                              share : videos[indexPath.row].shareCount ?? 0,
                              imageUrl :videos[indexPath.row].imageURL ?? "",
                              isFavourite :videos[indexPath.row].isFavorite ?? false)
-                
-                
                 cell.openVideo = {
                     if let url = self.videos[indexPath.row].videoURL{
                     guard let videoURL = URL(string:  url) else { return }
@@ -148,13 +169,12 @@ extension MyProfileVideos: UICollectionViewDelegate , UICollectionViewDataSource
                         videoPlayer.modalTransitionStyle = .crossDissolve
                         self.present(videoPlayer, animated: true, completion: {
                             video.play()
-                        })
-                }
+                      })
+                    }
+                 }
              }
-            }
-        
-            cell.showShimmer = showShimmer
-            return cell
+           cell.showShimmer = showShimmer
+           return cell
         }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -201,13 +221,9 @@ extension MyProfileVideos: UICollectionViewDelegateFlowLayout {
         artistField.onDidRemoveTag = { field, tag in
             print("onDidRemoveTag", tag.text)
         }
-
-        
         artistField.onDidChangeHeightTo = { _, height in
             print("HeightTo \(height)")
-
         }
-
         artistField.onDidSelectTagView = { _, tagView in
             print("Select \(tagView)")
         }
@@ -218,13 +234,81 @@ extension MyProfileVideos: UICollectionViewDelegateFlowLayout {
             return field.text != "OMG"
         }
     }
+    
+    fileprivate func productTextFieldEvents() {
+        productField.onDidChangeText = { _, text in
+            print("onDidChangeText")
+            let vc = ArtistNameVC.instantiateFromNib()
+            vc?.showProduct = true
+            vc!.onClickProduct = { product in
+            self.selectedProducts.append(product.id ?? 0)
+            self.productField.addTag(product.title ?? "")
+             self.presentingViewController?.dismiss(animated: true)
+           }
+            self.present(vc!, animated: true, completion: nil)
+        }
 
+        productField.onDidAddTag = { field, tag in
+            print("onDidAddTag", tag.text)
+        }
+        
+        productField.onDidRemoveTag = { field, tag in
+            print("onDidRemoveTag", tag.text)
+        }
+        
+        productField.onDidChangeHeightTo = { _, height in
+            print("HeightTo \(height)")
+        }
+       
+        productField.onDidSelectTagView = { _, tagView in
+            print("Select \(tagView)")
+        }
+        
+        productField.onDidUnselectTagView = { _, tagView in
+            print("Unselect \(tagView)")
+        }
+        productField.onShouldAcceptTag = { field in
+            return field.text != "OMG"
+        }
+    }
+    
+    fileprivate func projectTextFieldEvents() {
+        projectField.onDidChangeText = { _, text in
+            print("onDidChangeText")
+            let vc = ArtistNameVC.instantiateFromNib()
+            vc?.showProject = true
+            vc!.onClickClose = { project in
+            self.selectedProjects.append(project.id ?? 0)
+            self.projectField.addTag(project.name ?? "")
+             self.presentingViewController?.dismiss(animated: true)
+           }
+            self.present(vc!, animated: true, completion: nil)
+        }
+
+        projectField.onDidAddTag = { field, tag in
+            print("onDidAddTag", tag.text)
+        }
+        
+        projectField.onDidRemoveTag = { field, tag in
+            print("onDidRemoveTag", tag.text)
+        }
+        projectField.onDidChangeHeightTo = { _, height in
+            print("HeightTo \(height)")
+
+        }
+        projectField.onDidSelectTagView = { _, tagView in
+            print("Select \(tagView)")
+        }
+        projectField.onDidUnselectTagView = { _, tagView in
+            print("Unselect \(tagView)")
+        }
+        projectField.onShouldAcceptTag = { field in
+            return field.text != "OMG"
+        }
+    }
 }
 
-
 extension MyProfileVideos: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    
     func showImageActionSheet() {
         self.showImagePicker(sourceType: .photoLibrary)
     }
@@ -238,8 +322,6 @@ extension MyProfileVideos: UIImagePickerControllerDelegate, UINavigationControll
         imagePickerController.view.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         self.present(imagePickerController, animated: true, completion: nil)
     }
-    
-    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
