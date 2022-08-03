@@ -13,7 +13,6 @@ import RxSwift
 import RxCocoa
 import PTCardTabBar
 
-
 class AddProjectdetailsVc : UIViewController {
 
     @IBOutlet fileprivate weak var tagsViewHeight: NSLayoutConstraint!
@@ -29,8 +28,6 @@ class AddProjectdetailsVc : UIViewController {
     @IBOutlet weak var liveCollectionView: UICollectionView!
     @IBOutlet weak var projectImage : UIImageView!
     @IBOutlet weak var productView: UIView!
-
-
     var disposeBag = DisposeBag()
     var prjectVM = ProjectViewModel()
     
@@ -76,8 +73,6 @@ class AddProjectdetailsVc : UIViewController {
         tagsField.textColor = #colorLiteral(red: 0.1749513745, green: 0.2857730389, blue: 0.4644193649, alpha: 1)
         tagsField.textDelegate = self
         textFieldEvents()
-
-
         
         artistField.frame = artistView.bounds
         artistView.addSubview(artistField)
@@ -112,15 +107,12 @@ class AddProjectdetailsVc : UIViewController {
         locationTF.delegate = self
     }
     
-
-    
     func setupCountryDropDown(){
         locationTF.optionArray = self.countries
         locationTF.didSelect { (selectedText, index, id) in
             self.locationTF.text = selectedText
         }
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         startDateTf.text = Helper.getDate1() ?? ""
@@ -176,9 +168,8 @@ class AddProjectdetailsVc : UIViewController {
         self.navigationController?.pushViewController(vc!, animated: true)
     }
     
-    
     @IBAction func nextButton(sender: UIButton) {
-       // guard self.validateInput() else {return}
+       guard self.validateInput() else {return}
         let vc = AboutProjectVC.instantiateFromNib()
         vc!.selectedCat = selectedCat
         vc!.selectedArtist = selectedArtist
@@ -278,37 +269,31 @@ extension AddProjectdetailsVc {
         
         tagsField.onDidAddTag = { field, tag in
             print("onDidAddTag", tag.text)
-       
         }
         
         tagsField.onDidRemoveTag = { field, tag in
             print("onDidRemoveTag", tag.text)
         }
-
-
+        
         tagsField.onDidChangeHeightTo = { _, height in
             print("HeightTo \(height)")
             self.tagsViewHeight.constant = height + 40
-
         }
-
         tagsField.onDidSelectTagView = { _, tagView in
             print("Select \(tagView)")
         }
+        
         tagsField.onDidUnselectTagView = { _, tagView in
             print("Unselect \(tagView)")
         }
+        
         tagsField.onShouldAcceptTag = { field in
             return field.text != "OMG"
         }
+        
     }
     
-    
-    
-    
-    
     fileprivate func artistTextFieldEvents() {
-        
         artistField.onDidChangeText = { _, text in
             print("onDidChangeText")
             let vc = ArtistNameVC.instantiateFromNib()

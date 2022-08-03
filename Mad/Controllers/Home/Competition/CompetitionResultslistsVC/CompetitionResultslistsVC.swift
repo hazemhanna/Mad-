@@ -15,8 +15,6 @@ class CompetitionResultslistsVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var resultView : UIView!
     @IBOutlet weak var resultView2 : UIView!
-
-    
     @IBOutlet weak var finalListBtn : UIButton!
     @IBOutlet weak var shortListBtn : UIButton!
     @IBOutlet weak var totalLbl : UILabel!
@@ -27,7 +25,6 @@ class CompetitionResultslistsVC: UIViewController {
     private let cellIdentifier = "CompetitionsResultCell"
     var competitionVm = CometitionsViewModel()
     var disposeBag = DisposeBag()
-    
     var showShimmer: Bool = false
     var result = false
     var finalList = [Winner]()
@@ -86,7 +83,6 @@ class CompetitionResultslistsVC: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    
     @IBAction func listButton(sender: UIButton) {
         if sender.tag == 1{
             finalListBtn.layer.borderWidth = 1
@@ -108,7 +104,6 @@ class CompetitionResultslistsVC: UIViewController {
             self.tableView.reloadData()
         }
     }
-    
 }
 
 extension CompetitionResultslistsVC : UITableViewDelegate,UITableViewDataSource{
@@ -135,7 +130,6 @@ extension CompetitionResultslistsVC : UITableViewDelegate,UITableViewDataSource{
                 cell.confic (name : self.shortList[indexPath.row].name ?? "",profileUrl : self.shortList[indexPath.row].imageURL ?? "" , bannerUrl :self.shortList[indexPath.row].imageURL ?? "" ,isVote : self.shortList[indexPath.row].isVoted ?? false)
             }
             cell.voteBtn.isHidden = true
-
             }else{
                 cell.confic (name : self.candidate[indexPath.row].name ?? "",profileUrl : self.candidate[indexPath.row].imageURL ?? "" , bannerUrl :self.candidate[indexPath.row].imageURL ?? "" ,isVote : self.candidate[indexPath.row].isVoted ?? false)
                 cell.vote = {

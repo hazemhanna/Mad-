@@ -85,13 +85,12 @@ class SubmitCopetitionsVC: UIViewController {
     }
     
     @IBAction func saveButton(sender: UIButton) {
-        guard self.validateInput() else {return}
+       // guard self.validateInput() else {return}
         self.competitionVm.showIndicator()
         if let id = candidate?.id {
             saveCompete(candidat_id: id, competitionId: compId, fName: firstName, lName: lastName, phone: phoneNumber, email: email, personal: personal, artist_name: artistName, video_link: linke, project_description: self.presentTf.text  ?? "", know_about: self.selectedSocial, submit: "draft", file: uploadImage)
         }else{
         addCompete(competitionId: compId, fName: firstName, lName: lastName, phone: phoneNumber, email: email, personal: personal, artist_name: artistName, video_link: linke, project_description: self.presentTf.text  ?? "", know_about: self.selectedSocial, submit: "draft", file: uploadImage)
-            
         }
     }
 
@@ -100,7 +99,6 @@ class SubmitCopetitionsVC: UIViewController {
         self.competitionVm.showIndicator()
         addCompete(competitionId: compId, fName: firstName, lName: lastName, phone: phoneNumber, email: email, personal: personal, artist_name: artistName,  video_link: linke, project_description: self.presentTf.text  ?? "", know_about: self.selectedSocial, submit: "submit", file: uploadImage)
     }
-    
 }
 
 extension SubmitCopetitionsVC{

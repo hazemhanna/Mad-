@@ -241,7 +241,7 @@ extension MyProfileVideos: UICollectionViewDelegateFlowLayout {
             let vc = ArtistNameVC.instantiateFromNib()
             vc?.showProduct = true
             vc!.onClickProduct = { product in
-            self.selectedProducts.append(product.id ?? 0)
+            //self.selectedProducts.append(product.id ?? 0)
             self.productField.addTag(product.title ?? "")
              self.presentingViewController?.dismiss(animated: true)
            }
@@ -278,7 +278,7 @@ extension MyProfileVideos: UICollectionViewDelegateFlowLayout {
             let vc = ArtistNameVC.instantiateFromNib()
             vc?.showProject = true
             vc!.onClickClose = { project in
-            self.selectedProjects.append(project.id ?? 0)
+           // self.selectedProjects.append(project.id ?? 0)
             self.projectField.addTag(project.name ?? "")
              self.presentingViewController?.dismiss(animated: true)
            }
@@ -322,6 +322,7 @@ extension MyProfileVideos: UIImagePickerControllerDelegate, UINavigationControll
         imagePickerController.view.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         self.present(imagePickerController, animated: true, completion: nil)
     }
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
@@ -337,9 +338,7 @@ extension MyProfileVideos: UIImagePickerControllerDelegate, UINavigationControll
                     let data = try Data(contentsOf: videoUrl, options: .mappedIfSafe)
                     self.videoUrl =  data
                     print(data)
-                    } catch  {
-                        
-             }
+                    } catch  {}
         }
       dismiss(animated: true, completion: nil)
     }

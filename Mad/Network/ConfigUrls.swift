@@ -22,20 +22,17 @@ struct ConfigURLS {
     static var updateProfile = BASE_URL  + "auth/update_profile_picture"
     static var updateMyProfile = BASE_URL  + "auth/update"
     static var upgradeMyProfile = BASE_URL  + "auth/upgrade_to_artist"
-    
     static var resetPassword = BASE_URL  + "auth/reset_password"
     static var forgetPassword = BASE_URL  + "auth/forget_password"
     static var login = BASE_URL  + "auth/login"
     static var upgradeProfile  = BASE_URL  + "auth/upgrade_to_artist"
     static var getFavourite   = BASE_URL  + "auth/get_favorites"
-
     static var getCountry = BASE_URL  + "active_countries"
      // categories
     static var getCategeory = BASE_URL  + "categories"
     static var getProductCategeory = BASE_URL  + "categories/product"
     static var getProjectCategeory = BASE_URL  + "categories/project"
     static var getBlogCategeory = BASE_URL  + "categories/blog"
-
     // project
     static var getProject = BASE_URL  + "project/all"
     static var addToFavourite = BASE_URL  + "project/edit_favorite"
@@ -43,9 +40,6 @@ struct ConfigURLS {
     static var getProjectDetails = BASE_URL  + "project/get"
     static var createProject = BASE_URL  + "project/create"
     static var addProjectComment = BASE_URL  + "project/add_comment"
-
-    
-    
     // artist
     static var addArtistToFavourite = BASE_URL  + "artist/edit_favorite"
     static var getAllArtist = BASE_URL  + "artist/all"

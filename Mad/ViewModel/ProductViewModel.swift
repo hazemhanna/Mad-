@@ -159,6 +159,4 @@ struct ProductViewModel {
            let observer = AddServices.shared.updateCartProduct(param: params)
            return observer
        }
-      
-    
 }

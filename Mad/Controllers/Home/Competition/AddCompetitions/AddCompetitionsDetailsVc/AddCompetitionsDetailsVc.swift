@@ -18,14 +18,12 @@ class AddCompetitionsDetailsVc: UIViewController {
     @IBOutlet weak var artistNameTF: CustomTextField!
     @IBOutlet weak var emailTf: CustomTextField!
     @IBOutlet weak var personalTf: CustomTextField!
-
     var competitionVm = CometitionsViewModel()
     var disposeBag = DisposeBag()
-
+    
     var compId = Int()
     var candidate:Candidate?
 
-    
     open lazy var customTabBar: PTCardTabBar = {
         return PTCardTabBar()
     }()
@@ -93,7 +91,7 @@ class AddCompetitionsDetailsVc: UIViewController {
             return true
         }
     }
-
+    
     @IBAction func nextButton(sender: UIButton) {
         guard self.validateInput() else {return}
         let vc = AddCompetitionsUploadFileVC.instantiateFromNib()
@@ -104,11 +102,10 @@ class AddCompetitionsDetailsVc: UIViewController {
         vc!.artistName = self.artistNameTF.text ?? ""
         vc!.personal = self.personalTf.text ?? ""
         vc!.compId = compId
+        vc!.candidate = candidate
         self.navigationController?.pushViewController(vc!, animated: true)
     }
-    
 }
-
 extension AddCompetitionsDetailsVc: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)

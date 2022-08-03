@@ -88,7 +88,6 @@ class ResetPasswordVC: UIViewController {
             return false
         }else if confirmPassword.isEmpty {
             displayMessage(title: "",message: "Enter.Password".localized, status: .error, forController: self)
-
             return false
         }else if confirmPassword != password {
             displayMessage(title: "",message: "not.match".localized, status: .error, forController: self)

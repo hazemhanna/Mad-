@@ -19,7 +19,6 @@ class AddCompetitionsUploadFileVC: UIViewController {
     @IBOutlet weak var uploadBtn : UIButton!
     var compId = Int()
     var candidate:Candidate?
-
     var uploadImage = UIImage()
     var firstName = String()
     var lastName = String()
@@ -36,8 +35,7 @@ class AddCompetitionsUploadFileVC: UIViewController {
         super.viewDidLoad()
         linkeTF.delegate = self
     }
-
-
+    
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
         if let ptcTBC = tabBarController as? PTCardTabBarController{
@@ -54,25 +52,13 @@ class AddCompetitionsUploadFileVC: UIViewController {
         if let profileImageUrl = URL(string: candidate?.bannerImg ?? ""){
         self.bannerImage.kf.setImage(with: profileImageUrl, placeholder: #imageLiteral(resourceName: "Path 412"))
         }
-    
     }
     
     @IBAction func backButton(sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
     
-//    func validateInput() -> Bool {
-//
-//        let link = self.linkeTF.text ?? ""
-//        if link.isEmpty {
-//            self.showMessage(text: "Please Enter link")
-//            return false
-//        }else{
-//            return true
-//        }
-//    }
     @IBAction func nextButton(sender: UIButton) {
-        //guard self.validateInput() else {return}
         let vc = SubmitCopetitionsVC.instantiateFromNib()
         vc!.firstName = firstName
         vc!.lastName = lastName
@@ -83,13 +69,13 @@ class AddCompetitionsUploadFileVC: UIViewController {
         vc!.linke = self.linkeTF.text ?? ""
         vc!.uploadImage = uploadImage
         vc!.compId = compId
+        vc!.candidate = candidate
         self.navigationController?.pushViewController(vc!, animated: true)
     }
     
     @IBAction func uploadButton(sender: UIButton) {
         self.showImageActionSheet()
     }
-    
 }
 
 
