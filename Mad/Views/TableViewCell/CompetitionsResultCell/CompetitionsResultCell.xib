@@ -61,10 +61,10 @@
                                         <rect key="frame" x="40" y="0.0" width="151" height="32"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="wM2-zX-7vd">
-                                                <rect key="frame" x="0.0" y="0.0" width="75" height="32"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="71.5" height="32"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Merry Jen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fGV-Vw-By9">
-                                                        <rect key="frame" x="0.0" y="8" width="75" height="16"/>
+                                                        <rect key="frame" x="0.0" y="6.5" width="71.5" height="19"/>
                                                         <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="16"/>
                                                         <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -155,7 +155,7 @@
             <size key="intrinsicContentSize" width="375" height="174"/>
         </designable>
         <designable name="LmR-9j-qEh">
-            <size key="intrinsicContentSize" width="31" height="26"/>
+            <size key="intrinsicContentSize" width="30" height="29"/>
         </designable>
         <designable name="f2p-B5-Tec">
             <size key="intrinsicContentSize" width="320" height="320"/>

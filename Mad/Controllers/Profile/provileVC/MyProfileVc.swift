@@ -45,7 +45,6 @@ class MyProfileVc: UIViewController {
         }else{
             upgradeView.isHidden = false
             profileviewHeight.constant = 400
-            
         }
     }
     
@@ -63,7 +62,6 @@ class MyProfileVc: UIViewController {
                 appDelegate.window??.rootViewController = sb
             }
             return
-
         }
         self.navigationController?.navigationBar.isHidden = true
     }
@@ -71,6 +69,7 @@ class MyProfileVc: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
     }
+    
     override func viewDidAppear(_ animated: Bool) {
 
     }
@@ -95,7 +94,6 @@ class MyProfileVc: UIViewController {
         self.banner = true
         showImageActionSheet()
     }
-    
 }
 
 extension MyProfileVc  {

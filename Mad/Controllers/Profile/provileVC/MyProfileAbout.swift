@@ -21,24 +21,21 @@ class MyProfileAbout : UIViewController {
     @IBOutlet weak var  joinLbl : UILabel!
     @IBOutlet weak var  socialcollection : UICollectionView!
     @IBOutlet weak var  bioStack : UIStackView!
-
     @IBOutlet weak var  catStack : UIStackView!
     @IBOutlet weak var  catLbl : UILabel!
     @IBOutlet weak var  headLineStack : UIStackView!
     @IBOutlet weak var  headLineLbl : UILabel!
     @IBOutlet weak var  editBtn : UILabel!
-    
-    var music = false
-    var art = false
-    var desigen = false
-    
+    @IBOutlet weak var  musiccatLabl: UILabel!
+    @IBOutlet weak var  artcatLabl: UILabel!
+    @IBOutlet weak var  designcatLabl: UILabel!
     
     let cellIdentifier = "SocialMediaCell"
     var artistVM = ArtistViewModel()
     var disposeBag = DisposeBag()
     var active = Helper.getType() ?? false
-
     var social  = [Social]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupContentTableView()
@@ -50,7 +47,7 @@ class MyProfileAbout : UIViewController {
             socialcollection.isHidden = false
             bioStack.isHidden = false
             headLineStack.isHidden = false
-            //catStack.isHidden = false
+            catStack.isHidden = false
             typeLbl.text = "Mad Artist"
             editBtn.text = "Edit Artist Profile"
         }else{
@@ -58,7 +55,7 @@ class MyProfileAbout : UIViewController {
             socialcollection.isHidden = true
             bioStack.isHidden = true
             headLineStack.isHidden = true
-           // catStack.isHidden = true
+            catStack.isHidden = true
             typeLbl.text = "Mader"
             editBtn.text = "Edit Profile"
         }
@@ -124,6 +121,16 @@ extension MyProfileAbout  {
             self.social = dataModel.data?.socialLinks ?? []
             self.headLineLbl.text = dataModel.data?.headline ?? ""
             self.bioLbL.text = dataModel.data?.about ?? ""
+               
+               if  dataModel.data?.music ?? false {
+                   self.musiccatLabl.text = "  Music  "
+               }
+               if  dataModel.data?.art ?? false {
+                   self.artcatLabl.text = "  Art  "
+               }
+               if  dataModel.data?.design ?? false {
+                   self.designcatLabl.text = "  Design  "
+               }
                
             let inputFormatter = DateFormatter()
             inputFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"

@@ -49,10 +49,12 @@ class CreatePackageVc: UIViewController {
     var endDateTf = String()
     var contentHtml = String()
     var uploadedPhoto :UIImage?
+    
     var package1 = [String:String]()
     var package2 = [String:String]()
     var package3 = [String:String]()
     var packages = [[String:String]]()
+    
     var selectedProducts = [Int]()
     var products = [Product]()
 
@@ -86,12 +88,15 @@ class CreatePackageVc: UIViewController {
         title1TF.text = projectDetails?.package1?.title ?? ""
         title2TF.text = projectDetails?.package2?.title ?? ""
         title3TF.text = projectDetails?.package3?.title ?? ""
+        
         description1TF.text = projectDetails?.package1?.descriptionss ?? ""
         description2TF.text = projectDetails?.package2?.descriptionss ?? ""
         description3TF.text = projectDetails?.package3?.descriptionss ?? ""
+        
         price1.text = String(projectDetails?.package1?.price ?? 0)
         price2.text =  String(projectDetails?.package2?.price ?? 0)
         price3.text =  String(projectDetails?.package3?.price ?? 0)
+        
         price_eur1.text = String(projectDetails?.package1?.price_eur ?? 0)
         price_eur2.text =  String(projectDetails?.package2?.price_eur ?? 0)
         price_eur3.text =  String(projectDetails?.package3?.price_eur ?? 0)
@@ -106,7 +111,7 @@ class CreatePackageVc: UIViewController {
     }
     
     func validateInput() -> Bool {
-        if package1.count < 0 && package2.count < 0 && package3.count < 0  {
+        if packages.count == 0  {
             self.showMessage(text: "Please enter one package at least")
             return false
         }else{
@@ -115,7 +120,6 @@ class CreatePackageVc: UIViewController {
     }
     
     @IBAction func nextButton(sender: UIButton) {
-        guard self.validateInput() else {return}
         package1["title"] = title1TF.text ?? ""
         package2["title"] = title2TF.text ?? ""
         package3["title"] = title3TF.text ?? ""
@@ -145,6 +149,7 @@ class CreatePackageVc: UIViewController {
             packages.append(package3)
         }
         
+        guard self.validateInput() else {return}
         let vc = PreviewProjectVc.instantiateFromNib()
         vc!.selectedCat = selectedCat
         vc!.selectedArtist = selectedArtist

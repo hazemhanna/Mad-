@@ -6,11 +6,19 @@
 //
 
 import UIKit
+import RichEditorView
 
 class AboutProjectVC: UIViewController {
-
-    @IBOutlet var editorTF: UITextField!
-
+    
+    @IBOutlet var editorView: RichEditorView!
+    @IBOutlet var htmlTextView: UITextView!
+    
+    lazy var toolbar: RichEditorToolbar = {
+        let toolbar = RichEditorToolbar(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 44))
+        toolbar.options = RichEditorDefaultOption.all
+        return toolbar
+    }()
+    
     var selectedCat = [Int]()
     var selectedArtist = [String]()
     var locationTF = String()
@@ -26,11 +34,27 @@ class AboutProjectVC: UIViewController {
     var projectDetails : ProjectDetails?
 
     override func viewDidLoad() {
+     super.viewDidLoad()
+   
+        editorView.delegate = self
+        editorView.inputAccessoryView = toolbar
+        editorView.placeholder = "Type some text..."
+
+        toolbar.delegate = self
+        toolbar.editor = editorView
+
+        // We will create a custom action that clears all the input text when it is pressed
+        let item = RichEditorOptionItem(image: nil, title: "Clear") { toolbar in
+            toolbar.editor?.html = ""
+        }
+
+        var options = toolbar.options
+        options.append(item)
+        toolbar.options = options
         
-            super.viewDidLoad()
-        let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.checkAction))
-        self.view.addGestureRecognizer(gesture)
-      
+       let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.checkAction))
+       self.view.addGestureRecognizer(gesture)
+           
     }
     
     @objc func checkAction(sender : UITapGestureRecognizer) {
@@ -46,7 +70,7 @@ class AboutProjectVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        editorTF.text = projectDetails?.content ?? ""
+        htmlTextView.text = projectDetails?.content ?? ""
     }
     
     override func viewDidLayoutSubviews() {
@@ -58,7 +82,7 @@ class AboutProjectVC: UIViewController {
     }
     
     func validateInput() -> Bool {
-        if editorTF.text == ""{
+        if htmlTextView.text  == ""{
             self.showMessage(text: "Please enter content of project")
             return false
         }else{
@@ -77,7 +101,7 @@ class AboutProjectVC: UIViewController {
         vc!.summeryTf = summeryTf
         vc!.startDateTf = startDateTf
         vc!.endDateTf = endDateTf
-        vc!.contentHtml = editorTF.text ?? ""
+        vc!.contentHtml = htmlTextView.text ?? ""
         vc!.uploadedPhoto = uploadedPhoto
         vc!.selectedProducts = selectedProducts
         vc!.products = products
@@ -85,31 +109,10 @@ class AboutProjectVC: UIViewController {
         self.navigationController?.pushViewController(vc!, animated: true)
     }
     
-    @IBAction func uploadPhoto(sender: UIButton) {
-        self.showImageActionSheet()
-    }
-    
-    @IBAction func uploadImages(sender: UIButton) {
-        self.showImageActionSheet()
-    }
-    
 }
 
 extension AboutProjectVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    func showImageActionSheet() {
-
-        let chooseFromLibraryAction = UIAlertAction(title: "Choose from Library", style: .default) { (action) in
-                self.showImagePicker(sourceType: .photoLibrary)
-            }
-            let cameraAction = UIAlertAction(title: "Take a Picture from Camera", style: .default) { (action) in
-                self.showImagePicker(sourceType: .camera)
-            }
-            
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-            AlertService.showAlert(style: .actionSheet, title: "Pick Your Picture", message: nil, actions: [chooseFromLibraryAction, cameraAction, cancelAction], completion: nil)
-    }
-    
+  
     func showImagePicker(sourceType: UIImagePickerController.SourceType) {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
@@ -132,3 +135,54 @@ extension AboutProjectVC: UIImagePickerControllerDelegate, UINavigationControlle
 }
 
 
+
+extension AboutProjectVC: RichEditorDelegate {
+
+    func richEditor(_ editor: RichEditorView, contentDidChange content: String) {
+        if content.isEmpty {
+            htmlTextView.text = "HTML Preview"
+        } else {
+            htmlTextView.text = content
+        }
+    }
+    
+}
+
+extension AboutProjectVC: RichEditorToolbarDelegate {
+
+    fileprivate func randomColor() -> UIColor {
+        let colors: [UIColor] = [
+            .red,
+            .orange,
+            .yellow,
+            .green,
+            .blue,
+            .purple
+        ]
+        
+        let color = colors[Int(arc4random_uniform(UInt32(colors.count)))]
+        return color
+    }
+
+    func richEditorToolbarChangeTextColor(_ toolbar: RichEditorToolbar) {
+        let color = randomColor()
+        toolbar.editor?.setTextColor(color)
+    }
+
+    func richEditorToolbarChangeBackgroundColor(_ toolbar: RichEditorToolbar) {
+        let color = randomColor()
+        toolbar.editor?.setTextBackgroundColor(color)
+    }
+
+    func richEditorToolbarInsertImage(_ toolbar: RichEditorToolbar) {
+        self.showImagePicker(sourceType: .photoLibrary)
+        toolbar.editor?.insertImage("https://gravatar.com/avatar/696cf5da599733261059de06c4d1fe22", alt: "Gravatar")
+    }
+    
+    func richEditorToolbarInsertLink(_ toolbar: RichEditorToolbar) {
+        // Can only add links to selected text, so make sure there is a range selection first
+        if toolbar.editor?.hasRangeSelection == true {
+            toolbar.editor?.insertLink("http://github.com/cjwirth/RichEditorView", title: "Github Link")
+        }
+    }
+}

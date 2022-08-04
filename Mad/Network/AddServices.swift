@@ -281,10 +281,6 @@ struct AddServices {
               return Disposables.create()
           }
       }//END of POST Register
-
-    
-    
-
     
     func createProject(image: UIImage,params: [String : Any]) -> Observable<AddProductModelJson> {
           return Observable.create { (observer) -> Disposable in
