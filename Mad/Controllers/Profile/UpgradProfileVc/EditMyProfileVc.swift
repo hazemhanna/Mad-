@@ -28,19 +28,24 @@ class EditMyProfileVc: UIViewController {
     @IBOutlet weak var  twittweName : UITextField!
     @IBOutlet weak var  socialView : UIView!
     @IBOutlet weak var  joinLbl : UILabel!
-    
     @IBOutlet weak var  follwersLbl : UILabel!
     @IBOutlet weak var  followingLbl : UILabel!
     @IBOutlet weak var  pointLbl : UILabel!
-
     
+    @IBOutlet weak var  musiccatBtn : UIButton!
+    @IBOutlet weak var  artcatBtn: UIButton!
+    @IBOutlet weak var  designcatBtn: UIButton!
     
     let cellIdentifier = "SocialMediaCell"
-    
-    var active = Helper.getIsActive() ?? false
+    var active = Helper.getType() ?? false
+
     var artistVM = ArtistViewModel()
     var disposeBag = DisposeBag()
-
+    
+    var music = false
+    var art = false
+    var design  = false
+    
     open lazy var customTabBar: PTCardTabBar = {
         return PTCardTabBar()
     }()
@@ -115,18 +120,19 @@ class EditMyProfileVc: UIViewController {
                       return false
                   }else{
                     return true
-                 }
+        }
           
     }
     
     @IBAction func saveButton(sender: UIButton) {
         guard self.validateInput() else { return }
         self.artistVM.showIndicator()
-        
-        self.upgradeProfile(firstName: self.firstNameTF.text ?? "", lastName: self.lastNameTF.text ?? "", age: self.ageTf.text ?? "", about: self.BiosTf.text ?? "", instgram: self.instgramLink.text ?? "", faceBook: self.facebookLink.text ?? "", twitter: self.twitterLink.text ?? "", phone: self.phoneTF.text ?? "" , headLine : self.headLineTF.text ?? "")
-        
+        if  active {
+        self.updateProfile(firstName: self.firstNameTF.text ?? "", lastName: self.lastNameTF.text ?? "", age: self.ageTf.text ?? "", about: self.BiosTf.text ?? "", instgram: self.instgramLink.text ?? "", faceBook: self.facebookLink.text ?? "", twitter: self.twitterLink.text ?? "", phone: self.phoneTF.text ?? "" , headLine : self.headLineTF.text ?? "",music : music,art : art,design : design)
+        }else{
+            self.upgradeProfile(firstName: self.firstNameTF.text ?? "", lastName: self.lastNameTF.text ?? "", age: self.ageTf.text ?? "", about: self.BiosTf.text ?? "", instgram: self.instgramLink.text ?? "", faceBook: self.facebookLink.text ?? "", twitter: self.twitterLink.text ?? "", phone: self.phoneTF.text ?? "" , headLine : self.headLineTF.text ?? "",music : music,art : art,design : design)
+        }
     }
-    
     
     @IBAction func addSocialButton(sender: UIButton) {
         socialView.isHidden = false
@@ -166,6 +172,37 @@ class EditMyProfileVc: UIViewController {
             headLineTF.becomeFirstResponder()
         }
     }
+    
+    @IBAction func musicAction(sender: UIButton) {
+        if music{
+            self.music = false
+            self.musiccatBtn.setImage(UIImage(named: "Ellipse 21"), for: .normal)
+        }else{
+            self.music = true
+            self.musiccatBtn.setImage(UIImage(named: "Ellipse 22"), for: .normal)
+        }
+    }
+    
+    @IBAction func artAction(sender: UIButton) {
+        if art {
+            self.art = false
+           self.artcatBtn.setImage(UIImage(named: "Ellipse 21"), for: .normal)
+        }else{
+            self.art = true
+           self.artcatBtn.setImage(UIImage(named: "Ellipse 22"), for: .normal)
+        }
+    }
+
+    @IBAction func designAction(sender: UIButton) {
+        if design{
+            self.design = false
+          self.designcatBtn.setImage(UIImage(named: "Ellipse 21"), for: .normal)
+        }else{
+            self.design = true
+          self.designcatBtn.setImage(UIImage(named: "Ellipse 22"), for: .normal)
+        }
+    }
+
 }
 extension EditMyProfileVc : UICollectionViewDelegate ,UICollectionViewDataSource{
 
@@ -194,8 +231,6 @@ extension EditMyProfileVc : UICollectionViewDelegate ,UICollectionViewDataSource
 
 extension EditMyProfileVc : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-           // return CGSize(width: 30, height: 30)
-        
         let flowayout = collectionViewLayout as? UICollectionViewFlowLayout
         let space: CGFloat = (flowayout?.minimumInteritemSpacing ?? 0.0) + (flowayout?.sectionInset.left ?? 0.0) + (flowayout?.sectionInset.right ?? 0.0)
       let size:CGFloat = (collectionView.frame.size.width - space) / 9
@@ -217,8 +252,23 @@ extension EditMyProfileVc {
         self.followingLbl.text = String(dataModel.data?.allFollowing ?? 0)
         self.pointLbl.text = String(dataModel.data?.points ?? 0)
         self.phoneTF.text = String(dataModel.data?.phone ?? " ")
-        self.headLineTF.text = String(dataModel.data?.headline ?? " ")
+        self.headLineTF.text = String(dataModel.data?.headline ?? "")
 
+        if  dataModel.data?.music ?? false {
+            self.music = true
+            self.musiccatBtn.setImage(UIImage(named: "Ellipse 22"), for: .normal)
+        }
+           
+        if dataModel.data?.art ?? false {
+            self.art = true
+           self.artcatBtn.setImage(UIImage(named: "Ellipse 22"), for: .normal)
+        }
+           
+        if  dataModel.data?.design ?? false {
+            self.design = true
+          self.designcatBtn.setImage(UIImage(named: "Ellipse 22"), for: .normal)
+        }
+           
         let inputFormatter = DateFormatter()
         inputFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let showDate = inputFormatter.date(from: dataModel.data?.userRegistered ?? "" )
@@ -233,9 +283,9 @@ extension EditMyProfileVc {
 
    }).disposed(by: disposeBag)
 }
-    
-    func upgradeProfile(firstName : String,lastName : String,age : String,about : String,instgram : String,faceBook : String,twitter : String , phone : String,headLine : String) {
-        artistVM.upgradeMyProfile(firstName: firstName, lastName: lastName, age: age,about: about,instgram: instgram, faceBook: faceBook, twitter: twitter,phone : phone,headLine : headLine).subscribe(onNext: { (dataModel) in
+
+    func upgradeProfile(firstName : String,lastName : String,age : String,about : String,instgram : String,faceBook : String,twitter : String , phone : String,headLine : String,music : Bool,art : Bool,design : Bool) {
+        artistVM.upgradeMyProfile(firstName: firstName, lastName: lastName, age: age,about: about,instgram: instgram, faceBook: faceBook, twitter: twitter,phone : phone,headLine : headLine,music : music,art : art,design : design).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
             self.artistVM.dismissIndicator()
             self.showMessage(text: dataModel.message ?? "")
@@ -249,6 +299,23 @@ extension EditMyProfileVc {
         self.artistVM.dismissIndicator()
        }).disposed(by: disposeBag)
     }
+    
+    func updateProfile(firstName : String,lastName : String,age : String,about : String,instgram : String,faceBook : String,twitter : String , phone : String,headLine : String,music : Bool,art : Bool,design : Bool) {
+        artistVM.updateProfile(firstName: firstName, lastName: lastName, age: age,about: about,instgram: instgram, faceBook: faceBook, twitter: twitter,phone : phone,headLine : headLine,music : music,art : art,design : design).subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+            self.artistVM.dismissIndicator()
+            self.showMessage(text: dataModel.message ?? "")
+            self.navigationController?.popViewController(animated: true)
+           }else{
+            self.artistVM.dismissIndicator()
+            self.showMessage(text: dataModel.message ?? "")
+           }
+       }, onError: { (error) in
+        self.artistVM.dismissIndicator()
+       }).disposed(by: disposeBag)
+    }
+
+    
 }
 
 extension EditMyProfileVc: UITextFieldDelegate {

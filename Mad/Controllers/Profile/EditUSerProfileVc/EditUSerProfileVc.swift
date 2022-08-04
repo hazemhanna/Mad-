@@ -139,7 +139,7 @@ func getProfile() {
 }
     
 func updateProfile(email : String,phone : String,firstName : String,lastName : String) {
-        artistVM.updateProfile(email: email, phone: phone, firstName: firstName, lastName: lastName).subscribe(onNext: { (dataModel) in
+        artistVM.updateUSerProfile(email: email, phone: phone, firstName: firstName, lastName: lastName).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
             self.artistVM.dismissIndicator()
             self.firstNameTF.text = dataModel.data?.firstName ??  ""
@@ -177,7 +177,6 @@ func updateProfile(email : String,phone : String,firstName : String,lastName : S
        }).disposed(by: disposeBag)
    }
     
-
 }
 
 extension EditUSerProfileVc: UITextFieldDelegate {

@@ -100,19 +100,42 @@ struct ArtistViewModel {
          return observer
      }
     
-    func updateProfile(email : String,phone : String,firstName : String,lastName : String) -> Observable<ProfileModelJSON> {
+    
+    func updateUSerProfile(email : String,phone : String,firstName : String,lastName : String) -> Observable<ProfileModelJSON> {
         let  params: [String: Any] = [
-            "email": email,
+            "email": Helper.getUserEmail() ?? "" ,
             "first_name": firstName,
             "last_name": lastName,
             "phone": phone
-        ]
+          ]
+        let observer = Authentication.shared.updateProfile(params: params)
+        return observer
         
+    }
+    
+    func updateProfile(firstName: String,lastName: String,age: String,about: String,instgram: String,faceBook: String,twitter: String, phone : String,headLine : String,music : Bool,art : Bool,design : Bool) -> Observable<ProfileModelJSON> {
+        let  params: [String: Any] = [
+            "email": Helper.getUserEmail() ?? "" ,
+            "first_name": firstName,
+            "last_name": lastName,
+            "headline": headLine,
+            "about":about ,
+            "phone": phone,
+            "age": age,
+            "country": "lebnan",
+            "facebook": faceBook,
+            "instagram": instgram,
+            "twitter":twitter,
+             "public_name":firstName + lastName,
+            "category_music":music,
+            "category_art":art,
+            "category_design":design
+          ]
         let observer = Authentication.shared.updateProfile(params: params)
         return observer
     }
     
-    func upgradeMyProfile(firstName: String,lastName: String,age: String,about: String,instgram: String,faceBook: String,twitter: String, phone : String,headLine : String) -> Observable<AddProductModelJson> {
+    func upgradeMyProfile(firstName: String,lastName: String,age: String,about: String,instgram: String,faceBook: String,twitter: String, phone : String,headLine : String,music : Bool,art : Bool,design : Bool) -> Observable<AddProductModelJson> {
         let params: [String: Any] = [
              "email": Helper.getUserEmail() ?? "" ,
              "first_name": firstName,
@@ -126,9 +149,9 @@ struct ArtistViewModel {
              "instagram": instgram,
              "twitter":twitter,
               "public_name":firstName + lastName,
-             //"category_music":music,
-             //"category_art":art,
-             //"category_design":design
+             "category_music":music,
+             "category_art":art,
+             "category_design":design
            ]
         let observer = Authentication.shared.upgradeMyProfile(params: params)
         return observer
