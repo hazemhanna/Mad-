@@ -305,6 +305,19 @@
 		04E06AFD26F0DB690082C7D2 /* TopProjectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04E06AFB26F0DB690082C7D2 /* TopProjectCell.xib */; };
 		04E186F5261360F400824E37 /* StoryBoardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E186F4261360F400824E37 /* StoryBoardExtension.swift */; };
 		04E1871726136B1600824E37 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E1871626136B1600824E37 /* CustomView.swift */; };
+		04ED2D73289FFFB7004B33EC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ED2D72289FFFB7004B33EC /* Constants.swift */; };
+		04ED2D75289FFFD4004B33EC /* ToolItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ED2D74289FFFD4004B33EC /* ToolItemCell.swift */; };
+		04ED2D7828A0017F004B33EC /* EFColorSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ED2D7728A0017F004B33EC /* EFColorSelectionViewController.swift */; };
+		04ED2D7A28A001D6004B33EC /* EFThumbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ED2D7928A001D6004B33EC /* EFThumbView.swift */; };
+		04ED2D7C28A001FE004B33EC /* EFColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ED2D7B28A001FE004B33EC /* EFColorView.swift */; };
+		04ED2D7E28A0021C004B33EC /* EFControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ED2D7D28A0021C004B33EC /* EFControl.swift */; };
+		04ED2D8028A0022C004B33EC /* EFRGBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ED2D7F28A0022C004B33EC /* EFRGBView.swift */; };
+		04ED2D8228A0023D004B33EC /* EFColorWheelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ED2D8128A0023D004B33EC /* EFColorWheelView.swift */; };
+		04ED2D8428A00250004B33EC /* EFColorSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ED2D8328A00250004B33EC /* EFColorSelectionView.swift */; };
+		04ED2D8628A00268004B33EC /* EFColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ED2D8528A00268004B33EC /* EFColorUtils.swift */; };
+		04ED2D8828A0027E004B33EC /* EFHSBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ED2D8728A0027E004B33EC /* EFHSBView.swift */; };
+		04ED2D8A28A0028F004B33EC /* EFColorComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ED2D8928A0028F004B33EC /* EFColorComponentView.swift */; };
+		04ED2D8C28A002A1004B33EC /* EFSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ED2D8B28A002A1004B33EC /* EFSliderView.swift */; };
 		04F06AC52614C37200B08606 /* AgeVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F06AC32614C37200B08606 /* AgeVc.swift */; };
 		04F06AC62614C37200B08606 /* AgeVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F06AC42614C37200B08606 /* AgeVc.xib */; };
 		04F06AF02614DD5100B08606 /* CategeoryVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F06AEE2614DD5100B08606 /* CategeoryVc.swift */; };
@@ -641,6 +654,19 @@
 		04E18713261364AA00824E37 /* Graphik-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Graphik-BlackItalic.ttf"; sourceTree = "<group>"; };
 		04E18714261364AA00824E37 /* Graphik-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Graphik-BoldItalic.ttf"; sourceTree = "<group>"; };
 		04E1871626136B1600824E37 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
+		04ED2D72289FFFB7004B33EC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		04ED2D74289FFFD4004B33EC /* ToolItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolItemCell.swift; sourceTree = "<group>"; };
+		04ED2D7728A0017F004B33EC /* EFColorSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EFColorSelectionViewController.swift; sourceTree = "<group>"; };
+		04ED2D7928A001D6004B33EC /* EFThumbView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EFThumbView.swift; sourceTree = "<group>"; };
+		04ED2D7B28A001FE004B33EC /* EFColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EFColorView.swift; sourceTree = "<group>"; };
+		04ED2D7D28A0021C004B33EC /* EFControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EFControl.swift; sourceTree = "<group>"; };
+		04ED2D7F28A0022C004B33EC /* EFRGBView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EFRGBView.swift; sourceTree = "<group>"; };
+		04ED2D8128A0023D004B33EC /* EFColorWheelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EFColorWheelView.swift; sourceTree = "<group>"; };
+		04ED2D8328A00250004B33EC /* EFColorSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EFColorSelectionView.swift; sourceTree = "<group>"; };
+		04ED2D8528A00268004B33EC /* EFColorUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EFColorUtils.swift; sourceTree = "<group>"; };
+		04ED2D8728A0027E004B33EC /* EFHSBView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EFHSBView.swift; sourceTree = "<group>"; };
+		04ED2D8928A0028F004B33EC /* EFColorComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EFColorComponentView.swift; sourceTree = "<group>"; };
+		04ED2D8B28A002A1004B33EC /* EFSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EFSliderView.swift; sourceTree = "<group>"; };
 		04F06AC32614C37200B08606 /* AgeVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeVc.swift; sourceTree = "<group>"; };
 		04F06AC42614C37200B08606 /* AgeVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AgeVc.xib; sourceTree = "<group>"; };
 		04F06AEE2614DD5100B08606 /* CategeoryVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategeoryVc.swift; sourceTree = "<group>"; };
@@ -1121,8 +1147,11 @@
 		0448E76726669EFD009C4A6E /* AboutProjectVC */ = {
 			isa = PBXGroup;
 			children = (
+				04ED2D7628A00162004B33EC /* EFColorPicker */,
 				045A66DF2667134300ED03CB /* AboutProjectVC.swift */,
 				045A66E02667134300ED03CB /* AboutProjectVC.xib */,
+				04ED2D72289FFFB7004B33EC /* Constants.swift */,
+				04ED2D74289FFFD4004B33EC /* ToolItemCell.swift */,
 			);
 			path = AboutProjectVC;
 			sourceTree = "<group>";
@@ -2190,6 +2219,24 @@
 			path = Splash;
 			sourceTree = "<group>";
 		};
+		04ED2D7628A00162004B33EC /* EFColorPicker */ = {
+			isa = PBXGroup;
+			children = (
+				04ED2D8B28A002A1004B33EC /* EFSliderView.swift */,
+				04ED2D8928A0028F004B33EC /* EFColorComponentView.swift */,
+				04ED2D8728A0027E004B33EC /* EFHSBView.swift */,
+				04ED2D8528A00268004B33EC /* EFColorUtils.swift */,
+				04ED2D8328A00250004B33EC /* EFColorSelectionView.swift */,
+				04ED2D8128A0023D004B33EC /* EFColorWheelView.swift */,
+				04ED2D7F28A0022C004B33EC /* EFRGBView.swift */,
+				04ED2D7D28A0021C004B33EC /* EFControl.swift */,
+				04ED2D7B28A001FE004B33EC /* EFColorView.swift */,
+				04ED2D7928A001D6004B33EC /* EFThumbView.swift */,
+				04ED2D7728A0017F004B33EC /* EFColorSelectionViewController.swift */,
+			);
+			path = EFColorPicker;
+			sourceTree = "<group>";
+		};
 		04F06AC22614C35E00B08606 /* AgeVc */ = {
 			isa = PBXGroup;
 			children = (
@@ -2495,6 +2542,7 @@
 				04668724261B3F89001D024D /* WelcomeCell.swift in Sources */,
 				047DD035267C3DA100C78C49 /* SubmitCopetitionsVC.swift in Sources */,
 				04503A422693DF2E002151F0 /* ContentHeader.swift in Sources */,
+				04ED2D8228A0023D004B33EC /* EFColorWheelView.swift in Sources */,
 				04DEAA362620AD0200F843A6 /* UIViewController+Extention.swift in Sources */,
 				04FF02CB27CA35AB00112CDC /* ArtistVideosCell.swift in Sources */,
 				040339E12638F21000CEDBD3 /* ListingDetailsVC.swift in Sources */,
@@ -2511,6 +2559,7 @@
 				047991AC2694FD5500859254 /* CartViewModel.swift in Sources */,
 				04C4D15526925F0B0086B393 /* MyCartCell.swift in Sources */,
 				04242A9D26553A12003C8B44 /* VideoArtistsVc.swift in Sources */,
+				04ED2D75289FFFD4004B33EC /* ToolItemCell.swift in Sources */,
 				046CD6952682A87A004FE6C6 /* SearchItemsCell.swift in Sources */,
 				0439BD0E2672640600AC5C59 /* GuidlinesCompetitionsVC.swift in Sources */,
 				046CD6A22682B928004FE6C6 /* SearchArtistCell.swift in Sources */,
@@ -2518,12 +2567,14 @@
 				04170D2B264ACB9E00745696 /* VideoDetailsVC.swift in Sources */,
 				0451B7632627041F000B3983 /* ProjectsModel.swift in Sources */,
 				0414280526174D9D000394CA /* MyProfileVc.swift in Sources */,
+				04ED2D7E28A0021C004B33EC /* EFControl.swift in Sources */,
 				046CD67F26829E6D004FE6C6 /* SearchItemsVC.swift in Sources */,
 				04E1871726136B1600824E37 /* CustomView.swift in Sources */,
 				04528E552614B586009868EA /* NameVc.swift in Sources */,
 				0449A73A262F939300604052 /* String+Extention.swift in Sources */,
 				04297547266A92F6007284E4 /* ProjectViewModel.swift in Sources */,
 				045AD32B264CA49A00E42D4C /* VideosViewModel.swift in Sources */,
+				04ED2D7A28A001D6004B33EC /* EFThumbView.swift in Sources */,
 				04733F6D285C1A9900C705CD /* ProjectBlogVc.swift in Sources */,
 				0413E40726307D7300F5977D /* ProjectsVC.swift in Sources */,
 				04534B1D2691E44C00B15C9C /* MyCartVc.swift in Sources */,
@@ -2567,6 +2618,7 @@
 				0413E3AA263051C300F5977D /* ArtistModel.swift in Sources */,
 				04242AA326553A37003C8B44 /* VideoProjectsVC.swift in Sources */,
 				04D2B9DE2698576B009B48ED /* ReviewCell.swift in Sources */,
+				04ED2D7828A0017F004B33EC /* EFColorSelectionViewController.swift in Sources */,
 				04D2B9E5269862B1009B48ED /* AddReviewVC.swift in Sources */,
 				047992A12698802A008314D4 /* FavouritProjectCell.swift in Sources */,
 				0466872B261B5B1C001D024D /* UICollectionView+Extention.swift in Sources */,
@@ -2605,6 +2657,7 @@
 				040EBE5F26C1999C000E20FA /* EditMyProfileVc.swift in Sources */,
 				04AD54F0287A231100E22E82 /* EpisodViewController.swift in Sources */,
 				04E186F5261360F400824E37 /* StoryBoardExtension.swift in Sources */,
+				04ED2D73289FFFB7004B33EC /* Constants.swift in Sources */,
 				0413E41326307F5E00F5977D /* HomeVc.swift in Sources */,
 				04DEA9D926209FA100F843A6 /* Errors.swift in Sources */,
 				04528E2C26149443009868EA /* ConfigUrls.swift in Sources */,
@@ -2612,7 +2665,9 @@
 				04A05D5926B0BCF10066522A /* CustomTextView.swift in Sources */,
 				045A66E12667134300ED03CB /* AboutProjectVC.swift in Sources */,
 				046E2E4826693A3300BFCDCC /* CalenderVc.swift in Sources */,
+				04ED2D8028A0022C004B33EC /* EFRGBView.swift in Sources */,
 				04C6E4792678C87700C90C7E /* PartenersVc.swift in Sources */,
+				04ED2D8C28A002A1004B33EC /* EFSliderView.swift in Sources */,
 				04242AA826553A4E003C8B44 /* VideoPurchaseVc.swift in Sources */,
 				04DEA9D62620947100F843A6 /* Authentication.swift in Sources */,
 				04A41ECB268560DD00F9B730 /* SearchModel.swift in Sources */,
@@ -2627,6 +2682,7 @@
 				0415E13D27C8AF4100994416 /* ProductCell.swift in Sources */,
 				040CA93126B405D0008FF173 /* VideosVC.swift in Sources */,
 				0451B7A9262716E8000B3983 /* ShimmerView.swift in Sources */,
+				04ED2D7C28A001FE004B33EC /* EFColorView.swift in Sources */,
 				04B6741226383DC600AFF9C3 /* AddProductPhotoCell.swift in Sources */,
 				046CD68426829EA1004FE6C6 /* SearchTagsVC.swift in Sources */,
 				0441AE0826B47427007FDBE5 /* FavouriteModel.swift in Sources */,
@@ -2646,6 +2702,7 @@
 				0493024926902F2A00086C58 /* MyProfileContainerVC.swift in Sources */,
 				04D23EE226330D7700290488 /* AboutVc.swift in Sources */,
 				0437FA70269EA95300CD594D /* SendMessageVc.swift in Sources */,
+				04ED2D8628A00268004B33EC /* EFColorUtils.swift in Sources */,
 				04F06AF62614E0D600B08606 /* CategeoryCell.swift in Sources */,
 				0439BD09267263C900AC5C59 /* AboutCompetitionsVc.swift in Sources */,
 				0460CF6E261D04DD006685B6 /* SplashModel.swift in Sources */,
@@ -2661,13 +2718,16 @@
 				0439BD182672645E00AC5C59 /* PrizesCometitionsVc.swift in Sources */,
 				0439BD222672823900AC5C59 /* CompetitionModel.swift in Sources */,
 				04C782A8263977B400C90851 /* InventoryPricingVC.swift in Sources */,
+				04ED2D8A28A0028F004B33EC /* EFColorComponentView.swift in Sources */,
 				0453CEB126D530DA00D404C1 /* LanguageHelper.swift in Sources */,
+				04ED2D8828A0027E004B33EC /* EFHSBView.swift in Sources */,
 				046CD68926829EBD004FE6C6 /* SearchCompetitionsVC.swift in Sources */,
 				04528E2F26149496009868EA /* Helper.swift in Sources */,
 				0486B9702701C45F00CA51A7 /* ArtistNameVC.swift in Sources */,
 				0414286526176BCD000394CA /* HomeViewModel.swift in Sources */,
 				04DEAA412620B4A900F843A6 /* SplashCell.swift in Sources */,
 				047991AF2694FFDB00859254 /* CartModel.swift in Sources */,
+				04ED2D8428A00250004B33EC /* EFColorSelectionView.swift in Sources */,
 				0466DC4426BABC27005A80B6 /* OrderViewModel.swift in Sources */,
 				0431ADEB26976F8700589F52 /* InboxCell.swift in Sources */,
 				04F63027269F0BAF00BA4C08 /* BlogsViewModel.swift in Sources */,
@@ -2841,7 +2901,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Mad/Mad.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 30;
+				CURRENT_PROJECT_VERSION = 32;
 				DEVELOPMENT_TEAM = UK3S3D6VYH;
 				INFOPLIST_FILE = Mad/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -2864,7 +2924,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Mad/Mad.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 30;
+				CURRENT_PROJECT_VERSION = 32;
 				DEVELOPMENT_TEAM = UK3S3D6VYH;
 				INFOPLIST_FILE = Mad/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

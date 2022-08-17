@@ -132,5 +132,10 @@ struct ProjectViewModel {
          return observer
      }
     
+    func updateProfile(image : UIImage) -> Observable<AddProductModelJson> {
+        let observer = AddServices.shared.updateProfile(image: image)
+         return observer
+     }
+
     
 }

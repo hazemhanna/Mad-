@@ -104,6 +104,11 @@ class EpisodViewController : UIViewController {
         self.shareVideo(videoId: self.videoId)
     }
     
+    
+    
+     
+    
+    
     @IBAction func playvideoAction(_ sender: UIButton) {
             if let url = videoUrl {
             guard let videoURL = URL(string:  url) else { return }
@@ -185,8 +190,14 @@ extension EpisodViewController {
             self.videoVM.dismissIndicator()
             self.showMessage(text: dataModel.message ?? "")
             self.getVideoDetails(id : self.videoId)
+               let text =  "https://mader.page.link/"
+               let textToShare = [text] as [Any]
+               let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+               activityViewController.popoverPresentationController?.sourceView = self.view
+               activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.postToFacebook ]
+               self.present(activityViewController, animated: true, completion: nil)
+
            }
-            
        }, onError: { (error) in
         self.videoVM.dismissIndicator()
        }).disposed(by: disposeBag)

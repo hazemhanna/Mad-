@@ -55,8 +55,7 @@ class ArtistProfileVc: UIViewController {
     }
     
     @IBAction func shareBtn(sender: UIButton) {
- 
-        if self.token == "" {
+         if self.token == "" {
             displayMessage(title: "",message: "please login first".localized, status: .success, forController: self)
             let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
             if let appDelegate = UIApplication.shared.delegate {
@@ -64,21 +63,16 @@ class ArtistProfileVc: UIViewController {
             }
             return
         }
-        
-        
-        let text =  self.artistName.text
-        let image = self.ProfileImage.image
-        let textToShare = [text ,image] as [Any]
-        
+        let text =  "https://mader.page.link/"
+        let textToShare = [text] as [Any]
         let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view
-      activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.postToFacebook ]
+        activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.postToFacebook ]
         self.present(activityViewController, animated: true, completion: nil)
 
     }
     
     @IBAction func messageButton(sender: UIButton) {
-        
         if Helper.getAPIToken() != nil {
         let vc = SendMessageVc.instantiateFromNib()
         vc?.artistId = self.artistId
@@ -91,9 +85,10 @@ class ArtistProfileVc: UIViewController {
          if let appDelegate = UIApplication.shared.delegate {
              appDelegate.window??.rootViewController = sb
              
-         }
-    }
-  }
+        }
+     }
+   }
+    
 }
 
 extension ArtistProfileVc  {

@@ -20,7 +20,6 @@ class AddCompetitionsDetailsVc: UIViewController {
     @IBOutlet weak var personalTf: CustomTextField!
     var competitionVm = CometitionsViewModel()
     var disposeBag = DisposeBag()
-    
     var compId = Int()
     var candidate:Candidate?
 
@@ -37,9 +36,7 @@ class AddCompetitionsDetailsVc: UIViewController {
         artistNameTF.delegate = self
         emailTf.delegate = self
         personalTf.delegate = self
-        self.competitionVm.showIndicator()
-        getProfile()
-        
+     
     }
     
     override func viewWillAppear(_ animated: Bool) {        
@@ -54,7 +51,17 @@ class AddCompetitionsDetailsVc: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-
+        if candidate != nil {
+            self.firstNameTF.text = candidate?.firstName ??  ""
+            self.lastNameTF.text = candidate?.lastName ?? ""
+            self.artistNameTF.text = candidate?.name ?? ""
+            self.phoneNumberTF.text = candidate?.phone ?? ""
+            self.emailTf.text = candidate?.email ?? ""
+            self.personalTf.text = candidate?.introduction ?? ""
+        }else{
+          competitionVm.showIndicator()
+          getProfile()
+        }
     }
     
     @IBAction func backButton(sender: UIButton) {
@@ -121,6 +128,7 @@ extension AddCompetitionsDetailsVc {
         self.firstNameTF.text = dataModel.data?.firstName ??  ""
         self.lastNameTF.text = dataModel.data?.lastName ?? ""
         self.artistNameTF.text = dataModel.data?.name ?? ""
+        self.phoneNumberTF.text = dataModel.data?.phone ?? ""
         self.emailTf.text = dataModel.data?.userEmail ?? ""
      }
    }, onError: { (error) in

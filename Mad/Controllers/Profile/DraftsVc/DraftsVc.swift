@@ -193,9 +193,9 @@ extension DraftsVc: UITableViewDelegate,UITableViewDataSource{
             vc?.projectId = projects[indexPath.row].id ?? 0
             self.navigationController?.pushViewController(vc!, animated: true)
         }else{
-            let main = CompetitionsDetailsVc.instantiateFromNib()
+            let main = AddCompetitionsDetailsVc.instantiateFromNib()
             main?.compId = self.competitions[indexPath.row].id ?? 0
-           // main?.candidate = self.competitions[indexPath.row].candidate
+            main?.candidate = self.competitions[indexPath.row].candidate
             self.navigationController?.pushViewController(main!, animated: true)
         }
     }

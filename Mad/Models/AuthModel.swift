@@ -39,7 +39,6 @@ struct RegisterModel: Codable {
         case expiresIn = "expires_in"
     }
 }
-
 // MARK: - User
 struct User: Codable {
     let id: Int?

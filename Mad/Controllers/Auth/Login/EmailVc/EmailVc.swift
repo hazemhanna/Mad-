@@ -137,9 +137,8 @@ extension EmailVc {
     func forgetPassword() {
        AuthViewModel.forgetPassword().subscribe(onNext: { (registerData) in
            if registerData.success ?? false {
-               self.AuthViewModel.dismissIndicator()
+            self.AuthViewModel.dismissIndicator()
             displayMessage(title: "", message: registerData.message ?? "", status: .success, forController: self)
-
             let main = VerificationVc.instantiateFromNib()
             main?.reset = true
             self.navigationController?.pushViewController(main!, animated: true)

@@ -142,7 +142,6 @@ class Authentication {
         }
     }//END of POST CompleteProfile
     
-    
     //MARK:- POST
     func forgetPassword(params: [String: Any]) -> Observable<AddProductModelJson> {
         return Observable.create { (observer) -> Disposable in

@@ -101,7 +101,6 @@ PODS:
   - Pageboy (3.6.2)
   - PromisesObjC (1.2.11)
   - PTCardTabBar (1.0.2)
-  - RichEditorView (5.0.0)
   - RxCocoa (5.1.1):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
@@ -113,6 +112,7 @@ PODS:
     - RxSwift (~> 5)
   - RxSwift (5.1.1)
   - Shimmer (1.0.2)
+  - SQRichTextEditor (1.0.1)
   - StagLayout (1.1.0)
   - Stripe (21.7.0):
     - Stripe/Stripe3DS2 (= 21.7.0)
@@ -172,11 +172,11 @@ DEPENDENCIES:
   - KSToastView
   - MOLH
   - PTCardTabBar
-  - RichEditorView
   - RxCocoa (~> 5)
   - RxDataSources (~> 4.0)
   - RxSwift (~> 5)
   - Shimmer
+  - SQRichTextEditor
   - StagLayout
   - Stripe
   - SVProgressHUD (~> 2.2.5)
@@ -217,12 +217,12 @@ SPEC REPOS:
     - Pageboy
     - PromisesObjC
     - PTCardTabBar
-    - RichEditorView
     - RxCocoa
     - RxDataSources
     - RxRelay
     - RxSwift
     - Shimmer
+    - SQRichTextEditor
     - StagLayout
     - Stripe
     - StripeCore
@@ -263,12 +263,12 @@ SPEC CHECKSUMS:
   Pageboy: cf121b9dd48c63f3f281b2a9ec93d02e0f23879b
   PromisesObjC: 8c196f5a328c2cba3e74624585467a557dcb482f
   PTCardTabBar: 9f94e31b447629aead75cd21cdaa6ae1f2c8bac6
-  RichEditorView: 1bbb07b87ca2d479ac29a6877014b38b8df233ef
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxDataSources: efee07fa4de48477eca0a4611e6d11e2da9c1114
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   Shimmer: c5374be1c2b0c9e292fb05b339a513cf291cac86
+  SQRichTextEditor: 2e0e4fca06cc95904dcd7ebf8fbecd3236667fbf
   StagLayout: 1f4707fedddda2bbb62b371dca2ebe2478339b63
   Stripe: 90596971ef49bade169f68bc59369a796b30a045
   StripeCore: c09b492efc3b269a6ff875ad738ca366db97e03b
@@ -281,6 +281,6 @@ SPEC CHECKSUMS:
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   WSTagsField: a4e91b7d866e8c9755332ebcf8123f42f2abd4a0
 
-PODFILE CHECKSUM: 1e7f02bb1971fd4792917397375e59b80d2af10c
+PODFILE CHECKSUM: 8c83224282603f7cd7a93f17ba657d917264a76a
 
 COCOAPODS: 1.11.2

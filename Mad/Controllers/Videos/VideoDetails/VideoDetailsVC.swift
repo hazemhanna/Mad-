@@ -290,6 +290,14 @@ extension VideoDetailsVc {
             self.videoVM.dismissIndicator()
             self.showMessage(text: dataModel.message ?? "")
             self.getVideoDetails(id : self.videoId)
+               let text =  "https://mader.page.link/"
+               let textToShare = [text] as [Any]
+               let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+               activityViewController.popoverPresentationController?.sourceView = self.view
+               activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.postToFacebook ]
+               self.present(activityViewController, animated: true, completion: nil)
+
+               
            }
             
        }, onError: { (error) in

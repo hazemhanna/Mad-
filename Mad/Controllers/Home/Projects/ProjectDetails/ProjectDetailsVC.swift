@@ -192,25 +192,23 @@ class ProjectDetailsVC: UIViewController,WKNavigationDelegate {
     }
     
     @IBAction func shareAction(_ sender: UIButton) {
-        if Helper.getAPIToken() != nil {
-            self.shareProject(productID : self.projectId)
-            let text =  ""
-            let image = self.projectImage.image ?? #imageLiteral(resourceName: "Component 63 – 1")
-            let textToShare = [ text ,image] as [Any]
-            let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
-            activityViewController.popoverPresentationController?.sourceView = self.view
-          activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.postToFacebook ]
-            self.present(activityViewController, animated: true, completion: nil)
-            
-        }else{
-            displayMessage(title: "",message: "please login first".localized, status: .success, forController: self)
+        if self.token == "" {
+           displayMessage(title: "",message: "please login first".localized, status: .success, forController: self)
            let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
-                if let appDelegate = UIApplication.shared.delegate {
-                    appDelegate.window??.rootViewController = sb
-                }
-        }
-    }
-    
+           if let appDelegate = UIApplication.shared.delegate {
+               appDelegate.window??.rootViewController = sb
+           }
+           return
+       }
+       self.shareProject(productID : self.projectId)
+       let text =  "https://mader.page.link/"
+       let textToShare = [text] as [Any]
+       let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+       activityViewController.popoverPresentationController?.sourceView = self.view
+       activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.postToFacebook ]
+       self.present(activityViewController, animated: true, completion: nil)
+
+   }
     
     @IBAction func chatButton(sender: UIButton) {
         if self.token == "" {

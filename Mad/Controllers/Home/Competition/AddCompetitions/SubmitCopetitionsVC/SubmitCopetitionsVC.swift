@@ -28,7 +28,7 @@ class SubmitCopetitionsVC: UIViewController {
     var linke = String()
     var social = [String]()
     var socialLinks = [SocialModel]()
-    var selectedSocial = String()
+   // var selectedSocial = String()
     var candidate:Candidate?
 
     open lazy var customTabBar: PTCardTabBar = {
@@ -62,7 +62,7 @@ class SubmitCopetitionsVC: UIViewController {
         socialTF.optionArray = self.social
         socialTF.didSelect { (selectedText, index, id) in
             self.socialTF.text = selectedText
-            self.selectedSocial = self.socialLinks[index].key ?? ""
+           // self.selectedSocial = self.socialLinks[index].key ?? ""
         }
     }
     
@@ -88,16 +88,16 @@ class SubmitCopetitionsVC: UIViewController {
        // guard self.validateInput() else {return}
         self.competitionVm.showIndicator()
         if let id = candidate?.id {
-            saveCompete(candidat_id: id, competitionId: compId, fName: firstName, lName: lastName, phone: phoneNumber, email: email, personal: personal, artist_name: artistName, video_link: linke, project_description: self.presentTf.text  ?? "", know_about: self.selectedSocial, submit: "draft", file: uploadImage)
+            saveCompete(candidat_id: id, competitionId: compId, fName: firstName, lName: lastName, phone: phoneNumber, email: email, personal: personal, artist_name: artistName, video_link: linke, project_description: self.presentTf.text  ?? "", know_about:  self.socialTF.text ?? "" , submit: "draft", file: uploadImage)
         }else{
-        addCompete(competitionId: compId, fName: firstName, lName: lastName, phone: phoneNumber, email: email, personal: personal, artist_name: artistName, video_link: linke, project_description: self.presentTf.text  ?? "", know_about: self.selectedSocial, submit: "draft", file: uploadImage)
+        addCompete(competitionId: compId, fName: firstName, lName: lastName, phone: phoneNumber, email: email, personal: personal, artist_name: artistName, video_link: linke, project_description: self.presentTf.text  ?? "", know_about:  self.socialTF.text ?? "", submit: "draft", file: uploadImage)
         }
     }
 
     @IBAction func submitButton(sender: UIButton) {
         guard self.validateInput() else {return}
         self.competitionVm.showIndicator()
-        addCompete(competitionId: compId, fName: firstName, lName: lastName, phone: phoneNumber, email: email, personal: personal, artist_name: artistName,  video_link: linke, project_description: self.presentTf.text  ?? "", know_about: self.selectedSocial, submit: "submit", file: uploadImage)
+        addCompete(competitionId: compId, fName: firstName, lName: lastName, phone: phoneNumber, email: email, personal: personal, artist_name: artistName,  video_link: linke, project_description: self.presentTf.text  ?? "", know_about:  self.socialTF.text  ?? "" , submit: "submit", file: uploadImage)
     }
 }
 

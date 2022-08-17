@@ -29,13 +29,24 @@ class CompetitionResultslistsVC: UIViewController {
     var result = false
     var finalList = [Winner]()
     var shortList = [Winner]()
-    var candidate = [Winner]()
+    var candidate = [Winner](){
+        didSet{
+            for candidate in candidate {
+                if candidate.isVoted ?? false{
+                    self.canVote = false
+                    return
+                }
+            }
+            tableView.reloadData()
+        }
+    }
     var winner : Winner?
+    
     var final = true
     var titleCompetitions = String()
     var totalVote = Int()
     var compId = Int()
-  
+    var canVote = true
     
     open lazy var customTabBar: PTCardTabBar = {
         return PTCardTabBar()
@@ -70,6 +81,9 @@ class CompetitionResultslistsVC: UIViewController {
             resultView.isHidden = true
             resultView2.isHidden = true
         }
+        
+//        if candidate.count > 0 {
+//        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -125,13 +139,13 @@ extension CompetitionResultslistsVC : UITableViewDelegate,UITableViewDataSource{
         if !self.showShimmer {
             if result{
             if self.final {
-                cell.confic (name : self.finalList[indexPath.row].name ?? "",profileUrl : self.finalList[indexPath.row].imageURL ?? "" , bannerUrl :self.finalList[indexPath.row].imageURL ?? "" ,isVote : self.finalList[indexPath.row].isVoted ?? false)
+                cell.confic (name : self.finalList[indexPath.row].name ?? "",profileUrl : self.finalList[indexPath.row].imageURL ?? "" , bannerUrl :self.finalList[indexPath.row].imageURL ?? "" ,isVote : self.finalList[indexPath.row].isVoted ?? false, canVote: false)
             }else{
-                cell.confic (name : self.shortList[indexPath.row].name ?? "",profileUrl : self.shortList[indexPath.row].imageURL ?? "" , bannerUrl :self.shortList[indexPath.row].imageURL ?? "" ,isVote : self.shortList[indexPath.row].isVoted ?? false)
+                cell.confic (name : self.shortList[indexPath.row].name ?? "",profileUrl : self.shortList[indexPath.row].imageURL ?? "" , bannerUrl :self.shortList[indexPath.row].imageURL ?? "" ,isVote : self.shortList[indexPath.row].isVoted ?? false, canVote: false)
             }
             cell.voteBtn.isHidden = true
             }else{
-                cell.confic (name : self.candidate[indexPath.row].name ?? "",profileUrl : self.candidate[indexPath.row].imageURL ?? "" , bannerUrl :self.candidate[indexPath.row].imageURL ?? "" ,isVote : self.candidate[indexPath.row].isVoted ?? false)
+                cell.confic (name : self.candidate[indexPath.row].name ?? "",profileUrl : self.candidate[indexPath.row].imageURL ?? "" , bannerUrl :self.candidate[indexPath.row].imageURL ?? "" ,isVote : self.candidate[indexPath.row].isVoted ?? false, canVote: canVote)
                 cell.vote = {
                 self.competitionVm.showIndicator()
                     self.voteCompetitions(competitionId: self.compId, candidateId:self.candidate[indexPath.row].id ?? 0)
@@ -161,6 +175,7 @@ extension CompetitionResultslistsVC{
             self.competitionVm.dismissIndicator()
             self.tableView.reloadData()
             self.showMessage(text: dataModel.message ?? "")
+            self.navigationController?.popViewController(animated: true)
            }else{
             self.competitionVm.dismissIndicator()
             self.showMessage(text: dataModel.message ?? "")

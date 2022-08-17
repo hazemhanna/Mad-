@@ -32,11 +32,11 @@ class CompetitionsDetailsVc  : UIViewController {
     var finalList = [Winner]()
     var shortList = [Winner]()
     var candidate = [Winner]()
-
     var winner : Winner?
+    
     var titleCompetitions = String()
     var totalVote = Int()
-   // var candidate:Candidate?
+
     var titles = [String](){
           didSet {
               DispatchQueue.main.async {
@@ -146,6 +146,7 @@ class CompetitionsDetailsVc  : UIViewController {
         if compete {
         let vc = AddCompetitionsDetailsVc.instantiateFromNib()
         vc?.compId = compId
+        //vc?.candidate =candidate
         self.navigationController?.pushViewController(vc!, animated: true)
         }else if vote {
             let vc = CompetitionResultslistsVC.instantiateFromNib()
@@ -172,7 +173,7 @@ class CompetitionsDetailsVc  : UIViewController {
 //MARK:- Data Binding
 extension CompetitionsDetailsVc: UICollectionViewDelegate {
     func setuptitleCollectionView() {
-        self.titles = ["About","Guidlines","Deadlines","Prizes","Judges","Partners"]
+        self.titles = ["About","Guidelines","Deadlines","Prizes","Judges","Partners"]
         let cellIdentifier = "TitleCell"
         self.titleCollectionView.rx.setDelegate(self).disposed(by: disposeBag)
         self.titleCollectionView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
@@ -233,7 +234,11 @@ extension CompetitionsDetailsVc {
             self.instantVC5.judges =  dataModel.data?.judges ?? []
             self.finalList = dataModel.data?.finalists ?? []
             self.shortList = dataModel.data?.shortlisted ?? []
-            self.candidate = dataModel.data?.candidate ?? []
+            for candi in dataModel.data?.candidate ?? []{
+                 if candi.selectedForStep2 ?? false{
+                     self.candidate.append(candi)
+                   }
+               }
             self.winner = dataModel.data?.winner
             self.titleCompetitions = dataModel.data?.title ?? ""
             self.totalVote = dataModel.data?.countAllVotes ?? 0

@@ -141,7 +141,6 @@ extension MyProfileVc  {
         artistVM.updateProfile(image: profile).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
             self.artistVM.dismissIndicator()
-            
            }
        }, onError: { (error) in
         self.artistVM.dismissIndicator()

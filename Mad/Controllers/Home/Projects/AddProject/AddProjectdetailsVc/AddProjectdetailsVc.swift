@@ -167,7 +167,7 @@ class AddProjectdetailsVc : UIViewController {
     }
     
     @IBAction func nextButton(sender: UIButton) {
-        guard self.validateInput() else {return}
+      //  guard self.validateInput() else {return}
         let vc = AboutProjectVC.instantiateFromNib()
         vc!.selectedCat = selectedCat
         vc!.selectedArtist = selectedArtist

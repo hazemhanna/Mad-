@@ -24,15 +24,21 @@ class CompetitionsResultCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    
-    func confic (name : String,profileUrl : String , bannerUrl :String ,isVote : Bool){
-        
+    func confic (name: String,profileUrl: String,bannerUrl: String ,isVote: Bool,canVote: Bool){
         nameLbl.text = name
-        if isVote {
-            self.voteBtn.isHidden = true
-        }else{
+        if canVote{
             self.voteBtn.isHidden = false
+        }else{
+            if isVote {
+                self.voteBtn.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+                self.voteBtn.isEnabled = false
+                self.voteBtn.isHidden = false
+            }else{
+                self.voteBtn.isHidden = true
+            }
         }
+      
+        
         if let profileImageUrl = URL(string: profileUrl){
         self.profileImage.kf.setImage(with: profileImageUrl, placeholder: #imageLiteral(resourceName: "Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4"))
         }

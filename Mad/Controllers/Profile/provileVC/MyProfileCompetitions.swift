@@ -13,14 +13,12 @@ class MyProfileCompetitions : UIViewController {
    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var draftLbl: UILabel!
-
+    
     let cellIdentifier = "CompetitionCell"
     var showShimmer = true
-
     var artistVM = ArtistViewModel()
     var disposeBag = DisposeBag()
     var competitions = [Competitions]()
-    
     var draftCompetitions = [Competitions]()
 
     override func viewDidLoad() {
@@ -34,16 +32,12 @@ class MyProfileCompetitions : UIViewController {
         self.navigationController?.navigationBar.isHidden = true
     }
     
-    
-    
     @IBAction func draftBtn(sender: UIButton) {
     let main = DraftsVc.instantiateFromNib()
     main?.competitions = draftCompetitions
     main?.draftType = "competition"
     self.navigationController?.pushViewController(main!, animated: true)
     }
-    
-    
 }
 
 extension MyProfileCompetitions : UITableViewDelegate,UITableViewDataSource{
@@ -63,7 +57,9 @@ extension MyProfileCompetitions : UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier) as! CompetitionCell
         if !self.showShimmer {
-            cell.confic(imageUrl: self.competitions[indexPath.row].bannerImg ?? "", title: self.competitions[indexPath.row].title ?? "", date: ("End Date: ") + (self.competitions[indexPath.row].resultDate ?? ""))
+            cell.confic(imageUrl: self.competitions[indexPath.row].bannerImg ?? ""
+                        , title: self.competitions[indexPath.row].title ?? ""
+                        , date: ("End Date: ") + (self.competitions[indexPath.row].resultDate ?? ""))
 
         }
         cell.showShimmer = showShimmer
@@ -74,7 +70,6 @@ extension MyProfileCompetitions : UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 130
     }
-    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let main = CompetitionsDetailsVc.instantiateFromNib()
