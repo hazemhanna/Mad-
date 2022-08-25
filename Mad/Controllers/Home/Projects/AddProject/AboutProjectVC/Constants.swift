@@ -5,12 +5,10 @@
 //  Created by MAC on 07/08/2022.
 //
 
-
 import UIKit
 import SQRichTextEditor
 
 enum ToolItemCellSettings {
-    
     static let id = "toolItemCell"
     static let normalfont = UIFont.systemFont(ofSize: 14, weight: .light)
     static let activeFont = UIFont.systemFont(ofSize: 14, weight: .bold)

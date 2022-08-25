@@ -176,3 +176,7 @@ struct CheckPasswordModelJson: Codable {
     let message: String?
     let errors: Errors?
 }
+
+struct UploadImageModelJson: Codable {
+    var success: String?
+}

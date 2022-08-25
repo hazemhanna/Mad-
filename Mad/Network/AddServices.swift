@@ -595,7 +595,6 @@ func updateCartProduct(param : [String :Any]) -> Observable<CartModelJSON> {
        }
     
     
-
     func updateBanner(image: UIImage) -> Observable<AddProductModelJson> {
           return Observable.create { (observer) -> Disposable in
             let url = ConfigURLS.updateBanner
@@ -767,4 +766,41 @@ func updateCartProduct(param : [String :Any]) -> Observable<CartModelJSON> {
               return Disposables.create()
           }
       }
+    
+    func uploadImage(image: UIImage) -> Observable<UploadImageModelJson> {
+          return Observable.create { (observer) -> Disposable in
+            let url = ConfigURLS.uploadImage
+            let token = Helper.getAPIToken() ?? ""
+            let headers = [
+                "Authorization": "Bearer \(token)",
+                "lang" : AddServices.languageKey]
+              Alamofire.upload(multipartFormData: { (form: MultipartFormData) in
+                if let data = image.jpegData(compressionQuality: 0.5) {
+                    form.append(data, withName: "image", fileName: "image.jpeg", mimeType: "image/jpeg")
+                    }
+                
+              }, usingThreshold: SessionManager.multipartFormDataEncodingMemoryThreshold, to: url, method: .post, headers: headers) { (result: SessionManager.MultipartFormDataEncodingResult) in
+                      switch result {
+                  case .failure(let error):
+                      print(error.localizedDescription)
+                      observer.onError(error)
+                  case .success(request: let upload, streamingFromDisk: _, streamFileURL: _):
+                      upload.uploadProgress { (progress) in
+                        print("Image Uploading Progress: \(progress.fractionCompleted)")
+                    }.responseJSON { (response: DataResponse<Any>) in
+               do {
+                      let data = try JSONDecoder().decode(UploadImageModelJson.self, from: response.data!)
+                        observer.onNext(data)
+                       } catch {
+                           print(error)
+                          observer.onError(error)
+                      }
+                    }
+                  }
+               }
+              return Disposables.create()
+          }
+      }//END
+
+
 }

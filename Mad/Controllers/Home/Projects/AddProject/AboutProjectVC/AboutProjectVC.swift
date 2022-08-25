@@ -177,8 +177,6 @@ class AboutProjectVC: UIViewController {
                 switch type {
                 case .makeLink:
                     self.editorView.makeLink(url: inputValue)
-              //  case .insertImage:
-                //    self.editorView.insertImage(url: inputValue)
                 case .setTextSize:
                     self.editorView.setText(size: Int(inputValue) ?? 20)
                 case .insertHTML:
@@ -281,6 +279,7 @@ extension AboutProjectVC: SQTextEditorDelegate {
         print("editorDidTapDoneButton")
         editorView.getHTML { html in
            self.projectContent = html ?? ""
+            print(html)
          }
     }
     
@@ -315,7 +314,7 @@ extension AboutProjectVC: UIImagePickerControllerDelegate, UINavigationControlle
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             AlertService.showAlert(style: .actionSheet, title: "Pick Your Picture", message: nil, actions: [chooseFromLibraryAction, cameraAction, cancelAction], completion: nil)
     }
-    
+
     func showImagePicker(sourceType: UIImagePickerController.SourceType) {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
@@ -328,25 +327,24 @@ extension AboutProjectVC: UIImagePickerControllerDelegate, UINavigationControlle
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
-            self.editorView.insertImage(url: "https://images.app.goo.gl/khgwNLPEo83r5CUt5")
-            //uploadImage(image : editedImage)
+            uploadImage(image : editedImage)
         } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            self.editorView.insertImage(url: "https://images.app.goo.gl/khgwNLPEo83r5CUt5")
-            //uploadImage(image : originalImage)
+            uploadImage(image : originalImage)
         }
         dismiss(animated: true, completion: nil)
     }
     
     func uploadImage(image : UIImage) {
         self.prjectVM.showIndicator()
-        prjectVM.updateProfile(image: image).subscribe(onNext: { (dataModel) in
-           if dataModel.success ?? false {
+        prjectVM.uploadImage(image: image).subscribe(onNext: { (dataModel) in
+           if dataModel.success != "" {
             self.prjectVM.dismissIndicator()
-               self.editorView.insertImage(url: "https://images.app.goo.gl/khgwNLPEo83r5CUt5")
+            self.editorView.insertImage(url: dataModel.success ?? "")
            }
        }, onError: { (error) in
         self.prjectVM.dismissIndicator()
 
        }).disposed(by: disposeBag)
    }
+    
 }

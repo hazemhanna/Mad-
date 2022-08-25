@@ -13,7 +13,7 @@ import FirebaseMessaging
 import RxSwift
 import RxCocoa
 import IQKeyboardManagerSwift
-
+import FirebaseDynamicLinks
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -107,6 +107,47 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // With swizzling disabled you must set the APNs token here.
         // Messaging.messaging().apnsToken = deviceToken
+    }
+    
+    func handelDynamiclink( _ dynamiclink : DynamicLink)  {
+        guard let url = dynamiclink.url else { return}
+        print(url.absoluteString)
+       guard let component = URLComponents(url: url, resolvingAgainstBaseURL: false) , let queryItem = component.queryItems else{
+            return
+        }
+        if component.path ==  "/artist" {
+            if let queryItem = queryItem.first(where: {$0.name == "artistId" }) {
+                guard let artistID = queryItem.value else {return}
+                let vc = UIStoryboard(name: "Artist", bundle: nil).instantiateViewController(withIdentifier: "ArtistProfileVc")  as! ArtistProfileVc
+                vc.artistId = Int(artistID) ?? 0
+                Helper.saveArtistId(id: Int(artistID) ?? 0)
+                window?.rootViewController = vc
+            }
+        }
+    }
+    
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity,
+                     restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+      let handled = DynamicLinks.dynamicLinks().handleUniversalLink(userActivity.webpageURL!) { dynamiclink, error in
+          if let dynamiclink = dynamiclink{
+             self.handelDynamiclink(dynamiclink)
+          }
+      }
+      return handled
+    }
+    
+    func application(_ app: UIApplication, open url: URL,options: [UIApplication.OpenURLOptionsKey: Any]) -> Bool {
+      return application(app, open: url,sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,annotation: "")
+    }
+
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?,annotation: Any) -> Bool {
+      if let dynamicLink = DynamicLinks.dynamicLinks().dynamicLink(fromCustomSchemeURL: url) {
+        // Handle the deep link. For example, show the deep-linked content or
+        // apply a promotional offer to the user's account.
+        // ...
+        return true
+      }
+      return false
     }
     
 }

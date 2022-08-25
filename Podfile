@@ -33,6 +33,7 @@ target 'Mad' do
   pod 'Firebase/Messaging'
   pod 'Firebase'
   pod 'Firebase/Auth'
+  pod 'Firebase/DynamicLinks'
   pod 'StagLayout'
   pod 'SwiftMessages', '~> 6.0.2'
   pod 'SQRichTextEditor'
