@@ -31,17 +31,14 @@ class EditMyProfileVc: UIViewController {
     @IBOutlet weak var  follwersLbl : UILabel!
     @IBOutlet weak var  followingLbl : UILabel!
     @IBOutlet weak var  pointLbl : UILabel!
-    
     @IBOutlet weak var  musiccatBtn : UIButton!
     @IBOutlet weak var  artcatBtn: UIButton!
     @IBOutlet weak var  designcatBtn: UIButton!
     
     let cellIdentifier = "SocialMediaCell"
-    var active = Helper.getType() ?? false
-
+    var active = Helper.getIsActive() ?? false
     var artistVM = ArtistViewModel()
     var disposeBag = DisposeBag()
-    
     var music = false
     var art = false
     var design  = false

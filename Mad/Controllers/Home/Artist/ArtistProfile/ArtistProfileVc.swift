@@ -59,9 +59,7 @@ class ArtistProfileVc: UIViewController {
          if self.token == "" {
             displayMessage(title: "",message: "please login first".localized, status: .success, forController: self)
             let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
-            if let appDelegate = UIApplication.shared.delegate {
-                appDelegate.window??.rootViewController = sb
-            }
+            if let appDelegate = UIApplication.shared.delegate {appDelegate.window??.rootViewController = sb}
             return
         }
         
@@ -71,9 +69,8 @@ class ArtistProfileVc: UIViewController {
         components.path = "/artist"
         let artistItem = URLQueryItem(name: "artistId", value: "\(self.artistId)")
         components.queryItems = [artistItem]
-    
-        guard  let linkParameter = components.url else {return}
-    guard let sharing = DynamicLinkComponents.init(link: linkParameter, domainURIPrefix: "https://mader.page.link")else {return}
+         guard  let linkParameter = components.url else {return}
+         guard let sharing = DynamicLinkComponents.init(link: linkParameter, domainURIPrefix: "https://mader.page.link")else {return}
         if let bundleID = Bundle.main.bundleIdentifier {sharing.iOSParameters = DynamicLinkIOSParameters(bundleID: bundleID)}
         sharing.iOSParameters?.appStoreID = ""
         sharing.socialMetaTagParameters = DynamicLinkSocialMetaTagParameters()
@@ -84,7 +81,7 @@ class ArtistProfileVc: UIViewController {
         }
     }
     
-    func share(url: URL)  {
+     func share(url: URL)  {
         let textToShare = [url] as [Any]
         let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view

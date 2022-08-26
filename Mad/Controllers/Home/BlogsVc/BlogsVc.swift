@@ -9,6 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import PTCardTabBar
+import FirebaseDynamicLinks
 
 class BlogsVc  : UIViewController {
    
@@ -101,30 +102,44 @@ extension BlogsVc : UITableViewDelegate,UITableViewDataSource , UITableViewDataS
             cell.profileImage.isHidden = true
             
             cell.share = {
-                if self.token == ""{
-                    displayMessage(title: "",message: "please login first".localized, status: .success, forController: self)
-                    let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
-                    if let appDelegate = UIApplication.shared.delegate {
-                        appDelegate.window??.rootViewController = sb
-                    }
-                    return
+                if self.token == "" {
+                   displayMessage(title: "",message: "please login first".localized, status: .success, forController: self)
+                   let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
+                   if let appDelegate = UIApplication.shared.delegate {appDelegate.window??.rootViewController = sb}
+                   return
+               }
+               
+               var components = URLComponents()
+               components.scheme = "https"
+               components.host = "www.example.com"
+               components.path = "/blog"
+                let artistItem = URLQueryItem(name: "blogId", value: "\(self.blogs[indexPath.row].id ?? 0)")
+               components.queryItems = [artistItem]
+                guard  let linkParameter = components.url else {return}
+                guard let sharing = DynamicLinkComponents.init(link: linkParameter, domainURIPrefix: "https://mader.page.link")else {return}
+               if let bundleID = Bundle.main.bundleIdentifier {sharing.iOSParameters = DynamicLinkIOSParameters(bundleID: bundleID)}
+               sharing.iOSParameters?.appStoreID = ""
+               sharing.socialMetaTagParameters = DynamicLinkSocialMetaTagParameters()
+               sharing.socialMetaTagParameters?.title = self.blogs[indexPath.row].title
+               sharing.shorten{ (url , warnning , error) in
+                   guard let url  = url else {return}
+                   self.share(url: url)
+               }
                 }
-                self.blogsVM.showIndicator()
-                self.shareBlogs(blogsId: self.blogs[indexPath.row].id ?? 0)
-                let text = self.blogs[indexPath.row].title?.html2String ?? ""
-                let image = self.blogs[indexPath.row].imageURL ?? ""
-                let textToShare = [ text ,image]
-                let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
-                activityViewController.popoverPresentationController?.sourceView = self.view
-              activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.postToFacebook ]
-                self.present(activityViewController, animated: true, completion: nil)
-
-            }
         }
         cell.showShimmer = showProjectShimmer
         return cell
     }
     
+      func share(url: URL)  {
+         let textToShare = [url] as [Any]
+         let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+         activityViewController.popoverPresentationController?.sourceView = self.view
+        activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.postToFacebook ]
+       self.present(activityViewController, animated: true, completion: nil)
+     }
+     
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if showProjectShimmer {return}
         let main = BlogDetailsVc.instantiateFromNib()

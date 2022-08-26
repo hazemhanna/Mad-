@@ -54,7 +54,7 @@ class SubmitCopetitionsVC: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.presentTf.text = candidate?.introductionFile ?? ""
+        self.presentTf.text = candidate?.projectDescription ?? ""
         self.socialTF.text = candidate?.knowAbout ?? ""
     }
     

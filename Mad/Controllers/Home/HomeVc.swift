@@ -9,6 +9,8 @@ import UIKit
 import RxSwift
 import RxCocoa
 import PTCardTabBar
+import FirebaseDynamicLinks
+
 
 class HomeVC: UIViewController {
     
@@ -55,6 +57,46 @@ class HomeVC: UIViewController {
                 blackView.isHidden = true
             }
         }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.methodOfReceivedNotification(notification:)), name: Notification.Name("component"), object: nil)
+    }
+    
+    @objc func methodOfReceivedNotification(notification: Notification) {
+       if let dynamiclink = (notification.userInfo?["dynamiclink"] as? DynamicLink) {
+        guard let url = dynamiclink.url else { return}
+        guard let component = URLComponents(url: url, resolvingAgainstBaseURL: false), let queryItem = component.queryItems else{
+                 return}
+             if component.path ==  "/artist" {
+                 if let queryItem = queryItem.first(where: {$0.name == "artistId" }) {
+                     guard let artistID = queryItem.value else {return}
+                     let vc = UIStoryboard(name: "Artist", bundle: nil).instantiateViewController(withIdentifier: "ArtistProfileVc")  as! ArtistProfileVc
+                     vc.artistId = Int(artistID) ?? 0
+                     Helper.saveArtistId(id: Int(artistID) ?? 0)
+                     self.navigationController?.pushViewController(vc, animated: true)
+                 }
+                }else if component.path ==  "/blog" {
+                    if let queryItem = queryItem.first(where: {$0.name == "blogId" }) {
+                    guard let blogId = queryItem.value else {return}
+                    let main = BlogDetailsVc.instantiateFromNib()
+                    main!.blogId =  Int(blogId) ?? 0
+                    self.navigationController?.pushViewController(main!, animated: true)
+                    }
+               }else if component.path ==  "/project" {
+                   if let queryItem = queryItem.first(where: {$0.name == "projectId" }) {
+                   guard let projectId = queryItem.value else {return}
+                   let main = ProjectDetailsVC.instantiateFromNib()
+                   main!.projectId =  Int(projectId) ?? 0
+                   self.navigationController?.pushViewController(main!, animated: true)
+                   }
+            }else if component.path ==  "/video" {
+                if let queryItem = queryItem.first(where: {$0.name == "videoId" }) {
+                guard let videoId = queryItem.value else {return}
+                    let sb = UIStoryboard(name: "Video", bundle: nil).instantiateViewController(withIdentifier: "EpisodViewController") as! EpisodViewController
+                    sb.videoId = Int(videoId) ?? 0
+                    self.navigationController?.pushViewController(sb, animated: true)
+                }
+            }
+       }
     }
     
     override func viewWillAppear(_ animated: Bool) {

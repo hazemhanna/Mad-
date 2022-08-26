@@ -104,11 +104,6 @@ class EpisodViewController : UIViewController {
         self.shareVideo(videoId: self.videoId)
     }
     
-    
-    
-     
-    
-    
     @IBAction func playvideoAction(_ sender: UIButton) {
             if let url = videoUrl {
             guard let videoURL = URL(string:  url) else { return }

@@ -49,7 +49,7 @@ class AddCompetitionsUploadFileVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         self.linkeTF.text = candidate?.videoLink ?? ""
-        if let profileImageUrl = URL(string: candidate?.bannerImg ?? ""){
+        if let profileImageUrl = URL(string: candidate?.introductionFile ?? ""){
         self.bannerImage.kf.setImage(with: profileImageUrl, placeholder: #imageLiteral(resourceName: "Path 412"))
         }
     }
@@ -116,7 +116,6 @@ extension AddCompetitionsUploadFileVC: UIImagePickerControllerDelegate, UINaviga
         }
         dismiss(animated: true, completion: nil)
     }
-    
 }
 
 extension AddCompetitionsUploadFileVC: UITextFieldDelegate {

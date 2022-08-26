@@ -160,6 +160,7 @@ class AddProjectdetailsVc : UIViewController {
         vc!.tag = 1
         self.navigationController?.pushViewController(vc!, animated: true)
     }
+    
     @IBAction func calender2Button(sender: UIButton) {
         let vc = CalenderVc.instantiateFromNib()
         vc!.tag = 2
@@ -167,8 +168,8 @@ class AddProjectdetailsVc : UIViewController {
     }
     
     @IBAction func nextButton(sender: UIButton) {
-      //  guard self.validateInput() else {return}
-        let vc = AboutProjectVC.instantiateFromNib()
+        guard self.validateInput() else {return}
+     let vc = AboutProjectVC.instantiateFromNib()
         vc!.selectedCat = selectedCat
         vc!.selectedArtist = selectedArtist
         vc!.locationTF = locationTF.text ?? ""

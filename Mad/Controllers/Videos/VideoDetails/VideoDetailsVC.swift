@@ -12,6 +12,8 @@ import RxCocoa
 import PTCardTabBar
 import AVKit
 import AVFoundation
+import FirebaseDynamicLinks
+
 
 class VideoDetailsVc : UIViewController {
     
@@ -140,14 +142,38 @@ class VideoDetailsVc : UIViewController {
     
     @IBAction func shareBtn(sender: UIButton) {
         if self.token == "" {
-            let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
-            if let appDelegate = UIApplication.shared.delegate {
-                appDelegate.window??.rootViewController = sb
-            }
-            return
-        }
+           displayMessage(title: "",message: "please login first".localized, status: .success, forController: self)
+           let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
+           if let appDelegate = UIApplication.shared.delegate {appDelegate.window??.rootViewController = sb}
+           return
+       }
+       
+       var components = URLComponents()
+       components.scheme = "https"
+       components.host = "www.example.com"
+       components.path = "/video"
+       let artistItem = URLQueryItem(name: "videoId", value: "\(self.videoId)")
+       components.queryItems = [artistItem]
+        guard  let linkParameter = components.url else {return}
+        guard let sharing = DynamicLinkComponents.init(link: linkParameter, domainURIPrefix: "https://mader.page.link")else {return}
+       if let bundleID = Bundle.main.bundleIdentifier {sharing.iOSParameters = DynamicLinkIOSParameters(bundleID: bundleID)}
+       sharing.iOSParameters?.appStoreID = ""
+       sharing.socialMetaTagParameters = DynamicLinkSocialMetaTagParameters()
+       sharing.socialMetaTagParameters?.title = titleLbl.text
+       sharing.shorten{ (url , warnning , error) in
+           guard let url  = url else {return}
+           self.share(url: url)
+       }
         self.videoVM.showIndicator()
         self.shareVideo(videoId: self.videoId)
+    }
+    
+     func share(url: URL)  {
+        let textToShare = [url] as [Any]
+        let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+       activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.postToFacebook ]
+      self.present(activityViewController, animated: true, completion: nil)
     }
     
     @IBAction func playvideoAction(_ sender: UIButton) {

@@ -110,20 +110,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func handelDynamiclink( _ dynamiclink : DynamicLink)  {
-        guard let url = dynamiclink.url else { return}
-        print(url.absoluteString)
-       guard let component = URLComponents(url: url, resolvingAgainstBaseURL: false) , let queryItem = component.queryItems else{
-            return
-        }
-        if component.path ==  "/artist" {
-            if let queryItem = queryItem.first(where: {$0.name == "artistId" }) {
-                guard let artistID = queryItem.value else {return}
-                let vc = UIStoryboard(name: "Artist", bundle: nil).instantiateViewController(withIdentifier: "ArtistProfileVc")  as! ArtistProfileVc
-                vc.artistId = Int(artistID) ?? 0
-                Helper.saveArtistId(id: Int(artistID) ?? 0)
-                window?.rootViewController = vc
-            }
-        }
+//        let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CardTabBarController")
+//        window?.rootViewController = sb
+        let imageDataDict:[String: DynamicLink] = ["dynamiclink": dynamiclink]
+        NotificationCenter.default.post(name: Notification.Name("component"), object: nil, userInfo: imageDataDict)
     }
     
     func application(_ application: UIApplication, continue userActivity: NSUserActivity,
