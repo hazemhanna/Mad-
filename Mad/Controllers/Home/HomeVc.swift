@@ -95,6 +95,20 @@ class HomeVC: UIViewController {
                     sb.videoId = Int(videoId) ?? 0
                     self.navigationController?.pushViewController(sb, animated: true)
                 }
+            }else if component.path ==  "/competition" {
+                if let queryItem = queryItem.first(where: {$0.name == "compId" }) {
+                guard let compId = queryItem.value else {return}
+                    let vc = CompetitionsDetailsVc.instantiateFromNib()
+                    vc!.compId = Int(compId) ?? 0
+                    self.navigationController?.pushViewController(vc!, animated: true)
+                }
+            }else if component.path ==  "/product" {
+                if let queryItem = queryItem.first(where: {$0.name == "productId" }) {
+                guard let productId = queryItem.value else {return}
+                    let vc = ProductDetailsVC.instantiateFromNib()
+                    vc!.productId = Int(productId) ?? 0
+                    self.navigationController?.pushViewController(vc!, animated: true)
+                }
             }
        }
     }

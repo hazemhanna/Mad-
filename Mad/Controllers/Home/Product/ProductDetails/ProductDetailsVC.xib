@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -177,33 +177,37 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="382" height="34"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD 40" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oHk-5B-foZ">
-                                                                <rect key="frame" x="0.0" y="0.0" width="95.5" height="34"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="66" height="34"/>
                                                                 <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="18"/>
                                                                 <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="lCF-6j-8XW">
-                                                                <rect key="frame" x="235.5" y="0.0" width="146.5" height="34"/>
+                                                                <rect key="frame" x="206" y="0.0" width="176" height="34"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VwS-hc-UMX">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="108" height="34"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="104.5" height="34"/>
                                                                         <state key="normal" title="Favourite">
                                                                             <color key="titleColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                         </state>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QKa-pR-CLl">
-                                                                        <rect key="frame" x="124" y="0.0" width="22.5" height="34"/>
+                                                                        <rect key="frame" x="120.5" y="0.0" width="22.5" height="34"/>
                                                                         <state key="normal" image="Path 326-1"/>
                                                                         <connections>
                                                                             <action selector="favouriteAction:" destination="MNL-tg-UoB" eventType="touchUpInside" id="BkX-Yj-G0n"/>
                                                                         </connections>
                                                                     </button>
+                                                                    <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QLG-P1-ov1">
+                                                                        <rect key="frame" x="159" y="0.0" width="17" height="34"/>
+                                                                        <state key="normal" image="Path 327"/>
+                                                                        <connections>
+                                                                            <action selector="shareBtnWithSender:" destination="MNL-tg-UoB" eventType="touchUpInside" id="7tG-h2-h7c"/>
+                                                                        </connections>
+                                                                    </button>
                                                                 </subviews>
                                                             </stackView>
                                                         </subviews>
-                                                        <constraints>
-                                                            <constraint firstItem="oHk-5B-foZ" firstAttribute="width" secondItem="sJb-7z-9g9" secondAttribute="width" multiplier="0.25" id="sCx-CY-3f9"/>
-                                                        </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ijw-lm-2Xr">
                                                         <rect key="frame" x="0.0" y="66" width="382" height="26"/>
@@ -764,6 +768,7 @@ added to your cart</string>
         <image name="Group 546" width="23.5" height="23.5"/>
         <image name="Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4" width="320" height="320"/>
         <image name="Path 326-1" width="22.5" height="20"/>
+        <image name="Path 327" width="17" height="18.5"/>
         <image name="Path 331" width="24" height="21"/>
         <image name="Path 331-1" width="23" height="20"/>
         <image name="Path 343" width="20" height="20"/>
