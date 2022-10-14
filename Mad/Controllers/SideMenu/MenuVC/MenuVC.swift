@@ -139,7 +139,6 @@ class MenuVC: UIViewController {
         Helper.UIApplicationURL.openUrl(url: url)
     }
     
-    
     @IBAction func languageBtn(sender: UIButton) {
         if #available(iOS 13.0, *) {
             UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)

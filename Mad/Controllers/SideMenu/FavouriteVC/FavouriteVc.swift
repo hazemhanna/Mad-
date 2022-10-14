@@ -16,22 +16,25 @@ class FavouriteVc: UIViewController {
     @IBOutlet weak var productTableView: UITableView!
     @IBOutlet weak var artistTableView: UITableView!
     
+    @IBOutlet weak var videoTableView: UITableView!
+
     @IBOutlet weak var projectView: UIView!
     @IBOutlet weak var productView: UIView!
     @IBOutlet weak var artistView: UIView!
-    
+    @IBOutlet weak var videoView: UIView!
+
     let cellIdentifier = "FavouritProjectCell"
     let cellIdentifier2 = "FavouritProjectCell"
     let cellIdentifier3 = "FavouriteArtistCell"
-    
+    let cellIdentifier4 = "FavouritVideoCell"
     
     var disposeBag = DisposeBag()
     var favouriteVM = FavouriteViewModel()
     
-    
     var artists = [Artist]()
     var products = [Product]()
     var projects = [Project]()
+    var video = [Videos]()
 
     var showShimmer: Bool = true
     
@@ -74,19 +77,24 @@ class FavouriteVc: UIViewController {
 extension FavouriteVc  : UITableViewDelegate,UITableViewDataSource{
     
     func setupContentTableView() {
+        
+        self.artistTableView.register(UINib(nibName: self.cellIdentifier3, bundle: nil), forCellReuseIdentifier: self.cellIdentifier3)
         artistTableView.delegate = self
         artistTableView.dataSource = self
-    
-        self.artistTableView.register(UINib(nibName: self.cellIdentifier3, bundle: nil), forCellReuseIdentifier: self.cellIdentifier3)
 
-        
+        self.productTableView.register(UINib(nibName: self.cellIdentifier2, bundle: nil), forCellReuseIdentifier: self.cellIdentifier2)
         productTableView.delegate = self
         productTableView.dataSource = self
         
-        self.productTableView.register(UINib(nibName: self.cellIdentifier2, bundle: nil), forCellReuseIdentifier: self.cellIdentifier2)
+        self.projectTableView.register(UINib(nibName: self.cellIdentifier, bundle: nil), forCellReuseIdentifier: self.cellIdentifier)
         projectTableView.delegate = self
         projectTableView.dataSource = self
-        self.projectTableView.register(UINib(nibName: self.cellIdentifier, bundle: nil), forCellReuseIdentifier: self.cellIdentifier)
+        
+        
+        
+        self.videoTableView.register(UINib(nibName: self.cellIdentifier4, bundle: nil), forCellReuseIdentifier: self.cellIdentifier4)
+        videoTableView.delegate = self
+        videoTableView.dataSource = self
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -94,9 +102,11 @@ extension FavouriteVc  : UITableViewDelegate,UITableViewDataSource{
         return  self.showShimmer ? 2 : projects.count
      }else if tableView == productTableView {
         return self.showShimmer ? 2 : products.count
-     }else {
-        return  self.showShimmer ? 2 : artists.count
-      }
+     }else if  tableView == videoTableView {
+        return  self.showShimmer ? 2 : video.count
+      }else {
+          return  self.showShimmer ? 2 : artists.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -132,7 +142,18 @@ extension FavouriteVc  : UITableViewDelegate,UITableViewDataSource{
             }
             cell.showShimmer = self.showShimmer
             return cell
-            }else {
+            }else  if tableView == videoTableView {
+            let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier4) as! FavouritVideoCell
+                if !self.showShimmer{
+                    cell.confic(name: self.video[indexPath.row].title ?? "", price:"", image: self.video[indexPath.row].imageURL ?? "")
+                    cell.removeFavourite = {
+                        self.favouriteVM.showIndicator()
+                        self.addVideoFavourite(videoId:  self.video[indexPath.row].id ?? 0, Type: false)
+                    }
+                }
+                cell.showShimmer = self.showShimmer
+            return cell
+        }else {
             let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier3) as! FavouriteArtistCell
                 if !self.showShimmer{
                     cell.confic(name: self.artists[indexPath.row].name ?? "", price: self.artists[indexPath.row].headline ?? "", image: self.artists[indexPath.row].profilPicture ?? "")
@@ -162,10 +183,13 @@ func getFavourite() {
         self.products = dataModel.data?.favoriteProducts ?? []
         self.artists = dataModel.data?.favoriteArtists ?? []
         self.projects = dataModel.data?.favoriteProjects ?? []
+        self.video = dataModel.data?.favoriteVideo ?? []
+           
         self.artistTableView.reloadData()
         self.projectTableView.reloadData()
         self.productTableView.reloadData()
-        
+        self.videoTableView.reloadData()
+
         if self.artists.count > 0 {
             self.artistView.isHidden = false
         }else{
@@ -179,11 +203,15 @@ func getFavourite() {
         }
         if self.products.count > 0 {
             self.productView.isHidden = false
-
         }else{
             self.productView.isHidden = true
         }
-        
+        if self.video.count > 0 {
+               self.videoView.isHidden = false
+           }else{
+               self.videoView.isHidden = true
+        }
+           
        }
    }, onError: { (error) in
 
@@ -234,4 +262,16 @@ func getFavourite() {
 
        }).disposed(by: disposeBag)
     }
+    
+    
+    func addVideoFavourite(videoId : Int,Type : Bool) {
+        favouriteVM.addVideoFavourite(videoId: videoId, Type: Type).subscribe(onNext: { [self] (dataModel) in
+           if dataModel.success ?? false {
+            self.favouriteVM.dismissIndicator()
+            self.getFavourite()
+           }
+       }, onError: { (error) in
+        self.favouriteVM.dismissIndicator()
+       }).disposed(by: disposeBag)
+   }
 }

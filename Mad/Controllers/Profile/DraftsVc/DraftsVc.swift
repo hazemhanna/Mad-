@@ -54,14 +54,11 @@ class DraftsVc  : UIViewController {
     
     private let CellIdentifier = "HomeCell"
     let cellIdentifier = "CompetitionCell"
-
     let cellId = "LiveCellCVC"
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupContentTableView()
-        
-        
         productCollectionView.delegate = self
         productCollectionView.dataSource = self
         self.productCollectionView.register(UINib(nibName: cellId, bundle: nil), forCellWithReuseIdentifier: cellId)
@@ -151,7 +148,6 @@ extension DraftsVc: UITableViewDelegate,UITableViewDataSource{
                 }
              }
             cell.favouriteStack.isHidden = false
-             // share project
             cell.share = {
                 if self.token == "" {
                     displayMessage(title: "",message: "please login first".localized, status: .success, forController: self)
@@ -163,8 +159,6 @@ extension DraftsVc: UITableViewDelegate,UITableViewDataSource{
                 }
                 self.homeVM.showIndicator()
                 self.shareProject(productID:  self.projects[indexPath.row].id ?? 0)
-
-                // text to share
                 let text = self.projects[indexPath.row].title ?? ""
                 let image = self.projects[indexPath.row].artist?.profilPicture ?? ""
                 let textToShare = [ text ,image]
@@ -179,10 +173,7 @@ extension DraftsVc: UITableViewDelegate,UITableViewDataSource{
         }else {
             let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier) as! CompetitionCell
                 cell.confic(imageUrl: self.competitions[indexPath.row].bannerImg ?? "", title: self.competitions[indexPath.row].title ?? "", date: ("End Date: ") + (self.competitions[indexPath.row].resultDate ?? ""))
-
-            
             cell.showShimmer = false
-
             return cell
         }
     }
@@ -198,6 +189,15 @@ extension DraftsVc: UITableViewDelegate,UITableViewDataSource{
             main?.candidate = self.competitions[indexPath.row].candidate
             self.navigationController?.pushViewController(main!, animated: true)
         }
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool { true }
+
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive,title: "Delete".localized) { [weak self] (contextualAction,view,boolValue) in
+            self?.deleteCompetition(candidat_id: self?.competitions[indexPath.row].candidate?.id ?? 0 , competition_id: self?.competitions[indexPath.row].id ?? 0)
+        }
+        return .init(actions: [deleteAction])
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -273,4 +273,17 @@ extension DraftsVc {
         self.homeVM.dismissIndicator()
        }).disposed(by: disposeBag)
    }
+    
+    
+    func deleteCompetition(candidat_id : Int,competition_id : Int) {
+        homeVM.deleteCompetition(candidat_id: candidat_id, competition_id: competition_id).subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+            self.homeVM.dismissIndicator()
+               self.navigationController?.popViewController(animated: true)
+           }
+       }, onError: { (error) in
+        self.homeVM.dismissIndicator()
+       }).disposed(by: disposeBag)
+   }
+    
 }

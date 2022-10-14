@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Graphik-Bold.ttf">
+            <string>Graphik-Bold</string>
+        </array>
         <array key="Graphik-Light.ttf">
             <string>Graphik-Light</string>
         </array>
@@ -29,69 +32,73 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wwV-Ap-y93">
                         <rect key="frame" x="0.0" y="0.0" width="326" height="94"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="OS9-O2-oqI">
-                                <rect key="frame" x="0.0" y="17" width="310" height="60"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4" translatesAutoresizingMaskIntoConstraints="NO" id="mB6-zS-pA7" customClass="CustomImageView" customModule="Mad" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="4fi-2W-Frq"/>
-                                            <constraint firstAttribute="width" constant="60" id="8lU-2m-shH"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="30"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="tf5-Am-5jM">
-                                        <rect key="frame" x="68" y="0.0" width="242" height="60"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Vote for your Madly creative artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m2K-Gk-dyG">
-                                                <rect key="frame" x="0.0" y="0.0" width="242" height="39"/>
-                                                <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="14"/>
-                                                <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12/2/2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iGl-6e-bEx">
-                                                <rect key="frame" x="0.0" y="47" width="242" height="13"/>
-                                                <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="13"/>
-                                                <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1024" translatesAutoresizingMaskIntoConstraints="NO" id="mB6-zS-pA7" customClass="CustomImageView" customModule="Mad" customModuleProvider="target">
+                                <rect key="frame" x="16" y="17" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="4fi-2W-Frq"/>
+                                    <constraint firstAttribute="width" constant="60" id="8lU-2m-shH"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Vote for your Madly " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mlR-gm-gGk">
+                                <rect key="frame" x="92" y="16" width="218" height="14"/>
+                                <fontDescription key="fontDescription" name="Graphik-Bold" family="Graphik" pointSize="14"/>
+                                <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="748" text="Vote for your Madly creative artist Vote for your Madly creative artist Vote for y" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m2K-Gk-dyG">
+                                <rect key="frame" x="92" y="38" width="218" height="13"/>
+                                <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="11"/>
+                                <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12/2/2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iGl-6e-bEx">
+                                <rect key="frame" x="92" y="67" width="50" height="11"/>
+                                <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="11"/>
+                                <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="OS9-O2-oqI" firstAttribute="centerY" secondItem="wwV-Ap-y93" secondAttribute="centerY" id="HRY-Py-0Tk"/>
-                            <constraint firstAttribute="trailing" secondItem="OS9-O2-oqI" secondAttribute="trailing" constant="16" id="Rcm-XV-pMl"/>
-                            <constraint firstItem="OS9-O2-oqI" firstAttribute="leading" secondItem="wwV-Ap-y93" secondAttribute="leading" id="z3s-dx-Iod"/>
+                            <constraint firstItem="iGl-6e-bEx" firstAttribute="leading" secondItem="mB6-zS-pA7" secondAttribute="trailing" constant="16" id="1p4-c2-wRX"/>
+                            <constraint firstItem="mlR-gm-gGk" firstAttribute="top" secondItem="wwV-Ap-y93" secondAttribute="top" constant="16" id="2BD-Lk-IvU"/>
+                            <constraint firstAttribute="trailing" secondItem="m2K-Gk-dyG" secondAttribute="trailing" constant="16" id="3Uo-HK-NhC"/>
+                            <constraint firstItem="mlR-gm-gGk" firstAttribute="leading" secondItem="m2K-Gk-dyG" secondAttribute="leading" id="ETL-Om-rnC"/>
+                            <constraint firstItem="iGl-6e-bEx" firstAttribute="top" secondItem="m2K-Gk-dyG" secondAttribute="bottom" constant="16" id="GK7-hA-Qqq"/>
+                            <constraint firstItem="mB6-zS-pA7" firstAttribute="leading" secondItem="wwV-Ap-y93" secondAttribute="leading" constant="16" id="Hbg-2a-FNP"/>
+                            <constraint firstItem="mB6-zS-pA7" firstAttribute="top" secondItem="wwV-Ap-y93" secondAttribute="top" constant="17" id="VEn-MB-3mL"/>
+                            <constraint firstAttribute="bottom" secondItem="iGl-6e-bEx" secondAttribute="bottom" constant="16" id="YH3-Qz-1sU"/>
+                            <constraint firstItem="m2K-Gk-dyG" firstAttribute="top" secondItem="mlR-gm-gGk" secondAttribute="bottom" constant="8" id="ZJX-VK-LmQ"/>
+                            <constraint firstAttribute="trailing" secondItem="mlR-gm-gGk" secondAttribute="trailing" constant="16" id="bLf-Md-avQ"/>
+                            <constraint firstItem="m2K-Gk-dyG" firstAttribute="leading" secondItem="mB6-zS-pA7" secondAttribute="trailing" constant="16" id="yvS-a1-Ce1"/>
                         </constraints>
                     </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Igz-bs-Ub1" customClass="ShimmerView" customModule="Mad" customModuleProvider="target">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fef-Gb-4Sz" customClass="ShimmerView" customModule="Mad" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="326" height="102"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                 </subviews>
                 <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="Igz-bs-Ub1" secondAttribute="bottom" id="EgB-6g-H1u"/>
+                    <constraint firstAttribute="trailing" secondItem="Fef-Gb-4Sz" secondAttribute="trailing" id="GCr-7W-GDh"/>
                     <constraint firstAttribute="bottom" secondItem="wwV-Ap-y93" secondAttribute="bottom" constant="8" id="HrG-Es-N0G"/>
+                    <constraint firstItem="Fef-Gb-4Sz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Uk3-kt-QBs"/>
                     <constraint firstAttribute="trailing" secondItem="wwV-Ap-y93" secondAttribute="trailing" id="W4c-jK-CWQ"/>
                     <constraint firstItem="wwV-Ap-y93" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="XFS-yp-iHb"/>
-                    <constraint firstItem="Igz-bs-Ub1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="agS-Rl-xtY"/>
                     <constraint firstItem="wwV-Ap-y93" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="dDB-RT-nDG"/>
-                    <constraint firstItem="Igz-bs-Ub1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="vnV-RL-STI"/>
-                    <constraint firstAttribute="trailing" secondItem="Igz-bs-Ub1" secondAttribute="trailing" id="yDS-Em-YiS"/>
+                    <constraint firstItem="Fef-Gb-4Sz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="kUo-ow-BNG"/>
+                    <constraint firstAttribute="bottom" secondItem="Fef-Gb-4Sz" secondAttribute="bottom" id="z1t-Wg-CIq"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -100,18 +107,19 @@
                 <outlet property="artistImage" destination="mB6-zS-pA7" id="2ip-pY-TIL"/>
                 <outlet property="contentLbl" destination="m2K-Gk-dyG" id="Oao-pM-UVE"/>
                 <outlet property="dateLbl" destination="iGl-6e-bEx" id="GiQ-d0-apw"/>
-                <outlet property="shimmerView" destination="Igz-bs-Ub1" id="VJs-LJ-dJu"/>
+                <outlet property="shimmerView" destination="Fef-Gb-4Sz" id="Ai6-lP-sC3"/>
+                <outlet property="titleLbl" destination="mlR-gm-gGk" id="wCt-3Z-sby"/>
             </connections>
             <point key="canvasLocation" x="78.260869565217391" y="75"/>
         </tableViewCell>
     </objects>
     <designables>
         <designable name="mB6-zS-pA7">
-            <size key="intrinsicContentSize" width="320" height="320"/>
+            <size key="intrinsicContentSize" width="1024" height="1024"/>
         </designable>
     </designables>
     <resources>
-        <image name="Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4" width="320" height="320"/>
+        <image name="1024" width="1024" height="1024"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

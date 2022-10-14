@@ -12,7 +12,7 @@ import Pageboy
 
 class MyProfileContainerVC : TabmanViewController {
 
-    var active = Helper.getType() ?? false
+    var active = Helper.getIsActive() ?? false
     
     let vc1 = UIStoryboard(name: "Profile", bundle: nil).instantiateViewController(withIdentifier: "MyProfileProjects") as! MyProfileProjects
     let vc2 = UIStoryboard(name: "Profile", bundle: nil).instantiateViewController(withIdentifier: "MyprofileProducts") as! MyprofileProducts

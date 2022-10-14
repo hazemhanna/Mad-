@@ -23,13 +23,13 @@ class MyProfileVc: UIViewController {
     @IBOutlet weak var  profileviewHeight : NSLayoutConstraint!
     @IBOutlet weak var  logoBanner : UIImageView!
     @IBOutlet weak var  bannerBtn : UIButton!
-
     
     open lazy var customTabBar: PTCardTabBar = {
         return PTCardTabBar()
     }()
     
-    var active = Helper.getType() ?? false
+   // var active = Helper.getType() ?? false
+    var active = Helper.getIsActive() ?? false
     var tokent = Helper.getAPIToken() ?? ""
     var artistVM = ArtistViewModel()
     var disposeBag = DisposeBag()

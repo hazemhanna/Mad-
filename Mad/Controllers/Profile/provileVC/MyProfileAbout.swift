@@ -33,7 +33,7 @@ class MyProfileAbout : UIViewController {
     let cellIdentifier = "SocialMediaCell"
     var artistVM = ArtistViewModel()
     var disposeBag = DisposeBag()
-    var active = Helper.getType() ?? false
+    var active = Helper.getIsActive() ?? false
     var social  = [Social]()
     
     override func viewDidLoad() {

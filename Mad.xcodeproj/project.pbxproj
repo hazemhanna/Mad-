@@ -146,6 +146,8 @@
 		04534B222691E46300B15C9C /* MyCartDetailsVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04534B202691E46300B15C9C /* MyCartDetailsVc.swift */; };
 		04534B232691E46300B15C9C /* MyCartDetailsVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04534B212691E46300B15C9C /* MyCartDetailsVc.xib */; };
 		0453CEB126D530DA00D404C1 /* LanguageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0453CEB026D530DA00D404C1 /* LanguageHelper.swift */; };
+		0458687528F1077200C8316A /* PuplishedProjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458687328F1077200C8316A /* PuplishedProjectTableViewCell.swift */; };
+		0458687628F1077200C8316A /* PuplishedProjectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0458687428F1077200C8316A /* PuplishedProjectTableViewCell.xib */; };
 		0458B3142667CC0B00382E77 /* PreviewProjectVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458B3122667CC0B00382E77 /* PreviewProjectVc.swift */; };
 		0458B3152667CC0B00382E77 /* PreviewProjectVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0458B3132667CC0B00382E77 /* PreviewProjectVc.xib */; };
 		045A66E12667134300ED03CB /* AboutProjectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045A66DF2667134300ED03CB /* AboutProjectVC.swift */; };
@@ -218,6 +220,8 @@
 		047DD036267C3DA100C78C49 /* SubmitCopetitionsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047DD034267C3DA100C78C49 /* SubmitCopetitionsVC.xib */; };
 		047DD03E267C4F7F00C78C49 /* CompetitionResultslistsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047DD03C267C4F7F00C78C49 /* CompetitionResultslistsVC.swift */; };
 		047DD03F267C4F7F00C78C49 /* CompetitionResultslistsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047DD03D267C4F7F00C78C49 /* CompetitionResultslistsVC.xib */; };
+		0482175B28DAA8A9008A6D76 /* FavouritVideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0482175928DAA8A9008A6D76 /* FavouritVideoCell.swift */; };
+		0482175C28DAA8A9008A6D76 /* FavouritVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0482175A28DAA8A9008A6D76 /* FavouritVideoCell.xib */; };
 		0484B27226F2052D005EF209 /* ProjectCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0484B27026F2052D005EF209 /* ProjectCommentCell.swift */; };
 		0484B27326F2052D005EF209 /* ProjectCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0484B27126F2052D005EF209 /* ProjectCommentCell.xib */; };
 		0486B9702701C45F00CA51A7 /* ArtistNameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0486B96E2701C45F00CA51A7 /* ArtistNameVC.swift */; };
@@ -477,6 +481,8 @@
 		04534B202691E46300B15C9C /* MyCartDetailsVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCartDetailsVc.swift; sourceTree = "<group>"; };
 		04534B212691E46300B15C9C /* MyCartDetailsVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCartDetailsVc.xib; sourceTree = "<group>"; };
 		0453CEB026D530DA00D404C1 /* LanguageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageHelper.swift; sourceTree = "<group>"; };
+		0458687328F1077200C8316A /* PuplishedProjectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuplishedProjectTableViewCell.swift; sourceTree = "<group>"; };
+		0458687428F1077200C8316A /* PuplishedProjectTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PuplishedProjectTableViewCell.xib; sourceTree = "<group>"; };
 		0458B3122667CC0B00382E77 /* PreviewProjectVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProjectVc.swift; sourceTree = "<group>"; };
 		0458B3132667CC0B00382E77 /* PreviewProjectVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreviewProjectVc.xib; sourceTree = "<group>"; };
 		045A66DF2667134300ED03CB /* AboutProjectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutProjectVC.swift; sourceTree = "<group>"; };
@@ -553,6 +559,8 @@
 		047DD034267C3DA100C78C49 /* SubmitCopetitionsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubmitCopetitionsVC.xib; sourceTree = "<group>"; };
 		047DD03C267C4F7F00C78C49 /* CompetitionResultslistsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionResultslistsVC.swift; sourceTree = "<group>"; };
 		047DD03D267C4F7F00C78C49 /* CompetitionResultslistsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompetitionResultslistsVC.xib; sourceTree = "<group>"; };
+		0482175928DAA8A9008A6D76 /* FavouritVideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritVideoCell.swift; sourceTree = "<group>"; };
+		0482175A28DAA8A9008A6D76 /* FavouritVideoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavouritVideoCell.xib; sourceTree = "<group>"; };
 		0484B27026F2052D005EF209 /* ProjectCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCommentCell.swift; sourceTree = "<group>"; };
 		0484B27126F2052D005EF209 /* ProjectCommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectCommentCell.xib; sourceTree = "<group>"; };
 		0486B96E2701C45F00CA51A7 /* ArtistNameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistNameVC.swift; sourceTree = "<group>"; };
@@ -793,6 +801,7 @@
 		0413E4512630A37800F5977D /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				0458687228F1074700C8316A /* PuplishedProject */,
 				04AD54F1287A318B00E22E82 /* EpisodCell */,
 				04FF02CD27CA369200112CDC /* ArtistFeaturedVideosCell */,
 				04FF02C827CA356A00112CDC /* ArtistVideosCell */,
@@ -1343,6 +1352,15 @@
 			path = MyCartVc;
 			sourceTree = "<group>";
 		};
+		0458687228F1074700C8316A /* PuplishedProject */ = {
+			isa = PBXGroup;
+			children = (
+				0458687328F1077200C8316A /* PuplishedProjectTableViewCell.swift */,
+				0458687428F1077200C8316A /* PuplishedProjectTableViewCell.xib */,
+			);
+			path = PuplishedProject;
+			sourceTree = "<group>";
+		};
 		0458B3112667CBEB00382E77 /* PreviewProjectVc */ = {
 			isa = PBXGroup;
 			children = (
@@ -1601,6 +1619,7 @@
 		0479929626987F1A008314D4 /* Favourite */ = {
 			isa = PBXGroup;
 			children = (
+				0482175828DAA83E008A6D76 /* FavouritVideoCell */,
 				0479929826987F2B008314D4 /* FavouriteArtistCell */,
 				0479929726987F24008314D4 /* FavouritProjectCell */,
 			);
@@ -1669,6 +1688,15 @@
 				047DD03D267C4F7F00C78C49 /* CompetitionResultslistsVC.xib */,
 			);
 			path = CompetitionResultslistsVC;
+			sourceTree = "<group>";
+		};
+		0482175828DAA83E008A6D76 /* FavouritVideoCell */ = {
+			isa = PBXGroup;
+			children = (
+				0482175928DAA8A9008A6D76 /* FavouritVideoCell.swift */,
+				0482175A28DAA8A9008A6D76 /* FavouritVideoCell.xib */,
+			);
+			path = FavouritVideoCell;
 			sourceTree = "<group>";
 		};
 		0482EEAB26164D3800CB4A24 /* Home */ = {
@@ -2415,6 +2443,7 @@
 				0449A72F262F396400604052 /* Artist.storyboard in Resources */,
 				04911C6A261C9A2900705A58 /* SuggestedCell.xib in Resources */,
 				0458B3152667CC0B00382E77 /* PreviewProjectVc.xib in Resources */,
+				0458687628F1077200C8316A /* PuplishedProjectTableViewCell.xib in Resources */,
 				04F06AF72614E0D600B08606 /* CategeoryCell.xib in Resources */,
 				0414282E26176074000394CA /* HomeCell.xib in Resources */,
 				0447A8FE26712E4200F523CC /* CompetitionsDetailsVc.xib in Resources */,
@@ -2443,6 +2472,7 @@
 				04DEAA422620B4A900F843A6 /* SplashCell.xib in Resources */,
 				047DD036267C3DA100C78C49 /* SubmitCopetitionsVC.xib in Resources */,
 				04534B1E2691E44C00B15C9C /* MyCartVc.xib in Resources */,
+				0482175C28DAA8A9008A6D76 /* FavouritVideoCell.xib in Resources */,
 				0427A212263FFA7B0029A10C /* ProductDetailsVC.xib in Resources */,
 				04733F66285C17B500C705CD /* AboutBlogVc.xib in Resources */,
 				04242AA426553A37003C8B44 /* VideoProjectsVC.xib in Resources */,
@@ -2651,6 +2681,7 @@
 				0488CCE9261213E000E05BEB /* AppDelegate.swift in Sources */,
 				0466DC2326BAB7DD005A80B6 /* OrderModel.swift in Sources */,
 				04D23EE826330DBA00290488 /* ArtistProductsVc.swift in Sources */,
+				0458687528F1077200C8316A /* PuplishedProjectTableViewCell.swift in Sources */,
 				04688788261E0E170056AC92 /* VerificationVc.swift in Sources */,
 				0437FA69269E9A3000CD594D /* PaymentVC.swift in Sources */,
 				04242ABB26554B2C003C8B44 /* VideoProjectCell.swift in Sources */,
@@ -2715,6 +2746,7 @@
 				0412D4F5267C5BD200E4022C /* CompetitionsResultCell.swift in Sources */,
 				0486DEC126939848001DA69E /* MyOrderDetailsVc.swift in Sources */,
 				047DD03E267C4F7F00C78C49 /* CompetitionResultslistsVC.swift in Sources */,
+				0482175B28DAA8A9008A6D76 /* FavouritVideoCell.swift in Sources */,
 				0439BD182672645E00AC5C59 /* PrizesCometitionsVc.swift in Sources */,
 				0439BD222672823900AC5C59 /* CompetitionModel.swift in Sources */,
 				04C782A8263977B400C90851 /* InventoryPricingVC.swift in Sources */,
@@ -2901,7 +2933,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Mad/Mad.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 35;
+				CURRENT_PROJECT_VERSION = 36;
 				DEVELOPMENT_TEAM = UK3S3D6VYH;
 				INFOPLIST_FILE = Mad/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -2924,7 +2956,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Mad/Mad.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 35;
+				CURRENT_PROJECT_VERSION = 36;
 				DEVELOPMENT_TEAM = UK3S3D6VYH;
 				INFOPLIST_FILE = Mad/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

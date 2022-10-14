@@ -122,6 +122,16 @@ struct HomeViewModel {
          return observer
      }
     
+    
+    func deleteCompetition(candidat_id : Int,competition_id : Int) -> Observable<AddProductModelJson> {
+        let params: [String: Any] = [
+            "candidat_id": candidat_id,
+            "competition_id": competition_id
+        ]
+        let observer = AddServices.shared.deleteCompetition(param : params)
+         return observer
+     }
+    
     func getMyProfile() -> Observable<ProfileModelJSON> {
          let observer = GetServices.shared.getMyProfile()
          return observer

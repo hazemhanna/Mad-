@@ -91,8 +91,6 @@ struct Inbox: Codable {
     }
 }
 
-
-
 // MARK: - MessagesModelJSON
 struct MessagesModelJSON: Codable {
     let success: Bool?
@@ -128,7 +126,7 @@ struct NotificationModelJSON: Codable {
 // MARK: - Datum
 struct Notifications: Codable {
     let id: Int?
-    let imageURL, title, createdAt, body: String?
+    let imageURL, title, createdAt, body,link: String?
     let type: String?
     let objectID: Int?
 
@@ -137,7 +135,7 @@ struct Notifications: Codable {
         case imageURL = "image_url"
         case title
         case createdAt = "created_at"
-        case body, type
+        case body, type,link
         case objectID = "object_id"
     }
 }

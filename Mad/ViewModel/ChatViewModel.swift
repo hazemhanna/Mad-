@@ -66,9 +66,7 @@ struct ChatViewModel {
     
     
     func getMessages(convId : Int) -> Observable<MessagesModelJSON> {
-        let params: [String: Any] = [
-            "conversation_id": convId
-            ]
+        let params: [String: Any] = ["conversation_id": convId]
         let observer = ChatServices.shared.getMessages(param : params)
          return observer
      }

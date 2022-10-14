@@ -10,11 +10,8 @@ import Foundation
 import Alamofire
 import RxSwift
 import SwiftyJSON
-
 class Authentication {
-    
     static let shared = Authentication()
-   
         //MARK:- POST Register
         func postRegister(params: [String: Any]) -> Observable<AuthModel> {
             return Observable.create { (observer) -> Disposable in
@@ -95,6 +92,7 @@ class Authentication {
             return Disposables.create()
         }
     }//END of POST CompleteProfile
+    
     
     //MARK:- POST
     func postFCM(params: [String: Any]) -> Observable<AddProductModelJson> {

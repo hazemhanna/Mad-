@@ -36,10 +36,8 @@ class ChatVc: UIViewController {
     var objectName = String()
     var objectImage = String()
     var objectPrice = String()
-
     var selectedSubject = String()
 
-    
     open lazy var customTabBar: PTCardTabBar = {
         return PTCardTabBar()
     }()
@@ -47,8 +45,17 @@ class ChatVc: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupChatTableView()
-        addKeyboardObserver()
         messegtTF.delegate = self
+
+        NotificationCenter.default.addObserver(self,
+              selector: #selector(self.keyboardNotification(notification:)),
+              name: UIResponder.keyboardWillChangeFrameNotification,
+              object: nil)
+          
+    }
+
+    deinit {
+      NotificationCenter.default.removeObserver(self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,13 +69,39 @@ class ChatVc: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
-       
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         getAllMessages(convId: convId)
     }
+    
+    
+    @objc func keyboardNotification(notification: NSNotification) {
+      guard let userInfo = notification.userInfo else { return }
+
+      let endFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+      let endFrameY = endFrame?.origin.y ?? 0
+      let duration:TimeInterval = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
+      let animationCurveRawNSN = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber
+      let animationCurveRaw = animationCurveRawNSN?.uintValue ?? UIView.AnimationOptions.curveEaseInOut.rawValue
+      let animationCurve:UIView.AnimationOptions = UIView.AnimationOptions(rawValue: animationCurveRaw)
+
+      if endFrameY >= UIScreen.main.bounds.size.height {
+          self.inputViewBottom?.constant = 34.0
+      } else {
+        self.inputViewBottom?.constant = endFrame?.size.height ?? 0.0
+      }
+
+      UIView.animate(
+        withDuration: duration,
+        delay: TimeInterval(0),
+        options: animationCurve,
+        animations: { self.view.layoutIfNeeded() },
+        completion: nil)
+    }
+
+
     
     @IBAction func backButton(sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
@@ -83,41 +116,7 @@ class ChatVc: UIViewController {
         }
     }
     
-    func addKeyboardObserver() {
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(keyboardFrameWillChange(notification:)),
-                                               name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-    }
     
-    @objc func keyboardFrameWillChange(notification: NSNotification) {
-        guard let userInfo = notification.userInfo,
-            let endKeyboardFrameValue = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue,
-            let durationValue = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber else {
-                return
-        }
-        
-        let endKeyboardFrame = endKeyboardFrameValue.cgRectValue
-        let duration = durationValue.doubleValue
-        
-        let isShowing: Bool = endKeyboardFrame.maxY > UIScreen.main.bounds.height ? false : true
-        
-        UIView.animate(withDuration: duration) { [weak self] in
-            guard let strongSelf = self else {
-                return
-            }
-            
-            if isShowing {
-                let offsetY = strongSelf.inputContainView.frame.maxY - endKeyboardFrame.minY
-                guard offsetY > 0 else {
-                    return
-                }
-                strongSelf.inputViewBottom.constant = -offsetY
-            } else {
-                strongSelf.inputViewBottom.constant = 0
-            }
-            strongSelf.view.layoutIfNeeded()
-        }
-    }
 }
 
 extension ChatVc: UITextFieldDelegate {
@@ -128,7 +127,6 @@ extension ChatVc: UITextFieldDelegate {
 }
 
 extension ChatVc : UITableViewDelegate,UITableViewDataSource{
-    
         func setupChatTableView() {
             chatTableView.delegate = self
             chatTableView.dataSource = self
@@ -150,7 +148,6 @@ extension ChatVc : UITableViewDelegate,UITableViewDataSource{
         var image = String()
         name = messages[indexPath.row].user?.name ?? ""
         image = messages[indexPath.row].user?.profilPicture ?? ""
-        
         if indexPath.row == 0 {
             if self.selectedSubject == "Order" ||  self.selectedSubject == "Collaboration" ||  self.selectedSubject == ""{
                 cell.productContentView.isHidden = true
@@ -190,13 +187,11 @@ extension ChatVc {
             
             if self.selectedSubject == "Order" ||  self.selectedSubject == "Collaboration"  ||  self.selectedSubject == "" {
                // self.messages.insert(Messages(id: 0, user: (Artist(id: self.userId, name: self.fName + " " + self.lName , headline: "", profilPicture: self.profile, bannerImg: "", allFollowers: 0, allFollowing: 0, isFavorite: false, music: false, art: false, design: false, isMadProfile: false)), destinataire: nil, content: nil, attachement: nil, date: nil, seen: nil) , at : 0)
-
             }else{
                 self.messages.insert(Messages(id: 0, user: (Artist(id: self.userId, name: self.fName + " " + self.lName , headline: "", profilPicture: self.profile, bannerImg: "", allFollowers: 0, allFollowing: 0, isFavorite: false, music: false, art: false, design: false, isMadProfile: false)), destinataire: nil, content: nil, attachement: nil, date: nil, seen: nil) , at : 0)
 
             }
             self.chatTableView.reloadData()
-
             if self.messages.count > 0 {
             let end = IndexPath(row: self.messages.count - 1, section: 0)
             self.chatTableView.scrollToRow(at: end, at: .bottom, animated: true)

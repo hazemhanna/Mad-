@@ -49,7 +49,6 @@ class ArtistsVc: UIViewController {
             self.suggestedView.isHidden = true
         }
         getSuggested()
-        
         suggestedTitle.text = "sugessted".localized
         artistsTitle.text = "artist".localized
         topActiveTitle.text = "topActive".localized

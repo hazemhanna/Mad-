@@ -11,6 +11,8 @@ class NotificationCell: UITableViewCell {
 
     @IBOutlet weak var dateLbl: UILabel!
     @IBOutlet weak var contentLbl: UILabel!
+    @IBOutlet weak var titleLbl: UILabel!
+
     @IBOutlet weak var artistImage: UIImageView!
     @IBOutlet weak var shimmerView : ShimmerView!
 
@@ -24,9 +26,11 @@ class NotificationCell: UITableViewCell {
 
     }
     
-    func confic(date : String , artistUrl : String ,content : String){
+    func confic(date : String , artistUrl : String ,content : String,titlel: String){
         dateLbl.text = date
         contentLbl.text = content
+        titleLbl.text = titlel
+        
         if  let productUrl = URL(string: artistUrl){
             self.artistImage.kf.setImage(with: productUrl, placeholder: #imageLiteral(resourceName: "WhatsApp Image 2021-04-21 at 1.25.47 PM"))
         }

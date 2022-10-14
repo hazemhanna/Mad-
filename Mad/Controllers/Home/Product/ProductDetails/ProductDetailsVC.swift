@@ -49,6 +49,11 @@ class ProductDetailsVC: UIViewController {
     @IBOutlet weak var typeIcon : UIImageView!
 
     
+    @IBOutlet weak var userStack : UIStackView!
+    @IBOutlet weak var artistStack : UIStackView!
+
+    var isFromProfile: Bool = false
+
     var token = Helper.getAPIToken() ?? ""
     var productId = Int()
     var showShimmer: Bool = true
@@ -97,10 +102,7 @@ class ProductDetailsVC: UIViewController {
        // phsicalLbl.text = "Physical".localized
         addToCartLbl.text = "addedToCart".localized
 
-   
-        
     }
-    
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
         if let ptcTBC = tabBarController as? PTCardTabBarController {
@@ -113,6 +115,15 @@ class ProductDetailsVC: UIViewController {
         detailsStack.isHidden = false
         reviewsStack.isHidden = true
         descriptionStack.isHidden = true
+        
+        if isFromProfile {
+            userStack.isHidden = true
+            artistStack.isHidden = false
+        }else{
+            userStack.isHidden = false
+            artistStack.isHidden = true
+        }
+
         
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -245,7 +256,6 @@ class ProductDetailsVC: UIViewController {
             if counter > 1{
                 self.counter = counter - 1
                 self.CounterLbl.text = "\(self.counter)"
-            
             }
         }
     }
@@ -454,14 +464,11 @@ extension ProductDetailsVC {
            if dataModel.success ?? false {
             self.productVM.dismissIndicator()
             displayMessage(title: "",message: dataModel.message ?? "", status: .success, forController: self)
-
            }
        }, onError: { (error) in
         self.productVM.dismissIndicator()
        }).disposed(by: disposeBag)
    }
-    
-    
     
     func shareProject(productId : Int) {
         productVM.shareProduct(productId:  productId).subscribe(onNext: { (dataModel) in

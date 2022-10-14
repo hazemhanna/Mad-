@@ -43,6 +43,7 @@ class NotificationVc: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        self.chatVM.showIndicator()
         getNotification()
         getInbox()
         self.navigationController?.navigationBar.isHidden = true
@@ -110,7 +111,7 @@ extension NotificationVc : UITableViewDelegate,UITableViewDataSource{
         if tableView == notificationTableView {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier) as! NotificationCell
             if !showShimmer{
-                cell.confic(date: self.notifications[indexPath.row].createdAt ?? "" , artistUrl: self.notifications[indexPath.row].imageURL ?? "", content: self.notifications[indexPath.row].body?.html2String ?? "")
+                cell.confic(date: self.notifications[indexPath.row].createdAt ?? "" , artistUrl: self.notifications[indexPath.row].imageURL ?? "", content: self.notifications[indexPath.row].body?.html2String ?? "", titlel : self.notifications[indexPath.row].title ?? "")
             }
             cell.showShimmer = showShimmer
             
@@ -127,7 +128,9 @@ extension NotificationVc : UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView == notificationTableView {
-        
+         if let url = notifications[indexPath.row].link {
+           Helper.UIApplicationURL.openUrl(url: url)
+         }
         }else{
             let main = ChatVc.instantiateFromNib()
             main?.convId = self.inbox[indexPath.row].id ?? 0
@@ -138,25 +141,27 @@ extension NotificationVc : UITableViewDelegate,UITableViewDataSource{
         }
     }
     
-  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-     if tableView == notificationTableView {
-        return 100
-     }else{
-        return 90
-        }
-    }
+//  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//     if tableView == inboxTableView {
+//        return 90
+//     }else{
+//        return 90
+//        }
+//    }
 }
 
 extension NotificationVc{
     func getInbox() {
         chatVM.getConversation().subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
+            self.chatVM.dismissIndicator()
             self.showShimmer = false
             self.inbox = dataModel.data?.inbox.reversed() ?? []
             self.inboxTableView.reloadData()
             
            }
        }, onError: { (error) in
+           self.chatVM.dismissIndicator()
 
        }).disposed(by: disposeBag)
    }
@@ -164,11 +169,13 @@ extension NotificationVc{
     func getNotification() {
         chatVM.getNotifications().subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
+            self.chatVM.dismissIndicator()
             self.showShimmer = false
             self.notifications = dataModel.data ?? []
             self.notificationTableView.reloadData()
            }
        }, onError: { (error) in
+           self.chatVM.dismissIndicator()
 
        }).disposed(by: disposeBag)
    }

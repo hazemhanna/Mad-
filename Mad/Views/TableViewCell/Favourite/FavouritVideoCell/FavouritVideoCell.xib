@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Graphik-Light.ttf">
+            <string>Graphik-Light</string>
+        </array>
+        <array key="Graphik-Medium.ttf">
+            <string>Graphik-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavouritVideoCell" rowHeight="128" id="KGk-i7-Jjw" customClass="FavouritVideoCell" customModule="Mad" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="338" height="128"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="338" height="128"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4V3-01-1y0" customClass="CustomView" customModule="Mad" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="338" height="120"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="thL-g8-ItT">
+                                <rect key="frame" x="16" y="8" width="306" height="104"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cmw-Vc-0sN">
+                                        <rect key="frame" x="0.0" y="0.0" width="67.5" height="104"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4" translatesAutoresizingMaskIntoConstraints="NO" id="jVL-EE-g7H" customClass="CustomImageView" customModule="Mad" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="67.5" height="104"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="16"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="jVL-EE-g7H" secondAttribute="bottom" id="C7v-7Y-3Bi"/>
+                                            <constraint firstItem="jVL-EE-g7H" firstAttribute="top" secondItem="cmw-Vc-0sN" secondAttribute="top" id="Cfd-5t-gvq"/>
+                                            <constraint firstItem="jVL-EE-g7H" firstAttribute="leading" secondItem="cmw-Vc-0sN" secondAttribute="leading" id="PaM-hc-AcT"/>
+                                            <constraint firstAttribute="trailing" secondItem="jVL-EE-g7H" secondAttribute="trailing" id="l8a-7f-U6o"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jxp-Va-wRo" customClass="CustomView" customModule="Mad" customModuleProvider="target">
+                                        <rect key="frame" x="83.5" y="0.0" width="222.5" height="104"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="PYh-Mg-pki">
+                                                <rect key="frame" x="8" y="4" width="182.5" height="92"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PTa-mt-jJV">
+                                                        <rect key="frame" x="0.0" y="0.0" width="182.5" height="71"/>
+                                                        <string key="text">Live from your Art
+Workshop</string>
+                                                        <fontDescription key="fontDescription" name="Graphik-Medium" family="Graphik" pointSize="14"/>
+                                                        <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Writer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GYs-ZP-KiT">
+                                                        <rect key="frame" x="0.0" y="79" width="182.5" height="13"/>
+                                                        <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="13"/>
+                                                        <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pfL-L8-flr">
+                                                <rect key="frame" x="194.5" y="42" width="20" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="20" id="c0R-yV-vVN"/>
+                                                    <constraint firstAttribute="height" constant="20" id="mKE-D9-kVm"/>
+                                                </constraints>
+                                                <state key="normal" title="X">
+                                                    <color key="titleColor" red="0.1333333333" green="0.2156862745" blue="0.38823529410000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="removeAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="yUN-b6-97A"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="PYh-Mg-pki" secondAttribute="bottom" constant="8" id="0mm-Hj-VcO"/>
+                                            <constraint firstAttribute="trailing" secondItem="pfL-L8-flr" secondAttribute="trailing" constant="8" id="6ll-CU-X8V"/>
+                                            <constraint firstItem="PYh-Mg-pki" firstAttribute="top" secondItem="jxp-Va-wRo" secondAttribute="top" constant="4" id="93u-2L-0DM"/>
+                                            <constraint firstItem="pfL-L8-flr" firstAttribute="centerY" secondItem="jxp-Va-wRo" secondAttribute="centerY" id="D9h-ug-DHH"/>
+                                            <constraint firstItem="PYh-Mg-pki" firstAttribute="leading" secondItem="jxp-Va-wRo" secondAttribute="leading" constant="8" id="W0A-fC-CBP"/>
+                                            <constraint firstItem="pfL-L8-flr" firstAttribute="leading" secondItem="PYh-Mg-pki" secondAttribute="trailing" constant="4" id="vQe-3Y-0x8"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="jxp-Va-wRo" firstAttribute="height" secondItem="thL-g8-ItT" secondAttribute="height" id="Gpk-3R-Io8"/>
+                                    <constraint firstItem="cmw-Vc-0sN" firstAttribute="height" secondItem="thL-g8-ItT" secondAttribute="height" id="MsV-Dl-TjV"/>
+                                    <constraint firstItem="cmw-Vc-0sN" firstAttribute="width" secondItem="thL-g8-ItT" secondAttribute="width" multiplier="0.22" id="zzq-1x-Asa"/>
+                                </constraints>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zQH-01-jMe" customClass="ShimmerView" customModule="Mad" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="338" height="120"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="thL-g8-ItT" firstAttribute="top" secondItem="4V3-01-1y0" secondAttribute="top" constant="8" id="7r4-Ux-zKH"/>
+                            <constraint firstAttribute="trailing" secondItem="zQH-01-jMe" secondAttribute="trailing" id="ObS-lH-UZN"/>
+                            <constraint firstItem="thL-g8-ItT" firstAttribute="leading" secondItem="4V3-01-1y0" secondAttribute="leading" constant="16" id="TzG-Kf-taN"/>
+                            <constraint firstItem="zQH-01-jMe" firstAttribute="top" secondItem="4V3-01-1y0" secondAttribute="top" id="ZLt-x2-c7K"/>
+                            <constraint firstItem="zQH-01-jMe" firstAttribute="leading" secondItem="4V3-01-1y0" secondAttribute="leading" id="awI-MA-XaZ"/>
+                            <constraint firstAttribute="bottom" secondItem="thL-g8-ItT" secondAttribute="bottom" constant="8" id="beP-GU-LAk"/>
+                            <constraint firstAttribute="trailing" secondItem="thL-g8-ItT" secondAttribute="trailing" constant="16" id="hqy-kk-fXN"/>
+                            <constraint firstAttribute="bottom" secondItem="zQH-01-jMe" secondAttribute="bottom" id="oN8-mP-Dna"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="4V3-01-1y0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Xty-5q-MeS"/>
+                    <constraint firstAttribute="trailing" secondItem="4V3-01-1y0" secondAttribute="trailing" id="cHh-Bu-qXS"/>
+                    <constraint firstItem="4V3-01-1y0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="t8C-Qy-WIk"/>
+                    <constraint firstAttribute="bottom" secondItem="4V3-01-1y0" secondAttribute="bottom" constant="8" id="ts3-d2-hWb"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="NameLbl" destination="PTa-mt-jJV" id="23q-0Y-stF"/>
+                <outlet property="priceLbl" destination="GYs-ZP-KiT" id="bWt-jE-lKz"/>
+                <outlet property="productmage" destination="jVL-EE-g7H" id="flO-0j-RwO"/>
+                <outlet property="shimmerView" destination="zQH-01-jMe" id="keP-29-RGu"/>
+            </connections>
+            <point key="canvasLocation" x="150.72463768115944" y="95.089285714285708"/>
+        </tableViewCell>
+    </objects>
+    <designables>
+        <designable name="jVL-EE-g7H">
+            <size key="intrinsicContentSize" width="320" height="320"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="Le_Botaniste_Le_Surveillant_Dhorloge_Reseaux_4" width="320" height="320"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

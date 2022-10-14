@@ -950,4 +950,27 @@ class GetServices {
                return Disposables.create()
            }
        }
+    
+    
+    func generateClientSecret() -> Observable<AddProductModelJson> {
+           return Observable.create { (observer) -> Disposable in
+            let url = "http://mad.cnepho.com/api/generate_client_secret"
+            let token = Helper.getAPIToken() ?? ""
+            let headers = ["Authorization": "Bearer \(token)",
+                "X-localization" : GetServices.languageKey]
+               Alamofire.request(url, method: .post, parameters: nil, encoding: URLEncoding.default, headers: headers)
+                   .validate(statusCode: 200..<300)
+                   .responseJSON { (response: DataResponse<Any>) in
+                       do {
+                           let data = try JSONDecoder().decode(AddProductModelJson.self, from: response.data!)
+                           observer.onNext(data)
+                       } catch {
+                           print(error)
+                           observer.onError(error)
+                       }
+               }
+               return Disposables.create()
+           }
+       }
+    
 }

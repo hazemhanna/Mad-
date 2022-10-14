@@ -701,21 +701,13 @@ func updateCartProduct(param : [String :Any]) -> Observable<CartModelJSON> {
            }
        }
     
-    
-    
-    
-    
     func uploadVideo(image_url : UIImage,videoUrl: Data,parameters: [String : Any]) -> Observable<AddProductModelJson> {
           return Observable.create { (observer) -> Disposable in
             let url = ConfigURLS.uploadVieo
             let token = Helper.getAPIToken() ?? ""
             let headers = [
                 "Authorization": "Bearer \(token)",
-                "lang" : AddServices.languageKey
-
-            ]
-            
-           
+                "lang" : AddServices.languageKey]
               Alamofire.upload(multipartFormData: { (form: MultipartFormData) in
                 form.append(videoUrl, withName: "video", fileName: "video.mp4", mimeType: "video/mp4")
                   
@@ -741,9 +733,7 @@ func updateCartProduct(param : [String :Any]) -> Observable<CartModelJSON> {
                             })
                         }
                   }
-                  
-                  
-              }, usingThreshold: UInt64.init(), to: url, method: .post, headers: headers) { (result: SessionManager.MultipartFormDataEncodingResult) in
+                }, usingThreshold: UInt64.init(), to: url, method: .post, headers: headers) { (result: SessionManager.MultipartFormDataEncodingResult) in
                       switch result {
                   case .failure(let error):
                       print(error.localizedDescription)
@@ -802,5 +792,28 @@ func updateCartProduct(param : [String :Any]) -> Observable<CartModelJSON> {
           }
       }//END
 
+    func deleteCompetition(param : [String :Any]) -> Observable<AddProductModelJson> {
+           return Observable.create { (observer) -> Disposable in
+               let url = ConfigURLS.deleteCompetition
+            let token = Helper.getAPIToken() ?? ""
+            let headers = [
+                "Authorization": "Bearer \(token)",
+                "lang" : AddServices.languageKey
+
+            ]
+               Alamofire.request(url, method: .post, parameters: param, encoding: URLEncoding.default, headers: headers)
+                   .validate(statusCode: 200..<300)
+                   .responseJSON { (response: DataResponse<Any>) in
+                       do {
+                           let data = try JSONDecoder().decode(AddProductModelJson.self, from: response.data!)
+                           observer.onNext(data)
+                       } catch {
+                           print(error.localizedDescription)
+                           observer.onError(error)
+                       }
+               }
+               return Disposables.create()
+           }
+       }
 
 }

@@ -52,4 +52,13 @@ struct FavouriteViewModel {
          return observer
      }
     
+    func addVideoFavourite(videoId : Int,Type : Bool) -> Observable<VideoFavouriteMdel> {
+        let params: [String: Any] = [
+            "video_id": videoId,
+            "is_favorite": Type
+            ]
+        let observer = AddServices.shared.addVideoToFavourite(param : params)
+         return observer
+     }
+    
 }

@@ -118,6 +118,7 @@ extension MyprofileProducts :  UICollectionViewDelegate, UICollectionViewDataSou
             displayMessage(title: "", message: "This Product Not Published", status: .error, forController: self)
         }else{
             let vc = ProductDetailsVC.instantiateFromNib()
+            vc?.isFromProfile = true
             vc?.productId = self.products[indexPath.row].id ?? 0
             self.navigationController?.pushViewController(vc!, animated: true)
         }

@@ -18,13 +18,9 @@ class ProductsVC : UIViewController {
     @IBOutlet weak var forYouCollectionView: UICollectionView!
     @IBOutlet weak var  productView: UIView!
     @IBOutlet weak var  forYouView: UIView!
-
     @IBOutlet weak var suggestedTitle: UILabel!
     @IBOutlet weak var productTitle: UILabel!
     @IBOutlet weak var topProductTitle: UILabel!
-
-    
-    
     
     var disposeBag = DisposeBag()
     var productVM = ProductViewModel()

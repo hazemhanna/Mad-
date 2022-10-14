@@ -81,4 +81,10 @@ struct CartViewModel {
          return observer
      }
     
+    
+    func generateClientSecret() -> Observable<AddProductModelJson> {
+         let observer = GetServices.shared.generateClientSecret()
+         return observer
+     }
+    
 }
