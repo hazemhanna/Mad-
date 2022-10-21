@@ -34,7 +34,6 @@ class CheckoutViewController: UIViewController {
     return button
   }()
 
-    
     lazy var backButton: UIButton = {
       let button = UIButton(type: .custom)
       button.addTarget(self, action: #selector(back), for: .touchUpInside)
@@ -53,7 +52,6 @@ class CheckoutViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -63,9 +61,7 @@ class CheckoutViewController: UIViewController {
     
   override func viewDidLoad() {
     super.viewDidLoad()
-    StripeAPI.defaultPublishableKey = "pk_test_51GyE2kEh66Mr30iHouPsi3IfxNmFNI1IsBFvASIERi9RsbFXeOfQyiC3r5cwqwE7OYjqTcJIa1bFWsj84h9nayt500EB57inlh"
-      
-      //"pk_test_51JKJ4jG4ObXTFzUIqnUT18la6OUPL91V1OPvjSA9IkTm288rIWpB4p9DjzIvi1UICjq2Ufi7IphdpIpojT6CGZ4P00EJWzoYw4"
+    
     view.backgroundColor = .white
     view.addSubview(titleLbl)
     titleLbl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -97,7 +93,6 @@ class CheckoutViewController: UIViewController {
     }
   }
 
-    
     @objc func back() {
         self.navigationController?.popViewController(animated: true)
     }
@@ -123,8 +118,12 @@ class CheckoutViewController: UIViewController {
           self.displayAlert(title: "Payment canceled", message: error?.localizedDescription ?? "")
           break
       case .succeeded:
-        self.cartVM.dismissIndicator()
-          self.displayAlert(title: "Payment succeeded", message: paymentIntent?.description ?? "")
+       // self.cartVM.dismissIndicator()
+        let alert = UIAlertController(title: "Payment succeeded", message: "Your Order Done Succeessfully", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+              self.creatOrder(clientSecret : paymentIntentClientSecret)
+          }))
+          self.present(alert, animated: true, completion: nil)
           break
       @unknown default:
           fatalError()
@@ -144,11 +143,24 @@ class CheckoutViewController: UIViewController {
         self.cartVM.dismissIndicator()
        }).disposed(by: disposeBag)
    }
+    
+    func creatOrder(clientSecret : String) {
+        cartVM.creatOrder(clientSecret: clientSecret).subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+               self.cartVM.dismissIndicator()
+               let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CardTabBarController")
+               if let appDelegate = UIApplication.shared.delegate {
+                   appDelegate.window??.rootViewController = sb
+               }
+           }
+       }, onError: { (error) in
+        self.cartVM.dismissIndicator()
+       }).disposed(by: disposeBag)
+   }
 }
 
 extension CheckoutViewController: STPAuthenticationContext {
   func authenticationPresentingViewController() -> UIViewController {
       return self
   }
-    
 }

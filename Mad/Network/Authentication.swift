@@ -160,7 +160,27 @@ class Authentication {
     }//END of POST CompleteProfile
     
     
-    
+    func hideProject(params: [String: Any]) -> Observable<ProjectDetailsModel> {
+        return Observable.create { (observer) -> Disposable in
+            let url = "http://mad.cnepho.com/api/project/hide"
+            let token = Helper.getAPIToken() ?? ""
+            let headers = [
+                "Authorization": "Bearer \(token)"
+            ]
+            Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers)
+                .validate(statusCode: 200..<300)
+                .responseJSON { (response: DataResponse<Any>) in
+                    do {
+                        let data = try JSONDecoder().decode(ProjectDetailsModel.self, from: response.data!)
+                        observer.onNext(data)
+                    } catch {
+                        print(error.localizedDescription)
+                        observer.onError(error)
+                    }
+            }
+            return Disposables.create()
+        }
+    }//END of POST CompleteProfile
     
     func updateProfile(params: [String: Any]) -> Observable<ProfileModelJSON> {
         return Observable.create { (observer) -> Disposable in

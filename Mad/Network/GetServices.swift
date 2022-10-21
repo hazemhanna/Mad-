@@ -676,9 +676,7 @@ class GetServices {
             let token = Helper.getAPIToken() ?? ""
             let headers = [
                 "Authorization": "Bearer \(token)",
-                "X-localization" : GetServices.languageKey
-
-            ]
+                "X-localization" : GetServices.languageKey]
             
                Alamofire.request(url, method: .get, parameters: param, encoding: URLEncoding.default, headers: headers)
                    .validate(statusCode: 200..<300)
@@ -702,9 +700,7 @@ class GetServices {
             let token = Helper.getAPIToken() ?? ""
             let headers = [
                 "Authorization": "Bearer \(token)",
-                "X-localization" : GetServices.languageKey
-
-            ]
+                "X-localization" : GetServices.languageKey]
             
                Alamofire.request(url, method: .get, parameters: param, encoding: URLEncoding.default, headers: headers)
                    .validate(statusCode: 200..<300)
@@ -721,18 +717,13 @@ class GetServices {
            }
        }
     
-    
-   
-    
     func getCart() -> Observable<CartModelJSON> {
            return Observable.create { (observer) -> Disposable in
                let url = ConfigURLS.getCart
             let token = Helper.getAPIToken() ?? ""
             let headers = [
                 "Authorization": "Bearer \(token)",
-                "X-localization" : GetServices.languageKey
-
-            ]
+                "X-localization" : GetServices.languageKey]
             
                Alamofire.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers)
                    .validate(statusCode: 200..<300)
@@ -748,7 +739,6 @@ class GetServices {
                return Disposables.create()
            }
        }
-
     
     func getCartDetails() -> Observable<CartDetailsModelJSON> {
            return Observable.create { (observer) -> Disposable in
@@ -756,9 +746,7 @@ class GetServices {
             let token = Helper.getAPIToken() ?? ""
             let headers = [
                 "Authorization": "Bearer \(token)",
-                "X-localization" : GetServices.languageKey
-
-            ]
+                "X-localization" : GetServices.languageKey]
             
                Alamofire.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers)
                    .validate(statusCode: 200..<300)
@@ -782,10 +770,7 @@ class GetServices {
             let token = Helper.getAPIToken() ?? ""
             let headers = [
                 "Authorization": "Bearer \(token)",
-                "X-localization" : GetServices.languageKey
-
-            ]
-            
+                "X-localization" : GetServices.languageKey]
                Alamofire.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers)
                    .validate(statusCode: 200..<300)
                    .responseJSON { (response: DataResponse<Any>) in
@@ -808,9 +793,7 @@ class GetServices {
             let token = Helper.getAPIToken() ?? ""
             let headers = [
                 "Authorization": "Bearer \(token)",
-                "X-localization" : GetServices.languageKey
-
-            ]
+                "X-localization" : GetServices.languageKey]
             
                Alamofire.request(url, method: .get, parameters: param, encoding: URLEncoding.default, headers: headers)
                    .validate(statusCode: 200..<300)
@@ -825,9 +808,7 @@ class GetServices {
                }
                return Disposables.create()
            }
-       }
-
-    
+     }
     func getAllBlogs(param : [String :Any]) -> Observable<BlogModelJSON> {
            return Observable.create { (observer) -> Disposable in
                let url = ConfigURLS.allBlogs

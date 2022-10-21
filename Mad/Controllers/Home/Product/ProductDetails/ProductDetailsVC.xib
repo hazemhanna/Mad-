@@ -874,6 +874,7 @@ added to your cart</string>
                 <outlet property="contentSizeHieght" destination="MMK-tq-ISv" id="Snc-7f-PYo"/>
                 <outlet property="contentView" destination="zoZ-jb-nfF" id="7OQ-Js-YEw"/>
                 <outlet property="deliveryLbl" destination="qGA-X3-kC3" id="QdW-QU-BeD"/>
+                <outlet property="descLblValue" destination="Vgi-w8-G7T" id="u00-aH-Zmq"/>
                 <outlet property="descriptionBtn" destination="e1l-48-2t0" id="deL-Qy-p4s"/>
                 <outlet property="descriptionStack" destination="Gax-IE-e4B" id="pW5-D4-TBW"/>
                 <outlet property="detailsBtn" destination="txB-qJ-Fi0" id="bcz-Ff-cFh"/>
@@ -882,16 +883,20 @@ added to your cart</string>
                 <outlet property="hideCartBtn" destination="NlC-tQ-mSz" id="nOD-Mx-2ek"/>
                 <outlet property="photoCount" destination="Wsu-xp-WPo" id="ul1-A8-07l"/>
                 <outlet property="photoIndex" destination="pmE-Sf-HOP" id="EzD-ex-YoD"/>
+                <outlet property="pricesLblValue" destination="Evx-1c-6SS" id="mu2-Zt-KLY"/>
                 <outlet property="productName" destination="Y9z-Yc-ECl" id="UoF-am-eBB"/>
                 <outlet property="productPrice" destination="oHk-5B-foZ" id="tqV-Ne-2gO"/>
                 <outlet property="productdescription" destination="iGl-de-sdL" id="6WK-d1-e9J"/>
                 <outlet property="producttitle" destination="x25-sa-ADv" id="ugZ-3E-Gsn"/>
+                <outlet property="quantityAvailable" destination="p7W-Dj-KCs" id="0XI-zj-kh3"/>
+                <outlet property="quantitySold" destination="91T-7E-7JL" id="gEz-bg-hfE"/>
                 <outlet property="relatedProductCollectionView" destination="Bky-1L-10i" id="V7h-am-hIn"/>
                 <outlet property="reviewTableView" destination="Exg-Gf-pFw" id="jif-s5-xWv"/>
                 <outlet property="reviewsBtn" destination="AqR-4Z-Vpc" id="Mo6-La-KH9"/>
                 <outlet property="reviewsStack" destination="3ID-mV-Gmd" id="Mfw-bH-1Dl"/>
                 <outlet property="reviewsStackSizeHieght" destination="bKc-ZI-SUv" id="eNo-la-qA0"/>
                 <outlet property="tagseLbl" destination="9T4-ci-GLC" id="mJc-Xk-t7X"/>
+                <outlet property="totalSold" destination="PJC-u2-faJ" id="dJe-UR-AQ6"/>
                 <outlet property="typeIcon" destination="dxj-7f-I8k" id="xju-0L-vM5"/>
                 <outlet property="typeLbl" destination="3MB-aC-Wre" id="36D-EU-2OY"/>
                 <outlet property="userStack" destination="BME-aN-Z9G" id="4P8-vr-hwb"/>

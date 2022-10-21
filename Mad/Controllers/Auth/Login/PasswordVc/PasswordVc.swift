@@ -105,7 +105,6 @@ extension PasswordVc {
             }else{
                 displayMessage(title: "",message: registerData.message ?? "", status: .error, forController: self)
             }
-
         }, onError: { (error) in
             self.AuthViewModel.dismissIndicator()
 

@@ -115,6 +115,17 @@ extension MyProfileProjects: UITableViewDelegate,UITableViewDataSource{
                         , view: "0"
                         , orders: "0")
             
+            cell.hideProject = {
+                self.showProject(id: self.publishProjects[indexPath.row].id ?? 0 ,hide : 1)
+            }
+            cell.showProject = {
+                self.showProject(id: self.publishProjects[indexPath.row].id ?? 0 ,hide : 0)
+            }
+            if self.publishProjects[indexPath.row].hide == "0"{
+                cell.hideSwitch.isOn = false
+            }else{
+                cell.hideSwitch.isOn = true
+            }
             return cell
       }else{
         let cell = tableView.dequeueReusableCell(withIdentifier: self.CellIdentifier) as! HomeCell
@@ -171,5 +182,18 @@ extension MyProfileProjects  {
 
        }).disposed(by: disposeBag)
    }
+    
+    func showProject(id : Int,hide : Int) {
+        artistVM.showIndicator()
+        artistVM.hideProject(id: id, hide: hide).subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+               self.artistVM.dismissIndicator()
+           }
+       }, onError: { (error) in
+        self.artistVM.dismissIndicator()
+
+       }).disposed(by: disposeBag)
+   }
+    
 }
 

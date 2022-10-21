@@ -47,8 +47,11 @@ class ProductDetailsVC: UIViewController {
     @IBOutlet weak var addToCartLbl: UILabel!
     @IBOutlet weak var addToCartBtn : UIButton!
     @IBOutlet weak var typeIcon : UIImageView!
-
-    
+    @IBOutlet weak var quantityAvailable : UILabel!
+    @IBOutlet weak var quantitySold: UILabel!
+    @IBOutlet weak var totalSold: UILabel!
+    @IBOutlet weak var pricesLblValue: UILabel!
+    @IBOutlet weak var descLblValue: UILabel!
     @IBOutlet weak var userStack : UIStackView!
     @IBOutlet weak var artistStack : UIStackView!
 
@@ -412,19 +415,28 @@ extension ProductDetailsVC {
             self.productPrice.text = "USD " + String(data.price ?? 0)
             self.producttitle.text = data.shortDescription?.html2String ?? ""
             self.productdescription.text = data.dataDescription?.html2String ?? ""
+            // aritst data
+            self.descLblValue.text = data.dataDescription?.html2String ?? ""
+                
+                
+            self.pricesLblValue.text =  String(data.price ?? 0) + " USD" + " | " +  String(data.priceEur ?? 0) + " EURO"
+            self.quantityAvailable.text = String(data.avaialble_quantity ?? 0)
+            self.quantitySold.text = String(data.quantity_sold ?? 0)
+            self.totalSold.text = String(data.total_sales ?? 0)
+                
             var projectCat = [String]()
             for cat in data.categories ?? []{
                 projectCat.append(cat.name ?? "")
             }
                 
-            self.tagseLbl.text = "Tags: " + (projectCat.joined(separator: ","))
-                if data.type ?? "" == "digital"{
-                    self.typeLbl.text = "Type: Digital product"
-                    self.typeIcon.image = #imageLiteral(resourceName: "Group 546")
-                }else{
-                    self.typeIcon.image = #imageLiteral(resourceName: "Path 518")
-                    self.typeLbl.text = "Type: Physical product"
-                }
+         self.tagseLbl.text = "Tags: " + (projectCat.joined(separator: ","))
+            if data.type ?? "" == "digital"{
+                self.typeLbl.text = "Type: Digital product"
+                self.typeIcon.image = #imageLiteral(resourceName: "Group 546")
+             }else{
+                self.typeIcon.image = #imageLiteral(resourceName: "Path 518")
+                self.typeLbl.text = "Type: Physical product"
+             }
             self.deliveryLbl.text = "Delivery: " +  String(data.delivery ?? 0) + " " + "days"
             self.productName.text = data.title ?? ""
             self.isFavourite = data.isFavorite ?? false
@@ -529,8 +541,6 @@ func removeCart(productId : Int,quantity :Int) {
         self.productVM.dismissIndicator()
        }).disposed(by: disposeBag)
    }
-    
-    
 }
 
 extension ProductDetailsVC: UIScrollViewDelegate {

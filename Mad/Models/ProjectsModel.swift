@@ -33,6 +33,7 @@ struct Project: Codable {
     let id: Int?
     let artist: Artist?
     let title: String?
+    let hide: String?
     let imageURL: String?
     let favoriteCount, shareCount: Int?
     let createdAt: String?
@@ -40,7 +41,7 @@ struct Project: Codable {
     let relateProducts : [Product]?
 
     enum CodingKeys: String, CodingKey {
-        case id, artist, title
+        case id, artist, title,hide
         case imageURL = "image_url"
         case favoriteCount = "favorite_count"
         case shareCount = "share_count"

@@ -11,7 +11,7 @@ import Foundation
 var BASE_URL = "http://mad.cnepho.com/api/"
 
 struct ConfigURLS {
-    
+
     //MARK:- POST Register
     static var postRegister = BASE_URL  + "auth/register"
     static var checkOtp = BASE_URL  + "auth/check_otp"
@@ -57,7 +57,6 @@ struct ConfigURLS {
     static var catProduct = BASE_URL  + "categories/product"
     static var artistProduct = BASE_URL  + "product/get_for_artist"
     static var addComment = BASE_URL  + "product/add_comment"
-    
     // video
     static var getAllvideos = BASE_URL  + "video/all"
     static var getVideoDetails = BASE_URL  + "video/get"
@@ -70,7 +69,6 @@ struct ConfigURLS {
     static var voteCompetition = BASE_URL  + "competition/vote"
     static var aboutCompetition = BASE_URL  + "competition/know_about"
     static var deleteCompetition = BASE_URL  + "competition/deleteDraft"
-
     // search
     static var search = BASE_URL  + "search"
     static var popularSearch = BASE_URL  + "search/get_recent"
@@ -89,7 +87,6 @@ struct ConfigURLS {
     static var allBlogs  = BASE_URL  + "blog/all"
     static var blogDetails  = BASE_URL  + "blog/get"
     static var blogShare  = BASE_URL  + "blog/share"
-
     // chat
     static var creatConverstion  = BASE_URL  + "conversation/create"
     static var getAllConverstion  = BASE_URL  + "conversation"

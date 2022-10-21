@@ -25,6 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var token = Helper.getAPIToken() ?? ""
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
+        StripeAPI.defaultPublishableKey = "pk_test_51GyE2kEh66Mr30iHouPsi3IfxNmFNI1IsBFvASIERi9RsbFXeOfQyiC3r5cwqwE7OYjqTcJIa1bFWsj84h9nayt500EB57inlh"
         if token !=  "" {
          let sb = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CardTabBarController")
          window?.rootViewController = sb
@@ -32,11 +34,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          let sb = SplashVC.instantiateFromNib()
          window?.rootViewController = sb
         }
-        
+
         if #available(iOS 10.0, *) {
             // For iOS 10 display notification (sent via APNS)
             UNUserNotificationCenter.current().delegate = self
-            
             let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
             UNUserNotificationCenter.current().requestAuthorization(
                 options: authOptions,
@@ -46,7 +47,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
             application.registerUserNotificationSettings(settings)
         }
-        
         application.registerForRemoteNotifications()
         UNUserNotificationCenter.current().delegate = self
         FirebaseApp.configure()
@@ -87,23 +87,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         print("APNs token retrieved: \(deviceToken)")
         Messaging.messaging().apnsToken = deviceToken
-        InstanceID.instanceID().instanceID(handler: { (result, error) in
-            if let error = error {
-                print("Error fetching remote instange ID: \(error)")
-            } else if let result = result {
-                print("Remote instance ID token: \(result.token)")
-                Helper.saveDeviceToken(token: result.token)
-                if self.token != "" {
-                    self.authVM.postFCM(token:  result.token).subscribe(onNext: { (dataModel) in
-                       if dataModel.success ?? false {
-                       
-                       }
-                   }, onError: { (error) in
-
-                   }).disposed(by: self.disposeBag)
-                }
-            }
-        })
+//        InstanceID.instanceID().instanceID(handler: { (result, error) in
+//            if let error = error {
+//                print("Error fetching remote instange ID: \(error)")
+//            } else if let result = result {
+//                print("Remote instance ID token: \(result.token)")
+//                Helper.saveDeviceToken(token: result.token)
+//                if self.token != "" {
+//                    self.authVM.postFCM(token:  result.token).subscribe(onNext: { (dataModel) in
+//                       if dataModel.success ?? false {
+//
+//                       }
+//                   }, onError: { (error) in
+//
+//                   }).disposed(by: self.disposeBag)
+//                }
+//            }
+//        })
         
         // With swizzling disabled you must set the APNs token here.
         // Messaging.messaging().apnsToken = deviceToken

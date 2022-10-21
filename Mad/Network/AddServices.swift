@@ -521,14 +521,11 @@ struct AddServices {
     
 func updateCartProduct(param : [String :Any]) -> Observable<CartModelJSON> {
            return Observable.create { (observer) -> Disposable in
-               let url = ConfigURLS.updateCartProduct
-            
+            let url = ConfigURLS.updateCartProduct
             let token = Helper.getAPIToken() ?? ""
             let headers = [
                 "Authorization": "Bearer \(token)",
-                "lang" : AddServices.languageKey
-
-            ]
+                "lang" : AddServices.languageKey]
                Alamofire.request(url, method: .post, parameters: param, encoding: URLEncoding.default, headers: headers)
                    .validate(statusCode: 200..<300)
                    .responseJSON { (response: DataResponse<Any>) in
@@ -543,8 +540,7 @@ func updateCartProduct(param : [String :Any]) -> Observable<CartModelJSON> {
                return Disposables.create()
            }
        }
-    
-    
+
     func updateCartDetails(param : [String :Any]) -> Observable<CartDetailsModelJSON> {
            return Observable.create { (observer) -> Disposable in
                let url = ConfigURLS.updateCartDetails
@@ -815,5 +811,29 @@ func updateCartProduct(param : [String :Any]) -> Observable<CartModelJSON> {
                return Disposables.create()
            }
        }
+    
+    
+    func creatOrder(param : [String :Any]) -> Observable<CheckPasswordModelJson> {
+           return Observable.create { (observer) -> Disposable in
+            let url = "http://mad.cnepho.com/api/order/create"
+            let token = Helper.getAPIToken() ?? ""
+            let headers = [
+                "Authorization": "Bearer \(token)",
+                "lang" : AddServices.languageKey]
+               Alamofire.request(url, method: .post, parameters: param, encoding: URLEncoding.default, headers: headers)
+                   .validate(statusCode: 200..<300)
+                   .responseJSON { (response: DataResponse<Any>) in
+                       do {
+                           let data = try JSONDecoder().decode(CheckPasswordModelJson.self, from: response.data!)
+                           observer.onNext(data)
+                       } catch {
+                           print(error.localizedDescription)
+                           observer.onError(error)
+                       }
+               }
+               return Disposables.create()
+           }
+       }
+    
 
 }

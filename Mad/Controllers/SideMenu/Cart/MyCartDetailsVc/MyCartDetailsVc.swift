@@ -23,15 +23,12 @@ class MyCartDetailsVc: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
-
-
+    
     override func viewWillAppear(_ animated: Bool) {
         cartVM.showIndicator()
         getCartDetails()
         self.navigationController?.navigationBar.isHidden = true
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -54,7 +51,6 @@ class MyCartDetailsVc: UIViewController {
     
     
     @IBAction func nextAction(sender: UIButton) {
-        
         if  self.countrylbl.text != "" {
         let main =  CheckoutViewController()
         self.navigationController?.pushViewController(main, animated: true)

@@ -29,7 +29,6 @@ class HomeVC: UIViewController {
     open lazy var customTabBar: PTCardTabBar = {
         return PTCardTabBar()
     }()
-    
     var titles = [String](){
           didSet {
               DispatchQueue.main.async {

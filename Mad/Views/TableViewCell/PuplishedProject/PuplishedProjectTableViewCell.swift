@@ -16,8 +16,12 @@ class PuplishedProjectTableViewCell: UITableViewCell {
     @IBOutlet weak var hideSwitch: UISwitch!
     @IBOutlet weak var projectImage: UIImageView!
     
+    var hideProject: (() -> Void)? = nil
+    var showProject: (() -> Void)? = nil
+
     override func awakeFromNib() {
-        super.awakeFromNib()
+        super.awakeFromNib()        
+        hideSwitch.addTarget(self, action: #selector(self.switchValueDidChange), for: .valueChanged)
     }
 
     func confic (projectUrl :String,name : String,price : String , view : String,orders : String ){
@@ -29,6 +33,14 @@ class PuplishedProjectTableViewCell: UITableViewCell {
         
         if let projectUrl = URL(string: projectUrl){
         self.projectImage.kf.setImage(with: projectUrl, placeholder: #imageLiteral(resourceName: "WhatsApp Image 2021-04-21 at 1.25.47 PM"))
+        }
+    }
+    
+    @objc func switchValueDidChange() {
+        if(hideSwitch.isOn) {
+            hideProject?()
+        }else {
+            showProject?()
         }
     }
     

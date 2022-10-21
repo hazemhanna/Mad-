@@ -79,9 +79,6 @@ struct AuthenticationViewModel {
         let observer = Authentication.shared.postCompleteProfile(params: params)
         return observer
     }
-    
-    
-    
     //MARK:- Attempt to Login
     func attemptToLogin(bindedEmail:String,bindedPassword:String) -> Observable<AuthRegisterModel> {
         let params: [String: Any] = [
@@ -111,8 +108,6 @@ struct AuthenticationViewModel {
         let observer = Authentication.shared.postFCM(params: params)
         return observer
     }
-    
-    
     func resetPassword() -> Observable<AddProductModelJson> {
         let bindedEmail = Helper.getUserEmail() ?? ""
         let bindedPassword =  Helper.getUserPass() ?? ""

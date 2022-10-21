@@ -212,6 +212,10 @@ struct ArtistViewModel {
         return observer
     }
     
+    func hideProject(id : Int,hide : Int) -> Observable<ProjectDetailsModel> {
+        let  params: [String: Any] = ["project_id": "\(id)","hide": hide]
+        let observer = Authentication.shared.hideProject(params: params)
+        return observer
+    }
     
-
 }

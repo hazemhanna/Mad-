@@ -83,6 +83,8 @@ struct ProductDetailsModel: Codable {
     let categories: [Category]?
     let reviews: [Review]?
     let product : [Product]?
+    let avaialble_quantity, quantity_sold,total_sales: Int?
+
     enum CodingKeys: String, CodingKey {
         case id, artist, title
         case imageURL = "image_url"
@@ -99,6 +101,9 @@ struct ProductDetailsModel: Codable {
         case dataDescription = "description"
         case product = "relate_products"
         case materials, length, width, height, weight, photos, categories,reviews
+        case avaialble_quantity = "avaialble_quantity"
+        case quantity_sold = "quantity_sold"
+        case total_sales = "total_sales"
     }
 }
 

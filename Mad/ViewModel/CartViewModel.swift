@@ -87,4 +87,9 @@ struct CartViewModel {
          return observer
      }
     
+    func creatOrder(clientSecret : String) -> Observable<CheckPasswordModelJson> {
+         let params: [String: Any] = ["client_secret": clientSecret]
+        let observer = AddServices.shared.creatOrder(param: params)
+        return observer
+    }
 }

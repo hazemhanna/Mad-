@@ -128,7 +128,6 @@ func getOrders() {
         self.showShimmer = false
         self.ongoing = dataModel.data?.ongoing ?? []
         self.history = dataModel.data?.history ?? []
-
         self.tableView.reloadData()
        }
    }, onError: { (error) in
