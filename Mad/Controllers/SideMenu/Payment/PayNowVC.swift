@@ -82,7 +82,7 @@ class CheckoutViewController: UIViewController {
     payButton.topAnchor.constraint(equalTo: cardTextField.topAnchor, constant: 300).isActive = true
     payButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.3).isActive = true
     payButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-    startCheckout()
+      startCheckout(amount : 400)
   }
 
   func displayAlert(title: String, message: String, restartDemo: Bool = false) {
@@ -132,9 +132,9 @@ class CheckoutViewController: UIViewController {
     }
   }
 
-    func startCheckout() {
+    func startCheckout(amount : Int) {
         cartVM.showIndicator()
-        cartVM.generateClientSecret().subscribe(onNext: { (dataModel) in
+        cartVM.generateClientSecret(amount : amount).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
                self.paymentIntentClientSecret = dataModel.data
                self.cartVM.dismissIndicator()

@@ -26,7 +26,10 @@ class ArtistNameVC: UIViewController {
     
     var disposeBag = DisposeBag()
     var ChatVM = ChatViewModel()
+    var favouriteVM = FavouriteViewModel()
+
     var showArtist = false
+    var showFavouritArtist = false
     var showProductCat = false
     var showProduct = false
     var showProject = false
@@ -42,7 +45,10 @@ class ArtistNameVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         ChatVM.showIndicator()
-        if showArtist{
+        if showFavouritArtist{
+            self.favouriteVM.dismissIndicator()
+             getFavourite()
+        }else if showArtist{
              self.getAllArtist(section : "artists",search: "" ,pageNum :1)
         }else if showProductCat{
             getCategory2()
@@ -64,7 +70,9 @@ class ArtistNameVC: UIViewController {
 }
 extension ArtistNameVC : UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if showArtist{
+        if showFavouritArtist{
+            return artist.count
+        }else if showArtist{
              return artist.count
         }else if showProduct{
             return products.count
@@ -75,7 +83,10 @@ extension ArtistNameVC : UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.CellIdentifier) as! ArtistNameCell
-        if showArtist {
+       
+        if showFavouritArtist{
+            cell.NameLbl.text = self.artist[indexPath.row].name ?? ""
+        } else if showArtist {
            cell.NameLbl.text = self.artist[indexPath.row].name ?? ""
         }else if showProduct{
            cell.NameLbl.text = self.products[indexPath.row].title ?? ""
@@ -87,7 +98,10 @@ extension ArtistNameVC : UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if showArtist {
+        if showFavouritArtist{
+            let item = self.artist[indexPath.row]
+            self.onClickClose?(item)
+        }else if showArtist {
         let item = self.artist[indexPath.row]
         self.onClickClose?(item)
         }else if showProduct{
@@ -159,4 +173,17 @@ func getAllArtist(section : String,search:String,pageNum :Int) {
            self.ChatVM.dismissIndicator()
        }).disposed(by: disposeBag)
    }
+    
+    func getFavourite() {
+        favouriteVM.getFavourite().subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+            self.favouriteVM.dismissIndicator()
+            self.artist = dataModel.data?.favoriteArtists ?? []
+            self.mainTableView.reloadData()
+           }
+       }, onError: { (error) in
+
+       }).disposed(by: disposeBag)
+    }
+        
 }

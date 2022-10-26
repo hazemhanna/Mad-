@@ -92,11 +92,7 @@ class ArtistProfileVc: UIViewController {
     
     @IBAction func messageButton(sender: UIButton) {
         if Helper.getAPIToken() != nil {
-        let vc = SendMessageVc.instantiateFromNib()
-        vc?.artistId = self.artistId
-        vc?.fromArtistPage = true
-        vc?.tagsField.addTag(self.artistName.text ?? "")
-        self.navigationController?.pushViewController(vc!, animated: true)
+            flloweArtist(artistId: artistId, Type: true)
         }else {
          displayMessage(title: "",message: "please login first".localized, status: .success, forController: self)
          let sb = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoadingLoginVc")
@@ -132,8 +128,12 @@ extension ArtistProfileVc  {
     func flloweArtist(artistId : Int,Type : Bool) {
         artistVM.addToFavourite(artistId: artistId, Type: Type).subscribe(onNext: { (dataModel) in
            if dataModel.success ?? false {
-            self.artistVM.dismissIndicator()
-            self.getArtistProfile(artistId : artistId)
+              self.artistVM.dismissIndicator()
+               let vc = SendMessageVc.instantiateFromNib()
+               vc?.artistId = self.artistId
+               vc?.fromArtistPage = true
+               vc?.tagsField.addTag(self.artistName.text ?? "")
+               self.navigationController?.pushViewController(vc!, animated: true)
          }
        }, onError: { (error) in
         self.artistVM.dismissIndicator()

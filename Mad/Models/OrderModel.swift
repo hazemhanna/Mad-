@@ -17,7 +17,7 @@ struct OrderModelJSON: Codable {
 
 // MARK: - DataClass
 struct OrderModel: Codable {
-    let history, ongoing: [History]?
+    let pending,history, ongoing: [History]?
 }
 
 // MARK: - History

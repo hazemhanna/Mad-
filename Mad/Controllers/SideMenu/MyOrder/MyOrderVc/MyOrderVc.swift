@@ -126,7 +126,9 @@ func getOrders() {
     orderVM.getOrders().subscribe(onNext: { (dataModel) in
        if dataModel.success ?? false {
         self.showShimmer = false
-        self.ongoing = dataModel.data?.ongoing ?? []
+         //self.ongoing = dataModel.data?.ongoing ?? []
+         self.ongoing = dataModel.data?.pending ?? []
+
         self.history = dataModel.data?.history ?? []
         self.tableView.reloadData()
        }

@@ -23,6 +23,7 @@ class SendMessageVc: UIViewController {
 
     var disposeBag = DisposeBag()
     var ChatVM = ChatViewModel()
+
     var artist :[Artist] = []
     var object :[String] = []
     var project :[Project] = []
@@ -170,10 +171,9 @@ class SendMessageVc: UIViewController {
               self.showMessage(text: "Please Enter Title")
                 return false
             }
-        }
+          }
             return true
         }
-        
     }
     
     @IBAction func sendButton(sender: UIButton) {
@@ -183,9 +183,7 @@ class SendMessageVc: UIViewController {
             creatConversation(subject: self.selectedSubject, artistId: self.artistId, subjectId: self.orderTitleTf.text ?? "")
         }else{
             creatConversation(subject: self.selectedSubject, artistId: self.artistId, subjectId: self.objectId)
-
         }
-    
     }
 }
 
@@ -212,7 +210,7 @@ extension SendMessageVc {
         tagsField.onDidChangeText = { _, text in
             print("onDidChangeText")
             let vc = ArtistNameVC.instantiateFromNib()
-            vc?.showArtist = true
+            vc?.showFavouritArtist = true
             vc!.onClickClose = { artist in
             self.tagsField.addTag(artist.name ?? "")
             self.getArtistProfile(id : artist.id ?? 0)
@@ -276,4 +274,6 @@ extension SendMessageVc {
 
        }).disposed(by: disposeBag)
    }
+    
+    
 }
