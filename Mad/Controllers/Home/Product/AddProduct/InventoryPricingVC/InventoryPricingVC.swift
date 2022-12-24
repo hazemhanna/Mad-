@@ -40,10 +40,13 @@ class InventoryPricingVC: UIViewController {
 
     var selectedCat = [Int]()
     var uploadedPhoto = [UIImage]()
-    
+    var images = [UIImage]()
+
     var disposeBag = DisposeBag()
     var productVM = ProductViewModel()
     
+    var isFromEdit = false
+    var product : ProductDetailsModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +54,17 @@ class InventoryPricingVC: UIViewController {
         setupDeliveryIndexDropDown()
     }
     
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if isFromEdit{
+            price.text = "\(product?.price ?? 0)"
+            price_eur.text = "\(product?.priceEur ?? 0)"
+            quantity.text = "\(product?.avaialble_quantity ?? 0 )"
+            delivery.text = "\(product?.delivery ?? 0)"
+            deliveryIndex.text = product?.deliveryIndex
+        }
+    }
     
     func setupDeliveryIndexDropDown() {
         deliveryIndex.optionArray = self.titles
@@ -132,7 +146,11 @@ class InventoryPricingVC: UIViewController {
         view.endEditing(true)
         guard self.validateInput() else { return }
         self.productVM.showIndicator()
-       self.AddProduct(categories: self.selectedCat, title: self.title ?? self.titleTV, short_description: self.short_description, description: self.descriptionTV, materials: self.materials, length: Int(self.length) ?? 0, width: Int(self.width) ?? 0, height: Int(self.height) ?? 0, weight: Int(self.weight) ?? 0, type: self.type, price: Int(self.price.text ?? "") ?? 0, price_eur: Int(self.price_eur.text ?? "") ?? 0, quantity: Int(self.quantity.text ?? "") ?? 0, quantity_limitation: self.quantitylimitation , delivery: Int(self.delivery.text ?? "") ?? 0, delivery_index: self.deliveryIndex.text ?? "" , photos: self.uploadedPhoto)
+        if isFromEdit {
+            self.editProduct(id: product?.id ?? 0,categories: self.selectedCat, title: self.title ?? self.titleTV, short_description: self.short_description, description: self.descriptionTV, materials: self.materials, length: Int(self.length) ?? 0, width: Int(self.width) ?? 0, height: Int(self.height) ?? 0, weight: Int(self.weight) ?? 0, type: self.type, price: Int(self.price.text ?? "") ?? 0, price_eur: Int(self.price_eur.text ?? "") ?? 0, quantity: Int(self.quantity.text ?? "") ?? 0, quantity_limitation: self.quantitylimitation , delivery: Int(self.delivery.text ?? "") ?? 0, delivery_index: self.deliveryIndex.text ?? "" , photos: self.images)
+        }else{
+            self.AddProduct(categories: self.selectedCat, title: self.title ?? self.titleTV, short_description: self.short_description, description: self.descriptionTV, materials: self.materials, length: Int(self.length) ?? 0, width: Int(self.width) ?? 0, height: Int(self.height) ?? 0, weight: Int(self.weight) ?? 0, type: self.type, price: Int(self.price.text ?? "") ?? 0, price_eur: Int(self.price_eur.text ?? "") ?? 0, quantity: Int(self.quantity.text ?? "") ?? 0, quantity_limitation: self.quantitylimitation , delivery: Int(self.delivery.text ?? "") ?? 0, delivery_index: self.deliveryIndex.text ?? "" , photos: self.uploadedPhoto)
+        }
     }
 }
 
@@ -169,6 +187,40 @@ extension InventoryPricingVC {
 
         }).disposed(by: disposeBag)
     }
+    
+    func editProduct(id:Int,
+                     categories :[Int],
+                    title :String,
+                    short_description:String,
+                    description:String,
+                    materials: String,
+                    length: Int,
+                    width: Int,
+                    height: Int,
+                    weight: Int,
+                    type: String,
+                    price:Int,
+                    price_eur:Int,
+                    quantity:Int,
+                    quantity_limitation:String,
+                    delivery:Int,
+                    delivery_index:String,
+                    photos:[UIImage]) {
+        productVM.editProduct(id: id,categories: categories, title: title, short_description: short_description, description: description, materials: materials, length: length, width: width, height: height, weight: weight, type: type, price: price, price_eur: price_eur, quantity: quantity, quantity_limitation: quantity_limitation, delivery: delivery, delivery_index: delivery_index, photos: photos).subscribe(onNext: { (dataModel) in
+           if dataModel.success ?? false {
+               self.productVM.dismissIndicator()
+               self.showMessage(text: dataModel.message ?? "")
+               let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
+               self.navigationController!.popToViewController(viewControllers[viewControllers.count - 4], animated: true)
+           }else{
+               self.productVM.dismissIndicator()
+               self.showMessage(text: dataModel.message ?? "")
+           }
+       }, onError: { (error) in
+           self.productVM.dismissIndicator()
+
+       }).disposed(by: disposeBag)
+   }
 }
 
 

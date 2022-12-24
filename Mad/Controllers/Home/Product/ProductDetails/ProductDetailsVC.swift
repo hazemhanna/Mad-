@@ -84,6 +84,9 @@ class ProductDetailsVC: UIViewController {
    private let cellIdentifier = "AddsCell"
    private let cellIdentifier2 = "ReviewCell"
 
+    var product : ProductDetailsModel?
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addsCollectionView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
@@ -102,7 +105,6 @@ class ProductDetailsVC: UIViewController {
         reviewsBtn.setTitle("review".localized, for: .normal)
         writeReviewBtn.setTitle("WriteReview".localized, for: .normal)
         viewCartBtn.setTitle("View.cart".localized, for: .normal)
-       // phsicalLbl.text = "Physical".localized
         addToCartLbl.text = "addedToCart".localized
 
     }
@@ -273,6 +275,14 @@ class ProductDetailsVC: UIViewController {
         self.navigationController?.pushViewController(main!, animated: true)
     }
     
+    
+    @IBAction func editProductAction(_ sender: UIButton) {
+        let main = AddProductImageVc.instantiateFromNib()
+        main!.isFromEdit = true
+        main!.product = product
+        self.navigationController?.pushViewController(main!, animated: true)
+    }
+    
     @IBAction func shareBtn(sender: UIButton) {
          if self.token == "" {
             displayMessage(title: "",message: "please login first".localized, status: .success, forController: self)
@@ -407,6 +417,7 @@ extension ProductDetailsVC {
             self.productVM.dismissIndicator()
             self.showShimmer = false
             if let data = dataModel.data {
+            self.product = data
             self.photos = data.photos ?? []
             self.reviews = data.reviews ?? []
             self.reviewTableView.reloadData()
@@ -417,8 +428,6 @@ extension ProductDetailsVC {
             self.productdescription.text = data.dataDescription?.html2String ?? ""
             // aritst data
             self.descLblValue.text = data.dataDescription?.html2String ?? ""
-                
-                
             self.pricesLblValue.text =  String(data.price ?? 0) + " USD" + " | " +  String(data.priceEur ?? 0) + " EURO"
             self.quantityAvailable.text = String(data.avaialble_quantity ?? 0)
             self.quantitySold.text = String(data.quantity_sold ?? 0)

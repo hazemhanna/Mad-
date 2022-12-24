@@ -69,6 +69,7 @@ struct ProductDetailsModelJson: Codable {
 
 // MARK: - DataClass
 struct ProductDetailsModel: Codable {
+    
     let id: Int
     let artist: Artist?
     let title: String?

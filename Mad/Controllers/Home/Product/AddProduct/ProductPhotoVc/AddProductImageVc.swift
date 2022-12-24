@@ -20,8 +20,16 @@ class AddProductImageVc: UIViewController {
     var productVM = ProductViewModel()
     var uploadedPhoto = [UIImage]()
     var productPhoto = [AddPhotoModel]()
-    var photo = [String]()
     let cellIdentifier = "AddProductPhotoCell"
+
+    var isFromEdit = false
+    var product : ProductDetailsModel?
+    
+    var images = [UIImage](){
+        didSet{
+            photoCollectionView.reloadData()
+        }
+    }
 
     open lazy var customTabBar: PTCardTabBar = {
         return PTCardTabBar()
@@ -36,6 +44,7 @@ class AddProductImageVc: UIViewController {
         photoCollectionView.dataSource = self
         photoCollectionView.isScrollEnabled = false
         
+        if !isFromEdit {
         self.productPhoto.append(AddPhotoModel(staticPhoto: #imageLiteral(resourceName: "Mask Group 89"), uploadedPhoto: nil, uploaded: false))
         self.productPhoto.append(AddPhotoModel(staticPhoto: #imageLiteral(resourceName: "Mask Group 90"), uploadedPhoto: nil, uploaded: false))
         self.productPhoto.append(AddPhotoModel(staticPhoto: #imageLiteral(resourceName: "Mask Group 91"), uploadedPhoto: nil, uploaded: false))
@@ -44,6 +53,8 @@ class AddProductImageVc: UIViewController {
         self.productPhoto.append(AddPhotoModel(staticPhoto: #imageLiteral(resourceName: "Mask Group 92"), uploadedPhoto: nil, uploaded: false))
         self.productPhoto.append(AddPhotoModel(staticPhoto: #imageLiteral(resourceName: "Mask Group 97"), uploadedPhoto: nil, uploaded: false))
         self.productPhoto.append(AddPhotoModel(staticPhoto: #imageLiteral(resourceName: "Mask Group 95"), uploadedPhoto: nil, uploaded: false))
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -61,7 +72,18 @@ class AddProductImageVc: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
+        if isFromEdit {
+            self.images.removeAll()
+            self.nextBtn.backgroundColor = #colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1)
+            self.nextBtn.isEnabled = true
+            if product?.photos?.count  ?? 0 > 0 {
+                for image in product?.photos ?? []{
+                do{
+                   let data = try Data.init(contentsOf: URL.init(string: image)!)
+                   if let image: UIImage = UIImage(data: data) {
+                    self.images.append(image)}}catch {}}
+            }
+        }
     }
     
     @IBAction func backButton(sender: UIButton) {
@@ -69,15 +91,28 @@ class AddProductImageVc: UIViewController {
     }
     
     @IBAction func nextButton(sender: UIButton) {
+        if isFromEdit{
         let vc = ListingDetailsVC.instantiateFromNib()
-        vc!.uploadedPhoto = uploadedPhoto
-        self.navigationController?.pushViewController(vc!, animated: true)
+            vc!.images = images
+            vc?.isFromEdit = true
+            vc?.product = product
+           self.navigationController?.pushViewController(vc!, animated: true)
+        }else{
+            let vc = ListingDetailsVC.instantiateFromNib()
+            vc!.uploadedPhoto = uploadedPhoto
+            self.navigationController?.pushViewController(vc!, animated: true)
+    
+        }
     }
 }
 
 extension AddProductImageVc: UICollectionViewDelegate ,UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return productPhoto.count + 1
+        if isFromEdit {
+            return images.count + 1
+        }else{
+           return productPhoto.count + 1
+        }
     }
     
    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -87,20 +122,26 @@ extension AddProductImageVc: UICollectionViewDelegate ,UICollectionViewDataSourc
         cell.productImage.isHidden = true
         cell.ProducttView.backgroundColor = UIColor(red: 209/255, green: 226/255, blue: 247/255, alpha: 1)
     }else{
-        cell.productImage.isHidden = false
-        cell.ProducttView.backgroundColor = UIColor.clear
-        if productPhoto[indexPath.row - 1].uploaded {
-        cell.productImage.image = productPhoto[indexPath.row - 1].uploadedPhoto
+        if isFromEdit {
+            cell.productImage.isHidden = false
+            cell.ProducttView.backgroundColor = UIColor.clear
+            cell.productImage.image = images[indexPath.row - 1]
         }else{
-            cell.productImage.image = productPhoto[indexPath.row - 1].staticPhoto
+         cell.productImage.isHidden = false
+         cell.ProducttView.backgroundColor = UIColor.clear
+         if productPhoto[indexPath.row - 1].uploaded {
+           cell.productImage.image = productPhoto[indexPath.row - 1].uploadedPhoto
+          }else{
+             cell.productImage.image = productPhoto[indexPath.row - 1].staticPhoto
+            }
         }
     }
     
-    cell.addPhoto = {
-        if self.uploadedPhoto.count < 8 {
-        self.showImageActionSheet()
+       cell.addPhoto = {
+          if self.uploadedPhoto.count < 8 {
+          self.showImageActionSheet()
         }
-    }
+       }
        if self.uploadedPhoto.count > 0  {
             self.nextBtn.backgroundColor = #colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1)
             self.nextBtn.isEnabled = true
@@ -126,14 +167,12 @@ extension AddProductImageVc : UICollectionViewDelegateFlowLayout {
 extension AddProductImageVc: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func showImageActionSheet() {
-
         let chooseFromLibraryAction = UIAlertAction(title: "Choose from Library", style: .default) { (action) in
                 self.showImagePicker(sourceType: .photoLibrary)
             }
             let cameraAction = UIAlertAction(title: "Take a Picture from Camera", style: .default) { (action) in
                 self.showImagePicker(sourceType: .camera)
             }
-            
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             AlertService.showAlert(style: .actionSheet, title: "Pick Your Picture", message: nil, actions: [chooseFromLibraryAction, cameraAction, cancelAction], completion: nil)
     }
@@ -150,29 +189,33 @@ extension AddProductImageVc: UIImagePickerControllerDelegate, UINavigationContro
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
-            
-            self.productPhoto.removeFirst()
-            self.uploadedPhoto.append(editedImage)
-            self.productPhoto.append(AddPhotoModel(staticPhoto: nil, uploadedPhoto: editedImage, uploaded: true))
+         if isFromEdit {
+            self.images.append(editedImage)
             self.photoCollectionView.reloadData()
-            
-        } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+          }else{
+             self.productPhoto.removeFirst()
+             self.uploadedPhoto.append(editedImage)
+             self.productPhoto.append(AddPhotoModel(staticPhoto: nil, uploadedPhoto: editedImage, uploaded: true))
+             self.photoCollectionView.reloadData()
+            }
+        }else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            if isFromEdit {
+            self.images.append(originalImage)
+            self.photoCollectionView.reloadData()
+            }else{
             self.productPhoto.removeFirst()
             self.uploadedPhoto.append(originalImage)
             self.productPhoto.append(AddPhotoModel(staticPhoto: nil, uploadedPhoto: originalImage, uploaded: true))
             self.photoCollectionView.reloadData()
+            }
         }
         dismiss(animated: true, completion: nil)
     }
-    
 }
 
 extension UIImage {
-
     convenience init?(withContentsOfUrl url: URL) throws {
         let imageData = try Data(contentsOf: url)
-    
         self.init(data: imageData)
     }
-
 }

@@ -115,10 +115,7 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         print("deviceTokenString \(deviceTokenString)")
         
     }
-    
 }
-// [END ios_10_message_handling]
-
 
 extension AppDelegate : MessagingDelegate {
   // [START refresh_token]
@@ -133,7 +130,6 @@ extension AppDelegate : MessagingDelegate {
   }
     
     func updateToken(token: String) {
-        
             if self.token != "" {
                 self.authVM.postFCM(token:  token).subscribe(onNext: { (dataModel) in
                 if dataModel.success ?? false {
@@ -143,8 +139,8 @@ extension AppDelegate : MessagingDelegate {
                      print(error.localizedDescription)
                 }).disposed(by: self.disposeBag)
              }
-        
      }
+    
     func updateFirestorePushTokenIfNeeded(fcmToken: String) {
         if let currentFcmToken = Helper.getDeviceToken(), currentFcmToken == fcmToken {
             updateToken(token: fcmToken)

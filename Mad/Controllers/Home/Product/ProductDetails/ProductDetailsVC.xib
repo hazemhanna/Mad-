@@ -35,7 +35,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="jgy-rq-khC">
-                                        <rect key="frame" x="16" y="0.0" width="382" height="1691"/>
+                                        <rect key="frame" x="16" y="0.0" width="382" height="1613"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="2uh-ie-R9H">
                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="98"/>
@@ -514,7 +514,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="RlL-nv-pNf">
-                                                <rect key="frame" x="0.0" y="1317" width="382" height="374"/>
+                                                <rect key="frame" x="0.0" y="1317" width="382" height="296"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="k7A-rn-td1">
                                                         <rect key="frame" x="0.0" y="0.0" width="382" height="26"/>
@@ -616,48 +616,10 @@
                                                                 <real key="value" value="10"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="editProductAction:" destination="MNL-tg-UoB" eventType="touchUpInside" id="SmP-2Z-Mdh"/>
+                                                        </connections>
                                                     </button>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WF6-6k-qo8" customClass="CustomView" customModule="Mad" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="328" width="382" height="46"/>
-                                                        <subviews>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ZBI-61-U1y">
-                                                                <rect key="frame" x="121" y="16.5" width="140" height="13"/>
-                                                                <subviews>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="azh-gf-VgO">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="13" height="13"/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="width" constant="13" id="ccR-Ne-rY8"/>
-                                                                            <constraint firstAttribute="height" constant="13" id="v3U-Ma-Js9"/>
-                                                                        </constraints>
-                                                                    </imageView>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delete Product" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jee-18-JtL">
-                                                                        <rect key="frame" x="29" y="0.0" width="111" height="13"/>
-                                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
-                                                                        <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
-                                                                </subviews>
-                                                            </stackView>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p9O-8L-Wi9">
-                                                                <rect key="frame" x="0.0" y="0.0" width="382" height="46"/>
-                                                            </button>
-                                                        </subviews>
-                                                        <color key="backgroundColor" red="0.86666666670000003" green="0.90588235289999997" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <constraints>
-                                                            <constraint firstItem="p9O-8L-Wi9" firstAttribute="top" secondItem="WF6-6k-qo8" secondAttribute="top" id="3h1-tF-U82"/>
-                                                            <constraint firstAttribute="trailing" secondItem="p9O-8L-Wi9" secondAttribute="trailing" id="9vi-ty-Gf0"/>
-                                                            <constraint firstItem="ZBI-61-U1y" firstAttribute="centerY" secondItem="WF6-6k-qo8" secondAttribute="centerY" id="DsR-SC-is2"/>
-                                                            <constraint firstAttribute="bottom" secondItem="p9O-8L-Wi9" secondAttribute="bottom" id="TeM-5e-RRF"/>
-                                                            <constraint firstItem="ZBI-61-U1y" firstAttribute="centerX" secondItem="WF6-6k-qo8" secondAttribute="centerX" id="cti-O0-TLQ"/>
-                                                            <constraint firstAttribute="height" constant="46" id="r2G-QD-YPr"/>
-                                                            <constraint firstItem="p9O-8L-Wi9" firstAttribute="leading" secondItem="WF6-6k-qo8" secondAttribute="leading" id="wfh-Ym-SN6"/>
-                                                        </constraints>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="10"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </view>
                                                 </subviews>
                                             </stackView>
                                         </subviews>

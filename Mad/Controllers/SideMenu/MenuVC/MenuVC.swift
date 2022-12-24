@@ -39,11 +39,10 @@ class MenuVC: UIViewController {
     open lazy var customTabBar: PTCardTabBar = {
         return PTCardTabBar()
     }()
-    
+
     let type = Helper.getType() ?? false
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         if active {
             userView.isHidden = true
             artistView.isHidden = false
@@ -51,14 +50,13 @@ class MenuVC: UIViewController {
             userView.isHidden = false
             artistView.isHidden = true
         }
-        
         titleLble.text = "title.menu".localized
         paurchesedLbl.text = "Purchase.menu".localized
         aplicationSettingLbl.text = "Application.Settings".localized
         upgradeBtn.setTitle("Upgrade.now".localized, for: .normal)
         savedBtn.setTitle("Saved.competitions".localized, for: .normal)
         favouriteBtn.setTitle("Favorites".localized, for: .normal)
-        cartBtn.setTitle("MyCard".localized, for: .normal)
+        cartBtn.setTitle("MyCart".localized, for: .normal)
         orderBtn.setTitle("Myorders".localized, for: .normal)
         addressBtn.setTitle("Contact.Address.details".localized, for: .normal)
         paymentBtn.setTitle("Payment.details".localized, for: .normal)
@@ -67,7 +65,6 @@ class MenuVC: UIViewController {
         termsCondetionsBtn.setTitle("Terms.Conditions".localized, for: .normal)
         notiticationBtn.setTitle("Notifications".localized, for: .normal)
         logoutBtn.setTitle("Logout".localized, for: .normal)
-
     }
     
     override func viewWillAppear(_ animated: Bool) {

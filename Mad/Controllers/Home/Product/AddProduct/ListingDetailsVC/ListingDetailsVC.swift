@@ -27,20 +27,24 @@ class ListingDetailsVC: UIViewController {
     @IBOutlet weak var weight: UITextField!
     @IBOutlet weak var height: UITextField!
 
-    open lazy var customTabBar: PTCardTabBar = {
-        return PTCardTabBar()
-    }()
-    
     var type = "physical"
     var disposeBag = DisposeBag()
     var productVM = ProductViewModel()
     var categeory = [Category]()
     var selectedCat = [Int]()
     var uploadedPhoto = [UIImage]()
-
+    var images = [UIImage]()
     fileprivate let tagsField = WSTagsField()
     var typePickerView: UIPickerView = UIPickerView()
-
+    var isFromEdit = false
+    var product : ProductDetailsModel?
+    
+    var showCat = false
+    open lazy var customTabBar: PTCardTabBar = {
+        return PTCardTabBar()
+    }()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         PhysicalRadioButton.isSelected = true
@@ -63,7 +67,6 @@ class ListingDetailsVC: UIViewController {
         textFieldEvents()
         let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.checkAction))
         self.view.addGestureRecognizer(gesture)
-        
     }
     
     @objc func checkAction(sender : UITapGestureRecognizer) {
@@ -80,7 +83,6 @@ class ListingDetailsVC: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
-        
         if let ptcTBC = tabBarController as? PTCardTabBarController {
             ptcTBC.customTabBar.isHidden = false
         }
@@ -90,6 +92,21 @@ class ListingDetailsVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         tagsField.beginEditing()
+        if isFromEdit{
+            short_description.text = product?.shortDescription
+            descriptionTV.text = product?.dataDescription
+            titleTV.text = product?.title
+            materials.text = product?.materials
+            length.text = "\(product?.length ?? 0)"
+            width.text = "\(product?.width ?? 0 )"
+            weight.text = "\(product?.weight ?? 0)"
+            height.text = "\(product?.height ?? 0)"
+            for category in product?.categories ?? [] {
+                self.selectedCat.append(category.id ?? 0 )
+                self.tagsField.addTag(category.name ?? "")
+            }
+        }
+        self.showCat = true
     }
     
     override func viewDidLayoutSubviews() {
@@ -104,6 +121,7 @@ class ListingDetailsVC: UIViewController {
             self.type = "digital"
         }
     }
+    
     
     @IBAction func backButton(sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
@@ -137,8 +155,24 @@ class ListingDetailsVC: UIViewController {
     }
     
     @IBAction func nextButton(sender: UIButton) {
-
         guard self.validateInput() else {return}
+        if isFromEdit{
+            let vc = InventoryPricingVC.instantiateFromNib()
+            vc?.isFromEdit = true
+            vc?.product = product
+            vc!.selectedCat =  self.selectedCat
+            vc!.titleTV = self.titleTV.text ?? ""
+            vc!.short_description = self.short_description.text ?? ""
+            vc!.descriptionTV = self.descriptionTV.text ?? ""
+            vc!.length = self.length.text ?? ""
+            vc!.width = self.width.text ?? ""
+            vc!.materials = self.materials.text ?? ""
+            vc!.weight = self.weight.text ?? ""
+            vc!.height = self.height.text ?? ""
+            vc!.type = self.type
+            vc!.images = images
+            self.navigationController?.pushViewController(vc!, animated: true)
+        }else{
         let vc = InventoryPricingVC.instantiateFromNib()
         vc!.selectedCat =  self.selectedCat
         vc!.titleTV = self.titleTV.text ?? ""
@@ -152,6 +186,7 @@ class ListingDetailsVC: UIViewController {
         vc!.type = self.type
         vc!.uploadedPhoto = self.uploadedPhoto
         self.navigationController?.pushViewController(vc!, animated: true)
+       }
     }
     
 }
@@ -165,20 +200,18 @@ extension ListingDetailsVC: UITextFieldDelegate {
     }
 }
 
-
-
 extension ListingDetailsVC {
     fileprivate func textFieldEvents() {
-        
+
         tagsField.onDidAddTag = { field, tag in
             print("onDidAddTag", tag.text)
         }
-        
+
         tagsField.onDidRemoveTag = { field, tag in
             print("onDidRemoveTag", tag.text)
             self.selectedCat.removeLast()
         }
-
+      
         tagsField.onDidChangeText = { _, text in
             print("onDidChangeText")
             let vc = ArtistNameVC.instantiateFromNib()
@@ -188,15 +221,14 @@ extension ListingDetailsVC {
             self.tagsField.addTag(cats.name ?? "")
             self.presentingViewController?.dismiss(animated: true)
            }
-            if self.selectedCat.count < 3{
+            if self.showCat {
               self.present(vc!, animated: true, completion: nil)
             }
-        }
+         }
 
         tagsField.onDidChangeHeightTo = { _, height in
             print("HeightTo \(height)")
             self.tagsViewHeight.constant = height + 40
-
         }
 
         tagsField.onDidSelectTagView = { _, tagView in
