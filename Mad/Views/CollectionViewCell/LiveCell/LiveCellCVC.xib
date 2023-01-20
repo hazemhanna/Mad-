@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -14,6 +14,9 @@
         </array>
         <array key="Graphik-Light.ttf">
             <string>Graphik-Light</string>
+        </array>
+        <array key="Graphik-Regular.ttf">
+            <string>Graphik-Regular</string>
         </array>
     </customFonts>
     <objects>
@@ -44,8 +47,8 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="QFj-8u-5Og">
-                                        <rect key="frame" x="87.5" y="23" width="151.5" height="74"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="QFj-8u-5Og">
+                                        <rect key="frame" x="87.5" y="14.5" width="151.5" height="91"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Live from your Art Workshop" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3u4-1O-HDF">
                                                 <rect key="frame" x="0.0" y="0.0" width="151.5" height="28"/>
@@ -53,9 +56,43 @@
                                                 <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD 40" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwm-ou-Eu4">
-                                                <rect key="frame" x="0.0" y="60" width="151.5" height="14"/>
-                                                <fontDescription key="fontDescription" name="Graphik-Bold" family="Graphik" pointSize="14"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rTh-UZ-abP">
+                                                <rect key="frame" x="0.0" y="36" width="151.5" height="14"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Items" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mKM-g9-Ew1">
+                                                        <rect key="frame" x="0.0" y="0.0" width="35.5" height="14"/>
+                                                        <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="14"/>
+                                                        <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwm-ou-Eu4">
+                                                        <rect key="frame" x="35.5" y="0.0" width="116" height="14"/>
+                                                        <fontDescription key="fontDescription" name="Graphik-Bold" family="Graphik" pointSize="14"/>
+                                                        <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a7b-Ox-BUW">
+                                                <rect key="frame" x="0.0" y="58" width="151.5" height="14"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="total" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GGm-Fr-xU8">
+                                                        <rect key="frame" x="0.0" y="0.0" width="28.5" height="14"/>
+                                                        <fontDescription key="fontDescription" name="Graphik-Light" family="Graphik" pointSize="14"/>
+                                                        <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="USD 40" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pgc-R0-mjx">
+                                                        <rect key="frame" x="28.5" y="0.0" width="123" height="14"/>
+                                                        <fontDescription key="fontDescription" name="Graphik-Bold" family="Graphik" pointSize="14"/>
+                                                        <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View Details" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J4T-bo-rip">
+                                                <rect key="frame" x="0.0" y="80" width="151.5" height="11"/>
+                                                <fontDescription key="fontDescription" name="Graphik-Regular" family="Graphik" pointSize="11"/>
                                                 <color key="textColor" red="0.1176470588" green="0.2156862745" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -67,22 +104,22 @@
                                     <constraint firstItem="IuM-zf-1me" firstAttribute="height" secondItem="gzT-4K-1o6" secondAttribute="height" multiplier="0.8" id="kOw-5k-VHF"/>
                                 </constraints>
                             </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AU7-49-biv" customClass="ShimmerView" customModule="Mad" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZEp-FN-FBR" customClass="ShimmerView" customModule="Mad" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="255" height="136"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="ZEp-FN-FBR" firstAttribute="leading" secondItem="HcJ-SP-dDa" secondAttribute="leading" id="1Va-H5-eV8"/>
                             <constraint firstItem="gzT-4K-1o6" firstAttribute="top" secondItem="HcJ-SP-dDa" secondAttribute="top" constant="8" id="8nS-AQ-2H1"/>
-                            <constraint firstItem="AU7-49-biv" firstAttribute="top" secondItem="HcJ-SP-dDa" secondAttribute="top" id="AkX-3e-jzH"/>
                             <constraint firstAttribute="bottom" secondItem="gzT-4K-1o6" secondAttribute="bottom" constant="8" id="Vap-ds-xbM"/>
                             <constraint firstAttribute="trailing" secondItem="gzT-4K-1o6" secondAttribute="trailing" constant="8" id="VhR-A0-aGP"/>
                             <constraint firstAttribute="trailing" secondItem="SfV-BH-0bb" secondAttribute="trailing" constant="16" id="ZxI-f2-EOm"/>
-                            <constraint firstItem="AU7-49-biv" firstAttribute="leading" secondItem="HcJ-SP-dDa" secondAttribute="leading" id="c7J-PW-LUb"/>
-                            <constraint firstAttribute="trailing" secondItem="AU7-49-biv" secondAttribute="trailing" id="gyx-tM-31w"/>
+                            <constraint firstItem="ZEp-FN-FBR" firstAttribute="top" secondItem="HcJ-SP-dDa" secondAttribute="top" id="bXb-jK-mCj"/>
+                            <constraint firstAttribute="bottom" secondItem="ZEp-FN-FBR" secondAttribute="bottom" id="mIW-pa-zY9"/>
                             <constraint firstItem="SfV-BH-0bb" firstAttribute="top" secondItem="HcJ-SP-dDa" secondAttribute="top" constant="16" id="psG-fM-QoC"/>
-                            <constraint firstAttribute="bottom" secondItem="AU7-49-biv" secondAttribute="bottom" id="sOq-T2-JrB"/>
+                            <constraint firstAttribute="trailing" secondItem="ZEp-FN-FBR" secondAttribute="trailing" id="t8x-TF-Jb0"/>
                             <constraint firstItem="gzT-4K-1o6" firstAttribute="leading" secondItem="HcJ-SP-dDa" secondAttribute="leading" constant="8" id="uaB-Iw-y2x"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -118,8 +155,8 @@
                 <outlet property="bannerImage" destination="IuM-zf-1me" id="Lgy-Re-4B0"/>
                 <outlet property="editBtn" destination="SfV-BH-0bb" id="h8q-33-vjS"/>
                 <outlet property="mainView" destination="HcJ-SP-dDa" id="RJd-hP-ohe"/>
-                <outlet property="priceLbl" destination="bwm-ou-Eu4" id="PTa-Wf-iYS"/>
-                <outlet property="shimmerView" destination="AU7-49-biv" id="gZ9-08-EtU"/>
+                <outlet property="priceLbl" destination="Pgc-R0-mjx" id="2WK-5q-cbg"/>
+                <outlet property="shimmerView" destination="ZEp-FN-FBR" id="aSA-ua-64d"/>
                 <outlet property="titleLabel" destination="3u4-1O-HDF" id="H6U-gY-kMH"/>
             </connections>
             <point key="canvasLocation" x="-10.869565217391305" y="43.526785714285715"/>

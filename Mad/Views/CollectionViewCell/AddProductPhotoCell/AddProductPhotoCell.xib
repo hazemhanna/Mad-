@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -34,6 +34,17 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mask Group 89" translatesAutoresizingMaskIntoConstraints="NO" id="FFh-4H-dup">
                                 <rect key="frame" x="0.0" y="0.0" width="102" height="102"/>
                             </imageView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DAf-h3-G8E">
+                                <rect key="frame" x="82" y="0.0" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="ABa-GM-daf"/>
+                                    <constraint firstAttribute="width" constant="20" id="FMZ-qT-l5H"/>
+                                </constraints>
+                                <state key="normal" image="Group 116"/>
+                                <connections>
+                                    <action selector="deleteAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="LxV-UI-Upu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.81960784313725488" green="0.88627450980392153" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -42,7 +53,9 @@
                             <constraint firstAttribute="bottom" secondItem="FFh-4H-dup" secondAttribute="bottom" id="Mya-h6-W3N"/>
                             <constraint firstItem="sOF-Su-QOA" firstAttribute="centerY" secondItem="cfH-It-S0m" secondAttribute="centerY" id="P2L-bx-rFL"/>
                             <constraint firstAttribute="trailing" secondItem="FFh-4H-dup" secondAttribute="trailing" id="QDs-AZ-CAM"/>
+                            <constraint firstAttribute="trailing" secondItem="DAf-h3-G8E" secondAttribute="trailing" id="RqT-xb-niz"/>
                             <constraint firstItem="sOF-Su-QOA" firstAttribute="centerX" secondItem="cfH-It-S0m" secondAttribute="centerX" id="TIg-cb-V2Z"/>
+                            <constraint firstItem="DAf-h3-G8E" firstAttribute="top" secondItem="cfH-It-S0m" secondAttribute="top" id="fEQ-Ld-kjP"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -63,6 +76,7 @@
             <connections>
                 <outlet property="ProducttView" destination="cfH-It-S0m" id="VH2-Dq-9K7"/>
                 <outlet property="addPhotoBtn" destination="sOF-Su-QOA" id="efn-gW-Eo0"/>
+                <outlet property="deleteBtn" destination="DAf-h3-G8E" id="NOt-QA-dZ0"/>
                 <outlet property="productImage" destination="FFh-4H-dup" id="CWz-dW-4kG"/>
             </connections>
             <point key="canvasLocation" x="44.927536231884062" y="79.017857142857139"/>
@@ -70,6 +84,7 @@
     </objects>
     <resources>
         <image name="Component 40 – 1" width="41.5" height="36"/>
+        <image name="Group 116" width="64" height="64"/>
         <image name="Mask Group 89" width="100" height="98"/>
     </resources>
 </document>

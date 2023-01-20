@@ -117,15 +117,17 @@ extension AddProductImageVc: UICollectionViewDelegate ,UICollectionViewDataSourc
     
    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! AddProductPhotoCell
-   
     if indexPath.row == 0 {
         cell.productImage.isHidden = true
         cell.ProducttView.backgroundColor = UIColor(red: 209/255, green: 226/255, blue: 247/255, alpha: 1)
-    }else{
+        cell.deleteBtn.isHidden = true
+
+     }else{
         if isFromEdit {
             cell.productImage.isHidden = false
             cell.ProducttView.backgroundColor = UIColor.clear
             cell.productImage.image = images[indexPath.row - 1]
+            cell.deleteBtn.isHidden = false
         }else{
          cell.productImage.isHidden = false
          cell.ProducttView.backgroundColor = UIColor.clear
@@ -137,11 +139,19 @@ extension AddProductImageVc: UICollectionViewDelegate ,UICollectionViewDataSourc
         }
     }
     
+       cell.deletePhoto = {
+          if self.images.count > 1 {
+              self.images.remove(at: indexPath.row - 1)
+              self.photoCollectionView.reloadData()
+          }
+       }
+
        cell.addPhoto = {
           if self.uploadedPhoto.count < 8 {
           self.showImageActionSheet()
-        }
+         }
        }
+       
        if self.uploadedPhoto.count > 0  {
             self.nextBtn.backgroundColor = #colorLiteral(red: 0.831372549, green: 0.2235294118, blue: 0.3607843137, alpha: 1)
             self.nextBtn.isEnabled = true

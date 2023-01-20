@@ -476,9 +476,7 @@ struct AddServices {
             let token = Helper.getAPIToken() ?? ""
             let headers = [
                 "Authorization": "Bearer \(token)",
-                "lang" : AddServices.languageKey
-
-            ]
+                "lang" : AddServices.languageKey]
                Alamofire.request(url, method: .post, parameters: param, encoding: URLEncoding.default, headers: headers)
                    .validate(statusCode: 200..<300)
                    .responseJSON { (response: DataResponse<Any>) in
@@ -501,9 +499,7 @@ struct AddServices {
             let token = Helper.getAPIToken() ?? ""
             let headers = [
                 "Authorization": "Bearer \(token)",
-                "lang" : AddServices.languageKey
-
-            ]
+                "lang" : AddServices.languageKey]
                Alamofire.request(url, method: .post, parameters: param, encoding: URLEncoding.default, headers: headers)
                    .validate(statusCode: 200..<300)
                    .responseJSON { (response: DataResponse<Any>) in
@@ -519,7 +515,7 @@ struct AddServices {
            }
        }
     
-func updateCartProduct(param : [String :Any]) -> Observable<CartModelJSON> {
+ func updateCartProduct(param : [String :Any]) -> Observable<CartModelJSON> {
            return Observable.create { (observer) -> Disposable in
             let url = ConfigURLS.updateCartProduct
             let token = Helper.getAPIToken() ?? ""

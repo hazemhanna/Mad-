@@ -50,6 +50,16 @@ class CheckoutViewController: UIViewController {
       return button
     }()
     
+    
+    lazy var messageLbl: UILabel = {
+      let button = UILabel()
+        button.text = "postal code is optional"
+        button.textColor = #colorLiteral(red: 0.1176470588, green: 0.2156862745, blue: 0.4, alpha: 1)
+        button.translatesAutoresizingMaskIntoConstraints = false
+      return button
+    }()
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
     }
@@ -61,22 +71,21 @@ class CheckoutViewController: UIViewController {
     
   override func viewDidLoad() {
     super.viewDidLoad()
-    
     view.backgroundColor = .white
     view.addSubview(titleLbl)
     titleLbl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     titleLbl.topAnchor.constraint(equalTo: view.topAnchor, constant: 45).isActive = true
-    
     view.addSubview(backButton)
     backButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 32).isActive = true
     backButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isActive = true
-    
+    view.addSubview(messageLbl)
+     messageLbl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+     messageLbl.topAnchor.constraint(equalTo: view.topAnchor, constant: 150).isActive = true
     view.addSubview(cardTextField)
     cardTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-    cardTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 150).isActive = true
+    cardTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 220).isActive = true
     cardTextField.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9).isActive = true
     cardTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
-
     view.addSubview(payButton)
     payButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     payButton.topAnchor.constraint(equalTo: cardTextField.topAnchor, constant: 300).isActive = true

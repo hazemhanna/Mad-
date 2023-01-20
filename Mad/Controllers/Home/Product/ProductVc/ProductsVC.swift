@@ -332,7 +332,6 @@ extension ProductsVC: UICollectionViewDelegateFlowLayout {
         }else if collectionView == topPrpductCollectionView {
             let flowayout = collectionViewLayout as? UICollectionViewFlowLayout
             let space: CGFloat = (flowayout?.minimumInteritemSpacing ?? 0.0) + (flowayout?.sectionInset.left ?? 0.0) + (flowayout?.sectionInset.right ?? 0.0)
-            
             let size:CGFloat = (collectionView.frame.size.width - space) / 2.5
             return CGSize(width: size, height: collectionView.frame.size.height)
         }else if collectionView == forYouCollectionView {

@@ -47,12 +47,7 @@ class ChatVc: UIViewController {
         setupChatTableView()
         messegtTF.delegate = self
 
-        NotificationCenter.default.addObserver(self,
-              selector: #selector(self.keyboardNotification(notification:)),
-              name: UIResponder.keyboardWillChangeFrameNotification,
-              object: nil)
-          
-    }
+        NotificationCenter.default.addObserver(self,selector: #selector(self.keyboardNotification(notification:)),name: UIResponder.keyboardWillChangeFrameNotification,object: nil) }
 
     deinit {
       NotificationCenter.default.removeObserver(self)
@@ -100,8 +95,6 @@ class ChatVc: UIViewController {
         animations: { self.view.layoutIfNeeded() },
         completion: nil)
     }
-
-
     
     @IBAction func backButton(sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
@@ -115,8 +108,6 @@ class ChatVc: UIViewController {
             sendMessages(convId: self.convId, content: messegtTF.text ?? "")
         }
     }
-    
-    
 }
 
 extension ChatVc: UITextFieldDelegate {
@@ -125,6 +116,7 @@ extension ChatVc: UITextFieldDelegate {
         return true
     }
 }
+
 
 extension ChatVc : UITableViewDelegate,UITableViewDataSource{
         func setupChatTableView() {

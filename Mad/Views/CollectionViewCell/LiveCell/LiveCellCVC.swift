@@ -15,17 +15,13 @@ class LiveCellCVC: UICollectionViewCell {
     @IBOutlet weak var priceLbl: UILabel!
     @IBOutlet weak var shimmerView : ShimmerView!
     @IBOutlet weak var editBtn : UIButton!
-
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         showShimmer = false
-    }
-    
+    }    
     var showShimmer: Bool = false {
         didSet {
             self.shimmerView.isShimmering = showShimmer
         }
     }
-    
 }

@@ -54,10 +54,13 @@ class InventoryPricingVC: UIViewController {
         setupDeliveryIndexDropDown()
     }
     
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if isFromEdit{
+            price.isUserInteractionEnabled = false
+            price_eur.isUserInteractionEnabled = false
+            price.backgroundColor = #colorLiteral(red: 0.9058823529, green: 0.9176470588, blue: 0.937254902, alpha: 1)
+            price_eur.backgroundColor = #colorLiteral(red: 0.9058823529, green: 0.9176470588, blue: 0.937254902, alpha: 1)
             price.text = "\(product?.price ?? 0)"
             price_eur.text = "\(product?.priceEur ?? 0)"
             quantity.text = "\(product?.avaialble_quantity ?? 0 )"
@@ -77,14 +80,11 @@ class InventoryPricingVC: UIViewController {
         view.endEditing(true)
     }
     
-
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
-        
         if let ptcTBC = tabBarController as? PTCardTabBarController {
             ptcTBC.customTabBar.isHidden = true
         }
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -155,29 +155,15 @@ class InventoryPricingVC: UIViewController {
 }
 
 extension InventoryPricingVC {
-     func AddProduct(categories :[Int],
-                     title :String,
-                     short_description:String,
-                     description:String,
-                     materials: String,
-                     length: Int,
-                     width: Int,
-                     height: Int,
-                     weight: Int,
-                     type: String,
-                     price:Int,
-                     price_eur:Int,
-                     quantity:Int,
-                     quantity_limitation:String,
-                     delivery:Int,
-                     delivery_index:String,
-                     photos:[UIImage]) {
+     func AddProduct(categories :[Int],title :String,short_description:String,description:String,materials: String,length: Int,width: Int,height: Int,weight: Int,type: String,price:Int,price_eur:Int,quantity:Int,quantity_limitation:String,delivery:Int,delivery_index:String,photos:[UIImage]) {
         productVM.CreatProduct(categories: categories, title: title, short_description: short_description, description: description, materials: materials, length: length, width: width, height: height, weight: weight, type: type, price: price, price_eur: price_eur, quantity: quantity, quantity_limitation: quantity_limitation, delivery: delivery, delivery_index: delivery_index, photos: photos).subscribe(onNext: { (dataModel) in
             if dataModel.success ?? false {
                 self.productVM.dismissIndicator()
                 self.showMessage(text: dataModel.message ?? "")
-                let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
-                self.navigationController!.popToViewController(viewControllers[viewControllers.count - 4], animated: true)
+                let story = UIStoryboard(name: "Main", bundle:nil)
+                let vc = story.instantiateViewController(withIdentifier: "CardTabBarController")
+                UIApplication.shared.windows.first?.rootViewController = vc
+                UIApplication.shared.windows.first?.makeKeyAndVisible()
             }else{
                 self.productVM.dismissIndicator()
                 self.showMessage(text: dataModel.message ?? "")

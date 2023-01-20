@@ -12,10 +12,11 @@ class AddProductPhotoCell: UICollectionViewCell {
     @IBOutlet weak var ProducttView: UIView!
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var addPhotoBtn: UIButton!
-    
-    var addPhoto : (() -> Void)? = nil
+    @IBOutlet weak var deleteBtn: UIButton!
 
-    
+    var addPhoto : (() -> Void)? = nil
+    var deletePhoto : (() -> Void)? = nil
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -24,4 +25,7 @@ class AddProductPhotoCell: UICollectionViewCell {
         self.addPhoto?()
     }
     
+    @IBAction func deleteAction(_ sender: UIButton) {
+        self.deletePhoto?()
+    }
 }
